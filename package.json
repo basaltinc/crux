@@ -1,0 +1,8 @@
+{
+  "name": "basalt.io",
+  "version": "0.0.1",
+  "repository": "git@bitbucket.org:basaltinc/our-site.git",
+  "scripts": {
+    "test": "exit 0"
+  }
+}
