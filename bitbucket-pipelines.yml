@@ -1,9 +1,14 @@
 image: noxan/docker-node-awscli-yarn
 
 pipelines:
+  branches:
+    - master:
+        script:
+          - yarn
+          - yarn test
+          - aws s3 sync --delete . s3://basalt.io
   default:
     - step:
         script:
           - yarn
           - yarn test
-          - aws s3 sync --delete . s3://basalt.io
