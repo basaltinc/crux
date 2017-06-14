@@ -1,0 +1,15 @@
+
+	<!--DO NOT REMOVE-->
+	{{ patternLabFoot | raw }}
+
+  <!-- Pattern Lab only dependencies -->
+  <script src="../../../assets/holder.js"></script>
+  <!-- END:Pattern Lab only dependencies -->
+
+  {# Gulp tools will auto-inject what is compiled into the `dest/` directory (usually just aggregated JS & CSS), and anything in `config.patternLab.injectFiles` here: #}
+  <!-- inject:js -->
+  <script src="../../../assets/script.js?cacheBuster={{ cacheBuster }}"></script>
+  <!-- endinject -->
+
+	</body>
+</html>

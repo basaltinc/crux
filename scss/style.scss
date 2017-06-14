@@ -1,0 +1,18 @@
+// Better style reset, https://github.com/JohnAlbin/normalize-scss
+//@import "normalize-scss/sass/normalize";
+// Grid system, https://github.com/at-import/Singularity
+//@import "singularity/stylesheets/singularitygs";
+// A cleaner way to do breakpoints/media queries, http://breakpoint-sass.com/,
+@import "breakpoint-sass/stylesheets/breakpoint";
+// Helpful mixins, http://bourbon.io/docs/
+//@import "bourbon/app/assets/stylesheets/bourbon";
+
+//
+// End libs
+//
+
+//
+// Start _patterns includes
+// Run through the entire patterns collection, finding all scss files included therein
+//
+@import "../pattern-lab/source/**/*.scss";

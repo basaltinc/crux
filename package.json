@@ -1,8 +1,37 @@
 {
-  "name": "basalt.io",
-  "version": "0.0.1",
-  "repository": "git@bitbucket.org:basaltinc/our-site.git",
+  "name": "our-site",
+  "description": "our-site theme",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "exit 0"
-  }
+    "start": "gulp",
+    "compile": "NODE_ENV=production gulp compile",
+    "test": "gulp validate",
+    "gulp": "gulp",
+    "new": "yo ./scripts/new-component/index.js",
+    "setup": "cd pattern-lab && composer install --no-interaction",
+    "postinstall": "yarn run setup"
+  },
+  "dependencies": {
+    "@theme-tools/plugin-browser-sync": "^0.3.0",
+    "@theme-tools/plugin-icon-font": "^0.4.1",
+    "@theme-tools/plugin-js-concat-babel": "^0.4.1",
+    "@theme-tools/plugin-pattern-lab-php": "^0.3.0",
+    "@theme-tools/plugin-sass": "^0.3.0",
+    "babel-preset-es2015": "^6.24.1",
+    "breakpoint-sass": "^2.7.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "gulp": "gulpjs/gulp#4.0",
+    "holderjs": "^2.9.4",
+    "scsstojson": "^1.0.2",
+    "stylelint-scss": "^1.4.4",
+    "yeoman-generator": "0.23.3",
+    "yo": "1.8.3"
+  },
+  "devDependencies": {},
+  "repository": "git@bitbucket.org:basaltinc/our-site.git"
 }

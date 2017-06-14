@@ -1,15 +1,24 @@
-image: noxan/docker-node-awscli-yarn
+image: misterio92/ci-php-node
 
 pipelines:
   branches:
     master:
       - step:
           script:
+            - yarn --version && node --version && composer --version
+            - apt-get update && apt-get install -y python-dev
+            - curl -O https://bootstrap.pypa.io/get-pip.py
+            - python get-pip.py
+            - pip install awscli
             - yarn
             - yarn test
-            - aws s3 sync --delete . s3://basalt.io
+            - yarn run compile
+            - aws s3 sync --delete build s3://basalt.io
   default:
     - step:
         script:
+          - yarn --version && node --version && composer --version && php --version
           - yarn
+          - php pattern-lab/core/console --generate
           - yarn test
+          - yarn run compile
