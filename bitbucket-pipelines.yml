@@ -5,7 +5,7 @@ pipelines:
     master:
       - step:
           script:
-            - yarn --version && node --version && composer --version
+            - yarn --version && node --version && composer --version && php --version
             - apt-get update && apt-get install -y python-dev
             - curl -O https://bootstrap.pypa.io/get-pip.py
             - python get-pip.py
@@ -19,6 +19,5 @@ pipelines:
         script:
           - yarn --version && node --version && composer --version && php --version
           - yarn
-          - php pattern-lab/core/console --generate
           - yarn test
           - yarn run compile
