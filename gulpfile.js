@@ -37,6 +37,13 @@ function copyVendorJs() {
     .pipe(gulp.dest('./build/assets'));
 }
 
+function copyPages() {
+  return gulp.src([
+    './index.html',
+  ])
+    .pipe(gulp.dest('./build'));
+}
+
 gulp.task('compile', gulp.series([
   cssTasks.clean,
   jsTasks.clean,
@@ -46,6 +53,7 @@ gulp.task('compile', gulp.series([
   iconTasks.compile,
   gulp.parallel([
     patternLabTasks.compile,
+    copyPages,
     copyVendorJs,
     cssTasks.compile,
     cssTasks.docs,
