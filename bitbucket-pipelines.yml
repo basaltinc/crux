@@ -13,7 +13,7 @@ pipelines:
             - yarn
             - yarn test
             - yarn run compile
-            - aws s3 sync --delete build s3://basalt.io
+            - aws s3 sync --delete build s3://dev.basalt.io
   default:
     - step:
         script:
