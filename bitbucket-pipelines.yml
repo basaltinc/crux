@@ -10,7 +10,7 @@ pipelines:
             - curl -O https://bootstrap.pypa.io/get-pip.py
             - python get-pip.py
             - pip install awscli
-            - npm install
+            - npm install --unsafe-perm
             - npm test
             - npm run compile
             - aws s3 sync ./ s3://dev.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
