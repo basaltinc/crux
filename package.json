@@ -10,7 +10,7 @@
     "gulp": "gulp",
     "new": "yo ./scripts/new-component/index.js",
     "setup": "cd pattern-lab && composer install --no-interaction",
-    "postinstall": "yarn run setup"
+    "postinstall": "npm run setup"
   },
   "dependencies": {
     "@theme-tools/plugin-browser-sync": "^0.3.0",

@@ -13,7 +13,6 @@ pipelines:
             - npm install
             - npm test
             - npm run compile
-            - rm -rf node_modules
             - aws s3 sync ./ s3://dev.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
   default:
     - step:
