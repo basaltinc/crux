@@ -5,20 +5,20 @@ pipelines:
     master:
       - step:
           script:
-            - yarn --version && node --version && composer --version && php --version
+            - npm --version && node --version && composer --version && php --version
             - apt-get update && apt-get install -y python-dev
             - curl -O https://bootstrap.pypa.io/get-pip.py
             - python get-pip.py
             - pip install awscli
-            - yarn
-            - yarn test
-            - yarn run compile
+            - npm install
+            - npm test
+            - npm run compile
             - rm -rf node_modules
             - aws s3 sync --delete ./ s3://dev.basalt.io
   default:
     - step:
         script:
-          - yarn --version && node --version && composer --version && php --version
-          - yarn
-          - yarn test
-          - yarn run compile
+          - npm --version && node --version && composer --version && php --version
+          - npm install
+          - npm test
+          - npm run compile
