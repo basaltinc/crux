@@ -3,7 +3,8 @@
 /// @param $hover
 /// @param $deco
 /// @param $deco--hover
-@mixin a-link($link: $c-red, $hover: $c-red, $deco: none, $deco--hover: underline) {
+@mixin a-link($link: $c-links, $hover: $c-links--hover, $deco: none, $deco--hover: underline) {
+  &,
   &:link,
   &:visited {
     color: $link;
@@ -25,6 +26,7 @@ html {
 
 body {
   font-family: $ff--body;
+  color: $c-body-text;
 }
 
 p {

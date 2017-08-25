@@ -1,13 +1,18 @@
 {
   "items": [
     {
-      "name": "$ff--lato",
-      "value": "'LatoRegular', sans-serif",
+      "name": "$ff--avenir--light",
+      "value": "'AvenirLight', sans-serif",
       "comment": ""
     },
     {
-      "name": "$ff--helvetica",
-      "value": "'Helvetica', sans-serif",
+      "name": "$ff--avenir--medium",
+      "value": "'AvenirMedium', sans-serif",
+      "comment": ""
+    },
+    {
+      "name": "$ff--din-condensed",
+      "value": "'DinCondensed', sans-serif",
       "comment": ""
     }
   ],

@@ -76,10 +76,10 @@ $grid-sizes: 1, 2, 3, 4, 6;
 
 .full-grid-demo {
   @include smart-grid($grid-columns);
-  background: $c-gray--lightest;
+  background: $c-gray;
   &__item {
     background: $c-gray;
-    border: solid 1px $c-gray--lighter;
+    border: solid 1px $c-gray;
     height: 200px;
   }
 }

@@ -13,6 +13,11 @@ main {
   display: block;
 }
 
+b,
+strong {
+  font-family: $ff--avenir--medium;
+}
+
 // All last children
 :last-child {
   margin-bottom: 0;
