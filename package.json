@@ -1,6 +1,6 @@
 {
-  "name": "our-site",
-  "description": "our-site theme",
+  "name": "our-design-system",
+  "description": "our-design-system theme",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -33,5 +33,5 @@
     "yo": "1.8.3"
   },
   "devDependencies": {},
-  "repository": "git@bitbucket.org:basaltinc/our-site.git"
+  "repository": "git@bitbucket.org:basaltinc/our-design-system.git"
 }
