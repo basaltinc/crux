@@ -1,53 +1,33 @@
 {
   "items": [
     {
-      "name": "$c-red",
-      "value": "hsl(352, 92%, 38%)",
-      "comment": "Primary Color. Used for links"
+      "name": "$c-blue--light",
+      "value": "hsl(165, 26%, 85%)",
+      "comment": ""
     },
     {
       "name": "$c-blue",
-      "value": "hsl(208, 100%, 50%)",
+      "value": "hsl(200, 55%, 19%)",
+      "comment": ""
+    },
+    {
+      "name": "$c-green",
+      "value": "hsl(159, 20%, 17%)",
+      "comment": ""
+    },
+    {
+      "name": "$c-iron",
+      "value": "hsl(240, 3%, 85%)",
+      "comment": ""
+    },
+    {
+      "name": "$c-yellow",
+      "value": "hsl(52, 74%, 54%)",
       "comment": ""
     },
     {
       "name": "$c-white",
       "value": "white",
-      "comment": ""
-    },
-    {
-      "name": "$c-gray--lightest",
-      "value": "hsl(0, 0%, 89%)",
-      "comment": ""
-    },
-    {
-      "name": "$c-gray--lighter",
-      "value": "hsl(0, 0%, 80%)",
-      "comment": ""
-    },
-    {
-      "name": "$c-gray--light",
-      "value": "hsl(0, 0%, 60%)",
-      "comment": ""
-    },
-    {
-      "name": "$c-gray",
-      "value": "hsl(0, 0%, 48%)",
-      "comment": ""
-    },
-    {
-      "name": "$c-gray--dark",
-      "value": "hsl(0, 0%, 40%)",
-      "comment": ""
-    },
-    {
-      "name": "$c-gray--darker",
-      "value": "hsl(0, 0%, 20%)",
-      "comment": ""
-    },
-    {
-      "name": "$c-gray--darkest",
-      "value": "hsl(0, 0%, 16.1%)",
       "comment": ""
     },
     {
