@@ -8,6 +8,21 @@ $fw--700: 700; // bold*
 $fw--800: 800; // extra-bold/ultra-bold
 $fw--900: 900; // black/heavy
 
+$font-faces: (
+  (
+    "name": "AvenirLight",
+    "filename": "avenir--light"
+  ),
+  (
+    "name": "AvenirMedium",
+    "filename": "avenir--medium"
+  ),
+  (
+    "name": "DinCondensed",
+    "filename": "din-condensed--regular"
+  )
+) !default;
+
 // Place a `.ttf`, `.woff`, & `.woff2` in `$font-directory`
 $font-faces: (
   //(
@@ -21,7 +36,7 @@ $font-faces: (
   $font-faces: join($font-faces, $extra-font-faces);
 }
 
-$font-directory: "../fonts/" !default;
+$font-directory: "../../fonts/" !default;
 
 @each $font-face in $font-faces {
   $filename: map-get($font-face, "filename");
@@ -35,11 +50,13 @@ $font-directory: "../fonts/" !default;
   }
 }
 
-$ff--lato: 'LatoRegular', sans-serif;
-$ff--helvetica: 'Helvetica', sans-serif;
+$ff--avenir--light: 'AvenirLight', sans-serif;
+$ff--avenir--medium: 'AvenirMedium', sans-serif;
+$ff--din-condensed: 'DinCondensed', sans-serif;
+//$ff--helvetica: 'Helvetica', sans-serif;
 
-$ff--heading: $ff--lato !default;
-$ff--body: $ff--helvetica !default;
+$ff--heading: $ff--din-condensed !default;
+$ff--body: $ff--avenir--light !default;
 
 // font Sizes
 $fs--xxl: 36px;
