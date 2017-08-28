@@ -32,7 +32,7 @@ gulp.task('validate', gulp.series([
 
 function copyVendorJs() {
   return gulp.src([
-    './node_modules/holderjs/holder.js',
+    require.resolve('holderjs'),
   ])
     .pipe(gulp.dest('./build/assets'));
 }
