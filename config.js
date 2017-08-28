@@ -12,6 +12,10 @@ module.exports = {
       enabled: true,
       dest: 'build/sassdoc',
     },
+    includePaths: [
+      './node_modules',
+      '../node_modules',
+    ],
   },
   browserSync: {
     baseDir: './',
