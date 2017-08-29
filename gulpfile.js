@@ -50,7 +50,7 @@ gulp.task('compile', gulp.series([
   // iconTasks.clean,
   // end clean tasks
   scssToJsonTask,
-  iconTasks.compile,
+  // iconTasks.compile,
   gulp.parallel([
     patternLabTasks.compile,
     // copyPages,
