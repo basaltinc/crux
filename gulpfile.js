@@ -6,7 +6,7 @@ const scssToJson = require('scsstojson');
 const cssTasks = require('@theme-tools/plugin-sass')(config.css);
 const browserSyncTasks = require('@theme-tools/plugin-browser-sync')(config.browserSync);
 const jsTasks = require('@theme-tools/plugin-js-concat-babel')(config.js);
-const iconTasks = require('@theme-tools/plugin-icon-font')(config.icons);
+// const iconTasks = require('@theme-tools/plugin-icon-font')(config.icons);
 const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({
   configFile: './pattern-lab/config/config.yml',
 });
@@ -47,7 +47,7 @@ function copyVendorJs() {
 gulp.task('compile', gulp.series([
   cssTasks.clean,
   jsTasks.clean,
-  iconTasks.clean,
+  // iconTasks.clean,
   // end clean tasks
   scssToJsonTask,
   iconTasks.compile,
@@ -69,6 +69,6 @@ gulp.task('default', gulp.series([
     cssTasks.watch,
     jsTasks.watch,
     scssToJsonWatch,
-    iconTasks.watch,
+    // iconTasks.watch,
   ]),
 ]));

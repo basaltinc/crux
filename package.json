@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@theme-tools/plugin-browser-sync": "^0.3.0",
-    "@theme-tools/plugin-icon-font": "^0.4.1",
     "@theme-tools/plugin-js-concat-babel": "^0.4.1",
     "@theme-tools/plugin-pattern-lab-php": "^0.3.0",
     "@theme-tools/plugin-sass": "^0.3.0",
