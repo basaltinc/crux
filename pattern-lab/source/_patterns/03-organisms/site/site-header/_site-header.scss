@@ -1,0 +1,8 @@
+.site-header {
+  .branding {
+    width: 100px;
+    @include breakpoint($bp--medium) {
+      width: 33%;
+    }
+  }
+}
