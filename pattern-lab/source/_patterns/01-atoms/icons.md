@@ -23,5 +23,5 @@ Use the mixin `icon` with the argument of the icon name like this: `@include ico
 
 **Adding and generating icons**
 
-Add SVG files `images/icons/src/` to automatically add to this list. Use the Illustrator template at `images/icons/templates/` if you have any problems.
+Add SVG files `images/icons/src/` to automatically add to this list. 
 

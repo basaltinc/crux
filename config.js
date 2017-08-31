@@ -29,11 +29,11 @@ module.exports = {
       sets: [
         {
           src: 'images/icons/templates/_icons-settings.scss',
-          dest: 'pattern-lab/source/_patterns/01-atoms/images/_icons-settings.scss',
+          dest: 'pattern-lab/source/_patterns/01-atoms/icons/_icons-settings.scss',
         },
         {
           src: 'images/icons/templates/icons.twig',
-          dest: 'pattern-lab/source/_patterns/01-atoms/images/icons.twig',
+          dest: 'pattern-lab/source/_patterns/01-atoms/icons/icons.twig',
         },
       ],
     },
