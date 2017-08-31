@@ -167,3 +167,14 @@ pre {
   text-align: center;
   outline: dotted 1px #ccc;
 }
+
+.demo-logo-box {
+  border: dotted 1px #ccc;
+  img {
+    background-color: hsl(0, 0%, 90%);
+    transition: all ease-in 0.2s;
+    &:hover {
+      background-color: hsl(0, 0%, 10%);
+    }
+  }
+}
