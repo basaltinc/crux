@@ -70,7 +70,6 @@ plugins:
       molecules:
         paths:
           - source/_patterns/02-molecules
-          - source/_patterns/02-molecules/branding
           - source/_patterns/02-molecules/caption-block
       organisms:
         paths:
