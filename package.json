@@ -1,7 +1,7 @@
 {
   "name": "our-design-system",
   "description": "our-design-system theme",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "private": true,
   "scripts": {
     "start": "gulp",
