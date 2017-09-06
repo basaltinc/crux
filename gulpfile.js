@@ -1,6 +1,8 @@
 'use strict';
 
 const config = require('./config');
+const path = require('path');
+const fs = require('fs');
 const gulp = require('gulp');
 const scssToJson = require('scsstojson');
 const cssTasks = require('@theme-tools/plugin-sass')(config.css);
@@ -10,27 +12,37 @@ const jsTasks = require('@theme-tools/plugin-js-concat-babel')(config.js);
 const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({
   configFile: './pattern-lab/config/config.yml',
   twigNamespaces: {
-    sets: [
-      {
-        namespace: 'base',
-        paths: ['pattern-lab/source/_patterns/00-base'],
-      }, {
-        namespace: 'atoms',
-        paths: ['pattern-lab/source/_patterns/01-atoms'],
-      }, {
-        namespace: 'molecules',
-        paths: ['pattern-lab/source/_patterns/02-molecules'],
-      }, {
-        namespace: 'organisms',
-        paths: ['pattern-lab/source/_patterns/03-organisms'],
-      }, {
-        namespace: 'templates',
-        paths: ['pattern-lab/source/_patterns/04-templates'],
-      }, {
-        namespace: 'pages',
-        paths: ['pattern-lab/source/_patterns/05-pages'],
-      },
-    ],
+    sets: fs.readdirSync('./pattern-lab/source/_patterns/').map((folder) => ({
+      namespace: folder.replace(/[0-9]*-/, ''),
+      paths: [path.join('./pattern-lab/source/_patterns/', folder)],
+    })),
+    // setsX: [
+    //   {
+    //     namespace: 'typog',
+    //     paths: [
+    //       path.dirname(require.resolve('/Users/Evan/dev/basalt/bedrock/packages/component-typography'))
+    //     ]
+    //   },
+    //   {
+    //     namespace: 'base',
+    //     paths: ['pattern-lab/source/_patterns/00-base'],
+    //   }, {
+    //     namespace: 'atoms',
+    //     paths: ['pattern-lab/source/_patterns/01-atoms'],
+    //   }, {
+    //     namespace: 'molecules',
+    //     paths: ['pattern-lab/source/_patterns/02-molecules'],
+    //   }, {
+    //     namespace: 'organisms',
+    //     paths: ['pattern-lab/source/_patterns/03-organisms'],
+    //   }, {
+    //     namespace: 'templates',
+    //     paths: ['pattern-lab/source/_patterns/04-templates'],
+    //   }, {
+    //     namespace: 'pages',
+    //     paths: ['pattern-lab/source/_patterns/05-pages'],
+    //   },
+    // ],
   },
 });
 

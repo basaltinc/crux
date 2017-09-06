@@ -50,42 +50,36 @@ plugins:
       svgs:
         paths:
           - ../images/svgs
-      base:
+      styleguide:
         paths:
-          - source/_patterns/00-base
-          - source/_patterns/00-base/05-colors
-          - source/_patterns/00-base/10-spacing
-          - source/_patterns/00-base/15-typography/fonts
-          - source/_patterns/00-base/15-typography/headings
-          - source/_patterns/00-base/15-typography/lists
-          - source/_patterns/00-base/15-typography/text
-          - source/_patterns/00-base/animations/01-transitions
-          - source/_patterns/00-base/breakpoints
-          - source/_patterns/00-base/grids
-          - source/_patterns/00-base/utilities
-          - source/_patterns/00-base/utilities/borders
-      atoms:
+          - source/_patterns/00-styleguide
+          - source/_patterns/00-styleguide/01-branding
+          - source/_patterns/00-styleguide/05-colors
+          - source/_patterns/00-styleguide/10-spacing
+          - source/_patterns/00-styleguide/15-typography/fonts
+          - source/_patterns/00-styleguide/15-typography/headings
+          - source/_patterns/00-styleguide/15-typography/lists
+          - source/_patterns/00-styleguide/15-typography/text
+          - source/_patterns/00-styleguide/animations/01-transitions
+          - source/_patterns/00-styleguide/breakpoints
+          - source/_patterns/00-styleguide/icons
+          - source/_patterns/00-styleguide/utilities
+          - source/_patterns/00-styleguide/utilities/borders
+      layouts:
         paths:
-          - source/_patterns/01-atoms
-          - source/_patterns/01-atoms/buttons
-          - source/_patterns/01-atoms/icons
-          - source/_patterns/01-atoms/logo
-      molecules:
+          - source/_patterns/02-layouts
+          - source/_patterns/02-layouts/grids
+          - source/_patterns/02-layouts/site
+      components:
         paths:
-          - source/_patterns/02-molecules
-          - source/_patterns/02-molecules/caption-block
-          - source/_patterns/02-molecules/forms
-      organisms:
+          - source/_patterns/03-components
+          - source/_patterns/03-components/buttons
+          - source/_patterns/03-components/forms
+          - source/_patterns/03-components/site-footer
+          - source/_patterns/03-components/site-header
+      slices:
         paths:
-          - source/_patterns/03-organisms
-          - source/_patterns/03-organisms/grids/caption-grid-block
-          - source/_patterns/03-organisms/site/site-footer
-          - source/_patterns/03-organisms/site/site-header
+          - source/_patterns/04-slices
       templates:
         paths:
-          - source/_patterns/04-templates
-          - source/_patterns/04-templates/00-site
-          - source/_patterns/04-templates/content-types
-      pages:
-        paths:
-          - source/_patterns/05-pages
+          - source/_patterns/05-templates
