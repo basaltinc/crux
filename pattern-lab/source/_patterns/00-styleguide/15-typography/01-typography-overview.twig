@@ -1,0 +1,33 @@
+<p>Typography is the voice of a brand. This set of typefaces best represent Basalt’s brand attributes and personality. They should be used across all digital and print applications.</p>
+<p><b>See more in "Styleguide > Typography"</b></p>
+<h3>Font Families</h3>
+
+{% for item in items %}
+  <div style="margin-bottom: 1em;">
+    <div style="font-size: 1.5em; font-family: {{ item.value }};">{{ item.value }}</div>
+
+    <details>
+      <div>
+        <pre><code>
+  .class {
+    font-family: {{ item.name }};
+  }
+        </code></pre>
+      </div>
+
+      <h6>Normal</h6>
+      <div style="font-family: {{ item.value }}; font-size: 2em;">{{ excerpt.short }}</div>
+
+      <h6>Bold</h6>
+      <div style="font-family: {{ item.value }}; font-size: 2em; font-weight: bold;">{{ excerpt.short }}</div>
+
+      <h6>Italic</h6>
+      <div style="font-family: {{ item.value }}; font-size: 2em; font-style: italic;">{{ excerpt.short }}</div>
+    </details>
+
+  </div>
+{% endfor %}
+
+<h2>Text</h2>
+<p>Consequuntur <a href="#">debitis quaerat sapiente</a> soluta a <strong>ratione cum</strong> praesentium <em>autem nesciunt impedit</em> accusantium iure et magni est veritatis ducimus qui a corrupti fugit amet ea et et culpa ratione ut et ut neque amet et sint ea nihil sed doloribus voluptatem voluptates libero veritatis sequi assumenda mollitia deleniti minima qui praesentium quam ex quia et et adipisci molestiae id adipisci praesentium veritatis voluptatem asperiores a expedita facilis commodi nam reprehenderit magni incidunt in dolor qui voluptatum repellendus veritatis rerum unde vel neque architecto corrupti odit quae voluptatem itaque vel repellat laudantium ut totam dolorem in culpa veniam quasi numquam et</p>
+<p>{{ random(paragraphs) }}</p>

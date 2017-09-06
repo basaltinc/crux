@@ -1,0 +1,30 @@
+{% set logos = [
+  'main',
+  'black-grey',
+  'black-only',
+  'white-color',
+  'white-grey',
+  'white',
+  'icon-black-grey',
+  'icon-black',
+  'icon-color',
+  'icon-white-color',
+  'icon-white-grey',
+  'icon-white',
+] %}
+
+{% set basePath = '../../../../images/logos/' %}
+
+<p>Each logo is shown with a light gray background color, though the file does not contain it. Hover over to view with a dark gray background. This is only for helping to pick a logo with strong contrast.</p>
+
+<div class="smart-grid" data-row-items-small="2" data-row-items-large="3">
+  {% for logo in logos %}
+    <div class="demo-logo-box">
+      <p><b>{{ logo }}</b></p>
+      <img src="{{ basePath ~ logo ~ '.png' }}" alt="">
+      <span>Download: </span>
+      <a href="{{ basePath ~ logo ~ '.svg' }}" target="_blank">SVG</a>
+      <a href="{{ basePath ~ logo ~ '.png' }}" target="_blank">PNG</a>
+    </div>
+  {% endfor %}
+</div>

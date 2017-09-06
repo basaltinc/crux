@@ -23,3 +23,8 @@ main {
   margin-bottom: 0;
 }
 
+details {
+  &:hover {
+    cursor: pointer;
+  }
+}

@@ -25,14 +25,14 @@ texts:
 - "Faker.words(8, true)"
 
 paragraphs:
-- "Faker.paragraph"
-- "Faker.paragraph"
-- "Faker.paragraph"
-- "Faker.paragraph"
-- "Faker.paragraph"
-- "Faker.paragraph"
-- "Faker.paragraph"
-- "Faker.paragraph"
+- "Faker.words(88, true)"
+- "Faker.words(110, true)"
+- "Faker.words(75, true)"
+- "Faker.words(100, true)"
+- "Faker.words(105, true)"
+- "Faker.words(70, true)"
+- "Faker.words(95, true)"
+- "Faker.words(120, true)"
 
 titles:
 - "Faker.words(4, true)"

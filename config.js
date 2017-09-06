@@ -56,14 +56,14 @@ module.exports = {
       allowVarValues: false,
     },
     {
-      src: 'pattern-lab/source/_patterns/00-styleguide/15-typography/fonts/_fonts.scss',
-      dest: 'pattern-lab/source/_patterns/00-styleguide/15-typography/fonts/font-sizes.json',
+      src: 'pattern-lab/source/_patterns/00-styleguide/15-typography/_fonts.scss',
+      dest: 'pattern-lab/source/_patterns/00-styleguide/15-typography/font-sizes.json',
       lineStartsWith: '$fs--',
       allowVarValues: false,
     },
     {
-      src: 'pattern-lab/source/_patterns/00-styleguide/15-typography/fonts/_fonts.scss',
-      dest: 'pattern-lab/source/_patterns/00-styleguide/15-typography/fonts/font-families.json',
+      src: 'pattern-lab/source/_patterns/00-styleguide/15-typography/_fonts.scss',
+      dest: 'pattern-lab/source/_patterns/00-styleguide/15-typography/01-typography-overview.json',
       lineStartsWith: '$ff--',
       allowVarValues: false,
     },
