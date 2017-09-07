@@ -18,7 +18,7 @@ cacheBusterOn: 'true'
 exportDir: export
 publicDir: ../build/pattern-lab
 sourceDir: source
-defaultPattern: all
+defaultPattern: viewall-styleguide-all
 defaultShowPatternInfo: false
 lineageMatch: >-
   {%([ ]+)?(?:include|extends|embed)(
