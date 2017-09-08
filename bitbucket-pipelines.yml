@@ -13,7 +13,7 @@ pipelines:
             - npm install --unsafe-perm
             - npm test
             - npm run compile
-            - aws s3 sync ./ s3://dev.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
+            - aws s3 sync ./ s3://design.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
   default:
     - step:
         script:
