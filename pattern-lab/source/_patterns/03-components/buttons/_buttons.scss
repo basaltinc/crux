@@ -35,5 +35,5 @@ input[type="submit"],
 }
 
 input[type="submit"] {
-  -webkit-appearance: none;
+  -webkit-appearance: none; // stylelint-disable-line property-no-vendor-prefix
 }
