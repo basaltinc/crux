@@ -1,0 +1,24 @@
+<label class="form-item">
+  {% if label %} <div class="form-item__label">{{ label }}</div> {% endif %}
+  {% if type == 'textarea' %}
+    <textarea
+      class="form-item__item form-item__item--textarea"
+      name="{{ name }}"
+      rows="{{ rows|default(5) }}">
+    </textarea>
+  {% elseif type == 'submit' %}
+    <input
+      class="form-item__item form-item__item--submit"
+      type="submit"
+      name="{{ name }}"
+      value="{{ value }}"
+    >
+  {% else %}
+    <input
+      class="form-item__item form-item__item--input"
+      type="{{ type|default('text') }}"
+      name="{{ name }}"
+      placeholder="{{ placeholder|default(label) }}"
+    >
+  {% endif %}
+</label>

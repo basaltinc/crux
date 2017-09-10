@@ -1,0 +1,23 @@
+{% include '@styleguide/_form-item.twig' with {
+  label: 'Basic Text',
+  name: 'text',
+  placeholder: 'Basic Text'
+} %}
+{% include '@styleguide/_form-item.twig' with {
+  placeholder: 'Basic Text with no label'
+} %}
+{% include '@styleguide/_form-item.twig' with {
+  label: 'Email',
+  name: 'email',
+  type: 'email'
+} %}
+{% include '@styleguide/_form-item.twig' with {
+  label: 'Phone',
+  name: 'phone',
+  type: 'phone'
+} %}
+{% include '@styleguide/_form-item.twig' with {
+  label: 'Text Area',
+  type: 'textarea',
+  rows: 4
+} %}

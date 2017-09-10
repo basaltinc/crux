@@ -1,0 +1,14 @@
+.form-item {
+  display: block;
+  margin-bottom: $spacing--m;
+  &__label {
+
+  }
+  &__item {
+    width: 100%;
+    padding: .5rem;
+    border-radius: 3px;
+    border: $c-border 1px solid;
+    font-size: .75rem;
+  }
+}

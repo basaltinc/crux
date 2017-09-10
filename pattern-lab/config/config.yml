@@ -59,6 +59,7 @@ plugins:
           - source/_patterns/00-styleguide/15-typography
           - source/_patterns/00-styleguide/animations/01-transitions
           - source/_patterns/00-styleguide/breakpoints
+          - source/_patterns/00-styleguide/forms
           - source/_patterns/00-styleguide/icons
           - source/_patterns/00-styleguide/utilities
           - source/_patterns/00-styleguide/utilities/borders
