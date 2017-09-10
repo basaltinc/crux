@@ -1,4 +1,4 @@
-$site-max-width: $bp--xxlarge;
+$site-max-width: $bp--medium;
 $site-padding: $spacing--s;
 
 /// Site container
@@ -21,6 +21,10 @@ $site-padding: $spacing--s;
       max-width: $site-max-width;
     }
   }
+}
+
+.u-site-container {
+  @include site-container();
 }
 
 
