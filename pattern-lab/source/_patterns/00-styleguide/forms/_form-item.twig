@@ -4,7 +4,7 @@
     <textarea
       class="form-item__item form-item__item--textarea"
       name="{{ name }}"
-      rows="{{ rows|default(5) }}">
+      rows="{{ rows|default('5') }}">
     </textarea>
   {% elseif type == 'submit' %}
     <input

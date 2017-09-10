@@ -3,43 +3,42 @@
     {% include '@styleguide/_form-item.twig' with {
       label: 'First Name',
       name: 'FirstName',
-    } %}
+    } only %}
     {% include '@styleguide/_form-item.twig' with {
       label: 'Last Name',
       name: 'LastName',
-    } %}
+    } only %}
     {% include '@styleguide/_form-item.twig' with {
       label: 'Organization',
       name: 'OrganizationName',
-    } %}
+    } only %}
     {% include '@styleguide/_form-item.twig' with {
       label: 'Email',
       name: 'email',
       type: 'email'
-    } %}
+    } only %}
     {% include '@styleguide/_form-item.twig' with {
       label: 'Phone',
       name: 'phone',
       type: 'phone'
-    } %}
+    } only %}
     {% include '@styleguide/_form-item.twig' with {
       label: 'Title',
       name: 'Title',
-    } %}
+    } only %}
   </div>
   <div class="form__actions smart-grid" data-row-items-small="2">
     <div>
-
       <input type="hidden" name="formId" value="VBBraZTCfgOIIiPE5yQUNA==" />
       <input type="hidden" id="insightly_LeadSource" name="LeadSource" value="1941326" />
-    <input type="hidden" id="insightly_ResponsibleUser" name="ResponsibleUser" value="1414388" />
+      <input type="hidden" id="insightly_ResponsibleUser" name="ResponsibleUser" value="1414388" />
     </div>
 
     {% include '@styleguide/_form-item.twig' with {
       type: 'submit',
       name: 'submit',
       value: 'Submit'
-    } %}
+    } only %}
   </div>
 
 </form>
