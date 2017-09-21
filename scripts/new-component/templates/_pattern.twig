@@ -1,3 +1,13 @@
-<div class="<%= name %>">
+{# To properly create Component Variations and get correct BEM Modifier classes on, always have a boolean variable instead of variable that's simply `modifier` - those almost always require someone having to double-check stylesheet. #}
+{# You can see that `isBig` set to `true` will add the modifier class `<%= name %>--big`. Feel free to delete that example. #}
+{% set classes = [
+  '<%= name %>',
+  isBig ? '<%= name %>--big',
+] | merge(classes|default([])) %}
+{# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge doesn't fail. #}
 
+<div class="{{ classes|join(' ') }}">
+  {% if title %}
+    <div class="<%= name %>__title">{{ title }}</div>
+  {% endif %}
 </div>
