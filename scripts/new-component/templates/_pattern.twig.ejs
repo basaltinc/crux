@@ -10,4 +10,9 @@
   {% if title %}
     <div class="<%= name %>__title">{{ title }}</div>
   {% endif %}
+<% elements.forEach((element) => { %>
+  {% if <%= element %> %}
+    <div class="<%= name %>__<%= element %>">{{ <%= element %> }}</div>
+  {% endif %}
+<% }); %>
 </div>

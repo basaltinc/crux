@@ -47,9 +47,14 @@ module.exports = yeoman.Base.extend({
       filter: function(answer) {
         return answer.replace(/ /g, '-').toLowerCase();
       }
+    }, {
+      name: 'elements',
+      message: 'What Elements does it have? (i.e. title, subtitle, body, etc) Enter comma separated list.',
+      filter: answer => answer.split(',').map(item => item.trim()).filter(item => item !== ''),
     }];
 
     return this.prompt(prompts).then(function (props) {
+      console.log(props);
       // To access props later use this.props.someAnswer;
       props.dashlessName = props.name.replace(/-/g, '');
       props.namespace = props.patternType.replace(/[0-9]*-/g, ''); // `01-atoms` => `atoms`
@@ -64,7 +69,7 @@ module.exports = yeoman.Base.extend({
 
     if (this.props.files.some(file => file === 'scss')) {
       this.fs.copyTpl(
-        this.templatePath('_pattern.scss'),
+        this.templatePath('_pattern.scss.ejs'),
         this.destinationPath(path.join(destPath, '_' + this.props.name + '.scss')),
         this.props
       );
@@ -72,17 +77,17 @@ module.exports = yeoman.Base.extend({
 
     if (this.props.files.some(file => file === 'twig')) {
       this.fs.copyTpl(
-        this.templatePath('_pattern.twig'),
+        this.templatePath('_pattern.twig.ejs'),
         this.destinationPath(path.join(destPath, '_' + this.props.name + '.twig')),
         this.props
       );
       this.fs.copyTpl(
-        this.templatePath('pattern-demo.twig'),
+        this.templatePath('pattern-demo.twig.ejs'),
         this.destinationPath(path.join(destPath, this.props.name + '-demo-1' + '.twig')),
         this.props
       );
       this.fs.copyTpl(
-        this.templatePath('pattern-demo.twig'),
+        this.templatePath('pattern-demo.twig.ejs'),
         this.destinationPath(path.join(destPath, this.props.name + '-demo-2' + '.twig')),
         this.props
       );
@@ -91,7 +96,7 @@ module.exports = yeoman.Base.extend({
 
     if (this.props.files.some(file => file === 'js')) {
       this.fs.copyTpl(
-        this.templatePath('pattern.js'),
+        this.templatePath('pattern.js.ejs'),
         this.destinationPath(path.join(destPath, this.props.name + '.js')),
         this.props
       );
@@ -99,7 +104,7 @@ module.exports = yeoman.Base.extend({
 
     if (this.props.files.some(file => file === 'md')) {
       this.fs.copyTpl(
-        this.templatePath('pattern.md'),
+        this.templatePath('pattern.md.ejs'),
         this.destinationPath(path.join(destPath, '..', this.props.name + '.md')),
         this.props
       );
