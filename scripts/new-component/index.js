@@ -33,14 +33,13 @@ module.exports = yeoman.Base.extend({
       choices: [
         'twig',
         'scss',
-        'json',
         'js',
         'md'
       ],
       default: [
         'twig',
-        'json',
-        'scss'
+        'scss',
+        'md'
       ]
     }, {
       name: 'name',
@@ -53,6 +52,7 @@ module.exports = yeoman.Base.extend({
     return this.prompt(prompts).then(function (props) {
       // To access props later use this.props.someAnswer;
       props.dashlessName = props.name.replace(/-/g, '');
+      props.namespace = props.patternType.replace(/[0-9]*-/g, ''); // `01-atoms` => `atoms`
       this.props = props;
     }.bind(this));
   },
@@ -72,18 +72,21 @@ module.exports = yeoman.Base.extend({
 
     if (this.props.files.some(file => file === 'twig')) {
       this.fs.copyTpl(
-        this.templatePath('pattern.twig'),
-        this.destinationPath(path.join(destPath, this.props.name + '.twig')),
+        this.templatePath('_pattern.twig'),
+        this.destinationPath(path.join(destPath, '_' + this.props.name + '.twig')),
         this.props
       );
-    }
-
-    if (this.props.files.some(file => file === 'json')) {
       this.fs.copyTpl(
-        this.templatePath('pattern.json'),
-        this.destinationPath(path.join(destPath, this.props.name + '.json')),
+        this.templatePath('pattern-demo.twig'),
+        this.destinationPath(path.join(destPath, this.props.name + '-demo-1' + '.twig')),
         this.props
       );
+      this.fs.copyTpl(
+        this.templatePath('pattern-demo.twig'),
+        this.destinationPath(path.join(destPath, this.props.name + '-demo-2' + '.twig')),
+        this.props
+      );
+
     }
 
     if (this.props.files.some(file => file === 'js')) {
@@ -97,7 +100,7 @@ module.exports = yeoman.Base.extend({
     if (this.props.files.some(file => file === 'md')) {
       this.fs.copyTpl(
         this.templatePath('pattern.md'),
-        this.destinationPath(path.join(destPath, this.props.name + '.md')),
+        this.destinationPath(path.join(destPath, '..', this.props.name + '.md')),
         this.props
       );
     }
