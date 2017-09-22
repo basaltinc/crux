@@ -1,0 +1,28 @@
+All about the <%= name.raw %>.
+
+### Variables:
+
+#### Elements
+
+<% elements.forEach((element) => { -%>
+- `<%= element.under %>` (string) - <%= element.raw %> description
+<% }); -%>
+
+#### Modifiers
+
+<% modifiers.forEach((modifier) => { -%>
+- `<%= modifier.under %>` (boolean, default: false) - <%= modifier.raw %> description
+<% }); -%>
+
+#### How to use:
+
+```twig
+{% include '@<%= namespace %>/_<%= name.dash %>.twig' with {
+<% elements.forEach((element) => { -%>
+  <%= element.under %>: '<%= element.raw %>',
+<% }); -%>
+<% modifiers.forEach((modifier) => { -%>
+  <%= modifier.under %>: false,
+<% }); -%>
+} only %}
+```

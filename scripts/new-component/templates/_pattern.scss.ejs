@@ -1,13 +1,12 @@
-.<%= name %> {
-  // Just an example of how to do BEM Elements and BEM Modifiers.
-  &__title {
-    font-size: 1.2rem;
-    .<%= name %>--big & {
-      font-size: 1.8rem;
-    }
-  }
+.<%= name.dash %> {
 <% elements.forEach((element) => { %>
-  &__<%= element %> {
+  &__<%= element.dash %> {
+
+  }
+<% }); %>
+
+<% modifiers.forEach((modifier) => { %>
+  &--<%= modifier.dash %> {
 
   }
 <% }); %>
