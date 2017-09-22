@@ -1,0 +1,24 @@
+{% set classes = [
+  'media-block',
+  media_on_right ? 'media-block--media-on-right',
+] | merge(classes|default([])) %}
+
+<div class="{{ classes|join(' ') }}">
+
+  {% include '@styleguide/_img.twig' with {
+    bg: true,
+    class: 'media-block__media',
+    img: demo ? false : media,
+  } %}
+
+  <div class="media-block__content">
+    {% if title %}
+      <div class="media-block__title">{{ title }}</div>
+    {% endif %}
+
+    {% if body %}
+      <div class="media-block__body">{{ body|raw }}</div>
+    {% endif %}
+  </div>
+
+</div>

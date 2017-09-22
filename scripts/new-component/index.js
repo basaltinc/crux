@@ -54,7 +54,6 @@ module.exports = yeoman.Base.extend({
     }];
 
     return this.prompt(prompts).then(function (props) {
-      console.log(props);
       // To access props later use this.props.someAnswer;
       props.dashlessName = props.name.replace(/-/g, '');
       props.namespace = props.patternType.replace(/[0-9]*-/g, ''); // `01-atoms` => `atoms`

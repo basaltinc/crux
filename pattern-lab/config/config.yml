@@ -73,6 +73,7 @@ plugins:
           - source/_patterns/03-components
           - source/_patterns/03-components/buttons
           - source/_patterns/03-components/forms
+          - source/_patterns/03-components/media-block
           - source/_patterns/03-components/site-footer
           - source/_patterns/03-components/site-header
       slices:

@@ -1,0 +1,39 @@
+.media-block {
+
+  &__content {
+    background-color: $c-gray;
+    padding: $spacing--s;
+  }
+
+  &__media {
+    padding-top: 60%;
+  }
+
+  &__title {
+    @include h3;
+  }
+
+  &__body {
+
+  }
+
+  @include breakpoint($bp--medium) {
+    display: flex;
+    justify-content: space-between;
+    &.media-block--media-on-right {
+      flex-direction: row-reverse;
+    }
+    &__content {
+      width: 50%;
+      padding: $spacing--l;
+    }
+    &__media {
+      padding-top: 0;
+      width: 50%;
+    }
+    &__title {
+      @include h2;
+    }
+  }
+
+}
