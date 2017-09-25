@@ -8,7 +8,7 @@
     "compile": "NODE_ENV=production gulp compile",
     "test": "gulp validate",
     "gulp": "gulp",
-    "new": "yo ./scripts/new-component/index.js",
+    "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "setup": "cd pattern-lab && composer install --no-interaction",
     "postinstall": "npm run setup && npm run compile"
   },
@@ -27,10 +27,11 @@
     "gulp": "gulpjs/gulp#4.0",
     "holderjs": "^2.9.4",
     "scsstojson": "^1.0.2",
-    "stylelint-scss": "^1.4.4",
-    "yeoman-generator": "0.23.3",
+    "stylelint-scss": "^1.4.4"
+  },
+  "devDependencies": {
+    "generator-pl-pattern": "^1.0.0",
     "yo": "1.8.3"
   },
-  "devDependencies": {},
   "repository": "git@bitbucket.org:basaltinc/our-design-system.git"
 }
