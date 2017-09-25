@@ -14,6 +14,16 @@
       "name": "$spacing--l",
       "value": "20px",
       "comment": ""
+    },
+    {
+      "name": "$spacing--xl",
+      "value": "30px",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--xxl",
+      "value": "50px",
+      "comment": ""
     }
   ],
   "meta": {
