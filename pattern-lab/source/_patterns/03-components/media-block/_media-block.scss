@@ -1,7 +1,7 @@
 .media-block {
+  background-color: $c-gray;
 
   &__content {
-    background-color: $c-gray;
     padding: $spacing--s;
   }
 
@@ -20,6 +20,9 @@
   @include breakpoint($bp--medium) {
     display: flex;
     justify-content: space-between;
+    &--show-full-media {
+      align-items: flex-start;
+    }
     &.media-block--media-on-right {
       flex-direction: row-reverse;
     }

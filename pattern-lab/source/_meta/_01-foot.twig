@@ -5,14 +5,18 @@
   <!-- Pattern Lab only dependencies -->
   <script src="../../../assets/holder.js"></script>
   <!-- END:Pattern Lab only dependencies -->
-
+  {# https://github.com/imsky/holder #}
+  <script>
+    Holder.run({
+      noBackgroundSize: true
+    });
+  </script>
   {# Gulp tools will auto-inject what is compiled into the `dest/` directory (usually just aggregated JS & CSS), and anything in `config.patternLab.injectFiles` here: #}
   <!-- inject:js -->
   <script src="../../../assets/script.js?cacheBuster={{ cacheBuster }}"></script>
   <!-- endinject -->
 
-  <link rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
