@@ -1,8 +1,29 @@
 .site-header {
-  .branding {
-    width: 100px;
-    @include breakpoint($bp--medium) {
-      width: 33%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  &__logo {
+    display: block;
+    width: 20%;
+  }
+  &__menu {
+
+  }
+
+}
+
+.main-menu {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  &__item {
+    margin-right: $spacing--m;
+  }
+  &__link {
+    @include a-link($deco: none);
+    display: block;
+    &--active.main-menu__link--active {
+      text-decoration: underline;
     }
   }
 }

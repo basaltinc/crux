@@ -1,5 +1,9 @@
 <div class="site u-site-container">
-  {#{% include "@organisms/site-header.twig" %}#}
+  <header class="site__header">
+    {% block header %}
+      {% include "@components/01-site-header-default.twig" %}
+    {% endblock %}
+  </header>
   <main class="site__page page{% if sidebar %} page--has-sidebar{% endif %}">
     {% if page_title %}
       <h1 class="page__title">{{ page_title }}</h1>

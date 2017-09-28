@@ -1,0 +1,12 @@
+{% set menu_items = [] %}
+{% for i in 1..4 %}
+  {% set menu_items = menu_items|merge([{
+    url: '#',
+    text: 'Menu Item ' ~ i,
+    active: i == 3,
+  }]) %}
+{% endfor %}
+
+{% include '@components/_site-header.twig' with {
+  menu_items: menu_items,
+} only %}
