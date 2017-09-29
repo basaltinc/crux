@@ -27,6 +27,7 @@ html {
 body {
   font-family: $ff--body;
   color: $c-body-text;
+  font-size: $fs--m;
 }
 
 p {
@@ -60,19 +61,24 @@ hr {
   color: currentColor;
 }
 
-// inline code wrappers, Markdown style
-code {
-  &:before {
-    content: '`';
-  }
-  &:after {
-    content: '`';
-  }
-  // don't show it when in a block of code
-  pre & {
-    &:after,
-    &:before {
-      content: '';
-    }
+pre {
+  border-radius: 3px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  position: relative;
+  margin: 0 0 $spacing--s;
+  > code {
+    padding: 0.2em 0.5em;
+    background: black;
+    color: white;
+    width: 100%;
+    display: block;
   }
 }
+
+code {
+  background: transparentize($c-gray, 0.2);
+  padding: 0 3px;
+  border-radius: 4px;
+}
+

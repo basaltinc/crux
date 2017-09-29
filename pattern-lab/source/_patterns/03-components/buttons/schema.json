@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "text": { "type": "string" },
+    "url": { "type": "string" },
+    "size": {
+      "type": "string",
+      "enum": ["small", "large"]
+    },
+    "color": {
+      "type": "string",
+      "enum": ["yellow"]
+    }
+  },
+  "required": ["text", "url"]
+}

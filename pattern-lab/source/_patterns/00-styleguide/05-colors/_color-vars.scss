@@ -1,16 +1,54 @@
+////
+/// @group Utilities
+////
+
+// stylelint-disable declaration-no-important
+
 $c-blue--light: hsl(165, 26%, 85%);
+///
+.u-c-blue--light {color: $c-blue--light !important;}
+///
+.u-bg-blue--light {background-color: $c-blue--light !important;}
 $c-blue: hsl(200, 55%, 19%);
+///
+.u-c-blue {color: $c-blue !important;}
+///
+.u-bg-blue {background-color: $c-blue !important;}
 $c-green: hsl(159, 20%, 17%);
+///
+.u-c-green {color: $c-green !important;}
+///
+.u-bg-green {background-color: $c-green !important;}
 $c-iron: hsl(240, 3%, 85%);
+///
+.u-c-iron {color: $c-iron !important;}
+///
+.u-bg-iron {background-color: $c-iron !important;}
 $c-yellow: hsl(52, 74%, 54%);
+///
+.u-c-yellow {color: $c-yellow !important;}
+///
+.u-bg-yellow {background-color: $c-yellow !important;}
 
 $c-white: white;
+///
+.u-c-white {color: $c-white !important;}
+///
+.u-bg-white {background-color: $c-white !important;}
 //$c-gray--lightest: hsl(0, 0%, 89%);
 //$c-gray--lighter: hsl(0, 0%, 80%);
 //$c-gray--light: hsl(0, 0%, 60%);
 //$c-gray: hsl(0, 0%, 48%);
 $c-gray: $c-iron;
+///
+.u-c-gray {color: $c-gray !important;}
+///
+.u-bg-gray {background-color: $c-gray !important;}
 //$c-gray--dark: hsl(0, 0%, 40%);
 //$c-gray--darker: hsl(0, 0%, 20%);
 //$c-gray--darkest: hsl(0, 0%, 16.1%);
 $c-black: black;
+///
+.u-c-black {color: $c-black !important;}
+///
+.u-bg-black {background-color: $c-black !important;}

@@ -1,0 +1,33 @@
+.button {
+  @include a-link(white, white, none, none);
+  background-color: $c-green;
+  display: inline-block;
+  padding: 10px 15px;
+  font-family: $ff--avenir--medium;
+  transition: background-color $trans-opacity;
+  line-height: 1;
+
+  &:hover {
+    background-color: lighten($c-green, 10);
+  }
+
+  &--color {
+    &-yellow {
+      background-color: $c-yellow;
+      &:hover {
+        background-color: darken($c-yellow, 10);
+      }
+    }
+  }
+  &--size {
+    &-small {
+      padding: 5px 10px;
+      font-size: $fs--s;
+    }
+    &-large {
+      padding: 15px 20px;
+      font-size: $fs--l;
+    }
+  }
+
+}
