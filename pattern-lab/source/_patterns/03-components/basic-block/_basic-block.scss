@@ -1,0 +1,29 @@
+.basic-block {
+  text-align: center;
+  &__title {
+
+  }
+  &__content {
+    margin-bottom: $spacing--l;
+    .basic-block--size-large & {
+      font-size: $fs--l;
+    }
+    .basic-block--size-xlarge & {
+      font-size: $fs--xl;
+    }
+  }
+  &__buttons {
+
+  }
+
+  @include breakpoint($bp--medium) {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @include breakpoint($bp--large) {
+    width: 65%;
+  }
+
+}

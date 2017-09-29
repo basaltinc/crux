@@ -71,6 +71,7 @@ plugins:
       components:
         paths:
           - source/_patterns/03-components
+          - source/_patterns/03-components/basic-block
           - source/_patterns/03-components/buttons
           - source/_patterns/03-components/forms
           - source/_patterns/03-components/media-block

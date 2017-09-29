@@ -1,0 +1,11 @@
+{% set content %}
+  <p>{{ random(paragraphs) }}</p>
+{% endset %}
+{% include '@components/_basic-block.twig' with {
+  title: random(titles),
+  content: content,
+  buttons: [{
+    url: '#',
+    text: random(texts),
+  }],
+} only %}

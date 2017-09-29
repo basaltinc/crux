@@ -1,0 +1,26 @@
+{# To properly create Component Variations and get correct BEM Modifier classes on, always have a boolean variable instead of variable that's simply `modifier` - those almost always require someone having to double-check stylesheet. #}
+{% set classes = [
+  'basic-block',
+  size ? 'basic-block--size-' ~ size,
+] | merge(classes|default([])) %}
+{# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
+
+<div class="{{ classes|join(' ') }}">
+
+  {% if title %}
+    <h2 class="basic-block__title">{{ title }}</h2>
+  {% endif %}
+
+  {% if content %}
+    <div class="basic-block__content">{{ content|raw }}</div>
+  {% endif %}
+
+  {% if buttons %}
+    <div class="basic-block__buttons">
+      {% for button in buttons %}
+        {% include '@components/_button.twig' with button only %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>
