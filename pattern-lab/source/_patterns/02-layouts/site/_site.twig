@@ -5,9 +5,10 @@
     {% endblock %}
   </header>
   <main class="site__page page{% if sidebar %} page--has-sidebar{% endif %}">
-    {% if page_title %}
-      <h1 class="page__title">{{ page_title }}</h1>
-    {% endif %}
+    {# @todo Only hide `page_title` if a Hero is present and at top. #}
+    {#{% if page_title %}#}
+      {#<h1 class="page__title">{{ page_title }}</h1>#}
+    {#{% endif %}#}
     <div class="page__content">
       {{ content }}
     </div>
