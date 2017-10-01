@@ -7,42 +7,26 @@ const gulp = require('gulp');
 const scssToJson = require('scsstojson');
 const cssTasks = require('@theme-tools/plugin-sass')(config.css);
 const browserSyncTasks = require('@theme-tools/plugin-browser-sync')(config.browserSync);
-const jsTasks = require('@theme-tools/plugin-js-concat-babel')(config.js);
-// const iconTasks = require('@theme-tools/plugin-icon-font')(config.icons);
+const webPackTasks = require('@theme-tools/plugin-webpack')(require('./webpack.config'));
+const iconTasks = require('@theme-tools/plugin-icon-font')(config.icons);
 const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({
   configFile: './pattern-lab/config/config.yml',
+  watchedExtensions: [
+    'twig',
+    'json',
+    'yaml',
+    'yml',
+    'md',
+    'jpg',
+    'jpeg',
+    'png',
+    'php',
+  ],
   twigNamespaces: {
     sets: fs.readdirSync('./pattern-lab/source/_patterns/').map((folder) => ({
       namespace: folder.replace(/[0-9]*-/, ''),
       paths: [path.join('./pattern-lab/source/_patterns/', folder)],
     })),
-    // setsX: [
-    //   {
-    //     namespace: 'typog',
-    //     paths: [
-    //       path.dirname(require.resolve('/Users/Evan/dev/basalt/bedrock/packages/component-typography'))
-    //     ]
-    //   },
-    //   {
-    //     namespace: 'base',
-    //     paths: ['pattern-lab/source/_patterns/00-base'],
-    //   }, {
-    //     namespace: 'atoms',
-    //     paths: ['pattern-lab/source/_patterns/01-atoms'],
-    //   }, {
-    //     namespace: 'molecules',
-    //     paths: ['pattern-lab/source/_patterns/02-molecules'],
-    //   }, {
-    //     namespace: 'organisms',
-    //     paths: ['pattern-lab/source/_patterns/03-organisms'],
-    //   }, {
-    //     namespace: 'templates',
-    //     paths: ['pattern-lab/source/_patterns/04-templates'],
-    //   }, {
-    //     namespace: 'pages',
-    //     paths: ['pattern-lab/source/_patterns/05-pages'],
-    //   },
-    // ],
   },
 });
 
@@ -53,16 +37,14 @@ function scssToJsonTask(done) {
 function scssToJsonWatch() {
   gulp.watch(config.scssToJsonItems.map(item => item.src), scssToJsonTask);
 }
+gulp.task(webPackTasks.compile);
 
 gulp.task('css', cssTasks.compile);
 
 gulp.task('pl', patternLabTasks.compile);
 
-gulp.task('fix', jsTasks.fix);
-
 gulp.task('validate', gulp.series([
   cssTasks.validate,
-  jsTasks.validate,
 ]));
 
 function copyVendorJs() {
@@ -81,18 +63,17 @@ function copyVendorJs() {
 
 gulp.task('compile', gulp.series([
   cssTasks.clean,
-  jsTasks.clean,
-  // iconTasks.clean,
+  iconTasks.clean,
   // end clean tasks
   scssToJsonTask,
-  // iconTasks.compile,
+  iconTasks.compile,
   gulp.parallel([
     patternLabTasks.compile,
     // copyPages,
     copyVendorJs,
     cssTasks.compile,
     cssTasks.docs,
-    jsTasks.compile,
+    webPackTasks.compile,
   ]),
 ]));
 
@@ -102,8 +83,8 @@ gulp.task('default', gulp.series([
     browserSyncTasks.serve,
     patternLabTasks.watch,
     cssTasks.watch,
-    jsTasks.watch,
     scssToJsonWatch,
-    // iconTasks.watch,
+    webPackTasks.watch,
+    iconTasks.watch,
   ]),
 ]));

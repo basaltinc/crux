@@ -1,0 +1,30 @@
+{# To properly create Component Variations and get correct BEM Modifier classes on, always have a boolean variable instead of variable that's simply `modifier` - those almost always require someone having to double-check stylesheet. #}
+{% set classes = [
+  'site-footer',
+  'u-full-width',
+] | merge(classes|default([])) %}
+{# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
+
+<div class="{{ classes|join(' ') }}">
+  <div class="site-footer__inner u-site-container">
+    <div class="site-footer__content">
+      <div class="site-footer__body">
+        <p>We innovate for elegant maintainable digital strategies that simplify your technology. </p>
+      </div>
+
+      <div class="site-footer__meta">
+        ©2017 Basalt All Rights Reserved
+      </div>
+    </div>
+
+    <div class="site-footer__social">
+      {% include '@components/_social.twig' only %}
+    </div>
+
+    <nav class="site-footer__menu">
+      {% for item in menu_items %}
+        <a href="{{ item.url }}" class="site-footer__menu-link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</div>

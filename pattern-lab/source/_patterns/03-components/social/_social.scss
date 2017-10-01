@@ -1,0 +1,17 @@
+.social {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  &__link {
+    $x: 15px;
+    @include a-link($deco: none, $deco--hover: none);
+    font-size: $x;
+    height: $x * 2;
+    line-height: $x * 2;
+    width: $x * 2;
+    text-align: center;
+    border: solid 1px $c-blue;
+    border-radius: $x;
+    margin-bottom: $spacing--m;
+  }
+}

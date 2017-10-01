@@ -1,0 +1,32 @@
+{# To properly create Component Variations and get correct BEM Modifier classes on, always have a boolean variable instead of variable that's simply `modifier` - those almost always require someone having to double-check stylesheet. #}
+{% set classes = [
+  'social',
+] | merge(classes|default([])) %}
+{# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
+
+{% set items = [
+  {
+    url: "https://www.linkedin.com/company/18215425/",
+    icon: 'linkedin',
+  },
+  {
+    url: "https://twitter.com/basaltinc",
+    icon: 'twitter',
+  },
+  {
+    url: "https://www.facebook.com/basaltinc/",
+    icon: 'facebook',
+  },
+  {
+    url: "https://www.instagram.com/basaltinc/",
+    icon: 'instagram',
+  },
+] %}
+
+{% if items %}
+<nav class="{{ classes|join(' ') }}">
+  {% for item in items %}
+    <a href="{{ item.url }}" class="social__link icon--{{ item.icon }}"></a>
+  {% endfor %}
+</nav>
+{% endif %}

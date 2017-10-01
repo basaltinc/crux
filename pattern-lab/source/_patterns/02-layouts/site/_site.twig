@@ -16,5 +16,9 @@
       <div class="page__sidebar">{{ sidebar|raw }}</div>
     {% endif %}
   </main>
-  {#{% include "@organisms/site-footer.twig" %}#}
+  <footer class="site__footer">
+    {% block footer %}
+      {% include "@components/01-site-footer-default.twig" %}
+    {% endblock %}
+  </footer>
 </div>
