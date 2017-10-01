@@ -1,0 +1,13 @@
+<ul>
+  {% for key, prop in properties %}
+    <li>
+      <code>{{ key }}</code>
+      {% if key in loop.parent.required %} <em>required</em> {% endif %}
+      {% if prop.title %} - <strong>{{ prop.title }}</strong> {% endif %}
+      {% if prop.description %} - <span>{{ prop.description }}</span> {% endif %}
+      <ul>
+        <li>Type: {{ prop.type }} {% if prop.enum %} - Must be one of: {{ prop.enum|join(', ') }} {% endif %}</li>
+      </ul>
+    </li>
+  {% endfor %}
+</ul>

@@ -4,6 +4,5 @@
   color ? 'button--color-' ~ color,
   size ? 'button--size-' ~ size,
 ] | merge(classes|default([])) %}
-{#<pre><code>{{ _context|json_encode(constant('JSON_PRETTY_PRINT')) }}</code></pre>#}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
-<a class="{{ classes|join(' ') }}" href="{{ url }}">{{ text }}</a>
+<a class="{{ classes|join(' ') }}" href="{{ url|default('#') }}">{{ text }}</a>

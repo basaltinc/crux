@@ -1,0 +1,9 @@
+{% include '@components/_hero.twig' with {
+  image: random(brand_images),
+  title: random(titles),
+  body: random(longTitles),
+  buttons: [
+    { text: random(texts) },
+    { text: random(texts) },
+  ],
+} only %}

@@ -6,6 +6,7 @@
   font-family: $ff--avenir--medium;
   transition: background-color $trans-opacity;
   line-height: 1;
+  margin-bottom: $spacing--m;
 
   &:hover {
     background-color: lighten($c-green, 10);

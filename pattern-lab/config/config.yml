@@ -50,6 +50,9 @@ plugins:
       svgs:
         paths:
           - ../images/svgs
+      utils:
+        paths:
+          - source/_utils
       styleguide:
         paths:
           - source/_patterns/00-styleguide
@@ -74,6 +77,7 @@ plugins:
           - source/_patterns/03-components/basic-block
           - source/_patterns/03-components/buttons
           - source/_patterns/03-components/forms
+          - source/_patterns/03-components/hero
           - source/_patterns/03-components/media-block
           - source/_patterns/03-components/site-footer
           - source/_patterns/03-components/site-header

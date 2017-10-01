@@ -2,14 +2,20 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "properties": {
-    "text": { "type": "string" },
-    "url": { "type": "string" },
+    "text": {
+      "type": "string",
+      "title": "Button Text"
+    },
+    "url": {
+      "type": "string"
+    },
     "size": {
       "type": "string",
       "enum": ["small", "large"]
     },
     "color": {
       "type": "string",
+      "title": "BG Color",
       "enum": ["yellow"]
     }
   },

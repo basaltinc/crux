@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "body": {
+      "type": "string"
+    },
+    "image": {
+      "type": "string",
+      "title": "Background Image",
+      "description": "Path to image."
+    },
+    "content_classes": {
+      "type": "array",
+      "title": "Content Classes",
+      "description": "Used for setting BG and text color."
+    },
+    "buttons": {
+      "type": "array",
+      "description": "List of objects passed to @components/_button.twig"
+    }
+  },
+  "required": ["text", "url"]
+}

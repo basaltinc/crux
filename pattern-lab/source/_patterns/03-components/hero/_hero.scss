@@ -1,0 +1,57 @@
+.hero {
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  //418 / 1060 = .394339623
+
+  //363 / 1060 = .34245283
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  &__title {
+    @include h2;
+    color: $c-white;
+  }
+  &__content {
+    background-color: $c-iron;
+    padding: $spacing--m;
+  }
+  &__body {
+    margin-bottom: $spacing--m;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  @include breakpoint($bp--medium) {
+    min-height: 300px;
+    display: flex;
+    margin-bottom: $spacing--xl;
+    &__inner {
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+    &__title {
+      @include h1;
+      width: 33%;
+    }
+    &__content {
+      width: 33%;
+      align-self: flex-end;
+      position: relative;
+      bottom: -1 * $spacing--xl;
+      padding: $spacing--xl;
+    }
+  }
+
+  @include breakpoint($bp--xlarge) {
+    min-height: 418px;
+  }
+
+}
