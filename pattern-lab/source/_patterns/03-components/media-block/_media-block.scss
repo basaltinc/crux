@@ -39,6 +39,9 @@
         width: 75%;
       }
       .media-block--media-size-l & {
+        width: 33%;
+      }
+      .media-block--media-size-xl & {
         width: 25%;
       }
     }
@@ -49,6 +52,9 @@
         width: 25%;
       }
       .media-block--media-size-l & {
+        width: 66%;
+      }
+      .media-block--media-size-xl & {
         width: 75%;
       }
     }
@@ -70,6 +76,10 @@
           left: -33%;
         }
         .media-block--media-size-l & {
+          left: -120%;
+          width: 180%;
+        }
+        .media-block--media-size-xl & {
           left: -200%;
           width: 250%;
         }
