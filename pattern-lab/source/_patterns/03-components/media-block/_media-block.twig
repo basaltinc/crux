@@ -7,11 +7,17 @@
 
 <div class="{{ classes|join(' ') }}">
 
-  {% include '@styleguide/_img.twig' with {
-    bg: show_full_media != true,
-    class: 'media-block__media',
-    img: demo ? false : media,
-  } %}
+  {% set media_classes = [
+    'media-block__media',
+    show_full_media ? 'media-block__media--img' : 'media-block__media--bg',
+    media_padding ? 'media-block__media--padding-' ~ media_padding,
+  ] %}
+  <div class="{{ media_classes|join(' ') }}">
+    {% include '@styleguide/_img.twig' with {
+      bg: show_full_media != true,
+      img: demo ? false : media,
+    } %}
+  </div>
 
   <div class="media-block__content">
     {% if title %}

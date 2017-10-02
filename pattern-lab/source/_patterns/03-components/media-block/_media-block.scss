@@ -1,11 +1,19 @@
 .media-block {
   &__content {
-    //padding: $spacing--s;
+    padding: $spacing--s;
   }
 
   &__media {
     padding-top: 60%;
     margin-bottom: $spacing--s;
+    position: relative;
+    .bg-img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
     .media-block--show-full-media & {
       padding-top: 0;
     }
@@ -34,7 +42,7 @@
     }
     &__content {
       width: 50%;
-      padding: 0 $spacing--l;
+      padding: $spacing--s $spacing--l;
       .media-block--media-size-s & {
         width: 75%;
       }
@@ -48,6 +56,45 @@
     &__media {
       padding-top: 0;
       width: 50%;
+      // stylelint-disable max-nesting-depth
+      &--img {
+        &.media-block__media--padding {
+          &-s {padding: $spacing--s;}
+          &-m {padding: $spacing--m;}
+          &-l {padding: $spacing--l;}
+        }
+      }
+      @mixin set($size) {
+        >.bg-img {
+          top: $size;
+          bottom: $size;
+          left: $size;
+          right: $size;
+        }
+      }
+      &--bg {
+        &.media-block__media--padding {
+          &-s {
+            @include set($spacing--s);
+          }
+          &-m {
+            @include set($spacing--m);
+          }
+          &-l {
+            @include set($spacing--l);
+          }
+          &-xl {
+            @include set($spacing--xl);
+          }
+          &-xxl {
+            @include set($spacing--xxl);
+          }
+        }
+        .bg-img {
+
+        }
+      }
+      // stylelint-enable max-nesting-depth
       .media-block--media-size-s & {
         width: 25%;
       }
