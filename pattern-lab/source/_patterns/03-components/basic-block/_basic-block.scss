@@ -13,7 +13,9 @@
     }
   }
   &__buttons {
-
+    .button {
+      margin-bottom: 0;
+    }
   }
 
   @include breakpoint($bp--medium) {

@@ -7,6 +7,11 @@ $fs--h6: $fs--s !default;
 
 @mixin heading() {
   font-family: $ff--heading;
+  margin-top: $spacing--l;
+  margin-bottom: 0;
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 @mixin h1() {
@@ -26,16 +31,19 @@ $fs--h6: $fs--s !default;
 
 @mixin h4() {
   @include heading();
+  margin-top: $spacing--m;
   font-size: $fs--h4;
 }
 
 @mixin h5() {
   @include heading();
+  margin-top: $spacing--m;
   font-size: $fs--h5;
 }
 
 @mixin h6() {
   @include heading();
+  margin-top: $spacing--m;
   font-size: $fs--h6;
 }
 

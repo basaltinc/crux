@@ -29,7 +29,7 @@
     }
     &__content {
       width: 50%;
-      padding: $spacing--l;
+      padding: 0 $spacing--l;
       .media-block--media-size-s & {
         width: 75%;
       }
