@@ -11,7 +11,7 @@
     },
     "size": {
       "type": "string",
-      "enum": ["small", "large"]
+      "enum": ["small", "large", "jumbo"]
     },
     "color": {
       "type": "string",
