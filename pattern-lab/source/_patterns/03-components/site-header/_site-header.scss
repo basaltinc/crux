@@ -1,13 +1,34 @@
+$open: '.site-header-toggle:checked + .site-header';
 .site-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   &__logo {
     display: block;
-    width: 20%;
+    width: grid-width(5);
+    margin: 10px 0;
+    max-width: 200px;
+    @include breakpoint($bp--xsmall) {
+      width: grid-width(4);
+    }
+    >svg {
+      //width: 100%;
+    }
+  }
+  &__button {
+    font-size: 22px;
+    &:hover { cursor: pointer; }
+    #{$open} & {
+      @include icon(close);
+    }
   }
   &__menu {
-
+    display: none;
+    width: 100%;
+    #{$open} & {
+      display: block;
+    }
   }
 
 }
@@ -16,14 +37,39 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  flex-direction: column;
+  width: 100%;
+  text-align: right;
+  margin: 0;
   &__item {
     margin-right: $spacing--m;
   }
   &__link {
     @include a-link($deco: none);
     display: block;
+    font-family: $ff--avenir--medium;
     &--active.main-menu__link--active {
       text-decoration: underline;
     }
+  }
+}
+
+@include breakpoint($bp--large) {
+  .site-header {
+    &__logo {
+      margin: 25px 0;
+      width: grid-width(2);
+    }
+    &__button {
+      display: none;
+    }
+    &__menu {
+      display: block;
+      width: auto;
+    }
+  }
+  .main-menu {
+    flex-direction: row;
+    font-size: $fs--l;
   }
 }
