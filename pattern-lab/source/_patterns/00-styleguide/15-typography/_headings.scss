@@ -9,6 +9,7 @@ $fs--h6: $fs--s !default;
   font-family: $ff--heading;
   margin-top: $spacing--l;
   margin-bottom: 0;
+  line-height: 1;
   &:first-child {
     margin-top: 0;
   }
