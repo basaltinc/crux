@@ -1,10 +1,11 @@
 .media-block {
   &__content {
-    padding: $spacing--s;
+    //padding: $spacing--s;
   }
 
   &__media {
     padding-top: 60%;
+    margin-bottom: $spacing--s;
     .media-block--show-full-media & {
       padding-top: 0;
     }
@@ -12,6 +13,10 @@
 
   &__title {
     @include h3;
+    &[class*='u-bg-'] {
+      padding: 5px 10px;
+      margin-bottom: $spacing--m;
+    }
   }
 
   &__body {
@@ -49,6 +54,26 @@
     }
     &__title {
       @include h2;
+      &[class*='u-bg-'] {
+        padding: 5px 10px;
+        margin-bottom: $spacing--l;
+      }
+      &--inset {
+        position: relative;
+        &.media-block__title--inset {
+          margin-top: $spacing--l;
+        }
+        .media-block--media-size-s & {
+          left: -16.65%;
+        }
+        .media-block--media-size-m & {
+          left: -33%;
+        }
+        .media-block--media-size-l & {
+          left: -200%;
+          width: 250%;
+        }
+      }
     }
   }
 
