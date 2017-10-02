@@ -8,6 +8,14 @@
     "body": {
       "type": "string"
     },
+    "alignment_all": {
+      "type": "string",
+      "enum": ["left", "center", "right"]
+    },
+    "alignment_content": {
+      "type": "string",
+      "enum": ["top", "middle", "bottom"]
+    },
     "image": {
       "type": "string",
       "title": "Background Image",

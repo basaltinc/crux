@@ -1,6 +1,7 @@
-{# To properly create Component Variations and get correct BEM Modifier classes on, always have a boolean variable instead of variable that's simply `modifier` - those almost always require someone having to double-check stylesheet. #}
 {% set classes = [
   'hero',
+  'hero--alignment-all-' ~ alignment_all|default('left'),
+  'hero--alignment-content-' ~ alignment_content|default('bottom'),
   'u-full-width',
 ] | merge(classes|default([])) %}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
@@ -8,9 +9,7 @@
 <div class="{{ classes|join(' ') }}"{% if image %} style="background-image: url({{ image }});"{% endif %}>
 
   <div class="hero__inner u-site-container">
-    {% if title %}
-      <h1 class="hero__title {% if title_classes %}{{ title_classes|join(' ') }}{% endif %}">{{ title }}</h1>
-    {% endif %}
+    <h1 class="hero__title {% if title_classes %}{{ title_classes|join(' ') }}{% endif %}">{{ title }}</h1>
 
     <div class="hero__content {% if content_classes %}{{ content_classes|join(' ') }}{% endif %}">
       {% if body %}

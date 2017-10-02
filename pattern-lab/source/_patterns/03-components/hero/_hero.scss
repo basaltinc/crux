@@ -2,19 +2,19 @@
   background-size: cover;
   background-position: top center;
   position: relative;
-  //418 / 1060 = .394339623
-
-  //363 / 1060 = .34245283
   &__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 0;
-    padding-right: 0;
   }
   &__title {
     @include h2;
     color: $c-white;
+    margin: 0;
+    min-height: 150px;
+    @include breakpoint($bp--small) {
+      min-height: 200px;
+    }
   }
   &__content {
     background-color: $c-iron;
@@ -31,23 +31,55 @@
   @include breakpoint($bp--medium) {
     min-height: 300px;
     display: flex;
-    margin-bottom: $spacing--xl;
+    &--alignment-content-top {
+      margin-top: $spacing--xl + $spacing--s;
+    }
+    &--alignment-content-bottom {
+      margin-bottom: $spacing--xl + $spacing--s;
+    }
     &__inner {
-      flex-direction: row;
       justify-content: space-around;
       align-items: center;
+      flex-direction: row;
+      .hero--alignment-all-left & {
+      }
+      .hero--alignment-all-center & {
+        //flex-direction: column;
+        flex-wrap: wrap;
+        .hero__title {
+          width: grid-width(10);
+          text-align: center;
+        }
+        .hero__content {
+          width: grid-width(10);
+        }
+      }
+      .hero--alignment-all-right & {
+        flex-direction: row-reverse;
+      }
     }
     &__title {
       @include h1;
-      width: 33%;
+      min-height: 0;
+      width: grid-width(5);
     }
     &__content {
-      width: 33%;
-      align-self: flex-end;
+      width: grid-width(5);
       position: relative;
-      bottom: -1 * $spacing--xl;
       padding: $spacing--xl;
+      .hero--alignment-content-top & {
+        align-self: flex-start;
+        top: -1 * $spacing--xl;
+      }
+      .hero--alignment-content-middle & {
+      }
+      .hero--alignment-content-bottom & {
+        bottom: -1 * $spacing--xl;
+        align-self: flex-end;
+      }
+
     }
+
   }
 
   @include breakpoint($bp--xlarge) {

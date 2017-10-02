@@ -1,0 +1,11 @@
+{% set schema = json_decode(source('00-hero-schema.json')) %}
+
+{% for all in schema.properties.alignment_all.enum %}
+  {% for content in schema.properties.alignment_content.enum %}
+      <p>All: {{ all }} - Content: {{ content }}</p>
+      {% include '01-hero-default.twig' with {
+        alignment_all: all,
+        alignment_content: content,
+      } %}
+  {% endfor %}
+{% endfor %}
