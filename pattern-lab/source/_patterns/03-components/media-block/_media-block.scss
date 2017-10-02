@@ -5,6 +5,9 @@
 
   &__media {
     padding-top: 60%;
+    .media-block--show-full-media & {
+      padding-top: 0;
+    }
   }
 
   &__title {
@@ -15,7 +18,7 @@
 
   }
 
-  @include breakpoint($bp--medium) {
+  @include breakpoint($bp--small) {
     display: flex;
     justify-content: space-between;
     &--show-full-media {
@@ -27,10 +30,22 @@
     &__content {
       width: 50%;
       padding: $spacing--l;
+      .media-block--media-size-s & {
+        width: 75%;
+      }
+      .media-block--media-size-l & {
+        width: 25%;
+      }
     }
     &__media {
       padding-top: 0;
       width: 50%;
+      .media-block--media-size-s & {
+        width: 25%;
+      }
+      .media-block--media-size-l & {
+        width: 75%;
+      }
     }
     &__title {
       @include h2;
