@@ -11,7 +11,7 @@ module.exports = {
     "declaration-colon-space-after": "always",
     "declaration-no-important": true,
     "indentation": 2,
-    "max-nesting-depth": 3,
+    "max-nesting-depth": 4,
     "selector-max-specificity": "0,3,3",
     "selector-max-id": 0,
     "scss/at-extend-no-missing-placeholder": true,
