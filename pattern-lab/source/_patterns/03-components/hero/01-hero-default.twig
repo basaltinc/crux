@@ -1,7 +1,7 @@
 {% include '@components/_hero.twig' with {
-  image: 'http://via.placeholder.com/2000x500',
   title: random(titles),
   body: random(longTitles),
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
   buttons: [
     { text: random(texts) },
     { text: random(texts) },

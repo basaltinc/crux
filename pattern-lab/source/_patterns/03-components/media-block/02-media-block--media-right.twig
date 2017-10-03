@@ -1,6 +1,6 @@
 {% include '@components/_media-block.twig' with {
   title: random(titles),
   body: random(paragraphs),
-  demo: true,
+  media: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
   media_on_right: true,
 } %}
