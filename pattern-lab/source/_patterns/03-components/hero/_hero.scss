@@ -12,6 +12,12 @@
     color: $c-white;
     margin: 0;
     min-height: 150px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
     @include breakpoint($bp--small) {
       min-height: 200px;
     }
@@ -19,6 +25,8 @@
   &__content {
     background-color: $c-iron;
     padding: $spacing--m;
+    width: 90%;
+    margin-bottom: $spacing--m;
   }
   &__body {
     margin-bottom: $spacing--m;
@@ -61,6 +69,7 @@
     }
     &__title {
       @include h1;
+      display: block;
       min-height: 0;
       width: grid-width(5);
     }
@@ -68,6 +77,7 @@
       width: grid-width(5);
       position: relative;
       padding: $spacing--xl;
+      margin-bottom: 0;
       .hero--alignment-content-top & {
         align-self: flex-start;
         top: -1 * $spacing--xl;
