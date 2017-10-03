@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
+  "description": "Buttons are for clickin' and tappin'!",
   "properties": {
     "text": {
       "type": "string",
@@ -15,6 +16,7 @@
     },
     "color": {
       "type": "string",
+      "default": "green",
       "title": "BG Color",
       "enum": [
         "blue",
