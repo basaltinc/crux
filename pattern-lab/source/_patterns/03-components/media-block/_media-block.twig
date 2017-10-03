@@ -19,7 +19,7 @@
     } %}
   </div>
 
-  <div class="media-block__content">
+  <div class="media-block__content{% if content_classes %} {{ content_classes|join(' ') }}{% endif %}">
     {% if title %}
       {% set title_classes = [
         'media-block__title',

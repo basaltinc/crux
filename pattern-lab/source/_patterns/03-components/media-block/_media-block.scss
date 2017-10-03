@@ -35,7 +35,7 @@
     display: flex;
     justify-content: space-between;
     &--show-full-media {
-      align-items: flex-start;
+      align-items: center;
     }
     &.media-block--media-on-right {
       flex-direction: row-reverse;
