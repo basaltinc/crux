@@ -1,1 +1,3 @@
-{% include '@utils/schema-docs.twig' %}
+{% set schema = get_data('@components/hero-schema.json') %}
+
+{% include '@utils/schema-docs.twig' with schema %}

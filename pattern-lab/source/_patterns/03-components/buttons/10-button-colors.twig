@@ -1,0 +1,13 @@
+{% set schema = get_data('button-schema.json') %}
+
+{% for color in schema.properties.color.enum %}
+  {% set data = {
+    color: color,
+  } %}
+  <details><summary>{{ color }}</summary>
+    <pre><code>
+        {{- data|json_encode(constant('JSON_PRETTY_PRINT')) -}}
+    </code></pre>
+  </details>
+  {% include '01-button-default.twig' with data %}
+{% endfor %}
