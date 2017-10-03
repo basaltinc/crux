@@ -3,7 +3,7 @@ $c-secondary: $c-yellow;
 
 $c-border: $c-iron;
 $c-links: $c-blue;
-$c-links--hover: $c-blue--light;
+$c-links--hover: lighten($c-blue, 10);
 
 $c-header-text: black;
 $c-body-text: black;
