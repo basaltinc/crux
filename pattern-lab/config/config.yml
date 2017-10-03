@@ -82,9 +82,3 @@ plugins:
           - source/_patterns/03-components/site-footer
           - source/_patterns/03-components/site-header
           - source/_patterns/03-components/social
-      slices:
-        paths:
-          - source/_patterns/04-slices
-      templates:
-        paths:
-          - source/_patterns/05-templates
