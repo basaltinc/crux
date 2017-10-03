@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\Yaml\Yaml;
+
 $function = new \Twig_SimpleFunction('get_data', function (Twig_Environment $env, $context, $path) {
 
   /**
@@ -17,11 +19,20 @@ $function = new \Twig_SimpleFunction('get_data', function (Twig_Environment $env
   /** @var string $full_path */
   $full_path = $source->getPath();
 
+  $file_data = [];
+
   // @todo error handling for no file
   $file_string = file_get_contents($full_path);
-  // @todo check if not json
-  // @todo support yml/yaml
-  $file_data = json_decode($file_string, true);
+  $file_type = pathinfo($full_path)['extension'];
+
+  switch ($file_type) {
+    case 'json':
+      $file_data = json_decode($file_string, true);
+      break;
+    case 'yaml' || 'yml':
+      $file_data = Yaml::parse($file_string);
+      break;
+  }
 
   return $file_data;
 }, [
