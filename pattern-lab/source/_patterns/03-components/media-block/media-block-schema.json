@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "title": "Media Block",
+  "description": "Image, Title, Body, and Buttons make this really flexible.",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "inset_title": {
+      "type": "boolean",
+      "description": "Bring the title slightly over the image?"
+    },
+    "title_bg_color": {
+      "type": "string",
+      "title": "Title Background Color",
+      "description": "Any utility color class"
+    },
+    "title_text_color": {
+      "type": "string",
+      "title": "Title Text Color",
+      "description": "Any utility color class"
+    },
+    "body": {
+      "type": "string"
+    },
+    "media": {
+      "type": "string",
+      "title": "Image",
+      "description": "Path to image."
+    },
+    "show_full_media": {
+      "type": "boolean",
+      "title": "Show Full Media",
+      "description": "Show full image. Default is to 'cover' the whole side the media item is on: this allows matching the height of the text but does not show full media item."
+    },
+    "media_alignment": {
+      "type": "string",
+      "enum": ["left", "right"]
+    },
+    "media_padding": {
+      "type": "string",
+      "description": "Space around the media",
+      "enum": ["0", "s", "m", "l", "xl", "xxl"]
+    },
+    "media_size": {
+      "type": "string",
+      "description": "Size of media compared to content",
+      "enum": ["s", "m", "l", "xl"]
+    },
+    "buttons": {
+      "type": "array",
+      "description": "List of objects passed to @components/_button.twig"
+    }
+  },
+  "required": ["text", "url"]
+}

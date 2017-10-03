@@ -1,0 +1,8 @@
+{% set schema = get_data('@components/media-block-schema.json') %}
+
+{% for item in schema.properties.media_padding.enum %}
+  <p>Media Padding: {{ item }}</p>
+  {% include '01-media-block--default.twig' with {
+    media_padding: item,
+  } %}
+{% endfor %}
