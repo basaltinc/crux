@@ -3,6 +3,9 @@
   &__title {
 
   }
+  &__image {
+    margin-bottom: $spacing--l;
+  }
   &__content {
     margin-bottom: $spacing--l;
     .basic-block--size-large & {
@@ -26,6 +29,9 @@
 
   @include breakpoint($bp--large) {
     width: 65%;
+    &__image {
+      margin-bottom: $spacing--xl;
+    }
   }
 
 }
