@@ -46,6 +46,7 @@ $open: '.site-header-toggle:checked + .site-header';
     @include a-link($deco: none);
     display: block;
     font-family: $ff--avenir--medium;
+    padding: 7px 0;
     &--active.main-menu__link--active {
       text-decoration: underline;
     }
@@ -69,5 +70,8 @@ $open: '.site-header-toggle:checked + .site-header';
   .main-menu {
     flex-direction: row;
     font-size: $fs--l;
+    &__link {
+
+    }
   }
 }

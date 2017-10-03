@@ -97,6 +97,6 @@
 
 ///
 .u-hide {
-  display: none !important;
-  visibility: hidden !important;
+  display: none !important; //stylelint-disable-line declaration-no-important
+  visibility: hidden !important; //stylelint-disable-line declaration-no-important
 }
