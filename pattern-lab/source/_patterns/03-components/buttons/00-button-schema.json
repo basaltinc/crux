@@ -16,7 +16,15 @@
     "color": {
       "type": "string",
       "title": "BG Color",
-      "enum": ["yellow"]
+      "enum": [
+        "blue",
+        "blue--light",
+        "green",
+        "iron",
+        "yellow",
+        "white",
+        "black"
+      ]
     }
   },
   "required": ["text", "url"]

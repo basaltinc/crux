@@ -13,10 +13,50 @@
   }
 
   &--color {
+    &-blue {
+      background-color: $c-blue;
+      &:hover {
+        background-color: lighten($c-blue, 10);
+      }
+    }
+    &-blue--light {
+      @include a-link($c-black, $c-black, none, none);
+      background-color: $c-blue--light;
+      &:hover {
+        background-color: darken($c-blue--light, 10);
+      }
+    }
+    &-green {
+      background-color: $c-green;
+      &:hover {
+        background-color: lighten($c-green, 10);
+      }
+    }
+    &-iron {
+      @include a-link($c-black, $c-black, none, none);
+      background-color: $c-iron;
+      &:hover {
+        background-color: darken($c-iron, 10);
+      }
+    }
     &-yellow {
       background-color: $c-yellow;
       &:hover {
         background-color: darken($c-yellow, 10);
+      }
+    }
+    &-white {
+      @include a-link($c-black, $c-black, none, none);
+      border: solid 1px $c-iron;
+      background-color: $c-white;
+      &:hover {
+        background-color: darken($c-white, 10);
+      }
+    }
+    &-black {
+      background-color: $c-black;
+      &:hover {
+        background-color: lighten($c-black, 20);
       }
     }
   }
@@ -30,7 +70,7 @@
       font-size: $fs--l;
     }
     &-jumbo {
-      padding: 15px 25px;
+      padding: px 25px;
       font-size: $fs--xxl;
     }
   }
