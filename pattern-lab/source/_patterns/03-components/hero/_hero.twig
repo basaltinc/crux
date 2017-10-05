@@ -1,3 +1,4 @@
+
 {% set classes = [
   'hero',
   'hero--alignment-all-' ~ alignment_all|default('left'),
@@ -27,4 +28,5 @@
   </div>
 
 </div>
+{{ validate_data('@components/hero-schema.json', _self) }}
 

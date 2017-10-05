@@ -40,7 +40,7 @@ function scssToJsonWatch() {
 // gulp.task(webPackTasks.compile);
 
 gulp.task('css', cssTasks.compile);
-
+gulp.task('serve', browserSyncTasks.serve);
 gulp.task('pl', patternLabTasks.compile);
 
 gulp.task('validate', gulp.series([

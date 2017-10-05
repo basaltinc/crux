@@ -1,6 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
+  "title": "Hero",
   "properties": {
     "title": {
       "type": "string"
@@ -30,6 +31,5 @@
       "type": "array",
       "description": "List of objects passed to @components/_button.twig"
     }
-  },
-  "required": ["text", "url"]
+  }
 }
