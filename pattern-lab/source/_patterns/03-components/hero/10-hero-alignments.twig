@@ -1,10 +1,10 @@
 {% set schema = get_data('@components/hero-schema.json') %}
 
-{% for all in schema.properties.alignment_all.enum %}
+{% for all in schema.properties.alignment_all.oneOf %}
   {% for content in schema.properties.alignment_content.enum %}
-      <p>All: {{ all }} - Content: {{ content }}</p>
+      <p>All: {{ all.enum|first }} ({{ all.title }}) - Content: {{ content }}</p>
       {% include '01-hero-default.twig' with {
-        alignment_all: all,
+        alignment_all: all.enum|first,
         alignment_content: content,
       } %}
   {% endfor %}

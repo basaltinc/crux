@@ -47,7 +47,8 @@
 		"pattern-lab/styleguidekit-assets-default": "^3.0.0",
 		"pattern-lab/styleguidekit-twig-default": "^3.0.0",
 		"evanlovely/plugin-twig-namespaces": "^1.0",
-		"pattern-lab/plugin-faker": "^2.0"
+		"pattern-lab/plugin-faker": "^2.0",
+		"justinrainbow/json-schema": "^5.2"
 	},
 	"scripts": {
 		"post-install-cmd": [

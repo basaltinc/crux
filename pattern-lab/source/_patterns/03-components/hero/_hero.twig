@@ -1,3 +1,4 @@
+{% set buttons = buttons|default([]) %}
 {% set classes = [
   'hero',
   'hero--alignment-all-' ~ alignment_all|default('left'),
@@ -27,4 +28,4 @@
   </div>
 
 </div>
-
+{{ validate_data_schema('@components/hero-schema.json', _self) }}

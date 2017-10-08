@@ -2,7 +2,6 @@
   @include a-link(white, white, none, none);
   background-color: $c-green;
   display: inline-block;
-  padding: 10px 15px;
   font-family: $ff--avenir--medium;
   transition: background-color $trans-opacity;
   line-height: 1;
@@ -65,12 +64,16 @@
       padding: 5px 10px;
       font-size: $fs--s;
     }
+    &-medium {
+      padding: 10px 15px;
+      font-size: $fs--m;
+    }
     &-large {
       padding: 15px 20px;
       font-size: $fs--l;
     }
     &-jumbo {
-      padding: px 25px;
+      padding: 20px 25px;
       font-size: $fs--xxl;
     }
   }
