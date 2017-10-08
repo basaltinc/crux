@@ -11,7 +11,21 @@
     },
     "alignment_all": {
       "type": "string",
-      "enum": ["left", "center", "right"]
+      "oneOf": [
+        {
+          "enum": ["left"],
+          "title": "Left Title, Right Content"
+        },
+        {
+          "enum": ["center"],
+          "title": "Center Everything",
+          "description": "Both title and content will be centered, with title on top of content."
+        },
+        {
+          "enum": ["right"],
+          "title": "Right Title, Left Content"
+        }
+      ]
     },
     "alignment_content": {
       "type": "string",
@@ -29,7 +43,7 @@
     },
     "buttons": {
       "type": "array",
-      "description": "List of objects passed to @components/_button.twig"
+      "description": "List of objects passed to `@components/_button.twig`"
     }
   }
 }
