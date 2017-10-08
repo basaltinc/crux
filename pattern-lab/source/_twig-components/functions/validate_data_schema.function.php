@@ -9,7 +9,11 @@ use JsonSchema\Constraints\Constraint;
 // <div>Component</div>
 //{{ validate_data('@components/hero-schema.json', _self) }}
 
-$function = new \Twig_SimpleFunction('validate_data', function (Twig_Environment $env, $context, $schema_path, $twig_self) {
+$function = new \Twig_SimpleFunction('validate_data_schema', function (Twig_Environment $env, $context, $schema_path, $twig_self) {
+
+	if (isset($context['disable_validate_data_schema']) && $context['disable_validate_data_schema'])  {
+		return '';
+	}
 
 	$output = '';
 
@@ -28,7 +32,8 @@ $function = new \Twig_SimpleFunction('validate_data', function (Twig_Environment
 	/** @var string $full_path */
 	$full_path = $source->getPath();
 
-	$file_data = [];
+	$schema = [];
+
 
 	// @todo error handling for no file
 	$file_string = file_get_contents($full_path);
@@ -36,15 +41,15 @@ $function = new \Twig_SimpleFunction('validate_data', function (Twig_Environment
 
 	switch ($file_type) {
 		case 'json':
-			$file_data = json_decode($file_string);
+			$schema = json_decode($file_string);
 			break;
 		case 'yaml' || 'yml':
-			$file_data = Yaml::parse($file_string);
+			$schema = Yaml::parse($file_string);
 			break;
 	}
 
 	$validator = new Validator;
-	$validator->validate($context, $file_data, Constraint::CHECK_MODE_TYPE_CAST);
+	$validator->validate($context, $schema, Constraint::CHECK_MODE_TYPE_CAST);
 
 	if (!$validator->isValid()) {
 		$messages = [];
@@ -59,8 +64,10 @@ $function = new \Twig_SimpleFunction('validate_data', function (Twig_Environment
 		$to_log = [
 				'message' => $message_to_log,
 				'details' => [
-						'data_passed_to_template' => $context,
 						'template_path' => $env->resolveTemplate($twig_self)->getSourceContext()->getPath(),
+						'data_passed_to_template' => $context,
+						'schema' => $schema,
+						'errors' => $validator->getErrors(),
 				],
 		];
 
