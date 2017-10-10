@@ -41,6 +41,10 @@
       "title": "Content Classes",
       "description": "Used for setting BG and text color."
     },
+    "shorter": {
+      "type": "boolean",
+      "description": "Make the overall hero shorter and more compact"
+    },
     "buttons": {
       "type": "array",
       "description": "List of objects passed to `@components/_button.twig`"

@@ -6,6 +6,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    .hero--shorter & {
+      padding-top: $spacing--l;
+      padding-bottom: $spacing--l;
+    }
   }
   &__title {
     @include h2;
@@ -18,6 +22,10 @@
     flex-wrap: wrap;
     width: 90%;
     justify-content: center;
+    .hero--shorter & {
+      min-height: 0;
+      margin-bottom: $spacing--m;
+    }
     @include breakpoint($bp--small) {
       min-height: 200px;
     }
@@ -27,6 +35,14 @@
     padding: $spacing--m;
     width: 90%;
     margin-bottom: $spacing--m;
+    text-align: center;
+    .hero--shorter & {
+      padding: 0;
+      margin-bottom: 0;
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
   }
   &__body {
     margin-bottom: $spacing--m;
@@ -40,6 +56,9 @@
   @include breakpoint($bp--medium) {
     min-height: 300px;
     display: flex;
+    &--shorter {
+      min-height: 200px;
+    }
     &--alignment-content-top {
       margin-top: $spacing--xl + $spacing--s;
     }
@@ -54,14 +73,24 @@
       .hero--alignment-all-left & {
       }
       .hero--alignment-all-center & {
-        //flex-direction: column;
+        flex-direction: column;
         flex-wrap: wrap;
+        justify-content: center;
         .hero__title {
           width: grid-width(10);
           text-align: center;
+          margin-bottom: $spacing--l;
         }
         .hero__content {
-          width: grid-width(10);
+          width: grid-width(6);
+          text-align: center;
+          padding: 0;
+        }
+        .hero__body {
+          margin-bottom: 0;
+          :last-child {
+            margin-bottom: 0;
+          }
         }
       }
       .hero--alignment-all-right & {
@@ -79,6 +108,7 @@
       position: relative;
       padding: $spacing--xl;
       margin-bottom: 0;
+      text-align: left;
       .hero--alignment-content-top & {
         align-self: flex-start;
         top: -1 * $spacing--xl;
@@ -89,6 +119,9 @@
         bottom: -1 * $spacing--xl;
         align-self: flex-end;
       }
+      .hero--alignment-content-bottom.hero--alignment-all-center & {
+        align-self: center;
+      }
 
     }
 
@@ -96,6 +129,9 @@
 
   @include breakpoint($bp--xlarge) {
     min-height: 418px;
+    &--shorter {
+      min-height: 300px;
+    }
   }
 
 }

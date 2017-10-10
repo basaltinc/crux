@@ -1,0 +1,6 @@
+{% include '@components/_blog-teaser.twig' with {
+  title: random(titles),
+  summary: random(paragraphs),
+  read_more: 'Read More',
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+} only %}

@@ -16,11 +16,15 @@ $grid-sizes: 1, 2, 3, 4, 6;
 ///   .class {
 ///     width: grid-width(4); // becomes `width: calc((50% + 1%) - 2%);`
 ///   }
-@function grid-width($columns) {
+@function grid-width($columns, $with-gutter: true) {
   $items: $grid-columns / $columns;
   $column: 100% / $items;
   $extra-space: $grid-gutter / $items;
-  @return calc((#{$column} + #{$extra-space}) - #{$grid-gutter});
+  @if $with-gutter {
+    @return calc((#{$column} + #{$extra-space}) - #{$grid-gutter});
+  } @else {
+    @return $column;
+  }
 }
 
 /// Smart Grid

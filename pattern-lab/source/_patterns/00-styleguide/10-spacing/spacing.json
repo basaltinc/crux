@@ -22,6 +22,11 @@
     },
     {
       "name": "$spacing--xxl",
+      "value": "40px",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--xxxl",
       "value": "50px",
       "comment": ""
     }

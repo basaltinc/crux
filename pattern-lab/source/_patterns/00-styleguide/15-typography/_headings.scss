@@ -7,7 +7,7 @@ $fs--h6: $fs--s !default;
 
 @mixin heading() {
   font-family: $ff--heading;
-  margin-top: $spacing--l;
+  margin-top: $spacing--xl;
   margin-bottom: 0;
   line-height: 1;
   &:first-child {

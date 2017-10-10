@@ -48,7 +48,14 @@ $function = new \Twig_SimpleFunction('validate_data_schema', function (Twig_Envi
 			break;
 	}
 
-	$validator = new Validator;
+  // When using Twig `{% set var %}<p>Stuff</p>{% endset %}`, it results in a `Twig_Markup` as type instead of string so that throws a validation error.
+  foreach ($context as $key => $value) {
+	  if (is_object($value) && get_class($context[$key]) === 'Twig_Markup') {
+	    $context[$key] = $value->__toString();
+    }
+  }
+
+  $validator = new Validator;
 	$validator->validate($context, $schema, Constraint::CHECK_MODE_TYPE_CAST);
 
 	if (!$validator->isValid()) {

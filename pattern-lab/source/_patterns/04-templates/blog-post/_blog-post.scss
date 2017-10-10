@@ -1,0 +1,62 @@
+.blog-post {
+  $bp: $bp--large;
+  &__title {
+
+  }
+  &__date {
+
+  }
+  &__header {
+    text-align: center;
+    .hero {
+      padding-top: $spacing--m;
+      &__title {
+        display: none;
+      }
+    }
+    @include breakpoint($bp) {
+    }
+  }
+  &__body {
+    padding-top: $spacing--l;
+    padding-left: grid-width(1);
+    padding-right: grid-width(1);
+    @include breakpoint($bp) {
+      padding-top: $spacing--xxl;
+      padding-left: grid-width(2);
+      padding-right: grid-width(2);
+      img {
+        $x: 10.73333%;
+        width: 100% + ($x * 2);
+        max-width: $site-max-width;
+        margin-left: -1 * $x;
+        margin-right: -1 * $x;
+      }
+    }
+  }
+  &__footer {
+    position: relative;
+    margin-top: $spacing--xxl;
+    padding-top: $spacing--l;
+    padding-bottom: $spacing--l;
+    padding-left: grid-width(2);
+    padding-right: grid-width(2);
+    @include breakpoint($bp) {
+      margin-top: $spacing--xxxl;
+      padding-left: grid-width(3);
+      padding-right: grid-width(3);
+    }
+    &:before {
+      @include center($vertically: false);
+      content: '';
+      display: block;
+      width: grid-width(4);
+      height: 1px;
+      background-color: $c-body-text;
+      position: absolute;
+      top: 0;
+    }
+
+  }
+
+}

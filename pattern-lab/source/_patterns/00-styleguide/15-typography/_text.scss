@@ -33,8 +33,18 @@ body {
   padding: 0;
 }
 
+$spacing--text: 1rem;
 p {
-  margin: 0 0 $spacing--m;
+  margin: 0 0 $spacing--text;
+}
+
+ul,
+ol {
+  margin: 0 0 $spacing--text;
+}
+
+li {
+  margin: 0 0 $spacing--text;
 }
 
 a {

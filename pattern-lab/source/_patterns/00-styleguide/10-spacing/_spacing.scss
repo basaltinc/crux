@@ -2,7 +2,8 @@ $spacing--s: 5px;
 $spacing--m: 10px;
 $spacing--l: 20px;
 $spacing--xl: 30px;
-$spacing--xxl: 50px;
+$spacing--xxl: 40px;
+$spacing--xxxl: 50px;
 
 .u-spacing-down {
   margin-bottom: $spacing--l;
@@ -11,6 +12,7 @@ $spacing--xxl: 50px;
   &--l { margin-bottom: $spacing--l; }
   &--xl { margin-bottom: $spacing--xl; }
   &--xxl { margin-bottom: $spacing--xxl; }
+  &--xxxl { margin-bottom: $spacing--xxxl; }
 }
 
 .u-spacing-up {

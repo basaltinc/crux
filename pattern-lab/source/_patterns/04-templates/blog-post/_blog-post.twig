@@ -1,0 +1,29 @@
+{# To properly create Component Variations and get correct BEM Modifier classes on, always have a boolean variable instead of variable that's simply `modifier` - those almost always require someone having to double-check stylesheet. #}
+{% set classes = [
+  'blog-post',
+] | merge(classes|default([])) %}
+{# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
+
+<article class="{{ classes|join(' ') }}">
+
+  <header class="blog-post__header">
+    {% block header %}
+
+    {% endblock %}
+  </header>
+
+  <div class="blog-post__body">
+    {% block body %}
+
+    {% endblock %}
+  </div>
+
+  <footer class="blog-post__footer smart-grid">
+    <div class="blog-post__meta">
+      {% block meta %}
+
+      {% endblock %}
+    </div>
+  </footer>
+
+</article>
