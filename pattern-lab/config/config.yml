@@ -75,6 +75,7 @@ plugins:
         paths:
           - source/_patterns/03-components
           - source/_patterns/03-components/basic-block
+          - source/_patterns/03-components/blog-teaser
           - source/_patterns/03-components/buttons
           - source/_patterns/03-components/forms
           - source/_patterns/03-components/hero
@@ -82,3 +83,8 @@ plugins:
           - source/_patterns/03-components/site-footer
           - source/_patterns/03-components/site-header
           - source/_patterns/03-components/social
+      templates:
+        paths:
+          - source/_patterns/04-templates
+          - source/_patterns/04-templates/blog-list
+          - source/_patterns/04-templates/blog-post
