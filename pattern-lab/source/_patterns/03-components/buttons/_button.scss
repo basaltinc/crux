@@ -6,6 +6,8 @@
   transition: background-color $trans-opacity;
   line-height: 1;
   margin-bottom: $spacing--m;
+  min-width: 58px;
+  text-align: center;
 
   &:hover {
     background-color: lighten($c-green, 10);

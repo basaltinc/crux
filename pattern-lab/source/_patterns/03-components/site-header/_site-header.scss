@@ -40,7 +40,7 @@ $open: '.site-header-toggle:checked + .site-header';
   text-align: right;
   margin: 0;
   &__item {
-    margin-right: $spacing--m;
+    margin-right: $spacing--l;
   }
   &__link {
     @include a-link($deco: none);

@@ -84,13 +84,14 @@
         .hero__content {
           width: grid-width(6);
           text-align: center;
-          padding: 0;
         }
         .hero__body {
           margin-bottom: 0;
+          /* stylelint-disable max-nesting-depth, selector-max-specificity */
           :last-child {
             margin-bottom: 0;
           }
+          /* stylelint-enable max-nesting-depth, selector-max-specificity */
         }
       }
       .hero--alignment-all-right & {
