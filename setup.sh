@@ -7,3 +7,4 @@ fi
 
 cd pattern-lab
 composer install --no-interaction
+cd ..
