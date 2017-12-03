@@ -1,2 +1,5 @@
+[build]
+  command = "npm test"
+
 [build.environment]
   IN_NETLIFY = "yes"
