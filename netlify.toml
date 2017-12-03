@@ -1,5 +1,6 @@
 [build]
-  command = "npm test"
+  command = "npm test && npm run compile"
+  publish = "build"
 
 [build.environment]
   IN_NETLIFY = "yes"
