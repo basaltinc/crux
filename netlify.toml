@@ -1,0 +1,2 @@
+[build.environment]
+  IN_NETLIFY = "yes"

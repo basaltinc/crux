@@ -10,6 +10,7 @@
     "gulp": "gulp",
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "setup": "cd pattern-lab && composer install --no-interaction",
+    "preinstall": "./scripts/netlify.sh",
     "postinstall": "npm run setup && npm run compile"
   },
   "dependencies": {
