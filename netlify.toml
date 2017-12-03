@@ -1,6 +1,7 @@
 [build]
-  command = "npm test && npm run compile"
+  command = "npm test"
   publish = ""
 
 [build.environment]
   IN_NETLIFY = "yes"
+  YARN_VERSION = "1.3.2"
