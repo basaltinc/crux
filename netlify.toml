@@ -4,4 +4,3 @@
 
 [build.environment]
   IN_NETLIFY = "yes"
-  YARN_VERSION = "1"
