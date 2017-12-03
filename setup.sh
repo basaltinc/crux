@@ -7,6 +7,6 @@ if [[ $IN_NETLIFY == 'yes' ]]; then
 fi
 
 cd pattern-lab
-composer install --no-interaction
+composer install --no-interaction --no-progress
 cd ..
 echo 'setup.sh done.'
