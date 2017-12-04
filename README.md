@@ -85,3 +85,11 @@ Now, there should be a symlink from `our-cms/node_modules/our-design-system` to 
 1. Make changes needed in `our-design-system`
 1. After they are merged and a release is done, you'll have a new tag (like `v1.2.3`)
 1. Update `package.json` in `our-cms` to use the new tag. This change is in the PR that go along with the other changes needed.
+
+Example of what the `our-cms` dependencies section in `package.json` would look like; note the tag reference at the end of url:
+
+```
+"dependencies": {
+    "our-design-system": "git+ssh://git@bitbucket.org/basaltinc/our-design-system.git#v1.2.3"
+}
+```
