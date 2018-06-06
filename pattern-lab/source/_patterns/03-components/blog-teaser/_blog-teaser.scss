@@ -32,6 +32,7 @@
     @include breakpoint($bp) {
       margin-bottom: $spacing--m;
     }
+    @include h4();
   }
   &__date {
 
