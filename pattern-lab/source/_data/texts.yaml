@@ -24,6 +24,13 @@ texts:
 - "Faker.words(5, true)"
 - "Faker.words(6, true)"
 
+authors:
+- "Faker.name(2, true)"
+- "Faker.name(2, true)"
+- "Faker.name(2, true)"
+- "Faker.name(2, true)"
+- "Faker.name(2, true)"
+
 paragraphs:
 - "Faker.words(88, true)"
 - "Faker.words(110, true)"
