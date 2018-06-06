@@ -2,7 +2,7 @@
   @include site-container();
   &__header {}
   &__page {
-
+    margin: $spacing--xxxl 0;
   }
   &__footer {}
 }
