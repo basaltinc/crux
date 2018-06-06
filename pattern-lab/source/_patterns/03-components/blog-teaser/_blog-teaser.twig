@@ -13,6 +13,10 @@
       <h2 class="blog-teaser__title">{{ title }}</h2>
     {% endif %}
 
+    {% if author %}
+      <h4 class="blog-teaser__author">by {{ author }}</h4>
+    {% endif %}
+
     {% if date %}
       <div class="blog-teaser__date">{{ date }}</div>
     {% endif %}

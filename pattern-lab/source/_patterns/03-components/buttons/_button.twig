@@ -14,4 +14,4 @@
 {% endif %}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 <a class="{{ classes|join(' ') }}" href="{{ url }}">{{ text }}</a>
-{{ validate_data_schema('@components/button-schema.json', _self) }}
+{# {{ validate_data_schema('@components/button-schema.json', _self) }} #}

@@ -1,3 +1,12 @@
+@mixin set($size) {
+  >.bg-img {
+    top: $size;
+    bottom: $size;
+    left: $size;
+    right: $size;
+  }
+}
+
 .media-block {
   &__content {
     padding: $spacing--s;
@@ -29,15 +38,6 @@
 
   &__body {
 
-  }
-
-  @mixin set($size) {
-    >.bg-img {
-      top: $size;
-      bottom: $size;
-      left: $size;
-      right: $size;
-    }
   }
 
   @include breakpoint($bp--small) {

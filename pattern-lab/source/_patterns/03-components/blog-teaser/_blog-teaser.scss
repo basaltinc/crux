@@ -25,7 +25,12 @@
   }
   &__title {
     @include breakpoint($bp) {
-      margin-bottom: $spacing--l;
+      margin-bottom: $spacing--m;
+    }
+  }
+  &__author {
+    @include breakpoint($bp) {
+      margin-bottom: $spacing--m;
     }
   }
   &__date {
