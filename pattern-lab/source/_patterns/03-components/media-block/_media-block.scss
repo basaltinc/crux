@@ -31,6 +31,15 @@
 
   }
 
+  @mixin set($size) {
+    >.bg-img {
+      top: $size;
+      bottom: $size;
+      left: $size;
+      right: $size;
+    }
+  }
+
   @include breakpoint($bp--small) {
     display: flex;
     justify-content: space-between;
@@ -64,14 +73,7 @@
           &-l {padding: $spacing--l;}
         }
       }
-      @mixin set($size) {
-        >.bg-img {
-          top: $size;
-          bottom: $size;
-          left: $size;
-          right: $size;
-        }
-      }
+
       &--bg {
         &.media-block__media--padding {
           &-s {

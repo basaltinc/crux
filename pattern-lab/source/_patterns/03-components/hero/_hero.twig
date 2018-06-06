@@ -13,19 +13,22 @@
   <div class="hero__inner u-site-container">
     <h1 class="hero__title {% if title_classes %}{{ title_classes|join(' ') }}{% endif %}"><span>{{ title }}</span></h1>
 
-    <div class="hero__content {% if content_classes %}{{ content_classes|join(' ') }}{% endif %}">
-      {% if body %}
-        <div class="hero__body">{{ body|raw }}</div>
-      {% endif %}
+    {% if body or buttons %}
+      <div class="hero__content {% if content_classes %}{{ content_classes|join(' ') }}{% endif %}">
+        {% if body %}
+          <div class="hero__body">{{ body|raw }}</div>
+        {% endif %}
 
-      {% if buttons %}
-        <div class="hero__buttons">
-          {% for button in buttons %}
-            {% include '@components/_button.twig' with button only %}
-          {% endfor %}
-        </div>
-      {% endif %}
-    </div>
+        {% if buttons %}
+          <div class="hero__buttons">
+            {% for button in buttons %}
+              {% include '@components/_button.twig' with button only %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
   </div>
 
 </div>
