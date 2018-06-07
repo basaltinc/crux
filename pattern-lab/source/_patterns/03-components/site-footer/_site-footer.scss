@@ -9,7 +9,7 @@
     padding-bottom: $spacing--l;
   }
   &__content {
-    width: 100%;
+    width: 80%;
     flex-grow: 1;
   }
   &__body {
@@ -23,7 +23,7 @@
   }
   &__social,
   &__menu {
-    width: 45%;
+    // width: 45%;
     flex-shrink: 0;
     flex-grow: 0;
   }
@@ -46,15 +46,13 @@
     &__menu {
       width: 25%;
       flex-shrink: 0;
-      flex-grow: 0;
-      padding-left: $spacing--m;
-      padding-right: $spacing--m;
+      flex-grow: 1;
     }
     &__content {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      width: 50%;
+      // width: 50%;
     }
     &__body {
       font-size: $fs--l;
