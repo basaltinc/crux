@@ -3,6 +3,7 @@
   @include a-link($c-body-text, $c-body-text, none, none);
   display: flex;
   flex-direction: column-reverse;
+  margin-top: $spacing--xxl;
   &--even {
     background-color: $c-yellow;
   }
