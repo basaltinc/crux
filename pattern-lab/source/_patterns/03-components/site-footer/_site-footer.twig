@@ -8,6 +8,9 @@
 <div class="{{ classes|join(' ') }}">
   <div class="site-footer__inner u-site-container">
     <div class="site-footer__content">
+      <div class="site-footer__social">
+        {% include '@components/_social.twig' only %}
+      </div>
       <div class="site-footer__body">
         <p>We build consistent, scalable, and maintainable solutions to power your digital strategy.</p>
       </div>
@@ -17,9 +20,6 @@
       </div>
     </div>
 
-    <div class="site-footer__social">
-      {% include '@components/_social.twig' only %}
-    </div>
 
     <nav class="site-footer__menu">
       {% for item in menu_items %}
