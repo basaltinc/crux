@@ -14,7 +14,6 @@
 
   &__media {
     padding-top: 100%;
-    margin-bottom: $spacing--s;
     position: relative;
     .bg-img {
       position: absolute;
@@ -43,9 +42,6 @@
   @include breakpoint($bp--small) {
     display: flex;
     justify-content: space-between;
-    &--show-full-media {
-      align-items: center;
-    }
     &.media-block--media-on-right {
       flex-direction: row-reverse;
     }
@@ -60,6 +56,11 @@
       }
       .media-block--media-size-xl & {
         width: 25%;
+      }
+      .media-block--show-full-media & {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     }
     &__media {
@@ -105,6 +106,11 @@
       }
       .media-block--media-size-xl & {
         width: 75%;
+      }
+      .media-block--show-full-media & {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
     }
     &__title {

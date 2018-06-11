@@ -13,9 +13,11 @@
     media_padding ? 'media-block__media--padding-' ~ media_padding,
   ] %}
   <div class="{{ media_classes|join(' ') }}">
+    {% set position_class = "bg-img--" ~ media_position|default('top-center') %}
     {% include '@styleguide/_img.twig' with {
       bg: show_full_media != true,
       img: demo ? false : media,
+      class: position_class,
     } %}
   </div>
 
