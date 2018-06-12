@@ -13,6 +13,9 @@ $fs--h6: $fs--s !default;
   &:first-child {
     margin-top: 0;
   }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 @mixin h1() {

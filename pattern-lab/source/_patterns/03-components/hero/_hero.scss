@@ -37,7 +37,7 @@
     margin-bottom: $spacing--m;
     text-align: center;
     .hero--shorter & {
-      padding: 0;
+      // padding: 0;
       margin-bottom: 0;
       :last-child {
         margin-bottom: 0;
@@ -45,7 +45,10 @@
     }
   }
   &__body {
-    margin-bottom: $spacing--m;
+    margin-bottom: 1em;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   &__buttons {
     display: flex;
@@ -80,6 +83,9 @@
           width: grid-width(10);
           text-align: center;
           margin-bottom: $spacing--l;
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
         .hero__content {
           width: grid-width(6);

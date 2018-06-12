@@ -36,6 +36,9 @@ body {
 $spacing--text: 1rem;
 p {
   margin: 0 0 $spacing--text;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 ul,
@@ -59,7 +62,7 @@ strong {
 blockquote {
   font-style: italic;
   border-left: solid 3px $c-border;
-  margin-left: $spacing--l;
+  margin: 2rem auto 2rem $spacing--l;
   padding-left: $spacing--l;
 }
 
@@ -95,4 +98,3 @@ code {
   padding: 0 3px;
   border-radius: 4px;
 }
-
