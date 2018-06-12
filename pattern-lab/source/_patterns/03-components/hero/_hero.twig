@@ -5,6 +5,7 @@
   'hero--alignment-content-' ~ alignment_content|default('bottom'),
   shorter ? 'hero--shorter',
   'u-full-width',
+  image_overlay ? 'hero--overlay-' ~ image_overlay,
 ] | merge(classes|default([])) %}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
