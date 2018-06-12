@@ -2,16 +2,18 @@
   display: block;
   margin-bottom: $spacing--m;
   &__label {
-
+    text-align: left;
   }
   &__item {
     width: 100%;
-    padding: .5rem;
+    padding: 1em;
     border-radius: 3px;
-    border: $c-border 1px solid;
+    border: $c-border 2px solid;
     font-size: .75rem;
     &--submit {
-
+      color: white;
+      font-size: 1rem;
+      border-radius: 3px;
     }
   }
 }

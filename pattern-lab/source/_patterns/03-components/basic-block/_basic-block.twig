@@ -19,6 +19,12 @@
     <div class="basic-block__content">{{ content|raw }}</div>
   {% endif %}
 
+  {% if form %}
+    <div class="basic-block__form">
+      {% include '@components/_formspree-form.twig' %}
+    </div>
+  {% endif %}
+
   {% if buttons %}
     <div class="basic-block__buttons">
       {% for button in buttons %}
