@@ -36,6 +36,10 @@
       "title": "Background Image",
       "description": "Path to image."
     },
+    "image_overlay": {
+      "type": "string",
+      "enum": ["blue", "gray", "yellow", "none"]
+    },
     "content_classes": {
       "type": "array",
       "title": "Content Classes",

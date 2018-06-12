@@ -1,0 +1,24 @@
+Blue Overlay
+{% include '@components/_hero.twig' with {
+  title: random(titles),
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+  image_overlay: 'blue',
+} %}
+Green Overlay
+{% include '@components/_hero.twig' with {
+  title: random(titles),
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+  image_overlay: 'green',
+} %}
+Black Overlay
+{% include '@components/_hero.twig' with {
+  title: random(titles),
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+  image_overlay: 'black',
+} %}
+Yellow Overlay
+{% include '@components/_hero.twig' with {
+  title: random(titles),
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+  image_overlay: 'yellow',
+} %}

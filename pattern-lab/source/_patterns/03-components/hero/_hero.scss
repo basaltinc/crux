@@ -2,7 +2,31 @@
   background-size: cover;
   background-position: top center;
   position: relative;
+  &:before {
+    @include img-overlay;
+  }
+  &--overlay-blue {
+    &:before {
+      background-color: rgba($c-blue,0.3);
+    }
+  }
+  &--overlay-green {
+    &:before {
+      background-color: rgba($c-green,0.3);
+    }
+  }
+  &--overlay-black {
+    &:before {
+      background-color: rgba($c-black,0.3);
+    }
+  }
+  &--overlay-yellow {
+    &:before {
+      background-color: rgba($c-yellow,0.4);
+    }
+  }
   &__inner {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
