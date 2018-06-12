@@ -22,3 +22,8 @@ Yellow Overlay
   image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
   image_overlay: 'yellow',
 } %}
+No Overlay
+{% include '@components/_hero.twig' with {
+  title: random(titles),
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+} %}
