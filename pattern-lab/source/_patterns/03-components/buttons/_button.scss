@@ -62,19 +62,19 @@
   }
   &--size {
     &-small {
-      padding: .5em 1em;
+      padding: $spacing--xs $spacing--m;
       font-size: $fs--s;
     }
     &-medium {
-      padding: .75em 1.25em;
+      padding: $spacing--s $spacing--l;
       font-size: $fs--m;
     }
     &-large {
-      padding: 1em 1.5em;
+      padding: $spacing--m $spacing--xl;
       font-size: $fs--l;
     }
     &-jumbo {
-      padding: .75em 1em;
+      padding: $spacing--l $spacing--xl;
       font-size: $fs--xxl;
     }
   }

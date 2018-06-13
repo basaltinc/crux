@@ -30,13 +30,13 @@
   &__title {
     @include h3;
     &[class*='u-bg-'] {
-      padding: 5px 10px;
+      padding: $spacing--xs $spacing--s;
       margin-bottom: $spacing--m;
     }
   }
 
   &__body {
-    margin-bottom: 1rem;
+    margin-bottom: $spacing--m;
     &:last-child {
       margin-bottom: 0;
     }
@@ -119,7 +119,7 @@
     &__title {
       @include h2;
       &[class*='u-bg-'] {
-        padding: 5px 10px;
+        padding: $spacing--xs $spacing--s;
         margin-bottom: $spacing--l;
       }
       &--inset {

@@ -14,7 +14,7 @@ $site-padding: $spacing--s;
     padding-left: $site-padding;
     padding-right: $site-padding;
   }
-  @include breakpoint($site-max-width + ($site-padding * 2)) {
+  @include breakpoint(calc(#{$site-max-width} + (#{$site-padding} * 2))) {
     @if $useWidth {
       width: $site-max-width;
     } @else {

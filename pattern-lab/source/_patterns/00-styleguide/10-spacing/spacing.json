@@ -1,33 +1,38 @@
 {
   "items": [
     {
+      "name": "$spacing--xs",
+      "value": ".5rem",
+      "comment": ""
+    },
+    {
       "name": "$spacing--s",
-      "value": "5px",
+      "value": ".75rem",
       "comment": ""
     },
     {
       "name": "$spacing--m",
-      "value": "10px",
+      "value": "1rem",
       "comment": ""
     },
     {
       "name": "$spacing--l",
-      "value": "20px",
+      "value": "1.5rem",
       "comment": ""
     },
     {
       "name": "$spacing--xl",
-      "value": "30px",
+      "value": "2rem",
       "comment": ""
     },
     {
       "name": "$spacing--xxl",
-      "value": "40px",
+      "value": "3rem",
       "comment": ""
     },
     {
       "name": "$spacing--xxxl",
-      "value": "50px",
+      "value": "4rem",
       "comment": ""
     }
   ],
