@@ -11,7 +11,9 @@
 <div class="{{ classes|join(' ') }}"{% if image %} style="background-image: url({{ image }});"{% endif %}>
 
   <div class="hero__inner u-site-container">
-    <h1 class="hero__title {% if title_classes %}{{ title_classes|join(' ') }}{% endif %}"><span>{{ title }}</span></h1>
+    {% if title %}
+      <h1 class="hero__title {% if title_classes %}{{ title_classes|join(' ') }}{% endif %}"><span>{{ title }}</span></h1>
+    {% endif %}
 
     {% if body or buttons %}
       <div class="hero__content {% if content_classes %}{{ content_classes|join(' ') }}{% endif %}">
