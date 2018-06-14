@@ -61,6 +61,9 @@
   }
   &__body {
     margin-bottom: $spacing--m;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   &__buttons {
     display: flex;
@@ -111,6 +114,9 @@
       }
       .hero--alignment-all-right & {
         flex-direction: row-reverse;
+      }
+      .hero__title:last-child {
+        margin-bottom: 0;
       }
     }
     &__title {

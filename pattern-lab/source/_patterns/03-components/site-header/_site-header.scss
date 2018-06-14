@@ -7,7 +7,7 @@ $open: '.site-header-toggle:checked + .site-header';
   &__logo {
     display: block;
     width: grid-width(5);
-    margin: 10px 0;
+    margin: $spacing--xs 0;
     max-width: 200px;
     line-height: 1;
     @include breakpoint($bp--xsmall) {
@@ -15,7 +15,7 @@ $open: '.site-header-toggle:checked + .site-header';
     }
   }
   &__button {
-    font-size: 22px;
+    font-size: 1.5rem;
     &:hover { cursor: pointer; }
     #{$open} & {
       @include icon(close);
@@ -41,12 +41,13 @@ $open: '.site-header-toggle:checked + .site-header';
   margin: 0;
   &__item {
     margin-right: $spacing--l;
+    margin-bottom: 0;
   }
   &__link {
     @include a-link($deco: none);
     display: block;
     font-family: $ff--avenir--medium;
-    padding: 7px 0;
+    padding: $spacing--xs 0;
     &--active.main-menu__link--active {
       text-decoration: underline;
     }
@@ -56,7 +57,7 @@ $open: '.site-header-toggle:checked + .site-header';
 @include breakpoint($bp--large) {
   .site-header {
     &__logo {
-      margin: 25px 0;
+      margin: $spacing--l 0;
       width: grid-width(3);
     }
     &__button {
