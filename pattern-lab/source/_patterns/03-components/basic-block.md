@@ -6,7 +6,8 @@ All about the Basic Block.
 
 - `title` (string) - Title description
 - `content` (string) - Content description
-- `buttons` 
+- `buttons`
+- `form` (boolean)
 
 #### Modifiers
 
@@ -19,5 +20,6 @@ All about the Basic Block.
   title: 'Title',
   content: 'Content',
   buttons: 'Buttons',
+  form: 'Form',
 } only %}
 ```
