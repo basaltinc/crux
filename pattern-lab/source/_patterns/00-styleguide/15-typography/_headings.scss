@@ -8,10 +8,13 @@ $fs--h6: $fs--s !default;
 @mixin heading() {
   font-family: $ff--heading;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $spacing--m;
   line-height: 1;
   &:first-child {
     margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

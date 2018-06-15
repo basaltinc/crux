@@ -13,6 +13,10 @@
       &__title {
         display: none;
       }
+      &__content {
+        background-color: transparent;
+        color: white;
+      }
     }
     @include breakpoint($bp) {
     }
@@ -31,7 +35,18 @@
         max-width: $site-max-width;
         margin-left: -1 * $x;
         margin-right: -1 * $x;
+        margin-top: 30px;
+        margin-bottom: 30px;
       }
+    }
+    h2 {
+      margin-bottom: 2rem;
+    }
+    p + h2, ul + h2 {
+      margin-top: 2rem;
+    }
+    hr {
+      margin: 40px auto;
     }
   }
   &__footer {
@@ -54,9 +69,7 @@
       height: 1px;
       background-color: $c-body-text;
       position: absolute;
-      top: 0;
+      top: -10px;
     }
-
   }
-
 }

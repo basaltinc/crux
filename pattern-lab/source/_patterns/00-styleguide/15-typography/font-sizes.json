@@ -2,37 +2,37 @@
   "items": [
     {
       "name": "$fs--xxl",
-      "value": "36px",
+      "value": "2.25rem",
       "comment": ""
     },
     {
       "name": "$fs--xl",
-      "value": "27px",
+      "value": "1.75rem",
       "comment": ""
     },
     {
       "name": "$fs--l",
-      "value": "18px",
+      "value": "1.25rem",
       "comment": ""
     },
     {
       "name": "$fs--m",
-      "value": "16px",
+      "value": "1rem",
       "comment": ""
     },
     {
       "name": "$fs--s",
-      "value": "14px",
+      "value": ".875rem",
       "comment": ""
     },
     {
       "name": "$fs--xs",
-      "value": "12px",
+      "value": ".75rem",
       "comment": ""
     },
     {
       "name": "$fs--xxs",
-      "value": "10px",
+      "value": ".625rem",
       "comment": ""
     }
   ],

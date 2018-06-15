@@ -9,7 +9,7 @@
     padding-bottom: $spacing--l;
   }
   &__content {
-    width: 100%;
+    width: 80%;
     flex-grow: 1;
   }
   &__body {
@@ -23,16 +23,17 @@
   }
   &__social,
   &__menu {
-    width: 45%;
-    flex-shrink: 0;
+    // width: 45%;
+    flex-shrink: 1;
     flex-grow: 0;
+    &-link {
+      margin-right: $spacing--m;
+    }
   }
   &__social {
 
   }
-  &__menu {
 
-  }
 
   @include breakpoint($bp--medium) {
     &__inner {
@@ -46,15 +47,13 @@
     &__menu {
       width: 25%;
       flex-shrink: 0;
-      flex-grow: 0;
-      padding-left: $spacing--m;
-      padding-right: $spacing--m;
+      flex-grow: 1;
     }
     &__content {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      width: 50%;
+      // width: 50%;
     }
     &__body {
       font-size: $fs--l;
@@ -62,13 +61,14 @@
     }
     &__menu {
       display: flex;
-      flex-direction: column;
+      // flex-direction: column;
       justify-content: space-between;
       &-link {
         @include a-link($deco: none, $deco--hover: none);
         font-family: $ff--avenir--medium;
         display: block;
         margin-bottom: $spacing--s;
+        margin-right: $spacing--xs;
       }
     }
   }
@@ -81,6 +81,7 @@
     &__social,
     &__menu {
       width: 20%;
+      flex-direction: column;
     }
   }
 

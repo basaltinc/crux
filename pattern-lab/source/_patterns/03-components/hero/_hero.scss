@@ -2,7 +2,22 @@
   background-size: cover;
   background-position: top center;
   position: relative;
+
+  &--overlay-blue {
+    @include overlay($c-blue);
+  }
+  &--overlay-green {
+    @include overlay($c-green);
+  }
+  &--overlay-black {
+    @include overlay($c-black);
+  }
+  &--overlay-yellow {
+    @include overlay($c-yellow);
+  }
+
   &__inner {
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,6 +61,9 @@
   }
   &__body {
     margin-bottom: $spacing--m;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   &__buttons {
     display: flex;
@@ -96,6 +114,9 @@
       }
       .hero--alignment-all-right & {
         flex-direction: row-reverse;
+      }
+      .hero__title:last-child {
+        margin-bottom: 0;
       }
     }
     &__title {

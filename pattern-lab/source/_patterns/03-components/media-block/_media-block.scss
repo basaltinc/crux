@@ -9,7 +9,7 @@
 
 .media-block {
   &__content {
-    padding: $spacing--s;
+    padding: $spacing--l;
   }
 
   &__media {
@@ -30,13 +30,16 @@
   &__title {
     @include h3;
     &[class*='u-bg-'] {
-      padding: 5px 10px;
+      padding: $spacing--xs $spacing--s;
       margin-bottom: $spacing--m;
     }
   }
 
   &__body {
-
+    margin-bottom: $spacing--m;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   @include breakpoint($bp--small) {
@@ -47,7 +50,7 @@
     }
     &__content {
       width: 50%;
-      padding: $spacing--s $spacing--l;
+      padding: $spacing--l $spacing--xl;
       .media-block--media-size-s & {
         width: 75%;
       }
@@ -116,7 +119,7 @@
     &__title {
       @include h2;
       &[class*='u-bg-'] {
-        padding: 5px 10px;
+        padding: $spacing--xs $spacing--s;
         margin-bottom: $spacing--l;
       }
       &--inset {

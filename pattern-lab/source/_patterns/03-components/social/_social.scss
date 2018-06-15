@@ -3,7 +3,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   &__link {
-    $x: 15px;
+    $x: 1rem;
     @include a-link($deco: none, $deco--hover: none);
     font-size: $x;
     height: $x * 2;

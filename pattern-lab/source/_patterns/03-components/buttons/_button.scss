@@ -62,19 +62,19 @@
   }
   &--size {
     &-small {
-      padding: 5px 10px;
+      padding: $spacing--xs $spacing--m;
       font-size: $fs--s;
     }
     &-medium {
-      padding: 10px 15px;
+      padding: $spacing--s $spacing--l;
       font-size: $fs--m;
     }
     &-large {
-      padding: 15px 20px;
+      padding: $spacing--m $spacing--xl;
       font-size: $fs--l;
     }
     &-jumbo {
-      padding: 20px 25px;
+      padding: $spacing--l $spacing--xl;
       font-size: $fs--xxl;
     }
   }

@@ -1,9 +1,10 @@
-$spacing--s: 5px;
-$spacing--m: 10px;
-$spacing--l: 20px;
-$spacing--xl: 30px;
-$spacing--xxl: 40px;
-$spacing--xxxl: 50px;
+$spacing--xs: .5rem;
+$spacing--s: .75rem;
+$spacing--m: 1rem;
+$spacing--l: 1.5rem;
+$spacing--xl: 2rem;
+$spacing--xxl: 3rem;
+$spacing--xxxl: 4rem;
 
 .u-spacing-down {
   margin-bottom: $spacing--l;

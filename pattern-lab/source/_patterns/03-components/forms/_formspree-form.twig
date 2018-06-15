@@ -1,4 +1,4 @@
-<form class="form form--insightly" name="insightly_web_to_lead" action="https://gh8e00zj.insight.ly/WebToLead/Create" method="post">
+<form class="form form--formspree" name="formspree_web_to_lead" action="https://formspree.io/hi@basalt.io" method="post">
   <div class="form__items smart-grid" data-row-items-small="2">
     {% include '@styleguide/_form-item.twig' with {
       label: 'First Name',
@@ -27,16 +27,19 @@
       name: 'Title',
     } only %}
   </div>
+  <div class="form__items smart-grid">
+    {% include '@styleguide/_form-item.twig' with {
+      label: 'Message',
+      type: 'textarea',
+      name: 'Message',
+    } only %}
+  </div>
   <div class="form__actions smart-grid" data-row-items-small="2">
-    <div>
-      <input type="hidden" name="formId" value="VBBraZTCfgOIIiPE5yQUNA==" />
-      <input type="hidden" id="insightly_LeadSource" name="LeadSource" value="1941326" />
-      <input type="hidden" id="insightly_ResponsibleUser" name="ResponsibleUser" value="1414388" />
-    </div>
+    <div class="">
 
+    </div>
     {% include '@styleguide/_form-item.twig' with {
       type: 'submit',
-      name: 'submit',
       value: 'Submit'
     } only %}
   </div>
