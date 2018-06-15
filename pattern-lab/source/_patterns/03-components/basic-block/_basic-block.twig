@@ -15,15 +15,16 @@
     <img src="{{ image }}" alt="" class="basic-block__image">
   {% endif %}
 
+  {% if form %}
+  <div class="basic-block__form">
+    {% include '@components/_contact-form.twig' %}
+  </div>
+  {% endif %}
+  
   {% if content %}
     <div class="basic-block__content">{{ content|raw }}</div>
   {% endif %}
 
-  {% if form %}
-    <div class="basic-block__form">
-      {% include '@components/_formspree-form.twig' %}
-    </div>
-  {% endif %}
 
   {% if buttons %}
     <div class="basic-block__buttons">

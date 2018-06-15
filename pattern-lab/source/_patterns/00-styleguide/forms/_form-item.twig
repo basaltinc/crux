@@ -4,6 +4,7 @@
     <textarea
       class="form-item__item form-item__item--textarea"
       name="{{ name }}"
+      id="form-{{ name }}"
       rows="{{ rows|default('5') }}">
     </textarea>
   {% elseif type == 'submit' %}
@@ -11,6 +12,7 @@
       class="button--size-medium button--color-blue form-item__item form-item__item--submit"
       type="submit"
       name="{{ name }}"
+      id="form-{{ name }}"
       value="{{ value }}"
     >
   {% else %}
@@ -18,6 +20,7 @@
       class="form-item__item form-item__item--input"
       type="{{ type|default('text') }}"
       name="{{ name }}"
+      id="form-{{ name }}"
       placeholder="{{ placeholder|default(label) }}"
     >
   {% endif %}
