@@ -10,7 +10,8 @@
     "gulp": "gulp",
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "./setup.sh",
-    "postinstall": "npm run compile"
+    "postinstall": "npm run compile",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "@theme-tools/plugin-browser-sync": "^0.4.0",
