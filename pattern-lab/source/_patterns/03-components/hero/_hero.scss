@@ -4,10 +4,10 @@
   position: relative;
 
   &--overlay-blue {
-    @include overlay($c-blue);
+    @include overlay($c-blue, 0.4);
   }
   &--overlay-green {
-    @include overlay($c-green);
+    @include overlay($c-green, 0.4);
   }
   &--overlay-black {
     @include overlay($c-black);

@@ -22,7 +22,6 @@ function jsOpenLink() {
   // attach click event listener to the parent
   Array.from(el).forEach(function(element) {
     element.addEventListener('click', jsLinkClicked);
-    console.log(childLinks);
   });
 }
 

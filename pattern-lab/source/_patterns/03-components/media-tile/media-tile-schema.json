@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "title": "Media Tile",
+  "description": "Full Image overlayed with optional Title, Body, and Buttons.",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "text_align": {
+      "type": "string",
+      "enum": ["left", "center", "right"]
+    },
+    "title_bg_color": {
+      "type": "string",
+      "title": "Title Background Color",
+      "description": "Any utility color class"
+    },
+    "title_size": {
+      "type": "string",
+      "description": "Title size corresponds to sitewide heading sizes. 1 = h1, 2 = h2, etc.",
+      "enum": ["1", "2", "3", "4", "5", "6"]
+    },
+    "title_text_color": {
+      "type": "string",
+      "description": "Any utility color class"
+    },
+    "body": {
+      "type": "string"
+    },
+    "body_text_color":{
+      "type": "string",
+      "title": "Body Text Color",
+      "description": "Any utility color class"
+    },
+    "content_padding": {
+      "type": "string",
+      "description": "Space around the content in relation to the media",
+      "enum": ["0", "s", "m", "l", "xl", "xxl"]
+    },
+    "media": {
+      "type": "string",
+      "title": "Background Image",
+      "description": "Path to image."
+    },
+    "image_overlay": {
+      "type": "string",
+      "enum": ["blue", "gray", "yellow", "none"]
+    },
+    "media_padding": {
+      "type": "string",
+      "description": "Space around the media",
+      "enum": ["0", "s", "m", "l", "xl", "xxl"]
+    },
+    "buttons": {
+      "type": "array",
+      "description": "List of objects passed to @components/_button.twig"
+    }
+  },
+  "required": ["text"]
+}

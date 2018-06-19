@@ -80,6 +80,7 @@ plugins:
           - source/_patterns/03-components/forms
           - source/_patterns/03-components/hero
           - source/_patterns/03-components/media-block
+          - source/_patterns/03-components/media-tile
           - source/_patterns/03-components/site-footer
           - source/_patterns/03-components/site-header
           - source/_patterns/03-components/social

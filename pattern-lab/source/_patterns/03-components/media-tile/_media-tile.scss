@@ -1,0 +1,41 @@
+.media-tile {
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  display: flex;
+  z-index: 0;
+  &--overlay-blue {
+    @include overlay($c-blue, 0.4);
+  }
+  &--overlay-green {
+    @include overlay($c-green, 0.4);
+  }
+  &--overlay-black {
+    @include overlay($c-black);
+  }
+  &--overlay-yellow {
+    @include overlay($c-yellow);
+  }
+  &__content {
+    margin: 0 auto;
+    z-index: 2;
+    font-size: $fs--m;
+  }
+  &__title {
+    margin-bottom: $spacing--m;
+  }
+  &__buttons {
+    margin-top: $spacing--m;
+    .button {
+      margin: 0 $spacing--m;
+    }
+  }
+  &__body {
+    p {
+      margin-bottom: $spacing--m;
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+}

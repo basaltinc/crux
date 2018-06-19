@@ -132,5 +132,9 @@
 }
 
 .u-overlay {
-  @include  overlay();
+  @include overlay();
+}
+
+.js-link-to {
+  cursor: pointer;
 }
