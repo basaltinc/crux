@@ -1,3 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.classList.add('js');
-});
+function marysCoolFunction() {
+  document.body.classList.add('mary');
+}
+
+module.exports = () => {
+  marysCoolFunction();
+}
