@@ -135,6 +135,6 @@
   @include overlay();
 }
 
-.js-link-to {
+[data-linkto] {
   cursor: pointer;
 }

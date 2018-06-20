@@ -1,7 +1,7 @@
 {% include '@components/_media-tile.twig' with {
   title: random(titles),
   body: random(paragraphs),
-  media: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+  background_image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
   title_text_color: 'white',
   body_text_color: 'white',
   content_padding: 'l',

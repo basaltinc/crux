@@ -4,10 +4,9 @@
   media_padding ? 'media-tile__media--padding-' ~ media_padding,
   text_align ? 'u-text-align-' ~ text_align|default('center'),
   image_overlay ? 'hero--overlay-' ~ image_overlay,
-  url ? 'js-link-to',
 ] | merge(classes|default([])) %}
 
-{% set imgSrc = media is iterable ? media.src : media %}
+{% set imgSrc = background_image is iterable ? background_image.src : background_image %}
 
 <div class="bg-img {{ classes|join(' ') }}" {% if url %}
   data-linkto="{{ url }}" {% endif %} style="background-image: url({{ imgSrc }});">

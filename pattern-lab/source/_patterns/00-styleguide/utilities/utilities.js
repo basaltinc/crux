@@ -1,7 +1,7 @@
 function jsOpenLink() {
 
-  // find elements with class js-link-to
-  var el = document.getElementsByClassName('js-link-to');
+  // find elements with attribute data-linkto
+  var el = document.querySelectorAll('[data-linkto]');
 
   // define function to grab URL from data-linkto, open in new tab
   function jsLinkClicked() {
@@ -10,7 +10,7 @@ function jsOpenLink() {
   }
 
   // find any anchor tags within the clickable parent
-  var childLinks = document.querySelectorAll('.js-link-to a');
+  var childLinks = document.querySelectorAll('[data-linkto] a');
 
   // prevent children from executing the parent click event
   Array.from(childLinks).forEach(function(link){
