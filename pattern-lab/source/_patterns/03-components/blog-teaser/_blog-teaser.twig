@@ -14,7 +14,12 @@
     {% endif %}
 
     {% if author %}
-      <h3 class="blog-teaser__author">by {{ author }}</h3>
+      <h3 class="blog-teaser__author">by {{ author }}{% if author_image %}
+        {% include '@components/_avatar.twig' with {
+          size: 's',
+          img: image,
+        } only %}
+      {% endif %}</h3>
     {% endif %}
 
     {% if date %}
