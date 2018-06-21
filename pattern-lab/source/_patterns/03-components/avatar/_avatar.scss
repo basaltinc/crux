@@ -1,0 +1,19 @@
+.avatar {
+  border-radius: 50%;
+  &--size-s {
+    height: $fs--m;
+    width: $fs--m;
+  }
+  &--size-m {
+    height: $fs--l;
+    width: $fs--l;
+  }
+  &--size-l {
+    height: $fs--xl;
+    width: $fs--xl;
+  }
+  &--size-xl {
+    height: $fs--xxl;
+    width: $fs--xxl;
+  }
+}

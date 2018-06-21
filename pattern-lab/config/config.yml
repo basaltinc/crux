@@ -74,6 +74,7 @@ plugins:
       components:
         paths:
           - source/_patterns/03-components
+          - source/_patterns/03-components/avatar
           - source/_patterns/03-components/basic-block
           - source/_patterns/03-components/blog-teaser
           - source/_patterns/03-components/buttons

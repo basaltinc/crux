@@ -1,0 +1,14 @@
+{% if not size %}
+  {% set size = 'm' %}
+{% endif %}
+
+{% set classes = [
+  'avatar',
+  'avatar--size-' ~ size,
+] | merge(classes|default([])) %}
+
+{# Is `img` an object or string? #}
+{% set imgSrc = img is iterable ? img.src : img %}
+{% set imgAlt = img is iterable ? img.alt : '' %}
+
+<img src="{{ imgSrc }}" alt="{{ imgAlt }}" class="{{ classes|join(' ') }}">
