@@ -30,13 +30,15 @@
     }
   }
   &__author {
+    display: inline-block;
     @include breakpoint($bp) {
       margin-bottom: $spacing--m;
     }
     @include h4();
-    .avatar {
-      margin-left: $spacing--xs;
-    }
+  }
+  .avatar {
+    margin-left: $spacing--xs;
+    margin-top: -4px;
   }
   &__date {
 
