@@ -27,3 +27,13 @@ $spacing--xxxl: 4rem;
 .u-gap-up {
   margin-top: $spacing--s;
 }
+
+.u-padding {
+  padding: $spacing--l;
+  &--s { padding: $spacing--s; }
+  &--m { padding: $spacing--m; }
+  &--l { padding: $spacing--l; }
+  &--xl { padding: $spacing--xl; }
+  &--xxl { padding: $spacing--xxl; }
+  &--xxxl { padding: $spacing--xxxl; }
+}
