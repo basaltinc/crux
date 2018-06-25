@@ -7,7 +7,7 @@ const gulp = require('gulp');
 const scssToJson = require('scsstojson');
 const cssTasks = require('@theme-tools/plugin-sass')(config.css);
 const browserSyncTasks = require('@theme-tools/plugin-browser-sync')(config.browserSync);
-// const webPackTasks = require('@theme-tools/plugin-webpack')(require('./webpack.config'));
+const webPackTasks = require('@theme-tools/plugin-webpack')(require('./webpack.config'));
 const iconTasks = require('@theme-tools/plugin-icon-font')(config.icons);
 const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({
   configFile: './pattern-lab/config/config.yml',
@@ -73,7 +73,7 @@ gulp.task('compile', gulp.series([
     copyVendorJs,
     cssTasks.compile,
     cssTasks.docs,
-    // webPackTasks.compile,
+    webPackTasks.compile,
   ]),
 ]));
 
@@ -84,7 +84,7 @@ gulp.task('default', gulp.series([
     patternLabTasks.watch,
     cssTasks.watch,
     scssToJsonWatch,
-    // webPackTasks.watch,
+    webPackTasks.watch,
     iconTasks.watch,
   ]),
 ]));

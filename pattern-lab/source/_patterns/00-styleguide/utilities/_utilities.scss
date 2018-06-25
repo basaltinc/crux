@@ -132,5 +132,9 @@
 }
 
 .u-overlay {
-  @include  overlay();
+  @include overlay();
+}
+
+[data-linkto] {
+  cursor: pointer;
 }

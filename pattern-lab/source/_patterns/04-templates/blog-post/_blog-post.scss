@@ -72,4 +72,12 @@
       top: -10px;
     }
   }
+  &__author {
+    &__name {
+      display: inline-block;
+    }
+    .avatar {
+      margin-left: $spacing--m;
+    }
+  }
 }
