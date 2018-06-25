@@ -15,6 +15,9 @@
   &--overlay-yellow {
     @include overlay($c-yellow);
   }
+  &--overlay-darker {
+    @include overlay($c-black, 0.6);
+  }
 
   &__inner {
     z-index: 2;
@@ -70,6 +73,9 @@
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
+    .button {
+      margin-top: 1rem;
+    }
   }
   @include breakpoint($bp--medium) {
     min-height: 300px;
