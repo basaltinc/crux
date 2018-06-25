@@ -9,7 +9,6 @@
   &__header {
     text-align: center;
     .hero {
-      padding-top: $spacing--m;
       &__title {
         display: none;
       }
@@ -73,6 +72,7 @@
     }
   }
   &__author {
+    text-align: center;
     &__name {
       display: inline-block;
     }
