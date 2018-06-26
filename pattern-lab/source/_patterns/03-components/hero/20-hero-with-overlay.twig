@@ -27,3 +27,9 @@ No Overlay
   title: random(titles),
   image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
 } %}
+Darker Overlay
+{% include '@components/_hero.twig' with {
+  title: random(titles),
+  image: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+  image_overlay: 'darker',
+} %}
