@@ -38,7 +38,7 @@
     },
     "image_overlay": {
       "type": "string",
-      "enum": ["blue", "green" "black", "yellow", "darker", "none"]
+      "enum": ["blue", "green", "black", "yellow", "darker", "none"]
     },
     "content_classes": {
       "type": "array",
