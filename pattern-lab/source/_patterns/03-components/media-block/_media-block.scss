@@ -42,7 +42,7 @@
     }
   }
 
-  @include breakpoint($bp--small) {
+  @include breakpoint($bp--medium) {
     display: flex;
     justify-content: space-between;
     &.media-block--media-on-right {
