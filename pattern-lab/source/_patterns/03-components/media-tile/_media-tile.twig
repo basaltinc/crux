@@ -1,14 +1,15 @@
 {% set classes = [
   'media-tile',
-  image_overlay ? 'media-tile--overlay-' ~ image_overlay,
+  image_overlay ? 'bg-img media-tile--overlay-' ~ image_overlay,
   media_padding ? 'media-tile__media--padding-' ~ media_padding,
   text_align ? 'u-text-align-' ~ text_align|default('center'),
   image_overlay ? 'hero--overlay-' ~ image_overlay,
+  bg_color ? 'u-bg-' ~ bg_color,
 ] | merge(classes|default([])) %}
 
 {% set imgSrc = background_image is iterable ? background_image.src : background_image %}
 
-<div class="bg-img {{ classes|join(' ') }}" {% if url %}
+<div class="{{ classes|join(' ') }}" {% if url %}
   data-linkto="{{ url }}" {% endif %} style="background-image: url({{ imgSrc }});">
 
   <div class="media-tile__content {{ content_padding ? 'u-padding--' ~ content_padding|default('xl')
