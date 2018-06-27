@@ -36,6 +36,10 @@
       "title": "Body Text Color",
       "description": "Any utility color class"
     },
+    "body_text_size": {
+      "type": "string",
+      "enum": ["s", "m", "l", "xl", "xxl"]
+    },
     "content_padding": {
       "type": "string",
       "description": "Space around the content in relation to the media",
@@ -48,7 +52,12 @@
     },
     "image_overlay": {
       "type": "string",
-      "enum": ["blue", "gray", "yellow", "none"]
+      "enum": ["blue", "green", "yellow", "black", "none"]
+    },
+    "bg_color": {
+      "type": "string",
+      "title": "Background Color (if no image)",
+      "enum": ["blue", "green", "yellow", "iron", "black", "none"]
     },
     "media_padding": {
       "type": "string",

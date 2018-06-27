@@ -3,7 +3,7 @@
   image_overlay ? 'bg-img media-tile--overlay-' ~ image_overlay,
   media_padding ? 'media-tile__media--padding-' ~ media_padding,
   text_align ? 'u-text-align-' ~ text_align|default('center'),
-  image_overlay ? 'hero--overlay-' ~ image_overlay,
+  image_overlay ? 'media-tile--overlay-' ~ image_overlay,
   bg_color ? 'u-bg-' ~ bg_color,
 ] | merge(classes|default([])) %}
 
@@ -29,6 +29,7 @@
         'media-tile__body',
         body_bg_color ? 'u-bg-' ~ body_bg_color,
         body_text_color ? 'u-c-' ~ body_text_color,
+        body_text_size ? 'media-tile__body--' ~ body_text_size,
       ] %}
       <div class="media-tile__body {{ body_classes| join(' ') }}">{{ body|raw }}</div>
     {% endif %}

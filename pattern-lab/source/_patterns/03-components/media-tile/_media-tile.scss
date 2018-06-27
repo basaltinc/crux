@@ -1,6 +1,6 @@
 .media-tile {
   background-size: cover;
-  background-position: top center;
+  background-position: center center;
   position: relative;
   display: flex;
   z-index: 0;
@@ -25,7 +25,7 @@
     margin-bottom: $spacing--m;
   }
   &__buttons {
-    margin-top: $spacing--m;
+    margin: $spacing--m 0;
     .button {
       margin: 0 $spacing--m;
     }
@@ -33,6 +33,21 @@
   &__body {
     p {
       margin-bottom: $spacing--m;
+    }
+    &--s {
+      font-size: $fs--s;
+    }
+    &--m {
+      font-size: $fs--m;
+    }
+    &--l {
+      font-size: $fs--l;
+    }
+    &--xl {
+      font-size: $fs--xl;
+    }
+    &--xxl {
+      font-size: $fs--xxl;
     }
   }
   a {
