@@ -2,28 +2,27 @@
   background-color: $c-iron;
 
   &__inner {
-    // display: flex;
-    // justify-content: space-between;
     flex-wrap: wrap;
     padding-top: $spacing--l;
     padding-bottom: $spacing--l;
+    width: 95%;
   }
   &__content {
-    width: 80%;
+    // width: 80%;
     flex-grow: 1;
   }
   &__body {
-    //color: $c-white;
     font-weight: bold;
     font-family: $ff--avenir--medium;
     margin-bottom: $spacing--s;
+    text-align: center;
+    width: 100%;
   }
   &__meta {
     font-size: $fs--xs;
   }
   &__social,
   &__menu {
-    // width: 45%;
     flex-shrink: 1;
     flex-grow: 0;
     &-link {
@@ -70,8 +69,8 @@
 
   @include breakpoint($bp--xlarge) {
     &__inner {
-      padding-top: $spacing--xxl;
-      padding-bottom: $spacing--xxl;
+      padding-top: $spacing--xl;
+      padding-bottom: $spacing--xl;
     }
     &__social,
     &__menu {

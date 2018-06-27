@@ -7,26 +7,25 @@
 
 <div class="{{ classes|join(' ') }}">
   <div class="site-footer__inner u-site-container">
+    <div class="site-footer__body">
+      <p>We build consistent, scalable, and maintainable solutions to power your digital strategy.</p>
+    </div>
+    <nav class="site-footer__menu">
+      {% for item in menu_items %}
+      <a href="{{ item.url }}" class="site-footer__menu-link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
+      {% endfor %}
+      <a href="http://design.basalt.io" class="site-footer__menu-link" target="_blank">Our Pattern Lab</a>
+
+    </nav>
     <div class="site-footer__content">
       <div class="site-footer__social">
         {% include '@components/_social.twig' only %}
       </div>
-      <div class="site-footer__body">
-        <p>We build consistent, scalable, and maintainable solutions to power your digital strategy.</p>
-      </div>
-
     </div>
 
 
-    <nav class="site-footer__menu">
-      {% for item in menu_items %}
-        <a href="{{ item.url }}" class="site-footer__menu-link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
-      {% endfor %}
-        <a href="http://design.basalt.io" class="site-footer__menu-link" target="_blank">Our Pattern Lab</a>
-
-    </nav>
-  </div>
-  <div class="site-footer__meta">
-    ©{{ "now"|date('Y') }} Basalt All Rights Reserved
+    <div class="site-footer__meta">
+      ©{{ "now"|date('Y') }} Basalt All Rights Reserved
+    </div>
   </div>
 </div>
