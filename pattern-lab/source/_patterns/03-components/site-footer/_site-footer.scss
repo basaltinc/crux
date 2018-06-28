@@ -1,6 +1,10 @@
 .site-footer {
   background-color: $c-iron;
-
+  &__cta {
+    background-color: $c-blue;
+    padding: $spacing--l 0;
+    text-align: center;
+  }
   &__inner {
     flex-wrap: wrap;
     padding-top: $spacing--l;
