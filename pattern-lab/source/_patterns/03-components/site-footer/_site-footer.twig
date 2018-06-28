@@ -6,27 +6,31 @@
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
 <div class="{{ classes|join(' ') }}">
+  <div class="site-footer__cta">
+    <div class="site-footer__button">
+      {% include '@components/_button.twig' with {
+        text: 'Get Started',
+        url: 'http://www.basalt.io/contact',
+        size: 'medium',
+        color: 'iron',
+      } only %}
+    </div>
+  </div>
   <div class="site-footer__inner u-site-container">
-    <div class="site-footer__content">
+    <div class="site-footer__body">
+      <p>We build consistent, scalable, and maintainable solutions to power your digital strategy.</p>
       <div class="site-footer__social">
         {% include '@components/_social.twig' only %}
       </div>
-      <div class="site-footer__body">
-        <p>We build consistent, scalable, and maintainable solutions to power your digital strategy.</p>
-      </div>
-
-      <div class="site-footer__meta">
-        ©{{ "now"|date('Y') }} Basalt All Rights Reserved
-      </div>
     </div>
-
-
     <nav class="site-footer__menu">
       {% for item in menu_items %}
-        <a href="{{ item.url }}" class="site-footer__menu-link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
+      <a href="{{ item.url }}" class="site-footer__menu-link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
       {% endfor %}
-        <a href="http://design.basalt.io" class="site-footer__menu-link" target="_blank">Our Pattern Lab</a>
-
+      <a href="http://design.basalt.io" class="site-footer__menu-link" target="_blank">Our Pattern Lab</a>
     </nav>
+    <div class="site-footer__meta">
+      ©{{ "now"|date('Y') }} Basalt All Rights Reserved
+    </div>
   </div>
 </div>
