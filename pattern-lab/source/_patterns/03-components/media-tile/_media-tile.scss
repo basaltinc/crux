@@ -1,6 +1,6 @@
 .media-tile {
   background-size: cover;
-  background-position: center center;
+  background-position: top center;
   position: relative;
   display: flex;
   z-index: 0;
@@ -16,10 +16,16 @@
   &--overlay-yellow {
     @include overlay($c-yellow);
   }
+  &--overlay-darker {
+    @include overlay($c-black, 0.6);
+  }
   &__content {
-    margin: 0 auto;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
     font-size: $fs--l;
+    margin: auto auto;
+
   }
   &__title {
     margin-bottom: $spacing--m;
@@ -53,4 +59,5 @@
   a {
     text-decoration: none;
   }
+
 }
