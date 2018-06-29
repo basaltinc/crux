@@ -54,6 +54,11 @@
       "type": "string",
       "enum": ["blue", "green", "yellow", "black", "none"]
     },
+    "min_height": {
+      "type": "string",
+      "title": "Minimum Element Height",
+      "enum": ["0", "xxs", "xs", "s", "m", "l", "xl", "xxl"]
+    },
     "bg_color": {
       "type": "string",
       "title": "Background Color (if no image)",
