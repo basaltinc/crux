@@ -59,5 +59,11 @@
   a {
     text-decoration: none;
   }
+}
 
+.media-tile-grid {
+  &--gutter {
+    margin-right: $spacing--m;
+    margin-left: $spacing--m;
+  }
 }
