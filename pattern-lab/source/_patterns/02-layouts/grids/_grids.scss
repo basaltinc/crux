@@ -36,6 +36,7 @@ $grid-sizes: 1, 2, 3, 4, 6;
   flex-wrap: wrap;
   > * {
     margin-bottom: $gutter;
+    margin-top: $gutter;
     @if $row-items > 1 {
       width: grid-width($grid-columns / $row-items);
     } @else {
@@ -43,9 +44,11 @@ $grid-sizes: 1, 2, 3, 4, 6;
     }
     &:last-child {
       margin-bottom: $gutter;
+      margin-top: $gutter;
     }
     &:nth-child(1n) {
       margin-right: $gutter;
+      margin-top: $gutter;
     }
     &:nth-child(#{$row-items}n) {
       margin-right: 0;
@@ -90,12 +93,15 @@ $grid-sizes: 1, 2, 3, 4, 6;
 
 .smart-grid {
   > * {
-    margin-bottom: $spacing--m;
+    margin-bottom: $spacing--xs;
+    margin-top: $spacing--xs;
     &:last-child {
-      margin-bottom: $spacing--m;
+      margin-bottom: $spacing--xs;
+      margin-top: $spacing--xs;
     }
     &[class]:last-child {
-      margin-bottom: $spacing--m;
+      margin-bottom: $spacing--xs;
+      margin-top: $spacing--xs;
     }
   }
   @each $size in $grid-sizes {
