@@ -19,6 +19,9 @@
   &_img {
     &--greyscale {
       filter: grayscale(100%);
+      &:hover {
+        filter: grayscale(0%);
+      }
     }
   }
 }
@@ -26,6 +29,5 @@
 .logo-grid {
   text-align: center;
   .smart-grid {
-    margin: 2rem auto;
   }
 }
