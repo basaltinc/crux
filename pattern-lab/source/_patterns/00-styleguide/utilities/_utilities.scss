@@ -134,10 +134,3 @@
 .u-overlay {
   @include overlay();
 }
-
-[data-linkto] {
-  cursor: pointer;
-  &:hover {
-    @include overlay($c-black, 0.5);
-  }
-}

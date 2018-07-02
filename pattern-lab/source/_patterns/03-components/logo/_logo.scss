@@ -1,4 +1,9 @@
 .logo {
+  vertical-align: middle;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   &--small {
     max-width: 6rem;
   }
@@ -15,5 +20,12 @@
     &--greyscale {
       filter: grayscale(100%);
     }
+  }
+}
+
+.logo-grid {
+  text-align: center;
+  .smart-grid {
+    margin: 2rem auto;
   }
 }
