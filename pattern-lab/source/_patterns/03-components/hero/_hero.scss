@@ -54,6 +54,7 @@
     width: 90%;
     margin-bottom: $spacing--m;
     text-align: center;
+    z-index: 1;
     .hero--shorter & {
       padding: 0;
       margin-bottom: 0;
