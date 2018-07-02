@@ -1,0 +1,19 @@
+.logo {
+  &--small {
+    max-width: 6rem;
+  }
+  &--medium {
+    max-width: 12rem;
+  }
+  &--large {
+    max-width: 18rem;
+  }
+  &--jumbo {
+    max-width: 24rem;
+  }
+  &_img {
+    &--greyscale {
+      filter: grayscale(100%);
+    }
+  }
+}
