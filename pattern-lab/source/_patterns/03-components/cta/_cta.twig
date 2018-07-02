@@ -1,0 +1,14 @@
+{% set classes = [
+  
+] | merge(classes|default([])) %}
+
+<div class="cta">
+  <div class="cta__button">
+    {% include '@components/_button.twig' with {
+      text: 'Get Started',
+      url: 'http://www.basalt.io/contact',
+      size: 'medium',
+      color: 'iron',
+    } only %}
+  </div>
+</div>

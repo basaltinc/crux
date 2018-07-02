@@ -78,6 +78,7 @@ plugins:
           - source/_patterns/03-components/basic-block
           - source/_patterns/03-components/blog-teaser
           - source/_patterns/03-components/buttons
+          - source/_patterns/03-components/cta
           - source/_patterns/03-components/forms
           - source/_patterns/03-components/hero
           - source/_patterns/03-components/logo
