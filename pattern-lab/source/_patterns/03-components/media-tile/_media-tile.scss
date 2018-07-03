@@ -67,8 +67,9 @@
 }
 
 .media-tile-grid {
+  margin-bottom: (-$spacing--l);
   &--gutter {
-    margin-right: $spacing--m;
-    margin-left: $spacing--m;
+    margin-right: $spacing--l;
+    margin-left: $spacing--l;
   }
 }

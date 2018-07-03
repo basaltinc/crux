@@ -27,7 +27,14 @@
 }
 
 .logo-grid {
+  padding-top: $spacing--l;
+  margin-bottom: (-$spacing--l);
   text-align: center;
   .smart-grid {
+  }
+  @include breakpoint($bp--medium) {
+    .logo {
+      padding: 2rem;
+    }
   }
 }
