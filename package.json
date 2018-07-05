@@ -11,8 +11,9 @@
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "./setup.sh",
     "postinstall": "npm run compile",
-    "prepush": "npm run lint:js",
+    "prepush": "npm run lint:js && lint:scss",
     "lint:js": "eslint pattern-lab/source/**/*.js --fix",
+    "lint:scss": "stylelint \"pattern-lab/source/**/*.scss\"",
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
@@ -34,7 +35,8 @@
     "holderjs": "^2.9.4",
     "jsonschema": "^1.2.0",
     "scsstojson": "^1.0.2",
-    "stylelint-scss": "^1.4.4",
+    "stylelint": "9.3.0",
+    "stylelint-scss": "1.5.2",
     "webpack": "3.12.0"
   },
   "devDependencies": {
