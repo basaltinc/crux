@@ -11,6 +11,8 @@
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "./setup.sh",
     "postinstall": "npm run compile",
+    "prepush": "npm run lint:js",
+    "lint:js": "eslint pattern-lab/source/**/*.js --fix",
     "postversion": "git push && git push --tags"
   },
   "dependencies": {
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "generator-pl-pattern": "^1.0.0",
+    "husky": "0.14.3",
     "yo": "1.8.3"
   },
   "repository": "git@bitbucket.org:basaltinc/our-design-system.git"
