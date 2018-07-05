@@ -11,7 +11,7 @@
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "./setup.sh",
     "postinstall": "npm run compile",
-    "prepush": "npm run lint:js && lint:scss",
+    "prepush": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint pattern-lab/source/**/*.js --fix",
     "lint:scss": "stylelint \"pattern-lab/source/**/*.scss\"",
     "postversion": "git push && git push --tags"
