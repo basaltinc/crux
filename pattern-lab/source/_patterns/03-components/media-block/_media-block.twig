@@ -1,6 +1,8 @@
 {% set classes = [
   'media-block',
   media_on_right ? 'media-block--media-on-right',
+  media_on_top ? 'media-block--media-on-top',
+  media_on_bottom ? 'media-block--media-on-bottom',
   show_full_media ? 'media-block--show-full-media',
   'media-block--media-size-' ~ media_size|default('m'),
 ] | merge(classes|default([])) %}
