@@ -146,7 +146,7 @@
   }
   &--media-on-top {
     display: block;
-    & > div {
+    > div {
       width: 100%;
     }
     @include breakpoint($bp--medium) {
@@ -159,13 +159,11 @@
     display: block;
     text-align: left;
     float: left;
-    -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
-    & > div {
+    > div {
       width: 100%;
       float: right;
       display: block;
-      -webkit-transform: scaleY(-1);
       transform: scaleY(-1);
     }
     @include breakpoint($bp--medium) {
