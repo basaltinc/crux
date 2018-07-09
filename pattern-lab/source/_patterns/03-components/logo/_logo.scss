@@ -9,6 +9,7 @@
     box-shadow: 1px 2px 6px $c-iron;
     .logo_img--greyscale {
       filter: grayscale(0%);
+      transition: filter 0.5s;
     }
   }
 
