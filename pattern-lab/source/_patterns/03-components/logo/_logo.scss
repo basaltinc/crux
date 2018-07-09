@@ -28,7 +28,9 @@
   &_img {
     margin: 1rem;
     &--greyscale {
-      filter: grayscale(100%);
+      @include breakpoint($bp--medium){
+        filter: grayscale(100%);
+      }
     }
   }
 }
