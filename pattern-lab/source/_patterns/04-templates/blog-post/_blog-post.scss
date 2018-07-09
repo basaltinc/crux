@@ -79,5 +79,8 @@
     .avatar {
       margin-left: $spacing--m;
     }
+    &__handle:hover {
+      color: $c-links--hover;
+    }
   }
 }

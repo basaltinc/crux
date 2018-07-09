@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "description": "Logos",
+  "properties": {
+    "media": {
+      "type": "string",
+      "title": "Logo Image",
+      "description": "Path to image."
+    },
+    "url": {
+      "type": "string",
+      "title": "Link to company website"
+    },
+    "size": {
+      "type": "string",
+      "enum": ["auto", "small", "medium", "large", "jumbo"]
+    },
+    "greyscale": {
+      "type": "boolean",
+      "description": "Display the logo in greyscale?"
+    }
+  },
+  "required": ["text", "url"]
+}

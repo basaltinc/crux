@@ -1,0 +1,47 @@
+.logo {
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all $trans-opacity;
+
+  &:hover {
+    box-shadow: 1px 2px 6px $c-iron;
+    .logo_img--greyscale {
+      filter: grayscale(0%);
+      transition: filter $trans-opacity__time;
+    }
+  }
+
+  &--small {
+    max-width: 6rem;
+  }
+  &--medium {
+    max-width: 12rem;
+  }
+  &--large {
+    max-width: 18rem;
+  }
+  &--jumbo {
+    max-width: 24rem;
+  }
+  &_img {
+    margin: 1rem;
+    &--greyscale {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.logo-grid {
+  padding-top: $spacing--l;
+  margin-bottom: (-$spacing--l);
+  text-align: center;
+  .smart-grid {
+  }
+  @include breakpoint($bp--medium) {
+    .logo {
+      padding: 2rem;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+
+// Element Sizes
+
+$es--xxl: 40rem;
+$es--xl: 36rem;
+$es--l: 32rem;
+$es--m: 28rem;
+$es--s: 24rem;
+$es--xs: 16rem;
+$es--xxs: 8rem;
+
+.es {
+  &--xxs { min-height: $es--xxs; }
+  &--xs { min-height: $es--xs; }
+  &--s { min-height: $es--s; }
+  &--m { min-height: $es--m; }
+  &--l { min-height: $es--l; }
+  &--xl { min-height: $es--xl; }
+  &--xxl { min-height: $es--xxl; }
+}
