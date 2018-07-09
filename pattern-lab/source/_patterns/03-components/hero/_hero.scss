@@ -4,16 +4,19 @@
   position: relative;
 
   &--overlay-blue {
-    @include overlay($c-blue);
+    @include overlay($c-blue, 0.4);
   }
   &--overlay-green {
-    @include overlay($c-green);
+    @include overlay($c-green, 0.4);
   }
   &--overlay-black {
     @include overlay($c-black);
   }
   &--overlay-yellow {
     @include overlay($c-yellow);
+  }
+  &--overlay-darker {
+    @include overlay($c-black, 0.6);
   }
 
   &__inner {
@@ -70,6 +73,9 @@
     justify-content: space-around;
     flex-wrap: wrap;
     align-items: center;
+    .button {
+      margin-top: 1rem;
+    }
   }
   @include breakpoint($bp--medium) {
     min-height: 300px;

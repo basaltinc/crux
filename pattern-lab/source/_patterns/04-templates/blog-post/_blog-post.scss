@@ -9,7 +9,6 @@
   &__header {
     text-align: center;
     .hero {
-      padding-top: $spacing--m;
       &__title {
         display: none;
       }
@@ -70,6 +69,15 @@
       background-color: $c-body-text;
       position: absolute;
       top: -10px;
+    }
+  }
+  &__author {
+    text-align: center;
+    &__name {
+      display: inline-block;
+    }
+    .avatar {
+      margin-left: $spacing--m;
     }
   }
 }

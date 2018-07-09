@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "title": "Avatar",
+  "properties": {
+    "size": {
+      "type": "string",
+      "enum": ["s", "m", "l", "xl"]
+    },
+    "image": {
+      "type": "string",
+      "title": "Image",
+      "description": "Path to image."
+    }
+  }
+}
