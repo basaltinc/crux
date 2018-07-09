@@ -1,9 +1,17 @@
 .logo {
   vertical-align: middle;
-  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all $trans-opacity;
+
+  &:hover {
+    box-shadow: 1px 2px 6px $c-iron;
+    .logo_img--greyscale {
+      filter: grayscale(0%);
+    }
+  }
+
   &--small {
     max-width: 6rem;
   }
@@ -17,11 +25,9 @@
     max-width: 24rem;
   }
   &_img {
+    margin: 1rem;
     &--greyscale {
       filter: grayscale(100%);
-      &:hover {
-        filter: grayscale(0%);
-      }
     }
   }
 }

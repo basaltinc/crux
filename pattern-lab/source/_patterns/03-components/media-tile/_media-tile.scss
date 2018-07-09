@@ -60,6 +60,7 @@
     text-decoration: none;
   }
   &[data-linkto] {
+    transition: all $trans-opacity;
     &:hover {
       @include overlay($c-black, 0.5);
     }
