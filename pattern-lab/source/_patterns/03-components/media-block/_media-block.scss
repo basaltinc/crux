@@ -144,5 +144,32 @@
       }
     }
   }
-
+  &--media-on-top {
+    display: block;
+    > div {
+      width: 100%;
+    }
+    @include breakpoint($bp--medium) {
+      .media-block__media {
+        padding-top: 35%;
+      }
+    }
+  }
+  &--media-on-bottom {
+    display: block;
+    text-align: left;
+    float: left;
+    transform: scaleY(-1);
+    > div {
+      width: 100%;
+      float: right;
+      display: block;
+      transform: scaleY(-1);
+    }
+    @include breakpoint($bp--medium) {
+      .media-block__media {
+        padding-top: 35%;
+      }
+    }
+  }
 }
