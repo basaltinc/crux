@@ -22,6 +22,7 @@
     }
     &__image {
       width: grid-width(5, false);
+
     }
   }
   &__title {
@@ -55,6 +56,7 @@
   }
   &__image {
     padding-top: 40%;
+    background-position: center;
     @include breakpoint($bp) {
       padding-top: 0;
     }
