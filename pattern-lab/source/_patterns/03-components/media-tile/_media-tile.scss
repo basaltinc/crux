@@ -29,6 +29,18 @@
   }
   &__title {
     margin-bottom: $spacing--m;
+    &.h1 {
+      @include h2();
+      @include breakpoint($bp--xxlarge) {
+        @include h1();
+      }
+    }
+    &.h2 {
+      @include h3();
+      @include breakpoint($bp--xxlarge) {
+        @include h2();
+      }
+    }
   }
   &__buttons {
     margin: $spacing--m 0 0;
