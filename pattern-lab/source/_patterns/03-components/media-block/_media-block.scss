@@ -156,6 +156,7 @@
     }
   }
   &--media-on-bottom {
+    display: flex;
     flex-direction: column-reverse;
     > div {
       width: 100%;
