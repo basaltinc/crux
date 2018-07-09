@@ -44,8 +44,12 @@ $c-gray: $c-iron;
 .u-c-gray {color: $c-gray !important;}
 ///
 .u-bg-gray {background-color: $c-gray !important;}
-//$c-gray--dark: hsl(0, 0%, 40%);
-//$c-gray--darker: hsl(0, 0%, 20%);
+$c-gray--dark: hsl(0, 0%, 40%);
+///
+.u-c-gray--dark { color: $c-gray--dark !important;}
+///
+.u-bg-gray--dark {background-color: $c-gray--dark !important;}
+// $c-gray--darker: hsl(0, 0%, 20%);
 //$c-gray--darkest: hsl(0, 0%, 16.1%);
 $c-black: black;
 ///

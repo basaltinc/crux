@@ -16,16 +16,22 @@
   &--overlay-yellow {
     @include overlay($c-yellow);
   }
+  &--overlay-darker {
+    @include overlay($c-black, 0.6);
+  }
   &__content {
-    margin: 0 auto;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
     font-size: $fs--l;
+    margin: auto auto;
+
   }
   &__title {
     margin-bottom: $spacing--m;
   }
   &__buttons {
-    margin-top: $spacing--m;
+    margin: $spacing--m 0 0;
     .button {
       margin: 0 $spacing--m;
     }
@@ -34,8 +40,36 @@
     p {
       margin-bottom: $spacing--m;
     }
+    &--s {
+      font-size: $fs--s;
+    }
+    &--m {
+      font-size: $fs--m;
+    }
+    &--l {
+      font-size: $fs--l;
+    }
+    &--xl {
+      font-size: $fs--xl;
+    }
+    &--xxl {
+      font-size: $fs--xxl;
+    }
   }
   a {
     text-decoration: none;
+  }
+  &[data-linkto] {
+    &:hover {
+      @include overlay($c-black, 0.5);
+    }
+  }
+}
+
+.media-tile-grid {
+  margin-bottom: (-$spacing--l);
+  &--gutter {
+    margin-right: $spacing--l;
+    margin-left: $spacing--l;
   }
 }

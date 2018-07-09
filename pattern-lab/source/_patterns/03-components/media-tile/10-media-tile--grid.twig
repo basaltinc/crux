@@ -1,5 +1,5 @@
 {% embed '@layouts/_smart-grid.twig' with {rowItems: {
-  small: 3,
+  medium: 3,
 }} %}
   {% block gridItems %}
     {% include '@components/_media-tile.twig' with {
@@ -9,6 +9,7 @@
       title_text_color: 'white',
       image_overlay: 'black',
       body_text_color: 'white',
+      body_text_size: 'large',
       content_padding: 'l',
       text_align: 'center',
       title_size: '2',
