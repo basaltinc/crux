@@ -1,6 +1,6 @@
 {% set classes = [
   'exec-bio',
-  bg_color ? 'u-bg-' ~ bg_color,
+  is_even ? 'exec-bio--even' : 'exec-bio--odd',
 ] | merge(classes|default([])) %}
 
 

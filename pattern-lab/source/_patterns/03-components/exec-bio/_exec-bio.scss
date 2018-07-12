@@ -12,6 +12,15 @@
       }
     }
   }
+  &--even {
+    .exec-bio__avatar {
+      float: right;
+    }
+    background-color: $c-blue--light;
+  }
+  &--odd {
+    background-color: $c-iron;
+  }
   &__text {
   }
   &__name {
@@ -21,7 +30,9 @@
 
   }
   &__twitter {
-    // margin-top: 1rem;
+    &:hover {
+      color: $c-blue;
+    }
   }
 
   @include breakpoint($bp--medium) {
@@ -31,5 +42,7 @@
   @include breakpoint($bp--large) {
 
   }
-
+  .exec-bios-list & {
+    margin: 2rem 0;
+  }
 }
