@@ -1,0 +1,35 @@
+.exec-bio {
+  padding: $spacing--xl $spacing--m;
+  &__avatar {
+    float: left;
+    padding: 0 $spacing--m $spacing--m;
+    .avatar {
+      height: $fs--xl * 4;
+      width: $fs--xl * 4;
+      @include breakpoint($bp--medium) {
+        height: $fs--xl * 6;
+        width: $fs--xl * 6;
+      }
+    }
+  }
+  &__text {
+  }
+  &__name {
+    margin-bottom: 0;
+  }
+  &__bio {
+
+  }
+  &__twitter {
+    // margin-top: 1rem;
+  }
+
+  @include breakpoint($bp--medium) {
+
+  }
+
+  @include breakpoint($bp--large) {
+
+  }
+
+}
