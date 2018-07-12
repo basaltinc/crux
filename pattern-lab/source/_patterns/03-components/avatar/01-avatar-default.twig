@@ -22,3 +22,9 @@ large
   img: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
 } only %}
 extra large
+<br>
+{% include '@components/_avatar.twig' with {
+  size: 'jumbo',
+  img: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
+} only %}
+jumbo
