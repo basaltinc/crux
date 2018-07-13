@@ -23,7 +23,9 @@ const patternLabTasks = require('@theme-tools/plugin-pattern-lab-php')({
     'php',
   ],
   twigNamespaces: {
-    sets: fs.readdirSync('./pattern-lab/source/_patterns/').map((folder) => ({
+    sets: fs.readdirSync('./pattern-lab/source/_patterns/')
+    .filter(item => fs.statSync(path.join('./pattern-lab/source/_patterns/', item)).isDirectory())
+    .map((folder) => ({
       namespace: folder.replace(/[0-9]*-/, ''),
       paths: [path.join('./pattern-lab/source/_patterns/', folder)],
     })),

@@ -1,19 +1,23 @@
 .avatar {
   border-radius: 50%;
   &--size-s {
-    height: $fs--l;
-    width: $fs--l;
-  }
-  &--size-m {
     height: $fs--xl;
     width: $fs--xl;
   }
-  &--size-l {
+  &--size-m {
     height: $fs--xxl;
     width: $fs--xxl;
   }
-  &--size-xl {
+  &--size-l {
     height: $fs--xl * 2;
     width: $fs--xl * 2;
+  }
+  &--size-xl {
+    height: $fs--xl * 4;
+    width: $fs--xl * 4;
+  }
+  &--size-jumbo {
+    height: $fs--xl * 6;
+    width: $fs--xl * 6;
   }
 }
