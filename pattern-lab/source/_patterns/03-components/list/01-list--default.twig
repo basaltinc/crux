@@ -1,0 +1,31 @@
+{% set listItems = [random(titles), random(titles), random(titles), random(titles), random(titles)]|join(', ' )%}
+
+Small Bulleted
+{% include '@components/_list.twig' with {
+  list_items: listItems,
+  text_size: 's',
+  bullets: true,
+  ordered: '0',
+} %}
+Medium Ordered
+{% include '@components/_list.twig' with {
+  list_items: listItems,
+  text_size: 'm',
+  bullets: '0',
+  ordered: true,
+} %}
+Large Plain
+{% include '@components/_list.twig' with {
+  list_items: listItems,
+  text_size: 'l',
+  bullets: '0',
+  ordered: '0',
+} %}
+
+XL Bulleted
+{% include '@components/_list.twig' with {
+  list_items: listItems,
+  text_size: 'xl',
+  bullets: true,
+  ordered: '0',
+} %}

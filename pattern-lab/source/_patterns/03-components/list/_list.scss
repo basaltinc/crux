@@ -1,0 +1,24 @@
+.list {
+  &--xs {
+    font-size: $fs--xs;
+  }
+  &--s {
+    font-size: $fs--s;
+  }
+  &--m {
+    font-size: $fs--m;
+  }
+  &--l {
+    font-size: $fs--l;
+  }
+  &--xl {
+    font-size: $fs--xl;
+  }
+  &--bullets {
+  }
+  &--ordered {
+  }
+  &--plain ul {
+    list-style-type: none;
+  }
+}

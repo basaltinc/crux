@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "description": "List",
+  "properties": {
+    "list_items": {
+      "type": "string",
+      "title": "List Items",
+      "description": "Comma separated list of items"
+    },
+    "text_size": {
+      "type": "string",
+      "enum": ["xs", "s", "m", "l", "xl"]
+    },
+    "bullets": {
+      "type": "boolean",
+      "description": "Display bullets next to list items"
+    },
+    "ordered": {
+      "type": "boolean",
+      "description": "Display ordered numbers next to list items"
+    }
+  },
+  "required": ["text"]
+}
