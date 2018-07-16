@@ -20,7 +20,11 @@ $size-map: (
   .u-spacing-down--#{$name} { margin-bottom: $value; }
   .u-spacing-up--#{$name} { margin-top: $value; }
   .u-spacing-vert--#{$name} { margin-top: $value; margin-bottom: $value; }
-  .u-padding--#{$name} { margin-top: $value; }
+  .u-padding--#{$name} { padding: $value; }
+  .u-padding-up--#{$name} { padding-top: $value; }
+  .u-padding-down--#{$name} { padding-bottom: $value; }
+  .u-padding-vert--#{$name} { padding-top: $value; padding-bottom: $value; }
+  .u-padding-hor--#{$name} { padding-left: $value; padding-right: $value; }
 }
 
 // Defaults Generics
