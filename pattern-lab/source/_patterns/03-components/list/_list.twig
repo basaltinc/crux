@@ -1,6 +1,7 @@
 {% set classes = [
   text_size ? 'list--' ~ text_size,
   bullets ? 'list--bullets' : ordered ? 'list--ordered' : 'list--plain',
+  columns ? 'list--columns-' ~ columns,
 ] | merge(classes|default([])) %}
 
 {% set listItems = list_items|split(', ') %}
