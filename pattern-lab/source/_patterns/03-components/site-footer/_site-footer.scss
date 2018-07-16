@@ -28,10 +28,13 @@
       margin-bottom: $spacing--xs;
       margin-right: $spacing--xs;
     }
-    width: 40%;
   }
   &__social {
-    float: right;
+    padding: $spacing--l 0 $spacing--xxl;
+    @include breakpoint($bp--medium) {
+      padding: 0;
+      float: right;
+    }
   }
 
 
@@ -42,7 +45,6 @@
     }
     &__social,
     &__menu {
-      width: 25%;
       &-link {
         margin-bottom: $spacing--xs;
       }
@@ -60,7 +62,6 @@
     }
     &__social,
     &__menu {
-      width: 20%;
     }
   }
 
