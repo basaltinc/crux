@@ -78,6 +78,11 @@
       @include overlay($c-black, 0.5);
     }
   }
+  &__list {
+    @include breakpoint($bp--medium) {
+      margin-left: 15%;
+    }
+  }
 }
 
 .media-tile-grid {
