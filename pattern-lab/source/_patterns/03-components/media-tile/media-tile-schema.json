@@ -72,6 +72,10 @@
     "buttons": {
       "type": "array",
       "description": "List of objects passed to @components/_button.twig"
+    },
+    "list": {
+      "type": "array",
+      "description": "List of objects passed to @components/_list.twig"
     }
   },
   "required": ["text"]
