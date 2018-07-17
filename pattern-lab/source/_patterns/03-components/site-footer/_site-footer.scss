@@ -6,9 +6,6 @@
     padding-bottom: $spacing--l;
     width: 95%;
   }
-  &__content {
-
-  }
   &__body {
     font-weight: bold;
     font-family: $ff--avenir--medium;
@@ -30,9 +27,12 @@
     }
   }
   &__social {
-    margin: 0 auto;
+    padding: $spacing--l 0 $spacing--xxl;
+    @include breakpoint($bp--medium) {
+      padding: 0;
+      float: right;
+    }
   }
-
 
   @include breakpoint($bp--medium) {
     &__inner {
@@ -41,7 +41,6 @@
     }
     &__social,
     &__menu {
-      width: 25%;
       &-link {
         margin-bottom: $spacing--xs;
       }
@@ -53,14 +52,4 @@
       font-size: 1.5rem;
     }
   }
-
-  @include breakpoint($bp--xlarge) {
-    &__inner {
-    }
-    &__social,
-    &__menu {
-      width: 20%;
-    }
-  }
-
 }
