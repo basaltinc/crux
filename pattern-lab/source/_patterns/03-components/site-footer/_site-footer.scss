@@ -6,9 +6,6 @@
     padding-bottom: $spacing--l;
     width: 95%;
   }
-  &__content {
-
-  }
   &__body {
     font-weight: bold;
     font-family: $ff--avenir--medium;
@@ -37,7 +34,6 @@
     }
   }
 
-
   @include breakpoint($bp--medium) {
     &__inner {
       padding-top: $spacing--l;
@@ -56,13 +52,4 @@
       font-size: 1.5rem;
     }
   }
-
-  @include breakpoint($bp--xlarge) {
-    &__inner {
-    }
-    &__social,
-    &__menu {
-    }
-  }
-
 }
