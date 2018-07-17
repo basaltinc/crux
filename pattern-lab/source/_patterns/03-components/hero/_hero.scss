@@ -2,7 +2,7 @@
   background-size: cover;
   background-position: top center;
   position: relative;
-
+  padding: $spacing--l;
   &--overlay-blue {
     @include overlay($c-blue, 0.4);
   }
@@ -24,10 +24,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    .hero--shorter & {
-      padding-top: $spacing--l;
-      padding-bottom: $spacing--l;
-    }
   }
   &__title {
     @include h2;
@@ -40,28 +36,17 @@
     flex-wrap: wrap;
     width: 90%;
     justify-content: center;
-    .hero--shorter & {
-      min-height: 0;
-      margin-bottom: $spacing--m;
-    }
     @include breakpoint($bp--small) {
       min-height: 200px;
     }
   }
   &__content {
-    background-color: $c-iron;
-    padding: $spacing--m;
+    @include h3;
+    color: $c-white;
     width: 90%;
     margin-bottom: $spacing--m;
     text-align: center;
     z-index: 1;
-    .hero--shorter & {
-      padding: 0;
-      margin-bottom: 0;
-      :last-child {
-        margin-bottom: 0;
-      }
-    }
   }
   &__body {
     margin-bottom: $spacing--m;
@@ -81,9 +66,6 @@
   @include breakpoint($bp--medium) {
     min-height: 300px;
     display: flex;
-    &--shorter {
-      min-height: 200px;
-    }
     &--alignment-content-top {
       margin-top: $spacing--xl + $spacing--s;
     }
@@ -135,32 +117,14 @@
     &__content {
       width: grid-width(5);
       position: relative;
-      padding: $spacing--xl;
+      // padding: $spacing--xl;
       margin-bottom: 0;
       text-align: left;
-      .hero--alignment-content-top & {
-        align-self: flex-start;
-        top: -1 * $spacing--xl;
-      }
-      .hero--alignment-content-middle & {
-      }
-      .hero--alignment-content-bottom & {
-        bottom: -1 * $spacing--xl;
-        align-self: flex-end;
-      }
-      .hero--alignment-content-bottom.hero--alignment-all-center & {
-        align-self: center;
-      }
-
     }
-
   }
 
   @include breakpoint($bp--xlarge) {
     min-height: 418px;
-    &--shorter {
-      min-height: 300px;
-    }
   }
 
 }
