@@ -2,4 +2,9 @@
   background-color: $c-blue;
   padding: $spacing--xl 0;
   text-align: center;
+  p {
+    color: $c-white;
+    font-size: 1.5rem;
+    padding: 0 1rem;
+  }
 }
