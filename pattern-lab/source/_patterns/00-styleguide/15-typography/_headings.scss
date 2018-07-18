@@ -1,4 +1,4 @@
-$fs--h1: 52px !default;
+$fs--h1: 3.25rem !default;
 $fs--h2: $fs--xxl !default;
 $fs--h3: $fs--xl !default;
 $fs--h4: $fs--l !default;
@@ -35,19 +35,16 @@ $fs--h6: $fs--s !default;
 
 @mixin h4() {
   @include heading();
-  // margin-bottom: $spacing--m;
   font-size: $fs--h4;
 }
 
 @mixin h5() {
   @include heading();
-  // margin-bottom: $spacing--m;
   font-size: $fs--h5;
 }
 
 @mixin h6() {
   @include heading();
-  // margin-bottom: $spacing--m;
   font-size: $fs--h6;
 }
 
