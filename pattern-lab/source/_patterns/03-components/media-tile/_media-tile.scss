@@ -118,5 +118,13 @@
   .media-tile__body ol {
     margin-top: $spacing--m;
   }
+}
 
+.custom-list-one-off {
+  .media-tile__body {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 }
