@@ -69,7 +69,7 @@ module.exports = {
     },
     {
       src: 'pattern-lab/source/_patterns/00-styleguide/00-breakpoints/_breakpoints.scss',
-      dest: 'pattern-lab/source/_patterns/00-styleguide/breakpoints/breakpoints.json',
+      dest: 'pattern-lab/source/_patterns/00-styleguide/00-breakpoints/breakpoints.json',
       lineStartsWith: '$bp--',
       allowVarValues: false,
     },
