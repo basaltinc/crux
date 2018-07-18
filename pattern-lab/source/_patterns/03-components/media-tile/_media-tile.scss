@@ -26,6 +26,15 @@
     flex-direction: column;
     justify-content: center;
     padding: $spacing--xl;
+    &--top {
+      justify-content: flex-start;
+    }
+    &--center {
+      justify-content: center;
+    }
+    &--bottom {
+      justify-content: flex-end;
+    }
   }
   &__title {
     margin-bottom: $spacing--m;
@@ -66,6 +75,11 @@
       @include overlay($c-black, 0.5);
     }
   }
+  &__list {
+    @include breakpoint($bp--medium) {
+      margin-left: 15%;
+    }
+  }
 }
 
 .media-tile-grid {
@@ -73,5 +87,44 @@
   &--gutter {
     margin-right: $spacing--m;
     margin-left: $spacing--m;
+  }
+}
+
+.media-tile {
+  //@todo properly incorporate list component into media tile
+  ul,
+  ol {
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 0.25rem;
+    @include icon('icon-black');
+    &:before {
+      padding-right: $spacing--s;
+      padding-bottom: 0.25rem;
+    }
+    &:not(:last-child) {
+      border-bottom: $c-gray--dark;
+    }
+  }
+
+  // @todo better handling of spacing in media tiles with lists
+  .media-tile__body ul,
+  .media-tile__body ol {
+    margin-top: $spacing--m;
+  }
+}
+
+.custom-list-one-off {
+  .media-tile__body {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
   }
 }

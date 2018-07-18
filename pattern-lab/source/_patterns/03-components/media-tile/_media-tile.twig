@@ -5,6 +5,7 @@
   image_overlay ? 'media-tile--overlay-' ~ image_overlay,
   bg_color ? 'u-bg-' ~ bg_color,
   min_height ? 'es--' ~ min_height,
+
 ] | merge(classes|default([])) %}
 
 {% set imgSrc = background_image is iterable ? background_image.src : background_image %}
@@ -13,7 +14,7 @@
   data-linkto="{{ url }}" {% endif %} style="background-image: url({{ imgSrc }});">
 
   <div class="media-tile__content {{ content_padding ? 'u-padding--' ~ content_padding|default('xl')
- }}">
+ }} {{ text_align_vert ? 'media-tile__content--' ~ text_align_vert|default('center') }}">
     {% if title %}
       {% set title_classes = [
         'media-tile__title',
@@ -32,6 +33,14 @@
         body_text_size ? 'media-tile__body--' ~ body_text_size,
       ] %}
       <div class="media-tile__body {{ body_classes| join(' ') }}">{{ body|raw }}</div>
+    {% endif %}
+
+    {% if list %}
+      <div class="media-tile__list">
+        {% for i in list %}
+          {% include '@components/_list.twig' with i only %}
+        {% endfor %}
+      </div>
     {% endif %}
 
     {% if buttons %}
