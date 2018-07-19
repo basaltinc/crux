@@ -28,13 +28,17 @@ const Layout = ({ children, data }) => (
   </div>
 );
 
+
 Layout.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.func.isRequired,
+  data: PropTypes.object, // eslint-disable-line
 };
+
 
 export default Layout;
 
-export const query = graphql`
+// eslint-disable-next-line no-undef
+export const query = graphql` 
   query SiteTitleQuery {
     site {
       siteMetadata {

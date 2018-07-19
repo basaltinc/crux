@@ -7,6 +7,7 @@ module.exports = {
   },
   rules: {
     // 'no-comma-dangle': [0],
+    'import/no-extraneous-dependencies': [0],
     'strict': [0],
     'no-param-reassign': [1, {
       props: false,
