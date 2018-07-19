@@ -14,14 +14,14 @@
   &--even {
     .exec-bio__avatar {
       float: right;
-      padding: 0 0 $spacing--m $spacing--m;
+      padding: 0px 0px $spacing--m $spacing--m;
     }
     background-color: $c-blue--light;
   }
   &--odd {
     background-color: $c-iron;
     .exec-bio__avatar {
-      padding:: 0 $spacing--m $spacing--m 0;
+      padding: 0px $spacing--m $spacing--m 0px;
     }
     .exec-bio__name, .exec-bio__twitter {
       text-align: right;

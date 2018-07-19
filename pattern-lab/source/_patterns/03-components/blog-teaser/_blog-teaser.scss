@@ -64,11 +64,11 @@
   &__content {
     padding: $spacing--l;
 
-    @include breakpoint($bp) {
+    @include breakpoint($bp--large) {
       padding: $spacing--xxxl;
     }
     @include breakpoint($bp--xxlarge) {
-      padding: 2* $spacing--xxxl;
+      padding: 4* $spacing--xl;
     }
   }
 

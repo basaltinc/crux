@@ -11,7 +11,7 @@
 {% set imgSrc = background_image is iterable ? background_image.src : background_image %}
 
 <div class="{{ classes|join(' ') }}" {% if url %}
-  data-linkto="{{ url }}" {% endif %} style="background-image: url({{ imgSrc }});">
+  data-linkto="{{ url }}" {% endif %} {% if imgSrc %} style="background-image: url({{ imgSrc }});" {%  endif %}>
 
   <div class="media-tile__content {{ content_padding ? 'u-padding--' ~ content_padding|default('xl')
  }} {{ text_align_vert ? 'media-tile__content--' ~ text_align_vert|default('center') }}">
