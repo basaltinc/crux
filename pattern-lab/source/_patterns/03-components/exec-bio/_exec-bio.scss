@@ -2,7 +2,6 @@
   padding: $spacing--xl $spacing--xl;
   &__avatar {
     float: left;
-    padding: 0 $spacing--m $spacing--m;
     .avatar {
       height: $fs--xl * 4;
       width: $fs--xl * 4;
@@ -15,11 +14,15 @@
   &--even {
     .exec-bio__avatar {
       float: right;
+      padding: 0 0 $spacing--m $spacing--m;
     }
     background-color: $c-blue--light;
   }
   &--odd {
     background-color: $c-iron;
+    .exec-bio__avatar {
+      padding:: 0 $spacing--m $spacing--m 0;
+    }
   }
   &__text {
   }
