@@ -29,7 +29,9 @@
     {% endif %}
 
     {% if summary %}
-      <div class="blog-teaser__summary">{{ summary|striptags }}</div>
+      <div class="blog-teaser__summary">
+        <p>{{ summary }}</p>
+      </div>
     {% endif %}
 
     <div class="blog-teaser__read-more">Read the full story</div>
