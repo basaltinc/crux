@@ -23,6 +23,9 @@
     .exec-bio__avatar {
       padding:: 0 $spacing--m $spacing--m 0;
     }
+    .exec-bio__name, .exec-bio__twitter {
+      text-align: right;
+    }
   }
   &__text {
   }
@@ -38,8 +41,12 @@
     }
   }
 
-  @include breakpoint($bp--medium) {
-
+  @include breakpoint($bp--small) {
+    &--odd {
+      .exec-bio__name, .exec-bio__twitter {
+        text-align: left;
+      }
+    }
   }
 
   @include breakpoint($bp--large) {
