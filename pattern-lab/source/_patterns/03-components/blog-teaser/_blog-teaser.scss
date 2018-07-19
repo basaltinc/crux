@@ -60,6 +60,14 @@
     @include breakpoint($bp) {
       padding-top: 0;
     }
+    .what-are-ds & {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-color: white;
+      @include breakpoint($bp--medium) {
+        background-size: cover;
+      }
+    }
   }
   &__content {
     padding: $spacing--l;
