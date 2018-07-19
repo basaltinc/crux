@@ -27,10 +27,6 @@
         }
       ]
     },
-    "alignment_content": {
-      "type": "string",
-      "enum": ["top", "middle", "bottom"]
-    },
     "image": {
       "type": "string",
       "title": "Background Image",
@@ -44,10 +40,6 @@
       "type": "array",
       "title": "Content Classes",
       "description": "Used for setting BG and text color."
-    },
-    "shorter": {
-      "type": "boolean",
-      "description": "Make the overall hero shorter and more compact"
     },
     "buttons": {
       "type": "array",

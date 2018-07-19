@@ -5,13 +5,20 @@
   &__link {
     $x: 1rem;
     @include a-link($deco: none, $deco--hover: none);
-    font-size: $x;
-    height: $x * 2;
-    line-height: $x * 2;
-    width: $x * 2;
+    font-size: $x * 2;
+    height: $x * 4;
+    line-height: $x * 4;
+    width: $x * 4;
     text-align: center;
     border: solid 1px $c-blue;
-    border-radius: $x;
+    border-radius: 50%;
     margin-bottom: $spacing--m;
+    @include breakpoint($bp--medium) {
+      font-size: $x;
+      height: $x * 3;
+      line-height: $x * 3;
+      width: $x * 3;
+      margin-left: $spacing--m;
+    }
   }
 }

@@ -1,0 +1,22 @@
+{% set classes = [
+  text_size ? 'list--' ~ text_size,
+  bullets ? 'list--bullets' : ordered ? 'list--ordered' : 'list--plain',
+  columns ? 'list--columns-' ~ columns,
+  text_color ? 'u-c-' ~ text_color,
+
+] | merge(classes|default([])) %}
+
+{% set listItems = list_items|split(', ') %}
+{% set listType = ordered ? 'ol' : 'ul' %}
+
+<div class="list {{ classes|join(' ') }}">
+  {% if listType %}
+    <{{listType}}>
+  {% endif %}
+    {% for item in listItems %}
+    <li>{{ item }}</li>
+    {% endfor %}
+  {% if listType %}
+    </{{listType}}>
+  {% endif %}
+</div>

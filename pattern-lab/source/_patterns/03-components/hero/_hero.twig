@@ -1,9 +1,7 @@
 {% set buttons = buttons|default([]) %}
 {% set classes = [
   'hero',
-  'hero--alignment-all-' ~ alignment_all|default('left'),
-  'hero--alignment-content-' ~ alignment_content|default('bottom'),
-  shorter ? 'hero--shorter',
+  'hero--alignment-all-' ~ alignment_all|default('center'),
   'u-full-width',
   image_overlay ? 'hero--overlay-' ~ image_overlay,
 ] | merge(classes|default([])) %}
@@ -19,7 +17,9 @@
     {% if body or buttons %}
       <div class="hero__content {% if content_classes %}{{ content_classes|join(' ') }}{% endif %}">
         {% if body %}
-          <div class="hero__body">{{ body|raw }}</div>
+          <div class="hero__body">
+            <p>{{ body|raw }}</p>
+          </div>
         {% endif %}
 
         {% if buttons %}

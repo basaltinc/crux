@@ -1,0 +1,19 @@
+{% set listItems = [random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles)]|join(', ' )%}
+
+{% include '@components/_media-tile.twig' with {
+  title: random(titles),
+  title_text_color: 'white',
+  body_text_color: 'white',
+  content_padding: 'l',
+  bg_color: 'green',
+  text_align: 'center',
+  title_size: '2',
+  list: [{
+    list_items: listItems,
+    text_size: 'm',
+    bullets: '0',
+    text_color: 'white',
+    ordered: true,
+    columns: "2",
+  }]
+} %}

@@ -14,6 +14,10 @@
       "type": "string",
       "enum": ["left", "center", "right"]
     },
+    "text_align_vert": {
+      "type": "string",
+      "enum": ["top", "center", "bottom"]
+    },
     "title_bg_color": {
       "type": "string",
       "title": "Title Background Color",
@@ -72,6 +76,10 @@
     "buttons": {
       "type": "array",
       "description": "List of objects passed to @components/_button.twig"
+    },
+    "list": {
+      "type": "array",
+      "description": "List of objects passed to @components/_list.twig"
     }
   },
   "required": ["text"]

@@ -54,7 +54,7 @@ $open: '.site-header-toggle:checked + .site-header';
   }
 }
 
-@include breakpoint($bp--large) {
+@include breakpoint(1073px) {
   .site-header {
     &__logo {
       margin: $spacing--l 0;

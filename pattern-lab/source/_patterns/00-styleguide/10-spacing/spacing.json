@@ -27,12 +27,12 @@
     },
     {
       "name": "$spacing--xxl",
-      "value": "3rem",
+      "value": "3.3rem",
       "comment": ""
     },
     {
       "name": "$spacing--xxxl",
-      "value": "4rem",
+      "value": "5rem",
       "comment": ""
     }
   ],
