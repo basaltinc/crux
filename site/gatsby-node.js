@@ -34,7 +34,9 @@ exports.createPages = ({ actions, graphql }) => {
       createPage({
         path: node.frontmatter.path,
         component: docTemplate,
-        context: {}, // additional data can be passed via context
+        context: {
+          order: node.frontmatter.order,
+        }, // additional data can be passed via context
       })
     })
   })
