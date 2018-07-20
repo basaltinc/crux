@@ -1,5 +1,5 @@
 ---
-path: '/docs/'
+path: '/doc/'
 title: Docs Main Page
 order: 1
 ---

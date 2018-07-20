@@ -3,9 +3,9 @@ import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 
 const Header = ({ siteTitle }) => (
-  <div
+  <nav
     style={{
-      background: 'rebeccapurple',
+      background: 'hsl(200, 55%, 19%)',
       marginBottom: '1.45rem',
     }}
   >
@@ -28,7 +28,55 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
     </div>
-  </div>
+    <div>
+      <ul>
+        <li>
+          <Link
+            to="/doc"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Docs
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/components"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Components
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/foobar"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Foobar
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="http://basalt.io"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Basalt
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 );
 
 Header.propTypes = {
