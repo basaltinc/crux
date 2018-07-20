@@ -3,7 +3,7 @@
   background-position: top center;
   position: relative;
   padding: $spacing--l;
-  margin-bottom: $spacing--xxl;
+  // margin-bottom: $spacing--xxl;
   &--overlay-blue {
     @include overlay($c-blue, 0.4);
   }
