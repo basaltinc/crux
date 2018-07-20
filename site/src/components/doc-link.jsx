@@ -1,5 +1,5 @@
-import React from "react"
-import Link from "gatsby-link"
+import React from 'react';
+import Link from 'gatsby-link';
 
 const DocLink = ({ doc }) => (
   <div>
@@ -7,6 +7,6 @@ const DocLink = ({ doc }) => (
       {doc.frontmatter.title} ({doc.frontmatter.date})
     </Link>
   </div>
-)
+);
 
 export default DocLink;

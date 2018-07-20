@@ -1,5 +1,5 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
 
 export default function Template({ data }) {
   const { markdownRemark } = data; // data.markdownRemark holds our docs data from markdown
@@ -14,7 +14,7 @@ export default function Template({ data }) {
         />
       </div>
     </div>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -27,4 +27,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
