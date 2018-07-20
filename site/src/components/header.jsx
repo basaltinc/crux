@@ -2,20 +2,11 @@ import React from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 
+import './header.css';
+
 const Header = ({ siteTitle }) => (
-  <nav
-    style={{
-      background: 'hsl(200, 55%, 19%)',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
+  <nav>
+    <div className="logo">
       <h1 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -64,15 +55,15 @@ const Header = ({ siteTitle }) => (
           </Link>
         </li>
         <li>
-          <Link
-            to="http://basalt.io"
+          <a
+            href="http://basalt.io"
             style={{
               color: 'white',
               textDecoration: 'none',
             }}
           >
             Basalt
-          </Link>
+          </a>
         </li>
       </ul>
     </div>
