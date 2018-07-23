@@ -1,18 +1,14 @@
 import React from 'react';
 
-import Header from '../components/header';
+import Page from '../templates/page';
 import HomeSplash from '../components/home-splash';
 
 import './index.css';
 
 const IndexPage = () => (
-  <div className="app">
-    <Header className="app__header" siteTitle={'Basalt Design System'}/>
-    <div className="app__body">
+  <Page>
       <HomeSplash></HomeSplash>
-    </div>
-    <div className="app__footer"></div>
-  </div>
+  </Page>
 );
 
 export default IndexPage;
