@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from '../components/header';
-import HomeSplash from '../components/home-splash';
+import Footer from '../components/footer';
 
 const Page = props => (
   <div className="app">
@@ -10,7 +10,7 @@ const Page = props => (
     <div className="app__body">
       {props.children}
     </div>
-    <div className="app__footer" />
+    <Footer />
   </div>
 );
 
