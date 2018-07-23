@@ -4,7 +4,7 @@ import Link from 'gatsby-link';
 const DocLink = ({ doc }) => (
   <li>
     <Link to={doc.frontmatter.path}>
-      {doc.frontmatter.title} ({doc.frontmatter.date})
+      {doc.frontmatter.title}
     </Link>
   </li>
 );

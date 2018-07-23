@@ -1,29 +1,44 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-export default function Template({ data }) {
-  const { markdownRemark } = data; // data.markdownRemark holds our docs data from markdown
-  const { frontmatter, html } = markdownRemark;
+import DocLink from '../components/doc-link';
+import Page from '../templates/page';
+
+const Template = ({ data, children }) => {
+  const markdownFiles = data.allMarkdownRemark.edges;
+  const DocLinks = markdownFiles.map((markdownFile) => {
+    return (<DocLink doc={markdownFile.node} />);
+  });
+
+
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        <h1>{frontmatter.title}</h1>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
+    <Page>
+      <div className="sidebar">
+        <h4>Menu</h4>
+        <ul>{DocLinks}</ul>
       </div>
-    </div>
+      <div>
+
+      </div>
+    </Page>
   );
-}
+};
+
+export default Template;
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        path
-        title
+  query {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          html
+          frontmatter {
+            title
+            path
+            order
+          }
+        }
       }
     }
   }
