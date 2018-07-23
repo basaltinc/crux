@@ -10,6 +10,10 @@ const Template = ({ data, children }) => {
     return (<DocLink doc={markdownFile.node} />);
   });
 
+  const { html, frontmatter } = data.markdownRemark;
+
+  console.log("JOLO", data);
+
 
   return (
     <Page>
@@ -18,7 +22,8 @@ const Template = ({ data, children }) => {
         <ul>{DocLinks}</ul>
       </div>
       <div>
-
+        <h2>{frontmatter.title}</h2>
+        <div dangerouslySetInnerHTML={{ __html: html }}></div>
       </div>
     </Page>
   );
@@ -27,8 +32,10 @@ const Template = ({ data, children }) => {
 export default Template;
 
 export const pageQuery = graphql`
-  query {
-    allMarkdownRemark {
+  query DocsByPath($path: String!) {
+    allMarkdownRemark(
+      sort: { order: ASC, fields: [frontmatter___order] }
+    ) {
       edges {
         node {
           id
@@ -39,6 +46,13 @@ export const pageQuery = graphql`
             order
           }
         }
+      }
+    }
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        path
+        title
       }
     }
   }
