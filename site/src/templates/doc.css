@@ -1,0 +1,18 @@
+.docs .app__body {
+  justify-content: space-between;
+}
+
+.sidebar {
+  width: 20%;
+  min-width: 300px;
+  max-width: 450px;
+  box-sizing: border-box;
+  padding: 2rem;
+  border-right: solid 1px black;
+}
+
+.body {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+}

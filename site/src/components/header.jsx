@@ -23,7 +23,7 @@ const Header = ({ siteTitle }) => (
       <ul>
         <li>
           <Link
-            to="/doc"
+            to="/docs"
             style={{
               color: 'white',
               textDecoration: 'none',
