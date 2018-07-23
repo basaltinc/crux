@@ -14,7 +14,7 @@ const DocPage = ({
 
   return (
     <div>
-      <Header siteTitle={'Basalt Design System'}/>
+      <Header siteTitle={'Basalt Design System'} />
       <div className="side-bar">
         <ul>{DocLinks}</ul>
       </div>

@@ -7,7 +7,7 @@ import './index.css';
 
 const IndexPage = () => (
   <Page>
-      <HomeSplash></HomeSplash>
+    <HomeSplash />
   </Page>
 );
 
