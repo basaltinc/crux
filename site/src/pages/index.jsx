@@ -4,16 +4,12 @@ import Page from '../templates/page';
 import HomeSplash from '../components/home-splash';
 import './index.css';
 
+// @todo Evan is working on a better way to pull in styles
+import '../../../build/assets/style.css';
+
 const IndexPage = () => (
   <Page>
     <HomeSplash />
-    <Demo
-      template="@components/_button.twig"
-      data={{
-        text: 'ima button',
-        url: '#',
-      }}
-    />
   </Page>
 );
 

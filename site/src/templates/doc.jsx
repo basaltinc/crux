@@ -6,6 +6,7 @@ import Sidebar from '../components/sidebar';
 import Page from '../templates/page';
 
 import './doc.css';
+import Demo from '../components/demo';
 
 const Template = ({ data }) => {
   const markdownFiles = data.allMarkdownRemark.edges;
@@ -25,6 +26,12 @@ const Template = ({ data }) => {
             <blockquote className="definition">{frontmatter.definition}</blockquote>
             <hr />
           </div>
+        )}
+        {frontmatter.demo && (
+          <Demo
+            template={frontmatter.demo.template}
+            data={frontmatter.demo.data}
+          />
         )}
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
@@ -55,7 +62,6 @@ export const pageQuery = graphql`
             path
             order
             section
-            definition
           }
         }
       }
@@ -67,6 +73,19 @@ export const pageQuery = graphql`
         title
         definition
         section
+        demo {
+          template
+          data {
+            size
+            image
+            text
+            menu_items {
+              url
+              text
+              active
+            }
+          }
+        }
       }
     }
   }
