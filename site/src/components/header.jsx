@@ -33,28 +33,6 @@ const Header = ({ siteTitle }) => (
           </Link>
         </li>
         <li>
-          <Link
-            to="/components"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Components
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/foobar"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Foobar
-          </Link>
-        </li>
-        <li>
           <a
             href="http://basalt.io"
             style={{
