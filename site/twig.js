@@ -6,7 +6,7 @@ const { join } = require('path');
 const twigRenderer = new TwigRenderer({
   relativeFrom: join(__dirname, '..'),
   src: {
-    roots: ['src'],
+    roots: ['pattern-lab/source'],
     namespaces: [
       {
         id: 'svgs',
