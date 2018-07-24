@@ -12,6 +12,15 @@ const SideBarLink = ({ file }) => (
   </li>
 );
 
+SideBarLink.propTypes = {
+  file: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      path: PropTypes.string,
+      title: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
 const SideBar = ({ files }) => {
   const GeneralLinks = files
     .filter(file => file.node.frontmatter.section === 'General')
@@ -41,11 +50,11 @@ const SideBar = ({ files }) => {
       <ul>{ComponentLinks}</ul>
     </div>
   );
-}
+};
 
-SideBar.PropTypes = {
-  files: PropTypes.array,
-}
+SideBar.propTypes = {
+  files: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 
 export default SideBar;

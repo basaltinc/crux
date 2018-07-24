@@ -13,7 +13,7 @@ const Template = ({ data }) => {
 
   return (
     <Page className="docs">
-      <Sidebar files={markdownFiles}/>
+      <Sidebar files={markdownFiles} />
       <div className="body">
         {frontmatter.section && (
           <h4 className="eyebrow">{frontmatter.section}</h4>
@@ -21,9 +21,9 @@ const Template = ({ data }) => {
         <h2>{frontmatter.title}</h2>
         {frontmatter.definition && (
           <div>
-            <hr/>
+            <hr />
             <blockquote className="definition">{frontmatter.definition}</blockquote>
-            <hr/>
+            <hr />
           </div>
         )}
         <div dangerouslySetInnerHTML={{ __html: html }} />
