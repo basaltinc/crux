@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 
+import './sidebar.css';
+
 const SideBarLink = ({ file }) => (
   <li>
     <Link to={file.frontmatter.path}>
@@ -12,16 +14,16 @@ const SideBarLink = ({ file }) => (
 
 const SideBar = ({ files }) => {
   const GeneralLinks = files
-    .filter(file => file.node.frontmatter.section === 'general')
+    .filter(file => file.node.frontmatter.section === 'General')
     .map(file => (<SideBarLink file={file.node} />));
   const VisualLanguageLinks = files
-    .filter(file => file.node.frontmatter.section === 'visual-language')
+    .filter(file => file.node.frontmatter.section === 'Visual Language')
     .map(file => (<SideBarLink file={file.node} />));
   const GetStartedLinks = files
-    .filter(file => file.node.frontmatter.section === 'get-started')
+    .filter(file => file.node.frontmatter.section === 'Get Started')
     .map(file => (<SideBarLink file={file.node} />));
   const ComponentLinks = files
-    .filter(file => file.node.frontmatter.section === 'components')
+    .filter(file => file.node.frontmatter.section === 'Components')
     .map(file => (<SideBarLink file={file.node} />));
   // const GeneralLinks = files
   //   .filter(file => file.node.frontmatter.section === 'general')
@@ -29,6 +31,7 @@ const SideBar = ({ files }) => {
 
   return (
     <div className="sidebar">
+      <h4>General</h4>
       <ul>{GeneralLinks}</ul>
       <h4>Get Started</h4>
       <ul>{GetStartedLinks}</ul>

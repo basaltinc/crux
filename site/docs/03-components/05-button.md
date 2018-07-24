@@ -2,7 +2,7 @@
 title: Button
 path: /components/button
 order: 05
-section: components
+section: Components
 definition: Buttons allow the user to trigger actions.
 ---
 

@@ -2,7 +2,7 @@
 title: Colors
 path: /visual-language/colors
 order: 10
-section: visual-language
+section: Visual Language
 definition: Color conveys brand, tone, and purpose. 
 ---
 

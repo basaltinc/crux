@@ -2,7 +2,7 @@
 title: Space
 path: /visual-language/space
 order: 30
-section: visual-language
+section: Visual Language
 definition: Space defines the relationship between UI components.
 ---
 

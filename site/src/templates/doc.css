@@ -1,18 +1,19 @@
-.docs .app__body {
-  justify-content: space-between;
-}
-
-.sidebar {
-  width: 20%;
-  min-width: 300px;
-  max-width: 450px;
-  box-sizing: border-box;
-  padding: 2rem;
-  border-right: solid 1px black;
-}
-
 .body {
   width: 100%;
   box-sizing: border-box;
   padding: 2rem;
+}
+
+
+.docs .app__body {
+  justify-content: space-between;
+}
+
+.eyebrow {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.body h2 {
+  margin: 0 0 0.25rem;
 }

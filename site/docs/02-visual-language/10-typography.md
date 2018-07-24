@@ -2,7 +2,7 @@
 title: Typography
 path: /visual-language/typography
 order: 20
-section: visual-language
+section: Visual Language
 definition: Typography gives context and purpose to text.
 ---
 

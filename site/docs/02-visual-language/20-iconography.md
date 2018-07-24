@@ -2,7 +2,7 @@
 title: Iconography
 path: /visual-language/iconography
 order: 20
-section: visual-language
+section: Visual Language
 definition: Icons represent actions and objects.
 ---
 

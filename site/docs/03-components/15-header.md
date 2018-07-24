@@ -2,7 +2,7 @@
 title: Header
 path: /components/header
 order: 15
-section: components
+section: Components
 definition: Headers are were users will look for navigation.
 ---
 

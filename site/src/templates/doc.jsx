@@ -15,7 +15,17 @@ const Template = ({ data }) => {
     <Page className="docs">
       <Sidebar files={markdownFiles}/>
       <div className="body">
+        {frontmatter.section && (
+          <h4 className="eyebrow">{frontmatter.section}</h4>
+        )}
         <h2>{frontmatter.title}</h2>
+        {frontmatter.definition && (
+          <div>
+            <hr/>
+            <blockquote className="definition">{frontmatter.definition}</blockquote>
+            <hr/>
+          </div>
+        )}
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Page>
@@ -55,6 +65,8 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
+        definition
+        section
       }
     }
   }
