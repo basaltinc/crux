@@ -16,8 +16,12 @@ export default class Demo extends React.Component {
     this.getHtml(this.props.data);
   }
 
-  componentDidUpdate() {
-    this.getHtml(this.props.data);
+  componentDidUpdate(prevProps) {
+    const oldData = JSON.stringify(prevProps.data);
+    const newData = JSON.stringify(this.props.data);
+    if (oldData !== newData) {
+      this.getHtml(this.props.data);
+    }
   }
 
   /**
@@ -34,7 +38,7 @@ export default class Demo extends React.Component {
       .then(res => res.json())
       .then((results) => {
         // eslint-disable-next-line
-        console.debug(results);
+        // console.debug(results);
         if (results.ok) {
           this.setState({
             html: results.html,
