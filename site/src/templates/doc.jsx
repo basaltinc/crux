@@ -1,21 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import DocLink from '../components/doc-link';
 import Page from '../templates/page';
 
-import  './doc.css';
+import './doc.css';
 
-const Template = ({ data, children }) => {
+const Template = ({ data }) => {
   const markdownFiles = data.allMarkdownRemark.edges;
-  const DocLinks = markdownFiles.map((markdownFile) => {
-    return (<DocLink doc={markdownFile.node} />);
-  });
-
   const { html, frontmatter } = data.markdownRemark;
 
-  console.log("JOLO", data);
-
+  const DocLinks = markdownFiles.map(markdownFile => (<DocLink doc={markdownFile.node} />));
 
   return (
     <Page className="docs">
@@ -25,10 +21,17 @@ const Template = ({ data, children }) => {
       </div>
       <div className="body">
         <h2>{frontmatter.title}</h2>
-        <div dangerouslySetInnerHTML={{ __html: html }}></div>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     </Page>
   );
+};
+
+Template.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.object,
+    markdownRemark: PropTypes.object,
+  }).isRequired,
 };
 
 export default Template;
