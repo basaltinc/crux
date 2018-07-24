@@ -1,5 +1,4 @@
 import React from 'react';
-import Demo from '../components/demo';
 import Page from '../templates/page';
 import HomeSplash from '../components/home-splash';
 import './index.css';
