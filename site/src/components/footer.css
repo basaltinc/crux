@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border-top: 1px solid #000000;
+}
+
+.footer-menu {
+
+}

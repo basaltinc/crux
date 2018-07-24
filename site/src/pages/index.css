@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+
+.app__body {
+  display: flex;
+  justify-content: center;
+}
+
+

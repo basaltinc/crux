@@ -1,0 +1,24 @@
+.home-splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  height: calc(100vh - 86px);
+  max-width: 960px;
+  padding: 2rem;
+  text-align: right;
+}
+
+.home-splash__eyebrow {
+  margin: 0 0 -95px;
+  font-size: 2.85rem;
+}
+
+.home-splash__title {
+  font-size: 20rem;
+  margin: 0;
+}
+
+.home-splash__version-tag {
+  margin-top: -50px;
+}

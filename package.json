@@ -10,7 +10,7 @@
     "test": "gulp validate && npm run lint:js",
     "gulp": "gulp",
     "setup": "./setup.sh && cd site && npm i",
-    "reset": "rm -rf node_modules site/node_modules && npm run setup",
+    "reset": "rm -rf node_modules site/node_modules && yarn && npm run setup",
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "npm run setup",
     "postinstall": "npm run compile",

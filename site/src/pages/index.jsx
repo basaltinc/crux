@@ -1,10 +1,12 @@
 import React from 'react';
-import Link from 'gatsby-link';
 import Demo from '../components/demo';
+import Page from '../templates/page';
+import HomeSplash from '../components/home-splash';
+import './index.css';
 
 const IndexPage = () => (
-  <div>
-    <h1>Hi people</h1>
+  <Page>
+    <HomeSplash />
     <Demo
       template="@components/_button.twig"
       data={{
@@ -12,10 +14,7 @@ const IndexPage = () => (
         url: '#',
       }}
     />
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-  </div>
+  </Page>
 );
 
 export default IndexPage;
