@@ -2,6 +2,7 @@
 title: Design Systems are Awesome!
 path: /docs/awesome-sauce
 order: 30
+section: general
 ---
 
 This is the most awesome sauce Design System on the internet. Look at the docs parsing up all this markdown.
