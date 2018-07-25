@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+
+.site__body {
+  display: flex;
+  justify-content: center;
+}
+
+

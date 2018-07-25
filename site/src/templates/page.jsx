@@ -1,28 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Site from '../templates/site';
+
 import './page.css';
+
 // @todo Evan is working on a better way to pull in styles
 import '../../../build/assets/style.css'; // eslint-disable-line
 
 const Page = props => (
-  <div className="site">
-    <div className="site__header u-full-width">
-      <Header siteTitle={'Crux'} />
-    </div>
-    <div className="site__body">
-      {props.children}
-    </div>
-    <div className="site__footer u-full-width">
-      <Footer />
-    </div>
-  </div>
+  <Site>
+    <main className="page">
+      <div className="page__content">
+        {props.children}
+      </div>
+      {props.sidebarOne && (
+        <div className="page__sidebar-one">
+          {props.sidebarOne}
+        </div>
+      )}
+      {props.sidebarTwo && (
+        <div className="page__sidebar-two">
+          {props.sidebarTwo}
+        </div>
+      )}
+    </main>
+  </Site>
 );
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
+  sidebarOne: PropTypes.node,
+  sidebarTwo: PropTypes.node,
 };
 
 export default Page;

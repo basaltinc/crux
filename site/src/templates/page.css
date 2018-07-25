@@ -1,10 +1,8 @@
-body {
-  margin: 0;
-}
-
-.site__body {
+.page {
   display: flex;
-  justify-content: center;
+  width: 100%;
 }
 
-
+.page__sidebar-one {
+  order: -1;
+}
