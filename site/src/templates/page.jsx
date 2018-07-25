@@ -5,7 +5,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import './page.css';
 // @todo Evan is working on a better way to pull in styles
-import '../../../build/assets/style.css';
+import '../../../build/assets/style.css'; // eslint-disable-line
 
 const Page = props => (
   <div className="app">

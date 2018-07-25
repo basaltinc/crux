@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "gulp",
+    "build": "npm run compile",
     "compile": "NODE_ENV=production gulp compile && npm run gatsby:compile",
     "gatsby:compile": "cd site && npm run build",
     "test": "gulp validate && npm run lint:js",

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { graphql } from 'gatsby'; // eslint-disable-line
 
 import Sidebar from '../components/sidebar';
 import Page from '../templates/page';

@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@basalt/demo-data": "0.1.1",
     "@basalt/twig-renderer": "0.7.3",
     "gatsby": "next",
     "gatsby-cli": "next",
@@ -12,7 +13,8 @@
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-jsonschema-form": "1.0.3"
   },
   "keywords": [
     "gatsby"
