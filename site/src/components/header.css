@@ -3,18 +3,20 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 nav ul {
   list-style: none;
   display: flex;
+  margin: 0;
 }
 
 nav li {
   padding-right: 20px;
+  margin: 0;
 }
 
-.logo {
+.brand {
   padding-left: 20px;
 }

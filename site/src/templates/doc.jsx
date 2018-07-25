@@ -13,8 +13,7 @@ const Template = ({ data }) => {
   const { html, frontmatter } = data.markdownRemark;
 
   return (
-    <Page className="docs">
-      <Sidebar files={markdownFiles} />
+    <Page className="docs" sidebarOne={(<Sidebar files={markdownFiles} />)}>
       <div className="body">
         {frontmatter.section && (
           <h4 className="eyebrow">{frontmatter.section}</h4>
