@@ -1,7 +1,6 @@
 import React from 'react';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 import Page from '../templates/page';
-import Twig from '../components/twig';
 import Overview from '../components/overview';
 
 /* eslint-disable */
@@ -121,57 +120,41 @@ const DSPage = () => (
       <section>
         <h3>Components</h3>
 
-        <article>
-          <h4>Hero</h4>
-          <Twig
-            template="@components/_hero.twig"
-            data={{
-              title: title(),
-              body: paragraph(),
-              image_overlay: 'black',
-              image: image(),
-              buttons: [
-                {
-                  text: text(),
-                },
-                {
-                  text: text(),
-                },
-              ],
-            }}
-          />
-        </article>
-
+        <Overview
+          template="@components/_hero.twig"
+          data={{
+            title: title(),
+            body: paragraph(),
+            image_overlay: 'black',
+            image: image(),
+            buttons: [
+              {
+                text: text(),
+              },
+              {
+                text: text(),
+              },
+            ],
+          }}
+          title="Hero"
+        />
         <hr />
 
-        <article>
-          <h4>Media Tile</h4>
-          <div
-            style={{
-              width: '400px',
-              margin: '0 auto',
-              resize: 'both',
-              overflow: 'scroll',
-              border: 'dotted 1px grey',
-              padding: '5px',
-            }}
-          >
-            <Twig
-              template="@components/_media-tile.twig"
-              data={{
-                title: title(),
-                body: paragraph(),
-                background_image: image(),
-                title_text_color: 'white',
-                body_text_color: 'white',
-                content_padding: 'l',
-                text_align: 'center',
-                title_size: '2',
-              }}
-            />
-          </div>
-        </article>
-
+        <Overview
+          template="@components/_media-tile.twig"
+          data={{
+            title: title(),
+            body: paragraph(),
+            background_image: image(),
+            title_text_color: 'white',
+            body_text_color: 'white',
+            content_padding: 'l',
+            text_align: 'center',
+            title_size: '2',
+          }}
+          demoSizes={['400px']}
+          title="Media Tile"
+        />
         <hr />
 
         <Overview
@@ -185,8 +168,6 @@ const DSPage = () => (
             media_alignment: 'top',
           }}
         />
-
-        <hr />
       </section>
     </div>
   </Page>

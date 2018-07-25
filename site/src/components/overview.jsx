@@ -35,19 +35,30 @@ class Overview extends React.Component {
         <Twig template={this.props.template} data={this.state.data} />
       </div>
     ));
+
+    let title = '';
+    if (this.props.title) {
+      title = this.props.title;
+    } else if (this.props.schema) {
+      title = this.props.schema.title;
+    }
     return (
       <article data-name="overview" style={{ width: '100%' }}>
-        <h4>{this.props.schema.title}</h4>
+        {title && <h4>{title}</h4>}
         {demos}
-        <SchemaForm
-          schema={this.props.schema}
-          formData={this.state.data}
-          onChange={this.handleChange}
-        />
-        <details open={this.props.isPropsTableOpen}>
-          <summary>Props Table</summary>
-          <SchemaTable schema={this.props.schema} />
-        </details>
+        {this.props.schema && (
+          <div>
+            <SchemaForm
+              schema={this.props.schema}
+              formData={this.state.data}
+              onChange={this.handleChange}
+            />
+            <details open={this.props.isPropsTableOpen}>
+              <summary>Props Table</summary>
+              <SchemaTable schema={this.props.schema} />
+            </details>
+          </div>
+        )}
       </article>
     );
   }
@@ -57,6 +68,8 @@ Overview.defaultProps = {
   data: {},
   isPropsTableOpen: false,
   demoSizes: ['100%'],
+  title: '',
+  schema: null,
 };
 
 Overview.propTypes = {
@@ -64,9 +77,10 @@ Overview.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object,
   // eslint-disable-next-line react/forbid-prop-types
-  schema: PropTypes.object.isRequired,
+  schema: PropTypes.object,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
   isPropsTableOpen: PropTypes.bool,
+  title: PropTypes.string,
 };
 
 export default Overview;
