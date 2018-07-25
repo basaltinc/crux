@@ -6,7 +6,7 @@ import Sidebar from '../components/sidebar';
 import Page from '../templates/page';
 
 import './doc.css';
-import Demo from '../components/demo';
+import Twig from '../components/twig';
 
 const Template = ({ data }) => {
   const markdownFiles = data.allMarkdownRemark.edges;
@@ -29,7 +29,7 @@ const Template = ({ data }) => {
           </div>
         )}
         {frontmatter.demo && (
-          <Demo
+          <Twig
             template={frontmatter.demo.template}
             data={frontmatter.demo.data}
           />

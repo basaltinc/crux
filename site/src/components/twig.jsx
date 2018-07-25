@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const renderApiUrl = 'http://localhost:3001/'; // @todo make dynamic
 
-export default class Demo extends React.Component {
+export default class Twig extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,11 +63,11 @@ export default class Demo extends React.Component {
   }
 }
 
-Demo.defaultProps = {
+Twig.defaultProps = {
   data: {},
 };
 
-Demo.propTypes = {
+Twig.propTypes = {
   template: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object,
