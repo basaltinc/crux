@@ -54,23 +54,7 @@ export default class Demo extends React.Component {
   render() {
     /* eslint-disable react/no-danger */
     return (
-      <article>
-        <h2>Demo for {this.props.template}</h2>
-        <details open>
-          <summary>Data passed in</summary>
-          <pre>
-            <code>{JSON.stringify(this.props.data, null, '  ')}</code>
-          </pre>
-        </details>
-        <div
-          style={{
-            border: 'dotted 1px grey',
-            padding: '5px',
-            margin: '5px',
-          }}
-          dangerouslySetInnerHTML={{ __html: this.state.html }}
-        />
-      </article>
+      <div data-name="demo" dangerouslySetInnerHTML={{ __html: this.state.html }} />
     );
   }
 }
