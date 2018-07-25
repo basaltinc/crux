@@ -20,17 +20,26 @@ $fs--h6: $fs--s !default;
 
 @mixin h1() {
   @include heading();
-  font-size: $fs--h1;
+  font-size: 2.65rem;
+  @include breakpoint($bp--xsmall) {
+    font-size: $fs--h1;
+  }
 }
 
 @mixin h2() {
   @include heading();
-  font-size: $fs--h2;
+  font-size: 1.55rem;
+  @include breakpoint($bp--xsmall) {
+    font-size: $fs--h2;
+  }
 }
 
 @mixin h3() {
   @include heading();
-  font-size: $fs--h3;
+  font-size: 1.35rem;
+  @include breakpoint($bp--xsmall) {
+    font-size: $fs--h3;
+  }
 }
 
 @mixin h4() {

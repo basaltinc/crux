@@ -4396,7 +4396,7 @@ gulp-rename@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/gulp-rename/-/gulp-rename-1.4.0.tgz#de1c718e7c4095ae861f7296ef4f3248648240bd"
 
-"gulp-sass-glob@github:tomgrooffer/gulp-sass-glob#99d06af":
+gulp-sass-glob@tomgrooffer/gulp-sass-glob#99d06af:
   version "1.0.8"
   resolved "https://codeload.github.com/tomgrooffer/gulp-sass-glob/tar.gz/99d06af07074e078779d4cfbc5f68b4b9713846c"
   dependencies:
@@ -4540,7 +4540,7 @@ gulp-util@~2.2.14:
     through2 "^0.5.0"
     vinyl "^0.2.1"
 
-"gulp@github:gulpjs/gulp#4.0", gulp@gulpjs/gulp#4.0:
+gulp@gulpjs/gulp#4.0:
   version "4.0.0-alpha.3"
   resolved "https://codeload.github.com/gulpjs/gulp/tar.gz/71c094a51c7972d26f557899ddecab0210ef3776"
   dependencies:
