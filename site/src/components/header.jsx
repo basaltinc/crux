@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'gatsby-link'; // eslint-disable-line
 import PropTypes from 'prop-types';
 
+import basalt from '../../../images/logos/white-grey.svg';
 import './header.css';
 
 const Header = ({ siteTitle }) => (
@@ -23,13 +24,13 @@ const Header = ({ siteTitle }) => (
       <ul>
         <li>
           <Link
-            to="/"
+            to="/docs"
             style={{
               color: 'white',
               textDecoration: 'none',
             }}
           >
-            Home
+            Getting Started
           </Link>
         </li>
         <li>
@@ -62,7 +63,7 @@ const Header = ({ siteTitle }) => (
               textDecoration: 'none',
             }}
           >
-
+            <img src={basalt} alt="Basalt" style={{ height: '1rem' }}/>
           </Link>
         </li>
       </ul>

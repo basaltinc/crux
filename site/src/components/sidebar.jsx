@@ -28,8 +28,11 @@ const SideBar = ({ files }) => {
   const VisualLanguageLinks = files
     .filter(file => file.node.frontmatter.section === 'Visual Language')
     .map(file => (<SideBarLink file={file.node} />));
-  const GetStartedLinks = files
-    .filter(file => file.node.frontmatter.section === 'Get Started')
+  const AboutLinks = files
+    .filter(file => file.node.frontmatter.section === 'About')
+    .map(file => (<SideBarLink file={file.node} />));
+  const ResourceLinks = files
+    .filter(file => file.node.frontmatter.section === 'Resources')
     .map(file => (<SideBarLink file={file.node} />));
   const ComponentLinks = files
     .filter(file => file.node.frontmatter.section === 'Components')
@@ -40,14 +43,15 @@ const SideBar = ({ files }) => {
 
   return (
     <div className="sidebar">
-      <h4>General</h4>
       <ul>{GeneralLinks}</ul>
-      <h4>Get Started</h4>
-      <ul>{GetStartedLinks}</ul>
       <h4>Visual Language</h4>
       <ul>{VisualLanguageLinks}</ul>
       <h4>Components</h4>
       <ul>{ComponentLinks}</ul>
+      <h4>About</h4>
+      <ul>{AboutLinks}</ul>
+      <h4>Resources</h4>
+      <ul>{ResourceLinks}</ul>
     </div>
   );
 };
