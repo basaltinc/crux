@@ -44,13 +44,13 @@ const SideBar = ({ files }) => {
   return (
     <div className="sidebar">
       <ul>{GeneralLinks}</ul>
-      <h4>Visual Language</h4>
+      <Link to="/visual-language"><h4>Visual Language</h4></Link>
       <ul>{VisualLanguageLinks}</ul>
-      <h4>Components</h4>
+      <Link to="/components"><h4>Components</h4></Link>
       <ul>{ComponentLinks}</ul>
-      <h4>About</h4>
+      <Link to="/about"><h4>About</h4></Link>
       <ul>{AboutLinks}</ul>
-      <h4>Resources</h4>
+      <Link to="/resources"><h4>Resources</h4></Link>
       <ul>{ResourceLinks}</ul>
     </div>
   );

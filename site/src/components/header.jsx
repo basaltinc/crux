@@ -35,13 +35,13 @@ const Header = ({ siteTitle }) => (
         </li>
         <li>
           <Link
-            to="/docs"
+            to="/visual-language"
             style={{
               color: 'white',
               textDecoration: 'none',
             }}
           >
-            Docs
+            Visual Language
           </Link>
         </li>
         <li>
@@ -52,7 +52,29 @@ const Header = ({ siteTitle }) => (
               textDecoration: 'none',
             }}
           >
-            Design System
+            Components
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/about"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            About
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/resources"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Resources
           </Link>
         </li>
         <li>
