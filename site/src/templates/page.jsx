@@ -8,12 +8,16 @@ import './page.css';
 import '../../../build/assets/style.css'; // eslint-disable-line
 
 const Page = props => (
-  <div className="app">
-    <Header className="app__header" siteTitle={'Basalt Design System'} />
-    <div className="app__body">
+  <div className="site">
+    <div className="site__header u-full-width">
+      <Header siteTitle={'Crux'} />
+    </div>
+    <div className="site__body">
       {props.children}
     </div>
-    <Footer />
+    <div className="site__footer u-full-width">
+      <Footer />
+    </div>
   </div>
 );
 

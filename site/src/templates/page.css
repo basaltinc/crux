@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-.app__body {
+.site__body {
   display: flex;
   justify-content: center;
 }

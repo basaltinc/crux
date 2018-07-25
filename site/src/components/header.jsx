@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 import './header.css';
 
 const Header = ({ siteTitle }) => (
-  <nav>
-    <div className="logo">
-      <h1 style={{ margin: 0 }}>
+  <nav className="site-header">
+    <div className="brand">
+      <h3 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -17,7 +17,7 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
-      </h1>
+      </h3>
     </div>
     <div>
       <ul>
@@ -52,6 +52,17 @@ const Header = ({ siteTitle }) => (
             }}
           >
             Design System
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="http://www.basalt.io"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+
           </Link>
         </li>
       </ul>

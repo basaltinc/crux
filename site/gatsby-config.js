@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Crux Design System',
   },
   plugins: [{
     resolve: `gatsby-source-filesystem`,
