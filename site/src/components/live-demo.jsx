@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SchemaForm from 'react-jsonschema-form'; // eslint-disable-line
-import Demo from './demo';
+import Twig from './twig';
 
 export default class LiveDemo extends React.Component {
   constructor(props) {
@@ -25,7 +25,7 @@ export default class LiveDemo extends React.Component {
   render() {
     return (
       <div data-name="live-demo">
-        <Demo template={this.props.template} data={this.state.data} />
+        <Twig template={this.props.template} data={this.state.data} />
         <SchemaForm
           schema={this.props.schema}
           formData={this.state.data}

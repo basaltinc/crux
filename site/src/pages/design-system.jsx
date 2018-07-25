@@ -1,7 +1,7 @@
 import React from 'react';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 import Page from '../templates/page';
-import Demo from '../components/demo';
+import Twig from '../components/twig';
 import LiveDemo from '../components/live-demo';
 
 /* eslint-disable */
@@ -123,7 +123,7 @@ const DSPage = () => (
 
         <article>
           <h4>Hero</h4>
-          <Demo
+          <Twig
             template="@components/_hero.twig"
             data={{
               title: title(),
@@ -156,7 +156,7 @@ const DSPage = () => (
               padding: '5px',
             }}
           >
-            <Demo
+            <Twig
               template="@components/_media-tile.twig"
               data={{
                 title: title(),
@@ -186,7 +186,7 @@ const DSPage = () => (
               padding: '5px',
             }}
           >
-            <Demo
+            <Twig
               template="@components/_media-block.twig"
               data={{
                 title: title(),
