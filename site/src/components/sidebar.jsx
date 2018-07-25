@@ -43,7 +43,9 @@ const SideBar = ({ files }) => {
         <h4>Visual Language</h4>
       </Link>
       <ul>
-        <li><Link to="/visual-language/colors">Colors</Link></li>
+        <li>
+          <Link to="/visual-language/colors">Colors</Link>
+        </li>
         {VisualLanguageLinks}
       </ul>
       <Link to="/components">
