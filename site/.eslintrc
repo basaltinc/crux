@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "../.eslintrc.js",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": [
+    "prettier",
+    "jsdoc"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error", {
+        "trailingComma": "all",
+        "singleQuote": true,
+        "semi": true
+      }
+    ],
+    "react/require-extension": [0],
+    "react/forbid-prop-types": [2, {
+      "forbid": ["any", "array"]
+    }],
+    "react/no-danger": [0],
+    "valid-jsdoc": "error",
+    "jsdoc/check-types": "error",
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }]
+  }
+}

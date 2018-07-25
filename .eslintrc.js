@@ -13,6 +13,5 @@ module.exports = {
     'no-param-reassign': [1, {
       props: false,
     }],
-    'react/require-extension': [0],
   }
 };
