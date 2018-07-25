@@ -4,6 +4,10 @@
   padding: 2rem;
 }
 
+.docs {
+  display: flex;
+  width: 100%;
+}
 
 .docs .app__body {
   justify-content: space-between;

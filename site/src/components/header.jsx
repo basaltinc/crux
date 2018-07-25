@@ -2,12 +2,13 @@ import React from 'react';
 import Link from 'gatsby-link'; // eslint-disable-line
 import PropTypes from 'prop-types';
 
+import basalt from '../../../images/logos/white-grey.svg';
 import './header.css';
 
 const Header = ({ siteTitle }) => (
-  <nav>
-    <div className="logo">
-      <h1 style={{ margin: 0 }}>
+  <nav className="site-header">
+    <div className="brand">
+      <h3 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -17,21 +18,10 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
-      </h1>
+      </h3>
     </div>
     <div>
       <ul>
-        <li>
-          <Link
-            to="/"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Home
-          </Link>
-        </li>
         <li>
           <Link
             to="/docs"
@@ -40,7 +30,18 @@ const Header = ({ siteTitle }) => (
               textDecoration: 'none',
             }}
           >
-            Docs
+            Getting Started
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/visual-language"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Visual Language
           </Link>
         </li>
         <li>
@@ -51,8 +52,41 @@ const Header = ({ siteTitle }) => (
               textDecoration: 'none',
             }}
           >
-            Design System
+            Components
           </Link>
+        </li>
+        <li>
+          <Link
+            to="/about"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            About
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/resources"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Resources
+          </Link>
+        </li>
+        <li>
+          <a
+            href="http://www.basalt.io"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            <img src={basalt} alt="Basalt" style={{ height: '1rem' }} />
+          </a>
         </li>
       </ul>
     </div>

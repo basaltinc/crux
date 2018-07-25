@@ -1,8 +1,8 @@
 ---
-title: Get Started Contributing
-path: /get-started/contributing
+title: Bugs and Issues
+path: /about/bugs-issues
 order: 15
-section: Get Started
+section: About
 ---
 
 Lets get some copy on standards for contributing, mono-repos, publishing, etc.

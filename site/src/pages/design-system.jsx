@@ -1,8 +1,8 @@
 import React from 'react';
 import { image, paragraph, text, title } from '@basalt/demo-data';
-import Page from '../../templates/page';
-import Demo from '../../components/demo';
-import LiveDemo from '../../components/live-demo';
+import Page from '../templates/page';
+import Demo from '../components/demo';
+import LiveDemo from '../components/live-demo';
 
 /* eslint-disable */
 const mediaBlockSchema = {
@@ -151,7 +151,8 @@ const DSPage = () => (
             overflow: 'scroll',
             border: 'dotted 1px grey',
             padding: '5px',
-          }}>
+          }}
+          >
             <Demo
               template="@components/_media-tile.twig"
               data={{
@@ -179,7 +180,8 @@ const DSPage = () => (
             overflow: 'scroll',
             border: 'dotted 1px grey',
             padding: '5px',
-          }}>
+          }}
+          >
             <Demo
               template="@components/_media-block.twig"
               data={{
@@ -200,7 +202,8 @@ const DSPage = () => (
             overflow: 'scroll',
             border: 'dotted 1px grey',
             padding: '5px',
-          }}>
+          }}
+          >
             <LiveDemo
               template="@components/_media-block.twig"
               data={{
