@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Page from '../../templates/page';
 import Sidebar from '../../components/sidebar';
+import ColorSwatches from '../../components/color-swatch';
 import { graphql } from 'gatsby';
 
 // @todo Get colors from the manifest when the manifest is built
@@ -59,7 +60,7 @@ const ColorsPage = ({ data }) => {
 
   return (
     <Page className="docs" sidebarOne={<Sidebar files={markdownFiles} />}>
-      <h1>Yolo</h1>
+      <ColorSwatches colors={colors}></ColorSwatches>
     </Page>
   );
 };
