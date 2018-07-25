@@ -25,7 +25,8 @@ export default class Demo extends React.Component {
   }
 
   /**
-   * @param {Object} data
+   * @param {Object} data - Data to pass to template
+   * @return {undefined}
    */
   getHtml(data) {
     // @todo Encode `templatePath`

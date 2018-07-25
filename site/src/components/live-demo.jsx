@@ -13,7 +13,7 @@ export default class LiveDemo extends React.Component {
   }
 
   handleChange({ formData }) {
-    console.log(formData);
+    // console.log(formData);
     this.setState({
       data: formData,
     });
