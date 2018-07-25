@@ -78,15 +78,15 @@ const Header = ({ siteTitle }) => (
           </Link>
         </li>
         <li>
-          <Link
-            to="http://www.basalt.io"
+          <a
+            href="http://www.basalt.io"
             style={{
               color: 'white',
               textDecoration: 'none',
             }}
           >
             <img src={basalt} alt="Basalt" style={{ height: '1rem' }} />
-          </Link>
+          </a>
         </li>
       </ul>
     </div>
