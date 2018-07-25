@@ -6,7 +6,7 @@ const ColorSwatch = ({ color }) => {
     <div key={color.name} style={{ width: '49%', marginBottom: '10px', padding: '5px', border: 'solid 1px grey' }}>
         Color: <code>{color.name}</code><br/>
         Value: <code>{color.value}</code>
-        <div style={{ height: '50px', backgroundColor: color.value }}/>
+        <div style={{ height: '50px', backgroundColor: color.value, border: 'dashed 1px grey' }}/>
     </div>
   );
 }
