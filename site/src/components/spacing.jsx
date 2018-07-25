@@ -20,7 +20,6 @@ const SpacingSwatch = ({ space }) => (
           border: 'dashed 1px grey',
         }}
       />
-
     </div>
     <div>
       Name: <code>{space.name}</code>
