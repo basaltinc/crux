@@ -63,7 +63,7 @@ const Header = ({ siteTitle }) => (
               textDecoration: 'none',
             }}
           >
-            <img src={basalt} alt="Basalt" style={{ height: '1rem' }}/>
+            <img src={basalt} alt="Basalt" style={{ height: '1rem' }} />
           </Link>
         </li>
       </ul>

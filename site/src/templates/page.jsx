@@ -8,8 +8,8 @@ import './page.css';
 // @todo Evan is working on a better way to pull in styles
 import '../../../build/assets/style.css'; // eslint-disable-line
 
-const Page = props => {
-  let mainClassName = props.className ? 'page '.concat(props.className) : 'page';
+const Page = (props) => {
+  const mainClassName = props.className ? 'page '.concat(props.className) : 'page';
   return (
     <Site>
       <main className={mainClassName}>
@@ -29,13 +29,20 @@ const Page = props => {
       </main>
     </Site>
   );
-}
+};
 
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   sidebarOne: PropTypes.node,
   sidebarTwo: PropTypes.node,
+};
+
+Page.defaultProps = {
+  className: null,
+  sidebarOne: null,
+  sidebarTwo: null,
 };
 
 export default Page;

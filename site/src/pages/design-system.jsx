@@ -151,7 +151,8 @@ const DSPage = () => (
             overflow: 'scroll',
             border: 'dotted 1px grey',
             padding: '5px',
-          }}>
+          }}
+          >
             <Demo
               template="@components/_media-tile.twig"
               data={{
@@ -179,7 +180,8 @@ const DSPage = () => (
             overflow: 'scroll',
             border: 'dotted 1px grey',
             padding: '5px',
-          }}>
+          }}
+          >
             <Demo
               template="@components/_media-block.twig"
               data={{
@@ -200,7 +202,8 @@ const DSPage = () => (
             overflow: 'scroll',
             border: 'dotted 1px grey',
             padding: '5px',
-          }}>
+          }}
+          >
             <LiveDemo
               template="@components/_media-block.twig"
               data={{
