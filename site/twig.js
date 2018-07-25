@@ -38,10 +38,12 @@ const twigRenderer = new TwigRenderer({
       },
     ],
   },
-  alterTwigEnv: [{
-    file: join(__dirname, 'twig.php'),
-    functions: ['setupTwig'],
-  }],
+  alterTwigEnv: [
+    {
+      file: join(__dirname, 'twig.php'),
+      functions: ['setupTwig'],
+    },
+  ],
 });
 
 // eslint-disable-next-line

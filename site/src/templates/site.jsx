@@ -12,9 +12,7 @@ const Site = props => (
     <div className="site__header u-full-width">
       <Header siteTitle={'Crux'} />
     </div>
-    <div className="site__body">
-      {props.children}
-    </div>
+    <div className="site__body">{props.children}</div>
     <div className="site__footer u-full-width">
       <Footer />
     </div>
@@ -26,4 +24,3 @@ Site.propTypes = {
 };
 
 export default Site;
-

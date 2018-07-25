@@ -114,7 +114,9 @@ const mediaBlockSchema = {
 
 const DSPage = () => (
   <Page>
-    <div> {/* @todo temp fix - refactor templates to allow for pages w/o sidebars */}
+    <div>
+      {' '}
+      {/* @todo temp fix - refactor templates to allow for pages w/o sidebars */}
       <h2>Welcome to the Design System!</h2>
       <section>
         <h3>Components</h3>
@@ -144,14 +146,15 @@ const DSPage = () => (
 
         <article>
           <h4>Media Tile</h4>
-          <div style={{
-            width: '400px',
-            margin: '0 auto',
-            resize: 'both',
-            overflow: 'scroll',
-            border: 'dotted 1px grey',
-            padding: '5px',
-          }}
+          <div
+            style={{
+              width: '400px',
+              margin: '0 auto',
+              resize: 'both',
+              overflow: 'scroll',
+              border: 'dotted 1px grey',
+              padding: '5px',
+            }}
           >
             <Demo
               template="@components/_media-tile.twig"
@@ -173,14 +176,15 @@ const DSPage = () => (
 
         <article>
           <h4>Media Block</h4>
-          <div style={{
-            width: '500px',
-            margin: '0 auto',
-            resize: 'both',
-            overflow: 'scroll',
-            border: 'dotted 1px grey',
-            padding: '5px',
-          }}
+          <div
+            style={{
+              width: '500px',
+              margin: '0 auto',
+              resize: 'both',
+              overflow: 'scroll',
+              border: 'dotted 1px grey',
+              padding: '5px',
+            }}
           >
             <Demo
               template="@components/_media-block.twig"
@@ -195,14 +199,15 @@ const DSPage = () => (
 
           <br />
 
-          <div style={{
-            width: '800px',
-            margin: '0 auto',
-            resize: 'both',
-            overflow: 'scroll',
-            border: 'dotted 1px grey',
-            padding: '5px',
-          }}
+          <div
+            style={{
+              width: '800px',
+              margin: '0 auto',
+              resize: 'both',
+              overflow: 'scroll',
+              border: 'dotted 1px grey',
+              padding: '5px',
+            }}
           >
             <LiveDemo
               template="@components/_media-block.twig"
@@ -214,11 +219,9 @@ const DSPage = () => (
               schema={mediaBlockSchema}
             />
           </div>
-
         </article>
 
         <hr />
-
       </section>
     </div>
   </Page>

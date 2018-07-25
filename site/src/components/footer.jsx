@@ -11,7 +11,12 @@ const Footer = () => (
       <li className="footer-menu__item">Nav 4</li>
       <li className="footer-menu__item">Nav 5</li>
     </ul>
-    <p>Copyright 2018 - <a href="http://basalt.io" target="_blank" rel="noopener noreferrer">Basalt</a></p>
+    <p>
+      Copyright 2018 -{' '}
+      <a href="http://basalt.io" target="_blank" rel="noopener noreferrer">
+        Basalt
+      </a>
+    </p>
   </footer>
 );
 

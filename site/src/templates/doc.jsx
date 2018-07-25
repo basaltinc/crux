@@ -13,7 +13,7 @@ const Template = ({ data }) => {
   const { html, frontmatter } = data.markdownRemark;
 
   return (
-    <Page className="docs" sidebarOne={(<Sidebar files={markdownFiles} />)}>
+    <Page className="docs" sidebarOne={<Sidebar files={markdownFiles} />}>
       <div className="body">
         {frontmatter.section && (
           <h4 className="eyebrow">{frontmatter.section}</h4>
@@ -22,7 +22,9 @@ const Template = ({ data }) => {
         {frontmatter.definition && (
           <div>
             <hr />
-            <blockquote className="definition">{frontmatter.definition}</blockquote>
+            <blockquote className="definition">
+              {frontmatter.definition}
+            </blockquote>
             <hr />
           </div>
         )}
@@ -49,9 +51,7 @@ export default Template;
 
 export const pageQuery = graphql`
   query DocsByPath($path: String!) {
-    allMarkdownRemark(
-      sort: { order: ASC, fields: [frontmatter___order] }
-    ) {
+    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }) {
       edges {
         node {
           id

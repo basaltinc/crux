@@ -25,7 +25,7 @@ export default class Demo extends React.Component {
   }
 
   /**
-   * @param {object} data
+   * @param {Object} data
    */
   getHtml(data) {
     // @todo Encode `templatePath`
@@ -36,7 +36,7 @@ export default class Demo extends React.Component {
         // headers: {}
       })
       .then(res => res.json())
-      .then((results) => {
+      .then(results => {
         // eslint-disable-next-line
         // console.debug(results);
         if (results.ok) {
@@ -54,7 +54,10 @@ export default class Demo extends React.Component {
   render() {
     /* eslint-disable react/no-danger */
     return (
-      <div data-name="demo" dangerouslySetInnerHTML={{ __html: this.state.html }} />
+      <div
+        data-name="demo"
+        dangerouslySetInnerHTML={{ __html: this.state.html }}
+      />
     );
   }
 }

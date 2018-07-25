@@ -15,6 +15,6 @@ const HomeSplash = () => (
       </div>
     </div>
   </div>
-  );
+);
 
 export default HomeSplash;

@@ -6,9 +6,7 @@ import './sidebar.css';
 
 const SideBarLink = ({ file }) => (
   <li>
-    <Link to={file.frontmatter.path}>
-      {file.frontmatter.title}
-    </Link>
+    <Link to={file.frontmatter.path}>{file.frontmatter.title}</Link>
   </li>
 );
 
@@ -24,19 +22,19 @@ SideBarLink.propTypes = {
 const SideBar = ({ files }) => {
   const GeneralLinks = files
     .filter(file => file.node.frontmatter.section === 'General')
-    .map(file => (<SideBarLink file={file.node} />));
+    .map(file => <SideBarLink file={file.node} />);
   const VisualLanguageLinks = files
     .filter(file => file.node.frontmatter.section === 'Visual Language')
-    .map(file => (<SideBarLink file={file.node} />));
+    .map(file => <SideBarLink file={file.node} />);
   const AboutLinks = files
     .filter(file => file.node.frontmatter.section === 'About')
-    .map(file => (<SideBarLink file={file.node} />));
+    .map(file => <SideBarLink file={file.node} />);
   const ResourceLinks = files
     .filter(file => file.node.frontmatter.section === 'Resources')
-    .map(file => (<SideBarLink file={file.node} />));
+    .map(file => <SideBarLink file={file.node} />);
   const ComponentLinks = files
     .filter(file => file.node.frontmatter.section === 'Components')
-    .map(file => (<SideBarLink file={file.node} />));
+    .map(file => <SideBarLink file={file.node} />);
   // const GeneralLinks = files
   //   .filter(file => file.node.frontmatter.section === 'general')
   //   .map(file => (<SideBarLink file={file.node} />));
@@ -44,13 +42,21 @@ const SideBar = ({ files }) => {
   return (
     <div className="sidebar">
       <ul>{GeneralLinks}</ul>
-      <Link to="/visual-language"><h4>Visual Language</h4></Link>
+      <Link to="/visual-language">
+        <h4>Visual Language</h4>
+      </Link>
       <ul>{VisualLanguageLinks}</ul>
-      <Link to="/components"><h4>Components</h4></Link>
+      <Link to="/components">
+        <h4>Components</h4>
+      </Link>
       <ul>{ComponentLinks}</ul>
-      <Link to="/about"><h4>About</h4></Link>
+      <Link to="/about">
+        <h4>About</h4>
+      </Link>
       <ul>{AboutLinks}</ul>
-      <Link to="/resources"><h4>Resources</h4></Link>
+      <Link to="/resources">
+        <h4>Resources</h4>
+      </Link>
       <ul>{ResourceLinks}</ul>
     </div>
   );
@@ -59,6 +65,5 @@ const SideBar = ({ files }) => {
 SideBar.propTypes = {
   files: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
 
 export default SideBar;
