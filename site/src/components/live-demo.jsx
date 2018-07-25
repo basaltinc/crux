@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SchemaForm from 'react-jsonschema-form';
+import SchemaForm from 'react-jsonschema-form'; // eslint-disable-line
 import Demo from './demo';
 
 export default class LiveDemo extends React.Component {

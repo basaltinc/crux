@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import Link from 'gatsby-link'; // eslint-disable-line
 import PropTypes from 'prop-types';
 
 import './header.css';
