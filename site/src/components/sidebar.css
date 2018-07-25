@@ -5,6 +5,7 @@
   box-sizing: border-box;
   padding: 2rem;
   border-right: solid 1px black;
+  height: 100%;
 }
 
 .sidebar ul {
