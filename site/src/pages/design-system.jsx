@@ -3,6 +3,7 @@ import { image, paragraph, text, title } from '@basalt/demo-data';
 import Page from '../templates/page';
 import Twig from '../components/twig';
 import LiveDemo from '../components/live-demo';
+import SchemaTable from '../components/schema-table';
 
 /* eslint-disable */
 const mediaBlockSchema = {
@@ -218,6 +219,8 @@ const DSPage = () => (
               }}
               schema={mediaBlockSchema}
             />
+
+            <SchemaTable schema={mediaBlockSchema} />
           </div>
         </article>
 
