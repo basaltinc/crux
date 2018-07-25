@@ -1,0 +1,44 @@
+.rjsf .custom-field__title {
+  margin-bottom: 0.25rem;
+}
+
+.rjsf .custom-field__info {
+  display: inline-block;
+  float: right;
+  background-size: contain;
+  height: 15px;
+  width: 15px;
+}
+
+
+.rjsf .field-array__item-field {
+  width: 100%;
+}
+
+.rjsf .field-array__item-field > .form-group {
+  padding: 0 0 0 0.75rem;
+}
+
+.rjsf .field-array__item-field legend,
+.rjsf .field-array__item-field legend + p {
+  display: none;
+}
+
+.field-object > .custom-field__title {
+  display: none;
+}
+
+.field-array > .custom-field__title {
+  display: none;
+}
+
+.custom-field__required {
+  position: relative;  
+}
+
+.custom-field__required:before {
+  content: '*';
+  color: red;
+  position: absolute;
+  left: -10px;
+}
