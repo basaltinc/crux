@@ -6,6 +6,7 @@
   "dependencies": {
     "@basalt/demo-data": "0.1.1",
     "@basalt/twig-renderer": "0.7.3",
+    "classnames": "2.2.6",
     "gatsby": "next",
     "gatsby-cli": "next",
     "gatsby-link": "^1.6.40",

@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-.site__body {
+.site__main {
   display: flex;
   justify-content: center;
 }
