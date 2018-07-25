@@ -3,7 +3,10 @@ path: '/docs/'
 title: Getting Started
 order: 1
 section: General
+definition: “It’s art if can’t be explained.  It’s fashion if no one asks for an explanation.  It’s design if it doesn’t need  explanation.” — Wouter Stokkel
 ---
+
+
 
 Welcome to Crux, a design system from Basalt by Basalt.
 
