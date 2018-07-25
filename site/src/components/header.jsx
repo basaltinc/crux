@@ -23,6 +23,17 @@ const Header = ({ siteTitle }) => (
       <ul>
         <li>
           <Link
+            to="/"
+            style={{
+              color: 'white',
+              textDecoration: 'none',
+            }}
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
             to="/docs"
             style={{
               color: 'white',
@@ -33,15 +44,15 @@ const Header = ({ siteTitle }) => (
           </Link>
         </li>
         <li>
-          <a
-            href="http://basalt.io"
+          <Link
+            to="/design-system"
             style={{
               color: 'white',
               textDecoration: 'none',
             }}
           >
-            Basalt
-          </a>
+            Design System
+          </Link>
         </li>
       </ul>
     </div>
