@@ -13,5 +13,8 @@
   order: 1;
 }
 
-.page--has-sidebar-one {}
+.page--has-sidebar-one {
+  display: flex;  
+}
+
 .page--has-sidebar-two {}
