@@ -2,8 +2,7 @@ import React from 'react';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 import Page from '../templates/page';
 import Twig from '../components/twig';
-import LiveDemo from '../components/live-demo';
-import SchemaTable from '../components/schema-table';
+import Overview from '../components/overview';
 
 /* eslint-disable */
 const mediaBlockSchema = {
@@ -175,54 +174,17 @@ const DSPage = () => (
 
         <hr />
 
-        <article>
-          <h4>Media Block</h4>
-          <div
-            style={{
-              width: '500px',
-              margin: '0 auto',
-              resize: 'both',
-              overflow: 'scroll',
-              border: 'dotted 1px grey',
-              padding: '5px',
-            }}
-          >
-            <Twig
-              template="@components/_media-block.twig"
-              data={{
-                title: title(),
-                body: paragraph(),
-                media: image(),
-                media_alignment: 'top',
-              }}
-            />
-          </div>
-
-          <br />
-
-          <div
-            style={{
-              width: '800px',
-              margin: '0 auto',
-              resize: 'both',
-              overflow: 'scroll',
-              border: 'dotted 1px grey',
-              padding: '5px',
-            }}
-          >
-            <LiveDemo
-              template="@components/_media-block.twig"
-              data={{
-                title: title(),
-                body: paragraph(),
-                media: image(),
-              }}
-              schema={mediaBlockSchema}
-            />
-
-            <SchemaTable schema={mediaBlockSchema} />
-          </div>
-        </article>
+        <Overview
+          template="@components/_media-block.twig"
+          schema={mediaBlockSchema}
+          demoSizes={['500px', '800px']}
+          data={{
+            title: title(),
+            body: paragraph(),
+            media: image(),
+            media_alignment: 'top',
+          }}
+        />
 
         <hr />
       </section>
