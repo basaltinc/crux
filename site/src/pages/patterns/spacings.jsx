@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
 
-import Page from '../../templates/page';
-import Sidebar from '../../components/sidebar';
+import PatternPage from '../../templates/pattern-page';
 import SpacingSwatches from '../../components/spacing';
 
 // @todo Get spacing from the manifest when the manifest is built
@@ -51,54 +48,25 @@ const spacing = {
   },
 };
 
-const SpacingPage = ({ data }) => {
-  const markdownFiles = data.allMarkdownRemark.edges;
-
-  return (
-    <Page className="docs" sidebarOne={<Sidebar files={markdownFiles} />}>
-      <div className="body">
-        <h4 className="eyebrow">Visual Language</h4>
-        <h2>Spacing</h2>
-        <hr />
-        <blockquote>
-          Whitespace is like air: it is necessary for design to breathe. –
-          Wojciech Zieliński
-        </blockquote>
-        <hr />
-        <p>
-          Space is a fundamental concept to any visual design language. Space
-          and proximity are powerful conveyors of relationships. Like things
-          belong together, unlike things should be apart.
-        </p>
-        <SpacingSwatches spaces={spacing} />
-      </div>
-    </Page>
-  );
-};
+const SpacingPage = () => (
+  <PatternPage>
+    <div className="body">
+      <h4 className="eyebrow">Visual Language</h4>
+      <h2>Spacing</h2>
+      <hr />
+      <blockquote>
+        Whitespace is like air: it is necessary for design to breathe. –
+        Wojciech Zieliński
+      </blockquote>
+      <hr />
+      <p>
+        Space is a fundamental concept to any visual design language. Space and
+        proximity are powerful conveyors of relationships. Like things belong
+        together, unlike things should be apart.
+      </p>
+      <SpacingSwatches spaces={spacing} />
+    </div>
+  </PatternPage>
+);
 
 export default SpacingPage;
-
-SpacingPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.object,
-  }).isRequired,
-};
-
-export const pageQuery = graphql`
-  query SitePagesSpacing {
-    allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }) {
-      edges {
-        node {
-          id
-          html
-          frontmatter {
-            title
-            path
-            order
-            section
-          }
-        }
-      }
-    }
-  }
-`;

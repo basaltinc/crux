@@ -25,6 +25,7 @@ const perceptualPatternsList = [
     name: 'Components',
     id: 'components',
     isHeading: true,
+    path: '/patterns/components',
   },
 ];
 // linkItems is an array of menu items hardcoded together with imported data on components
