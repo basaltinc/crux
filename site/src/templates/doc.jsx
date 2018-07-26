@@ -73,19 +73,6 @@ export const pageQuery = graphql`
         title
         definition
         section
-        demo {
-          template
-          data {
-            size
-            image
-            text
-            menu_items {
-              url
-              text
-              active
-            }
-          }
-        }
       }
     }
   }
