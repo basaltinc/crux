@@ -7,7 +7,7 @@ const twigRenderer = require('../twig');
 router.get('/', (req, res) => {
   res.json({
     ok: true,
-    message: 'Welcome to the API!'
+    message: 'Welcome to the API!',
   });
 });
 

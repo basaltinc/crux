@@ -17,4 +17,6 @@ app.use((req, res, next) => {
 
 app.use('/api', api);
 
-app.listen(3042, () => console.log('Express listening on http://localhost:3042'));
+app.listen(3042, () =>
+  console.log('Express listening on http://localhost:3042'),
+);
