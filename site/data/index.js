@@ -112,6 +112,7 @@ export const components = [
   {
     template: '@components/_hero.twig',
     id: 'hero',
+    path: '/patterns/components/hero',
     title: 'Hero',
     data: {
       title: title(),
@@ -131,6 +132,7 @@ export const components = [
   {
     template: '@components/_media-tile.twig',
     id: 'media-tile',
+    path: '/patterns/components/media-tile',
     title: 'Media Tile',
     demoSizes: ['400px'],
     data: {
@@ -147,6 +149,7 @@ export const components = [
   {
     template: '@components/_media-block.twig',
     id: 'media-block',
+    path: '/patterns/components/media-block',
     title: 'Media Block',
     schema: mediaBlockSchema,
     demoSizes: ['500px', '800px'],
@@ -159,3 +162,5 @@ export const components = [
     },
   },
 ];
+
+export const patterns = components;

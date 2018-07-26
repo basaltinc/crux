@@ -2,3 +2,4 @@ node_modules
 pattern-lab/vendor
 build
 .DS_Store
+.idea
