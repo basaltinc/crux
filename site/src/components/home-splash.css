@@ -25,6 +25,10 @@
   margin: 0;
 }
 
+.home-splash__subtitle {
+  margin-top: -110px;
+}
+
 .home-splash__version-tag {
-  margin-top: -50px;
+  margin-top: -20px;
 }
