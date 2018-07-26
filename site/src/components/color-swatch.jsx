@@ -33,39 +33,28 @@ ColorSwatch.propTypes = {
 };
 
 /* eslint-disable no-useless-constructor, react/prefer-stateless-function */
-export default class ColorSwatches extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      colors: [],
-    };
-  }
+const ColorSwatches = (props) => {
+  const colorSwatches = props.colors.map(color => (
+    <ColorSwatch key={color.name} color={color} />
+  ));
 
-  componentDidMount() {
-    window
-      .fetch(`${apiUrlBase}/colors`)
-      .then(res => res.json())
-      .then(colors => {
-        this.setState({ colors });
-      });
-  }
-
-  render() {
-    const colorSwatches = this.state.colors.map(color => (
-      <ColorSwatch key={color.name} color={color} />
-    ));
-
-    return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-        }}
-      >
-        {colorSwatches}
-      </div>
-    );
-  }
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+      }}
+    >
+      {colorSwatches}
+    </div>
+  );
 }
+
+ColorSwatches.propTypes = {
+  colors: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+
+export default ColorSwatches;
+
 /* eslint-enable no-useless-constructor react/prefer-stateless-function */

@@ -1,5 +1,4 @@
 import { image, paragraph, text, title } from '@basalt/demo-data';
-// export * from './colors';
 
 /* eslint-disable */
 export const mediaBlockSchema = {
