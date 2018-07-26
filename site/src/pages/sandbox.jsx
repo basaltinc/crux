@@ -12,11 +12,11 @@ const SandboxPage = () => (
         {
           image:
             'http://uniform.hudl.com/static/button-associatedactions-dont.d3f0af3c.png',
-          caption: "use multiple sizes in the same context.",
+          caption: 'use multiple sizes in the same context.',
           do: false,
         },
         {
-          title: "Do Example",
+          title: 'Do Example',
           image:
             'http://uniform.hudl.com/static/button-associatedactions-do.e76035d2.png',
           caption: 'use button types to emphasize a preferred option.',

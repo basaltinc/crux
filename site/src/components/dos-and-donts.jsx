@@ -9,10 +9,20 @@ class DosAndDonts extends React.Component {
   }
 
   render() {
-    const items = this.props.items.map((item, i) => (
-      <figure key={i} className={item.do ? 'comparisons__item comparisons__item--do' : 'comparisons__item comparisons__item--dont'}>
-        <img src={item.image} />
-        <figcaption><span>{item.do ? 'Do ' : 'Don\'t '}</span>{item.caption}</figcaption>
+    const items = this.props.items.map(item => (
+      <figure
+        key={item.image}
+        className={
+          item.do
+            ? 'comparisons__item comparisons__item--do'
+            : 'comparisons__item comparisons__item--dont'
+        }
+      >
+        <img alt="" src={item.image} />
+        <figcaption>
+          <span>{item.do ? 'Do ' : "Don't "}</span>
+          {item.caption}
+        </figcaption>
       </figure>
     ));
 
@@ -20,9 +30,7 @@ class DosAndDonts extends React.Component {
       <div className="comparisons">
         {this.props.title && <h4>{this.props.title}</h4>}
         {this.props.description && <p>{this.props.description}</p>}
-          <div className={'comparisons__inner'}>
-          {items}
-        </div>
+        <div className={'comparisons__inner'}>{items}</div>
       </div>
     );
   }
