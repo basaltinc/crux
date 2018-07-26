@@ -1,11 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { image, paragraph, text, title } from '@basalt/demo-data';
-import Page from '../../templates/page';
-import Overview from '../../components/overview';
 
 /* eslint-disable */
-const mediaBlockSchema = {
+export const mediaBlockSchema = {
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "title": "Media Block",
@@ -112,7 +108,7 @@ const mediaBlockSchema = {
 };
 /* eslint-enable */
 
-const components = [
+export const components = [
   {
     template: '@components/_hero.twig',
     title: 'Hero',
@@ -151,6 +147,7 @@ const components = [
     title: 'Media Block',
     schema: mediaBlockSchema,
     demoSizes: ['500px', '800px'],
+    isPropsTableOpen: true,
     data: {
       title: title(),
       body: paragraph(),
@@ -159,38 +156,3 @@ const components = [
     },
   },
 ];
-
-const LinkList = ({ items }) => (
-  <nav className="link-list">
-    <ul>{items.map(item => <li>{item.name}</li>)}</ul>
-  </nav>
-);
-
-LinkList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
-
-const ComponentsPage = () => (
-  <Page
-    sidebarOne={
-      <LinkList
-        items={components.map(component => ({ name: component.title }))}
-      />
-    }
-  >
-    <div>
-      {/* @todo temp fix - refactor templates to allow for pages w/o sidebars */}
-      <h2>Welcome to the Design System!</h2>
-      <section>
-        <h3>Components</h3>
-        {components.map(component => <Overview {...component} />)}
-      </section>
-    </div>
-  </Page>
-);
-
-export default ComponentsPage;
