@@ -48,13 +48,13 @@ const Header = ({ siteTitle }) => (
         </li>
         <li>
           <Link
-            to="/components"
+            to="/patterns"
             style={{
               color: 'white',
               textDecoration: 'none',
             }}
           >
-            Components
+            Patterns
           </Link>
         </li>
         <li>

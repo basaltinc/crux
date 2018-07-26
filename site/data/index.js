@@ -111,6 +111,7 @@ export const mediaBlockSchema = {
 export const components = [
   {
     template: '@components/_hero.twig',
+    id: 'hero',
     title: 'Hero',
     data: {
       title: title(),
@@ -129,6 +130,7 @@ export const components = [
   },
   {
     template: '@components/_media-tile.twig',
+    id: 'media-tile',
     title: 'Media Tile',
     demoSizes: ['400px'],
     data: {
@@ -144,6 +146,7 @@ export const components = [
   },
   {
     template: '@components/_media-block.twig',
+    id: 'media-block',
     title: 'Media Block',
     schema: mediaBlockSchema,
     demoSizes: ['500px', '800px'],
