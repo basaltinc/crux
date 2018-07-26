@@ -1,10 +1,10 @@
 import React from 'react';
-import Page from '../../templates/page';
+import PatternPage from '../../templates/pattern-page';
 import LinkList from '../../components/link-list';
 import { components } from '../../../data/index';
 
 const ComponentsPage = () => (
-  <Page>
+  <PatternPage>
     <h2>Welcome to the Design System!</h2>
     <LinkList
       items={components.map(component => ({
@@ -13,7 +13,7 @@ const ComponentsPage = () => (
         path: `/patterns/components/${component.id}`,
       }))}
     />
-  </Page>
+  </PatternPage>
 );
 
 export default ComponentsPage;

@@ -23,6 +23,7 @@ class Overview extends React.Component {
   render() {
     const demos = this.props.demoSizes.map(size => (
       <div
+        key={size}
         style={{
           width: size,
           margin: '0 auto 5px',

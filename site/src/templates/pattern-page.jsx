@@ -4,20 +4,41 @@ import Page from './page';
 import LinkList from '../components/link-list';
 import { components } from '../../data';
 
+// @todo think of a way to not have these be hard coded, then implement that brilliant idea
+const perceptualPatternsList = [
+  {
+    name: 'Colors',
+    id: 'colors',
+    path: `/patterns/colors`,
+  },
+  {
+    name: 'Animations',
+    id: 'animations',
+    path: `/patterns/animations`,
+  },
+  {
+    name: 'Spacings',
+    id: 'spacings',
+    path: '/patterns/spacings',
+  },
+  {
+    name: 'Components',
+    id: 'components',
+    isHeading: true,
+    path: '/patterns/components',
+  },
+];
+// linkItems is an array of menu items hardcoded together with imported data on components
+const linkItems = perceptualPatternsList.concat(
+  components.map(component => ({
+    name: component.title,
+    id: component.id,
+    path: `/patterns/components/${component.id}`,
+  })),
+);
+
 const PatternPage = props => (
-  <Page
-    sidebarOne={
-      <LinkList
-        items={components.map(component => ({
-          name: component.title,
-          id: component.id,
-          path: `/patterns/components/${component.id}`,
-        }))}
-      />
-    }
-  >
-    {props.children}
-  </Page>
+  <Page sidebarOne={<LinkList items={linkItems} />}>{props.children}</Page>
 );
 
 PatternPage.propTypes = {
