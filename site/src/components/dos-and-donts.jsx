@@ -27,7 +27,7 @@ class DosAndDonts extends React.Component {
     ));
 
     return (
-      <div className="comparisons">
+      <div className={'comparisons'}>
         {this.props.title && <h4>{this.props.title}</h4>}
         {this.props.description && <p>{this.props.description}</p>}
         <div className={'comparisons__inner'}>{items}</div>
@@ -37,7 +37,7 @@ class DosAndDonts extends React.Component {
 }
 
 DosAndDonts.defaultProps = {
-  title: 'Test',
+  title: '',
   description: '',
 };
 
