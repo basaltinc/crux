@@ -9,9 +9,15 @@
   text-align: right;
 }
 
+.home-splash__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .home-splash__eyebrow {
-  margin: 0 0 -95px;
-  font-size: 2.85rem;
+  color: grey;
+  margin: 0 0 -125px;
+  font-size: 2.52rem;
 }
 
 .home-splash__title {

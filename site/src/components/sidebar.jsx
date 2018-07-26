@@ -49,6 +49,9 @@ const SideBar = ({ files }) => {
         <li>
           <Link to="/visual-language/spacing">Spacing</Link>
         </li>
+        <li>
+          <Link to="/visual-language/animations">Animations</Link>
+        </li>
         {VisualLanguageLinks}
       </ul>
       <Link to="/components">
