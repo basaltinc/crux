@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const renderApiUrl = 'http://localhost:3042/api/render-twig'; // @todo make dynamic
+import { apiUrlBase } from '../../config';
 
 export default class Twig extends React.Component {
   constructor(props) {
@@ -32,7 +31,7 @@ export default class Twig extends React.Component {
     // @todo Encode `templatePath`
     window
       .fetch(
-        `${renderApiUrl}?templatePath=${encodeURIComponent(
+        `${apiUrlBase}/render-twig?templatePath=${encodeURIComponent(
           this.props.template,
         )}`,
         {
