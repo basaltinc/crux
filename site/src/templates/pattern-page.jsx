@@ -27,30 +27,18 @@ const perceptualPatternsList = [
     isHeading: true,
   },
 ];
+// linkItems is an array of menu items hardcoded together with imported data on components
+const linkItems = perceptualPatternsList.concat(
+  components.map(component => ({
+    name: component.title,
+    id: component.id,
+    path: `/patterns/components/${component.id}`,
+  })),
+);
 
-const PatternPage = props => {
-  const linkItems = perceptualPatternsList
-    .concat(
-      components
-        .map(component => ({
-          name: component.title,
-          id: component.id,
-          path: `/patterns/components/${component.id}`,
-        }))
-    );
-
-  return (
-    <Page
-      sidebarOne={
-        <LinkList
-          items={linkItems}
-        />
-      }
-    >
-      {props.children}
-    </Page>
-  );
-}
+const PatternPage = props => (
+  <Page sidebarOne={<LinkList items={linkItems} />}>{props.children}</Page>
+);
 
 PatternPage.propTypes = {
   children: PropTypes.node.isRequired,
