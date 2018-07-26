@@ -3,7 +3,6 @@ import React from 'react';
 import PatternPage from '../../templates/pattern-page';
 import ColorSwatches from '../../components/color-swatch';
 
-
 const ColorsPage = () => (
   <PatternPage className="docs">
     <div className="body">
@@ -30,7 +29,7 @@ const ColorsPage = () => (
         Each color has a Sass variable and two utility classes. For example,
         $c-blue has : .u-c-blue for color and .u-bg-blue for background-color.
       </p>
-      <ColorSwatches colors={colors} />
+      <ColorSwatches />
     </div>
   </PatternPage>
 );

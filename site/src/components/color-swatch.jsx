@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { apiUrlBase } from '../../config';
 
 const ColorSwatch = ({ color }) => (
   <div
@@ -23,14 +24,34 @@ const ColorSwatch = ({ color }) => (
   </div>
 );
 
+ColorSwatch.propTypes = {
+  color: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    comment: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 /* eslint-disable no-useless-constructor, react/prefer-stateless-function */
 export default class ColorSwatches extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      colors: [],
+    };
+  }
+
+  componentDidMount() {
+    window
+      .fetch(`${apiUrlBase}/colors`)
+      .then(res => res.json())
+      .then(colors => {
+        this.setState({ colors });
+      });
   }
 
   render() {
-    const colorSwatches = this.props.colors.items.map(color => (
+    const colorSwatches = this.state.colors.map(color => (
       <ColorSwatch key={color.name} color={color} />
     ));
 
@@ -48,18 +69,3 @@ export default class ColorSwatches extends React.Component {
   }
 }
 /* eslint-enable no-useless-constructor react/prefer-stateless-function */
-
-ColorSwatch.propTypes = {
-  color: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    comment: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-ColorSwatches.propTypes = {
-  colors: PropTypes.shape({
-    items: PropTypes.array,
-    meta: PropTypes.object,
-  }).isRequired,
-};
