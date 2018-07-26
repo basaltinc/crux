@@ -34,8 +34,8 @@
     "lint:fix": "eslint --ext .js,.jsx . --fix",
     "test": "npm run lint",
     "watch:gatsby": "gatsby develop",
-    "watch:server": "nodemon --watch server.js --watch api/ --exec 'node server.js' ",
-    "serve": "node server.js"
+    "watch:server": "nodemon --watch server.js --watch api/ --exec 'npm run serve' ",
+    "serve": "babel-node server.js --presets env"
   },
   "devDependencies": {
     "npm-run-all": "4.1.3"

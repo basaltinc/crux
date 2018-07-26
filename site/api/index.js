@@ -2,6 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 const twigRenderer = require('../twig');
+import { getColors } from '../data/colors';
 // all routes in here have a `/api` prefix
 
 router.get('/', (req, res) => {
@@ -26,5 +27,10 @@ router.post('/render-twig', async (req, res) => {
   // console.log(results);
   res.json(results);
 });
+
+router.get('/colors', async (req, res) => {
+  res.send(getColors());
+});
+
 
 module.exports = router;
