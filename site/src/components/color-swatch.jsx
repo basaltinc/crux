@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const ColorSwatch = ({ color }) => (
   <div
-    key={color.name}
     style={{
       width: '49%',
       marginBottom: '10px',
@@ -32,7 +31,7 @@ export default class ColorSwatches extends React.Component {
 
   render() {
     const colorSwatches = this.props.colors.items.map(color => (
-      <ColorSwatch color={color} />
+      <ColorSwatch key={color.name} color={color} />
     ));
 
     return (
@@ -59,5 +58,8 @@ ColorSwatch.propTypes = {
 };
 
 ColorSwatches.propTypes = {
-  colors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  colors: PropTypes.shape({
+    items: PropTypes.array,
+    meta: PropTypes.object,
+  }).isRequired,
 };
