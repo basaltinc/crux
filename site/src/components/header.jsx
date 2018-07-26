@@ -7,7 +7,7 @@ import './header.css';
 
 const Header = ({ siteTitle }) => (
   <nav className="site-header">
-    <div className="brand">
+    <div className="site-header__brand">
       <h3 style={{ margin: 0 }}>
         <Link
           to="/"
@@ -21,9 +21,11 @@ const Header = ({ siteTitle }) => (
       </h3>
     </div>
     <div>
-      <ul>
-        <li>
+      {/* @todo clean this up; propagate these classnames */}
+      <ul className="site-header__nav">
+        <li className="site-header__item">
           <Link
+            className="site-header__link"
             to="/docs"
             style={{
               color: 'white',
@@ -46,7 +48,7 @@ const Header = ({ siteTitle }) => (
         </li>
         <li>
           <Link
-            to="/design-system"
+            to="/components"
             style={{
               color: 'white',
               textDecoration: 'none',

@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { image, paragraph, text, title } from '@basalt/demo-data';
-import Page from '../templates/page';
-import Overview from '../components/overview';
+import Page from '../../templates/page';
+import Overview from '../../components/overview';
 
 /* eslint-disable */
 const mediaBlockSchema = {
@@ -111,66 +112,85 @@ const mediaBlockSchema = {
 };
 /* eslint-enable */
 
-const DSPage = () => (
-  <Page>
+const components = [
+  {
+    template: '@components/_hero.twig',
+    title: 'Hero',
+    data: {
+      title: title(),
+      body: paragraph(),
+      image_overlay: 'black',
+      image: image(),
+      buttons: [
+        {
+          text: text(),
+        },
+        {
+          text: text(),
+        },
+      ],
+    },
+  },
+  {
+    template: '@components/_media-tile.twig',
+    title: 'Media Tile',
+    demoSizes: ['400px'],
+    data: {
+      title: title(),
+      body: paragraph(),
+      background_image: image(),
+      title_text_color: 'white',
+      body_text_color: 'white',
+      content_padding: 'l',
+      text_align: 'center',
+      title_size: '2',
+    },
+  },
+  {
+    template: '@components/_media-block.twig',
+    title: 'Media Block',
+    schema: mediaBlockSchema,
+    demoSizes: ['500px', '800px'],
+    data: {
+      title: title(),
+      body: paragraph(),
+      media: image(),
+      media_alignment: 'top',
+    },
+  },
+];
+
+const LinkList = ({ items }) => (
+  <nav className="link-list">
+    <ul>{items.map(item => <li>{item.name}</li>)}</ul>
+  </nav>
+);
+
+LinkList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
+const ComponentsPage = () => (
+  <Page
+    sidebarOne={
+      <LinkList
+        items={components.map(component => ({ name: component.title }))}
+      />
+    }
+  >
     <div>
-      {' '}
       {/* @todo temp fix - refactor templates to allow for pages w/o sidebars */}
       <h2>Welcome to the Design System!</h2>
       <section>
         <h3>Components</h3>
-
-        <Overview
-          template="@components/_hero.twig"
-          data={{
-            title: title(),
-            body: paragraph(),
-            image_overlay: 'black',
-            image: image(),
-            buttons: [
-              {
-                text: text(),
-              },
-              {
-                text: text(),
-              },
-            ],
-          }}
-          title="Hero"
-        />
-        <hr />
-
-        <Overview
-          template="@components/_media-tile.twig"
-          data={{
-            title: title(),
-            body: paragraph(),
-            background_image: image(),
-            title_text_color: 'white',
-            body_text_color: 'white',
-            content_padding: 'l',
-            text_align: 'center',
-            title_size: '2',
-          }}
-          demoSizes={['400px']}
-          title="Media Tile"
-        />
-        <hr />
-
-        <Overview
-          template="@components/_media-block.twig"
-          schema={mediaBlockSchema}
-          demoSizes={['500px', '800px']}
-          data={{
-            title: title(),
-            body: paragraph(),
-            media: image(),
-            media_alignment: 'top',
-          }}
-        />
+        {components.map(component => <Overview {...component} />)}
       </section>
     </div>
   </Page>
 );
 
-export default DSPage;
+export default ComponentsPage;

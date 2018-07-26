@@ -1,4 +1,4 @@
-nav {
+.site-header {
   background: #16394B;
   display: flex;
   justify-content: space-between;
@@ -6,17 +6,17 @@ nav {
   padding: 1.5rem 0;
 }
 
-nav ul {
+.site-header ul {
   list-style: none;
   display: flex;
   margin: 0;
 }
 
-nav li {
+.site-header__nav li {
   padding-right: 20px;
   margin: 0;
 }
 
-.brand {
+.site-header__brand {
   padding-left: 20px;
 }
