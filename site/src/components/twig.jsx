@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const renderApiUrl = 'http://localhost:3001/'; // @todo make dynamic
+const renderApiUrl = 'http://localhost:3042/api/render-twig'; // @todo make dynamic
 
 export default class Twig extends React.Component {
   constructor(props) {
@@ -31,11 +31,18 @@ export default class Twig extends React.Component {
   getHtml(data) {
     // @todo Encode `templatePath`
     window
-      .fetch(`${renderApiUrl}?templatePath=${this.props.template}`, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        // headers: {}
-      })
+      .fetch(
+        `${renderApiUrl}?templatePath=${encodeURIComponent(
+          this.props.template,
+        )}`,
+        {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
       .then(res => res.json())
       .then(results => {
         // eslint-disable-next-line

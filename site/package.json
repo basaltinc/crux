@@ -6,7 +6,9 @@
   "dependencies": {
     "@basalt/demo-data": "0.1.1",
     "@basalt/twig-renderer": "0.7.3",
+    "body-parser": "1.18.3",
     "classnames": "2.2.6",
+    "express": "4.16.3",
     "gatsby": "next",
     "gatsby-cli": "next",
     "gatsby-link": "^1.6.40",
@@ -14,6 +16,7 @@
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
+    "nodemon": "1.18.3",
     "react-helmet": "^5.2.0",
     "react-jsonschema-form": "1.0.3",
     "react-table": "6.8.6"
@@ -24,15 +27,15 @@
   "license": "MIT",
   "scripts": {
     "build:gatsby": "gatsby build",
-    "prep": "node twig.js",
     "postinstall": "composer install",
-    "serve:twig": "php -S 127.0.0.1:3001 node_modules/@basalt/twig-renderer/dist/server--sync.php",
-    "build": "npm run prep && npm-run-all --parallel build:gatsby",
-    "start": "npm run prep && npm-run-all --parallel serve:twig watch:gatsby",
+    "build": "npm-run-all --parallel build:gatsby",
+    "start": "npm-run-all --print-label --parallel watch:server watch:gatsby",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --ext .js,.jsx . --fix",
     "test": "npm run lint",
-    "watch:gatsby": "sleep 1 && gatsby develop"
+    "watch:gatsby": "gatsby develop",
+    "watch:server": "nodemon --watch server.js --watch api/ --exec 'node server.js' ",
+    "serve": "node server.js"
   },
   "devDependencies": {
     "npm-run-all": "4.1.3"
