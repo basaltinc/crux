@@ -1,5 +1,10 @@
 import { image, paragraph, text, title } from '@basalt/demo-data';
 
+// import logo from '../src/pages/patterns/basalt-logo.svg';
+import heroThumb from '../src/pages/patterns/hero.svg';
+import mediaTileThumb from '../src/pages/patterns/media-tile.svg';
+import mediaBlockThumb from '../src/pages/patterns/media-block.svg';
+
 /* eslint-disable */
 export const mediaBlockSchema = {
   "$schema": "http://json-schema.org/schema#",
@@ -114,9 +119,11 @@ export const components = [
     id: 'hero',
     path: '/patterns/components/hero',
     title: 'Hero',
+    image: heroThumb,
     data: {
       title: title(),
       body: paragraph(),
+      desc: title(),
       image_overlay: 'black',
       image: image(),
       buttons: [
@@ -135,9 +142,11 @@ export const components = [
     path: '/patterns/components/media-tile',
     title: 'Media Tile',
     demoSizes: ['400px'],
+    image: mediaTileThumb,
     data: {
       title: title(),
       body: paragraph(),
+      desc: title(),
       background_image: image(),
       title_text_color: 'white',
       body_text_color: 'white',
@@ -154,9 +163,11 @@ export const components = [
     schema: mediaBlockSchema,
     demoSizes: ['500px', '800px'],
     isPropsTableOpen: true,
+    image: mediaBlockThumb,
     data: {
       title: title(),
       body: paragraph(),
+      desc: title(),
       media: image(),
       media_alignment: 'top',
     },

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="220px" viewBox="0 0 360 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>Media block</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Media-block" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <rect id="Rectangle" fill="#4A90E2" opacity="0.99" x="0" y="0" width="360" height="220" rx="15"></rect>
+            <rect id="Rectangle-Copy" fill="#FFFFFF" opacity="0.275" x="10" y="10" width="180" height="200" rx="15"></rect>
+            <polygon id="Star" stroke="#7BAEE9" fill="#FFFFFF" opacity="0.311830357" points="107 135.5 86.4275162 146.315595 90.356511 123.407797 73.7130219 107.184405 96.7137581 103.842203 107 83 117.286242 103.842203 140.286978 107.184405 123.643489 123.407797 127.572484 146.315595"></polygon>
+            <polygon id="Star" stroke="#7BAEE9" fill="#FFFFFF" opacity="0.21183" transform="translate(78.842951, 82.425219) rotate(-22.000000) translate(-78.842951, -82.425219) " points="78.8429506 90.7621003 70.6139571 95.0883382 72.185555 85.9252192 65.5281594 79.4358624 74.7284538 78.0989813 78.8429506 69.7621003 82.9574474 78.0989813 92.1577418 79.4358624 85.5003462 85.9252192 87.0719441 95.0883382"></polygon>
+            <polygon id="Star" stroke="#7BAEE9" fill="#FFFFFF" opacity="0.11183" transform="translate(59.509579, 68.309593) rotate(-22.000000) translate(-59.509579, -68.309593) " points="59.509579 71.6053157 56.2565062 73.3155572 56.8777878 69.6932075 54.2459967 67.1278452 57.8830426 66.5993515 59.509579 63.3036288 61.1361153 66.5993515 64.7731612 67.1278452 62.1413701 69.6932075 62.7626517 73.3155572"></polygon>
+            <path d="M213,47 L335,47 C339.970563,47 344,51.0294373 344,56 L344,62 C344,66.9705627 339.970563,71 335,71 L308.114435,71 L213,71 C208.029437,71 204,66.9705627 204,62 L204,56 C204,51.0294373 208.029437,47 213,47 Z" id="Rectangle-2" fill="#FFFFFF"></path>
+            <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="204" y="92" width="140" height="8" rx="4"></rect>
+            <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="204" y="112" width="140" height="8" rx="4"></rect>
+            <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="204" y="132" width="140" height="8" rx="4"></rect>
+            <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.245870536" x="203.614958" y="160" width="81.7728532" height="18" rx="9"></rect>
+            <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.740345982" x="224.556787" y="166" width="43" height="6" rx="3"></rect>
+        </g>
+    </g>
+</svg>
