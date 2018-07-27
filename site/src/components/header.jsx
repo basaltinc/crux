@@ -26,24 +26,13 @@ const Header = ({ siteTitle }) => (
         <li className="site-header__item">
           <Link
             className="site-header__link"
-            to="/docs"
+            to="/get-started"
             style={{
               color: 'white',
               textDecoration: 'none',
             }}
           >
-            Getting Started
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/visual-language"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Visual Language
+            Get Started
           </Link>
         </li>
         <li>
