@@ -18,8 +18,14 @@ const PatternsPage = () => (
           className="u-crux-pattern-grid__item u-crux-pattern-grid__item--component"
         >
           <Link to={pattern.path}>
-            <img src={pattern.image} alt="" className="u-crux-pattern-grid__item-thumb" />
-            <span className="u-crux-pattern-grid__item-title">{pattern.title}</span>
+            <img
+              src={pattern.image}
+              alt=""
+              className="u-crux-pattern-grid__item-thumb"
+            />
+            <span className="u-crux-pattern-grid__item-title">
+              {pattern.title}
+            </span>
             <div className="u-crux-pattern-grid__item-description">
               {pattern.data.desc}
             </div>
@@ -27,14 +33,6 @@ const PatternsPage = () => (
         </li>
       ))}
     </ul>
-
-    <Twig
-      template="@components/_button.twig"
-      data={{
-        text: 'hi',
-        url: '/',
-      }}
-    />
   </Page>
 );
 

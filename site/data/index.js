@@ -1,6 +1,6 @@
 import { image, paragraph, text, title } from '@basalt/demo-data';
 
-import logo from '../src/pages/patterns/basalt-logo.svg';
+// import logo from '../src/pages/patterns/basalt-logo.svg';
 import heroThumb from '../src/pages/patterns/hero.svg';
 import mediaTileThumb from '../src/pages/patterns/media-tile.svg';
 import mediaBlockThumb from '../src/pages/patterns/media-block.svg';
