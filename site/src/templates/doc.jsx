@@ -49,7 +49,6 @@ Template.propTypes = {
 
 export default Template;
 
-// @todo Get the side bar data to come from a query in the sidebar component
 export const pageQuery = graphql`
   query DocsByPath($path: String!) {
     allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }) {

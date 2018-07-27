@@ -38,34 +38,7 @@ const SideBar = ({ files }) => {
 
   return (
     <div className="sidebar">
-      <ul>{GeneralLinks}</ul>
-      <Link to="/visual-language">
-        <h4>Visual Language</h4>
-      </Link>
-      <ul>
-        <li>
-          <Link to="/visual-language/colors">Colors</Link>
-        </li>
-        <li>
-          <Link to="/visual-language/spacing">Spacing</Link>
-        </li>
-        <li>
-          <Link to="/visual-language/animations">Animations</Link>
-        </li>
-        {VisualLanguageLinks}
-      </ul>
-      <Link to="/components">
-        <h4>Components</h4>
-      </Link>
-      <ul>{ComponentLinks}</ul>
-      <Link to="/about">
-        <h4>About</h4>
-      </Link>
-      <ul>{AboutLinks}</ul>
-      <Link to="/resources">
-        <h4>Resources</h4>
-      </Link>
-      <ul>{ResourceLinks}</ul>
+
     </div>
   );
 };
