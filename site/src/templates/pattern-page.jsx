@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Page from './page';
 import LinkList from '../components/link-list';
 import { components } from '../../data';
+import './pattern-page.css'; // Pattern page specific styles
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [
