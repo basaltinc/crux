@@ -13,6 +13,5 @@ export async function getColors() {
     'utf8',
   );
   const colors = JSON.parse(colorsFile);
-  console.log({ colorsFile, colors });
   return colors.items;
 }
