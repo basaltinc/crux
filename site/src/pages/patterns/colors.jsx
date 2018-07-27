@@ -22,7 +22,6 @@ class ColorsPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.colors);
     return (
       <PatternPage className="docs">
         <div className="body">

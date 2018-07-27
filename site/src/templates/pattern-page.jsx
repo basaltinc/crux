@@ -22,6 +22,11 @@ const perceptualPatternsList = [
     path: '/patterns/spacings',
   },
   {
+    name: 'Breakpoints',
+    id: 'breakpoints',
+    path: '/patterns/breakpoints',
+  },
+  {
     name: 'Components',
     id: 'components',
     isHeading: true,
