@@ -22,12 +22,14 @@ class BreakpointsPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.breakpoints);
     return (
       <PatternPage className="docs">
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Breakpoints</h2>
+
+          <pre><code>{JSON.stringify(this.state.breakpoints, null, '  ')}</code></pre>
+
         </div>
       </PatternPage>
     );

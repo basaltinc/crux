@@ -2,6 +2,7 @@ import express from 'express';
 import { getColors } from '../data/colors';
 import { getBreakpoints } from '../data/breakpoints';
 import { getSpacings } from '../data/spacings';
+import { getFontFamilies, getFontSizes } from '../data/typography';
 import twigRenderer from '../twig';
 
 const router = express.Router();
@@ -43,6 +44,16 @@ router.get('/breakpoints', async (req, res) => {
 router.get('/spacings', async (req, res) => {
   const spacings = await getSpacings();
   res.send(spacings);
+});
+
+router.get('/font-sizes', async (req, res) => {
+  const fontsizes = await getFontSizes();
+  res.send(fontsizes);
+});
+
+router.get('/font-families', async (req, res) => {
+  const fontfamilies = await getFontFamilies();
+  res.send(fontfamilies);
 });
 
 // router.get('/transitions', async (req, res) => {

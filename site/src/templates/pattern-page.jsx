@@ -27,6 +27,11 @@ const perceptualPatternsList = [
     path: '/patterns/breakpoints',
   },
   {
+    name: 'Typography',
+    id: 'typography',
+    path: '/patterns/typography',
+  },
+  {
     name: 'Components',
     id: 'components',
     isHeading: true,
