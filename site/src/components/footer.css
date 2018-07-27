@@ -6,5 +6,10 @@
 }
 
 .footer-menu {
+  display: flex;
+  list-style: none;
+}
 
+.footer-menu__item {
+  margin-right: 10px;
 }
