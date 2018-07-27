@@ -59,22 +59,27 @@ export default class Twig extends React.Component {
   }
 
   render() {
-    /* eslint-disable react/no-danger */
-    return (
-      <div
-        data-name="demo"
-        dangerouslySetInnerHTML={{ __html: this.state.html }}
-      />
-    );
+    let html = this.state.html;
+    if (this.props.showDataUsed) {
+      const code = JSON.stringify(this.props.data, null, '  ');
+      html = `${html}
+        <details>
+          <summary>Data Used</summary>
+          <pre><code>${code}</code></pre>
+        </details>`;
+    }
+    return <div data-name="demo" dangerouslySetInnerHTML={{ __html: html }} />;
   }
 }
 
 Twig.defaultProps = {
   data: {},
+  showDataUsed: true,
 };
 
 Twig.propTypes = {
   template: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object,
+  showDataUsed: PropTypes.bool,
 };
