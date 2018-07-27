@@ -4,6 +4,8 @@ import Page from './page';
 import LinkList from '../components/link-list';
 import { components } from '../../data';
 
+import './pattern-page.css'; // Pattern page specific styles
+
 const PatternPage = props => (
   <Page
     sidebarOne={

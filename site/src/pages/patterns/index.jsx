@@ -1,19 +1,41 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import Page from '../../templates/page';
-import LinkList from '../../components/link-list';
-import { components } from '../../../data/index';
+import Twig from '../../components/twig';
+import { patterns } from '../../../data';
 
-const ComponentsPage = () => (
+const PatternsPage = () => (
   <Page>
     <h2>Welcome to the Design System!</h2>
-    <LinkList
-      items={components.map(component => ({
-        name: component.title,
-        id: component.id,
-        path: `/patterns/components/${component.id}`,
-      }))}
+    <ul
+      className="smart-grid u-crux-pattern-grid"
+      data-row-items-small="2"
+      data-row-items-medium="3"
+    >
+      {patterns.map(pattern => (
+        <li
+          key={pattern.id}
+          className="u-crux-pattern-grid__item u-crux-pattern-grid__item--component"
+        >
+          <Link to={pattern.path}>
+            <img src={pattern.image} alt="" className="u-crux-pattern-grid__item-thumb" />
+            <span className="u-crux-pattern-grid__item-title">{pattern.title}</span>
+            <div className="u-crux-pattern-grid__item-description">
+              {pattern.data.desc}
+            </div>
+          </Link>
+        </li>
+      ))}
+    </ul>
+
+    <Twig
+      template="@components/_button.twig"
+      data={{
+        text: 'hi',
+        url: '/',
+      }}
     />
   </Page>
 );
 
-export default ComponentsPage;
+export default PatternsPage;
