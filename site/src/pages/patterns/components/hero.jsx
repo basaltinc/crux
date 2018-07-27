@@ -1,14 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { image, paragraph, text, title } from '@basalt/demo-data';
 import PatternPage from '../../../templates/pattern-page';
 import Overview from '../../../components/overview';
-import { components } from '../../../../data';
+import Spinner from '../../../components/spinner';
+import { apiUrlBase } from '../../../../config';
 
-const hero = components.find(component => component.title === 'Hero');
+class HeroPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      info: {},
+      ready: false,
+    };
+  }
 
-const ComponentsPage = () => (
-  <PatternPage>
-    <Overview {...hero} />
-  </PatternPage>
-);
+  componentDidMount() {
+    window
+      .fetch(`${apiUrlBase}/pattern-info/components/hero`)
+      .then(res => res.json())
+      .then(info => {
+        if (info.ok) {
+          this.setState({ info, ready: true });
+        } else {
+          // @todo Show error
+          console.error('Uh oh, error!', info);
+        }
+      });
+  }
 
-export default ComponentsPage;
+  render() {
+    let content;
+    if (!this.state.ready) {
+      content = <Spinner />;
+    } else {
+      const { template, schema } = this.state.info;
+      content = (
+        <Overview
+          template={template}
+          schema={schema}
+          data={{
+            title: title(),
+            body: paragraph(),
+            desc: title(),
+            image_overlay: 'black',
+            image: image(),
+            buttons: [
+              {
+                text: text(),
+              },
+              {
+                text: text(),
+              },
+            ],
+          }}
+        />
+      );
+    }
+    return <PatternPage>{content}</PatternPage>;
+  }
+}
+
+export default HeroPage;

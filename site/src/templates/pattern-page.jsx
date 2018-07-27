@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Page from './page';
 import LinkList from '../components/link-list';
-import { components } from '../../data';
-import './pattern-page.css'; // Pattern page specific styles
+import './pattern-page.css';
+import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [
@@ -39,18 +39,42 @@ const perceptualPatternsList = [
     path: '/patterns/components',
   },
 ];
-// linkItems is an array of menu items hardcoded together with imported data on components
-const linkItems = perceptualPatternsList.concat(
-  components.map(component => ({
-    name: component.title,
-    id: component.id,
-    path: `/patterns/components/${component.id}`,
-  })),
-);
 
-const PatternPage = props => (
-  <Page sidebarOne={<LinkList items={linkItems} />}>{props.children}</Page>
-);
+class PatternPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      linkItems: perceptualPatternsList,
+      ready: false,
+    };
+  }
+
+  componentDidMount() {
+    window
+      .fetch(`${apiUrlBase}/patterns/components`)
+      .then(res => res.json())
+      .then(patterns => {
+        this.setState({
+          linkItems: [
+            ...this.state.linkItems,
+            ...patterns.map(pattern => ({
+              name: pattern.title,
+              id: pattern.id,
+              path: pattern.path,
+            })),
+          ],
+        });
+      });
+  }
+
+  render() {
+    return (
+      <Page sidebarOne={<LinkList items={this.state.linkItems} />}>
+        {this.props.children}
+      </Page>
+    );
+  }
+}
 
 PatternPage.propTypes = {
   children: PropTypes.node.isRequired,

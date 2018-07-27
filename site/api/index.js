@@ -1,9 +1,14 @@
 import express from 'express';
-import { getColors } from '../data/colors';
-import { getBreakpoints } from '../data/breakpoints';
-import { getSpacings } from '../data/spacings';
-import { getTransitions } from '../data/animations';
-import { getFontFamilies, getFontSizes } from '../data/typography';
+import {
+  getColors,
+  getBreakpoints,
+  getSpacings,
+  getTransitions,
+  getFontFamilies,
+  getFontSizes,
+  getPatterns,
+  getPatternInfo,
+} from '../data';
 import twigRenderer from '../twig';
 
 const router = express.Router();
@@ -21,8 +26,8 @@ router.get('/', (req, res) => {
 
 /**
  * @api {post} /api/render-twig Render Twig
- * @apiParam (Query String) {String} templatePath - Path to template
- * @apiParam (Body) {json} data - Data to pass to template
+ * @apiParam (Query String) {String} templatePath Path to template
+ * @apiParam (Body) {json} data Data to pass to template
  * @apiExample {js} Example Request for Button
  *    fetch('/api/render-twig?templatePath=@components/_button.twig'), {
  *       method: 'POST',
@@ -43,7 +48,7 @@ router.get('/', (req, res) => {
  *      }
  *    });
  * @apiName RenderTwig
- * @apiGroup Twig
+ * @apiGroup Patterns
  * @apiSuccessExample Success Response
  *   {
  *     "ok": true,
@@ -70,6 +75,35 @@ router.post('/render-twig', async (req, res) => {
 
   const results = await twigRenderer.render(templatePath, body);
   res.json(results);
+});
+
+/**
+ * @api {get} /api/pattern-info/:type/:id Get Pattern Info
+ * @apiParam {String="styleguide","layouts","components","templates"} type Pattern Type
+ * @apiParam {String} id Pattern ID i.e. `media-block`
+ * @apiName GetPatternInfo
+ * @apiGroup Patterns
+ * @apiDescription Returns info about a pattern
+ * @apiSuccess {Object} Pattern Info
+ */
+router.get('/pattern-info/:type/:id', async (req, res) => {
+  const results = await getPatternInfo(req.params.id, {
+    type: req.params.type,
+  });
+  res.send(results);
+});
+
+/**
+ * @api {get} /api/patterns/:type Get Patterns Info
+ * @apiParam {String="styleguide","layouts","components","templates"} type Pattern Type
+ * @apiName GetPatterns
+ * @apiGroup Patterns
+ * @apiDescription Returns info about all types of patterns
+ * @apiSuccess {Object[]} Array of Pattern Info
+ */
+router.get('/patterns/:type', async (req, res) => {
+  const results = await getPatterns(req.params.type);
+  res.send(results);
 });
 
 /**

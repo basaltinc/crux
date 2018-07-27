@@ -39,7 +39,7 @@
     "test": "npm run lint",
     "watch:gatsby": "gatsby develop",
     "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'npm run build:jsdoc'",
-    "watch:server": "nodemon --watch server.js --watch api/ --exec 'npm run build:apidoc && npm run serve' ",
+    "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'npm run build:apidoc && npm run serve' ",
     "serve": "babel-node server.js --presets env"
   },
   "devDependencies": {
