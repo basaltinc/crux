@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { apiUrlBase } from '../../config';
 
 const ColorSwatch = ({ color }) => (
   <div
@@ -33,7 +32,7 @@ ColorSwatch.propTypes = {
 };
 
 /* eslint-disable no-useless-constructor, react/prefer-stateless-function */
-const ColorSwatches = (props) => {
+const ColorSwatches = props => {
   const colorSwatches = props.colors.map(color => (
     <ColorSwatch key={color.name} color={color} />
   ));
@@ -49,7 +48,7 @@ const ColorSwatches = (props) => {
       {colorSwatches}
     </div>
   );
-}
+};
 
 ColorSwatches.propTypes = {
   colors: PropTypes.arrayOf(PropTypes.object).isRequired,

@@ -35,10 +35,13 @@ class TypographyPage extends React.Component {
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Typography</h2>
 
-          <pre><code>{JSON.stringify(this.state.fontSizes, null, '  ')}</code></pre>
+          <pre>
+            <code>{JSON.stringify(this.state.fontSizes, null, '  ')}</code>
+          </pre>
 
-          <pre><code>{JSON.stringify(this.state.fontFamilies, null, '  ')}</code></pre>
-
+          <pre>
+            <code>{JSON.stringify(this.state.fontFamilies, null, '  ')}</code>
+          </pre>
         </div>
       </PatternPage>
     );

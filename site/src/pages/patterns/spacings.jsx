@@ -34,9 +34,9 @@ export default class SpacingPage extends React.Component {
           </blockquote>
           <hr />
           <p>
-            Space is a fundamental concept to any visual design language. Space and
-            proximity are powerful conveyors of relationships. Like things belong
-            together, unlike things should be apart.
+            Space is a fundamental concept to any visual design language. Space
+            and proximity are powerful conveyors of relationships. Like things
+            belong together, unlike things should be apart.
           </p>
           <SpacingSwatches spaces={this.state.spacings} />
         </div>

@@ -28,8 +28,9 @@ class BreakpointsPage extends React.Component {
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Breakpoints</h2>
 
-          <pre><code>{JSON.stringify(this.state.breakpoints, null, '  ')}</code></pre>
-
+          <pre>
+            <code>{JSON.stringify(this.state.breakpoints, null, '  ')}</code>
+          </pre>
         </div>
       </PatternPage>
     );

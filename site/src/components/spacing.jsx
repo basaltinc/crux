@@ -63,7 +63,5 @@ SpacingSwatch.propTypes = {
 };
 
 SpacingSwatches.propTypes = {
-  spaces: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
+  spaces: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
