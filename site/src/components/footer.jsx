@@ -14,6 +14,15 @@ const Footer = () => (
           API Docs
         </a>
       </li>
+      <li className="footer-menu__item">
+        <a
+          href="http://localhost:3042/jsdoc/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          JSDocs
+        </a>
+      </li>
       <li className="footer-menu__item">Nav 1</li>
       <li className="footer-menu__item">Nav 2</li>
       <li className="footer-menu__item">Nav 3</li>
