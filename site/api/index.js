@@ -1,6 +1,7 @@
 import express from 'express';
 import { getColors } from '../data/colors';
 import { getBreakpoints } from '../data/breakpoints';
+import { getSpacings } from '../data/spacings';
 import twigRenderer from '../twig';
 
 const router = express.Router();
@@ -38,5 +39,15 @@ router.get('/breakpoints', async (req, res) => {
   const breakpoints = await getBreakpoints();
   res.send(breakpoints);
 });
+
+router.get('/spacings', async (req, res) => {
+  const spacings = await getSpacings();
+  res.send(spacings);
+});
+
+// router.get('/transitions', async (req, res) => {
+//   const transitions = await getTransitions();
+//   res.send(transitions);
+// });
 
 export default router;
