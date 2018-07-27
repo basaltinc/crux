@@ -5,7 +5,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@basalt/demo-data": "0.1.1",
-    "@basalt/twig-renderer": "0.7.3",
+    "@basalt/twig-renderer": "0.8.0",
     "body-parser": "1.18.3",
     "classnames": "2.2.6",
     "express": "4.16.3",
