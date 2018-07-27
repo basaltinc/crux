@@ -1,12 +1,15 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "basalt-design-system-site",
+  "description": "Basalt Design System Site",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Basalt",
   "dependencies": {
     "@basalt/demo-data": "0.1.1",
-    "@basalt/twig-renderer": "0.7.3",
+    "@basalt/twig-renderer": "0.8.0",
+    "apidoc": "0.17.6",
+    "body-parser": "1.18.3",
     "classnames": "2.2.6",
+    "express": "4.16.3",
     "gatsby": "next",
     "gatsby-cli": "next",
     "gatsby-link": "^1.6.40",
@@ -14,6 +17,8 @@
     "gatsby-plugin-react-helmet": "^2.0.10",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
+    "jsdoc": "3.5.5",
+    "nodemon": "1.18.3",
     "react-helmet": "^5.2.0",
     "react-jsonschema-form": "1.0.3",
     "react-table": "6.8.6"
@@ -24,21 +29,24 @@
   "license": "MIT",
   "scripts": {
     "build:gatsby": "gatsby build",
-    "prep": "node twig.js",
+    "build:apidoc": "apidoc --input api/ --output public2/apidoc/ --file-filters '.js' --file-filters '.jsx' ",
+    "build:jsdoc": "jsdoc --configure jsdoc.json --recurse --destination public2/jsdoc",
     "postinstall": "composer install",
-    "serve:twig": "php -S 127.0.0.1:3001 node_modules/@basalt/twig-renderer/dist/server--sync.php",
-    "build": "npm run prep && npm-run-all --parallel build:gatsby",
-    "start": "npm run prep && npm-run-all --parallel serve:twig watch:gatsby",
+    "build": "npm-run-all --serial build:*",
+    "start": "npm-run-all --print-label --parallel watch:*",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --ext .js,.jsx . --fix",
     "test": "npm run lint",
-    "watch:gatsby": "sleep 1 && gatsby develop"
+    "watch:gatsby": "gatsby develop",
+    "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'npm run build:jsdoc'",
+    "watch:server": "nodemon --watch server.js --watch api/ --exec 'npm run build:apidoc && npm run serve' ",
+    "serve": "babel-node server.js --presets env"
   },
   "devDependencies": {
     "npm-run-all": "4.1.3"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://bitbucket.org/basaltinc/our-design-system"
   }
 }

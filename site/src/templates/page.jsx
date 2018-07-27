@@ -9,37 +9,63 @@ import './page.css';
 // @todo Evan is working on a better way to pull in styles
 import '../../../build/assets/style.css'; // eslint-disable-line
 
-const Page = props => (
-  <Site>
-    <main
-      className={classNames('page', {
-        'page--has-sidebar-one': props.sidebarOne,
-        'page--has-sidebar-two': props.sidebarTwo,
-        [`page--${props.className}`]: props.className,
-      })}
-    >
-      <div className="page__content">{props.children}</div>
-      {props.sidebarOne && (
-        <div className="page__sidebar-one">{props.sidebarOne}</div>
-      )}
-      {props.sidebarTwo && (
-        <div className="page__sidebar-two">{props.sidebarTwo}</div>
-      )}
-    </main>
-  </Site>
-);
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarOneOnTop: props.sidebarOneOnTop,
+    };
+  }
+
+  render() {
+    return (
+      <Site>
+        <main
+          className={classNames('page', {
+            'page--has-sidebar-one': this.props.sidebarOne,
+            'page--has-sidebar-two': this.props.sidebarTwo,
+            [`page--${this.props.className}`]: this.props.className,
+            'page--has-sidebar-one-on-top':
+              this.props.sidebarOne && this.state.sidebarOneOnTop,
+          })}
+        >
+          <div className="page__content">{this.props.children}</div>
+          {this.props.sidebarOne && (
+            <div className="page__sidebar-one">
+              {this.props.sidebarOne}
+              <button
+                onClick={() =>
+                  this.setState({
+                    sidebarOneOnTop: !this.state.sidebarOneOnTop,
+                  })
+                }
+              >
+                Toggle
+              </button>
+            </div>
+          )}
+          {this.props.sidebarTwo && (
+            <div className="page__sidebar-two">{this.props.sidebarTwo}</div>
+          )}
+        </main>
+      </Site>
+    );
+  }
+}
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   sidebarOne: PropTypes.node,
   sidebarTwo: PropTypes.node,
+  sidebarOneOnTop: PropTypes.bool,
 };
 
 Page.defaultProps = {
   className: null,
   sidebarOne: null,
   sidebarTwo: null,
+  sidebarOneOnTop: false,
 };
 
 export default Page;

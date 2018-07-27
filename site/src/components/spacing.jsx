@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 const SpacingSwatch = ({ space }) => (
   <div
-    key={space.name}
     style={{
       display: 'flex',
       alignItems: 'center',
@@ -36,8 +35,8 @@ export default class SpacingSwatches extends React.Component {
   }
 
   render() {
-    const spaceSwatches = this.props.spaces.items.map(space => (
-      <SpacingSwatch space={space} />
+    const spaceSwatches = this.props.spaces.map(space => (
+      <SpacingSwatch key={space.name} space={space} />
     ));
 
     return (

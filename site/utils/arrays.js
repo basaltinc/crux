@@ -1,3 +1,5 @@
+/** @module utils */
+
 /**
  * Flatten Array
  * @param {Array[]} arrayOfArrays - Array of Arrays to flatten

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const renderApiUrl = 'http://localhost:3001/'; // @todo make dynamic
+import { apiUrlBase } from '../../config';
 
 export default class Twig extends React.Component {
   constructor(props) {
@@ -31,11 +30,18 @@ export default class Twig extends React.Component {
   getHtml(data) {
     // @todo Encode `templatePath`
     window
-      .fetch(`${renderApiUrl}?templatePath=${this.props.template}`, {
-        method: 'POST',
-        body: JSON.stringify(data),
-        // headers: {}
-      })
+      .fetch(
+        `${apiUrlBase}/render-twig?templatePath=${encodeURIComponent(
+          this.props.template,
+        )}`,
+        {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
       .then(res => res.json())
       .then(results => {
         // eslint-disable-next-line
@@ -53,22 +59,27 @@ export default class Twig extends React.Component {
   }
 
   render() {
-    /* eslint-disable react/no-danger */
-    return (
-      <div
-        data-name="demo"
-        dangerouslySetInnerHTML={{ __html: this.state.html }}
-      />
-    );
+    let html = this.state.html;
+    if (this.props.showDataUsed) {
+      const code = JSON.stringify(this.props.data, null, '  ');
+      html = `${html}
+        <details>
+          <summary>Data Used</summary>
+          <pre><code>${code}</code></pre>
+        </details>`;
+    }
+    return <div data-name="demo" dangerouslySetInnerHTML={{ __html: html }} />;
   }
 }
 
 Twig.defaultProps = {
   data: {},
+  showDataUsed: true,
 };
 
 Twig.propTypes = {
   template: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object,
+  showDataUsed: PropTypes.bool,
 };

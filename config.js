@@ -62,8 +62,15 @@ module.exports = {
       allowVarValues: false,
     },
     {
+      // @deprecate this when we move away from pattern lab, left in for backward support until then
       src: 'pattern-lab/source/_patterns/00-styleguide/15-typography/_fonts.scss',
       dest: 'pattern-lab/source/_patterns/00-styleguide/15-typography/01-typography-overview.json',
+      lineStartsWith: '$ff--',
+      allowVarValues: false,
+    },
+    {
+      src: 'pattern-lab/source/_patterns/00-styleguide/15-typography/_fonts.scss',
+      dest: 'pattern-lab/source/_patterns/00-styleguide/15-typography/font-families.json',
       lineStartsWith: '$ff--',
       allowVarValues: false,
     },
