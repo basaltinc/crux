@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import Page from '../../templates/page';
 import Sidebar from '../../components/sidebar';
-import BugReport from '../../components/bug-report';
 
 const ResourcesPage = props => {
   const markdownFiles = props.data.allMarkdownRemark.edges;
@@ -11,7 +10,6 @@ const ResourcesPage = props => {
   return (
     <Page sidebarOne={<Sidebar files={markdownFiles} />}>
       <h2>Resources</h2>
-      <BugReport />
     </Page>
   );
 };
