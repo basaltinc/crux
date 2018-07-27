@@ -1,3 +1,5 @@
+/** @module utils */
+
 /**
  * Color Contrast
  * @param {string} hex - Color in hex format
