@@ -2,6 +2,7 @@ import express from 'express';
 import { getColors } from '../data/colors';
 import { getBreakpoints } from '../data/breakpoints';
 import { getSpacings } from '../data/spacings';
+import { getTransitions } from '../data/animations';
 import { getFontFamilies, getFontSizes } from '../data/typography';
 import twigRenderer from '../twig';
 
@@ -56,9 +57,9 @@ router.get('/font-families', async (req, res) => {
   res.send(fontfamilies);
 });
 
-// router.get('/transitions', async (req, res) => {
-//   const transitions = await getTransitions();
-//   res.send(transitions);
-// });
+router.get('/transitions', async (req, res) => {
+  const transitions = await getTransitions();
+  res.send(transitions);
+});
 
 export default router;
