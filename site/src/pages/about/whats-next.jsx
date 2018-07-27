@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AboutPage from '../../templates/about-page';
+import Spinner from '../../components/spinner';
 
 const WhatsNextPage = () => (
   <AboutPage className="docs">
@@ -13,6 +14,7 @@ const WhatsNextPage = () => (
       </blockquote>
       <hr />
     </div>
+    <Spinner />
     <p>Design systems are living things that evolve and grow over time.</p>
     <p>Stay tuned, we are hard at work making a brilliant design system.</p>
   </AboutPage>
