@@ -9,7 +9,7 @@ const ReleaseNotesPage = () => (
       <h2>Release Notes</h2>
       <hr />
       <blockquote>
-        Take note, we're releasing some amazing things. - Evan Lovely, CTO
+        Take note, we are releasing some amazing things. - Evan Lovely, CTO
       </blockquote>
       <hr />
     </div>

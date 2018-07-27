@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import LinkList from '../components/link-list';
 import Page from '../templates/page';
@@ -61,13 +60,6 @@ const Template = () => {
       </div>
     </Page>
   );
-};
-
-Template.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.object,
-    markdownRemark: PropTypes.object,
-  }).isRequired,
 };
 
 export default Template;

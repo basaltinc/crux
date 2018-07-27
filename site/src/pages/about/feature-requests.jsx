@@ -14,18 +14,18 @@ const ReleaseNotesPage = () => (
       <hr />
     </div>
     <form action="#">
-      <div>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name"/>
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input type="text" id="email"/>
-      </div>
-      <div>
-        <label htmlFor="body">Feature Request</label>
-        <input type="textarea" id="body"/>
-      </div>
+      {/* <div> */}
+      {/* <label htmlFor="name">Name</label> */}
+      {/* <input type="text" id="name" /> */}
+      {/* </div> */}
+      {/* <div> */}
+      {/* <label htmlFor="email">Email</label> */}
+      {/* <input type="text" id="email" /> */}
+      {/* </div> */}
+      {/* <div> */}
+      {/* <label htmlFor="body">Feature Request</label> */}
+      {/* <input type="textarea" id="body" /> */}
+      {/* </div> */}
     </form>
   </AboutPage>
 );

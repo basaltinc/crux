@@ -12,7 +12,6 @@ const AboutIndex = () => (
         You all looked at me like I was crazy. Now who is the crazy one?
       </blockquote>
       <hr />
-
     </div>
   </AboutPage>
 );

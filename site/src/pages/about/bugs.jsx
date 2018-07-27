@@ -8,9 +8,7 @@ const BugsPage = () => (
       <h4 className="eyebrow">About</h4>
       <h2>Bugs and Issues</h2>
       <hr />
-      <blockquote>
-        ¯\_(ツ)_/¯
-      </blockquote>
+      <blockquote>¯\_(ツ)_/¯</blockquote>
       <hr />
     </div>
     <p>See Gitlab</p>
