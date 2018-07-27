@@ -19,6 +19,44 @@ router.get('/', (req, res) => {
   });
 });
 
+/**
+ * @api {post} /api/render-twig Render Twig
+ * @apiParam (Query String) {String} templatePath - Path to template
+ * @apiParam (Body) {json} data - Data to pass to template
+ * @apiExample {js} Example Request for Button
+ *    fetch('/api/render-twig?templatePath=@components/_button.twig'), {
+ *       method: 'POST',
+ *       body: JSON.stringify({
+ *         text: 'Click to read more',
+ *       }),
+ *       headers: {
+ *         'Content-Type': 'application/json',
+ *       },
+ *     },
+ *   )
+ *   .then(res => res.json())
+ *   .then(results => {
+ *      if (results.ok) {
+ *        const { html } = results;
+ *      } else {
+ *        const { message } = results;
+ *      }
+ *    });
+ * @apiName RenderTwig
+ * @apiGroup Twig
+ * @apiSuccessExample Success Response
+ *   {
+ *     "ok": true,
+ *     "html": "<p>The rendered template</p>"
+ *   }
+ * @apiErrorExample Error Resopnse
+ *   {
+ *     "ok": false,
+ *     "message": "Here is what went wrong"
+ *   }
+ * @apiSuccess {Object} Render Result
+ * @apiSampleRequest off
+ */
 router.post('/render-twig', async (req, res) => {
   const { body } = req;
   const { templatePath } = req.query;
