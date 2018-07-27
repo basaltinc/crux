@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { apiUrlBase } from '../../config';
 
 const ColorSwatch = ({ color }) => (
   <div
@@ -33,39 +32,28 @@ ColorSwatch.propTypes = {
 };
 
 /* eslint-disable no-useless-constructor, react/prefer-stateless-function */
-export default class ColorSwatches extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      colors: [],
-    };
-  }
+const ColorSwatches = props => {
+  const colorSwatches = props.colors.map(color => (
+    <ColorSwatch key={color.name} color={color} />
+  ));
 
-  componentDidMount() {
-    window
-      .fetch(`${apiUrlBase}/colors`)
-      .then(res => res.json())
-      .then(colors => {
-        this.setState({ colors });
-      });
-  }
+  return (
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+      }}
+    >
+      {colorSwatches}
+    </div>
+  );
+};
 
-  render() {
-    const colorSwatches = this.state.colors.map(color => (
-      <ColorSwatch key={color.name} color={color} />
-    ));
+ColorSwatches.propTypes = {
+  colors: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
-    return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-        }}
-      >
-        {colorSwatches}
-      </div>
-    );
-  }
-}
+export default ColorSwatches;
+
 /* eslint-enable no-useless-constructor react/prefer-stateless-function */

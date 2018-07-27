@@ -35,7 +35,7 @@ export default class SpacingSwatches extends React.Component {
   }
 
   render() {
-    const spaceSwatches = this.props.spaces.items.map(space => (
+    const spaceSwatches = this.props.spaces.map(space => (
       <SpacingSwatch key={space.name} space={space} />
     ));
 
@@ -63,8 +63,5 @@ SpacingSwatch.propTypes = {
 };
 
 SpacingSwatches.propTypes = {
-  spaces: PropTypes.shape({
-    items: PropTypes.array,
-    meta: PropTypes.object,
-  }).isRequired,
+  spaces: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
