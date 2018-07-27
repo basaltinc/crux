@@ -22,6 +22,7 @@ class BreakpointsPage extends React.Component {
   }
 
   render() {
+    console.log(this.state.breakpoints);
     return (
       <PatternPage className="docs">
         <div className="body">

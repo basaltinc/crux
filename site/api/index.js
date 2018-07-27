@@ -1,5 +1,6 @@
 import express from 'express';
 import { getColors } from '../data/colors';
+import { getBreakpoints } from '../data/breakpoints';
 import twigRenderer from '../twig';
 
 const router = express.Router();
@@ -31,6 +32,11 @@ router.post('/render-twig', async (req, res) => {
 router.get('/colors', async (req, res) => {
   const colors = await getColors();
   res.send(colors);
+});
+
+router.get('/breakpoints', async (req, res) => {
+  const breakpoints = await getBreakpoints();
+  res.send(breakpoints);
 });
 
 export default router;
