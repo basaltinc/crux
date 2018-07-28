@@ -37,9 +37,9 @@ class HeroPage extends Component {
       const { template, schema } = this.state.info;
       content = (
         <div>
-          <VariationDemoes
-            schema={schema}
+          <Overview
             template={template}
+            schema={schema}
             data={{
               title: title(),
               body: paragraph(),
@@ -57,9 +57,11 @@ class HeroPage extends Component {
             }}
           />
 
-          <Overview
-            template={template}
+          <hr />
+
+          <VariationDemoes
             schema={schema}
+            template={template}
             data={{
               title: title(),
               body: paragraph(),

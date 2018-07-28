@@ -37,9 +37,10 @@ class MediaBlockPage extends Component {
       const { template, schema } = this.state.info;
       content = (
         <article>
-          <VariationDemoes
-            schema={schema}
+          <Overview
             template={template}
+            schema={schema}
+            demoSizes={['500px', '800px']}
             data={{
               title: title(),
               body: paragraph(),
@@ -48,10 +49,10 @@ class MediaBlockPage extends Component {
               media_alignment: 'top',
             }}
           />
-          <Overview
-            template={template}
+          <hr />
+          <VariationDemoes
             schema={schema}
-            demoSizes={['500px', '800px']}
+            template={template}
             data={{
               title: title(),
               body: paragraph(),

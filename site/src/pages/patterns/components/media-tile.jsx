@@ -37,9 +37,10 @@ class MediaTilePage extends Component {
       const { template, schema } = this.state.info;
       content = (
         <div>
-          <VariationDemoes
-            schema={schema}
+          <Overview
             template={template}
+            schema={schema}
+            demoSizes={['400px']}
             data={{
               title: title(),
               body: paragraph(),
@@ -52,10 +53,12 @@ class MediaTilePage extends Component {
               title_size: '2',
             }}
           />
-          <Overview
-            template={template}
+
+          <hr />
+
+          <VariationDemoes
             schema={schema}
-            demoSizes={['400px']}
+            template={template}
             data={{
               title: title(),
               body: paragraph(),
