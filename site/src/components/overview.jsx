@@ -67,7 +67,7 @@ class Overview extends React.Component {
 
 Overview.defaultProps = {
   data: {},
-  isPropsTableOpen: false,
+  isPropsTableOpen: true,
   demoSizes: ['100%'],
   title: '',
   schema: null,
