@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Twig from './twig';
 import SchemaForm from './schema-form';
 import SchemaTable from '../components/schema-table';
+import CodeBlock from './code-block';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -43,6 +44,12 @@ class Overview extends React.Component {
     } else if (this.props.schema) {
       title = this.props.schema.title;
     }
+
+    const dataString = JSON.stringify(this.state.data, null, '  ');
+    const twigCodeExample = `
+      {% include '${this.props.template}' with ${dataString} %}
+    `;
+
     return (
       <article data-name="overview" style={{ width: '100%' }}>
         {title && <h4>{title}</h4>}
@@ -53,6 +60,15 @@ class Overview extends React.Component {
               schema={this.props.schema}
               formData={this.state.data}
               onChange={this.handleChange}
+            />
+            <CodeBlock
+              items={[
+                {
+                  name: 'Twig',
+                  code: twigCodeExample,
+                  language: 'twig',
+                },
+              ]}
             />
             <details open={this.props.isPropsTableOpen}>
               <summary>Props Table</summary>
