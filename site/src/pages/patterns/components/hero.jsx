@@ -4,6 +4,7 @@ import PatternPage from '../../../templates/pattern-page';
 import Overview from '../../../components/overview';
 import Spinner from '../../../components/spinner';
 import { apiUrlBase } from '../../../../config';
+import { VariationDemoes } from '../../../components/variation-demo';
 
 class HeroPage extends Component {
   constructor(props) {
@@ -35,25 +36,47 @@ class HeroPage extends Component {
     } else {
       const { template, schema } = this.state.info;
       content = (
-        <Overview
-          template={template}
-          schema={schema}
-          data={{
-            title: title(),
-            body: paragraph(),
-            desc: title(),
-            image_overlay: 'black',
-            image: image(),
-            buttons: [
-              {
-                text: text(),
-              },
-              {
-                text: text(),
-              },
-            ],
-          }}
-        />
+        <div>
+          <VariationDemoes
+            schema={schema}
+            template={template}
+            data={{
+              title: title(),
+              body: paragraph(),
+              desc: title(),
+              image_overlay: 'black',
+              image: image(),
+              buttons: [
+                {
+                  text: text(),
+                },
+                {
+                  text: text(),
+                },
+              ],
+            }}
+          />
+
+          <Overview
+            template={template}
+            schema={schema}
+            data={{
+              title: title(),
+              body: paragraph(),
+              desc: title(),
+              image_overlay: 'black',
+              image: image(),
+              buttons: [
+                {
+                  text: text(),
+                },
+                {
+                  text: text(),
+                },
+              ],
+            }}
+          />
+        </div>
       );
     }
     return <PatternPage>{content}</PatternPage>;

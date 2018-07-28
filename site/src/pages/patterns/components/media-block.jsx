@@ -4,6 +4,7 @@ import PatternPage from '../../../templates/pattern-page';
 import Overview from '../../../components/overview';
 import Spinner from '../../../components/spinner';
 import { apiUrlBase } from '../../../../config';
+import { VariationDemoes } from '../../../components/variation-demo';
 
 class MediaBlockPage extends Component {
   constructor(props) {
@@ -35,18 +36,31 @@ class MediaBlockPage extends Component {
     } else {
       const { template, schema } = this.state.info;
       content = (
-        <Overview
-          template={template}
-          schema={schema}
-          demoSizes={['500px', '800px']}
-          data={{
-            title: title(),
-            body: paragraph(),
-            desc: title(),
-            media: image(),
-            media_alignment: 'top',
-          }}
-        />
+        <article>
+          <VariationDemoes
+            schema={schema}
+            template={template}
+            data={{
+              title: title(),
+              body: paragraph(),
+              desc: title(),
+              media: image(),
+              media_alignment: 'top',
+            }}
+          />
+          <Overview
+            template={template}
+            schema={schema}
+            demoSizes={['500px', '800px']}
+            data={{
+              title: title(),
+              body: paragraph(),
+              desc: title(),
+              media: image(),
+              media_alignment: 'top',
+            }}
+          />
+        </article>
       );
     }
     return <PatternPage>{content}</PatternPage>;

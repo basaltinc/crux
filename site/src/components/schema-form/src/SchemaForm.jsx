@@ -47,7 +47,10 @@ export default class SchemaForm extends React.Component {
         onChange={this.onChange}
         ArrayFieldTemplate={CustomArrayField}
         FieldTemplate={CustomField}
-      />
+      >
+        <span />
+        {/* @todo make it easier to disable SchemaForm submit button */}
+      </Form>
     );
   }
 }
@@ -56,6 +59,7 @@ SchemaForm.defaultProps = {
   idPrefix: `schema-form--${getRandomInt(10000)}`,
   debug: false,
   uiSchema: {},
+  inline: false,
   onChange: () => {},
   onSubmit: () => {},
   onError: () => {},
@@ -69,4 +73,5 @@ SchemaForm.propTypes = {
   onSubmit: PT.func,
   debug: PT.bool,
   idPrefix: PT.string,
+  inline: PT.bool, // @todo implement `inline` form for left-to-right mini-forms
 };

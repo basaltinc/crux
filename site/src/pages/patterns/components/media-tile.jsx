@@ -4,6 +4,7 @@ import PatternPage from '../../../templates/pattern-page';
 import Overview from '../../../components/overview';
 import Spinner from '../../../components/spinner';
 import { apiUrlBase } from '../../../../config';
+import { VariationDemoes } from '../../../components/variation-demo';
 
 class MediaTilePage extends Component {
   constructor(props) {
@@ -35,22 +36,39 @@ class MediaTilePage extends Component {
     } else {
       const { template, schema } = this.state.info;
       content = (
-        <Overview
-          template={template}
-          schema={schema}
-          demoSizes={['400px']}
-          data={{
-            title: title(),
-            body: paragraph(),
-            desc: title(),
-            background_image: image(),
-            title_text_color: 'white',
-            body_text_color: 'white',
-            content_padding: 'l',
-            text_align: 'center',
-            title_size: '2',
-          }}
-        />
+        <div>
+          <VariationDemoes
+            schema={schema}
+            template={template}
+            data={{
+              title: title(),
+              body: paragraph(),
+              desc: title(),
+              background_image: image(),
+              title_text_color: 'white',
+              body_text_color: 'white',
+              content_padding: 'l',
+              text_align: 'center',
+              title_size: '2',
+            }}
+          />
+          <Overview
+            template={template}
+            schema={schema}
+            demoSizes={['400px']}
+            data={{
+              title: title(),
+              body: paragraph(),
+              desc: title(),
+              background_image: image(),
+              title_text_color: 'white',
+              body_text_color: 'white',
+              content_padding: 'l',
+              text_align: 'center',
+              title_size: '2',
+            }}
+          />
+        </div>
       );
     }
     return <PatternPage>{content}</PatternPage>;

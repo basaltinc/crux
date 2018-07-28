@@ -7,6 +7,7 @@ export default class Twig extends React.Component {
     super(props);
     this.state = {
       html: '',
+      // detailsOpen: false, @todo preserve if `<details>` is open between renders
     };
     this.getHtml = this.getHtml.bind(this);
   }

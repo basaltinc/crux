@@ -44,6 +44,7 @@
       "enum": ["left", "right", "top", "bottom"]
     },
     "media_padding": {
+      "title": "Media Padding",
       "type": "string",
       "description": "Space around the media",
       "enum": ["0", "s", "m", "l", "xl", "xxl"]
