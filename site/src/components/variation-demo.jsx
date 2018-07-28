@@ -41,7 +41,13 @@ class VariationDemo extends Component {
           [propKey]: item,
         });
         return (
-          <div>
+          <div
+            style={{
+              borderBottom: 'solid 1px #ccc',
+              paddingBottom: '10px',
+              marginBottom: '10px',
+            }}
+          >
             <h4>
               <code>{propKey}</code>: <code>{item}</code>
             </h4>
@@ -57,6 +63,11 @@ class VariationDemo extends Component {
             onChange={this.handleChange}
             formData={this.state.data}
             inline
+            uiSchema={{
+              [propKey]: {
+                'ui:widget': 'radio',
+              },
+            }}
           />
           <Twig template={this.props.template} data={this.state.data} />
         </div>

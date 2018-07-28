@@ -2,6 +2,18 @@
   display: none;
 }
 
+.rjsf .field-radio-group {
+  display: flex;
+}
+
+.rjsf .field-radio-group > .radio {
+  margin-right: 10px;
+}
+
+.rjsf .field-radio-group > .radio > label:hover {
+  cursor: pointer;
+}
+
 .rjsf .btn-add::after {
   content: 'Add';
 }
