@@ -3,9 +3,9 @@ import Link from 'gatsby-link';
 import Page from '../../templates/page';
 import Spinner from '../../components/spinner';
 import { apiUrlBase } from '../../../config';
-import mediaBlockImage from './media-block.svg';
-import mediaTileImage from './media-tile.svg';
-import heroImage from './hero.svg';
+import mediaBlockImage from '../../../../images/component-thumbnails/media-block.svg';
+import mediaTileImage from '../../../../images/component-thumbnails/media-tile.svg';
+import heroImage from '../../../../images/component-thumbnails/hero.svg';
 
 // @todo refactor
 const images = {

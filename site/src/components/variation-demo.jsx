@@ -115,7 +115,7 @@ VariationDemo.propTypes = {
 
 export default VariationDemo;
 
-export const VariationDemoes = ({ schema, template, data, expanded }) => {
+export const VariationDemos = ({ schema, template, data, expanded }) => {
   const variationsData = [];
   Object.keys(schema.properties).forEach(propKey => {
     const prop = schema.properties[propKey];
@@ -142,11 +142,11 @@ export const VariationDemoes = ({ schema, template, data, expanded }) => {
   );
 };
 
-VariationDemoes.defaultProps = {
+VariationDemos.defaultProps = {
   expanded: false,
 };
 
-VariationDemoes.propTypes = {
+VariationDemos.propTypes = {
   schema: PropTypes.object.isRequired,
   template: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
