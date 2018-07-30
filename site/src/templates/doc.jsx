@@ -11,13 +11,11 @@ import Twig from '../components/twig';
 const Template = ({ data }) => {
   const markdownFiles = data.allMarkdownRemark.edges;
   const { html, frontmatter } = data.markdownRemark;
-  const navItems = markdownFiles.map(file => {
-    return {
-      name: file.node.frontmatter.title,
-      path: file.node.frontmatter.path,
-      id: file.node.id,
-    };
-  });
+  const navItems = markdownFiles.map(file => ({
+    name: file.node.frontmatter.title,
+    path: file.node.frontmatter.path,
+    id: file.node.id,
+  }));
 
   return (
     <Page className="docs" sidebarOne={<LinkList items={navItems} />}>

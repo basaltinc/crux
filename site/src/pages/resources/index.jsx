@@ -6,13 +6,11 @@ import LinkList from '../../components/link-list';
 
 const ResourcesPage = props => {
   const markdownFiles = props.data.allMarkdownRemark.edges;
-  const navItems = markdownFiles.map(file => {
-    return {
-      name: file.node.frontmatter.title,
-      path: file.node.frontmatter.path,
-      id: file.node.id,
-    };
-  });
+  const navItems = markdownFiles.map(file => ({
+    name: file.node.frontmatter.title,
+    path: file.node.frontmatter.path,
+    id: file.node.id,
+  }));
 
   return (
     <Page sidebarOne={<LinkList items={navItems} />}>
