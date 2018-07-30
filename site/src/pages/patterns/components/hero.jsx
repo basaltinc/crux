@@ -4,7 +4,7 @@ import PatternPage from '../../../templates/pattern-page';
 import Overview from '../../../components/overview';
 import Spinner from '../../../components/spinner';
 import { apiUrlBase } from '../../../../config';
-import { VariationDemoes } from '../../../components/variation-demo';
+import { VariationDemos } from '../../../components/variation-demo';
 
 class HeroPage extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class HeroPage extends Component {
 
           <hr />
 
-          <VariationDemoes
+          <VariationDemos
             schema={schema}
             template={template}
             data={{

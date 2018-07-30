@@ -4,7 +4,7 @@ import PatternPage from '../../../templates/pattern-page';
 import Overview from '../../../components/overview';
 import Spinner from '../../../components/spinner';
 import { apiUrlBase } from '../../../../config';
-import { VariationDemoes } from '../../../components/variation-demo';
+import { VariationDemos } from '../../../components/variation-demo';
 
 class MediaTilePage extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class MediaTilePage extends Component {
 
           <hr />
 
-          <VariationDemoes
+          <VariationDemos
             schema={schema}
             template={template}
             data={{
