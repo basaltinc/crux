@@ -25,7 +25,7 @@ const SandboxPage = () => (
         },
       ]}
     />
-    <Spinner></Spinner>
+    <Spinner />
   </Page>
 );
 
