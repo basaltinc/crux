@@ -1,6 +1,7 @@
 import React from 'react';
 import Page from '../templates/page';
 import DosAndDonts from '../bedrock/components/dos-and-donts';
+import Spinner from '../bedrock/components/spinner';
 
 const SandboxPage = () => (
   <Page>
@@ -24,6 +25,7 @@ const SandboxPage = () => (
         },
       ]}
     />
+    <Spinner></Spinner>
   </Page>
 );
 
