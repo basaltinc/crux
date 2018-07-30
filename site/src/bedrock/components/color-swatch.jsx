@@ -53,6 +53,7 @@ class ColorSwatches extends Component {
     const colorSwatches = this.props.colors.map(color => (
       <ColorSwatch key={color.name} color={color} format={this.state.format} />
     ));
+    /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
         <label
