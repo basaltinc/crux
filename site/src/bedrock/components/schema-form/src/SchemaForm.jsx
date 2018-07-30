@@ -1,7 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
 import Form from 'react-jsonschema-form';
-import { getRandomInt } from '../../../../utils';
+import { getRandomInt } from '../../../packages/utils/index';
 import CustomArrayField from './custom-templates/array-field';
 import CustomField from './custom-templates/custom-field';
 import './form.styles.css';

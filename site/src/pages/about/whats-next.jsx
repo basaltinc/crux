@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AboutPage from '../../templates/about-page';
-import Spinner from '../../components/spinner';
+import Spinner from '../../bedrock/components/spinner';
 
 const WhatsNextPage = () => (
   <AboutPage className="docs">

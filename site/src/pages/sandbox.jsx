@@ -1,6 +1,6 @@
 import React from 'react';
 import Page from '../templates/page';
-import DosAndDonts from '../components/dos-and-donts';
+import DosAndDonts from '../bedrock/components/dos-and-donts';
 
 const SandboxPage = () => (
   <Page>

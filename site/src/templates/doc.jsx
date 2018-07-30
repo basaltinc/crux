@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby'; // eslint-disable-line
 
-import Sidebar from '../components/sidebar';
+import LinkList from '../components/link-list';
 import Page from '../templates/page';
 
 import './doc.css';
@@ -11,9 +11,14 @@ import Twig from '../components/twig';
 const Template = ({ data }) => {
   const markdownFiles = data.allMarkdownRemark.edges;
   const { html, frontmatter } = data.markdownRemark;
+  const navItems = markdownFiles.map(file => ({
+    name: file.node.frontmatter.title,
+    path: file.node.frontmatter.path,
+    id: file.node.id,
+  }));
 
   return (
-    <Page className="docs" sidebarOne={<Sidebar files={markdownFiles} />}>
+    <Page className="docs" sidebarOne={<LinkList items={navItems} />}>
       <div className="body">
         {frontmatter.section && (
           <h4 className="eyebrow">{frontmatter.section}</h4>
@@ -70,7 +75,6 @@ export const pageQuery = graphql`
       frontmatter {
         path
         title
-        definition
         section
       }
     }

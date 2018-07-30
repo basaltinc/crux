@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { image, paragraph, title } from '@basalt/demo-data';
 import PatternPage from '../../../templates/pattern-page';
 import Overview from '../../../components/overview';
-import Spinner from '../../../components/spinner';
+import Spinner from '../../../bedrock/components/spinner';
 import { apiUrlBase } from '../../../../config';
-import { VariationDemos } from '../../../components/variation-demo';
+import { VariationDemos } from '../../../bedrock/components/variation-demo';
 
 class MediaBlockPage extends Component {
   constructor(props) {
