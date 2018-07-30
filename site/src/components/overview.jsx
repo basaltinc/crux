@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Twig from './twig';
-import SchemaForm from './schema-form';
-import SchemaTable from '../components/schema-table';
+import SchemaForm from '../bedrock/components/schema-form';
+import SchemaTable from '../bedrock/components/schema-table';
 import CodeBlock from './code-block';
 
 class Overview extends React.Component {

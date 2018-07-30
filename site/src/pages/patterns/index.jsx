@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import Page from '../../templates/page';
-import Spinner from '../../components/spinner';
+import Spinner from '../../bedrock/components/spinner';
 import { apiUrlBase } from '../../../config';
 import mediaBlockImage from '../../../../images/component-thumbnails/media-block.svg';
 import mediaTileImage from '../../../../images/component-thumbnails/media-tile.svg';

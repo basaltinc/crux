@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SchemaForm from './schema-form';
-import Twig from './twig';
+import SchemaForm from './schema-form/src/SchemaForm';
+import Twig from '../../components/twig';
 
 class VariationDemo extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import info from './../assets/info-circle.svg';
+import info from '../assets/info-circle.svg';
 import './custom-field.styles.css';
 
 // @todo add prop types

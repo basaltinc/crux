@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PatternPage from '../../templates/pattern-page';
-import ColorSwatches from '../../components/color-swatch';
+import ColorSwatches from '../../bedrock/components/color-swatch';
 import { apiUrlBase } from '../../../config';
 
 class ColorsPage extends React.Component {
