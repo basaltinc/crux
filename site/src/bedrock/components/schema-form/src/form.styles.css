@@ -31,11 +31,11 @@
 }
 
 form.rjsf {
-  padding: 0 1.25rem 1.25rem;
   width: 100%;
 }
 
 .rjsf fieldset {
+  display: inline-block;
   padding: 0;
   margin: 0;
   border: none;
@@ -65,8 +65,13 @@ form.rjsf {
   margin-bottom: 2rem;
 }
 
+form.rjsf > .form-group {
+  padding: 0;
+}
+
 .rjsf .form-group {
-  padding: 0.75rem;
+  padding: 0.45rem 0.75rem 0.25rem;
+  position: relative;
 }
 
 .rjsf .form-group .field-array {
@@ -74,12 +79,13 @@ form.rjsf {
 }
 
 .rjsf .form-control {
-  display: block;
-  min-width: 200px;
+  display: inline-block;
+  min-width: 450px;
   max-width: 650px;
   padding: 4px;
   background-clip: padding-box;
   box-sizing: border-box;
+  margin-right: 15px;
 }
 
 .rjsf .control-label {
