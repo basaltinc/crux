@@ -1,72 +1,57 @@
 import React from 'react';
 import Link from 'gatsby-link'; // eslint-disable-line
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import basalt from '../../../images/logos/white-grey.svg';
-import './header.css';
+
+const SiteHeaderWrapper = styled.nav`
+  background: #16394b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    li {
+      padding-right: 20px;
+      margin: 0;
+    }
+  }
+`;
+
+const SiteHeaderBrandWrapper = styled.div`
+  padding-left: 20px;
+`;
+
+const SiteHeaderLink = styled(Link)`
+  color: white !important; // needed to overwrite generic styles coming from the design system css cascade
+  text-decoration: none !important;
+`;
 
 const Header = ({ siteTitle }) => (
-  <nav className="site-header">
-    <div className="site-header__brand">
+  <SiteHeaderWrapper>
+    <SiteHeaderBrandWrapper>
       <h3 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
+        <SiteHeaderLink to="/">{siteTitle}</SiteHeaderLink>
       </h3>
-    </div>
+    </SiteHeaderBrandWrapper>
     <div>
       {/* @todo clean this up; propagate these classnames */}
-      <ul className="site-header__nav">
-        <li className="site-header__item">
-          <Link
-            className="site-header__link"
-            to="/get-started"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Get Started
-          </Link>
+      <ul>
+        <li>
+          <SiteHeaderLink to="/get-started">Get Started</SiteHeaderLink>
         </li>
         <li>
-          <Link
-            to="/patterns"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Patterns
-          </Link>
+          <SiteHeaderLink to="/patterns">Patterns</SiteHeaderLink>
         </li>
         <li>
-          <Link
-            to="/about"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            About
-          </Link>
+          <SiteHeaderLink to="/about">About</SiteHeaderLink>
         </li>
         <li>
-          <Link
-            to="/resources"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Resources
-          </Link>
+          <SiteHeaderLink to="/resources">Resources</SiteHeaderLink>
         </li>
         <li>
           <a
@@ -81,7 +66,7 @@ const Header = ({ siteTitle }) => (
         </li>
       </ul>
     </div>
-  </nav>
+  </SiteHeaderWrapper>
 );
 
 Header.propTypes = {
