@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import pretty from 'pretty';
 import TabbedPanel from '../bedrock/components/tabbed-panel';
 
 class CodeBlock extends Component {
@@ -15,8 +16,18 @@ class CodeBlock extends Component {
       title: item.name,
       id: item.language,
       children: (
-        <pre className={`language-${item.language}`}>
-          <code>{item.code.trim()}</code>
+        <pre className={`language-${item.language}`} style={{}}>
+          <code
+            style={{
+              whiteSpace: 'pre',
+              overflow: 'auto',
+              maxWidth: '800px', // @todo remove this, fix bug that causes window to get huge on long lines
+            }}
+          >
+            {item.language === 'html'
+              ? pretty(item.code.trim(), { ocd: true })
+              : item.code.trim()}
+          </code>
         </pre>
       ),
     }));
