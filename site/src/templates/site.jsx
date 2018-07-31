@@ -6,7 +6,8 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 
 // @todo Evan is working on a better way to pull in styles
-import '../../../build/assets/style.css';
+import '../../../build/assets/style.css'; // eslint-disable-line
+import '../global.css'; // eslint-disable-line
 import ErrorCatcher from "../bedrock/components/error-catcher"; // eslint-disable-line
 
 const SiteMain = styled.div`
@@ -20,7 +21,7 @@ const Site = props => (
       <div className="site__header u-full-width">
         <Header siteTitle={'Crux'} />
       </div>
-      <SiteMain>{props.children}</SiteMain>
+      <SiteMain className="u-full-width">{props.children}</SiteMain>
       <div className="site__footer u-full-width">
         <Footer />
       </div>

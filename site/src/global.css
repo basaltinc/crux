@@ -1,0 +1,19 @@
+:root {
+  --type-color--component: #7B1FA2;
+  --type-color--layout: #FFA000;
+  --type-color--color: #d50000;
+  --type-color--icon: #536dfe;
+  --type-color--typeography: #00695c;
+
+  --border-radius: 7px;
+  --border-color: #CCC;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.eyebrow {
+  color: grey;
+  margin-bottom: 0;
+}
