@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TabbedPanel from '../bedrock/components/tabbed-panel';
 
 class CodeBlock extends Component {
   constructor(props) {
@@ -10,17 +11,17 @@ class CodeBlock extends Component {
   componentDidMount() {}
 
   render() {
-    // @todo Make into Tabbed Panel of Code Blocks
-    const items = this.props.items.map(item => (
-      <div>
-        <h5>{item.name}</h5>
+    const items = this.props.items.map(item => ({
+      title: item.name,
+      id: item.language,
+      children: (
         <pre className={`language-${item.language}`}>
-          {/* @todo Ensure code is always formatted very nicely */}
           <code>{item.code.trim()}</code>
         </pre>
-      </div>
-    ));
-    return <div>{items}</div>;
+      ),
+    }));
+
+    return <TabbedPanel items={items} />;
   }
 }
 
