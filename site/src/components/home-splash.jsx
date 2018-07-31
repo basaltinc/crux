@@ -36,7 +36,6 @@ const VersionTag = styled.p`
   margin-top: -20px;
 `;
 
-
 const HomeSplash = () => (
   <HomeSplashWrapper>
     <HomeSplashCore>

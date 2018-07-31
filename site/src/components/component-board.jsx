@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -135,4 +135,10 @@ export default function ComponentsBoard(props) {
   );
 }
 
-ComponentsBoard.propTypes = {};
+ComponentsBoard.propTypes = {
+  ready: PropTypes.bool.isRequired,
+  patterns: PropTypes.arrayOf({
+    id: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
+};

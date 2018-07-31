@@ -26,7 +26,10 @@ class PatternsPage extends Component {
     return (
       <Page>
         <h2>Welcome to the Design System!</h2>
-        <ComponentBoard patterns={this.state.patterns} ready={this.state.ready} />
+        <ComponentBoard
+          patterns={this.state.patterns}
+          ready={this.state.ready}
+        />
       </Page>
     );
   }

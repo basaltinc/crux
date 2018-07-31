@@ -31,5 +31,5 @@ DosAndDontsPanel.propTypes = {
     image: PropTypes.string,
     caption: PropTypes.string,
     do: PropTypes.bool,
-  }),
+  }).isRequired,
 };

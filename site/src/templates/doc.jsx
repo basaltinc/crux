@@ -24,7 +24,7 @@ const DocsBody = styled.div`
 const Eyebrow = styled.h4`
   margin: 0;
   color: rgba(0, 0, 0, 0.5);
-`
+`;
 
 const Template = ({ data }) => {
   const markdownFiles = data.allMarkdownRemark.edges;
@@ -38,9 +38,7 @@ const Template = ({ data }) => {
   return (
     <DocsPage sidebarOne={<LinkList items={navItems} />}>
       <DocsBody>
-        {frontmatter.section && (
-          <Eyebrow>{frontmatter.section}</Eyebrow>
-        )}
+        {frontmatter.section && <Eyebrow>{frontmatter.section}</Eyebrow>}
         <h2>{frontmatter.title}</h2>
         {frontmatter.definition && (
           <div>

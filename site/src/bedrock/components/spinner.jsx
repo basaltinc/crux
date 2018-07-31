@@ -46,14 +46,14 @@ const CubeOne = styled.div`
 
 const CubeTwo = CubeOne.extend`
   -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;  
+  animation-delay: -0.9s;
 `;
 
 const Spinner = props => (
   <div>
     <br />
     <SpinnerCore>
-      <CubeOne/>
+      <CubeOne />
       <CubeTwo />
     </SpinnerCore>
     <br />

@@ -7,16 +7,16 @@ const FooterWrapper = styled.footer`
   justify-content: space-between;
   padding: 2rem;
   border-top: 1px solid #000000;
-`
+`;
 
 const FooterMenu = styled.ul`
   display: flex;
   list-style: none;
-`
+`;
 
 const FooterMenuItem = styled.li`
   margin-right: 10px;
-`
+`;
 
 const Footer = () => (
   <FooterWrapper>

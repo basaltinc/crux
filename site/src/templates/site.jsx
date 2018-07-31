@@ -11,7 +11,7 @@ import '../../../build/assets/style.css'; // eslint-disable-line
 const SiteMain = styled.div`
   display: flex;
   justify-content: center;
-`
+`;
 
 const Site = props => (
   <div className="site">
