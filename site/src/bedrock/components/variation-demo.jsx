@@ -131,6 +131,10 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
     }
   });
 
+  if (variationsData.length === 0) {
+    return null;
+  }
+
   const variations = variationsData.map(variationData => ({
     title: variationData.propKey,
     id: variationData.propKey,

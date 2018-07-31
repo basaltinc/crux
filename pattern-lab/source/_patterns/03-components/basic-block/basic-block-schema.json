@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "type": "object",
+  "title": "Basic Block",
+  "description": "A block with a title, text, and CTA.",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "description": "Can use HTML."
+    },
+    "buttons": {
+      "type": "array",
+      "title": "Buttons",
+      "items": {
+        "$schema": "http://json-schema.org/schema#",
+        "type": "object",
+        "description": "Buttons are for clickin' and tappin'!",
+        "properties": {
+          "text": {
+            "type": "string",
+            "title": "Button Text"
+          },
+          "url": {
+            "type": "string"
+          },
+          "size": {
+            "type": "string",
+            "enum": ["small", "medium", "large", "jumbo"]
+          },
+          "color": {
+            "type": "string",
+            "default": "green",
+            "title": "BG Color",
+            "enum": [
+              "blue",
+              "blue--light",
+              "green",
+              "iron",
+              "yellow",
+              "white",
+              "black"
+            ]
+          }
+        },
+        "required": ["text", "url"]
+      }
+    }
+  }
+}
