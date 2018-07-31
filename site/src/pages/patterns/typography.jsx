@@ -1,12 +1,11 @@
 import React from 'react';
 
+import { image, paragraph, text, title } from '@basalt/demo-data';
+
 import PatternPage from '../../templates/pattern-page';
 import Spinner from '../../bedrock/components/spinner';
-
 import copyIcon from '../../../../images/svgs/copy.svg';
-
 import { apiUrlBase } from '../../../config';
-import { image, paragraph, text, title } from '@basalt/demo-data';
 
 import './demos.css';
 
@@ -77,7 +76,7 @@ class TypographyPage extends React.Component {
             <h3 className="demo-block__title">Font sizes</h3>
             <p>
               <strong>
-                Go ahead, adjust the text below to see if the "show fits":
+                Go ahead, adjust the text below to see if the "show fits"&colon;
               </strong>
             </p>
             {this.state.fontSizes.map(fontSize => (
@@ -132,7 +131,7 @@ class TypographyPage extends React.Component {
                   <div className="copy-this">
                     Copy <img src={copyIcon} alt="Copy" />
                   </div>
-                  <code>{this.state.selectedFontFamily.name}</code>:{' '}
+                  <code>{this.state.selectedFontFamily.name}</code>{': '}
                   {this.state.selectedFontFamily.value}
                 </div>
                 <div className="demo-stage">
