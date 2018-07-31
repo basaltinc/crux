@@ -60,6 +60,8 @@ class TypographyPage extends React.Component {
       { name: `<h5 contentEditable>${this.state.demo.title}</h5>` },
       { name: `<h6 contentEditable>${this.state.demo.title}</h6>` },
     ]; // For headings demo below
+    /* eslint-disable react/no-unescaped-entities */
+    /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     return (
       <PatternPage className="docs t-crux-typography">
         <div className="body">
@@ -76,7 +78,7 @@ class TypographyPage extends React.Component {
             <h3 className="demo-block__title">Font sizes</h3>
             <p>
               <strong>
-                Go ahead, adjust the text below to see if the "show fits"&colon;
+                Go ahead, adjust the text below to see if the "show fits":
               </strong>
             </p>
             {this.state.fontSizes.map(fontSize => (
@@ -131,7 +133,8 @@ class TypographyPage extends React.Component {
                   <div className="copy-this">
                     Copy <img src={copyIcon} alt="Copy" />
                   </div>
-                  <code>{this.state.selectedFontFamily.name}</code>{': '}
+                  <code>{this.state.selectedFontFamily.name}</code>
+                  {': '}
                   {this.state.selectedFontFamily.value}
                 </div>
                 <div className="demo-stage">
