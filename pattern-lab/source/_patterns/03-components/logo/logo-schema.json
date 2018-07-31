@@ -1,23 +1,26 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "description": "Logo",
   "title": "Logo",
   "properties": {
     "imgSrc": {
       "type": "string",
-      "title": "Logo Image",
+      "title": "Image Source",
       "description": "Path to image."
     },
     "url": {
-      "type": "string",
-      "title": "Link to company website"
+      "title": "Url",
+      "type": "string"
     },
     "size": {
+      "title": "Size",
       "type": "string",
-      "enum": ["auto", "small", "medium", "large", "jumbo"]
+      "enum": ["auto", "small", "medium", "large", "jumbo"],
+      "enumNames": ["Auto", "Small", "Medium", "Large", "Jumbo"]
     },
     "greyscale": {
+      "title": "Greyscale",
       "type": "boolean",
       "description": "Display the logo in greyscale?"
     }
