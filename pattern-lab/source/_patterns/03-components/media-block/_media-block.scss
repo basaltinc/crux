@@ -51,6 +51,7 @@
     &__content {
       width: 50%;
       padding: $spacing--l $spacing--xl;
+      background-color: white;
       .media-block--media-size-s & {
         width: 75%;
       }
