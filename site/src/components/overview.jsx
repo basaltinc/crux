@@ -10,6 +10,7 @@ class Overview extends React.Component {
     super(props);
     this.state = {
       data: props.data,
+      html: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -34,7 +35,11 @@ class Overview extends React.Component {
           padding: '5px',
         }}
       >
-        <Twig template={this.props.template} data={this.state.data} />
+        <Twig
+          template={this.props.template}
+          data={this.state.data}
+          handleNewHtml={html => this.setState({ html })}
+        />
       </div>
     ));
 
@@ -67,6 +72,11 @@ class Overview extends React.Component {
                   name: 'Twig',
                   code: twigCodeExample,
                   language: 'twig',
+                },
+                {
+                  name: 'HTML',
+                  code: this.state.html,
+                  language: 'html',
                 },
               ]}
             />
