@@ -2,8 +2,6 @@
   size ? 'logo--' ~ size,
 ] | merge(classes|default([])) %}
 
-{% set imgSrc = logo_img is iterable ? logo_img.src : logo_img %}
-
 {% set imgClasses = [
   'logo_img',
   greyscale ? 'logo_img--greyscale',

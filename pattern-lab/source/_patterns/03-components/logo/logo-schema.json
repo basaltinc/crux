@@ -1,9 +1,10 @@
 {
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
-  "description": "Logos",
+  "description": "Logo",
+  "title": "Logo",
   "properties": {
-    "media": {
+    "imgSrc": {
       "type": "string",
       "title": "Logo Image",
       "description": "Path to image."
@@ -21,5 +22,5 @@
       "description": "Display the logo in greyscale?"
     }
   },
-  "required": ["text", "url"]
+  "required": ["imgSrc", "url"]
 }
