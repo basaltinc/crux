@@ -18,6 +18,7 @@ const MainStyled = styled.main`
 `;
 
 const PageContentStyled = styled.div`
+  padding: 2rem 1rem;
   flex-grow: 1;
 `;
 

@@ -12,3 +12,8 @@
 * {
   box-sizing: border-box;
 }
+
+.eyebrow {
+  color: grey;
+  margin-bottom: 0;
+}
