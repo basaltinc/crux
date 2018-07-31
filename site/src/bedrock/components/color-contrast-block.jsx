@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 class ColorContrastBlock extends React.Component {
   constructor(props) {
@@ -11,6 +12,30 @@ class ColorContrastBlock extends React.Component {
   }
 
   render() {
+    const ColorContrastPlayground = styled.div`
+       {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 2rem;
+        border: solid 1px grey;
+        text-align: center;
+        background-color: ${this.state.bgColor};
+      }
+    `;
+
+    const RightLabel = styled.label`
+       {
+        text-align: right;
+        margin-left: 1rem;
+      }
+    `;
+
+    const LeftLabel = styled.label`
+       {
+        text-align: left;
+      }
+    `;
+
     const bgColors = this.props.bgColors.map(color => (
       <option value={color.value} key={color.name}>
         {color.name}
@@ -24,11 +49,7 @@ class ColorContrastBlock extends React.Component {
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
-        <label
-          style={{
-            textAlign: 'left',
-          }}
-        >
+        <LeftLabel>
           Background Color:
           <select
             value={this.state.bgColor}
@@ -36,13 +57,8 @@ class ColorContrastBlock extends React.Component {
           >
             {bgColors}
           </select>
-        </label>
-        <label
-          style={{
-            textAlign: 'right',
-            marginLeft: '1rem',
-          }}
-        >
+        </LeftLabel>
+        <RightLabel>
           Text Color:
           <select
             value={this.state.textColor}
@@ -50,17 +66,8 @@ class ColorContrastBlock extends React.Component {
           >
             {textColors}
           </select>
-        </label>
-        <div
-          style={{
-            width: '100%',
-            marginBottom: '10px',
-            padding: '2rem',
-            border: 'solid 1px grey',
-            textAlign: 'center',
-            backgroundColor: this.state.bgColor,
-          }}
-        >
+        </RightLabel>
+        <ColorContrastPlayground>
           <h3
             contentEditable
             style={{
@@ -69,7 +76,7 @@ class ColorContrastBlock extends React.Component {
           >
             Test Your Colors Here
           </h3>
-        </div>
+        </ColorContrastPlayground>
       </div>
     );
   }
