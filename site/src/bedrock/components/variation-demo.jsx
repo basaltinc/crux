@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
+import TabbedPanel from './tabbed-panel';
 
 class VariationDemo extends Component {
   constructor(props) {
@@ -74,6 +75,7 @@ class VariationDemo extends Component {
       );
     }
 
+    const title = prop.title || propKey;
     return (
       <div
         style={{
@@ -82,7 +84,7 @@ class VariationDemo extends Component {
           margin: '5px',
         }}
       >
-        <h4>Title: {prop.title}</h4>
+        <h4>Title: {title}</h4>
         <p>Description: {prop.description}</p>
         <button
           onClick={() => this.setState({ expanded: !this.state.expanded })}
@@ -129,14 +131,22 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
     }
   });
 
-  const variations = variationsData.map(variationData => (
-    <VariationDemo {...variationData} expanded={expanded} />
-  ));
+  const variations = variationsData.map(variationData => ({
+    title: variationData.propKey,
+    id: variationData.propKey,
+    children: (
+      <VariationDemo
+        {...variationData}
+        expanded={expanded}
+        key={variationData.propKey}
+      />
+    ),
+  }));
 
   return (
     <div>
-      <h4>Variations</h4>
-      <div>{variations}</div>
+      <h2>Variations</h2>
+      <TabbedPanel items={variations} />
       <hr />
     </div>
   );
