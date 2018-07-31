@@ -81,13 +81,14 @@ class TypographyPage extends React.Component {
                 Go ahead, adjust the text below to see if the "show fits":
               </strong>
             </p>
-            {this.state.fontSizes.map(fontSize => (
+            {this.state.fontSizes.map((fontSize, index) => (
               <div
                 style={{
                   fontSize: fontSize.value,
                   borderBottom: '1px dotted #CCC',
                   paddingBottom: '20px',
-                  marginBottom: '35px',
+                  marginBottom:
+                    this.state.fontSizes.length !== index + 1 ? '35px' : '',
                 }}
               >
                 <code>{fontSize.name}</code>: {fontSize.value} <br />
@@ -188,9 +189,10 @@ class TypographyPage extends React.Component {
             {headings.map((item, index) => (
               <div
                 style={{
-                  borderBottom: '1px dotted #CCC',
-                  paddingBottom: '20px',
-                  marginBottom: '35px',
+                  borderBottom:
+                    headings.length !== index + 1 ? '1px dotted #CCC' : '',
+                  paddingBottom: headings.length !== index + 1 ? '20px' : '',
+                  marginBottom: headings.length !== index + 1 ? '35px' : '',
                 }}
                 dangerouslySetInnerHTML={{
                   __html: `<span class="eyebrow"><strong>H${index +
