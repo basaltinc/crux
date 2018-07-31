@@ -18,7 +18,7 @@ const DemoTransitionOpacity = DemoTransition.extend`
   }
 `;
 
-const DemoTransitonMove = DemoTransition.extend`
+const DemoTransitionMove = DemoTransition.extend`
   position: relative;
   &:after {
     content: '';
@@ -68,9 +68,9 @@ class AnimationsPage extends React.Component {
           <DemoTransitionOpacity>
             <strong>Opacity</strong> (Hover to see effect)
           </DemoTransitionOpacity>
-          <DemoTransitonMove>
+          <DemoTransitionMove>
             <strong>Move</strong> (Hover to see effect)
-          </DemoTransitonMove>
+          </DemoTransitionMove>
           <pre>
             <code>{JSON.stringify(this.state.transitions, null, '  ')}</code>
           </pre>
