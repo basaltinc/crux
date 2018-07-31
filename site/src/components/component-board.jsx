@@ -52,6 +52,7 @@ const PatternGridItem = styled.li`
     position: absolute;
     background: #fff;
     border-radius: var(--border-radius);
+    border-color: var(--type-color--component);
     transform: scale(1.25);
     width: 100%;
     height: auto;
@@ -75,7 +76,7 @@ const PatternGridItemThumb = styled.img`
 const PatternGridItemTitle = styled.span`
   color: #000;
   margin-bottom: -3px;
-  border-bottom: 5px solid #000;
+  border-bottom: 5px solid var(--type-color--component);
   display: inline-block;
   transition: all 0.2s ease-in-out;
 `;
@@ -90,7 +91,7 @@ const PatternGridItemDescription = styled.div`
   max-width: 250px;
   margin: 0 auto;
   opacity: 0;
-  height: 0px;
+  height: 0;
   pointer-events: none;
   transition: all 0.1s ease-in-out;
   transform: scale(0.75);
