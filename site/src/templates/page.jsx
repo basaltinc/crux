@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Site from '../templates/site';
 
 // @todo Evan is working on a better way to pull in styles
-import '../../../build/assets/style.css'; // eslint-disable-line
+import '../../../build/assets/style.css';
+import ErrorCatcher from "../bedrock/components/error-catcher"; // eslint-disable-line
 
 const MainStyled = styled.main`
   width: 100%;
@@ -77,33 +78,35 @@ class Page extends React.Component {
 
   render() {
     return (
-      <Site>
-        <MainStyled
-          {...this.props}
-          sidebarOneOnTop={this.state.sidebarOneOnTop}
-        >
-          <PageContentStyled>{this.props.children}</PageContentStyled>
-          {this.props.sidebarOne && (
-            <SidebarOneStyled {...this.state}>
-              {this.props.sidebarOne}
-              <button
-                onClick={() =>
-                  this.setState({
-                    sidebarOneOnTop: !this.state.sidebarOneOnTop,
-                  })
-                }
-              >
-                Toggle
-              </button>
-            </SidebarOneStyled>
-          )}
-          {this.props.sidebarTwo && (
-            <SidebarTwoStyled {...this.state}>
-              {this.props.sidebarTwo}
-            </SidebarTwoStyled>
-          )}
-        </MainStyled>
-      </Site>
+      <ErrorCatcher>
+        <Site>
+          <MainStyled
+            {...this.props}
+            sidebarOneOnTop={this.state.sidebarOneOnTop}
+          >
+            <PageContentStyled>{this.props.children}</PageContentStyled>
+            {this.props.sidebarOne && (
+              <SidebarOneStyled {...this.state}>
+                {this.props.sidebarOne}
+                <button
+                  onClick={() =>
+                    this.setState({
+                      sidebarOneOnTop: !this.state.sidebarOneOnTop,
+                    })
+                  }
+                >
+                  Toggle
+                </button>
+              </SidebarOneStyled>
+            )}
+            {this.props.sidebarTwo && (
+              <SidebarTwoStyled {...this.state}>
+                {this.props.sidebarTwo}
+              </SidebarTwoStyled>
+            )}
+          </MainStyled>
+        </Site>
+      </ErrorCatcher>
     );
   }
 }

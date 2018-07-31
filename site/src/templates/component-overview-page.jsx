@@ -5,6 +5,7 @@ import Overview from '../components/overview';
 import Spinner from '../bedrock/components/spinner';
 import { apiUrlBase } from '../../config';
 import { VariationDemos } from '../bedrock/components/variation-demo';
+import ErrorCatcher from '../bedrock/components/error-catcher';
 
 class ComponentOverviewPage extends Component {
   constructor(props) {
@@ -52,7 +53,11 @@ class ComponentOverviewPage extends Component {
         </article>
       );
     }
-    return <PatternPage>{content}</PatternPage>;
+    return (
+      <PatternPage>
+        <ErrorCatcher>{content}</ErrorCatcher>
+      </PatternPage>
+    );
   }
 }
 
