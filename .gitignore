@@ -3,3 +3,5 @@ pattern-lab/vendor
 build
 .DS_Store
 .idea
+yarn-error.log
+
