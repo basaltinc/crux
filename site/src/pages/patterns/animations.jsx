@@ -34,7 +34,7 @@ const DemoTransitionMove = DemoTransition.extend`
   &:hover:after {
     left: calc(100% - 8px);
   }
-`
+`;
 
 class AnimationsPage extends React.Component {
   constructor(props) {

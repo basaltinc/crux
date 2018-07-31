@@ -41,7 +41,9 @@ const SidebarStyled = styled.div`
 const SidebarOneStyled = SidebarStyled.extend`
   order: -1;
   margin-right: 1rem;
-  ${props => props.sidebarOneOnTop ? `
+  ${props =>
+    props.sidebarOneOnTop
+      ? `
     width: 100%;
     max-width: 100%;
     border-right: 0;
@@ -56,7 +58,8 @@ const SidebarOneStyled = SidebarStyled.extend`
         margin: 0;
       }
     }
-  ` : ''}
+  `
+      : ''};
 `;
 
 const SidebarTwoStyled = SidebarStyled.extend`
@@ -75,7 +78,10 @@ class Page extends React.Component {
   render() {
     return (
       <Site>
-        <MainStyled {...this.props} sidebarOneOnTop={this.state.sidebarOneOnTop}>
+        <MainStyled
+          {...this.props}
+          sidebarOneOnTop={this.state.sidebarOneOnTop}
+        >
           <PageContentStyled>{this.props.children}</PageContentStyled>
           {this.props.sidebarOne && (
             <SidebarOneStyled {...this.state}>

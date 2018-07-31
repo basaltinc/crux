@@ -1,6 +1,7 @@
 import React from 'react';
-import info from '../assets/info-circle.svg';
 import styled from 'styled-components';
+
+import info from '../assets/info-circle.svg';
 import './custom-field.styles.css';
 
 const CustomTitleField = styled.div`
