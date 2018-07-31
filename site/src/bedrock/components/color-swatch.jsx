@@ -1,29 +1,43 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { convertColor } from '../packages/utils';
+
+const OuterSwatch = styled.div`
+  width: 49%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: solid 1px grey;
+`;
+
+const InnerSwatch = styled.div`
+  height: 50px;
+  background-color: ${props => (props.colorValue ? props.colorValue : 'auto')};
+  border: dashed 1px grey;
+`;
+
+const RightLabel = styled.label`
+  text-align: right;
+  margin-left: 1rem;
+  display: block;
+`;
+
+const SwatchesWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
 
 const ColorSwatch = ({ color, format }) => {
   const colorValue = convertColor(color.value, format);
+
   return (
-    <div
-      style={{
-        width: '49%',
-        marginBottom: '10px',
-        padding: '5px',
-        border: 'solid 1px grey',
-      }}
-    >
+    <OuterSwatch>
       Color: <code>{color.name}</code>
       <br />
       Value: <code>{colorValue}</code>
-      <div
-        style={{
-          height: '50px',
-          backgroundColor: colorValue,
-          border: 'dashed 1px grey',
-        }}
-      />
-    </div>
+      <InnerSwatch colorValue={color.value} />
+    </OuterSwatch>
   );
 };
 
@@ -56,13 +70,7 @@ class ColorSwatches extends Component {
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
-        <label
-          style={{
-            textAlign: 'right',
-            width: '100%',
-            display: 'block',
-          }}
-        >
+        <RightLabel>
           Color Format:
           <select
             value={this.state.value}
@@ -70,16 +78,8 @@ class ColorSwatches extends Component {
           >
             {options}
           </select>
-        </label>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-          }}
-        >
-          {colorSwatches}
-        </div>
+        </RightLabel>
+        <SwatchesWrapper>{colorSwatches}</SwatchesWrapper>
       </div>
     );
   }

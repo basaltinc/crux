@@ -2,6 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const ColorContrastPlayground = styled.div`
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 2rem;
+  border: solid 1px grey;
+  text-align: center;
+  background-color: ${props => (props.bgColor ? props.bgColor : 'none')};
+`;
+
+const RightLabel = styled.label`
+  text-align: right;
+  margin-left: 1rem;
+`;
+
+const LeftLabel = styled.label`
+  text-align: left;
+`;
+
 class ColorContrastBlock extends React.Component {
   constructor(props) {
     super(props);
@@ -12,30 +30,6 @@ class ColorContrastBlock extends React.Component {
   }
 
   render() {
-    const ColorContrastPlayground = styled.div`
-       {
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 2rem;
-        border: solid 1px grey;
-        text-align: center;
-        background-color: ${this.state.bgColor};
-      }
-    `;
-
-    const RightLabel = styled.label`
-       {
-        text-align: right;
-        margin-left: 1rem;
-      }
-    `;
-
-    const LeftLabel = styled.label`
-       {
-        text-align: left;
-      }
-    `;
-
     const bgColors = this.props.bgColors.map(color => (
       <option value={color.value} key={color.name}>
         {color.name}
@@ -67,7 +61,7 @@ class ColorContrastBlock extends React.Component {
             {textColors}
           </select>
         </RightLabel>
-        <ColorContrastPlayground>
+        <ColorContrastPlayground bgColor={this.state.bgColor}>
           <h3
             contentEditable
             style={{
