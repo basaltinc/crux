@@ -12,7 +12,6 @@ class ErrorCatcher extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    if (this.props.log) console.error(error, errorInfo);
     this.setState({
       error,
       errorInfo,
@@ -38,13 +37,8 @@ class ErrorCatcher extends Component {
   }
 }
 
-ErrorCatcher.defaultProps = {
-  log: false,
-};
-
 ErrorCatcher.propTypes = {
   children: PropTypes.number.isRequired,
-  log: PropTypes.bool,
 };
 
 export default ErrorCatcher;
