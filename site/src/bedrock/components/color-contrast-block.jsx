@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { convertColor } from '../packages/utils';
 
 const ColorContrastPlayground = styled.div`
   width: 100%;
@@ -20,13 +21,85 @@ const LeftLabel = styled.label`
   text-align: left;
 `;
 
+const AccessibilityInfo = styled.div`
+  p {
+    display: inline-block;
+    margin: 0.5rem 1rem;
+  }
+`;
+
+const AccessibilityResults = styled.span`
+  background-color: ${props => (props.pass === 'pass' ? 'green' : 'red')};
+  color: white;
+  text-align: center;
+  border-radius: 1rem;
+  font-weight: bold;
+  display: inline;
+  padding: 0.35rem 0.75rem;
+`;
+
+const Ratio = styled.span`
+  border: 1px solid ${props => (props.ratio > '4.5' ? 'green' : 'red')};
+  color: ${props => (props.ratio > '4.5' ? 'green' : 'red')};
+  text-align: center;
+  border-radius: 1rem;
+  font-weight: bold;
+  display: inline;
+  padding: 0.35rem 1rem;
+`;
+
 class ColorContrastBlock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       bgColor: 'white',
       textColor: 'black',
+      contrast: {
+        aa: '',
+        aaa: '',
+        aaaLarge: '',
+        aaLarge: '',
+        ratio: '',
+      },
     };
+    this.checkColorContrast = this.checkColorContrast.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.checkColorContrast();
+  }
+
+  checkColorContrast() {
+    const bgValue = convertColor(this.state.bgColor, 'hex').slice(1);
+    const txtValue = convertColor(this.state.textColor, 'hex').slice(1);
+
+    const url = `https://webaim.org/resources/contrastchecker/?fcolor=${txtValue}&bcolor=${bgValue}&api`;
+
+    window
+      .fetch(url)
+      .then(res => res.json())
+      .then(results => {
+        console.log(results);
+        this.setState({
+          contrast: {
+            aa: results.AA,
+            aaa: results.AAA,
+            aaaLarge: results.AAALarge,
+            aaLarge: results.AALarge,
+            ratio: results.ratio,
+          },
+        });
+      });
+  }
+
+  handleChange(type, color) {
+    this.setState(
+      {
+        [type]: color,
+      },
+      () => this.checkColorContrast(),
+    );
   }
 
   render() {
@@ -40,6 +113,7 @@ class ColorContrastBlock extends React.Component {
         {color.name}
       </option>
     ));
+
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
@@ -47,7 +121,7 @@ class ColorContrastBlock extends React.Component {
           Background Color:
           <select
             value={this.state.bgColor}
-            onChange={event => this.setState({ bgColor: event.target.value })}
+            onChange={event => this.handleChange('bgColor', event.target.value)}
           >
             {bgColors}
           </select>
@@ -56,7 +130,9 @@ class ColorContrastBlock extends React.Component {
           Text Color:
           <select
             value={this.state.textColor}
-            onChange={event => this.setState({ textColor: event.target.value })}
+            onChange={event =>
+              this.handleChange('textColor', event.target.value)
+            }
           >
             {textColors}
           </select>
@@ -71,6 +147,50 @@ class ColorContrastBlock extends React.Component {
             Test Your Colors Here
           </h3>
         </ColorContrastPlayground>
+        <AccessibilityInfo>
+          <p>
+            WCAG AAA:{' '}
+            <AccessibilityResults pass={this.state.contrast.aaa}>
+              {this.state.contrast.aaa}
+            </AccessibilityResults>
+          </p>
+          <p>
+            WCAG AA:{' '}
+            <AccessibilityResults pass={this.state.contrast.aa}>
+              {this.state.contrast.aa}
+            </AccessibilityResults>
+          </p>
+          <p>
+            WCAG AAA (Large Text):{' '}
+            <AccessibilityResults pass={this.state.contrast.aaaLarge}>
+              {this.state.contrast.aaaLarge}
+            </AccessibilityResults>
+          </p>
+          <p>
+            WCAG AA (Large Text):{' '}
+            <AccessibilityResults pass={this.state.contrast.aaLarge}>
+              {this.state.contrast.aaLarge}
+            </AccessibilityResults>
+          </p>
+          <p>
+            WCAG Ratio:{' '}
+            <Ratio ratio={this.state.contrast.ratio}>
+              {this.state.contrast.ratio}
+            </Ratio>
+          </p>
+        </AccessibilityInfo>
+        <details>
+          <summary>WCAG Details</summary>
+          <p>
+            <a href={'https://www.w3.org/TR/WCAG20/'} target={'blank'}>
+              WCAG 2.0
+            </a>{' '}
+            standards require a contrast ratio of greater than 4.5:1 for normal
+            text and 3:1 for large text. For AAA standards, normal text ratio
+            must be greater than 7:1 and large text ratio must be greater than
+            4.5:1. Large text is defined as anything 14pt bold or higher.
+          </p>
+        </details>
       </div>
     );
   }
