@@ -4,6 +4,38 @@ import PatternPage from '../../templates/pattern-page';
 import './animations.css';
 import { apiUrlBase } from '../../../config';
 
+const DemoTransition = styled.div`
+  background: #ddd;
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+`;
+
+const DemoTransitionOpacity = DemoTransition.extend`
+  &:hover {
+    opacity: 0;
+  }
+`;
+
+const DemoTransitonMove = DemoTransition.extend`
+  position: relative;
+  &:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 3px;
+    top: 0;
+    left: 8px;
+    bottom: 0;
+    background: black;
+  }
+  &:hover:after {
+    left: calc(100% - 8px);
+  }
+`
+
 class AnimationsPage extends React.Component {
   constructor(props) {
     super(props);
@@ -34,12 +66,12 @@ class AnimationsPage extends React.Component {
             everywhere in the world. - Walt Disney
           </blockquote>
           <hr />
-          <div className="demo-transition transition-opacity">
+          <DemoTransitionOpacity>
             <strong>Opacity</strong> (Hover to see effect)
-          </div>
-          <div className="demo-transition transition-move">
+          </DemoTransitionOpacity>
+          <DemoTransitonMove>
             <strong>Move</strong> (Hover to see effect)
-          </div>
+          </DemoTransitonMove>
 
           <pre>
             <code>{JSON.stringify(this.state.transitions, null, '  ')}</code>
