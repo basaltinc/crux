@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Basalt",
   "dependencies": {
-    "@basalt/demo-data": "0.2.0",
+    "@basalt/demo-data": "^0.3.0",
     "@basalt/twig-renderer": "0.8.0",
     "apidoc": "0.17.6",
     "body-parser": "1.18.3",
