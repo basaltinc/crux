@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Page from './page';
 import LinkList from '../components/link-list';
-import './pattern-page.css';
 import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea

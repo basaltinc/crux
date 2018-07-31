@@ -1,7 +1,6 @@
 import React from 'react';
 
 import PatternPage from '../../templates/pattern-page';
-import './animations.css';
 import { apiUrlBase } from '../../../config';
 
 const DemoTransition = styled.div`
@@ -72,7 +71,6 @@ class AnimationsPage extends React.Component {
           <DemoTransitonMove>
             <strong>Move</strong> (Hover to see effect)
           </DemoTransitonMove>
-
           <pre>
             <code>{JSON.stringify(this.state.transitions, null, '  ')}</code>
           </pre>

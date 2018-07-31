@@ -7,6 +7,7 @@ import Footer from '../components/footer';
 
 // @todo Evan is working on a better way to pull in styles
 import '../../../build/assets/style.css'; // eslint-disable-line
+import '../global.css'; // eslint-disable-line
 
 const SiteMain = styled.div`
   display: flex;
