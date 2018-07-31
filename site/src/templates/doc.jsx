@@ -1,12 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby'; // eslint-disable-line
+import styled from 'styled-components';
 
 import LinkList from '../components/link-list';
 import Page from '../templates/page';
-
-import './doc.css';
 import Twig from '../components/twig';
+
+const DocsPage = styled(Page)`
+  display: flex;
+  width: 100%;
+`;
+
+const DocsBody = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+  h2 {
+    margin: 0 0 0.25rem;
+  }
+`;
+
+const Eyebrow = styled.h4`
+  margin: 0;
+  color: rgba(0, 0, 0, 0.5);
+`
 
 const Template = ({ data }) => {
   const markdownFiles = data.allMarkdownRemark.edges;
@@ -18,10 +36,10 @@ const Template = ({ data }) => {
   }));
 
   return (
-    <Page className="docs" sidebarOne={<LinkList items={navItems} />}>
-      <div className="body">
+    <DocsPage sidebarOne={<LinkList items={navItems} />}>
+      <DocsBody>
         {frontmatter.section && (
-          <h4 className="eyebrow">{frontmatter.section}</h4>
+          <Eyebrow>{frontmatter.section}</Eyebrow>
         )}
         <h2>{frontmatter.title}</h2>
         {frontmatter.definition && (
@@ -40,8 +58,8 @@ const Template = ({ data }) => {
           />
         )}
         <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
-    </Page>
+      </DocsBody>
+    </DocsPage>
   );
 };
 

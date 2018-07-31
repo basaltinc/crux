@@ -1,0 +1,103 @@
+/* Utility items */
+.u-crux-pattern-grid {
+  margin: 50px; /* Temporary until more global styles are in place */
+  padding: 0;
+  list-style-type: none;
+  align-items: flex-start;
+}
+
+.u-crux-pattern-grid:hover .u-crux-pattern-grid__item {
+  filter: blur(2px);
+}
+
+.u-crux-pattern-grid__item {
+  background: #FFF;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+.u-crux-pattern-grid__item:hover {
+  filter: blur(0px) !important;
+  z-index: 1;
+}
+
+.u-crux-pattern-grid__item-thumb {
+  display: block;
+  max-width: 250px;
+  width: 100%;
+  max-height: 110px;
+  margin: 0 auto 15px;
+  filter: grayscale(75%);
+  transition: all 0.2s ease-in-out;
+}
+
+.u-crux-pattern-grid__item:hover .u-crux-pattern-grid__item-thumb {
+  filter: grayscale(0%);
+}
+
+.u-crux-pattern-grid__item-title {
+  color: #000;
+  margin-bottom: -3px;
+  border-bottom: 5px solid #000;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+}
+
+.u-crux-pattern-grid__item-description {
+  font-family: 'AvenirLight', sans-serif;
+  line-height: 1.25;
+  font-size: 14px;
+  color: #000;
+  font-style: italic;
+  padding: 25px 0 25px;
+  max-width: 250px;
+  margin: 0 auto;
+  opacity: 0;
+  height: 0px;
+  pointer-events: none;
+  transition: all 0.1s ease-in-out;
+  transform: scale(0.75);
+  position: absolute;
+}
+
+.u-crux-pattern-grid__item > a:hover .u-crux-pattern-grid__item-description {
+  opacity: 1;
+  transform: scale(1);
+  height: auto;
+  position: relative;
+}
+
+.u-crux-pattern-grid__item > a:link,
+.u-crux-pattern-grid__item > a:visited {
+  display: block;
+  font-family: 'AvenirMedium', sans-serif;
+  text-decoration: none;
+  padding: 30px 30px 0;
+  height: 100%;
+  border: solid 1px #CCC;
+  border-radius: var(--border-radius);
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.u-crux-pattern-grid__item > a:hover {
+  position: absolute;
+  background: #FFF;
+  border-radius: var(--border-radius);
+  transform: scale(1.25);
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}
+
+
+/* Type colors */
+
+.u-crux-pattern-grid__item--component .u-crux-pattern-grid__item-title {
+  border-color: var(--type-color--component);
+}
+.u-crux-pattern-grid__item--component:hover > a {
+  border-color: var(--type-color--component);
+}
