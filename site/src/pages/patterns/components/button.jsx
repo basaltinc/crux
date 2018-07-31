@@ -1,18 +1,18 @@
 import React from 'react';
+import { title, paragraph, text } from '@basalt/demo-data';
 import ComponentOverviewPage from '../../../templates/component-overview-page';
 import ErrorCatcher from '../../../bedrock/components/error-catcher';
-import Logo from '../../../../../images/branding--color.svg';
 
 
 export default () => (
   <ErrorCatcher>
     <ComponentOverviewPage
-      id="logo"
+      id="button"
       data={{
-        imgSrc: Logo,
+        text: text(),
         url: 'http://www.basalt.io',
-        size: 'large',
-        greyscale: false,
+        size: 'small',
+        color: 'blue--light',
       }}
     />
   </ErrorCatcher>

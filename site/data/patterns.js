@@ -97,11 +97,11 @@ export async function getPatterns(type) {
     components: [
       'avatar',
       'basic-block',
+      'button',
       'hero',
       'logo',
       'media-tile',
       'media-block',
-      '',
     ].sort(),
   };
 
