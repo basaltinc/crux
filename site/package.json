@@ -9,6 +9,7 @@
     "apidoc": "0.17.6",
     "body-parser": "1.18.3",
     "classnames": "2.2.6",
+    "color": "3.0.0",
     "express": "4.16.3",
     "gatsby": "next",
     "gatsby-cli": "next",
