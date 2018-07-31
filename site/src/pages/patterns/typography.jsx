@@ -131,7 +131,7 @@ class TypographyPage extends React.Component {
               >
                 <div className="demo-vars">
                   <div className="copy-this">
-                    Copy <img src={copyIcon} alt="Copy" />
+                    <img src={copyIcon} alt="Copy" title="Copy!" />
                   </div>
                   <code>{this.state.selectedFontFamily.name}</code>
                   {': '}
