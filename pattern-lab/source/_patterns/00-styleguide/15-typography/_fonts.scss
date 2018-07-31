@@ -34,9 +34,9 @@ $font-directory: "../../fonts/" !default;
   }
 }
 
-$ff--avenir--light: 'AvenirLight', sans-serif;
-$ff--avenir--medium: 'AvenirMedium', sans-serif;
-$ff--din-condensed: 'DinCondensed', sans-serif;
+$ff--avenir--light: 'AvenirLight', sans-serif; // Avenir Light
+$ff--avenir--medium: 'AvenirMedium', sans-serif; // Avenir Medium
+$ff--din-condensed: 'DinCondensed', sans-serif; // Din Condensed
 //$ff--helvetica: 'Helvetica', sans-serif;
 
 $ff--heading: $ff--avenir--medium !default;
