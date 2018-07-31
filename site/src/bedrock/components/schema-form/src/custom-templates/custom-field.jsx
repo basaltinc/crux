@@ -1,8 +1,47 @@
 import React from 'react';
 import info from '../assets/info-circle.svg';
+import styled from 'styled-components';
 import './custom-field.styles.css';
 
-// @todo add prop types
+const CustomTitleField = styled.div`
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  width: 300px;
+  .field-object > & {
+    display: none;
+  }
+  .field-array > & {
+    display: none;
+  }
+`;
+
+const CustomLabelField = styled.label`
+  font-weight: bold;
+  ${props =>
+    props.required
+      ? `
+    position: relative;
+    &:before {
+      content: '*';
+      color: red;
+      position: absolute;
+      left: -10px;
+    }
+  `
+      : ''};
+`;
+
+const CustomInfoField = styled.div`
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  float: right;
+  background-size: contain;
+  height: 15px;
+  width: 15px;
+`;
+
 /* eslint-disable react/prop-types */
 export default function CustomField(props) {
   const {
@@ -19,30 +58,27 @@ export default function CustomField(props) {
   /* eslint-disable no-alert, jsx-a11y/label-has-for */
   return (
     <div className={classNames}>
-      <div className="custom-field__title">
-        <label
-          className={`control-label${
-            required ? ' custom-field__required' : ''
-          }`}
+      <CustomTitleField>
+        <CustomLabelField
           title={fieldDescription}
           htmlFor={id}
+          required={required}
         >
           {label}
-          {fieldDescription && (
-            <div
-              className="custom-field__info"
-              style={{
-                backgroundImage: `url(${info})`,
-              }}
-              role="button"
-              onClick={() => window.confirm(fieldDescription)}
-              onKeyPress={() => window.confirm(fieldDescription)}
-              title={fieldDescription}
-              tabIndex="0"
-            />
-          )}
-        </label>
-      </div>
+        </CustomLabelField>
+        {fieldDescription && (
+          <CustomInfoField
+            style={{
+              backgroundImage: `url(${info})`,
+            }}
+            role="button"
+            onClick={() => window.confirm(fieldDescription)}
+            onKeyPress={() => window.confirm(fieldDescription)}
+            title={fieldDescription}
+            tabIndex="0"
+          />
+        )}
+      </CustomTitleField>
       {children}
       {errors}
       {help}

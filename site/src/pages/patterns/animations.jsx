@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import PatternPage from '../../templates/pattern-page';
 import { apiUrlBase } from '../../../config';

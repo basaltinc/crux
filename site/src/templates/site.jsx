@@ -19,7 +19,7 @@ const Site = props => (
     <div className="site__header u-full-width">
       <Header siteTitle={'Crux'} />
     </div>
-    <SiteMain>{props.children}</SiteMain>
+    <SiteMain className="u-full-width">{props.children}</SiteMain>
     <div className="site__footer u-full-width">
       <Footer />
     </div>
