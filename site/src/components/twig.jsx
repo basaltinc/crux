@@ -51,6 +51,7 @@ export default class Twig extends React.Component {
           this.setState({
             html: results.html,
           });
+          this.props.handleNewHtml(results.html);
         } else {
           this.setState({
             html: results.message,
@@ -76,6 +77,7 @@ export default class Twig extends React.Component {
 Twig.defaultProps = {
   data: {},
   showDataUsed: true,
+  handleNewHtml: () => {},
 };
 
 Twig.propTypes = {
@@ -83,4 +85,5 @@ Twig.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object,
   showDataUsed: PropTypes.bool,
+  handleNewHtml: PropTypes.func,
 };
