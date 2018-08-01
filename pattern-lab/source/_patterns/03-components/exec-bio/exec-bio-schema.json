@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "title": "Executive Bio",
+  "type": "object",
+  "description": "The Executive Bio a UI component designed to profile members of the executive team.",
+  "properties": {
+    "is_even": {
+      "title": "Is Even",
+      "type": "boolean",
+      "description": "Used to define if its an even or odd member of a list of executive bios."
+    },
+    "avatar": {
+      "title": "Avatar Image",
+      "type": "string",
+      "description": "Url string for an image asset. An avatar image of the person being profiled."
+    },
+    "name": {
+      "title": "Name",
+      "type": "string",
+      "description": "Name of the executive"
+    },
+    "twitter": {
+        "title": "Twitter Handle",
+        "type": "string",
+        "description": "Twitter handle. If provided, generates a link to twitter."
+    },
+    "bio": {
+        "title": "Biography",
+        "type": "string",
+        "description": "A brief biography of the individual being profiled"
+    }
+  }
+}

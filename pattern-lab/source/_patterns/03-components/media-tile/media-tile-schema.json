@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "title": "Media Tile",
   "description": "Full Image overlayed with optional Title, Body, and Buttons.",

@@ -1,27 +1,22 @@
 import React from 'react';
-import { image, paragraph, title, text } from '@basalt/demo-data';
+import { title, paragraph, image } from '@basalt/demo-data';
 import ComponentOverviewPage from '../../../templates/component-overview-page';
 import ErrorCatcher from '../../../bedrock/components/error-catcher';
 
 export default () => (
   <ErrorCatcher>
     <ComponentOverviewPage
-      id="hero"
+      id="blog-teaser"
       size="full"
       data={{
         title: title(),
-        body: paragraph(),
-        desc: title(),
-        image_overlay: 'black',
+        author: 'John Doe',
+        teaser_avatar: image(),
+        date: 'January 1st, 2000',
+        summary: paragraph(),
+        color: 'blue--light',
         image: image(),
-        buttons: [
-          {
-            text: text(),
-          },
-          {
-            text: text(),
-          },
-        ],
+        is_even: true,
       }}
     />
   </ErrorCatcher>
