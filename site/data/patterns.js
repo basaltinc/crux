@@ -99,6 +99,7 @@ export async function getPatterns(type) {
       'basic-block',
       'button',
       'blog-teaser',
+      'exec-bio',
       'hero',
       'logo',
       'cta',
