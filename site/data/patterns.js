@@ -101,6 +101,7 @@ export async function getPatterns(type) {
       'blog-teaser',
       'hero',
       'logo',
+      'cta',
       'media-tile',
       'media-block',
     ].sort(),
