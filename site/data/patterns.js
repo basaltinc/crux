@@ -100,6 +100,7 @@ export async function getPatterns(type) {
       'button',
       'blog-teaser',
       'exec-bio',
+      'list',
       'hero',
       'logo',
       'cta',
