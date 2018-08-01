@@ -25,7 +25,7 @@ pipelines:
     - step:
         script:
           - npm --version && node --version && composer --version && php --version
-          - npm install
+          - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache 
           - npm test
           - npm run compile
 
