@@ -38,7 +38,7 @@ class ErrorCatcher extends Component {
 }
 
 ErrorCatcher.propTypes = {
-  children: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default ErrorCatcher;

@@ -43,6 +43,7 @@ class ComponentOverviewPage extends Component {
             schema={schema}
             demoSizes={this.props.demoSizes}
             data={this.props.data}
+            size={this.props.size}
           />
           <hr />
           <VariationDemos
@@ -64,12 +65,14 @@ class ComponentOverviewPage extends Component {
 ComponentOverviewPage.defaultProps = {
   data: {},
   demoSizes: [],
+  size: Overview.defaultProps.size,
 };
 
 ComponentOverviewPage.propTypes = {
   id: PropTypes.string.isRequired,
   data: PropTypes.object,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
+  size: Overview.propTypes.size,
 };
 
 export default ComponentOverviewPage;

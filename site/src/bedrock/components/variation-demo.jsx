@@ -108,8 +108,8 @@ VariationDemo.propTypes = {
   // @todo cleanup api of `propKey` & `prop` - feels messy (but works!)
   propKey: PropTypes.string.isRequired,
   prop: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    description: PropTypes.string,
     enum: PropTypes.array.isRequired,
   }).isRequired,
   expanded: PropTypes.bool,
@@ -130,6 +130,10 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
       });
     }
   });
+
+  if (variationsData.length === 0) {
+    return null;
+  }
 
   const variations = variationsData.map(variationData => ({
     title: variationData.propKey,

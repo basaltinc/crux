@@ -1,4 +1,5 @@
 /** @module utils */
+import Color from 'color';
 
 /**
  * Color Contrast
@@ -44,23 +45,22 @@ export function colorContrast(hex) {
 }
 
 /**
- * Convert RGB to hex
- * @param {string} rgb - color
- * @returns {string} - rgb as hex color
- * @link http://stackoverflow.com/questions/1740700/get-hex-value-rather-than-rgb-value-using-jquery
+ * Convert Color
+ * Convert color formats
+ * @param {string} initialColor - The color to convert from
+ * @param {string} format - The format to convert to. One of 'hsl', 'rgb', 'hex'
+ * @returns {string} - The converted color
  */
-export function rgb2hex(rgb) {
-  if (rgb.search('rgb') === -1) {
-    return rgb;
+export function convertColor(initialColor, format) {
+  const theColor = Color(initialColor);
+  switch (format) {
+    case 'hsl':
+      return theColor.hsl().string();
+    case 'rgb':
+      return theColor.rgb().string();
+    case 'hex':
+      return theColor.hex();
+    default:
+      return initialColor;
   }
-
-  const rgbValue = rgb.match(
-    /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+))?\)$/,
-  );
-
-  function hex(x) {
-    return (0 + parseInt(x, 10).toString(16)).slice(-2);
-  }
-
-  return `#${hex(rgbValue[1])}${hex(rgbValue[2])}${hex(rgbValue[3])}`;
 }

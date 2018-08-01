@@ -94,7 +94,7 @@ export async function getPatternInfo(id, { type = 'component' } = {}) {
 
 export async function getPatterns(type) {
   const types = {
-    components: ['hero', 'media-tile', 'media-block'],
+    components: ['hero', 'media-tile', 'media-block', 'avatar', 'basic-block'],
   };
 
   const ids = types[type];

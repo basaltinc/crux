@@ -2,12 +2,13 @@
   "$schema": "http://json-schema.org/schema#",
   "type": "object",
   "title": "Avatar",
+  "description": "Show a person's headshot.",
   "properties": {
     "size": {
       "type": "string",
       "enum": ["s", "m", "l", "xl"]
     },
-    "image": {
+    "img": {
       "type": "string",
       "title": "Image",
       "description": "Path to image."
