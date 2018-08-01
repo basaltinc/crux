@@ -64,8 +64,8 @@ router.get('/', (req, res) => {
  */
 router.post('/render-twig', async (req, res) => {
   const { body } = req;
-  const { templatePath } = req.query;
-  if (!templatePath || !body) {
+  const { type } = req.query;
+  if (!type) {
     console.error('Error: not enough info to render twig template');
     res.status(400).send({
       ok: false,
@@ -73,7 +73,21 @@ router.post('/render-twig', async (req, res) => {
     });
   }
 
-  const results = await twigRenderer.render(templatePath, body);
+  let results;
+  switch (type) {
+    case 'renderString':
+      results = await twigRenderer.renderString(body.template, body.data);
+      break;
+    case 'renderFile':
+      results = await twigRenderer.render(body.template, body.data);
+      break;
+    default:
+      results = {
+        ok: false,
+        message: 'No valid "type" of request sent.',
+      };
+  }
+
   res.json(results);
 });
 
