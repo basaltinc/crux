@@ -53,7 +53,7 @@ class PatternPage extends Component {
       .fetch(`${apiUrlBase}/patterns/components`)
       .then(res => res.json())
       .then(patterns => {
-        console.log("JOLO",patterns);
+        console.log('JOLO', patterns);
         this.setState({
           linkItems: [
             ...this.state.linkItems,

@@ -3,7 +3,6 @@ import { text } from '@basalt/demo-data';
 import ComponentOverviewPage from '../../../templates/component-overview-page';
 import ErrorCatcher from '../../../bedrock/components/error-catcher';
 
-
 export default () => (
   <ErrorCatcher>
     <ComponentOverviewPage
