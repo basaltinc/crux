@@ -1,5 +1,4 @@
 import React from 'react';
-import { text } from '@basalt/demo-data';
 import ComponentOverviewPage from '../../../templates/component-overview-page';
 import ErrorCatcher from '../../../bedrock/components/error-catcher';
 
@@ -9,7 +8,8 @@ export default () => (
       id="cta"
       size="full"
       data={{
-        text: 'We build consistent, scalable, and maintainable solutions to power your digital strategy.',
+        text:
+          'We build consistent, scalable, and maintainable solutions to power your digital strategy.',
       }}
     />
   </ErrorCatcher>

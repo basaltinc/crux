@@ -52,7 +52,10 @@ class VariationDemo extends Component {
             }}
           >
             <h4>
-              <code>{propKey}</code>: <code>{typeof item === 'boolean' ? JSON.stringify(item) : item}</code>
+              <code>{propKey}</code>:{' '}
+              <code>
+                {typeof item === 'boolean' ? JSON.stringify(item) : item}
+              </code>
             </h4>
             <Twig template={this.props.template} data={itemData} />
           </div>
