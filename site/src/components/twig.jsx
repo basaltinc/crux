@@ -19,7 +19,7 @@ export default class Twig extends React.Component {
   componentDidUpdate(prevProps) {
     const oldData = JSON.stringify(prevProps.data);
     const newData = JSON.stringify(this.props.data);
-    if (oldData !== newData) {
+    if (oldData !== newData || prevProps.template !== this.props.template) {
       this.getHtml(this.props.data);
     }
   }
@@ -29,20 +29,28 @@ export default class Twig extends React.Component {
    * @return {undefined}
    */
   getHtml(data) {
-    // @todo Encode `templatePath`
+    const type = this.props.asString ? 'renderString' : 'renderFile';
+    // let body = data;
+    const url = `${apiUrlBase}/render-twig?type=${type}`;
+
+    // if (this.props.asString) {
+    //   url = `${apiUrlBase}/render-twig?templateString`;
+    //   body = {
+    //     template: this.props.template,
+    //     data,
+    //   };
+    // }
     window
-      .fetch(
-        `${apiUrlBase}/render-twig?templatePath=${encodeURIComponent(
-          this.props.template,
-        )}`,
-        {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+      .fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+          template: this.props.template,
+          data,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
         },
-      )
+      })
       .then(res => res.json())
       .then(results => {
         // eslint-disable-next-line
@@ -78,6 +86,7 @@ Twig.defaultProps = {
   data: {},
   showDataUsed: true,
   handleNewHtml: () => {},
+  asString: false,
 };
 
 Twig.propTypes = {
@@ -86,4 +95,5 @@ Twig.propTypes = {
   data: PropTypes.object,
   showDataUsed: PropTypes.bool,
   handleNewHtml: PropTypes.func,
+  asString: PropTypes.bool,
 };

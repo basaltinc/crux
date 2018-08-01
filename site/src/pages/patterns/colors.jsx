@@ -3,6 +3,7 @@ import React from 'react';
 import PatternPage from '../../templates/pattern-page';
 import ColorSwatches from '../../bedrock/components/color-swatch';
 import { apiUrlBase } from '../../../config';
+import ColorContrastBlock from '../../bedrock/components/color-contrast-block';
 
 class ColorsPage extends React.Component {
   constructor(props) {
@@ -51,6 +52,10 @@ class ColorsPage extends React.Component {
             background-color.
           </p>
           <ColorSwatches colors={this.state.colors} />
+          <ColorContrastBlock
+            bgColors={this.state.colors}
+            textColors={this.state.colors}
+          />
         </div>
       </PatternPage>
     );

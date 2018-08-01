@@ -8,6 +8,22 @@ import CodeBlock from './code-block';
 
 const sizes = ['s', 'm', 'l', 'full'];
 
+const OverviewWrapper = styled.article`
+  width: 100%;
+  ${({ fullScreen }) =>
+    fullScreen &&
+    `
+      position: fixed;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10000;
+      height: 100vh;
+  `};
+`;
+
 const DemoStage = styled.div`
   display: flex;
   flex-direction: column;
@@ -48,6 +64,7 @@ const DemoGrid = styled.div`
 `;
 
 const SchemaFormWrapper = styled.div`
+  display: ${props => (props.showForm ? 'block' : 'none')};
   overflow: auto;
   //max-height: 80vh;
   border: dotted 1px #ccc;
@@ -82,6 +99,10 @@ class Overview extends React.Component {
       data: props.data,
       html: '',
       size: props.size,
+      isTemplateString: false,
+      template: props.template,
+      fullScreen: false,
+      showForm: true,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -122,39 +143,57 @@ class Overview extends React.Component {
     `;
 
     return (
-      <article data-name="overview" style={{ width: '100%' }}>
+      <OverviewWrapper {...this.props} {...this.state}>
         <header>
           <h4>{this.props.schema.title}</h4>
           {sizeSelect}
+          <button
+            onClick={() =>
+              this.setState({ fullScreen: !this.state.fullScreen })
+            }
+          >
+            Toggle Fullscreen
+          </button>
         </header>
-        <DemoGrid size={this.state.size}>
-          <DemoStage size={this.state.size}>
-            <Resizable>
-              <Twig
-                template={this.props.template}
-                data={this.state.data}
-                handleNewHtml={html => this.setState({ html })}
-                showDataUsed={false}
-              />
-            </Resizable>
-          </DemoStage>
-          <SchemaFormWrapper size={this.state.size}>
-            <SchemaFormWrapperInner size={this.state.size}>
-              <SchemaForm
-                schema={this.props.schema}
-                formData={this.state.data}
-                onChange={this.handleChange}
-              />
-            </SchemaFormWrapperInner>
-          </SchemaFormWrapper>
-        </DemoGrid>
-        <footer>
+        <div>
+          <DemoGrid size={this.state.size}>
+            <DemoStage size={this.state.size}>
+              <Resizable>
+                <Twig
+                  template={this.state.template}
+                  data={this.state.data}
+                  handleNewHtml={html => this.setState({ html })}
+                  showDataUsed={false}
+                  asString={this.state.isTemplateString}
+                />
+              </Resizable>
+            </DemoStage>
+            <SchemaFormWrapper
+              size={this.state.size}
+              showForm={this.state.showForm}
+            >
+              <SchemaFormWrapperInner size={this.state.size}>
+                <SchemaForm
+                  schema={this.props.schema}
+                  formData={this.state.data}
+                  onChange={this.handleChange}
+                />
+              </SchemaFormWrapperInner>
+            </SchemaFormWrapper>
+          </DemoGrid>
           <CodeBlock
             items={[
               {
                 name: 'Twig',
                 code: twigCodeExample,
                 language: 'twig',
+                handleTyping: text => {
+                  this.setState({
+                    isTemplateString: true,
+                    template: text,
+                    showForm: false,
+                  });
+                },
               },
               {
                 name: 'HTML',
@@ -163,6 +202,12 @@ class Overview extends React.Component {
               },
             ]}
           />
+        </div>
+        <footer
+          style={{
+            display: this.state.fullScreen ? 'none' : 'block',
+          }}
+        >
           {demos && (
             <details>
               <summary>Multiple Sizes Demoed</summary>
@@ -174,7 +219,7 @@ class Overview extends React.Component {
             <SchemaTable schema={this.props.schema} />
           </details>
         </footer>
-      </article>
+      </OverviewWrapper>
     );
   }
 }
