@@ -150,7 +150,7 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
   return (
     <div>
       <h2>Variations</h2>
-      <TabbedPanel items={variations} />
+      <TabbedPanel items={variations} color="red" />
       <hr />
     </div>
   );

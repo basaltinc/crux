@@ -78,7 +78,7 @@ class TypographyPage extends React.Component {
             <h3 className="demo-block__title">Font sizes</h3>
             <p>
               <strong>
-                Go ahead, adjust the text below to see if the "show fits":
+                Go ahead, adjust the text below to see if the "shoe fits":
               </strong>
             </p>
             {this.state.fontSizes.map((fontSize, index) => (
