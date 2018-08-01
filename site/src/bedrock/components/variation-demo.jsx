@@ -121,7 +121,7 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
   const variationsData = [];
   Object.keys(schema.properties).forEach(propKey => {
     const prop = schema.properties[propKey];
-    if (prop.enum) {
+    if (prop.enum || prop.type === 'boolean') {
       variationsData.push({
         template,
         prop,

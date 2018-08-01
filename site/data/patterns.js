@@ -98,6 +98,7 @@ export async function getPatterns(type) {
       'avatar',
       'basic-block',
       'button',
+      'blog-teaser',
       'hero',
       'logo',
       'media-tile',
