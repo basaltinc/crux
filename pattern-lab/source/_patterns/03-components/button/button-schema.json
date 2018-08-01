@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "title": "Button",
+  "description": "Buttons are for clickin' and tappin'!",
+  "properties": {
+    "text": {
+      "title": "Text",
+      "type": "string"
+    },
+    "url": {
+      "title": "Url",
+      "type": "string",
+      "default": "#"
+    },
+    "size": {
+      "title": "Size",
+      "type": "string",
+      "default": "small",
+      "enum": ["small", "medium", "large", "jumbo"],
+      "enumNames": ["Small", "Medium", "Large", "Jumbo"]
+    },
+    "color": {
+      "title": "Background Color",
+      "type": "string",
+      "default": "green",
+      "enum": [
+        "blue",
+        "blue--light",
+        "green",
+        "iron",
+        "yellow",
+        "white",
+        "black"
+      ],
+      "enumNames": [
+        "Blue",
+        "Light Blue",
+        "Green",
+        "Iron",
+        "Yellow",
+        "White",
+        "Black"
+      ]
+    }
+  },
+  "required": ["text", "url"]
+}

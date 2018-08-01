@@ -37,7 +37,9 @@ class VariationDemo extends Component {
 
     let content;
     if (this.state.expanded) {
-      content = prop.enum.map(item => {
+      // Items is either an enum of strings, or a boolean
+      const items = prop.enum ? prop.enum : [true, false];
+      content = items.map(item => {
         const itemData = Object.assign({}, this.props.data, {
           [propKey]: item,
         });
@@ -50,7 +52,10 @@ class VariationDemo extends Component {
             }}
           >
             <h4>
-              <code>{propKey}</code>: <code>{item}</code>
+              <code>{propKey}</code>:{' '}
+              <code>
+                {typeof item === 'boolean' ? JSON.stringify(item) : item}
+              </code>
             </h4>
             <Twig template={this.props.template} data={itemData} />
           </div>
@@ -121,7 +126,7 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
   const variationsData = [];
   Object.keys(schema.properties).forEach(propKey => {
     const prop = schema.properties[propKey];
-    if (prop.enum) {
+    if (prop.enum || prop.type === 'boolean') {
       variationsData.push({
         template,
         prop,
