@@ -1,33 +1,40 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
+  "title": "List",
   "description": "List",
   "properties": {
     "list_items": {
-      "type": "string",
       "title": "List Items",
+      "type": "string",
       "description": "Comma separated list of items"
     },
     "text_size": {
+      "title": "Text Size",
       "type": "string",
-      "enum": ["xs", "s", "m", "l", "xl"]
+      "enum": ["xs", "s", "m", "l", "xl"],
+      "enumNames": ["Extra Small", "Small", "Medium", "Large", "Extra Large"]
     },
     "bullets": {
+      "title": "Bullets",
       "type": "boolean",
       "description": "Display bullets next to list items"
     },
     "ordered": {
+      "title": "Ordered",
       "type": "boolean",
       "description": "Display ordered numbers next to list items"
     },
     "text_color": {
+      "title": "Text Color",
       "type": "string",
       "description": "Any utility color class"
     },
     "columns": {
+      "title": "Columns",
       "type": "string",
-      "enum": ["1", "2", "3", "4"]
+      "enum": ["1", "2", "3", "4"],
+      "enumNames": ["1", "2", "3", "4"]
     }
-  },
-  "required": ["text"]
+  }
 }
