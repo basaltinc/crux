@@ -106,7 +106,10 @@ export async function getPatterns(type) {
       'cta',
       'media-tile',
       'media-block',
-    ].sort(),
+      'social',
+      'site-header',
+      'site-footer',
+    ],
   };
 
   const ids = types[type];

@@ -7,6 +7,7 @@ export default () => (
   <ErrorCatcher>
     <ComponentOverviewPage
       id="hero"
+      size="full"
       data={{
         title: title(),
         body: paragraph(),

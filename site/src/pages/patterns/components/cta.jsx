@@ -7,6 +7,7 @@ export default () => (
   <ErrorCatcher>
     <ComponentOverviewPage
       id="cta"
+      size="full"
       data={{
         text: 'We build consistent, scalable, and maintainable solutions to power your digital strategy.',
       }}
