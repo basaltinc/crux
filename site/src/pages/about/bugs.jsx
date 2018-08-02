@@ -34,7 +34,7 @@ const BugsPage = () => (
       <blockquote>¯\_(ツ)_/¯</blockquote>
       <hr />
     </div>
-    <BugsAndIssues/>
+    <BugsAndIssues />
   </AboutPage>
 );
 
@@ -42,7 +42,8 @@ BugsAndIssues.defaultProps = {
   title: '',
   description: 'Find a bug? Please let us know!',
   buttonText: 'Report a Bug',
-  buttonDest: 'https://3.basecamp.com/3884180/buckets/5827789/todolists/1219730803'
+  buttonDest:
+    'https://3.basecamp.com/3884180/buckets/5827789/todolists/1219730803',
 };
 
 BugsAndIssues.propTypes = {
@@ -53,4 +54,3 @@ BugsAndIssues.propTypes = {
 };
 
 export default BugsPage;
-
