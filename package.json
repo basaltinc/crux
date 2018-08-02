@@ -15,11 +15,12 @@
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "npm run setup",
     "postinstall": "npm run compile",
+    "changelog": "auto-changelog --template json --output ./build/changelog.json",
     "prepush": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint pattern-lab/source/**/*.js && cd site && npm run lint",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:scss": "stylelint \"pattern-lab/source/**/*.scss\"",
-    "postversion": "git push && git push --tags"
+    "postversion": "npm run changelog && git push && git push --tags"
   },
   "dependencies": {
     "@theme-tools/plugin-browser-sync": "^0.4.0",
@@ -57,6 +58,7 @@
     "webpack": "3.12.0"
   },
   "devDependencies": {
+    "auto-changelog": "1.8.0",
     "generator-pl-pattern": "^1.0.0",
     "husky": "0.14.3",
     "yo": "1.8.3"
