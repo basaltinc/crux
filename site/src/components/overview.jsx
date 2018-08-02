@@ -163,15 +163,16 @@ class Overview extends React.Component {
   }
 
   render() {
-    const demos = this.props.demoSizes.map(size => (
-      <Resizable key={size} size={size}>
-        <Twig
-          template={this.props.template}
-          data={this.state.data}
-          handleNewHtml={html => this.setState({ html })}
-        />
-      </Resizable>
-    ));
+    // @todo determine if this is still wanted/needed, otherwise delete
+    // const demos = this.props.demoSizes.map(size => (
+    //   <Resizable key={size} size={size}>
+    //     <Twig
+    //       template={this.props.template}
+    //       data={this.state.data}
+    //       handleNewHtml={html => this.setState({ html })}
+    //     />
+    //   </Resizable>
+    // ));
     const sizeSelect = (
       <select
         onChange={event => this.setState({ size: event.target.value })}
@@ -245,7 +246,11 @@ class Overview extends React.Component {
         </DemoGrid>
         <CodeBlockWrapper>
           <h4>Live Code Snippets</h4>
-          <p>The following code snippets will generate the component in the live demo above. <br/>You may also edit the code below and see how this effects the component.</p>
+          <p>
+            The following code snippets will generate the component in the live
+            demo above. <br />You may also edit the code below and see how this
+            effects the component.
+          </p>
           <CodeBlock
             items={[
               {
@@ -273,15 +278,18 @@ class Overview extends React.Component {
             display: this.state.fullScreen ? 'none' : 'block',
           }}
         >
-          {/*@todo Determine if there is still a use case for multiple size demo stages*/}
-          {/*{demos && (*/}
-            {/*<details>*/}
-              {/*<summary>Multiple Sizes Demoed</summary>*/}
-              {/*{demos}*/}
-            {/*</details>*/}
-          {/*)}*/}
+          {/* @todo Determine if there is still a use case for multiple size demo stages */}
+          {/* {demos && ( */}
+          {/* <details> */}
+          {/* <summary>Multiple Sizes Demoed</summary> */}
+          {/* {demos} */}
+          {/* </details> */}
+          {/* )} */}
           <h4>Properties</h4>
-          <p>The following properties make up the data that defines each instance of this component.</p>
+          <p>
+            The following properties make up the data that defines each instance
+            of this component.
+          </p>
           <details open={this.props.isPropsTableOpen}>
             <summary>Props Table</summary>
             <SchemaTable schema={this.props.schema} />

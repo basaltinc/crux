@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
 import TabbedPanel from './tabbed-panel';
-import styled from 'styled-components';
 
 const VariationsWrapper = styled.div`
   margin: 2rem 0;
@@ -83,7 +84,7 @@ class VariationDemo extends Component {
               },
             }}
           />
-          <br/>
+          <br />
           <Twig template={this.props.template} data={this.state.data} />
         </div>
       );
@@ -165,7 +166,11 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
   return (
     <VariationsWrapper>
       <h4>Variations</h4>
-      <p>Explore the variations of each property of this component.<br/>Use the radio buttons, or press "Show All Variations" to see all variations side by side.</p>
+      <p>
+        Explore the variations of each property of this component.<br />Use the
+        radio buttons, or press &quot;Show All Variations&quot; to see all
+        variations side by side.
+      </p>
       <TabbedPanel items={variations} />
     </VariationsWrapper>
   );
