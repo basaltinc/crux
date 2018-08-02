@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { image, paragraph, text, title } from '@basalt/demo-data';
+import { paragraph, title } from '@basalt/demo-data';
 
 import Page from '../templates/page';
 import DosAndDonts from '../bedrock/components/dos-and-donts';
