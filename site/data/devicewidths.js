@@ -6,10 +6,7 @@ import { join } from 'path';
  */
 export async function getDeviceWidths() {
   const deviceWidthsFile = await fs.readFile(
-    join(
-      __dirname,
-      '../../pattern-lab/source/_data/device_widths.json',
-    ),
+    join(__dirname, '../../pattern-lab/source/_data/device_widths.json'),
     'utf8',
   );
   const devicewidths = JSON.parse(deviceWidthsFile);

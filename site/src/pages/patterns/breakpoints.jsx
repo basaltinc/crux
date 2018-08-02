@@ -1,6 +1,7 @@
 import React from 'react';
-import PatternPage from '../../templates/pattern-page';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import PatternPage from '../../templates/pattern-page';
 import { apiUrlBase } from '../../../config';
 
 const BreakpointListItem = styled.li`
@@ -60,6 +61,15 @@ const BreakpointList = ({ items }) => (
   <ul className={'breakpoints'}>{breakpoints(items)}</ul>
 );
 
+BreakpointList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
 const deviceWidths = items =>
   items.map(item => (
     <DeviceListItem key={item.name} width={item.width}>
@@ -73,12 +83,21 @@ const DeviceWidthList = ({ items }) => (
   <DeviceWidthUl>{deviceWidths(items)}</DeviceWidthUl>
 );
 
+DeviceWidthList.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      width: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
 class BreakpointsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      breakpoints: [],
-      device_widths: [],
+      bp: [],
+      dw: [],
     };
   }
 
@@ -86,14 +105,14 @@ class BreakpointsPage extends React.Component {
     window
       .fetch(`${apiUrlBase}/breakpoints`)
       .then(res => res.json())
-      .then(breakpoints => {
-        this.setState({ breakpoints });
+      .then(bp => {
+        this.setState({ bp });
       });
     window
       .fetch(`${apiUrlBase}/devicewidths`)
       .then(res => res.json())
-      .then(device_widths => {
-        this.setState({ device_widths });
+      .then(dw => {
+        this.setState({ dw });
       });
   }
 
@@ -104,8 +123,8 @@ class BreakpointsPage extends React.Component {
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Breakpoints</h2>
           <BreakpointsWrapper>
-            <BreakpointList items={this.state.breakpoints} />
-            <DeviceWidthList items={this.state.device_widths} />
+            <BreakpointList items={this.state.bp} />
+            <DeviceWidthList items={this.state.dw} />
           </BreakpointsWrapper>
           {/* <pre> */}
           {/* <code>{JSON.stringify(this.state.breakpoints, null, '  ')}</code> */}
