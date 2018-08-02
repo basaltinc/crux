@@ -51,11 +51,24 @@ const DemoStage = styled.div`
 `;
 
 const Resizable = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
   resize: horizontal;
   overflow: hidden;
-  border: dotted 1px grey;
+ 
   padding: 10px;
+  width: 100%;
   max-width: ${props => props.size || '100%'};
+  background-color: rgba(77,77,77,0.15);
+  &:hover:after {
+    position: absolute;
+    content: 'Resize';
+    bottom: 0;
+    right: 5px;
+    font-size: 14px;
+    font-weight: 700;
+  }
 `;
 
 const DemoGrid = styled.div`
