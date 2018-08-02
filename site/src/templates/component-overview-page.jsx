@@ -45,7 +45,6 @@ class ComponentOverviewPage extends Component {
             data={this.props.data}
             size={this.props.size}
           />
-          <hr />
           <VariationDemos
             schema={schema}
             template={template}

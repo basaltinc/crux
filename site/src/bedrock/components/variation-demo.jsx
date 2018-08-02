@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
 import TabbedPanel from './tabbed-panel';
+
+const VariationsWrapper = styled.div`
+  margin: 2rem 0;
+  .form-group > div:first-child {
+    display: none;
+  }
+`;
 
 class VariationDemo extends Component {
   constructor(props) {
@@ -75,6 +84,7 @@ class VariationDemo extends Component {
               },
             }}
           />
+          <br />
           <Twig template={this.props.template} data={this.state.data} />
         </div>
       );
@@ -89,12 +99,13 @@ class VariationDemo extends Component {
           margin: '5px',
         }}
       >
-        <h4>Title: {title}</h4>
-        <p>Description: {prop.description}</p>
+        <h5>Property: {title}</h5>
+        {prop.description && <p>Description: {prop.description}</p>}
         <button
           onClick={() => this.setState({ expanded: !this.state.expanded })}
         >
-          Toggle Expand/Contract
+          {(this.state.expanded && 'Hide All Variations') ||
+            'Show All Variations'}
         </button>
         <div>{content}</div>
       </div>
@@ -153,11 +164,15 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
   }));
 
   return (
-    <div>
-      <h2>Variations</h2>
+    <VariationsWrapper>
+      <h4>Variations</h4>
+      <p>
+        Explore the variations of each property of this component.<br />Use the
+        radio buttons, or press &quot;Show All Variations&quot; to see all
+        variations side by side.
+      </p>
       <TabbedPanel items={variations} />
-      <hr />
-    </div>
+    </VariationsWrapper>
   );
 };
 
