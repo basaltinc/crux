@@ -39,6 +39,8 @@ form.rjsf {
   padding: 0;
   margin: 0;
   border: none;
+  width: 100%;
+  max-width: 790px;
 }
 
 .rjsf fieldset .form-group:nth-child(2n - 1) {
@@ -80,8 +82,9 @@ form.rjsf > .form-group {
 
 .rjsf .form-control {
   display: inline-block;
-  min-width: 450px;
-  max-width: 650px;
+  min-width: 350px;
+  width: 100%;
+  max-width: 800px;
   padding: 4px;
   background-clip: padding-box;
   box-sizing: border-box;
@@ -95,7 +98,7 @@ form.rjsf > .form-group {
 
 .rjsf .field-description {
   margin: 0.5rem 0;
-  max-width: 650px;
+  max-width: 800px;
 }
 
 .rjsf .demo-stage {

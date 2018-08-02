@@ -11,9 +11,11 @@ const DemoTransition = styled.div`
   text-align: center;
   border-radius: 8px;
   cursor: pointer;
+  max-width: 800px;
 `;
 
 const DemoTransitionOpacity = DemoTransition.extend`
+  transition: opacity var(--transition-time) var(--transition-function);
   &:hover {
     opacity: 0;
   }
@@ -30,6 +32,7 @@ const DemoTransitionMove = DemoTransition.extend`
     left: 8px;
     bottom: 0;
     background: black;
+    transition: left var(--transition-time) var(--transition-function);
   }
   &:hover:after {
     left: calc(100% - 8px);
@@ -72,9 +75,9 @@ class AnimationsPage extends React.Component {
           <DemoTransitionMove>
             <strong>Move</strong> (Hover to see effect)
           </DemoTransitionMove>
-          <pre>
-            <code>{JSON.stringify(this.state.transitions, null, '  ')}</code>
-          </pre>
+          {/* <pre> */}
+          {/* <code>{JSON.stringify(this.state.transitions, null, '  ')}</code> */}
+          {/* </pre> */}
         </div>
       </PatternPage>
     );
