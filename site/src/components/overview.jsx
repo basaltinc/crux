@@ -6,7 +6,13 @@ import SchemaForm from '../bedrock/components/schema-form';
 import SchemaTable from '../bedrock/components/schema-table';
 import CodeBlock from './code-block';
 
-const sizes = ['s', 'm', 'l', 'full'];
+// const sizes = ['s', 'm', 'l', 'full'];
+const sizes = {
+  Small: 's',
+  Medium: 'm',
+  Large: 'l',
+  Full: 'full',
+};
 
 const OverviewWrapper = styled.div`
   width: 100%;
@@ -22,6 +28,10 @@ const OverviewWrapper = styled.div`
       z-index: 10000;
       height: 100vh;
   `};
+`;
+
+const OverviewHeader = styled.header`
+
 `;
 
 const DemoStage = styled.div`
@@ -56,11 +66,10 @@ const Resizable = styled.div`
   position: relative;
   resize: horizontal;
   overflow: hidden;
- 
   padding: 10px;
   width: 100%;
   max-width: ${props => props.size || '100%'};
-  background-color: rgba(77,77,77,0.15);
+  background-color: rgba(77, 77, 77, 0.15);
   &:hover:after {
     position: absolute;
     content: 'Resize';
@@ -76,10 +85,21 @@ const DemoGrid = styled.div`
   position: relative;
 `;
 
+const DemoGridConrols = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  margin-right: 4px;
+  > * {
+    margin: 0 10px 0;
+  }
+`;
+
 const SchemaFormWrapper = styled.div`
-  display: ${props => (props.showForm ? 'block' : 'none')};
+  display: ${props => (props.showForm ? 'flex' : 'none')};
+  justify-content: center;
   overflow: auto;
-  //max-height: 80vh;
   border: dotted 1px #ccc;
   position: relative;
   padding: 0.5rem;
@@ -98,11 +118,17 @@ const SchemaFormWrapper = styled.div`
 `;
 
 const SchemaFormWrapperInner = styled.div`
-  position: ${props => (props.size === 'full' ? 'static' : 'absolute')};
+  position: ${props => (props.size === 'full' ? 'static' : '')};
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  max-height: ${props => (props.size === 'full' ? '40vh' : '75vh')};
+  max-width: 800px;
+  fieldset > legend,
+  fieldset > legend + p {
+    display: none;
+  }
 `;
 
 class Overview extends React.Component {
@@ -142,9 +168,9 @@ class Overview extends React.Component {
         onChange={event => this.setState({ size: event.target.value })}
         value={this.state.size}
       >
-        {sizes.map(size => (
-          <option value={size} key={size}>
-            {size}
+        {Object.keys(sizes).map(key => (
+          <option value={sizes[key]} key={sizes[key]}>
+            {key}
           </option>
         ))}
       </select>
@@ -159,16 +185,20 @@ class Overview extends React.Component {
       <OverviewWrapper {...this.props} {...this.state}>
         <header>
           <h4>{this.props.schema.title}</h4>
-          {sizeSelect}
-          <button
-            onClick={() =>
-              this.setState({ fullScreen: !this.state.fullScreen })
-            }
-          >
-            Toggle Fullscreen
-          </button>
         </header>
         <div>
+          <DemoGridConrols>
+            <p>Adjust Demo Stage: </p>
+            {sizeSelect}
+            <button
+              className="button button--color-blue--light button--size-small"
+              onClick={() =>
+                this.setState({ fullScreen: !this.state.fullScreen })
+              }
+            >
+              Toggle Fullscreen
+            </button>
+          </DemoGridConrols>
           <DemoGrid size={this.state.size}>
             <DemoStage size={this.state.size}>
               <Resizable>
@@ -186,6 +216,12 @@ class Overview extends React.Component {
               showForm={this.state.showForm}
             >
               <SchemaFormWrapperInner size={this.state.size}>
+                <h4>Edit Form</h4>
+                <p>
+                  The following form is generated from the component schema
+                  (definition file). Edit this form to see your changes live.
+                  Changes will also update the code samples below.
+                </p>
                 <SchemaForm
                   schema={this.props.schema}
                   formData={this.state.data}
