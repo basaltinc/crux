@@ -75,9 +75,9 @@ class AnimationsPage extends React.Component {
           <DemoTransitionMove>
             <strong>Move</strong> (Hover to see effect)
           </DemoTransitionMove>
-          {/*<pre>*/}
-            {/*<code>{JSON.stringify(this.state.transitions, null, '  ')}</code>*/}
-          {/*</pre>*/}
+          {/* <pre> */}
+          {/* <code>{JSON.stringify(this.state.transitions, null, '  ')}</code> */}
+          {/* </pre> */}
         </div>
       </PatternPage>
     );
