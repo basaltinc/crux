@@ -51,6 +51,8 @@ const SandboxPage = () => (
       <p>hello</p>
     </Details>
     <h4>TabbedPanel</h4>
+    <TabbedPanel items={tabbedPanelItems} />
+    <br />
     <TabbedPanel items={tabbedPanelItems} color="icon" />
     <br />
     <TabbedPanel items={tabbedPanelItems} color="component" />
@@ -58,10 +60,6 @@ const SandboxPage = () => (
     <TabbedPanel items={tabbedPanelItems} color="typography" />
     <br />
     <TabbedPanel items={tabbedPanelItems} color="layout" />
-    <br />
-    <TabbedPanel items={tabbedPanelItems} color="layout" />
-    <br />
-    <TabbedPanel items={tabbedPanelItems} />
 
     <br />
     <hr />

@@ -38,12 +38,13 @@ const HeaderRegion = styled.div`
 `;
 
 const CopyThis = styled.div`
+  fill: ${props => props.colorTheme};
   position: absolute;
   cursor: pointer;
   right: 20px;
-  img {
-    width: 26px;
-    margin-left: 10px;
+  transition: fill 0.3s ease-in-out;
+  &:hover {
+    fill: #000;
   }
 `;
 
@@ -55,6 +56,16 @@ const DemoStage = styled.div`
   border-bottom-right-radius: 7px;
   border-bottom-left-radius: 7px;
   padding: 30px;
+`;
+
+const FooterRegion = styled.div`
+  border-top: 1px solid ${props => props.colorTheme};
+  padding-top: 1.5rem;
+  margin-bottom: -0.5rem;
+  h5 {
+    color: ${props => props.colorTheme};
+    margin-bottom: 0.5rem;
+  }
 `;
 
 class TabbedPanel extends Component {
@@ -113,15 +124,22 @@ class TabbedPanel extends Component {
             colorThemeAccent={colorThemeAccent}
           >
             {item.header}
-            <CopyThis>
-              <img src={copyIcon} alt="Copy" title="Copy!" />
+            <CopyThis colorTheme={colorTheme}>
+              <svg width="26" height="26" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1696 384q40 0 68 28t28 68v1216q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-288h-544q-40 0-68-28t-28-68v-672q0-40 20-88t48-76l408-408q28-28 76-48t88-20h416q40 0 68 28t28 68v328q68-40 128-40h416zm-544 213l-299 299h299v-299zm-640-384l-299 299h299v-299zm196 647l316-316v-416h-384v416q0 40-28 68t-68 28h-416v640h512v-256q0-40 20-88t48-76zm956 804v-1152h-384v416q0 40-28 68t-68 28h-416v640h896z"/></svg>
             </CopyThis>
           </HeaderRegion>
         )}
         {item.children && (
-          <DemoStage colorTheme={colorTheme}>{item.children}</DemoStage>
+          <DemoStage colorTheme={colorTheme}>
+            {item.children}
+            {item.notes && (
+              <FooterRegion colorTheme={colorTheme}>
+                <h5>Notes</h5>
+                {item.notes}
+              </FooterRegion>
+            )}
+          </DemoStage>
         )}
-        {item.footer && <footer>{item.footer}</footer>}
       </div>
     ));
     return (
