@@ -9,6 +9,7 @@ import {
   getPatterns,
   getPatternInfo,
   getDeviceWidths,
+  getReleaseNotes,
 } from '../data';
 import twigRenderer from '../twig';
 
@@ -224,6 +225,21 @@ router.get('/font-families', async (req, res) => {
 router.get('/transitions', async (req, res) => {
   const transitions = await getTransitions();
   res.send(transitions);
+});
+
+/**
+ * @api {get} /api/releasenotes Get ReleaseNotes
+ * @apiName GetReleaseNotes
+ * @apiGroup Tokens
+ * @apiDescription Returns an array of transition design tokens
+ * @apiExample {js} ES6
+ fetch(`${apiUrlBase}/releasenotes`).then(res => res.json());
+ *
+ * @apiSuccess {Array} ReleaseNotes
+ */
+router.get('/releasenotes', async (req, res) => {
+  const releasenotes = await getReleaseNotes();
+  res.send(releasenotes);
 });
 
 export default router;

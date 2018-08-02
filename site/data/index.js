@@ -5,3 +5,4 @@ export * from './devicewidths';
 export * from './colors';
 export * from './spacings';
 export * from './typography';
+export * from './releasenotes';

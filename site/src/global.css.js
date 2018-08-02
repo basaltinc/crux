@@ -21,9 +21,17 @@ injectGlobal`
   // colors
   --type-color--component: #7B1FA2;
   --type-color--layout: #FFA000;
-  --type-color--color: #d50000;
+  --type-color--typography: #d50000;
   --type-color--icon: #536dfe;
-  --type-color--typeography: #00695c;
+  --type-color--color: #00695c;
+  --type-color--none: #000;
+
+  --type-color--component-accent: #f5ddff;
+  --type-color--layout-accent: #fff5e6;
+  --type-color--typography-accent: #ffdddd;
+  --type-color--icon-accent: #e2e7ff;
+  --type-color--color-accent: #d0f3ee;
+  --type-color--none-accent: #e0e0e0;
   }
   
   * {
