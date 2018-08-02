@@ -17,7 +17,7 @@ const SiteMain = styled.div`
 
 const Site = props => (
   <ErrorCatcher>
-    <div className="site">
+    <div>
       <div className="site__header u-full-width">
         <Header siteTitle={'Crux'} />
       </div>

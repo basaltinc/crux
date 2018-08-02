@@ -8,7 +8,7 @@ import CodeBlock from './code-block';
 
 const sizes = ['s', 'm', 'l', 'full'];
 
-const OverviewWrapper = styled.article`
+const OverviewWrapper = styled.div`
   width: 100%;
   ${({ fullScreen }) =>
     fullScreen &&
