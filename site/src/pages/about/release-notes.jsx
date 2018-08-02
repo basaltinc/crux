@@ -31,11 +31,11 @@ const CommitHash = styled.a`
 
 const releaseNote = items =>
   items.map(item => (
-    <ReleaseWrapper>
+    <ReleaseWrapper key={item.title}>
       <ReleaseVersion>{item.title}</ReleaseVersion>
       <ReleaseDate>{item.niceDate}</ReleaseDate>
       {item.commits.map(commit => (
-        <ReleaseCommit>
+        <ReleaseCommit key={commit.shorthash}>
           <CommitHash href={commit.href} target={'_blank'}>
             {commit.shorthash}
           </CommitHash>{' '}
