@@ -16,6 +16,8 @@ const sizes = {
 
 const OverviewWrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
   ${({ fullScreen }) =>
     fullScreen &&
     `
@@ -32,7 +34,7 @@ const OverviewWrapper = styled.div`
 
 const OverviewHeader = styled.header`
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 `;
 
 const DemoStage = styled.div`
@@ -54,7 +56,7 @@ const DemoStage = styled.div`
       case 'm':
         return '50%';
       case 'l':
-        return '66%';
+        return '67%';
       default:
         return '100%';
     }
@@ -109,7 +111,7 @@ const SchemaFormWrapper = styled.div`
   width: ${({ size }) => {
     switch (size) {
       case 's':
-        return '66%';
+        return '67%';
       case 'm':
         return '50%';
       case 'l':
@@ -132,6 +134,10 @@ const SchemaFormWrapperInner = styled.div`
   fieldset > legend + p {
     display: none;
   }
+`;
+
+const CodeBlockWrapper = styled.div`
+  margin: 2rem 0;
 `;
 
 class Overview extends React.Component {
@@ -183,13 +189,15 @@ class Overview extends React.Component {
     const twigCodeExample = `
       {% include '${this.props.template}' with ${dataString} %}
     `;
-    console.log({...this.props.schema});
+    console.log({ ...this.props.schema });
     return (
       <OverviewWrapper {...this.props} {...this.state}>
         <OverviewHeader>
           <h4 className="eyebrow">Component</h4>
           <h2>{this.props.schema.title}</h2>
           <p>{this.props.schema.description}</p>
+        </OverviewHeader>
+        <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <DemoGridConrols>
             <p>Adjust Demo Stage: </p>
             {sizeSelect}
@@ -202,39 +210,42 @@ class Overview extends React.Component {
               Toggle Fullscreen
             </button>
           </DemoGridConrols>
-        </OverviewHeader>
-        <div>
-          <DemoGrid size={this.state.size}>
-            <DemoStage size={this.state.size}>
-              <Resizable>
-                <Twig
-                  template={this.state.template}
-                  data={this.state.data}
-                  handleNewHtml={html => this.setState({ html })}
-                  showDataUsed={false}
-                  asString={this.state.isTemplateString}
-                />
-              </Resizable>
-            </DemoStage>
-            <SchemaFormWrapper
-              size={this.state.size}
-              showForm={this.state.showForm}
-            >
-              <SchemaFormWrapperInner size={this.state.size}>
-                <h4>Edit Form</h4>
-                <p>
-                  The following form is generated from the component schema
-                  (definition file). Edit this form to see your changes live.
-                  Changes will also update the code samples below.
-                </p>
-                <SchemaForm
-                  schema={this.props.schema}
-                  formData={this.state.data}
-                  onChange={this.handleChange}
-                />
-              </SchemaFormWrapperInner>
-            </SchemaFormWrapper>
-          </DemoGrid>
+          <h4>Live Demo</h4>
+        </div>
+        <DemoGrid size={this.state.size}>
+          <DemoStage size={this.state.size}>
+            <Resizable>
+              <Twig
+                template={this.state.template}
+                data={this.state.data}
+                handleNewHtml={html => this.setState({ html })}
+                showDataUsed={false}
+                asString={this.state.isTemplateString}
+              />
+            </Resizable>
+          </DemoStage>
+          <SchemaFormWrapper
+            size={this.state.size}
+            showForm={this.state.showForm}
+          >
+            <SchemaFormWrapperInner size={this.state.size}>
+              <h4>Edit Form</h4>
+              <p>
+                The following form is generated from the component schema
+                (definition file). Edit this form to see your changes live.
+                Changes will also update the code samples below.
+              </p>
+              <SchemaForm
+                schema={this.props.schema}
+                formData={this.state.data}
+                onChange={this.handleChange}
+              />
+            </SchemaFormWrapperInner>
+          </SchemaFormWrapper>
+        </DemoGrid>
+        <CodeBlockWrapper>
+          <h4>Live Code Snippets</h4>
+          <p>The following code snippets will generate the component in the live demo above. <br/>You may also edit the code below and see how this effects the component.</p>
           <CodeBlock
             items={[
               {
@@ -256,18 +267,21 @@ class Overview extends React.Component {
               },
             ]}
           />
-        </div>
+        </CodeBlockWrapper>
         <footer
           style={{
             display: this.state.fullScreen ? 'none' : 'block',
           }}
         >
-          {demos && (
-            <details>
-              <summary>Multiple Sizes Demoed</summary>
-              {demos}
-            </details>
-          )}
+          {/*@todo Determine if there is still a use case for multiple size demo stages*/}
+          {/*{demos && (*/}
+            {/*<details>*/}
+              {/*<summary>Multiple Sizes Demoed</summary>*/}
+              {/*{demos}*/}
+            {/*</details>*/}
+          {/*)}*/}
+          <h4>Properties</h4>
+          <p>The following properties make up the data that defines each instance of this component.</p>
           <details open={this.props.isPropsTableOpen}>
             <summary>Props Table</summary>
             <SchemaTable schema={this.props.schema} />
