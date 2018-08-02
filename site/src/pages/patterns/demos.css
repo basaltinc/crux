@@ -1,47 +1,45 @@
-@import "../../global.css";
-
 /**
 ** Demo block
  */
 .demo-block {
-    margin: 50px 0;
+  margin: 50px 0;
 }
 
 .demo-block code {
-    position: relative;
+  position: relative;
 }
 
 .demo-block .eyebrow {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 .demo-block__title {
-    color: #305a6d;
+  color: #305a6d;
 }
 
 .demo-block [contenteditable]:not(blockquote) {
-    border: 1px dashed transparent;
-    transition: all 0.2s ease-in-out;
+  border: 1px dashed transparent;
+  transition: all 0.2s ease-in-out;
 }
 
 .demo-block [contenteditable]:not(blockquote):hover {
-    border: 1px dashed #CCC;
+  border: 1px dashed #ccc;
 }
 
 .demo-block__blockquote[contenteditable] {
-     border-top: 1px dashed transparent;
-     border-right: 1px dashed transparent;
-     border-bottom: 1px dashed transparent;
- }
+  border-top: 1px dashed transparent;
+  border-right: 1px dashed transparent;
+  border-bottom: 1px dashed transparent;
+}
 
 .demo-block__blockquote[contenteditable]:hover {
-    border-top: 1px dashed #CCC;
-    border-right: 1px dashed #CCC;
-    border-bottom: 1px dashed #CCC;
+  border-top: 1px dashed #ccc;
+  border-right: 1px dashed #ccc;
+  border-bottom: 1px dashed #ccc;
 }
 
 .demo-block__blockquote::first-line {
-    font-weight: 800;
+  font-weight: 800;
 }
 
 /**
@@ -55,8 +53,8 @@
   justify-content: space-evenly;
 }
 
-.demo-tabs__tab{
-  background: #FFF;
+.demo-tabs__tab {
+  background: #fff;
   padding: 0;
   margin: 0;
   border-bottom: 5px solid transparent;
@@ -64,8 +62,8 @@
 }
 
 .demo-vars {
-  border: 1px solid #CCC;
-  border-right: 5px solid #CCC;
+  border: 1px solid #ccc;
+  border-right: 5px solid #ccc;
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
   padding: 30px;
@@ -80,7 +78,7 @@
 .demo-inner:after {
   z-index: -1;
   position: absolute;
-  content: "";
+  content: '';
   bottom: 15px;
   right: 10px;
   width: 50%;
@@ -92,7 +90,7 @@
 }
 
 .demo-stage {
-  background: #FFF;
+  background: #fff;
   border-width: 9px 5px 1px 1px;
   border-style: solid;
   border-bottom-right-radius: 7px;

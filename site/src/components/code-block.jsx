@@ -12,25 +12,38 @@ class CodeBlock extends Component {
   componentDidMount() {}
 
   render() {
-    const items = this.props.items.map(item => ({
-      title: item.name,
-      id: item.language,
-      children: (
-        <pre className={`language-${item.language}`} style={{}}>
-          <code
-            style={{
-              whiteSpace: 'pre',
-              overflow: 'auto',
-              maxWidth: '800px', // @todo remove this, fix bug that causes window to get huge on long lines
-            }}
-          >
-            {item.language === 'html'
-              ? pretty(item.code.trim(), { ocd: true })
-              : item.code.trim()}
-          </code>
-        </pre>
-      ),
-    }));
+    const items = this.props.items.map(item => {
+      let handleTyping = () => {};
+      let isLive = false;
+      if (item.handleTyping) {
+        handleTyping = item.handleTyping;
+        isLive = true;
+      }
+
+      return {
+        title: item.name,
+        id: item.language,
+        children: (
+          <pre className={`language-${item.language}`} style={{}}>
+            <code
+              onKeyUp={event => handleTyping(event.target.innerText)}
+              contentEditable={isLive}
+              role={'textbox'}
+              tabIndex={0}
+              style={{
+                whiteSpace: 'pre',
+                overflow: 'auto',
+                maxWidth: '800px', // @todo remove this, fix bug that causes window to get huge on long lines
+              }}
+            >
+              {item.language === 'html'
+                ? pretty(item.code.trim(), { ocd: true })
+                : item.code.trim()}
+            </code>
+          </pre>
+        ),
+      };
+    });
 
     return <TabbedPanel items={items} />;
   }
@@ -41,6 +54,7 @@ CodeBlock.propTypes = {
     name: PropTypes.string.isRequired,
     language: PropTypes.string,
     code: PropTypes.string.isRequired,
+    handleTyping: PropTypes.func,
   }).isRequired,
 };
 

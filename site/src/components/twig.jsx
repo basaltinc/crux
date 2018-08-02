@@ -1,6 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { apiUrlBase } from '../../config';
+
+// This is an intentional override of the utility class u-full-width
+// to prevent it from overflowing the demo stage
+const FullWidthFixedWrapper = styled.div`
+  .u-full-width {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+`;
 
 export default class Twig extends React.Component {
   constructor(props) {
@@ -19,7 +32,7 @@ export default class Twig extends React.Component {
   componentDidUpdate(prevProps) {
     const oldData = JSON.stringify(prevProps.data);
     const newData = JSON.stringify(this.props.data);
-    if (oldData !== newData) {
+    if (oldData !== newData || prevProps.template !== this.props.template) {
       this.getHtml(this.props.data);
     }
   }
@@ -29,20 +42,28 @@ export default class Twig extends React.Component {
    * @return {undefined}
    */
   getHtml(data) {
-    // @todo Encode `templatePath`
+    const type = this.props.asString ? 'renderString' : 'renderFile';
+    // let body = data;
+    const url = `${apiUrlBase}/render-twig?type=${type}`;
+
+    // if (this.props.asString) {
+    //   url = `${apiUrlBase}/render-twig?templateString`;
+    //   body = {
+    //     template: this.props.template,
+    //     data,
+    //   };
+    // }
     window
-      .fetch(
-        `${apiUrlBase}/render-twig?templatePath=${encodeURIComponent(
-          this.props.template,
-        )}`,
-        {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json',
-          },
+      .fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+          template: this.props.template,
+          data,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
         },
-      )
+      })
       .then(res => res.json())
       .then(results => {
         // eslint-disable-next-line
@@ -70,7 +91,12 @@ export default class Twig extends React.Component {
           <pre><code>${code}</code></pre>
         </details>`;
     }
-    return <div data-name="demo" dangerouslySetInnerHTML={{ __html: html }} />;
+    return (
+      <FullWidthFixedWrapper
+        data-name="demo"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    );
   }
 }
 
@@ -78,6 +104,7 @@ Twig.defaultProps = {
   data: {},
   showDataUsed: true,
   handleNewHtml: () => {},
+  asString: false,
 };
 
 Twig.propTypes = {
@@ -86,4 +113,5 @@ Twig.propTypes = {
   data: PropTypes.object,
   showDataUsed: PropTypes.bool,
   handleNewHtml: PropTypes.func,
+  asString: PropTypes.bool,
 };

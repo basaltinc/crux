@@ -17,12 +17,12 @@ const SiteMain = styled.div`
 
 const Site = props => (
   <ErrorCatcher>
-    <div className="site">
-      <div className="site__header u-full-width">
+    <div>
+      <div className="site__header">
         <Header siteTitle={'Crux'} />
       </div>
-      <SiteMain className="u-full-width">{props.children}</SiteMain>
-      <div className="site__footer u-full-width">
+      <SiteMain>{props.children}</SiteMain>
+      <div className="site__footer">
         <Footer />
       </div>
     </div>

@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/schema#",
+  "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "title": "Basic Block",
   "description": "A block with a title, text, and CTA.",
@@ -15,7 +15,7 @@
       "type": "array",
       "title": "Buttons",
       "items": {
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "http://json-schema.org/draft-04/schema",
         "type": "object",
         "description": "Buttons are for clickin' and tappin'!",
         "properties": {

@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
 import TabbedPanel from './tabbed-panel';
+
+const VariationsWrapper = styled.div`
+  margin: 2rem 0;
+  .form-group > div:first-child {
+    display: none;
+  }
+`;
 
 class VariationDemo extends Component {
   constructor(props) {
@@ -23,10 +32,6 @@ class VariationDemo extends Component {
   }
 
   render() {
-    console.log({
-      props: this.props,
-      state: this.state,
-    });
     const { prop, propKey } = this.props;
     const formSchema = {
       type: 'object',
@@ -37,7 +42,9 @@ class VariationDemo extends Component {
 
     let content;
     if (this.state.expanded) {
-      content = prop.enum.map(item => {
+      // Items is either an enum of strings, or a boolean
+      const items = prop.enum ? prop.enum : [true, false];
+      content = items.map(item => {
         const itemData = Object.assign({}, this.props.data, {
           [propKey]: item,
         });
@@ -50,7 +57,10 @@ class VariationDemo extends Component {
             }}
           >
             <h4>
-              <code>{propKey}</code>: <code>{item}</code>
+              <code>{propKey}</code>:{' '}
+              <code>
+                {typeof item === 'boolean' ? JSON.stringify(item) : item}
+              </code>
             </h4>
             <Twig template={this.props.template} data={itemData} />
           </div>
@@ -70,6 +80,7 @@ class VariationDemo extends Component {
               },
             }}
           />
+          <br />
           <Twig template={this.props.template} data={this.state.data} />
         </div>
       );
@@ -84,12 +95,13 @@ class VariationDemo extends Component {
           margin: '5px',
         }}
       >
-        <h4>Title: {title}</h4>
-        <p>Description: {prop.description}</p>
+        <h5>Property: {title}</h5>
+        {prop.description && <p>Description: {prop.description}</p>}
         <button
           onClick={() => this.setState({ expanded: !this.state.expanded })}
         >
-          Toggle Expand/Contract
+          {(this.state.expanded && 'Hide All Variations') ||
+            'Show All Variations'}
         </button>
         <div>{content}</div>
       </div>
@@ -121,7 +133,7 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
   const variationsData = [];
   Object.keys(schema.properties).forEach(propKey => {
     const prop = schema.properties[propKey];
-    if (prop.enum) {
+    if (prop.enum || prop.type === 'boolean') {
       variationsData.push({
         template,
         prop,
@@ -148,11 +160,15 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
   }));
 
   return (
-    <div>
-      <h2>Variations</h2>
-      <TabbedPanel items={variations} color="red" />
-      <hr />
-    </div>
+    <VariationsWrapper>
+      <h4>Variations</h4>
+      <p>
+        Explore the variations of each property of this component.<br />Use the
+        radio buttons, or press &quot;Show All Variations&quot; to see all
+        variations side by side.
+      </p>
+      <TabbedPanel items={variations} />
+    </VariationsWrapper>
   );
 };
 
