@@ -31,7 +31,8 @@ const OverviewWrapper = styled.div`
 `;
 
 const OverviewHeader = styled.header`
-
+  position: relative;
+  margin-bottom: 1rem;
 `;
 
 const DemoStage = styled.div`
@@ -86,13 +87,15 @@ const DemoGrid = styled.div`
 `;
 
 const DemoGridConrols = styled.div`
+  position: absolute;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 0.5rem;
-  margin-right: 4px;
+  bottom: 0;
+  right: 0;
   > * {
-    margin: 0 10px 0;
+    margin-left: 10px;
+    margin-bottom: 0;
   }
 `;
 
@@ -180,13 +183,13 @@ class Overview extends React.Component {
     const twigCodeExample = `
       {% include '${this.props.template}' with ${dataString} %}
     `;
-
+    console.log({...this.props.schema});
     return (
       <OverviewWrapper {...this.props} {...this.state}>
-        <header>
-          <h4>{this.props.schema.title}</h4>
-        </header>
-        <div>
+        <OverviewHeader>
+          <h4 className="eyebrow">Component</h4>
+          <h2>{this.props.schema.title}</h2>
+          <p>{this.props.schema.description}</p>
           <DemoGridConrols>
             <p>Adjust Demo Stage: </p>
             {sizeSelect}
@@ -199,6 +202,8 @@ class Overview extends React.Component {
               Toggle Fullscreen
             </button>
           </DemoGridConrols>
+        </OverviewHeader>
+        <div>
           <DemoGrid size={this.state.size}>
             <DemoStage size={this.state.size}>
               <Resizable>
