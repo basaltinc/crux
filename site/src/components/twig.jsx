@@ -1,6 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { apiUrlBase } from '../../config';
+import styled from 'styled-components';
+
+// This is an intentional override of the utility class u-full-width
+// to prevent it from overflowing the demo stage
+const FullWidthFixedWrapper = styled.div`
+  .u-full-width {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+`;
 
 export default class Twig extends React.Component {
   constructor(props) {
@@ -78,7 +91,12 @@ export default class Twig extends React.Component {
           <pre><code>${code}</code></pre>
         </details>`;
     }
-    return <div data-name="demo" dangerouslySetInnerHTML={{ __html: html }} />;
+    return (
+      <FullWidthFixedWrapper
+        data-name="demo"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
+    );
   }
 }
 

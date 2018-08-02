@@ -23,10 +23,6 @@ class VariationDemo extends Component {
   }
 
   render() {
-    console.log({
-      props: this.props,
-      state: this.state,
-    });
     const { prop, propKey } = this.props;
     const formSchema = {
       type: 'object',
