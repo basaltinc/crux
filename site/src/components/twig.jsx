@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { apiUrlBase } from '../../config';
 import styled from 'styled-components';
+import { apiUrlBase } from '../../config';
 
 // This is an intentional override of the utility class u-full-width
 // to prevent it from overflowing the demo stage
