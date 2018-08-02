@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import { join } from 'path';
 
 /**
- * @returns {Array<Object>} - An array of colors
+ * @returns {Array<Object>} - An array of Font Families
  */
 export async function getFontFamilies() {
   const fontFamiliesFile = await fs.readFile(
@@ -17,7 +17,7 @@ export async function getFontFamilies() {
 }
 
 /**
- * @returns {Array<Object>} - An array of colors
+ * @returns {Array<Object>} - An array of Font Sizes
  */
 export async function getFontSizes() {
   const fontSizesFile = await fs.readFile(

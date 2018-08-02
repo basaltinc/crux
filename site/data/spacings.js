@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import { join } from 'path';
 
 /**
- * @returns {Array<Object>} - An array of colors
+ * @returns {Array<Object>} - An array of Spacings
  */
 export async function getSpacings() {
   const spacingsFile = await fs.readFile(
