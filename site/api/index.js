@@ -8,6 +8,7 @@ import {
   getFontSizes,
   getPatterns,
   getPatternInfo,
+  getDeviceWidths,
   getReleaseNotes,
 } from '../data';
 import twigRenderer from '../twig';
@@ -149,6 +150,21 @@ router.get('/colors', async (req, res) => {
 router.get('/breakpoints', async (req, res) => {
   const breakpoints = await getBreakpoints();
   res.send(breakpoints);
+});
+
+/**
+ * @api {get} /api/devicewidths Get Device Widths
+ * @apiName GetDeviceWidths
+ * @apiGroup Tokens
+ * @apiDescription Returns an array of device widths
+ * @apiExample {js} ES6
+ fetch(`${apiUrlBase}/devicewidths`).then(res => res.json());
+ *
+ * @apiSuccess {Array} Device Widths
+ */
+router.get('/devicewidths', async (req, res) => {
+  const deviceWidths = await getDeviceWidths();
+  res.send(deviceWidths);
 });
 
 /**
