@@ -42,4 +42,8 @@ injectGlobal`
     color: grey;
     margin-bottom: 0;
   }
+  
+  .button {
+    border: none;
+  }
 `;

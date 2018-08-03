@@ -98,11 +98,14 @@ class VariationDemo extends Component {
         <h5>Property: {title}</h5>
         {prop.description && <p>Description: {prop.description}</p>}
         <button
+          className="button button--color-blue--light button--size-small"
           onClick={() => this.setState({ expanded: !this.state.expanded })}
         >
           {(this.state.expanded && 'Hide All Variations') ||
             'Show All Variations'}
         </button>
+        <br/>
+        <br/>
         <div>{content}</div>
       </div>
     );

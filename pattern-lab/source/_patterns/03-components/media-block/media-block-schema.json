@@ -40,6 +40,7 @@
       "description": "Show full image. Default is to 'cover' the whole side the media item is on: this allows matching the height of the text but does not show full media item."
     },
     "media_position": {
+      "title": "Media Position",
       "type": "string",
       "description": "When Show Full Media is on, this positions the background image",
       "enum": ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"],
