@@ -6,22 +6,26 @@
   "properties": {
     "text": {
       "title": "Text",
-      "type": "string"
+      "type": "string",
+      "description": "Button Text"
     },
     "url": {
       "title": "Url",
       "type": "string",
-      "default": "#"
+      "default": "#",
+      "description": "Url or Href for button."
     },
     "size": {
       "title": "Size",
       "type": "string",
+      "description": "Button Size",
       "default": "small",
       "enum": ["small", "medium", "large", "jumbo"],
       "enumNames": ["Small", "Medium", "Large", "Jumbo"]
     },
     "color": {
       "title": "Background Color",
+      "description": "Background color of button.",
       "type": "string",
       "default": "green",
       "enum": [

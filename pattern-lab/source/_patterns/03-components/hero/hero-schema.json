@@ -2,39 +2,36 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "type": "object",
   "title": "Hero",
+  "description": "The Hero component is a full width slab intended to draw the attention of the user.",
   "properties": {
     "title": {
+      "title": "Title",
+      "description": "The main heading of the Hero.",
       "type": "string"
     },
     "body": {
+      "title": "Body Content",
+      "description": "The main text or html of the hero component",
       "type": "string"
     },
     "alignment_all": {
+      "title": "Content Alignment",
       "type": "string",
-      "oneOf": [
-        {
-          "enum": ["left"],
-          "title": "Left Title, Right Content"
-        },
-        {
-          "enum": ["center"],
-          "title": "Center Everything",
-          "description": "Both title and content will be centered, with title on top of content."
-        },
-        {
-          "enum": ["right"],
-          "title": "Right Title, Left Content"
-        }
-      ]
+      "description": "Alignment relationship between content and title.",
+      "enum": ["left", "center", "right"],
+      "enumNames": ["Left Title, Right Content", "Center Everything", "Right Title, Left Content"]
     },
     "image": {
-      "type": "string",
       "title": "Background Image",
+      "type": "string",
       "description": "Path to image."
     },
     "image_overlay": {
+      "title": "Image Overlay",
       "type": "string",
-      "enum": ["blue", "green", "black", "yellow", "darker", "none"]
+      "description": "Color of the image overlay.",
+      "enum": ["blue", "green", "black", "yellow", "darker", "none"],
+      "enumNames": ["Blue", "Green", "Black", "Yellow", "Darker", "None"]
     },
     "content_classes": {
       "type": "array",
@@ -42,8 +39,55 @@
       "description": "Used for setting BG and text color."
     },
     "buttons": {
+      "title": "Buttons",
       "type": "array",
-      "description": "List of objects passed to `@components/_button.twig`"
+      "description": "Array of button data.",
+      "items": {
+        "type": "object",
+        "title": "Button",
+        "description": "Buttons are for clickin' and tappin'!",
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string",
+            "default": "#"
+          },
+          "size": {
+            "title": "Size",
+            "type": "string",
+            "default": "small",
+            "enum": ["small", "medium", "large", "jumbo"],
+            "enumNames": ["Small", "Medium", "Large", "Jumbo"]
+          },
+          "color": {
+            "title": "Background Color",
+            "type": "string",
+            "default": "green",
+            "enum": [
+              "blue",
+              "blue--light",
+              "green",
+              "iron",
+              "yellow",
+              "white",
+              "black"
+            ],
+            "enumNames": [
+              "Blue",
+              "Light Blue",
+              "Green",
+              "Iron",
+              "Yellow",
+              "White",
+              "Black"
+            ]
+          }
+        }
+      }
     }
   }
 }
