@@ -85,30 +85,32 @@ class TabbedPanel extends Component {
   render() {
     const colorTheme = `var(${getTypeColor(this.props.color)})`;
     const colorThemeAccent = `var(${getTypeColor(this.props.color, 'accent')})`;
-
-    const tabs = this.props.items.map(item => (
-      <div
-        key={item.id}
-        role="button"
-        tabIndex={0}
-        onClick={() => this.handleClick(item)}
-        style={{
-          background: '#FFF',
-          outline: 'none',
-          padding: '0',
-          margin: '0',
-          borderBottom:
-            this.state.activeId === item.id
-              ? `5px solid ${colorTheme}`
-              : '5px solid transparent',
-          color: this.state.activeId === item.id ? colorTheme : 'black',
-          cursor: 'pointer',
-          userSelect: 'none',
-        }}
-      >
-        {item.title}
-      </div>
-    ));
+    const tabs = this.props.items.map(item => {
+      const isPropVariation = !!item.children.props.prop;
+      return (
+        <div
+          key={item.id}
+          role="button"
+          tabIndex={0}
+          onClick={() => this.handleClick(item)}
+          style={{
+            background: '#FFF',
+            outline: 'none',
+            padding: '0',
+            margin: '0',
+            borderBottom:
+              this.state.activeId === item.id
+                ? `5px solid ${colorTheme}`
+                : '5px solid transparent',
+            color: this.state.activeId === item.id ? colorTheme : 'black',
+            cursor: 'pointer',
+            userSelect: 'none',
+          }}
+        >
+          {isPropVariation ? item.children.props.prop.title : item.title}
+        </div>
+      );
+    });
 
     const content = this.props.items.map(item => (
       <div

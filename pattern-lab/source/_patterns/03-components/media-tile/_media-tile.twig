@@ -35,6 +35,7 @@
       <div class="media-tile__body {{ body_classes| join(' ') }}">{{ body|raw }}</div>
     {% endif %}
 
+    {#@todo Does this work? Doesn't seem like it should. List component has a different data structure#}
     {% if list %}
       <div class="media-tile__list">
         {% for i in list %}

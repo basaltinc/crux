@@ -56,7 +56,7 @@ router.get('/', (req, res) => {
  *     "ok": true,
  *     "html": "<p>The rendered template</p>"
  *   }
- * @apiErrorExample Error Resopnse
+ * @apiErrorExample Error Response
  *   {
  *     "ok": false,
  *     "message": "Here is what went wrong"
