@@ -104,8 +104,8 @@ class VariationDemo extends Component {
           {(this.state.expanded && 'Hide All Variations') ||
             'Show All Variations'}
         </button>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div>{content}</div>
       </div>
     );

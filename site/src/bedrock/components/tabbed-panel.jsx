@@ -86,7 +86,7 @@ class TabbedPanel extends Component {
     const colorTheme = `var(${getTypeColor(this.props.color)})`;
     const colorThemeAccent = `var(${getTypeColor(this.props.color, 'accent')})`;
     const tabs = this.props.items.map(item => {
-      const isPropVariation = item.children.props.prop ? true : false;
+      const isPropVariation = !!item.children.props.prop;
       return (
         <div
           key={item.id}
