@@ -5,59 +5,116 @@
   "description": "Image, Title, Body, and Buttons make this really flexible.",
   "properties": {
     "title": {
-      "type": "string"
+      "title": "Title",
+      "type": "string",
+      "description": "Main heading of media block."
     },
     "inset_title": {
+      "title": "Inset Title",
       "type": "boolean",
-      "description": "Bring the title slightly over the image?"
+      "description": "Insets the title."
     },
     "title_bg_color": {
-      "type": "string",
       "title": "Title Background Color",
-      "description": "Any utility color class"
+      "type": "string",
+      "description": "Any utility color class."
     },
     "title_text_color": {
-      "type": "string",
       "title": "Title Text Color",
-      "description": "Any utility color class"
-    },
-    "body": {
+      "description": "Any utility color class.",
       "type": "string"
     },
-    "media": {
+    "body": {
+      "title": "Body Content",
       "type": "string",
-      "title": "Image",
+      "description": "Body text of the media block."
+    },
+    "media": {
+      "title": "Media",
+      "type": "string",
       "description": "Path to image."
     },
     "show_full_media": {
-      "type": "boolean",
       "title": "Show Full Media",
+      "type": "boolean",
       "description": "Show full image. Default is to 'cover' the whole side the media item is on: this allows matching the height of the text but does not show full media item."
     },
     "media_position": {
       "type": "string",
       "description": "When Show Full Media is on, this positions the background image",
-      "enum": ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"]
+      "enum": ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"],
+      "enumNames": ["Top Left", "Top Center", "Top Right", "Bottom Left", "Bottom Center", "Bottom Right"]
     },
     "media_alignment": {
+      "title": "Media Alignment",
       "type": "string",
-      "enum": ["left", "right", "top", "bottom"]
+      "enum": ["left", "right", "top", "bottom"],
+      "enumNames": ["Left", "Right", "Top", "Bottom"]
     },
     "media_padding": {
       "title": "Media Padding",
       "type": "string",
       "description": "Space around the media",
-      "enum": ["0", "s", "m", "l", "xl", "xxl"]
+      "enum": ["0", "s", "m", "l", "xl", "xxl"],
+      "enumNames": ["None", "Small", "Medium", "Large", "Extra Large", "XX Large"]
     },
     "media_size": {
+      "title": "Media Size",
       "type": "string",
       "description": "Size of media compared to content",
-      "enum": ["s", "m", "l", "xl"]
+      "enum": ["s", "m", "l", "xl"],
+      "enumNames": ["Small", "Medium", "Large", "Extra large"]
     },
     "buttons": {
+      "title": "Buttons",
       "type": "array",
-      "description": "List of objects passed to @components/_button.twig"
+      "description": "List of objects passed to @components/_button.twig",
+      "items": {
+        "type": "object",
+        "title": "Crux Button Data",
+        "description": "Data structured to generate a button component.",
+        "properties": {
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "url": {
+            "title": "Url",
+            "type": "string",
+            "default": "#"
+          },
+          "size": {
+            "title": "Size",
+            "type": "string",
+            "default": "small",
+            "enum": ["small", "medium", "large", "jumbo"],
+            "enumNames": ["Small", "Medium", "Large", "Jumbo"]
+          },
+          "color": {
+            "title": "Background Color",
+            "type": "string",
+            "default": "green",
+            "enum": [
+              "blue",
+              "blue--light",
+              "green",
+              "iron",
+              "yellow",
+              "white",
+              "black"
+            ],
+            "enumNames": [
+              "Blue",
+              "Light Blue",
+              "Green",
+              "Iron",
+              "Yellow",
+              "White",
+              "Black"
+            ]
+          }
+        }
+      }
     }
-  },
-  "required": ["text", "url"]
+  }
 }
