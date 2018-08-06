@@ -70,13 +70,13 @@ class ResourcesPage extends Component {
   filterableList() {
     return (
       <div>
+        <LinkList items={this.state.filteredList} />
         <input
           type="text"
           className="type-to-filter"
           placeholder="Type to filter..."
           onChange={this.handleFilterList}
         />
-        <LinkList items={this.state.filteredList} />
       </div>
     );
   }
