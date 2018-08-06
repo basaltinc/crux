@@ -1,10 +1,12 @@
 import fs from 'fs-extra';
 import { join } from 'path';
+import { convertColor } from '../src/bedrock/packages/utils';
 
 /**
+ * @param {string} format - Color format; one of 'hsl', 'rgb', 'hex'
  * @returns {Array<Object>} - An array of colors
  */
-export async function getColors() {
+export async function getColors(format) {
   const colorsFile = await fs.readFile(
     join(
       __dirname,
@@ -13,5 +15,8 @@ export async function getColors() {
     'utf8',
   );
   const colors = JSON.parse(colorsFile);
-  return colors.items;
+  return colors.items.map(color => {
+    color.value = convertColor(color.value, format);
+    return color;
+  });
 }

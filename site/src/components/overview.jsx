@@ -190,7 +190,6 @@ class Overview extends React.Component {
     const twigCodeExample = `
       {% include '${this.props.template}' with ${dataString} %}
     `;
-    console.log({ ...this.props.schema });
     return (
       <OverviewWrapper {...this.props} {...this.state}>
         <OverviewHeader>

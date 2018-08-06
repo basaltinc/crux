@@ -40,6 +40,7 @@ export default class SchemaForm extends React.Component {
     return (
       <Form
         {...this.props}
+        formData={this.props.formData}
         schema={this.props.schema}
         uiSchema={this.props.uiSchema}
         onSubmit={this.onSubmit}
@@ -60,6 +61,7 @@ SchemaForm.defaultProps = {
   debug: false,
   uiSchema: {},
   inline: false,
+  formData: {},
   onChange: () => {},
   onSubmit: () => {},
   onError: () => {},
@@ -74,4 +76,5 @@ SchemaForm.propTypes = {
   debug: PT.bool,
   idPrefix: PT.string,
   inline: PT.bool, // @todo implement `inline` form for left-to-right mini-forms
+  formData: PT.object,
 };

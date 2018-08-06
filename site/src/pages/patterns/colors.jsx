@@ -4,6 +4,7 @@ import PatternPage from '../../templates/pattern-page';
 import ColorSwatches from '../../bedrock/components/color-swatch';
 import { apiUrlBase } from '../../../config';
 import ColorContrastBlock from '../../bedrock/components/color-contrast-block';
+import ApiDemo from '../../bedrock/components/api-demo';
 
 class ColorsPage extends React.Component {
   constructor(props) {
@@ -55,6 +56,24 @@ class ColorsPage extends React.Component {
           <ColorContrastBlock
             bgColors={this.state.colors}
             textColors={this.state.colors}
+          />
+          <ApiDemo
+            endpoint={`${apiUrlBase}/colors`}
+            queryData={{
+              format: 'hsl',
+            }}
+            querySchema={{
+              type: 'object',
+              required: ['format'],
+              properties: {
+                format: {
+                  title: 'Color Format',
+                  type: 'string',
+                  enum: ['hsl', 'hex', 'rgb'],
+                  default: 'hsl',
+                },
+              },
+            }}
           />
         </div>
       </PatternPage>
