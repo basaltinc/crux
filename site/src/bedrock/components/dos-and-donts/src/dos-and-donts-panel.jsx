@@ -19,7 +19,7 @@ export default function DosAndDontsPanel(props) {
     <DosAndDontsPanelStyled key={props.item.image} do={props.item.do}>
       <img alt="" src={props.item.image} />
       <figcaption>
-        <span>{props.item.do ? 'Do ' : "Don't "}</span>
+        <b>{props.item.do ? 'Do: ' : "Don't: "}</b>
         {props.item.caption}
       </figcaption>
     </DosAndDontsPanelStyled>
