@@ -32,12 +32,6 @@ const perceptualPatternsList = [
     id: 'typography',
     path: '/visual-language/typography',
   },
-  {
-    name: 'Components',
-    id: 'components',
-    isHeading: true,
-    path: '/visual-language/components',
-  },
 ];
 
 class VisualLanguageLandingPage extends Component {
@@ -63,6 +57,7 @@ class VisualLanguageLandingPage extends Component {
       <Page>
         <h2>Welcome to the Design System, Visual Language!</h2>
         <LinkList items={perceptualPatternsList} />
+        <h3>Lets get a component board of visual language patterns</h3>
         <ComponentBoard
           patterns={this.state.patterns}
           ready={this.state.ready}

@@ -45,7 +45,7 @@ const Header = ({ siteTitle }) => (
           <SiteHeaderLink to="/get-started">Get Started</SiteHeaderLink>
         </li>
         <li>
-          <SiteHeaderLink to="/visual-language">Visual Langauge</SiteHeaderLink>
+          <SiteHeaderLink to="/visual-language">Visual Language</SiteHeaderLink>
         </li>
         <li>
           <SiteHeaderLink to="/patterns">Patterns</SiteHeaderLink>

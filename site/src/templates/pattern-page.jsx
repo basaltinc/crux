@@ -4,41 +4,6 @@ import Page from './page';
 import LinkList from '../components/link-list';
 import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
-// @todo think of a way to not have these be hard coded, then implement that brilliant idea
-const perceptualPatternsList = [
-  {
-    name: 'Colors',
-    id: 'colors',
-    path: `/patterns/colors`,
-  },
-  {
-    name: 'Animations',
-    id: 'animations',
-    path: `/patterns/animations`,
-  },
-  {
-    name: 'Spacings',
-    id: 'spacings',
-    path: '/patterns/spacings',
-  },
-  {
-    name: 'Breakpoints',
-    id: 'breakpoints',
-    path: '/patterns/breakpoints',
-  },
-  {
-    name: 'Typography',
-    id: 'typography',
-    path: '/patterns/typography',
-  },
-  {
-    name: 'Components',
-    id: 'components',
-    isHeading: true,
-    path: '/patterns/components',
-  },
-];
-
 class PatternPage extends Component {
   constructor(props) {
     super(props);
