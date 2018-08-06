@@ -38,6 +38,12 @@ injectGlobal`
     box-sizing: border-box;
   }
   
+  //Word wrap for code preview
+  pre > code {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+  }
+  
   .eyebrow {
     color: grey;
     margin-bottom: 0;

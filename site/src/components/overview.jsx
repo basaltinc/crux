@@ -6,7 +6,6 @@ import SchemaForm from '../bedrock/components/schema-form';
 import SchemaTable from '../bedrock/components/schema-table';
 import CodeBlock from './code-block';
 
-// const sizes = ['s', 'm', 'l', 'full'];
 const sizes = {
   Small: 's',
   Medium: 'm',
@@ -156,7 +155,6 @@ class Overview extends React.Component {
   }
 
   handleChange({ formData }) {
-    // console.log(formData);
     this.setState({
       data: formData,
     });
@@ -269,6 +267,11 @@ class Overview extends React.Component {
                 name: 'HTML',
                 code: this.state.html,
                 language: 'html',
+              },
+              {
+                name: 'JSON (Data Only)',
+                code: dataString,
+                language: 'json',
               },
             ]}
           />
