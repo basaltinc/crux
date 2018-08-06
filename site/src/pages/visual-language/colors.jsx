@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PatternPage from '../../templates/pattern-page';
+import VisualLanguagePage from '../../templates/visual-language-page';
 import ColorSwatches from '../../bedrock/components/color-swatch';
 import { apiUrlBase } from '../../../config';
 import ColorContrastBlock from '../../bedrock/components/color-contrast-block';
@@ -24,7 +24,7 @@ class ColorsPage extends React.Component {
 
   render() {
     return (
-      <PatternPage className="docs">
+      <VisualLanguagePage className="docs">
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Colors</h2>
@@ -57,7 +57,7 @@ class ColorsPage extends React.Component {
             textColors={this.state.colors}
           />
         </div>
-      </PatternPage>
+      </VisualLanguagePage>
     );
   }
 }
