@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PatternPage from '../../templates/pattern-page';
+import VisualLanguagePage from '../../templates/visual-language-page';
 import SpacingSwatches from '../../components/spacing';
 import { apiUrlBase } from '../../../config';
 
@@ -23,7 +23,7 @@ export default class SpacingPage extends React.Component {
 
   render() {
     return (
-      <PatternPage>
+      <VisualLanguagePage>
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Spacing</h2>
@@ -40,7 +40,7 @@ export default class SpacingPage extends React.Component {
           </p>
           <SpacingSwatches spaces={this.state.spacings} />
         </div>
-      </PatternPage>
+      </VisualLanguagePage>
     );
   }
 }
