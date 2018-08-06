@@ -6,37 +6,37 @@ import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [
-  // {
-  //   name: 'Colors',
-  //   id: 'colors',
-  //   path: `/patterns/colors`,
-  // },
-  // {
-  //   name: 'Animations',
-  //   id: 'animations',
-  //   path: `/patterns/animations`,
-  // },
-  // {
-  //   name: 'Spacings',
-  //   id: 'spacings',
-  //   path: '/patterns/spacings',
-  // },
-  // {
-  //   name: 'Breakpoints',
-  //   id: 'breakpoints',
-  //   path: '/patterns/breakpoints',
-  // },
-  // {
-  //   name: 'Typography',
-  //   id: 'typography',
-  //   path: '/patterns/typography',
-  // },
-  // {
-  //   name: 'Components',
-  //   id: 'components',
-  //   isHeading: true,
-  //   path: '/patterns/components',
-  // },
+  {
+    name: 'Colors',
+    id: 'colors',
+    path: `/patterns/colors`,
+  },
+  {
+    name: 'Animations',
+    id: 'animations',
+    path: `/patterns/animations`,
+  },
+  {
+    name: 'Spacings',
+    id: 'spacings',
+    path: '/patterns/spacings',
+  },
+  {
+    name: 'Breakpoints',
+    id: 'breakpoints',
+    path: '/patterns/breakpoints',
+  },
+  {
+    name: 'Typography',
+    id: 'typography',
+    path: '/patterns/typography',
+  },
+  {
+    name: 'Components',
+    id: 'components',
+    isHeading: true,
+    path: '/patterns/components',
+  },
 ];
 
 class PatternPage extends Component {
@@ -59,6 +59,7 @@ class PatternPage extends Component {
       .then(patterns => {
         this.setState({
           linkItems: [
+            ...this.state.linkItems,
             ...patterns.map(pattern => ({
               name: pattern.title,
               id: pattern.id,
@@ -66,6 +67,7 @@ class PatternPage extends Component {
             })),
           ],
           filteredList: [
+            ...this.state.linkItems,
             ...patterns.map(pattern => ({
               name: pattern.title,
               id: pattern.id,
@@ -81,7 +83,10 @@ class PatternPage extends Component {
       item =>
         item.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1,
     );
-    this.setState({ filteredList: updatedList, filterTerm: event.target.value });
+    this.setState({
+      filteredList: updatedList,
+      filterTerm: event.target.value,
+    });
   }
 
   filterableList() {
@@ -99,7 +104,9 @@ class PatternPage extends Component {
   }
 
   render() {
-    return <Page sidebarOne={this.filterableList()} />;
+    return (
+      <Page sidebarOne={this.filterableList()}>{this.props.children}</Page>
+    );
   }
 }
 
