@@ -8,7 +8,10 @@ const generateLinkItems = items =>
       return (
         <li key={item.id}>
           <h4>
-            <Link to={item.path}>{item.name}</Link>
+            {item.path && (
+              <Link to={item.path}>{item.name}</Link>
+            )}
+            {!item.path && item.name}
           </h4>
         </li>
       );
