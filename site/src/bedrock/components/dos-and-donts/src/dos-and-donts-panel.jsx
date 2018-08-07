@@ -8,9 +8,8 @@ const DosAndDontsPanelStyled = styled.figure`
     border-bottom-color: ${props => (props.do ? 'green' : 'red')};
     margin-bottom: 1rem;
   }
-  > span {
+  b {
     color: ${props => (props.do ? 'green' : 'red')};
-    font-weight: bold;
   }
 `;
 

@@ -37,21 +37,6 @@ class ColorsPage extends React.Component {
             can speak to the soul in a thousand different ways. - Oscar Wilde
           </blockquote>
           <hr />
-          <DosAndDonts
-            items={[
-              {
-                image: exampleDont,
-                caption: 'use color combinations that fail WCAG standards.',
-                do: false,
-              },
-              {
-                title: 'Do Example',
-                image: exampleDo,
-                caption: 'use color combinations with distinct contrast that fulfill WCAG standards.',
-                do: true,
-              },
-            ]}
-          />
           <p>
             Color is a defining element of any strong brand identity. Dedicated
             use of the Basalt palette with reinforce the cohesiveness of the
@@ -75,6 +60,23 @@ class ColorsPage extends React.Component {
             textColors={this.state.colors}
           />
         </div>
+        <DosAndDonts
+          items={[
+            {
+              image: exampleDont,
+              caption:
+                'use color combinations with low color contrast that fail WCAG standards.',
+              do: false,
+            },
+            {
+              title: 'Do Example',
+              image: exampleDo,
+              caption:
+                'use color combinations with distinct contrast that fulfill WCAG standards.',
+              do: true,
+            },
+          ]}
+        />
       </VisualLanguagePage>
     );
   }
