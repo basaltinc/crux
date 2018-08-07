@@ -34,7 +34,8 @@ pipelines:
             - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
             - yarn test
             - yarn run compile
-            - npx now deploy --token=$NOW_TOKEN --team basalt
+            - yarn add now --global
+            - now deploy --token=$NOW_TOKEN --team basalt
   default:
     - step:
         script:
