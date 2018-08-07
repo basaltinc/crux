@@ -2,57 +2,53 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Page from './page';
 import LinkList from '../components/link-list';
-import { apiUrlBase } from '../../config'; // Pattern page specific styles
+// import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
-class PatternPage extends Component {
+// @todo think of a way to not have these be hard coded, then implement that brilliant idea
+const resourcesList = [
+  {
+    name: 'Branding',
+    id: 'branding',
+    isHeading: true,
+  },
+  {
+    name: 'Logo Downloads',
+    id: 'logo-downloads',
+    path: `/resources/logo-downloads`,
+  },
+  {
+    name: 'Logo Usage',
+    id: 'logo-usage',
+    path: '/resources/logo-usage',
+  },
+  {
+    name: 'Photography Guidelines',
+    id: 'photography-guidelines',
+    path: '/resources/photography-guidelines',
+  },
+  {
+    name: 'Brand Descriptors',
+    id: 'brand-descriptors',
+    path: '/resources/brand-descriptors',
+  },
+  {
+    name: 'Sketch Assets',
+    id: 'sketch',
+    isHeading: true,
+  },
+];
+
+class ResourcesPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredList: [
-        {
-          name: 'Patterns',
-          id: 'patterns',
-          isHeading: true,
-        },
-      ],
-      linkItems: [
-        {
-          name: 'Patterns',
-          id: 'patterns',
-          isHeading: true,
-        },
-      ],
+      filteredList: [...resourcesList],
+      linkItems: [...resourcesList],
       ready: false,
     };
 
     this.handleFilterList = this.handleFilterList.bind(this);
     this.filterableList = this.filterableList.bind(this);
-  }
-
-  componentDidMount() {
-    window
-      .fetch(`${apiUrlBase}/patterns/components`)
-      .then(res => res.json())
-      .then(patterns => {
-        this.setState({
-          linkItems: [
-            ...this.state.linkItems,
-            ...patterns.map(pattern => ({
-              name: pattern.title,
-              id: pattern.id,
-              path: pattern.path,
-            })),
-          ],
-          filteredList: [
-            ...this.state.linkItems,
-            ...patterns.map(pattern => ({
-              name: pattern.title,
-              id: pattern.id,
-              path: pattern.path,
-            })),
-          ],
-        });
-      });
   }
 
   handleFilterList(event) {
@@ -88,8 +84,8 @@ class PatternPage extends Component {
   }
 }
 
-PatternPage.propTypes = {
+ResourcesPage.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default PatternPage;
+export default ResourcesPage;

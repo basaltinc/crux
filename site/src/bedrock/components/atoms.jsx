@@ -13,3 +13,13 @@ export const Details = styled.details`
     cursor: pointer;
   }
 `;
+
+export const TwoUp = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2.25rem;
+  & > * {
+    width: 48%;
+  }
+`;
