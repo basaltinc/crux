@@ -24,7 +24,11 @@ main {
 //}
 
 details {
-  &:hover {
+  summary:hover {
     cursor: pointer;
+  }
+  &:active,
+  &:focus {
+    outline: none;
   }
 }

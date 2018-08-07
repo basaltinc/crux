@@ -6,23 +6,15 @@ import SchemaForm from './schema-form';
 import SchemaTable from './schema-table';
 import { Details } from './atoms';
 
-const ApiInput = styled.input`
-  width: 50%;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-`;
-
 const PostOrGet = styled.span`
   background-color: ${props =>
     props.requestType === 'GET' ? 'green' : 'blue'};
   color: white;
   text-align: center;
-  border-radius: 1rem;
-  font-weight: bold;
-  display: block;
-  padding: 0.35rem;
+  border-radius: 0;
+  padding: 0.35rem 1rem;
   margin-bottom: 0.5rem;
-  width: 8%;
+  font-weight: bold;
 `;
 
 class ApiDemo extends React.Component {
@@ -67,33 +59,55 @@ class ApiDemo extends React.Component {
 
   render() {
     return (
-      <Details>
-        <summary>{this.props.title}</summary>
-        <ApiInput type="text" value={this.buildUrl()} />
-        {this.props.requestType && (
-          <PostOrGet requestType={this.props.requestType}>
-            {this.props.requestType}
-          </PostOrGet>
-        )}
-        {this.props.querySchema && (
-          <SchemaForm
-            schema={this.props.querySchema}
-            onChange={this.handleFormUpdate}
-            formData={this.state.queryData}
-            inline
-          />
-        )}
-        {this.props.querySchema && (
-          <div>
-            <h4>Query Params</h4>
-            <SchemaTable schema={this.props.querySchema} />
-          </div>
-        )}
-        <h4>Response</h4>
-        <pre>
-          <code>{JSON.stringify(this.state.results, null, 2)}</code>
-        </pre>
-      </Details>
+      <div>
+        <h4>{this.props.title}</h4>
+        <p>
+          {this.props.requestType && (
+            <PostOrGet requestType={this.props.requestType}>
+              {this.props.requestType}
+            </PostOrGet>
+          )}
+          {'  '}
+          <b>{this.buildUrl()}</b>
+        </p>
+        <Details>
+          <summary>API Details</summary>
+          <br />
+          {this.props.querySchema && (
+            <div>
+              <h5>API Form</h5>
+              <p>
+                Edit the following form to see live updates to the response
+                generated.
+              </p>
+              <SchemaForm
+                schema={this.props.querySchema}
+                onChange={this.handleFormUpdate}
+                formData={this.state.queryData}
+                //              @todo find a way to dynamically set radio button ui regardless of propKey
+                uiSchema={{
+                  format: {
+                    'ui:widget': 'radio',
+                  },
+                }}
+                inline
+              />
+              <br />
+            </div>
+          )}
+          {this.props.querySchema && (
+            <div>
+              <h5>Query Params</h5>
+              <SchemaTable schema={this.props.querySchema} />
+              <br />
+            </div>
+          )}
+          <h5>Response</h5>
+          <pre>
+            <code>{JSON.stringify(this.state.results, null, 2)}</code>
+          </pre>
+        </Details>
+      </div>
     );
   }
 }
@@ -110,7 +124,7 @@ ApiDemo.propTypes = {
   endpoint: PropTypes.string.isRequired,
   querySchema: PropTypes.object,
   queryData: PropTypes.object,
-  requestType: PropTypes.oneOf(['GET', 'POST']),
+  requestType: PropTypes.oneOf(['get', 'post']),
 };
 
 export default ApiDemo;
