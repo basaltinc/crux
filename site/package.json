@@ -19,6 +19,7 @@
     "jsdoc": "3.5.5",
     "nodemon": "1.18.3",
     "pretty": "2.0.0",
+    "query-string": "6.1.0",
     "react-helmet": "^5.2.0",
     "react-jsonschema-form": "1.0.3",
     "react-table": "6.8.6",

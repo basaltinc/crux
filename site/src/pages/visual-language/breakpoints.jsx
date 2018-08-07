@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import VisualLanguagePage from '../../templates/visual-language-page';
 import { apiUrlBase } from '../../../config';
+import ApiDemo from '../../bedrock/components/api-demo';
 
 const BreakpointListItem = styled.li`
   left: ${props => props.left};
@@ -127,6 +128,18 @@ class BreakpointsPage extends React.Component {
             <DeviceWidthList items={this.state.deviceWidths} />
           </BreakpointsWrapper>
         </div>
+        <ApiDemo
+          title={'Breakpoints API'}
+          endpoint={`${apiUrlBase}/breakpoints`}
+          querySchema=""
+          requestType={'GET'}
+        />
+        <ApiDemo
+          title={'Device Widths API'}
+          endpoint={`${apiUrlBase}/devicewidths`}
+          querySchema=""
+          requestType={'GET'}
+        />
       </VisualLanguagePage>
     );
   }

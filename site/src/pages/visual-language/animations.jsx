@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { apiUrlBase } from '../../../config';
+import ApiDemo from '../../bedrock/components/api-demo';
 import VisualLanguagePage from '../../templates/visual-language-page';
 import { TwoUp } from '../../bedrock/components/atoms';
 import Spinner from '../../bedrock/components/spinner';
@@ -159,6 +160,12 @@ class AnimationsPage extends React.Component {
             </li>
           </ul>
         </div>
+        <ApiDemo
+          title={'API'}
+          endpoint={`${apiUrlBase}/transitions`}
+          querySchema=""
+          requestType={'GET'}
+        />
       </VisualLanguagePage>
     );
   }
