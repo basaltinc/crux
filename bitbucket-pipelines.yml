@@ -1,4 +1,4 @@
-image: misterio92/ci-php-node
+image: basaltinc/docker-node-php-base
 
 pipelines:
   branches:
@@ -28,8 +28,6 @@ pipelines:
             - node
             - yarn
           script:
-            - curl -o- -L https://yarnpkg.com/install.sh | bash -s
-            - export PATH=$HOME/.yarn/bin:$PATH
             - yarn --version && npm --version && node --version && composer --version && php --version
             - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
             - yarn test
@@ -37,8 +35,6 @@ pipelines:
   default:
     - step:
         script:
-          - curl -o- -L https://yarnpkg.com/install.sh | bash -s
-          - export PATH=$HOME/.yarn/bin:$PATH
           - yarn --version && npm --version && node --version && composer --version && php --version
           - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
           - npm test

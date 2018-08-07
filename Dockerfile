@@ -1,25 +1,4 @@
-FROM ubuntu:latest
-
-ENV DEBIAN_FRONTEND noninteractive
-
-RUN apt-get update && \
-  apt-get -y install \
-  apt-utils \
-  php \
-  php-mbstring \
-  php-zip \
-  curl \
-  gnupg \
-  git \
-  composer
-
-# node
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN apt-get install -y nodejs build-essential
-
-# yarn
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash
-RUN ["/bin/bash", "-c", "source ~/.bashrc"]
+FROM basaltinc/docker-node-php-base:latest
 
 COPY . .
 EXPOSE 3042
@@ -33,4 +12,5 @@ EXPOSE 3042
 
 # tell the port number the container should expose
 #ENV apiUrlBase "/api"
-CMD ["/bin/bash", "-c", "cd site && npm run serve"]
+#CMD ["/bin/bash", "-c", "cd site && npm run serve"]
+CMD cd site && npm run serve
