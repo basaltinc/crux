@@ -134,12 +134,12 @@ class BreakpointsPage extends React.Component {
         <ApiDemo
           title={'Breakpoints API'}
           endpoint={`${apiUrlBase}/breakpoints`}
-          querySchema=''
+          querySchema=""
         />
         <ApiDemo
           title={'Device Widths API'}
           endpoint={`${apiUrlBase}/devicewidths`}
-          querySchema=''
+          querySchema=""
         />
       </PatternPage>
     );

@@ -3,7 +3,7 @@ import React from 'react';
 import PatternPage from '../../templates/pattern-page';
 import SpacingSwatches from '../../components/spacing';
 import { apiUrlBase } from '../../../config';
-import ApiDemo from "../../bedrock/components/api-demo";
+import ApiDemo from '../../bedrock/components/api-demo';
 
 export default class SpacingPage extends React.Component {
   constructor(props) {
@@ -44,7 +44,7 @@ export default class SpacingPage extends React.Component {
         <ApiDemo
           title={'API'}
           endpoint={`${apiUrlBase}/spacings`}
-          querySchema=''
+          querySchema=""
         />
       </PatternPage>
     );

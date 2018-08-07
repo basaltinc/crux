@@ -8,7 +8,7 @@ import copyIcon from '../../../../images/svgs/copy.svg';
 import { apiUrlBase } from '../../../config';
 
 import './demos.css';
-import ApiDemo from "../../bedrock/components/api-demo";
+import ApiDemo from '../../bedrock/components/api-demo';
 
 class TypographyPage extends React.Component {
   constructor(props) {
@@ -205,12 +205,12 @@ class TypographyPage extends React.Component {
           <ApiDemo
             title={'Font Sizes API'}
             endpoint={`${apiUrlBase}/font-sizes`}
-            querySchema=''
+            querySchema=""
           />
           <ApiDemo
             title={'Font Families API'}
             endpoint={`${apiUrlBase}/font-families`}
-            querySchema=''
+            querySchema=""
           />
         </div>
       </PatternPage>
