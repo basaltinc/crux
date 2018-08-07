@@ -58,6 +58,7 @@ class ColorsPage extends React.Component {
           <ColorContrastBlock
             bgColors={this.state.colors}
             textColors={this.state.colors}
+            do={this.state.do}
           />
         </div>
         <DosAndDonts

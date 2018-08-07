@@ -6,6 +6,10 @@ import Spinner from '../bedrock/components/spinner';
 import { apiUrlBase } from '../../config';
 import { VariationDemos } from '../bedrock/components/variation-demo';
 import ErrorCatcher from '../bedrock/components/error-catcher';
+import DosAndDonts from '../bedrock/components/dos-and-donts/src/dos-and-donts';
+import BugReport from '../bedrock/components/bug-report';
+import buttonDont from "../../../images/dos-and-donts/buttons/buttons-dont.png";
+import buttonDo from "../../../images/dos-and-donts/buttons/buttons-do.png";
 
 class ComponentOverviewPage extends Component {
   constructor(props) {
@@ -50,6 +54,10 @@ class ComponentOverviewPage extends Component {
             template={template}
             data={this.props.data}
           />
+          <DosAndDonts
+            title={this.props.dosAndDonts.title}
+            items={this.props.dosAndDonts.items}
+          />
         </article>
       );
     }
@@ -65,6 +73,7 @@ ComponentOverviewPage.defaultProps = {
   data: {},
   demoSizes: [],
   size: Overview.defaultProps.size,
+  // dosAndDonts: {},
 };
 
 ComponentOverviewPage.propTypes = {
@@ -72,6 +81,7 @@ ComponentOverviewPage.propTypes = {
   data: PropTypes.object,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
   size: Overview.propTypes.size,
+  // dosAndDonts: PropTypes.object,
 };
 
 export default ComponentOverviewPage;
