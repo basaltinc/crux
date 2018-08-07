@@ -12,14 +12,14 @@ const resourcesList = [
     isHeading: true,
   },
   {
+    name: 'Logo Downloads',
+    id: 'logo-downloads',
+    path: `/resources/logo-downloads`,
+  },
+  {
     name: 'Logo Usage',
     id: 'logo-usage',
     path: '/resources/logo-usage',
-  },
-  {
-    name: 'Logo Variations',
-    id: 'logo-variations',
-    path: `/resources/logo-variations`,
   },
   {
     name: 'Photography Guidelines',
@@ -30,11 +30,6 @@ const resourcesList = [
     name: 'Brand Descriptors',
     id: 'brand-descriptors',
     path: '/resources/brand-descriptors',
-  },
-  {
-    name: 'Typography',
-    id: 'typography',
-    path: '/resources/typography',
   },
   {
     name: 'Sketch Assets',

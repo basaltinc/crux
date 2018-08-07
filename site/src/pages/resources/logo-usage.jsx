@@ -137,7 +137,7 @@ class LogoUsage extends Component {
           <li>Apply overlays when appropriate</li>
           <li>Photos with a shallow depth-of-field work well</li>
         </ul>
-        <br/>
+        <br />
         <h4>Photo Overlays</h4>
         <p>
           Photo Overlays can be used to add variety within graphic elements when
@@ -173,21 +173,36 @@ class LogoUsage extends Component {
             photo
           </li>
         </ul>
-        <br/>
+        <br />
         <h4>Unacceptable Logo Formatting</h4>
-        <p>Rules are an important part of maintaining your logos integrity within the Basalt brand. Don’t compromise the look of the logo and brand identity by altering the logo in any way including adding unnecessary text decorations or graphic elements as drop shadows or outlines. The following examples are some of the ways you should never alter the Basalt logo.</p>
+        <p>
+          Rules are an important part of maintaining your logos integrity within
+          the Basalt brand. Don’t compromise the look of the logo and brand
+          identity by altering the logo in any way including adding unnecessary
+          text decorations or graphic elements as drop shadows or outlines. The
+          following examples are some of the ways you should never alter the
+          Basalt logo.
+        </p>
         <LetteredList>
-          <li>Don’t rotate</li>
-          <li>Don’t stretch or squash</li>
-          <li>Don’t place graphics in the designated “clear space”</li>
-          <li>Don’t resize the proportions</li>
-          <li>Don’t re-arrange elements or create new graphics that have not been provided by your designer</li>
-          <li>Don’t use a logo variation next to the primary logo on the same page</li>
-          <li>Don’t use o brand or non provided colors</li>
-          <li>Don’t add drop shadows or select to the type</li>
-          <li>Don’t place the logo in a solid box over a background image</li>
+          <li>Don&#39;t rotate</li>
+          <li>Don&#39;t stretch or squash</li>
+          <li>Don&#39;t place graphics in the designated “clear space”</li>
+          <li>Don&#39;t resize the proportions</li>
+          <li>
+            Don&#39;t re-arrange elements or create new graphics that have not
+            been provided by your designer
+          </li>
+          <li>
+            Don&#39;t use a logo variation next to the primary logo on the same
+            page
+          </li>
+          <li>Don&#39;t use o brand or non provided colors</li>
+          <li>Don&#39;t add drop shadows or select to the type</li>
+          <li>
+            Don&#39;t place the logo in a solid box over a background image
+          </li>
         </LetteredList>
-        <img src={LogoUnacceptables} alt="Unacceptable Logo Usages"/>
+        <img src={LogoUnacceptables} alt="Unacceptable Logo Usages" />
       </ResourcePage>
     );
   }
