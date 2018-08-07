@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-
-import ResourcePage from '../../templates/resources-page';
 import styled from 'styled-components';
+
+import { TwoUp } from '../../components/atoms';
+import ResourcePage from '../../templates/resources-page';
 import main from '../../../../images/logos/main.png';
 import blackGrey from '../../../../images/logos/black-grey.png';
 import blackOnly from '../../../../images/logos/black-only.png';
@@ -66,16 +67,6 @@ const logos = [
   },
 ];
 const basePath = '../../../../images/logos/';
-
-const TwoUp = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 2.25rem;
-  & > * {
-    width: 48%;
-  }
-`;
 
 const DemoLogoBox = styled.div`
   border: dotted 1px #ccc;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import { TwoUp } from '../../components/atoms';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
 import ResourcePage from '../../templates/resources-page';
 import LogoColor from '../../../../images/logo--color.svg';
@@ -11,16 +12,6 @@ import LogoPhotoBackgrounds2 from '../../../../images/logo-on-photo-bg2.png';
 import LogoPhotoOverlayDo from '../../../../images/logo-on-photo-overlay.png';
 import LogoPhotoOverlayDont from '../../../../images/logo-on-photo-overlay2.png';
 import LogoUnacceptables from '../../../../images/logo-unacceptable-formats.png';
-
-const TwoUp = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 2.25rem;
-  & > * {
-    width: 48%;
-  }
-`;
 
 const LetteredList = styled.ol`
   list-style: upper-alpha;
