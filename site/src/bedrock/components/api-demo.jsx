@@ -8,19 +8,20 @@ import { Details } from './atoms';
 
 const ApiInput = styled.input`
   width: 50%;
-  padding: .5rem;
-  margin-bottom: .5rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 
 const PostOrGet = styled.span`
-  background-color: ${props => (props.requestType === 'GET' ? 'green' : 'blue')};
+  background-color: ${props =>
+    props.requestType === 'GET' ? 'green' : 'blue'};
   color: white;
   text-align: center;
   border-radius: 1rem;
   font-weight: bold;
   display: block;
   padding: 0.35rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   width: 8%;
 `;
 
@@ -109,9 +110,7 @@ ApiDemo.propTypes = {
   endpoint: PropTypes.string.isRequired,
   querySchema: PropTypes.object,
   queryData: PropTypes.object,
-  requestType: PropTypes.oneOf([
-    'GET', 'POST'
-  ]),
+  requestType: PropTypes.oneOf(['GET', 'POST']),
 };
 
 export default ApiDemo;
