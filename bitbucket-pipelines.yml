@@ -23,6 +23,7 @@ pipelines:
             - aws s3 sync ./ s3://design.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
     feature/deploys:
       - step:
+          name: Install & Build
           caches:
             - composer
             - node
@@ -32,8 +33,22 @@ pipelines:
             - export PATH=$HOME/.yarn/bin:$PATH
             - yarn --version && npm --version && node --version && composer --version && php --version
             - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
-            - yarn test
-            - yarn run compile
+          artifacts:
+          - '**'
+      - step:
+          name: Test
+          caches:
+          - composer
+          - node
+          - yarn
+          script:
+          - yarn test
+          artifacts:
+          - '**'
+      - step:
+          name: Deploy to now.sh
+          deployment: test
+          script:
             - yarn run deploy
   default:
     - step:
