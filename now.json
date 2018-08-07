@@ -1,6 +1,10 @@
 {
   "name": "crux",
   "type": "docker",
+  "files": [
+    "pattern-lab/source/",
+    "site"
+  ],
   "scale": {
     "sfo1": {
       "min": 0,
