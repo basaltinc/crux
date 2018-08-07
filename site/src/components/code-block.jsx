@@ -33,7 +33,7 @@ class CodeBlock extends Component {
               style={{
                 whiteSpace: 'pre',
                 overflow: 'auto',
-                maxWidth: '800px', // @todo remove this, fix bug that causes window to get huge on long lines
+                width: '100%',
               }}
             >
               {item.language === 'html'

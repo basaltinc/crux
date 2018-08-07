@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import PatternPage from '../../templates/pattern-page';
 import { apiUrlBase } from '../../../config';
 import ApiDemo from '../../bedrock/components/api-demo';
+import VisualLanguagePage from '../../templates/visual-language-page';
 
 const DemoTransition = styled.div`
   background: #ddd;
@@ -59,7 +59,7 @@ class AnimationsPage extends React.Component {
 
   render() {
     return (
-      <PatternPage>
+      <VisualLanguagePage>
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Animation</h2>
@@ -85,7 +85,7 @@ class AnimationsPage extends React.Component {
           endpoint={`${apiUrlBase}/transitions`}
           querySchema=""
         />
-      </PatternPage>
+      </VisualLanguagePage>
     );
   }
 }

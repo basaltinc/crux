@@ -4,48 +4,17 @@ import Page from './page';
 import LinkList from '../components/link-list';
 import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
-// @todo think of a way to not have these be hard coded, then implement that brilliant idea
-const perceptualPatternsList = [
-  {
-    name: 'Colors',
-    id: 'colors',
-    path: `/patterns/colors`,
-  },
-  {
-    name: 'Animations',
-    id: 'animations',
-    path: `/patterns/animations`,
-  },
-  {
-    name: 'Spacings',
-    id: 'spacings',
-    path: '/patterns/spacings',
-  },
-  {
-    name: 'Breakpoints',
-    id: 'breakpoints',
-    path: '/patterns/breakpoints',
-  },
-  {
-    name: 'Typography',
-    id: 'typography',
-    path: '/patterns/typography',
-  },
-  {
-    name: 'Components',
-    id: 'components',
-    isHeading: true,
-    path: '/patterns/components',
-  },
-];
-
 class PatternPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      linkItems: perceptualPatternsList,
+      filteredList: [],
+      linkItems: [],
       ready: false,
     };
+
+    this.handleFilterList = this.handleFilterList.bind(this);
+    this.filterableList = this.filterableList.bind(this);
   }
 
   componentDidMount() {
@@ -62,15 +31,46 @@ class PatternPage extends Component {
               path: pattern.path,
             })),
           ],
+          filteredList: [
+            ...this.state.linkItems,
+            ...patterns.map(pattern => ({
+              name: pattern.title,
+              id: pattern.id,
+              path: pattern.path,
+            })),
+          ],
         });
       });
   }
 
+  handleFilterList(event) {
+    const updatedList = this.state.linkItems.filter(
+      item =>
+        item.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1,
+    );
+    this.setState({
+      filteredList: updatedList,
+      filterTerm: event.target.value,
+    });
+  }
+
+  filterableList() {
+    return (
+      <div>
+        <input
+          type="text"
+          className="type-to-filter"
+          placeholder="Type to filter..."
+          onChange={this.handleFilterList}
+        />
+        <LinkList items={this.state.filteredList} />
+      </div>
+    );
+  }
+
   render() {
     return (
-      <Page sidebarOne={<LinkList items={this.state.linkItems} />}>
-        {this.props.children}
-      </Page>
+      <Page sidebarOne={this.filterableList()}>{this.props.children}</Page>
     );
   }
 }
