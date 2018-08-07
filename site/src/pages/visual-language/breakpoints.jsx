@@ -47,7 +47,7 @@ const BreakpointsWrapper = styled.div`
   }
 `;
 
-const breakpoints = items =>
+const BreakpointsItems = items =>
   items.map(item => (
     <BreakpointListItem key={item.name} left={item.value}>
       <span className={'label'}>
@@ -58,7 +58,7 @@ const breakpoints = items =>
   ));
 
 const BreakpointList = ({ items }) => (
-  <ul className={'breakpoints'}>{breakpoints(items)}</ul>
+  <ul className={'breakpoints'}>{BreakpointsItems(items)}</ul>
 );
 
 BreakpointList.propTypes = {
@@ -70,7 +70,7 @@ BreakpointList.propTypes = {
   ).isRequired,
 };
 
-const deviceWidths = items =>
+const DeviceWidthsItems = items =>
   items.map(item => (
     <DeviceListItem key={item.name} width={item.width}>
       <span className={'label'}>
@@ -80,7 +80,7 @@ const deviceWidths = items =>
   ));
 
 const DeviceWidthList = ({ items }) => (
-  <DeviceWidthUl>{deviceWidths(items)}</DeviceWidthUl>
+  <DeviceWidthUl>{DeviceWidthsItems(items)}</DeviceWidthUl>
 );
 
 DeviceWidthList.propTypes = {

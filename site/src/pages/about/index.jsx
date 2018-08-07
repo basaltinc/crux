@@ -14,7 +14,10 @@ const AboutIndex = () => (
         Stokkel
       </blockquote>
       <hr />
-      <p>Crux is a design system created by Basalt, a premier web development agency that specializes in design systems.</p>
+      <p>
+        Crux is a design system created by Basalt, a premier web development
+        agency that specializes in design systems.
+      </p>
       <p>This is the getting started docs.</p>
       <h3 id="usingcrux">Using Crux</h3>
       <p>Install pieces...</p>
