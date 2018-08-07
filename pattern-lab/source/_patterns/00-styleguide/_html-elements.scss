@@ -24,7 +24,7 @@ main {
 //}
 
 details {
-  &:hover {
+  summary:hover {
     cursor: pointer;
   }
 }
