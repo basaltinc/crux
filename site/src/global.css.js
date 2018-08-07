@@ -38,10 +38,15 @@ injectGlobal`
     box-sizing: border-box;
   }
   
-  //Word wrap for code preview
+  // Word wrap for code preview
   pre > code {
     white-space: pre-wrap !important;
     word-wrap: break-word !important;
+  }
+  
+  // Remove extra margin when single code preview in div
+  div > pre:only-child {
+    margin: 0;
   }
   
   .eyebrow {
