@@ -160,8 +160,9 @@ class AnimationsPage extends React.Component {
             </li>
           </ul>
         </div>
+        <br/>
         <ApiDemo
-          title={'API'}
+          title='Animations API'
           endpoint={`${apiUrlBase}/transitions`}
           querySchema=""
           requestType={'GET'}

@@ -27,4 +27,8 @@ details {
   summary:hover {
     cursor: pointer;
   }
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }

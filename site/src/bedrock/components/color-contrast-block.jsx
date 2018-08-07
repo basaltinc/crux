@@ -33,7 +33,7 @@ const AccessibilityResults = styled.span`
   background-color: ${props => (props.pass === 'pass' ? 'green' : 'red')};
   color: white;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 0;
   font-weight: bold;
   display: inline;
   padding: 0.35rem 0.75rem;
@@ -43,7 +43,7 @@ const Ratio = styled.span`
   border: 1px solid ${props => (props.ratio > '4.5' ? 'green' : 'red')};
   color: ${props => (props.ratio > '4.5' ? 'green' : 'red')};
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 0;
   font-weight: bold;
   display: inline;
   padding: 0.35rem 1rem;
@@ -179,6 +179,7 @@ class ColorContrastBlock extends React.Component {
             </Ratio>
           </p>
         </AccessibilityInfo>
+        <br/>
         <Details>
           <summary>WCAG Details</summary>
           <p>
@@ -191,6 +192,7 @@ class ColorContrastBlock extends React.Component {
             4.5:1. Large text is defined as anything 14pt bold or higher.
           </p>
         </Details>
+        <br/>
       </div>
     );
   }

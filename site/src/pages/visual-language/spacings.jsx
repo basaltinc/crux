@@ -41,8 +41,9 @@ export default class SpacingPage extends React.Component {
           </p>
           <SpacingSwatches spaces={this.state.spacings} />
         </div>
+        <br/>
         <ApiDemo
-          title={'API'}
+          title={'Spacing API'}
           endpoint={`${apiUrlBase}/spacings`}
           querySchema=""
           requestType={'GET'}
