@@ -54,7 +54,8 @@ class ResourcesPage extends Component {
   handleFilterList(event) {
     const updatedList = this.state.linkItems.filter(
       item =>
-        item.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1 || item.isHeading,
+        item.name.toLowerCase().search(event.target.value.toLowerCase()) !==
+          -1 || item.isHeading,
     );
     this.setState({
       filteredList: updatedList,

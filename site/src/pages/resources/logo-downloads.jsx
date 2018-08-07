@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-import { TwoUp } from '../../components/atoms';
+import { TwoUp } from '../../bedrock/components/atoms';
 import ResourcePage from '../../templates/resources-page';
 import main from '../../../../images/logos/main.png';
 import blackGrey from '../../../../images/logos/black-grey.png';
@@ -80,142 +80,157 @@ const DemoLogoBox = styled.div`
   }
 `;
 
-class LogoDownloads extends Component {
-  downloadTiles() {
-    return logos.map(logo => (
-      <DemoLogoBox>
-        <p>
-          <b>{logo.fileName}</b>
-        </p>
-        <img src={logo.importName} alt={`${logo.fileName}`} />
-        <br/>
-        <br/>
-        <span>Download: </span>
-        <a href={`${basePath}${logo.fileName}.svg`} target="_blank">
-          SVG
-        </a>&nbsp;&nbsp;
-        <a href={`${basePath}${logo.fileName}.png`} target="_blank">
-          PNG
-        </a>
-      </DemoLogoBox>
-    ));
-  }
+function downloadTiles() {
+  return logos.map(logo => (
+    <DemoLogoBox>
+      <p>
+        <b>{logo.fileName}</b>
+      </p>
+      <img src={logo.importName} alt={`${logo.fileName}`} />
+      <br />
+      <br />
+      <span>Download: </span>
+      <a
+        href={`${basePath}${logo.fileName}.svg`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        SVG
+      </a>&nbsp;&nbsp;
+      <a
+        href={`${basePath}${logo.fileName}.png`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        PNG
+      </a>
+    </DemoLogoBox>
+  ));
+}
 
-  render() {
-    return (
-      <ResourcePage>
-        <h3 className="eyebrow">Resources</h3>
-        <h2>Logo Downloads</h2>
-        <TwoUp>
-          <div>
-            <h4>Main Logo Permalinks</h4>
-            <ul>
-              <li>
-                200px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/main--200.png"
-                >
-                  http://files.basalt.io/logos/main--200.png
-                </a>
-              </li>
-              <li>
-                500px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/main--500.png"
-                >
-                  http://files.basalt.io/logos/main--500.png
-                </a>
-              </li>
-              <li>
-                1000px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/main--1000.png"
-                >
-                  http://files.basalt.io/logos/main--1000.png
-                </a>
-              </li>
-              <li>
-                ~1700px{' '}
-                <a
-                  target="_blank"
-                  href="wide: http://files.basalt.io/logos/main.png"
-                >
-                  wide: http://files.basalt.io/logos/main.png
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4>Main Icon Permalinks</h4>
-            <ul>
-              <li>
-                25px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/icon--25.png"
-                >
-                  http://files.basalt.io/logos/icon--25.png
-                </a>
-              </li>
-              <li>
-                50px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/icon--50.png"
-                >
-                  http://files.basalt.io/logos/icon--50.png
-                </a>
-              </li>
-              <li>
-                100px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/icon--100.png"
-                >
-                  http://files.basalt.io/logos/icon--100.png
-                </a>
-              </li>
-              <li>
-                200px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/icon--200.png"
-                >
-                  http://files.basalt.io/logos/icon--200.png
-                </a>
-              </li>
-              <li>
-                500px wide:{' '}
-                <a
-                  target="_blank"
-                  href="http://files.basalt.io/logos/icon--500.png"
-                >
-                  http://files.basalt.io/logos/icon--500.png
-                </a>
-              </li>
-            </ul>
-          </div>
-        </TwoUp>
-        <h4>Downloadable Logo Resources</h4>
-        <p>
-          Each logo is shown with a light gray background color, though the file
-          does not contain it. Hover over to view with a dark gray background.
-          This is only for helping to pick a logo with strong contrast.
-        </p>
-
-        <div
-          className="smart-grid"
-          data-row-items-small="2"
-          data-row-items-large="3"
-        >
-          {this.downloadTiles()}
+function LogoDownloads() {
+  return (
+    <ResourcePage>
+      <h3 className="eyebrow">Resources</h3>
+      <h2>Logo Downloads</h2>
+      <TwoUp>
+        <div>
+          <h4>Main Logo Permalinks</h4>
+          <ul>
+            <li>
+              200px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/main--200.png"
+              >
+                http://files.basalt.io/logos/main--200.png
+              </a>
+            </li>
+            <li>
+              500px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/main--500.png"
+              >
+                http://files.basalt.io/logos/main--500.png
+              </a>
+            </li>
+            <li>
+              1000px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/main--1000.png"
+              >
+                http://files.basalt.io/logos/main--1000.png
+              </a>
+            </li>
+            <li>
+              ~1700px{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="wide: http://files.basalt.io/logos/main.png"
+              >
+                wide: http://files.basalt.io/logos/main.png
+              </a>
+            </li>
+          </ul>
         </div>
-      </ResourcePage>
-    );
-  }
+        <div>
+          <h4>Main Icon Permalinks</h4>
+          <ul>
+            <li>
+              25px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/icon--25.png"
+              >
+                http://files.basalt.io/logos/icon--25.png
+              </a>
+            </li>
+            <li>
+              50px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/icon--50.png"
+              >
+                http://files.basalt.io/logos/icon--50.png
+              </a>
+            </li>
+            <li>
+              100px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/icon--100.png"
+              >
+                http://files.basalt.io/logos/icon--100.png
+              </a>
+            </li>
+            <li>
+              200px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/icon--200.png"
+              >
+                http://files.basalt.io/logos/icon--200.png
+              </a>
+            </li>
+            <li>
+              500px wide:{' '}
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="http://files.basalt.io/logos/icon--500.png"
+              >
+                http://files.basalt.io/logos/icon--500.png
+              </a>
+            </li>
+          </ul>
+        </div>
+      </TwoUp>
+      <h4>Downloadable Logo Resources</h4>
+      <p>
+        Each logo is shown with a light gray background color, though the file
+        does not contain it. Hover over to view with a dark gray background.
+        This is only for helping to pick a logo with strong contrast.
+      </p>
+
+      <div
+        className="smart-grid"
+        data-row-items-small="2"
+        data-row-items-large="3"
+      >
+        {downloadTiles()}
+      </div>
+    </ResourcePage>
+  );
 }
 
 LogoDownloads.propTypes = {};
