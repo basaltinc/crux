@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import ResourcePage from '../../templates/resources-page';
+import PhotographyExamples from '../../../../images/photog-examples.png';
 
 class LogoUsage extends Component {
   render() {
     return (
       <ResourcePage>
         <h3 className="eyebrow">Resources</h3>
-        <h2>Logo Usage</h2>
-        <h4>Primary Logo</h4>
-        <p>Basalt’s primary logo incorporates the icon into the wordmark creating a clean and boldly a ective brand identity. The use of all caps brings a modern sense of strength and stability. The icon represents an abstracted and geometric tent but also mimics the structure of basalt columns bringing the overall tone back to the natural world and creating a playful sense of adventure.</p>
-        <p>This is the main logo that will be used across all primary brand applications and platforms. It is the main touch point for your audience to identity Basalts product, web presence, social media, ads, and other brand materials. It is imperative that the logo always be applied with consideration and accordance to the brand guidelines to maximize the success of Basalts brand presence.</p>
+        <h2>Photography Guidelines</h2>
+        <p>Photography is a powerful tool in telling a story within your brand materials. To evoke a sense of wonder and adventure and still feel relatable modern, and relevant to the service and industry Basalt is part of I suggest using a combination of photos that depict the natural world, photos that use repetitive geometric and natural patterns, and photos that depict a potential user in situation.</p>
+        <img src={PhotographyExamples} alt=""/>
       </ResourcePage>
     );
   }
