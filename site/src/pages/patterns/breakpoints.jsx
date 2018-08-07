@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import PatternPage from '../../templates/pattern-page';
 import { apiUrlBase } from '../../../config';
+import ApiDemo from '../../bedrock/components/api-demo';
 
 const BreakpointListItem = styled.li`
   left: ${props => props.left};
@@ -130,6 +131,16 @@ class BreakpointsPage extends React.Component {
           {/* <code>{JSON.stringify(this.state.breakpoints, null, '  ')}</code> */}
           {/* </pre> */}
         </div>
+        <ApiDemo
+          title={'Breakpoints API'}
+          endpoint={`${apiUrlBase}/breakpoints`}
+          querySchema=''
+        />
+        <ApiDemo
+          title={'Device Widths API'}
+          endpoint={`${apiUrlBase}/devicewidths`}
+          querySchema=''
+        />
       </PatternPage>
     );
   }

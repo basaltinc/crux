@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import PatternPage from '../../templates/pattern-page';
 import { apiUrlBase } from '../../../config';
+import ApiDemo from "../../bedrock/components/api-demo";
 
 const DemoTransition = styled.div`
   background: #ddd;
@@ -79,6 +80,11 @@ class AnimationsPage extends React.Component {
           {/* <code>{JSON.stringify(this.state.transitions, null, '  ')}</code> */}
           {/* </pre> */}
         </div>
+        <ApiDemo
+          title={'API'}
+          endpoint={`${apiUrlBase}/transitions`}
+          querySchema=''
+        />
       </PatternPage>
     );
   }
