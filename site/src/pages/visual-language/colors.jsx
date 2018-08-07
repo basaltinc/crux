@@ -74,6 +74,7 @@ class ColorsPage extends React.Component {
                 },
               },
             }}
+            requestType={'POST'}
           />
         </div>
       </VisualLanguagePage>

@@ -206,11 +206,13 @@ class TypographyPage extends React.Component {
             title={'Font Sizes API'}
             endpoint={`${apiUrlBase}/font-sizes`}
             querySchema=""
+            requestType={'GET'}
           />
           <ApiDemo
             title={'Font Families API'}
             endpoint={`${apiUrlBase}/font-families`}
             querySchema=""
+            requestType={'GET'}
           />
         </div>
       </VisualLanguagePage>
