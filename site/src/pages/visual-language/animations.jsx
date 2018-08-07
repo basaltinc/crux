@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { apiUrlBase } from '../../../config';
 import VisualLanguagePage from '../../templates/visual-language-page';
 import { TwoUp } from '../../bedrock/components/atoms';
+import Spinner from '../../bedrock/components/spinner';
 
 const DemoTransition = styled.div`
   background: #ddd;
@@ -106,19 +107,28 @@ class AnimationsPage extends React.Component {
             >
               <div className="media-tile__content u-padding--l">
                 <h2 className="media-tile__title u-c-white h2">
-                  Consequatur et minima ea magni odio quis
+                  Hover over this Media Tile
                 </h2>
                 <div className="media-tile__body media-tile__body u-c-white">
-                  Sit voluptate autem qui laudantium quo nisi voluptate nihil
-                  vel. Soluta sequi minus aut nam quia ad dolorum hic omnis.
-                  Debitis tempore aliquam est aliquid et aspernatur.
+                  Hovering over this Media Tile will cause the opacity of the
+                  image overlay to transition to a more opaque color.
                 </div>
               </div>
             </div>
           </TwoUp>
-          <DemoTransitionMove>
-            <strong>Move</strong> (Hover to see effect)
-          </DemoTransitionMove>
+          <br/>
+          <h4>Movement</h4>
+          <p>Movement is an effective way to communicate actions, changes to application state, and draw the attention of a user.</p>
+          <TwoUp>
+            <DemoTransitionMove>
+              <strong>Move</strong> (Hover to see effect)
+            </DemoTransitionMove>
+            <div>
+              <h5>Loading Spinner Example</h5>
+              <Spinner/>
+            </div>
+          </TwoUp>
+
           {/* <pre> */}
           {/* <code>{JSON.stringify(this.state.transitions, null, '  ')}</code> */}
           {/* </pre> */}
