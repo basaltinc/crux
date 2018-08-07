@@ -15,18 +15,8 @@ const aboutLinks = [
     id: 'release-notes',
   },
   {
-    path: '/about/whats-next',
-    name: "What's next",
-    id: 'whats-next',
-  },
-  {
-    path: '/about/bugs',
-    name: 'Bugs and Issues',
-    id: 'bugs',
-  },
-  {
     path: '/about/feature-requests',
-    name: 'Feature Requests',
+    name: 'Feature Requests and Bugs',
     id: 'feature-requests',
   },
 ];
