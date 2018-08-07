@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const DosAndDontsPanelStyled = styled.figure`
+  display: flex;
+  flex-direction: column;
   > img {
     border-bottom: solid 8px;
     border-bottom-color: ${props => (props.do ? 'green' : 'red')};
     margin-bottom: 1rem;
+    flex: 1 0 auto;
   }
   b {
     color: ${props => (props.do ? 'green' : 'red')};
