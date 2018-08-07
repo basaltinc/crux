@@ -42,16 +42,13 @@ const Header = ({ siteTitle }) => (
       {/* @todo clean this up; propagate these classnames */}
       <ul>
         <li>
-          <SiteHeaderLink to="/get-started">Get Started</SiteHeaderLink>
+          <SiteHeaderLink to="/about">Get Started</SiteHeaderLink>
         </li>
         <li>
           <SiteHeaderLink to="/visual-language">Visual Language</SiteHeaderLink>
         </li>
         <li>
           <SiteHeaderLink to="/patterns">Patterns</SiteHeaderLink>
-        </li>
-        <li>
-          <SiteHeaderLink to="/about">About</SiteHeaderLink>
         </li>
         <li>
           <SiteHeaderLink to="/resources">Resources</SiteHeaderLink>
