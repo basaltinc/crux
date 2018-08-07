@@ -7,7 +7,7 @@ export const Details = styled.details`
   margin-bottom: 10px;
   > summary {
     font-weight: bold;
-    font-size: 1.10rem;
+    font-size: 1.1rem;
     &:hover {
       cursor: pointer;
     }

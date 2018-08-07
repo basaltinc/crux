@@ -179,7 +179,7 @@ class ColorContrastBlock extends React.Component {
             </Ratio>
           </p>
         </AccessibilityInfo>
-        <br/>
+        <br />
         <Details>
           <summary>WCAG Details</summary>
           <p>
@@ -192,7 +192,7 @@ class ColorContrastBlock extends React.Component {
             4.5:1. Large text is defined as anything 14pt bold or higher.
           </p>
         </Details>
-        <br/>
+        <br />
       </div>
     );
   }

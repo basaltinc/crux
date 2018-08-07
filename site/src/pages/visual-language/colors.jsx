@@ -87,9 +87,13 @@ class ColorsPage extends React.Component {
                   title: 'Color Format',
                   type: 'string',
                   enum: ['hsl', 'hex', 'rgb'],
-                  enumNames: ['HSL (Hue, Saturation, Lightness)', 'Hex (Hexadecimal)', 'RGB (Red, Green, Blue)'],
+                  enumNames: [
+                    'HSL (Hue, Saturation, Lightness)',
+                    'Hex (Hexadecimal)',
+                    'RGB (Red, Green, Blue)',
+                  ],
                   default: 'hsl',
-                  "ui:widget": "radio",
+                  'ui:widget': 'radio',
                 },
               },
             }}

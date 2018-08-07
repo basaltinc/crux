@@ -128,14 +128,14 @@ class BreakpointsPage extends React.Component {
             <DeviceWidthList items={this.state.deviceWidths} />
           </BreakpointsWrapper>
         </div>
-        <br/>
+        <br />
         <ApiDemo
           title={'Breakpoints API'}
           endpoint={`${apiUrlBase}/breakpoints`}
           querySchema=""
           requestType={'GET'}
         />
-        <br/>
+        <br />
         <ApiDemo
           title={'Device Widths API'}
           endpoint={`${apiUrlBase}/devicewidths`}
