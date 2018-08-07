@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { apiUrlBase } from '../../../config';
 import VisualLanguagePage from '../../templates/visual-language-page';
+import { TwoUp } from '../../bedrock/components/atoms';
 
 const DemoTransition = styled.div`
   background: #ddd;
@@ -69,9 +70,52 @@ class AnimationsPage extends React.Component {
             everywhere in the world. - Walt Disney
           </blockquote>
           <hr />
-          <DemoTransitionOpacity>
-            <strong>Opacity</strong> (Hover to see effect)
-          </DemoTransitionOpacity>
+          <h4>Purpose</h4>
+          <p>Animation is a fundamental component of any visual language.</p>
+          <ul>
+            <li>
+              <b>Focus</b> - Motion grabs the attention of the user and focuses
+              it on important aspect of the user interface
+            </li>
+            <li>
+              <b>Inform</b> - Animation informs the user in a number of ways.
+              For example, a spinner indicates that the system is working.
+            </li>
+            <li>
+              <b>Express</b> - Animation and motion are expressive and add
+              character and brand identity to a user interface.
+            </li>
+          </ul>
+          <br />
+          <h4>Opacity</h4>
+          <p>
+            Changes to opacity are an effective way of indicating that an
+            element can be interacted with through a click or key press.
+          </p>
+          <TwoUp>
+            <DemoTransitionOpacity>
+              <strong>Opacity</strong> (Hover to see effect)
+            </DemoTransitionOpacity>
+            <div
+              className="media-tile u-text-align-center"
+              data-linkto="#"
+              style={{
+                backgroundImage:
+                  'url(https://basalt-demo-data.netlify.com/basalt-brand-stock/julentto-photography-184055.jpg)',
+              }}
+            >
+              <div className="media-tile__content u-padding--l">
+                <h2 className="media-tile__title u-c-white h2">
+                  Consequatur et minima ea magni odio quis
+                </h2>
+                <div className="media-tile__body media-tile__body u-c-white">
+                  Sit voluptate autem qui laudantium quo nisi voluptate nihil
+                  vel. Soluta sequi minus aut nam quia ad dolorum hic omnis.
+                  Debitis tempore aliquam est aliquid et aspernatur.
+                </div>
+              </div>
+            </div>
+          </TwoUp>
           <DemoTransitionMove>
             <strong>Move</strong> (Hover to see effect)
           </DemoTransitionMove>
