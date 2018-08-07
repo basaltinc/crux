@@ -1,0 +1,10 @@
+{
+  "name": "crux",
+  "type": "docker",
+  "scale": {
+    "sfo1": {
+      "min": 0,
+      "max": 1
+    }
+  }
+}
