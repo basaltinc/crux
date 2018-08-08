@@ -114,9 +114,9 @@ class ApiDemo extends React.Component {
 
 ApiDemo.defaultProps = {
   title: 'API',
-  querySchema: {},
+  querySchema: null,
   queryData: {},
-  requestType: 'GET',
+  requestType: 'get',
 };
 
 ApiDemo.propTypes = {
