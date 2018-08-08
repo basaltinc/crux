@@ -18,7 +18,7 @@ const InnerSwatch = styled.div`
 
 const RightLabel = styled.label`
   text-align: right;
-  margin-left: 1rem;
+  margin-left: 1rem;a
   display: block;
 `;
 
