@@ -8,7 +8,7 @@ import { Details } from './atoms';
 
 const PostOrGet = styled.span`
   background-color: ${props =>
-    props.requestType === 'GET' ? 'green' : 'blue'};
+    props.requestType === 'get' ? 'green' : 'blue'};
   color: white;
   text-align: center;
   border-radius: 0;

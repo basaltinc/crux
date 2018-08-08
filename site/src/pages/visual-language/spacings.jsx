@@ -46,7 +46,7 @@ export default class SpacingPage extends React.Component {
           title={'Spacing API'}
           endpoint={`${apiUrlBase}/spacings`}
           querySchema=""
-          requestType={'GET'}
+          requestType={'get'}
         />
       </VisualLanguagePage>
     );
