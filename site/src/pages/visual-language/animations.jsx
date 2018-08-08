@@ -164,8 +164,7 @@ class AnimationsPage extends React.Component {
         <ApiDemo
           title="Animations API"
           endpoint={`${apiUrlBase}/transitions`}
-          querySchema=""
-          requestType={'GET'}
+          requestType={'get'}
         />
       </VisualLanguagePage>
     );

@@ -138,8 +138,10 @@ export default function ComponentsBoard(props) {
 
 ComponentsBoard.propTypes = {
   ready: PropTypes.bool.isRequired,
-  patterns: PropTypes.arrayOf({
-    id: PropTypes.string,
-    title: PropTypes.string,
-  }).isRequired,
+  patterns: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+    }),
+  ).isRequired,
 };
