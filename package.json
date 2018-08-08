@@ -17,7 +17,7 @@
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "yarn run setup",
     "postinstall": "yarn run compile && yarn run changelog",
-    "changelog": "auto-changelog --template json --output ./build/changelog.json",
+    "changelog": "auto-changelog --template json --output ./build/changelog.json || true",
     "prepush": "yarn run lint:js && yarn run lint:scss",
     "lint:js": "eslint pattern-lab/source/**/*.js && cd site && yarn run lint",
     "lint:js:fix": "yarn run lint:js -- --fix",
