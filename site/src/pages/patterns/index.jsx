@@ -25,7 +25,10 @@ class PatternsPage extends Component {
   render() {
     return (
       <Page>
-        <h2>Welcome to the Design System!</h2>
+        <div>
+          <h2>Patterns</h2>
+          <p>Explore the design patterns that make up the Crux Design System.</p>
+        </div>
         <ComponentBoard
           patterns={this.state.patterns}
           ready={this.state.ready}

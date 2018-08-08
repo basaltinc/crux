@@ -25,7 +25,7 @@ const CommitHash = styled.a`
   background-color: #9a9b9f;
   padding: 0.35rem 0.75rem;
   color: black !important;
-  border-radius: 3px;
+  border-radius: 0;
   width: 92px;
 `;
 

@@ -15,7 +15,7 @@ const DemoTransition = styled.div`
   padding: 1em;
   margin-bottom: 1em;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   max-width: 800px;
 `;

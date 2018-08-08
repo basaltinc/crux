@@ -26,13 +26,13 @@ const PatternGrid = styled.ul`
 const PatternGridItem = styled.li`
   background: #fff;
   position: relative;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.3s ease-in-out;
   ${PatternGrid}:hover & {
-    filter: blur(2px);
+    filter: blur(0.75px);
   }
   &:hover {
     filter: blur(0px) !important;
-    z-index: 1;
+    z-index: 100;
   }
   > a:link,
   > a:visited {
@@ -46,17 +46,17 @@ const PatternGridItem = styled.li`
     text-align: center;
     transition: all 0.2s ease-in-out;
     position: relative;
-    z-index: 1;
+    z-index: 100;
   }
   > a:hover {
     position: absolute;
     background: #fff;
     border-radius: var(--border-radius);
     border-color: var(--type-color--component);
-    transform: scale(1.25);
+    transform: scale(1.05);
     width: 100%;
     height: auto;
-    z-index: 2;
+    z-index: 200;
   }
 `;
 
