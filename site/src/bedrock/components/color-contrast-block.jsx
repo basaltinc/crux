@@ -119,7 +119,9 @@ class ColorContrastBlock extends React.Component {
           <SelectStyledWrapper>
             <select
               value={this.state.bgColor}
-              onChange={event => this.handleChange('bgColor', event.target.value)}
+              onChange={event =>
+                this.handleChange('bgColor', event.target.value)
+              }
             >
               {bgColors}
             </select>

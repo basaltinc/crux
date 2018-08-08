@@ -32,7 +32,9 @@ class PatternsPage extends Component {
       <Page>
         <PatternsHeader>
           <h2>Patterns</h2>
-          <p>Explore the design patterns that make up the Crux Design System.</p>
+          <p>
+            Explore the design patterns that make up the Crux Design System.
+          </p>
         </PatternsHeader>
         <ComponentBoard
           patterns={this.state.patterns}
