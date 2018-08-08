@@ -77,7 +77,7 @@ plugins:
           - source/_patterns/03-components/avatar
           - source/_patterns/03-components/basic-block
           - source/_patterns/03-components/blog-teaser
-          - source/_patterns/03-components/buttons
+          - source/_patterns/03-components/button
           - source/_patterns/03-components/cta
           - source/_patterns/03-components/exec-bio
           - source/_patterns/03-components/forms
