@@ -21,7 +21,9 @@ const DosAndDonts = props => (
     {props.title && <h4>{props.title}</h4>}
     {props.description && <p>{props.description}</p>}
     <DoesAndDontsWrapper>
-      {props.items.map(item => <DosAndDontsPanel item={item} />)}
+      {props.items.map(item => (
+        <DosAndDontsPanel key={item.image} item={item} />
+      ))}
     </DoesAndDontsWrapper>
   </div>
 );

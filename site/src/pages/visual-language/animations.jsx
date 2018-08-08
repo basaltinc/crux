@@ -6,6 +6,9 @@ import ApiDemo from '../../bedrock/components/api-demo';
 import VisualLanguagePage from '../../templates/visual-language-page';
 import { TwoUp } from '../../bedrock/components/atoms';
 import Spinner from '../../bedrock/components/spinner';
+import DosAndDonts from '../../bedrock/components/dos-and-donts';
+import spinnerDo from '../../../../images/dos-and-donts/spinner/spinner-dont.png';
+import spinnerDont from '../../../../images/dos-and-donts/spinner/spinner-do.png';
 
 const DemoTransition = styled.div`
   background: #ddd;
@@ -165,6 +168,21 @@ class AnimationsPage extends React.Component {
           title="Animations API"
           endpoint={`${apiUrlBase}/transitions`}
           requestType={'get'}
+        />
+        <DosAndDonts
+          items={[
+            {
+              image: spinnerDo,
+              caption: 'add text to the spinner.',
+              do: false,
+            },
+            {
+              title: 'Do Example',
+              image: spinnerDont,
+              caption: "let the spinner convey it's meaning.",
+              do: true,
+            },
+          ]}
         />
       </VisualLanguagePage>
     );

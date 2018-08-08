@@ -116,7 +116,7 @@ ApiDemo.defaultProps = {
   title: 'API',
   querySchema: null,
   queryData: {},
-  requestType: 'GET',
+  requestType: 'get',
 };
 
 ApiDemo.propTypes = {
