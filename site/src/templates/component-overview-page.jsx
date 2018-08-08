@@ -52,7 +52,12 @@ class ComponentOverviewPage extends Component {
             data={this.props.data}
           />
           {this.props.dosAndDonts.map(item => (
-            <DosAndDonts title={item.title} items={item.items} />
+            // @todo title is not a required prop, so we need to fix this key structure
+            <DosAndDonts
+              key={item.title}
+              title={item.title}
+              items={item.items}
+            />
           ))}
         </article>
       );

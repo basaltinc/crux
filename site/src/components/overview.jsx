@@ -318,7 +318,7 @@ Overview.propTypes = {
   schema: PropTypes.object.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
   isPropsTableOpen: PropTypes.bool,
-  size: PropTypes.oneOf(sizes),
+  size: PropTypes.oneOf([{ ...sizes }]),
 };
 
 export default Overview;

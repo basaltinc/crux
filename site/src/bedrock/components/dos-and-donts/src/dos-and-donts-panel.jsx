@@ -18,7 +18,7 @@ const DosAndDontsPanelStyled = styled.figure`
 
 export default function DosAndDontsPanel(props) {
   return (
-    <DosAndDontsPanelStyled key={props.item.image} do={props.item.do}>
+    <DosAndDontsPanelStyled do={props.item.do}>
       <img alt="" src={props.item.image} />
       <figcaption>
         <b>{props.item.do ? 'Do: ' : "Don't: "}</b>

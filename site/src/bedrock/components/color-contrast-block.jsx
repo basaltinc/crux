@@ -46,6 +46,16 @@ const Ratio = styled.span`
   padding: 0.35rem 1rem;
 `;
 
+const LargeText = styled.h3`
+  font-weight: bold;
+  color: ${props => props.color};
+`;
+
+const SmallText = styled.h5`
+  color: ${props => props.color};
+  font-weight: normal;
+`;
+
 class ColorContrastBlock extends React.Component {
   constructor(props) {
     super(props);
@@ -139,14 +149,12 @@ class ColorContrastBlock extends React.Component {
           </SelectStyledWrapper>
         </AccessabilityDropdowns>
         <ColorContrastPlayground bgColor={this.state.bgColor}>
-          <h3
-            contentEditable
-            style={{
-              color: this.state.textColor,
-            }}
-          >
-            Test Your Colors Here
-          </h3>
+          <LargeText color={this.state.textColor}>
+            Large Text looks like this
+          </LargeText>
+          <SmallText color={this.state.textColor}>
+            small text looks like this
+          </SmallText>
         </ColorContrastPlayground>
         <AccessibilityInfo>
           <p>
