@@ -82,7 +82,7 @@ const DemoLogoBox = styled.div`
 
 function downloadTiles() {
   return logos.map(logo => (
-    <DemoLogoBox>
+    <DemoLogoBox key={logo.fileName}>
       <p>
         <b>{logo.fileName}</b>
       </p>

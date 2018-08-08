@@ -151,7 +151,7 @@ class TabbedPanel extends Component {
       </div>
     ));
     return (
-      <div {...this.props} {...this.state}>
+      <div>
         <div
           style={{
             margin: '0 0 -3px',

@@ -28,6 +28,7 @@ class CodeBlock extends Component {
             <code
               onKeyUp={event => handleTyping(event.target.innerText)}
               contentEditable={isLive}
+              suppressContentEditableWarning
               role={'textbox'}
               tabIndex={0}
               style={{
@@ -50,12 +51,14 @@ class CodeBlock extends Component {
 }
 
 CodeBlock.propTypes = {
-  items: PropTypes.arrayOf({
-    name: PropTypes.string.isRequired,
-    language: PropTypes.string,
-    code: PropTypes.string.isRequired,
-    handleTyping: PropTypes.func,
-  }).isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      language: PropTypes.string,
+      code: PropTypes.string.isRequired,
+      handleTyping: PropTypes.func,
+    }),
+  ).isRequired,
 };
 
 export default CodeBlock;
