@@ -54,12 +54,36 @@ class TypographyPage extends React.Component {
       return <Spinner />;
     }
     const headings = [
-      { name: `<h1 contentEditable>${this.state.demo.title}</h1>` },
-      { name: `<h2 contentEditable>${this.state.demo.title}</h2>` },
-      { name: `<h3 contentEditable>${this.state.demo.title}</h3>` },
-      { name: `<h4 contentEditable>${this.state.demo.title}</h4>` },
-      { name: `<h5 contentEditable>${this.state.demo.title}</h5>` },
-      { name: `<h6 contentEditable>${this.state.demo.title}</h6>` },
+      {
+        name: `<h1 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h1>`,
+      },
+      {
+        name: `<h2 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h2>`,
+      },
+      {
+        name: `<h3 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h3>`,
+      },
+      {
+        name: `<h4 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h4>`,
+      },
+      {
+        name: `<h5 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h5>`,
+      },
+      {
+        name: `<h6 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h6>`,
+      },
     ]; // For headings demo below
     /* eslint-disable react/no-unescaped-entities */
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -84,6 +108,7 @@ class TypographyPage extends React.Component {
             </p>
             {this.state.fontSizes.map((fontSize, index) => (
               <div
+                key={fontSize.name}
                 style={{
                   fontSize: fontSize.value,
                   borderBottom: '1px dotted #CCC',
@@ -93,7 +118,11 @@ class TypographyPage extends React.Component {
                 }}
               >
                 <code>{fontSize.name}</code>: {fontSize.value} <br />
-                <blockquote className="demo-block__blockquote" contentEditable>
+                <blockquote
+                  className="demo-block__blockquote"
+                  contentEditable
+                  suppressContentEditableWarning
+                >
                   {this.state.demo.paragraph}
                 </blockquote>
               </div>
@@ -108,6 +137,7 @@ class TypographyPage extends React.Component {
             <ul className="demo-tabs">
               {this.state.fontFamilies.map(fontFamily => (
                 <li
+                  key={fontFamily.name}
                   onClick={() =>
                     this.setState({ selectedFontFamily: fontFamily })
                   }
@@ -146,6 +176,7 @@ class TypographyPage extends React.Component {
                       fontSize: '1.5rem',
                     }}
                     contentEditable
+                    suppressContentEditableWarning
                   >
                     {this.state.demo.paragraph}
                   </p>
@@ -155,6 +186,7 @@ class TypographyPage extends React.Component {
                       fontSize: '1.25rem',
                     }}
                     contentEditable
+                    suppressContentEditableWarning
                   >
                     {this.state.demo.paragraph}
                   </blockquote>
@@ -166,12 +198,12 @@ class TypographyPage extends React.Component {
                       marginTop: '30px',
                     }}
                   >
-                    <ul contentEditable>
+                    <ul contentEditable suppressContentEditableWarning>
                       <li>{this.state.demo.text}</li>
                       <li>{this.state.demo.title}</li>
                       <li>{this.state.demo.paragraph}</li>
                     </ul>
-                    <ol contentEditable>
+                    <ol contentEditable suppressContentEditableWarning>
                       <li>{this.state.demo.text}</li>
                       <li>{this.state.demo.title}</li>
                       <li>{this.state.demo.paragraph}</li>
@@ -189,6 +221,7 @@ class TypographyPage extends React.Component {
             </p>
             {headings.map((item, index) => (
               <div
+                key={item.name}
                 style={{
                   borderBottom:
                     headings.length !== index + 1 ? '1px dotted #CCC' : '',
@@ -206,15 +239,13 @@ class TypographyPage extends React.Component {
           <ApiDemo
             title={'Font Sizes API'}
             endpoint={`${apiUrlBase}/font-sizes`}
-            querySchema=""
-            requestType={'GET'}
+            requestType={'get'}
           />
           <br />
           <ApiDemo
             title={'Font Families API'}
             endpoint={`${apiUrlBase}/font-families`}
-            querySchema=""
-            requestType={'GET'}
+            requestType={'get'}
           />
         </div>
       </VisualLanguagePage>

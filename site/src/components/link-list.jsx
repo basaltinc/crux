@@ -32,7 +32,7 @@ LinkList.propTypes = {
     PropTypes.shape({
       name: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
+      path: PropTypes.string,
     }),
   ).isRequired,
 };

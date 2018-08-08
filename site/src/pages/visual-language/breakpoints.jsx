@@ -88,7 +88,7 @@ DeviceWidthList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      width: PropTypes.string.isRequired,
+      width: PropTypes.number.isRequired,
     }),
   ).isRequired,
 };
@@ -132,15 +132,13 @@ class BreakpointsPage extends React.Component {
         <ApiDemo
           title={'Breakpoints API'}
           endpoint={`${apiUrlBase}/breakpoints`}
-          querySchema=""
-          requestType={'GET'}
+          requestType={'get'}
         />
         <br />
         <ApiDemo
           title={'Device Widths API'}
           endpoint={`${apiUrlBase}/devicewidths`}
-          querySchema=""
-          requestType={'GET'}
+          requestType={'get'}
         />
       </VisualLanguagePage>
     );
