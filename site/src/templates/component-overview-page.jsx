@@ -7,9 +7,6 @@ import { apiUrlBase } from '../../config';
 import { VariationDemos } from '../bedrock/components/variation-demo';
 import ErrorCatcher from '../bedrock/components/error-catcher';
 import DosAndDonts from '../bedrock/components/dos-and-donts/src/dos-and-donts';
-import BugReport from '../bedrock/components/bug-report';
-import buttonDont from '../../../images/dos-and-donts/buttons/buttons-dont.png';
-import buttonDo from '../../../images/dos-and-donts/buttons/buttons-do.png';
 
 class ComponentOverviewPage extends Component {
   constructor(props) {
