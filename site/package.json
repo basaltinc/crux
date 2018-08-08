@@ -40,10 +40,10 @@
     "start": "npm-run-all --print-label --parallel watch:*",
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --ext .js,.jsx . --fix",
-    "test": "npm run lint",
+    "test": "yarn run lint",
     "watch:twig": "nodemon --watch ../pattern-lab/source/_patterns/ --ext twig --exec 'touch server.js' ",
     "watch:gatsby": "gatsby develop",
-    "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'npm run build:jsdoc'",
+    "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'yarn run build:jsdoc'",
     "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'npm-run-all --parallel build:apidoc serve' ",
     "serve": "babel-node server.js --presets env"
   },

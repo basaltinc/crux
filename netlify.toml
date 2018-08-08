@@ -1,6 +1,0 @@
-[build]
-  command = "npm test"
-  publish = ""
-
-[build.environment]
-  IN_NETLIFY = "yes"
