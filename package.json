@@ -11,7 +11,7 @@
     "test": "gulp validate && yarn run lint:js",
     "gulp": "gulp",
     "setup": "./setup.sh && cd site && yarn install",
-    "deploy": "now deploy --token=$NOW_TOKEN --team basalt --debug",
+    "deploy": "now deploy --token=$NOW_TOKEN --team basalt && echo ' ' ",
     "reset": "rm -rf node_modules build pattern-lab/vendor site/node_modules site/vendor site/public site/public2 site/.cache && yarn && npm run setup",
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "preinstall": "yarn run setup",
