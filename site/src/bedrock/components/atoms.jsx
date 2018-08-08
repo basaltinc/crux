@@ -27,3 +27,21 @@ export const TwoUp = styled.div`
     width: 48%;
   }
 `;
+
+export const SelectStyledWrapper = styled.div`
+  height: 33px;
+  overflow: hidden;
+  background-color: #cfe3de;
+  padding-right: 3px;
+  > select {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    height: 33px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+`;
