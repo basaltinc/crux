@@ -21,7 +21,7 @@ pipelines:
             - npm test
             - npm run compile
             - aws s3 sync ./ s3://design.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
-    feature/deploys:
+    epic/v2:
       - step:
           caches:
             - composer
@@ -31,14 +31,18 @@ pipelines:
             - yarn --version && npm --version && node --version && composer --version && php --version
             - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
             - yarn test
-            - yarn run deploy
+            - yarn run deploy:prod
   default:
     - step:
+        caches:
+        - composer
+        - node
+        - yarn
         script:
-          - yarn --version && npm --version && node --version && composer --version && php --version
-          - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
-          - npm test
-          - npm run compile
+        - yarn --version && npm --version && node --version && composer --version && php --version
+        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
+        - yarn test
+        - yarn run deploy
 
 definitions:
   caches:

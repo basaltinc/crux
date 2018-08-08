@@ -1,5 +1,6 @@
 {
   "name": "crux",
+  "alias": "crux",
   "type": "docker",
   "scale": {
     "sfo1": {
