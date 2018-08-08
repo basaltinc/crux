@@ -5,12 +5,16 @@ export const Details = styled.details`
   border-top: solid 1px grey;
   border-bottom: solid 1px grey;
   margin-bottom: 10px;
-  summary {
+  > summary {
     font-weight: bold;
-    font-size: 125%;
-  }
-  &:hover {
-    cursor: pointer;
+    font-size: 1.1rem;
+    &:hover {
+      cursor: pointer;
+    }
+    &:active,
+    &:focus {
+      outline: none;
+    }
   }
 `;
 

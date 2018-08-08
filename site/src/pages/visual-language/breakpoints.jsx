@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import VisualLanguagePage from '../../templates/visual-language-page';
 import { apiUrlBase } from '../../../config';
+import ApiDemo from '../../bedrock/components/api-demo';
 
 const BreakpointListItem = styled.li`
   left: ${props => props.left};
@@ -47,7 +48,7 @@ const BreakpointsWrapper = styled.div`
   }
 `;
 
-const breakpoints = items =>
+const BreakpointsItems = items =>
   items.map(item => (
     <BreakpointListItem key={item.name} left={item.value}>
       <span className={'label'}>
@@ -58,7 +59,7 @@ const breakpoints = items =>
   ));
 
 const BreakpointList = ({ items }) => (
-  <ul className={'breakpoints'}>{breakpoints(items)}</ul>
+  <ul className={'breakpoints'}>{BreakpointsItems(items)}</ul>
 );
 
 BreakpointList.propTypes = {
@@ -70,7 +71,7 @@ BreakpointList.propTypes = {
   ).isRequired,
 };
 
-const deviceWidths = items =>
+const DeviceWidthsItems = items =>
   items.map(item => (
     <DeviceListItem key={item.name} width={item.width}>
       <span className={'label'}>
@@ -80,7 +81,7 @@ const deviceWidths = items =>
   ));
 
 const DeviceWidthList = ({ items }) => (
-  <DeviceWidthUl>{deviceWidths(items)}</DeviceWidthUl>
+  <DeviceWidthUl>{DeviceWidthsItems(items)}</DeviceWidthUl>
 );
 
 DeviceWidthList.propTypes = {
@@ -96,8 +97,8 @@ class BreakpointsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bp: [],
-      dw: [],
+      breakpoints: [],
+      deviceWidths: [],
     };
   }
 
@@ -105,14 +106,14 @@ class BreakpointsPage extends React.Component {
     window
       .fetch(`${apiUrlBase}/breakpoints`)
       .then(res => res.json())
-      .then(bp => {
-        this.setState({ bp });
+      .then(breakpoints => {
+        this.setState({ breakpoints });
       });
     window
       .fetch(`${apiUrlBase}/devicewidths`)
       .then(res => res.json())
-      .then(dw => {
-        this.setState({ dw });
+      .then(deviceWidths => {
+        this.setState({ deviceWidths });
       });
   }
 
@@ -123,13 +124,24 @@ class BreakpointsPage extends React.Component {
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Breakpoints</h2>
           <BreakpointsWrapper>
-            <BreakpointList items={this.state.bp} />
-            <DeviceWidthList items={this.state.dw} />
+            <BreakpointList items={this.state.breakpoints} />
+            <DeviceWidthList items={this.state.deviceWidths} />
           </BreakpointsWrapper>
-          {/* <pre> */}
-          {/* <code>{JSON.stringify(this.state.breakpoints, null, '  ')}</code> */}
-          {/* </pre> */}
         </div>
+        <br />
+        <ApiDemo
+          title={'Breakpoints API'}
+          endpoint={`${apiUrlBase}/breakpoints`}
+          querySchema=""
+          requestType={'GET'}
+        />
+        <br />
+        <ApiDemo
+          title={'Device Widths API'}
+          endpoint={`${apiUrlBase}/devicewidths`}
+          querySchema=""
+          requestType={'GET'}
+        />
       </VisualLanguagePage>
     );
   }

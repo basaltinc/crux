@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { convertColor } from '../packages/utils';
+import { Details } from './atoms';
 
 const ColorContrastPlayground = styled.div`
   width: 100%;
@@ -32,7 +33,7 @@ const AccessibilityResults = styled.span`
   background-color: ${props => (props.pass === 'pass' ? 'green' : 'red')};
   color: white;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 0;
   font-weight: bold;
   display: inline;
   padding: 0.35rem 0.75rem;
@@ -42,7 +43,7 @@ const Ratio = styled.span`
   border: 1px solid ${props => (props.ratio > '4.5' ? 'green' : 'red')};
   color: ${props => (props.ratio > '4.5' ? 'green' : 'red')};
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 0;
   font-weight: bold;
   display: inline;
   padding: 0.35rem 1rem;
@@ -80,7 +81,6 @@ class ColorContrastBlock extends React.Component {
       .fetch(url)
       .then(res => res.json())
       .then(results => {
-        console.log(results);
         this.setState({
           contrast: {
             aa: results.AA,
@@ -179,7 +179,8 @@ class ColorContrastBlock extends React.Component {
             </Ratio>
           </p>
         </AccessibilityInfo>
-        <details>
+        <br />
+        <Details>
           <summary>WCAG Details</summary>
           <p>
             <a href={'https://www.w3.org/TR/WCAG20/'} target={'blank'}>
@@ -190,7 +191,8 @@ class ColorContrastBlock extends React.Component {
             must be greater than 7:1 and large text ratio must be greater than
             4.5:1. Large text is defined as anything 14pt bold or higher.
           </p>
-        </details>
+        </Details>
+        <br />
       </div>
     );
   }
