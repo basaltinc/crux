@@ -1,10 +1,9 @@
 import React from 'react';
-
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 
 import VisualLanguagePage from '../../templates/visual-language-page';
 import Spinner from '../../bedrock/components/spinner';
-import copyIcon from '../../../../images/svgs/copy.svg';
 import { apiUrlBase } from '../../../config';
 
 import './demos.css';
@@ -131,13 +130,34 @@ class TypographyPage extends React.Component {
                   fontFamily: this.state.selectedFontFamily.value,
                 }}
               >
-                <div className="demo-vars">
-                  <div className="copy-this">
-                    <img src={copyIcon} alt="Copy" title="Copy!" />
+                <div
+                  className="demo-vars"
+                  style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                  <div>
+                    <code>{this.state.selectedFontFamily.name}</code>
+                    {': '}
+                    {this.state.selectedFontFamily.value}
                   </div>
-                  <code>{this.state.selectedFontFamily.name}</code>
-                  {': '}
-                  {this.state.selectedFontFamily.value}
+                  <CopyToClipboard
+                    text={this.state.selectedFontFamily.name}
+                    onCopy={() =>
+                      window.alert(
+                        `${
+                          this.state.selectedFontFamily.name
+                        } copied to clipboard`,
+                      )
+                    }
+                  >
+                    <svg
+                      width="26"
+                      height="26"
+                      viewBox="0 0 1792 1792"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M1696 384q40 0 68 28t28 68v1216q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-288h-544q-40 0-68-28t-28-68v-672q0-40 20-88t48-76l408-408q28-28 76-48t88-20h416q40 0 68 28t28 68v328q68-40 128-40h416zm-544 213l-299 299h299v-299zm-640-384l-299 299h299v-299zm196 647l316-316v-416h-384v416q0 40-28 68t-68 28h-416v640h512v-256q0-40 20-88t48-76zm956 804v-1152h-384v416q0 40-28 68t-68 28h-416v640h896z" />
+                    </svg>
+                  </CopyToClipboard>
                 </div>
                 <div className="demo-stage">
                   <p
