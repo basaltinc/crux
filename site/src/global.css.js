@@ -15,7 +15,7 @@ injectGlobal`
   --transition-function: ease-in;
   
   // borders
-  --border-radius: 7px;
+  --border-radius: 0;
   --border-color: #CCC;
   
   // colors
@@ -42,6 +42,7 @@ injectGlobal`
   pre > code {
     white-space: pre-wrap !important;
     word-wrap: break-word !important;
+    border-radius: 0;
   }
   
   .eyebrow {

@@ -83,6 +83,7 @@ class ApiDemo extends React.Component {
               <SchemaForm
                 schema={this.props.querySchema}
                 onChange={this.handleFormUpdate}
+                g
                 formData={this.state.queryData}
                 //              @todo find a way to dynamically set radio button ui regardless of propKey
                 uiSchema={{

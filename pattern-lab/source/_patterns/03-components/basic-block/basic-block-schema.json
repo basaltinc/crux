@@ -5,9 +5,12 @@
   "description": "A block with a title, text, and CTA.",
   "properties": {
     "title": {
-      "type": "string"
+      "title": "Title",
+      "type": "string",
+      "description": "Block title."
     },
     "content": {
+      "title": "Content",
       "type": "string",
       "description": "Can use HTML."
     },
