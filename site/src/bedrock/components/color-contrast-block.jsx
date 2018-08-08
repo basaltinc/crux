@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { convertColor } from '../packages/utils';
-import { Details } from './atoms';
+import { Details, SelectStyledWrapper } from './atoms';
 
 const ColorContrastPlayground = styled.div`
   width: 100%;
@@ -13,13 +13,10 @@ const ColorContrastPlayground = styled.div`
   background-color: ${props => (props.bgColor ? props.bgColor : 'none')};
 `;
 
-const RightLabel = styled.label`
-  text-align: right;
-  margin-left: 1rem;
-`;
-
-const LeftLabel = styled.label`
-  text-align: left;
+const AccessabilityDropdowns = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 `;
 
 const AccessibilityInfo = styled.div`
@@ -117,26 +114,28 @@ class ColorContrastBlock extends React.Component {
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
-        <LeftLabel>
+        <AccessabilityDropdowns>
           Background Color:
-          <select
-            value={this.state.bgColor}
-            onChange={event => this.handleChange('bgColor', event.target.value)}
-          >
-            {bgColors}
-          </select>
-        </LeftLabel>
-        <RightLabel>
+          <SelectStyledWrapper>
+            <select
+              value={this.state.bgColor}
+              onChange={event => this.handleChange('bgColor', event.target.value)}
+            >
+              {bgColors}
+            </select>
+          </SelectStyledWrapper>
           Text Color:
-          <select
-            value={this.state.textColor}
-            onChange={event =>
-              this.handleChange('textColor', event.target.value)
-            }
-          >
-            {textColors}
-          </select>
-        </RightLabel>
+          <SelectStyledWrapper>
+            <select
+              value={this.state.textColor}
+              onChange={event =>
+                this.handleChange('textColor', event.target.value)
+              }
+            >
+              {textColors}
+            </select>
+          </SelectStyledWrapper>
+        </AccessabilityDropdowns>
         <ColorContrastPlayground bgColor={this.state.bgColor}>
           <h3
             contentEditable

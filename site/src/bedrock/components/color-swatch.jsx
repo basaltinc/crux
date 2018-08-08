@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { convertColor } from '../packages/utils';
+import { SelectStyledWrapper } from './atoms';
 
 const OuterSwatch = styled.div`
   width: 49%;
@@ -17,10 +18,10 @@ const InnerSwatch = styled.div`
   border: dashed 1px grey;
 `;
 
-const RightLabel = styled.label`
-  text-align: right;
-  margin-left: 1rem;
-  display: block;
+const RightLabel = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 `;
 
 const SwatchesWrapper = styled.div`
@@ -92,12 +93,14 @@ class ColorSwatches extends Component {
       <div>
         <RightLabel>
           Color Format:
-          <select
-            value={this.state.value}
-            onChange={event => this.setState({ format: event.target.value })}
-          >
-            {options}
-          </select>
+          <SelectStyledWrapper>
+            <select
+              value={this.state.value}
+              onChange={event => this.setState({ format: event.target.value })}
+            >
+              {options}
+            </select>
+          </SelectStyledWrapper>
         </RightLabel>
         <SwatchesWrapper>{colorSwatches}</SwatchesWrapper>
       </div>
