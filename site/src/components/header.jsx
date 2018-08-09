@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link'; // eslint-disable-line
+import NavLink from 'gatsby-link'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -26,7 +26,7 @@ const SiteHeaderBrandWrapper = styled.div`
   padding-left: 20px;
 `;
 
-const SiteHeaderLink = styled(Link)`
+const SiteHeaderLink = styled(NavLink)`
   color: white !important; // needed to overwrite generic styles coming from the design system css cascade
   text-decoration: none !important;
 `;

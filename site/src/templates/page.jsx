@@ -15,16 +15,16 @@ const MainStyled = styled.main`
 `;
 
 const PageContentStyled = styled.div`
-  padding: 2rem 1rem;
+  padding: 2rem;
   flex-grow: 1;
 `;
 
 const SidebarStyled = styled.div`
-  width: 20%;
+  width: 10%;
   flex-grow: 0;
   flex-shrink: 0;
   min-width: 300px;
-  max-width: 450px;
+  max-width: 350px;
   padding: 2rem;
   border-right: solid 1px black;
   h4 {
@@ -39,7 +39,6 @@ const SidebarStyled = styled.div`
 
 const SidebarOneStyled = SidebarStyled.extend`
   order: -1;
-  margin-right: 1rem;
   ${props =>
     props.sidebarOneOnTop
       ? `
