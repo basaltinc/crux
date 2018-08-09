@@ -13,6 +13,7 @@ export default () => (
         body: paragraph(),
         desc: title(),
         image_overlay: 'black',
+        alignment_all: 'left',
         image: image(),
         buttons: [
           {
