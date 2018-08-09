@@ -8,29 +8,44 @@ import LinkList from '../../components/link-list';
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [
   {
-    name: 'Colors',
+    title: 'Colors',
     id: 'colors',
     path: `/visual-language/colors`,
+    schema: {
+      description: ``,
+    },
   },
   {
-    name: 'Animations',
+    title: 'Animations',
     id: 'animations',
     path: `/visual-language/animations`,
+    schema: {
+      description: ``,
+    },
   },
   {
-    name: 'Spacings',
+    title: 'Spacings',
     id: 'spacings',
     path: '/visual-language/spacings',
+    schema: {
+      description: ``,
+    },
   },
   {
-    name: 'Breakpoints',
+    title: 'Breakpoints',
     id: 'breakpoints',
     path: '/visual-language/breakpoints',
+    schema: {
+      description: ``,
+    },
   },
   {
-    name: 'Typography',
+    title: 'Typography',
     id: 'typography',
     path: '/visual-language/typography',
+    schema: {
+      description: ``,
+    },
   },
 ];
 
@@ -56,7 +71,8 @@ class VisualLanguageLandingPage extends Component {
     return (
       <Page>
         <h2>Welcome to the Design System, Visual Language!</h2>
-        <LinkList items={perceptualPatternsList} />
+        {/* <LinkList items={perceptualPatternsList} /> */}
+        <ComponentBoard patterns={perceptualPatternsList} ready />
         <h3>Lets get a component board of visual language patterns</h3>
         <ComponentBoard
           patterns={this.state.patterns}

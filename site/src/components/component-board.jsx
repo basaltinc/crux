@@ -142,6 +142,7 @@ ComponentsBoard.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,
+      path: PropTypes.string,
     }),
   ).isRequired,
 };
