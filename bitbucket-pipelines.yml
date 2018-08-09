@@ -1,5 +1,8 @@
 image: basaltinc/docker-node-php-base
 
+options:
+  size: 2x  # all steps in this repo get 8GB memory
+
 pipelines:
   branches:
     master:
