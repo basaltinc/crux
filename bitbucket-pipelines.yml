@@ -54,7 +54,7 @@ pipelines:
         - step:
             name: Lint top level
             script:
-              - yarn run lint:js --ignore-scripts
+              - yarn --ignore-scripts run lint:js
               - ./node_modules/.bin/gulp validate
         - step:
             name: Lint site
