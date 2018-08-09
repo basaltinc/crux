@@ -6,30 +6,32 @@ import { getTypeColor } from '../../theme';
 
 const ShadowWrap = styled.div`
   position: relative;
-  border-radius: 7px;
+  border-radius: var(--border-radius);
   border-width: 1px 5px 1px 1px;
   border-style: solid;
   border-color: ${props => props.colorTheme};
-  &:after {
-    z-index: -1;
-    position: absolute;
-    content: '';
-    bottom: 15px;
-    right: 10px;
-    width: 50%;
-    top: 80%;
-    max-width: 300px;
-    background: ${props => props.colorTheme};
-    box-shadow: 0 15px 10px ${props => props.colorTheme};
-    transform: rotate(3deg);
-  }
+  // @todo We can bring this design element back in, 
+  // @todo but it needs to be consistent with the rest of the site
+  // &:after {
+  //   z-index: -1;
+  //   position: absolute;
+  //   content: '';
+  //   bottom: 15px;
+  //   right: 10px;
+  //   width: 50%;
+  //   top: 80%;
+  //   max-width: 300px;
+  //   background: ${props => props.colorTheme};
+  //   box-shadow: 0 15px 10px ${props => props.colorTheme};
+  //   transform: rotate(3deg);
+  // }
 `;
 
 const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
   display: flex;
   padding: 30px;
   line-height: 1;
@@ -42,7 +44,7 @@ const HeaderRegion = styled.div`
 
 const DemoStage = styled.div`
   background: #fff;
-  border-radius: 7px;
+  border-radius: var(--border-radius);
   padding: ${props => props.bleed};
 `;
 

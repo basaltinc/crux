@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link'; // eslint-disable-line
+import NavLink from 'gatsby-link'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -11,13 +11,27 @@ const SiteHeaderWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 0;
+  font-family: AvenirMedium;
   ul {
     list-style: none;
     display: flex;
     margin: 0;
     li {
-      padding-right: 20px;
+      position: relative;
+      padding-right: 45px;
       margin: 0;
+    }
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
+  a[aria-current='page'] {
+    font-weight: bold;
+    &:before {
+      color: #ffffff;
+      content: '>';
+      position: absolute;
+      left: -15px;
     }
   }
 `;
@@ -26,9 +40,11 @@ const SiteHeaderBrandWrapper = styled.div`
   padding-left: 20px;
 `;
 
-const SiteHeaderLink = styled(Link)`
-  color: white !important; // needed to overwrite generic styles coming from the design system css cascade
-  text-decoration: none !important;
+const SiteHeaderLink = styled(NavLink)`
+  && {
+    color: white;
+    text-decoration: none;
+  }
 `;
 
 const Header = ({ siteTitle }) => (

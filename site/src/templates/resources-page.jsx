@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Page from './page';
 import LinkList from '../components/link-list';
+import { TypeToFilterWrapper } from '../bedrock/components/atoms';
 // import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
@@ -36,6 +37,11 @@ const resourcesList = [
     id: 'sketch',
     isHeading: true,
   },
+  {
+    name: 'Coming Soon...',
+    id: 'coming-soon',
+    path: '#',
+  },
 ];
 
 class ResourcesPage extends Component {
@@ -67,12 +73,14 @@ class ResourcesPage extends Component {
     return (
       <div>
         <LinkList items={this.state.filteredList} />
-        <input
-          type="text"
-          className="type-to-filter"
-          placeholder="Type to filter..."
-          onChange={this.handleFilterList}
-        />
+        <TypeToFilterWrapper>
+          <input
+            type="text"
+            className="type-to-filter"
+            placeholder="Type to filter..."
+            onChange={this.handleFilterList}
+          />
+        </TypeToFilterWrapper>
       </div>
     );
   }

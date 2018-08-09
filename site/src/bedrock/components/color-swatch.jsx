@@ -75,7 +75,7 @@ class ColorSwatches extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      format: 'hsl',
+      format: 'hex',
     };
   }
 
