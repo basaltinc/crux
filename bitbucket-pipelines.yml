@@ -37,6 +37,7 @@ pipelines:
             - yarn run deploy:prod
   default:
     - step:
+        name: Install & Build
         caches:
         - composer
         - node
@@ -47,7 +48,6 @@ pipelines:
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
-        - yarn test
         artifacts:
           - '**'
     - parallel:
@@ -65,13 +65,13 @@ pipelines:
        deployment: test   # can be test, staging or production
        # trigger: manual  # uncomment to make manual deployment
        script:
-         - yarn run deploy
+         - yarn run deploy:test
     - step:
-        name: Deploy to stagin
+        name: Deploy to staging
         deployment: staging   # can be test, staging or production
         trigger: manual
         script:
-         - yarn run deploy
+         - yarn run deploy:staging
     - step:
         name: Deploy to production
         deployment: production   # can be test, staging or production
