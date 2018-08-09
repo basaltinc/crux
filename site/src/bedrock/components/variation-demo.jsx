@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Checkerboard } from './atoms';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faPlusCircle,
-  faMinusCircle,
   faEllipsisH,
   faEllipsisV,
 } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +10,7 @@ import {
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
 import TabbedPanel from './tabbed-panel';
+import { Checkerboard } from './atoms';
 import { getTypeColor } from '../../theme';
 
 const VariationsWrapper = styled.div`
@@ -152,6 +150,7 @@ class VariationDemo extends Component {
             </div>
           )}
           <div
+            role="button"
             onClick={() => this.setState({ expanded: !this.state.expanded })}
             style={{
               cursor: 'pointer',
