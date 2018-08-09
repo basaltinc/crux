@@ -6,6 +6,10 @@ import { getTypeColor } from '../../theme';
 
 const ShadowWrap = styled.div`
   position: relative;
+  border-radius: 7px;
+  border-width: 1px 5px 1px 1px;
+  border-style: solid;
+  border-color: ${props => props.colorTheme};
   &:after {
     z-index: -1;
     position: absolute;
@@ -22,8 +26,8 @@ const ShadowWrap = styled.div`
 `;
 
 const HeaderRegion = styled.div`
-  border: 1px solid ${props => props.colorTheme};
-  border-right: 5px solid ${props => props.colorTheme};
+  background: ${props => props.colorThemeAccent};
+  border-bottom: 10px solid ${props => props.colorTheme};
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
   display: flex;
@@ -31,19 +35,15 @@ const HeaderRegion = styled.div`
   line-height: 1;
   position: relative;
   code {
-    color: ${props => props.colorTheme};
-    background: ${props => props.colorThemeAccent};
+    color: #fff;
+    background: ${props => props.colorTheme};
   }
 `;
 
 const DemoStage = styled.div`
   background: #fff;
-  border-width: 9px 5px 1px 1px;
-  border-style: solid;
-  border-color: ${props => props.colorTheme};
-  border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 7px;
-  padding: 30px;
+  border-radius: 7px;
+  padding: ${props => props.bleed};
 `;
 
 const FooterRegion = styled.div`
@@ -94,6 +94,8 @@ class TabbedPanel extends Component {
             color: this.state.activeId === item.id ? colorTheme : 'black',
             cursor: 'pointer',
             userSelect: 'none',
+            zIndex: this.state.activeId === item.id ? 1 : 0,
+            fontWeight: this.state.activeId === item.id ? 'bold' : 'normal',
           }}
         >
           {isPropVariation ? item.children.props.prop.title : item.title}
@@ -117,7 +119,7 @@ class TabbedPanel extends Component {
           </HeaderRegion>
         )}
         {item.children && (
-          <DemoStage colorTheme={colorTheme}>
+          <DemoStage colorTheme={colorTheme} bleed={this.props.bleed}>
             {item.children}
             {item.notes && (
               <FooterRegion colorTheme={colorTheme}>
@@ -149,6 +151,7 @@ class TabbedPanel extends Component {
 TabbedPanel.defaultProps = {
   color: 'none',
   type: 'none',
+  bleed: '30px',
 };
 
 TabbedPanel.propTypes = {
@@ -162,6 +165,7 @@ TabbedPanel.propTypes = {
     }),
   ).isRequired,
   color: PropTypes.string,
+  bleed: PropTypes.string,
 };
 
 export default TabbedPanel;

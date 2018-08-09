@@ -1,15 +1,49 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
 import TabbedPanel from './tabbed-panel';
+import { Checkerboard } from './atoms';
+import { getTypeColor } from '../../theme';
 
 const VariationsWrapper = styled.div`
   margin: 2rem 0;
   .form-group > div:first-child {
     display: none;
+  }
+`;
+
+const HeaderRegion = styled.div`
+  background: ${props => props.colorThemeAccent};
+  border-bottom: 10px solid ${props => props.colorTheme};
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  padding: 30px;
+  line-height: 1;
+  position: relative;
+  h5 {
+    color: ${props => props.colorTheme};
+  }
+`;
+
+const FooterRegion = styled.div`
+  border-top: 1px solid ${props => props.colorTheme};
+  padding: 18px 15px 15px;
+  summary {
+    color: ${props => props.colorTheme};
+    outline: none;
+    user-select: none;
+    font-weight: bold;
+  }
+  details[open] summary {
+    color: #000;
+  }
+  pre {
+    margin: 0;
   }
 `;
 
@@ -33,6 +67,8 @@ class VariationDemo extends Component {
 
   render() {
     const { prop, propKey } = this.props;
+    const colorTheme = `var(${getTypeColor(this.props.color)})`;
+    const colorThemeAccent = `var(${getTypeColor(this.props.color, 'accent')})`;
     const formSchema = {
       type: 'object',
       properties: {
@@ -51,7 +87,6 @@ class VariationDemo extends Component {
         return (
           <div
             style={{
-              borderBottom: 'solid 1px #ccc',
               paddingBottom: '10px',
               marginBottom: '10px',
             }}
@@ -62,51 +97,88 @@ class VariationDemo extends Component {
                 {typeof item === 'boolean' ? JSON.stringify(item) : item}
               </code>
             </h4>
-            <Twig template={this.props.template} data={itemData} />
+            <Checkerboard bleed="20px">
+              <Twig template={this.props.template} data={itemData} />
+            </Checkerboard>
           </div>
         );
       });
     } else {
       content = (
         <div>
-          <SchemaForm
-            schema={formSchema}
-            onChange={this.handleChange}
-            formData={this.state.data}
-            inline
-            uiSchema={{
-              [propKey]: {
-                'ui:widget': 'radio',
-              },
+          <div
+            style={{
+              borderBottom: `1px solid ${colorTheme}`,
             }}
-          />
-          <br />
-          <Twig template={this.props.template} data={this.state.data} />
+          >
+            <SchemaForm
+              schema={formSchema}
+              onChange={this.handleChange}
+              formData={this.state.data}
+              inline
+              uiSchema={{
+                [propKey]: {
+                  'ui:widget': 'radio',
+                },
+              }}
+            />
+          </div>
+          <Checkerboard bleed="20px">
+            <Twig
+              template={this.props.template}
+              showDataUsed={false}
+              data={this.state.data}
+            />
+          </Checkerboard>
         </div>
       );
     }
 
-    const title = prop.title || propKey;
     return (
-      <div
-        style={{
-          border: 'dotted blue 1px',
-          padding: '5px',
-          margin: '5px',
-        }}
-      >
-        <h5>Property: {title}</h5>
-        {prop.description && <p>Description: {prop.description}</p>}
-        <button
-          className="button button--color-blue--light button--size-small"
-          onClick={() => this.setState({ expanded: !this.state.expanded })}
+      <div>
+        <HeaderRegion
+          colorTheme={colorTheme}
+          colorThemeAccent={colorThemeAccent}
         >
-          {(this.state.expanded && 'Hide All Variations') ||
-            'Show All Variations'}
-        </button>
-        <br />
-        <br />
+          {prop.description && (
+            <div>
+              <h5>Description</h5>
+              <p>{prop.description}</p>
+            </div>
+          )}
+          <div
+            style={{
+              cursor: 'pointer',
+              position: 'absolute',
+              color: colorTheme,
+              fontWeight: 'bold',
+              display: 'inline-block',
+              right: '15px',
+              bottom: '15px',
+            }}
+          >
+            <FontAwesomeIcon
+              role="button"
+              onClick={() => this.setState({ expanded: !this.state.expanded })}
+              icon={this.state.expanded ? faEllipsisH : faEllipsisV}
+              size="lg"
+            />
+          </div>
+        </HeaderRegion>
         <div>{content}</div>
+        <FooterRegion
+          colorTheme={colorTheme}
+          style={{
+            display: this.state.expanded ? 'none' : 'block',
+          }}
+        >
+          <details>
+            <summary>Data Used</summary>
+            <pre>
+              <code>{JSON.stringify(this.props.data, null, '  ')}</code>
+            </pre>
+          </details>
+        </FooterRegion>
       </div>
     );
   }
@@ -115,6 +187,7 @@ class VariationDemo extends Component {
 VariationDemo.defaultProps = {
   data: {},
   expanded: false,
+  color: 'component',
 };
 
 VariationDemo.propTypes = {
@@ -128,6 +201,7 @@ VariationDemo.propTypes = {
     enum: PropTypes.array,
   }).isRequired,
   expanded: PropTypes.bool,
+  color: PropTypes.string,
 };
 
 export default VariationDemo;
@@ -170,7 +244,7 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
         radio buttons, or press &quot;Show All Variations&quot; to see all
         variations side by side.
       </p>
-      <TabbedPanel items={variations} />
+      <TabbedPanel color="component" bleed="0" items={variations} />
     </VariationsWrapper>
   );
 };
