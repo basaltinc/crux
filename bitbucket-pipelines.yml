@@ -30,9 +30,12 @@ pipelines:
             - composer
             - node
             - yarn
+            - siteNode
+            - siteVendor
+            - plVendor
           script:
             - yarn --version && npm --version && node --version && composer --version && php --version
-            - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
+            - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
             - yarn test
             - yarn run deploy:prod
   default:
@@ -41,10 +44,15 @@ pipelines:
         - composer
         - node
         - yarn
+        - siteNode
+        - siteVendor
+        - plVendor
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
-        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
+        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
         - yarn test
+        artifacts:
+          - '**'
     - step:
        name: Deploy to test
        deployment: test   # can be test, staging or production
@@ -55,3 +63,6 @@ pipelines:
 definitions:
   caches:
     yarn: $HOME/.yarn-cache
+    siteNode: site/node_modules
+    siteVendor: site/vendor
+    plVendor: pattern-lab/vendor

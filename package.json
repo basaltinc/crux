@@ -10,7 +10,7 @@
     "gatsby:compile": "cd site && yarn run build",
     "test": "gulp validate && yarn run lint:js",
     "gulp": "gulp",
-    "setup": "./setup.sh && cd site && yarn install",
+    "setup": "./setup.sh && cd site && yarn install --silent",
     "deploy": "now deploy --token=$NOW_TOKEN --team basalt && echo ' ' ",
     "deploy:prod": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias && echo ' ' ",
     "reset": "rm -rf node_modules build pattern-lab/vendor site/node_modules site/vendor site/public site/public2 site/.cache && yarn && npm run setup",
