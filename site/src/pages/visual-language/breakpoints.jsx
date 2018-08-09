@@ -8,19 +8,20 @@ import ApiDemo from '../../bedrock/components/api-demo';
 const BreakpointListItem = styled.li`
   left: ${props => props.left};
   position: absolute;
-  border-left: solid 3px hsl(0, 0%, 35%);
+  border-left: solid 3px hsl(0, 0%, 35%, 0.4);
   height: 100%;
   > .label {
     display: block;
-    background: hsl(0, 0%, 35%);
+    background: hsl(0, 0%, 35%, 0.4);
     padding: 3px;
     color: white;
   }
   &:hover {
     // stylelint-disable max-nesting-depth, selector-max-specificity
-    border-left-color: hsla(0, 0%, 35%, 0.3);
+    border-left-color: hsla(0, 0%, 35%);
+    z-index: 2;
     > .label {
-      opacity: 0;
+      background: hsl(0, 0%, 35%);
     }
     // stylelint-enable max-nesting-depth, selector-max-specificity
   }
@@ -38,11 +39,12 @@ const DeviceListItem = styled.li`
 const DeviceWidthUl = styled.ul`
   padding-top: 20px;
 `;
-
+// @todo this isn't really a longterm solution for the overflow (set max-width would ideally go away) but ... we couldn't figure out another way.
 const BreakpointsWrapper = styled.div`
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
   position: relative;
-  resize: horizontal;
+  max-width: 75vw;
   li {
     list-style-type: none;
   }
@@ -120,15 +122,14 @@ class BreakpointsPage extends React.Component {
   render() {
     return (
       <VisualLanguagePage className="docs">
-        <div className="body">
-          <h4 className="eyebrow">Visual Language</h4>
-          <h2>Breakpoints</h2>
-          <BreakpointsWrapper>
-            <BreakpointList items={this.state.breakpoints} />
-            <DeviceWidthList items={this.state.deviceWidths} />
-          </BreakpointsWrapper>
-        </div>
+        <h4 className="eyebrow">Visual Language</h4>
+        <h2>Breakpoints</h2>
+        <BreakpointsWrapper>
+          <BreakpointList items={this.state.breakpoints} />
+          <DeviceWidthList items={this.state.deviceWidths} />
+        </BreakpointsWrapper>
         <br />
+
         <ApiDemo
           title={'Breakpoints API'}
           endpoint={`${apiUrlBase}/breakpoints`}
