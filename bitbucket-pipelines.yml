@@ -45,7 +45,12 @@ pipelines:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
         - yarn test
-        - yarn run deploy
+    - step:
+       name: Deploy to test
+       deployment: test   # can be test, staging or production
+       # trigger: manual  # uncomment to make manual deployment
+       script:
+         - yarn run deploy
 
 definitions:
   caches:
