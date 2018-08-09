@@ -13,11 +13,12 @@ export const Checkerboard = styled.div`
   background-position: 0px 0px, 0px 10px, 10px -10px, -10px 0px;
   padding: ${props => props.bleed && props.bleed};
   > div {
-    border: 10px solid rgba(77, 77, 77, 0.15);
+    display: flex;
+    justify-content: center;
+    background-color: rgba(77, 77, 77, 0.15);
+    padding: 10px;
   }
 `;
-
-export default Checkerboard;
 
 export const Details = styled.details`
   padding: 7px 0;
