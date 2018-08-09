@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEllipsisH,
-  faEllipsisV,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
@@ -150,8 +147,6 @@ class VariationDemo extends Component {
             </div>
           )}
           <div
-            role="button"
-            onClick={() => this.setState({ expanded: !this.state.expanded })}
             style={{
               cursor: 'pointer',
               position: 'absolute',
@@ -163,6 +158,8 @@ class VariationDemo extends Component {
             }}
           >
             <FontAwesomeIcon
+              role="button"
+              onClick={() => this.setState({ expanded: !this.state.expanded })}
               icon={this.state.expanded ? faEllipsisH : faEllipsisV}
               size="lg"
             />
