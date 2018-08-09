@@ -12,6 +12,8 @@
     "gulp": "gulp",
     "setup": "./setup.sh && cd site && yarn install --silent",
     "deploy": "now deploy --token=$NOW_TOKEN --team basalt && echo ' ' ",
+    "deploy:test": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-test && echo ' ' ",
+    "deploy:staging": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-staging && echo ' ' ",
     "deploy:prod": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias && echo ' ' ",
     "docker:build": "docker build --tag crux .",
     "docker:run": "docker run --tty --rm crux",
