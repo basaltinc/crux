@@ -50,6 +50,7 @@ class VariationDemo extends Component {
         });
         return (
           <div
+            key={item.propKey}
             style={{
               borderBottom: 'solid 1px #ccc',
               paddingBottom: '10px',

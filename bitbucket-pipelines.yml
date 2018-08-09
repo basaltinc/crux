@@ -4,40 +4,9 @@ options:
   size: 2x  # all steps in this repo get 8GB memory
 
 pipelines:
-  branches:
-    master:
-      - step:
-          caches:
-            - composer
-            - node
-            - pip
-            - yarn
-          script:
-            - curl -o- -L https://yarnpkg.com/install.sh | bash -s
-            - export PATH=$HOME/.yarn/bin:$PATH
-            - yarn --version && npm --version && node --version && composer --version && php --version
-            - apt-get update && apt-get install -y python-dev
-            - curl -O https://bootstrap.pypa.io/get-pip.py
-            - python get-pip.py
-            - pip install awscli
-            - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
-            - npm test
-            - npm run compile
-            - aws s3 sync ./ s3://design.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
-    epic/v2:
-      - step:
-          caches:
-            - composer
-            - node
-            - yarn
-          script:
-            - yarn --version && npm --version && node --version && composer --version && php --version
-            - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
-            - yarn test
-            - yarn run deploy:prod
   default:
     - step:
-        name: Install & Build
+        name: Install
         caches:
         - composer
         - node
@@ -48,36 +17,110 @@ pipelines:
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
+        - yarn setup
         artifacts:
-          - '**'
+        - '**'
+    - step:
+        name: Build
+        caches:
+        - composer
+        - node
+        - yarn
+        - site-node
+        - site-vendor
+        - pl-vendor
+        script:
+        - yarn build
+        artifacts:
+        - '**'
     - parallel:
-        - step:
-            name: Lint top level
-            script:
-              - yarn --ignore-scripts run lint:js
-              - ./node_modules/.bin/gulp validate
-        - step:
-            name: Lint site
-            script:
-              - yarn run postlint:js
+      - step:
+          name: Lint top level
+          script:
+          - yarn lint:pl
+          - yarn lint:style
+      - step:
+          name: Lint site
+          script:
+          - yarn lint:site
     - step:
-       name: Deploy to test
-       deployment: test   # can be test, staging or production
-       # trigger: manual  # uncomment to make manual deployment
-       script:
-         - yarn run deploy:test
-    - step:
-        name: Deploy to staging
-        deployment: staging   # can be test, staging or production
-        trigger: manual
+        name: Deploy to test
+        deployment: test   # can be test, staging or production
+        # trigger: manual  # uncomment to make manual deployment
         script:
-         - yarn run deploy:staging
-    - step:
-        name: Deploy to production
-        deployment: production   # can be test, staging or production
-        trigger: manual
-        script:
-         - yarn run deploy:prod
+        - yarn run deploy:test
+
+  branches:
+      epic/v2:
+        - step:
+            name: Install
+            caches:
+              - composer
+              - node
+              - yarn
+              - site-node
+              - site-vendor
+              - pl-vendor
+            script:
+              - yarn --version && npm --version && node --version && composer --version && php --version
+              - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
+              - yarn setup
+            artifacts:
+              - '**'
+        - step:
+            name: Build
+            caches:
+              - composer
+              - node
+              - yarn
+              - site-node
+              - site-vendor
+              - pl-vendor
+            script:
+              - yarn build
+            artifacts:
+              - '**'
+        - parallel:
+            - step:
+                name: Lint top level
+                script:
+                  - yarn lint:pl
+                  - yarn lint:style
+            - step:
+                name: Lint site
+                script:
+                  - yarn lint:site
+        - step:
+            name: Deploy to staging
+            deployment: staging   # can be test, staging or production
+            script:
+             - yarn run deploy:staging
+        - step:
+            name: Deploy to production
+            deployment: production   # can be test, staging or production
+            trigger: manual
+            script:
+             - yarn run deploy:prod
+
+      master:
+        - step:
+            caches:
+              - composer
+              - node
+              - pip
+              - yarn
+            script:
+              - curl -o- -L https://yarnpkg.com/install.sh | bash -s
+              - export PATH=$HOME/.yarn/bin:$PATH
+              - yarn --version && npm --version && node --version && composer --version && php --version
+              - apt-get update && apt-get install -y python-dev
+              - curl -O https://bootstrap.pypa.io/get-pip.py
+              - python get-pip.py
+              - pip install awscli
+              - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
+              - npm test
+              - npm run compile
+              - aws s3 sync ./ s3://design.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
 
 definitions:
   caches:
