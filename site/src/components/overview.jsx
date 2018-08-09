@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Twig from './twig';
 import SchemaForm from '../bedrock/components/schema-form';
 import SchemaTable from '../bedrock/components/schema-table';
+import { SelectStyledWrapper } from '../bedrock/components/atoms';
 import CodeBlock from './code-block';
 
 const sizes = {
@@ -172,23 +173,24 @@ class Overview extends React.Component {
     //   </Resizable>
     // ));
     const sizeSelect = (
-      <select
-        onChange={event => this.setState({ size: event.target.value })}
-        value={this.state.size}
-      >
-        {Object.keys(sizes).map(key => (
-          <option value={sizes[key]} key={sizes[key]}>
-            {key}
-          </option>
-        ))}
-      </select>
+      <SelectStyledWrapper>
+        <select
+          onChange={event => this.setState({ size: event.target.value })}
+          value={this.state.size}
+        >
+          {Object.keys(sizes).map(key => (
+            <option value={sizes[key]} key={sizes[key]}>
+              {key}
+            </option>
+          ))}
+        </select>
+      </SelectStyledWrapper>
     );
 
     const dataString = JSON.stringify(this.state.data, null, '  ');
     const twigCodeExample = `
       {% include '${this.props.template}' with ${dataString} %}
     `;
-    console.log({ ...this.props.schema });
     return (
       <OverviewWrapper {...this.props} {...this.state}>
         <OverviewHeader>
@@ -316,7 +318,7 @@ Overview.propTypes = {
   schema: PropTypes.object.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
   isPropsTableOpen: PropTypes.bool,
-  size: PropTypes.oneOf(sizes),
+  size: PropTypes.oneOf([{ ...sizes }]),
 };
 
 export default Overview;

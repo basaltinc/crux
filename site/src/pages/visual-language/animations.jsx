@@ -2,14 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { apiUrlBase } from '../../../config';
+import ApiDemo from '../../bedrock/components/api-demo';
 import VisualLanguagePage from '../../templates/visual-language-page';
+import { TwoUp } from '../../bedrock/components/atoms';
+import Spinner from '../../bedrock/components/spinner';
+import DosAndDonts from '../../bedrock/components/dos-and-donts';
+import spinnerDo from '../../../../images/dos-and-donts/spinner/spinner-dont.png';
+import spinnerDont from '../../../../images/dos-and-donts/spinner/spinner-do.png';
 
 const DemoTransition = styled.div`
   background: #ddd;
   padding: 1em;
   margin-bottom: 1em;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   max-width: 800px;
 `;
@@ -69,16 +75,115 @@ class AnimationsPage extends React.Component {
             everywhere in the world. - Walt Disney
           </blockquote>
           <hr />
-          <DemoTransitionOpacity>
-            <strong>Opacity</strong> (Hover to see effect)
-          </DemoTransitionOpacity>
-          <DemoTransitionMove>
-            <strong>Move</strong> (Hover to see effect)
-          </DemoTransitionMove>
-          {/* <pre> */}
-          {/* <code>{JSON.stringify(this.state.transitions, null, '  ')}</code> */}
-          {/* </pre> */}
+          <h4>Purpose</h4>
+          <p>Animation is a fundamental component of any visual language.</p>
+          <ul>
+            <li>
+              <b>Focus</b> - Motion grabs the attention of the user and focuses
+              it on important aspect of the user interface
+            </li>
+            <li>
+              <b>Inform</b> - Animation informs the user in a number of ways.
+              For example, a spinner indicates that the system is working.
+            </li>
+            <li>
+              <b>Express</b> - Animation and motion are expressive and add
+              character and brand identity to a user interface.
+            </li>
+          </ul>
+          <br />
+          <h4>Opacity</h4>
+          <p>
+            Changes to opacity are an effective way of indicating that an
+            element can be interacted with through a click or key press.
+          </p>
+          <TwoUp>
+            <DemoTransitionOpacity>
+              <strong>Opacity</strong> (Hover to see effect)
+            </DemoTransitionOpacity>
+            <div
+              className="media-tile u-text-align-center"
+              data-linkto="#"
+              style={{
+                backgroundImage:
+                  'url(https://basalt-demo-data.netlify.com/basalt-brand-stock/julentto-photography-184055.jpg)',
+              }}
+            >
+              <div className="media-tile__content u-padding--l">
+                <h2 className="media-tile__title u-c-white h2">
+                  Hover over this Media Tile
+                </h2>
+                <div className="media-tile__body media-tile__body u-c-white">
+                  Hovering over this Media Tile will cause the opacity of the
+                  image overlay to transition to a more opaque color.
+                </div>
+              </div>
+            </div>
+          </TwoUp>
+          <br />
+          <h4>Movement</h4>
+          <p>
+            Movement is an effective way to communicate actions, changes to
+            application state, and draw the attention of a user.
+          </p>
+          <TwoUp>
+            <DemoTransitionMove>
+              <strong>Move</strong> (Hover to see effect)
+            </DemoTransitionMove>
+            <div>
+              <h5>Loading Spinner Example</h5>
+              <Spinner />
+            </div>
+          </TwoUp>
+          <h4>Sass/Scss Variables</h4>
+          <ul>
+            <li>
+              <code>$trans-opacity__time: 0.3s;</code>
+            </li>
+            <li>
+              <code>$trans-opacity__function: ease-in;</code>
+            </li>
+            <li>
+              <code>
+                $trans-opacity: $trans-opacity__time $trans-opacity__function;
+              </code>{' '}
+              convenience variable for using both
+            </li>
+            <li>
+              <code>$trans-move__time: 0.3s;</code>
+            </li>
+            <li>
+              <code>$trans-move__function: ease-in;</code>
+            </li>
+            <li>
+              <code>
+                $trans-move: $trans-opacity__time $trans-move__function;
+              </code>{' '}
+              convenience variable for using both
+            </li>
+          </ul>
         </div>
+        <br />
+        <ApiDemo
+          title="Animations API"
+          endpoint={`${apiUrlBase}/transitions`}
+          requestType={'get'}
+        />
+        <DosAndDonts
+          items={[
+            {
+              image: spinnerDo,
+              caption: 'add text to the spinner.',
+              do: false,
+            },
+            {
+              title: 'Do Example',
+              image: spinnerDont,
+              caption: "let the spinner convey it's meaning.",
+              do: true,
+            },
+          ]}
+        />
       </VisualLanguagePage>
     );
   }

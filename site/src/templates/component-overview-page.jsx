@@ -6,6 +6,7 @@ import Spinner from '../bedrock/components/spinner';
 import { apiUrlBase } from '../../config';
 import { VariationDemos } from '../bedrock/components/variation-demo';
 import ErrorCatcher from '../bedrock/components/error-catcher';
+import DosAndDonts from '../bedrock/components/dos-and-donts/src/dos-and-donts';
 
 class ComponentOverviewPage extends Component {
   constructor(props) {
@@ -50,6 +51,14 @@ class ComponentOverviewPage extends Component {
             template={template}
             data={this.props.data}
           />
+          {this.props.dosAndDonts.map(item => (
+            // @todo title is not a required prop, so we need to fix this key structure
+            <DosAndDonts
+              key={item.title}
+              title={item.title}
+              items={item.items}
+            />
+          ))}
         </article>
       );
     }
@@ -65,6 +74,7 @@ ComponentOverviewPage.defaultProps = {
   data: {},
   demoSizes: [],
   size: Overview.defaultProps.size,
+  dosAndDonts: [],
 };
 
 ComponentOverviewPage.propTypes = {
@@ -72,6 +82,12 @@ ComponentOverviewPage.propTypes = {
   data: PropTypes.object,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
   size: Overview.propTypes.size,
+  dosAndDonts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      items: PropTypes.array,
+    }),
+  ),
 };
 
 export default ComponentOverviewPage;

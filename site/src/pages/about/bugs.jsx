@@ -2,27 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AboutPage from '../../templates/about-page';
 
-class BugsAndIssues extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div className={'feature-request'}>
-        {this.props.title && <h3>{this.props.title}</h3>}
-        {this.props.description && <p>{this.props.description}</p>}
-        <a
-          href={this.props.buttonDest}
-          className={'button button--color-blue button--size-medium'}
-          target={'_blank'}
-        >
-          {this.props.buttonText}
-        </a>
-      </div>
-    );
-  }
+function BugsAndIssues(props) {
+  return (
+    <div className={'feature-request'}>
+      {props.title && <h3>{props.title}</h3>}
+      {props.description && <p>{props.description}</p>}
+      <a
+        href={props.buttonDest}
+        className={'button button--color-blue button--size-medium'}
+        target={'_blank'}
+      >
+        {props.buttonText}
+      </a>
+    </div>
+  );
 }
 
 const BugsPage = () => (

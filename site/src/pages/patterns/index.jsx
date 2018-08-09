@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 
 import ComponentBoard from '../../components/component-board';
 import Page from '../../templates/page';
 import { apiUrlBase } from '../../../config';
+
+const PatternsHeader = styled.div`
+  margin-left: 50px;
+`;
 
 class PatternsPage extends Component {
   constructor(props) {
@@ -25,7 +30,12 @@ class PatternsPage extends Component {
   render() {
     return (
       <Page>
-        <h2>Welcome to the Design System!</h2>
+        <PatternsHeader>
+          <h2>Patterns</h2>
+          <p>
+            Explore the design patterns that make up the Crux Design System.
+          </p>
+        </PatternsHeader>
         <ComponentBoard
           patterns={this.state.patterns}
           ready={this.state.ready}

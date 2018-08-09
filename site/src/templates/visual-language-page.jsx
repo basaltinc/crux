@@ -7,6 +7,11 @@ import LinkList from '../components/link-list';
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [
   {
+    name: 'Visual Language',
+    id: 'visual',
+    isHeading: true,
+  },
+  {
     name: 'Animations',
     id: 'animations',
     path: `/visual-language/animations`,
@@ -76,7 +81,8 @@ class VisualLanguagePage extends Component {
   handleFilterList(event) {
     const updatedList = this.state.linkItems.filter(
       item =>
-        item.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1,
+        item.name.toLowerCase().search(event.target.value.toLowerCase()) !==
+          -1 || item.isHeading,
     );
     this.setState({
       filteredList: updatedList,
@@ -87,13 +93,13 @@ class VisualLanguagePage extends Component {
   filterableList() {
     return (
       <div>
+        <LinkList items={this.state.filteredList} />
         <input
           type="text"
           className="type-to-filter"
           placeholder="Type to filter..."
           onChange={this.handleFilterList}
         />
-        <LinkList items={this.state.filteredList} />
       </div>
     );
   }

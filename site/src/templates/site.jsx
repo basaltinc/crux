@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-// @todo Evan is working on a better way to pull in styles
-import '../../../build/assets/style.css'; // eslint-disable-line
 import '../global.css'; // eslint-disable-line
 import ErrorCatcher from "../bedrock/components/error-catcher"; // eslint-disable-line
 

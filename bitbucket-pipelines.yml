@@ -1,4 +1,4 @@
-image: misterio92/ci-php-node
+image: basaltinc/docker-node-php-base
 
 pipelines:
   branches:
@@ -21,15 +21,28 @@ pipelines:
             - npm test
             - npm run compile
             - aws s3 sync ./ s3://design.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
+    epic/v2:
+      - step:
+          caches:
+            - composer
+            - node
+            - yarn
+          script:
+            - yarn --version && npm --version && node --version && composer --version && php --version
+            - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
+            - yarn test
+            - yarn run deploy:prod
   default:
     - step:
+        caches:
+        - composer
+        - node
+        - yarn
         script:
-          - curl -o- -L https://yarnpkg.com/install.sh | bash -s
-          - export PATH=$HOME/.yarn/bin:$PATH
-          - yarn --version && npm --version && node --version && composer --version && php --version
-          - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
-          - npm test
-          - npm run compile
+        - yarn --version && npm --version && node --version && composer --version && php --version
+        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
+        - yarn test
+        - yarn run deploy
 
 definitions:
   caches:

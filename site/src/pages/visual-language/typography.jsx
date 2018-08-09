@@ -1,13 +1,13 @@
 import React from 'react';
-
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 
 import VisualLanguagePage from '../../templates/visual-language-page';
 import Spinner from '../../bedrock/components/spinner';
-import copyIcon from '../../../../images/svgs/copy.svg';
 import { apiUrlBase } from '../../../config';
 
 import './demos.css';
+import ApiDemo from '../../bedrock/components/api-demo';
 
 class TypographyPage extends React.Component {
   constructor(props) {
@@ -53,12 +53,36 @@ class TypographyPage extends React.Component {
       return <Spinner />;
     }
     const headings = [
-      { name: `<h1 contentEditable>${this.state.demo.title}</h1>` },
-      { name: `<h2 contentEditable>${this.state.demo.title}</h2>` },
-      { name: `<h3 contentEditable>${this.state.demo.title}</h3>` },
-      { name: `<h4 contentEditable>${this.state.demo.title}</h4>` },
-      { name: `<h5 contentEditable>${this.state.demo.title}</h5>` },
-      { name: `<h6 contentEditable>${this.state.demo.title}</h6>` },
+      {
+        name: `<h1 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h1>`,
+      },
+      {
+        name: `<h2 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h2>`,
+      },
+      {
+        name: `<h3 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h3>`,
+      },
+      {
+        name: `<h4 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h4>`,
+      },
+      {
+        name: `<h5 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h5>`,
+      },
+      {
+        name: `<h6 contentEditable suppressContentEditableWarning>${
+          this.state.demo.title
+        }</h6>`,
+      },
     ]; // For headings demo below
     /* eslint-disable react/no-unescaped-entities */
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -83,6 +107,7 @@ class TypographyPage extends React.Component {
             </p>
             {this.state.fontSizes.map((fontSize, index) => (
               <div
+                key={fontSize.name}
                 style={{
                   fontSize: fontSize.value,
                   borderBottom: '1px dotted #CCC',
@@ -92,7 +117,11 @@ class TypographyPage extends React.Component {
                 }}
               >
                 <code>{fontSize.name}</code>: {fontSize.value} <br />
-                <blockquote className="demo-block__blockquote" contentEditable>
+                <blockquote
+                  className="demo-block__blockquote"
+                  contentEditable
+                  suppressContentEditableWarning
+                >
                   {this.state.demo.paragraph}
                 </blockquote>
               </div>
@@ -107,6 +136,7 @@ class TypographyPage extends React.Component {
             <ul className="demo-tabs">
               {this.state.fontFamilies.map(fontFamily => (
                 <li
+                  key={fontFamily.name}
                   onClick={() =>
                     this.setState({ selectedFontFamily: fontFamily })
                   }
@@ -130,13 +160,34 @@ class TypographyPage extends React.Component {
                   fontFamily: this.state.selectedFontFamily.value,
                 }}
               >
-                <div className="demo-vars">
-                  <div className="copy-this">
-                    <img src={copyIcon} alt="Copy" title="Copy!" />
+                <div
+                  className="demo-vars"
+                  style={{ display: 'flex', justifyContent: 'space-between' }}
+                >
+                  <div>
+                    <code>{this.state.selectedFontFamily.name}</code>
+                    {': '}
+                    {this.state.selectedFontFamily.value}
                   </div>
-                  <code>{this.state.selectedFontFamily.name}</code>
-                  {': '}
-                  {this.state.selectedFontFamily.value}
+                  <CopyToClipboard
+                    text={this.state.selectedFontFamily.name}
+                    onCopy={() =>
+                      window.alert(
+                        `${
+                          this.state.selectedFontFamily.name
+                        } copied to clipboard`,
+                      )
+                    }
+                  >
+                    <svg
+                      width="26"
+                      height="26"
+                      viewBox="0 0 1792 1792"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M1696 384q40 0 68 28t28 68v1216q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-288h-544q-40 0-68-28t-28-68v-672q0-40 20-88t48-76l408-408q28-28 76-48t88-20h416q40 0 68 28t28 68v328q68-40 128-40h416zm-544 213l-299 299h299v-299zm-640-384l-299 299h299v-299zm196 647l316-316v-416h-384v416q0 40-28 68t-68 28h-416v640h512v-256q0-40 20-88t48-76zm956 804v-1152h-384v416q0 40-28 68t-68 28h-416v640h896z" />
+                    </svg>
+                  </CopyToClipboard>
                 </div>
                 <div className="demo-stage">
                   <p
@@ -145,6 +196,7 @@ class TypographyPage extends React.Component {
                       fontSize: '1.5rem',
                     }}
                     contentEditable
+                    suppressContentEditableWarning
                   >
                     {this.state.demo.paragraph}
                   </p>
@@ -154,6 +206,7 @@ class TypographyPage extends React.Component {
                       fontSize: '1.25rem',
                     }}
                     contentEditable
+                    suppressContentEditableWarning
                   >
                     {this.state.demo.paragraph}
                   </blockquote>
@@ -165,12 +218,12 @@ class TypographyPage extends React.Component {
                       marginTop: '30px',
                     }}
                   >
-                    <ul contentEditable>
+                    <ul contentEditable suppressContentEditableWarning>
                       <li>{this.state.demo.text}</li>
                       <li>{this.state.demo.title}</li>
                       <li>{this.state.demo.paragraph}</li>
                     </ul>
-                    <ol contentEditable>
+                    <ol contentEditable suppressContentEditableWarning>
                       <li>{this.state.demo.text}</li>
                       <li>{this.state.demo.title}</li>
                       <li>{this.state.demo.paragraph}</li>
@@ -188,6 +241,7 @@ class TypographyPage extends React.Component {
             </p>
             {headings.map((item, index) => (
               <div
+                key={item.name}
                 style={{
                   borderBottom:
                     headings.length !== index + 1 ? '1px dotted #CCC' : '',
@@ -201,6 +255,18 @@ class TypographyPage extends React.Component {
               />
             ))}
           </div>
+          <br />
+          <ApiDemo
+            title={'Font Sizes API'}
+            endpoint={`${apiUrlBase}/font-sizes`}
+            requestType={'get'}
+          />
+          <br />
+          <ApiDemo
+            title={'Font Families API'}
+            endpoint={`${apiUrlBase}/font-families`}
+            requestType={'get'}
+          />
         </div>
       </VisualLanguagePage>
     );

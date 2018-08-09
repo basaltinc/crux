@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Site from '../templates/site';
-
-// @todo Evan is working on a better way to pull in styles
-import '../../../build/assets/style.css';
 import ErrorCatcher from "../bedrock/components/error-catcher"; // eslint-disable-line
 
 const MainStyled = styled.main`

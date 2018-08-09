@@ -8,8 +8,20 @@ class PatternPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filteredList: [],
-      linkItems: [],
+      filteredList: [
+        {
+          name: 'Patterns',
+          id: 'patterns',
+          isHeading: true,
+        },
+      ],
+      linkItems: [
+        {
+          name: 'Patterns',
+          id: 'patterns',
+          isHeading: true,
+        },
+      ],
       ready: false,
     };
 
@@ -46,7 +58,8 @@ class PatternPage extends Component {
   handleFilterList(event) {
     const updatedList = this.state.linkItems.filter(
       item =>
-        item.name.toLowerCase().search(event.target.value.toLowerCase()) !== -1,
+        item.name.toLowerCase().search(event.target.value.toLowerCase()) !==
+          -1 || item.isHeading,
     );
     this.setState({
       filteredList: updatedList,
@@ -57,13 +70,13 @@ class PatternPage extends Component {
   filterableList() {
     return (
       <div>
+        <LinkList items={this.state.filteredList} />
         <input
           type="text"
           className="type-to-filter"
           placeholder="Type to filter..."
           onChange={this.handleFilterList}
         />
-        <LinkList items={this.state.filteredList} />
       </div>
     );
   }

@@ -126,14 +126,16 @@ router.get('/patterns/:type', async (req, res) => {
  * @api {get} /api/colors Get Colors
  * @apiName GetColors
  * @apiGroup Tokens
+ * @apiParam (Query String) {String} format Color Format
  * @apiDescription Returns an array of color design tokens
  * @apiExample {js} ES6
- fetch(`${apiUrlBase}/colors`).then(res => res.json());
+ fetch(`${apiUrlBase}/colors?format=hsl`).then(res => res.json());
  *
  * @apiSuccess {Array} Colors
  */
 router.get('/colors', async (req, res) => {
-  const colors = await getColors();
+  const { format } = req.query;
+  const colors = await getColors(format);
   res.send(colors);
 });
 

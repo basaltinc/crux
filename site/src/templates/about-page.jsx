@@ -6,7 +6,7 @@ import LinkList from '../components/link-list';
 const aboutLinks = [
   {
     path: '/about',
-    name: 'About',
+    name: 'Get Started',
     id: 'about',
   },
   {
@@ -15,18 +15,8 @@ const aboutLinks = [
     id: 'release-notes',
   },
   {
-    path: '/about/whats-next',
-    name: "What's next",
-    id: 'whats-next',
-  },
-  {
-    path: '/about/bugs',
-    name: 'Bugs and Issues',
-    id: 'bugs',
-  },
-  {
     path: '/about/feature-requests',
-    name: 'Feature Requests',
+    name: 'Feature Requests and Bugs',
     id: 'feature-requests',
   },
 ];

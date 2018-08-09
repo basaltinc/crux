@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { convertColor } from '../packages/utils';
+import { Details, SelectStyledWrapper } from './atoms';
 
 const ColorContrastPlayground = styled.div`
   width: 100%;
@@ -12,13 +13,10 @@ const ColorContrastPlayground = styled.div`
   background-color: ${props => (props.bgColor ? props.bgColor : 'none')};
 `;
 
-const RightLabel = styled.label`
-  text-align: right;
-  margin-left: 1rem;
-`;
-
-const LeftLabel = styled.label`
-  text-align: left;
+const AccessabilityDropdowns = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 `;
 
 const AccessibilityInfo = styled.div`
@@ -32,7 +30,7 @@ const AccessibilityResults = styled.span`
   background-color: ${props => (props.pass === 'pass' ? 'green' : 'red')};
   color: white;
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 0;
   font-weight: bold;
   display: inline;
   padding: 0.35rem 0.75rem;
@@ -42,10 +40,20 @@ const Ratio = styled.span`
   border: 1px solid ${props => (props.ratio > '4.5' ? 'green' : 'red')};
   color: ${props => (props.ratio > '4.5' ? 'green' : 'red')};
   text-align: center;
-  border-radius: 1rem;
+  border-radius: 0;
   font-weight: bold;
   display: inline;
   padding: 0.35rem 1rem;
+`;
+
+const LargeText = styled.h3`
+  font-weight: bold;
+  color: ${props => props.color};
+`;
+
+const SmallText = styled.h5`
+  color: ${props => props.color};
+  font-weight: normal;
 `;
 
 class ColorContrastBlock extends React.Component {
@@ -80,7 +88,6 @@ class ColorContrastBlock extends React.Component {
       .fetch(url)
       .then(res => res.json())
       .then(results => {
-        console.log(results);
         this.setState({
           contrast: {
             aa: results.AA,
@@ -117,35 +124,37 @@ class ColorContrastBlock extends React.Component {
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
-        <LeftLabel>
+        <AccessabilityDropdowns>
           Background Color:
-          <select
-            value={this.state.bgColor}
-            onChange={event => this.handleChange('bgColor', event.target.value)}
-          >
-            {bgColors}
-          </select>
-        </LeftLabel>
-        <RightLabel>
+          <SelectStyledWrapper>
+            <select
+              value={this.state.bgColor}
+              onChange={event =>
+                this.handleChange('bgColor', event.target.value)
+              }
+            >
+              {bgColors}
+            </select>
+          </SelectStyledWrapper>
           Text Color:
-          <select
-            value={this.state.textColor}
-            onChange={event =>
-              this.handleChange('textColor', event.target.value)
-            }
-          >
-            {textColors}
-          </select>
-        </RightLabel>
+          <SelectStyledWrapper>
+            <select
+              value={this.state.textColor}
+              onChange={event =>
+                this.handleChange('textColor', event.target.value)
+              }
+            >
+              {textColors}
+            </select>
+          </SelectStyledWrapper>
+        </AccessabilityDropdowns>
         <ColorContrastPlayground bgColor={this.state.bgColor}>
-          <h3
-            contentEditable
-            style={{
-              color: this.state.textColor,
-            }}
-          >
-            Test Your Colors Here
-          </h3>
+          <LargeText color={this.state.textColor}>
+            Large Text looks like this
+          </LargeText>
+          <SmallText color={this.state.textColor}>
+            small text looks like this
+          </SmallText>
         </ColorContrastPlayground>
         <AccessibilityInfo>
           <p>
@@ -179,7 +188,8 @@ class ColorContrastBlock extends React.Component {
             </Ratio>
           </p>
         </AccessibilityInfo>
-        <details>
+        <br />
+        <Details>
           <summary>WCAG Details</summary>
           <p>
             <a href={'https://www.w3.org/TR/WCAG20/'} target={'blank'}>
@@ -190,7 +200,8 @@ class ColorContrastBlock extends React.Component {
             must be greater than 7:1 and large text ratio must be greater than
             4.5:1. Large text is defined as anything 14pt bold or higher.
           </p>
-        </details>
+        </Details>
+        <br />
       </div>
     );
   }
