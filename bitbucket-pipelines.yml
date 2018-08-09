@@ -22,13 +22,6 @@ pipelines:
         - '**'
     - step:
         name: Build
-        caches:
-        - composer
-        - node
-        - yarn
-        - site-node
-        - site-vendor
-        - pl-vendor
         script:
         - yarn build
         artifacts:
