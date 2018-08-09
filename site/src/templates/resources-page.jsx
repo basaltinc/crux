@@ -36,6 +36,11 @@ const resourcesList = [
     id: 'sketch',
     isHeading: true,
   },
+  {
+    name: 'Coming Soon...',
+    id: 'coming-soon',
+    path: '#',
+  },
 ];
 
 class ResourcesPage extends Component {
