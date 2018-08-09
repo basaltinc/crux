@@ -24,8 +24,8 @@ const StyledUl = styled.ul`
     text-decoration: none;
     margin-left: 20px;
     &:hover {
-    text-decoration: underline;
-  }
+      text-decoration: underline;
+    }
   }
   a[aria-current='page'] {
     font-weight: bold;
