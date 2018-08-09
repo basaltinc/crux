@@ -20,7 +20,7 @@ $font-faces: (
   $font-faces: join($font-faces, $extra-font-faces);
 }
 
-$font-directory: "../../fonts/" !default;
+$font-directory: "fonts/" !default;
 
 @each $font-face in $font-faces {
   $filename: map-get($font-face, "filename");

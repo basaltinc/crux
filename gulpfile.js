@@ -55,6 +55,16 @@ function copyVendorJs() {
     .pipe(gulp.dest('./build/assets'));
 }
 
+function copyFonts() {
+  return gulp.src(['./fonts/**'])
+    .pipe(gulp.dest('./build/assets/fonts'));
+}
+
+function copyImages() {
+  return gulp.src(['./images/**'])
+    .pipe(gulp.dest('./build/assets/images'));
+}
+
 // function copyPages() {
 //   return gulp.src([
 //     './index.html',
@@ -67,6 +77,8 @@ gulp.task('assets', gulp.series([
   iconTasks.clean,
   iconTasks.compile,
   cssTasks.compile,
+  copyFonts,
+  copyImages,
   webPackTasks.compile,
 ]));
 
@@ -83,6 +95,8 @@ gulp.task('compile', gulp.series([
   scssToJsonTask,
   iconTasks.compile,
   gulp.parallel([
+    copyFonts,
+    copyImages,
     patternLabTasks.compile,
     // copyPages,
     copyVendorJs,
