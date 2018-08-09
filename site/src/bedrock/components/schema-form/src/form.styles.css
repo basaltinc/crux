@@ -14,6 +14,16 @@
   cursor: pointer;
 }
 
+.rjsf .field-radio-group > .radio input[type='radio'] {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.rjsf .field-radio-group > .radio input[type='radio']:checked+span {
+  font-weight: 600;
+  font-family: 'AvenirMedium', sans-serif;
+}
+
 .rjsf .btn-add::after {
   content: 'Add';
 }
@@ -40,11 +50,11 @@ form.rjsf {
   margin: 0;
   border: none;
   width: 100%;
-  max-width: 790px;
 }
 
 .rjsf fieldset .form-group:nth-child(2n - 1) {
-  background-color: #efefef;
+  background-color: #FFF;
+  padding: 1rem;
 }
 
 .rjsf textarea {

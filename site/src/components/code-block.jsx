@@ -46,7 +46,7 @@ class CodeBlock extends Component {
       };
     });
 
-    return <TabbedPanel items={items} />;
+    return <TabbedPanel bleed="0" color="component" items={items} />;
   }
 }
 
