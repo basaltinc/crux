@@ -99,8 +99,8 @@
         &.media-block__title--inset {
           padding-top: $spacing--l;
         }
-      // stylelint-disable selector-max-specificity
-      //media on left
+        // stylelint-disable selector-max-specificity
+        //media on left
         .media-block--media-on-left.media-block--media-size-s & {
           left: -16.65%;
         }
@@ -113,7 +113,7 @@
         .media-block--media-on-left.media-block--media-size-xl & {
           left: -200%;
         }
-      //  media on right
+        //  media on right
         .media-block--media-on-right.media-block--media-size-s & {
           right: -26%;
         }
