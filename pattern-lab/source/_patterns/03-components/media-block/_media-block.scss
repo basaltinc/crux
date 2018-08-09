@@ -52,20 +52,6 @@
       width: 50%;
       padding: $spacing--l $spacing--xl;
       background-color: white;
-      .media-block--media-size-s & {
-        width: 75%;
-      }
-      .media-block--media-size-l & {
-        width: 33%;
-      }
-      .media-block--media-size-xl & {
-        width: 25%;
-      }
-      .media-block--show-full-media & {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
     }
     &__media {
       padding-top: 0;
@@ -101,21 +87,6 @@
 
         }
       }
-      // stylelint-enable max-nesting-depth
-      .media-block--media-size-s & {
-        width: 25%;
-      }
-      .media-block--media-size-l & {
-        width: 66%;
-      }
-      .media-block--media-size-xl & {
-        width: 75%;
-      }
-      .media-block--show-full-media & {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
     }
     &__title {
       @include h2;
@@ -126,25 +97,122 @@
       &--inset {
         position: relative;
         &.media-block__title--inset {
-          margin-top: $spacing--l;
+          padding-top: $spacing--l;
         }
-        .media-block--media-size-s & {
+      //media on left
+        .media-block--media-on-left.media-block--media-size-s & {
           left: -16.65%;
         }
-        .media-block--media-size-m & {
+        .media-block--media-on-left.media-block--media-size-m & {
           left: -33%;
         }
-        .media-block--media-size-l & {
+        .media-block--media-on-left.media-block--media-size-l & {
           left: -120%;
+        }
+        .media-block--media-on-left.media-block--media-size-xl & {
+          left: -200%;
+        }
+      //  media on right
+        .media-block--media-on-right.media-block--media-size-s & {
+          right: -26%;
+        }
+        .media-block--media-on-right.media-block--media-size-m & {
+          right: -58%;
+        }
+        .media-block--media-on-right.media-block--media-size-l & {
+          right: -36%;
+        }
+        .media-block--media-on-right.media-block--media-size-xl & {
+          right: -25%;
+        }
+        //  media on top
+        .media-block--media-on-top.media-block--media-size-s & {
+          margin-top: -22%;
+        }
+        .media-block--media-on-top.media-block--media-size-m & {
+          margin-top: -17%;
+        }
+        .media-block--media-on-top.media-block--media-size-l & {
+          margin-top: -92%;
           width: 180%;
         }
-        .media-block--media-size-xl & {
-          left: -200%;
+        .media-block--media-on-top.media-block--media-size-xl & {
+          margin-top: -150%;
           width: 250%;
         }
       }
     }
+    &.media-block--media-on-right, &.media-block--media-on-left {
+      &.media-block--media-size-s {
+        .media-block__content {
+          width: 75%;
+        }
+        .media-block__media {
+          width: 25%;
+        }
+      }
+      &.media-block--media-size-m {
+
+      }
+      &.media-block--media-size-l {
+        .media-block__content {
+          width: 33%;
+        }
+        .media-block__media {
+          width: 67%;
+        }
+        .media-block__title--inset {
+          width: 180%;
+        }
+      }
+      &.media-block--media-size-xl {
+        .media-block__content {
+          width: 25%;
+        }
+        .media-block__media {
+          width: 75%;
+        }
+        .media-block__title--inset {
+          width: 250%;
+        }
+      }
+      &.media-block--show-full-media {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    &.media-block--media-on-top, &.media-block--media-on-bottom {
+      &.media-block--media-size-s {
+        .media-block__content {
+          height: 75%;
+        }
+        .media-block__media {
+          height: 25%;
+        }
+      }
+      &.media-block--media-size-m {
+
+      }
+      &.media-block--media-size-l {
+        .media-block__content {
+          height: 33%;
+        }
+        .media-block__media {
+          height: 67%;
+        }
+      }
+      &.media-block--media-size-xl {
+        .media-block__content {
+          height: 25%;
+        }
+        .media-block__media {
+          height: 75%;
+        }
+      }
+    }
   }
+  // stylelint-enable max-nesting-depth
   &--media-on-top {
     flex-direction: column;
     > div {
