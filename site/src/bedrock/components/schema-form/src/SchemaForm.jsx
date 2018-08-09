@@ -48,6 +48,7 @@ export default class SchemaForm extends React.Component {
         onChange={this.onChange}
         ArrayFieldTemplate={CustomArrayField}
         FieldTemplate={CustomField}
+        className={this.props.inline ? 'rjsf rjsf--inline' : 'rjsf'}
       >
         <span />
         {/* @todo make it easier to disable SchemaForm submit button */}

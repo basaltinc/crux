@@ -53,6 +53,11 @@ form.rjsf {
 }
 
 .rjsf fieldset .form-group:nth-child(2n - 1) {
+  background-color: #efefef;
+  padding: 1rem;
+}
+
+.rjsf.rjsf--inline fieldset .form-group:nth-child(2n - 1) {
   background-color: #FFF;
   padding: 1rem;
 }
