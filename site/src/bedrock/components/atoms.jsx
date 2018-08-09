@@ -1,5 +1,24 @@
 import styled from 'styled-components';
 
+export const Checkerboard = styled.div`
+  background-image: linear-gradient(
+      45deg,
+      rgb(230, 230, 230) 25%,
+      transparent 25%
+    ),
+    linear-gradient(-45deg, rgb(230, 230, 230) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgb(230, 230, 230) 75%),
+    linear-gradient(-45deg, transparent 75%, rgb(230, 230, 230) 75%);
+  background-size: 20px 20px;
+  background-position: 0px 0px, 0px 10px, 10px -10px, -10px 0px;
+  padding: ${props => props.bleed && props.bleed};
+  > div {
+    border: 10px solid rgba(77, 77, 77, 0.15);
+  }
+`;
+
+export default Checkerboard;
+
 export const Details = styled.details`
   padding: 7px 0;
   border-top: solid 1px grey;
@@ -17,16 +36,6 @@ export const Details = styled.details`
     &:focus {
       outline: none;
     }
-  }
-`;
-
-export const TwoUp = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 2.25rem;
-  & > * {
-    width: 48%;
   }
 `;
 
@@ -50,21 +59,25 @@ export const SelectStyledWrapper = styled.div`
   }
 `;
 
-export const Checkerboard = styled.div`
-  background-image: linear-gradient(
-      45deg,
-      rgb(230, 230, 230) 25%,
-      transparent 25%
-    ),
-    linear-gradient(-45deg, rgb(230, 230, 230) 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, rgb(230, 230, 230) 75%),
-    linear-gradient(-45deg, transparent 75%, rgb(230, 230, 230) 75%);
-  background-size: 20px 20px;
-  background-position: 0px 0px, 0px 10px, 10px -10px, -10px 0px;
-  padding: ${props => props.bleed && props.bleed};
-  > div {
-    border: 10px solid rgba(77, 77, 77, 0.15);
+export const TwoUp = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2.25rem;
+  & > * {
+    width: 48%;
   }
 `;
 
-export default Checkerboard;
+export const TypeToFilterWrapper = styled.div`
+  display: inline-block;
+  height: 33px;
+  overflow: hidden;
+  background-color: #cfe3de;
+  margin: 0 5px;
+  input {
+    height: 33px;
+    background-color: none;
+    font-size: 0.875rem;
+  }
+`;

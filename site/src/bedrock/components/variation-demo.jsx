@@ -20,8 +20,8 @@ const VariationsWrapper = styled.div`
 const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
   padding: 30px;
   line-height: 1;
   position: relative;

@@ -14,7 +14,7 @@
 }
 
 .demo-block__title {
-  color: #305a6d;
+  /*color: #305a6d;*/
 }
 
 .demo-block [contenteditable]:not(blockquote) {
@@ -64,8 +64,8 @@
 .demo-vars {
   border: 1px solid #ccc;
   border-right: 5px solid #ccc;
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
+  border-top-right-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
   padding: 30px;
   line-height: 1;
   position: relative;
@@ -76,25 +76,26 @@
 }
 
 .demo-inner:after {
-  z-index: -1;
-  position: absolute;
-  content: '';
-  bottom: 15px;
-  right: 10px;
-  width: 50%;
-  top: 80%;
-  max-width: 300px;
-  background: #777;
-  box-shadow: 0 15px 10px #777;
-  transform: rotate(3deg);
+  /*@todo I'm okay with this as long as we propagate it throughout the sites design. Seems out of place atm*/
+  /*z-index: -1;*/
+  /*position: absolute;*/
+  /*content: '';*/
+  /*bottom: 15px;*/
+  /*right: 10px;*/
+  /*width: 50%;*/
+  /*top: 80%;*/
+  /*max-width: 300px;*/
+  /*background: #777;*/
+  /*box-shadow: 0 15px 10px #777;*/
+  /*transform: rotate(3deg);*/
 }
 
 .demo-stage {
   background: #fff;
   border-width: 9px 5px 1px 1px;
   border-style: solid;
-  border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
   padding: 0 30px;
 }
 
@@ -111,7 +112,7 @@
 
 /* For typograpy */
 .t-crux-typography h3 {
-  color: var(--type-color--typography);
+  /*color: var(--type-color--typography);*/
 }
 .t-crux-typography .demo-tabs__tab.is-active {
   color: var(--type-color--typography);
@@ -125,7 +126,7 @@
 
 .t-crux-typography .demo-vars code {
   color: var(--type-color--typography);
-  background: #f7eded;
+  background: var(--type-color--typography-accent);
 }
 
 /* For components */

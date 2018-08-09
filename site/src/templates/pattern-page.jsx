@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Page from './page';
 import LinkList from '../components/link-list';
+import { TypeToFilterWrapper } from '../bedrock/components/atoms';
 import { apiUrlBase } from '../../config'; // Pattern page specific styles
 
 class PatternPage extends Component {
@@ -71,12 +72,14 @@ class PatternPage extends Component {
     return (
       <div>
         <LinkList items={this.state.filteredList} />
-        <input
-          type="text"
-          className="type-to-filter"
-          placeholder="Type to filter..."
-          onChange={this.handleFilterList}
-        />
+        <TypeToFilterWrapper>
+          <input
+            type="text"
+            className="type-to-filter"
+            placeholder="Type to filter..."
+            onChange={this.handleFilterList}
+          />
+        </TypeToFilterWrapper>
       </div>
     );
   }

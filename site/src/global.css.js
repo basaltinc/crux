@@ -19,19 +19,24 @@ injectGlobal`
   --border-color: #CCC;
   
   // colors
-  --type-color--component: #7B1FA2;
+  --type-color--component: #16394B;
+  //@todo Lets get these colors to be within the same palette as our core colors (coming from the design system). Perhaps move these defaults to Bedrock and override here with Crux flavors
   --type-color--layout: #FFA000;
-  --type-color--typography: #d50000;
+  --type-color--typography: #16394B;
   --type-color--icon: #536dfe;
   --type-color--color: #00695c;
   --type-color--none: #000;
 
-  --type-color--component-accent: #f5ddff;
+  --type-color--component-accent: #CFE3DE;
   --type-color--layout-accent: #fff5e6;
-  --type-color--typography-accent: #ffdddd;
+  --type-color--typography-accent: #e3dfcc;
   --type-color--icon-accent: #e2e7ff;
   --type-color--color-accent: #d0f3ee;
   --type-color--none-accent: #e0e0e0;
+  }
+  
+  :focus {
+    outline-color: #CFE3DE;
   }
   
   * {
