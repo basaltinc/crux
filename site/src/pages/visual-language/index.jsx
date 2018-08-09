@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import ComponentBoard from '../../components/component-board';
 import Page from '../../templates/page';
 import { apiUrlBase } from '../../../config';
-import LinkList from '../../components/link-list';
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [
@@ -71,7 +70,6 @@ class VisualLanguageLandingPage extends Component {
     return (
       <Page>
         <h2>Welcome to the Design System, Visual Language!</h2>
-        {/* <LinkList items={perceptualPatternsList} /> */}
         <ComponentBoard patterns={perceptualPatternsList} ready />
         <h3>Lets get a component board of visual language patterns</h3>
         <ComponentBoard
