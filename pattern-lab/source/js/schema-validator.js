@@ -24,13 +24,9 @@ const sample = {
   text: 'harum voluptatem',
   url: '#',
   size: 'large',
-  classes: [
-    'button',
-    '',
-    'button--size-large',
-  ],
+  classes: ['button', '', 'button--size-large'],
 };
 
-export default function () {
+export default function() {
   console.log(v.validate(sample, buttonSchema)); // eslint-disable-line no-console
 }

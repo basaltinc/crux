@@ -86,6 +86,7 @@ class VariationDemo extends Component {
         });
         return (
           <div
+            key={item.propKey}
             style={{
               paddingBottom: '10px',
               marginBottom: '10px',

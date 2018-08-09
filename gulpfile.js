@@ -43,7 +43,6 @@ function scssToJsonWatch() {
 
 gulp.task('css', cssTasks.compile);
 gulp.task('serve', browserSyncTasks.serve);
-gulp.task('pl', patternLabTasks.compile);
 
 gulp.task('validate', gulp.series([
   cssTasks.validate,
@@ -56,12 +55,38 @@ function copyVendorJs() {
     .pipe(gulp.dest('./build/assets'));
 }
 
+function copyFonts() {
+  return gulp.src(['./fonts/**'])
+    .pipe(gulp.dest('./build/assets/fonts'));
+}
+
+function copyImages() {
+  return gulp.src(['./images/**'])
+    .pipe(gulp.dest('./build/assets/images'));
+}
+
 // function copyPages() {
 //   return gulp.src([
 //     './index.html',
 //   ])
 //     .pipe(gulp.dest('./build'));
 // }
+
+gulp.task('assets', gulp.series([
+  cssTasks.clean,
+  iconTasks.clean,
+  iconTasks.compile,
+  cssTasks.compile,
+  copyFonts,
+  copyImages,
+  webPackTasks.compile,
+]));
+
+
+gulp.task('pl', gulp.parallel([
+  patternLabTasks.compile,
+  copyVendorJs,
+]));
 
 gulp.task('compile', gulp.series([
   cssTasks.clean,
@@ -70,6 +95,8 @@ gulp.task('compile', gulp.series([
   scssToJsonTask,
   iconTasks.compile,
   gulp.parallel([
+    copyFonts,
+    copyImages,
     patternLabTasks.compile,
     // copyPages,
     copyVendorJs,

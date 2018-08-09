@@ -1,6 +1,6 @@
 {
   "extends": [
-    "../.eslintrc.js",
+    "airbnb",
     "prettier",
     "prettier/react"
   ],
@@ -8,7 +8,23 @@
     "prettier",
     "jsdoc"
   ],
+  "globals": {
+    "document": true,
+    "window": true
+  },
   "rules": {
+    "import/no-extraneous-dependencies": [0],
+    "strict": [0],
+    "no-param-reassign": [1, {
+      "props": false
+    }],
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }],
+    "consistent-return": [0],
+    "no-plusplus": ["error", {
+      "allowForLoopAfterthoughts": true
+    }],
+    "no-console": [0],
     "prettier/prettier": [
       "error", {
         "trailingComma": "all",
@@ -20,6 +36,9 @@
     "react/forbid-prop-types": [2, {
       "forbid": ["any", "array"]
     }],
+    "react/boolean-prop-naming": [2],
+    "react/no-array-index-key": [2],
+    "react/jsx-key": [2],
     "import/prefer-default-export": [0],
     "react/no-danger": [0],
     "valid-jsdoc": "error",
