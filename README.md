@@ -4,14 +4,15 @@ Hosted at <http://design.basalt.io> - deployed to every time new changes on `mas
 
 ## Requirements
 
-- `yarn` v1+
+- `yarn` v1.6+
 - `composer` v1+
-- node.js 6+, preferably 8+
+- node.js 8+
 
 ## Setup
 
 ```bash
 yarn install
+yarn setup
 ```
 
 ### Editor setup

@@ -43,7 +43,6 @@ function scssToJsonWatch() {
 
 gulp.task('css', cssTasks.compile);
 gulp.task('serve', browserSyncTasks.serve);
-gulp.task('pl', patternLabTasks.compile);
 
 gulp.task('validate', gulp.series([
   cssTasks.validate,
@@ -62,6 +61,20 @@ function copyVendorJs() {
 //   ])
 //     .pipe(gulp.dest('./build'));
 // }
+
+gulp.task('assets', gulp.series([
+  cssTasks.clean,
+  iconTasks.clean,
+  iconTasks.compile,
+  cssTasks.compile,
+  webPackTasks.compile,
+]));
+
+
+gulp.task('pl', gulp.parallel([
+  patternLabTasks.compile,
+  copyVendorJs,
+]));
 
 gulp.task('compile', gulp.series([
   cssTasks.clean,
