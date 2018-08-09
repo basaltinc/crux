@@ -50,12 +50,34 @@ pipelines:
         - yarn test
         artifacts:
           - '**'
+    - parallel:
+        - step:
+            name: Lint top level
+            script:
+              - yarn run lint:js --ignore-scripts
+              - ./node_modules/.bin/gulp validate
+        - step:
+            name: Lint site
+            script:
+              - yarn run postlint:js
     - step:
        name: Deploy to test
        deployment: test   # can be test, staging or production
        # trigger: manual  # uncomment to make manual deployment
        script:
          - yarn run deploy
+    - step:
+        name: Deploy to stagin
+        deployment: staging   # can be test, staging or production
+        trigger: manual
+        script:
+         - yarn run deploy
+    - step:
+        name: Deploy to production
+        deployment: production   # can be test, staging or production
+        trigger: manual
+        script:
+         - yarn run deploy:prod
 
 definitions:
   caches:

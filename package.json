@@ -20,6 +20,7 @@
     "changelog": "auto-changelog --template json --output ./build/changelog.json || true",
     "prepush": "yarn run lint:js && yarn run lint:scss",
     "lint:js": "eslint pattern-lab/source/**/*.js && cd site && yarn run lint",
+    "postlint:js": "cd site && yarn run lint",
     "lint:js:fix": "yarn run lint:js -- --fix",
     "lint:scss": "stylelint \"pattern-lab/source/**/*.scss\"",
     "postversion": "git push && git push --tags"
