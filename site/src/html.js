@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { assetUrlBase } from '../config';
 
 export default class HTML extends React.Component {
   render() {
@@ -13,7 +14,7 @@ export default class HTML extends React.Component {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
-          <link rel="stylesheet" type="text/css" href="/style.css" />
+          <link rel="stylesheet" type="text/css" href={`${assetUrlBase}style.css`} />
           {this.props.headComponents}
         </head>
         <body {...this.props.bodyAttributes}>
