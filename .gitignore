@@ -6,7 +6,6 @@ build
 yarn-error.log
 site/.cache
 site/vendor
-site/public
 site/public2
 site/node_modules
 vendor
