@@ -54,7 +54,7 @@ const CopyThis = styled.div`
 const DemoStage = styled.div`
   background: #fff;
   border-radius: 7px;
-  padding: 30px;
+  padding: ${props => props.bleed};
 `;
 
 const FooterRegion = styled.div`
@@ -106,6 +106,7 @@ class TabbedPanel extends Component {
             cursor: 'pointer',
             userSelect: 'none',
             zIndex: this.state.activeId === item.id ? 1 : 0,
+            fontWeight: this.state.activeId === item.id ? 'bold' : 'normal',
           }}
         >
           {isPropVariation ? item.children.props.prop.title : item.title}
@@ -139,7 +140,7 @@ class TabbedPanel extends Component {
           </HeaderRegion>
         )}
         {item.children && (
-          <DemoStage colorTheme={colorTheme}>
+          <DemoStage colorTheme={colorTheme} bleed={this.props.bleed}>
             {item.children}
             {item.notes && (
               <FooterRegion colorTheme={colorTheme}>
@@ -171,6 +172,7 @@ class TabbedPanel extends Component {
 TabbedPanel.defaultProps = {
   color: 'none',
   type: 'none',
+  bleed: '30px',
 };
 
 TabbedPanel.propTypes = {
@@ -184,6 +186,7 @@ TabbedPanel.propTypes = {
     }),
   ).isRequired,
   color: PropTypes.string,
+  bleed: PropTypes.string,
 };
 
 export default TabbedPanel;
