@@ -26,13 +26,14 @@ const SidebarStyled = styled.div`
   min-width: 300px;
   max-width: 350px;
   padding: 2rem;
-  border-right: solid 1px black;
+  border-right: solid 1px lightgrey;
+  background-color: #f2f3f3;
   h4 {
     margin: 1.25rem 0 0.25rem;
   }
   ul {
     list-style: none;
-    padding-left: 10px;
+    padding-left: 0;
     margin: 0;
   }
 `;
@@ -86,6 +87,7 @@ class Page extends React.Component {
               <SidebarOneStyled {...this.state}>
                 {this.props.sidebarOne}
                 <button
+                  className="button button--color-blue--light button--size-small"
                   onClick={() =>
                     this.setState({
                       sidebarOneOnTop: !this.state.sidebarOneOnTop,

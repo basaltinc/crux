@@ -74,7 +74,6 @@ export const TypeToFilterWrapper = styled.div`
   height: 33px;
   overflow: hidden;
   background-color: #cfe3de;
-  margin: 0 5px;
   input {
     height: 33px;
     background-color: none;

@@ -11,6 +11,15 @@ import ErrorCatcher from "../bedrock/components/error-catcher"; // eslint-disabl
 const SiteMain = styled.div`
   display: flex;
   justify-content: center;
+  min-height: calc(100vh - 229px);
+`;
+
+const SiteFooter = styled.div`
+  background-color: #16394b;
+  color: white;
+  && a {
+    color: white;
+  }
 `;
 
 const Site = props => (
@@ -20,9 +29,9 @@ const Site = props => (
         <Header siteTitle={'Crux'} />
       </div>
       <SiteMain>{props.children}</SiteMain>
-      <div className="site__footer">
+      <SiteFooter>
         <Footer />
-      </div>
+      </SiteFooter>
     </div>
   </ErrorCatcher>
 );
