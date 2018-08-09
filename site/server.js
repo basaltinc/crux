@@ -14,7 +14,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static('public'));
 app.use(express.static('public2'));
 app.use(express.static('../build'));
 
