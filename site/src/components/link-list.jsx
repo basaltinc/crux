@@ -23,6 +23,9 @@ const StyledUl = styled.ul`
   a {
     text-decoration: none;
     margin-left: 20px;
+    &:hover {
+    text-decoration: underline;
+  }
   }
   a[aria-current='page'] {
     font-weight: bold;

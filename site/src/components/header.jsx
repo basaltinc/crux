@@ -11,13 +11,27 @@ const SiteHeaderWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 0;
+  font-family: AvenirMedium;
   ul {
     list-style: none;
     display: flex;
     margin: 0;
     li {
-      padding-right: 20px;
+      position: relative;
+      padding-right: 45px;
       margin: 0;
+    }
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
+  a[aria-current='page'] {
+    font-weight: bold;
+    &:before {
+      color: #ffffff;
+      content: '>';
+      position: absolute;
+      left: -15px;
     }
   }
 `;
@@ -27,8 +41,10 @@ const SiteHeaderBrandWrapper = styled.div`
 `;
 
 const SiteHeaderLink = styled(NavLink)`
-  color: white !important; // needed to overwrite generic styles coming from the design system css cascade
-  text-decoration: none !important;
+  && {
+    color: white;
+    text-decoration: none;
+  }
 `;
 
 const Header = ({ siteTitle }) => (
