@@ -1,5 +1,5 @@
 FROM basaltinc/docker-node-php-base:latest
-
+WORKDIR app
 COPY . .
 EXPOSE 3042
 # Builds afterwards
