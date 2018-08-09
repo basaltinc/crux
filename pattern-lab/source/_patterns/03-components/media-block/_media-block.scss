@@ -99,7 +99,7 @@
         &.media-block__title--inset {
           padding-top: $spacing--l;
         }
-      // stylint-disable selector-max-specificity
+      // stylelint-disable selector-max-specificity
       //media on left
         .media-block--media-on-left.media-block--media-size-s & {
           left: -16.65%;
@@ -214,7 +214,7 @@
     }
   }
   // stylelint-enable max-nesting-depth
-  // stylint-enable selector-max-specificity
+  // stylelint-enable selector-max-specificity
 
   &--media-on-top {
     flex-direction: column;
