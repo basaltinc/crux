@@ -7,14 +7,6 @@ import { apiUrlBase } from '../../../config';
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [
   {
-    title: 'Colors',
-    id: 'colors',
-    path: `/visual-language/colors`,
-    schema: {
-      description: ``,
-    },
-  },
-  {
     title: 'Animations',
     id: 'animations',
     path: `/visual-language/animations`,
@@ -23,17 +15,25 @@ const perceptualPatternsList = [
     },
   },
   {
-    title: 'Spacings',
-    id: 'spacings',
-    path: '/visual-language/spacings',
+    title: 'Breakpoints',
+    id: 'breakpoints',
+    path: '/visual-language/breakpoints',
     schema: {
       description: ``,
     },
   },
   {
-    title: 'Breakpoints',
-    id: 'breakpoints',
-    path: '/visual-language/breakpoints',
+    title: 'Colors',
+    id: 'colors',
+    path: `/visual-language/colors`,
+    schema: {
+      description: ``,
+    },
+  },
+  {
+    title: 'Spacings',
+    id: 'spacings',
+    path: '/visual-language/spacings',
     schema: {
       description: ``,
     },
@@ -71,11 +71,6 @@ class VisualLanguageLandingPage extends Component {
       <Page>
         <h2>Welcome to the Design System, Visual Language!</h2>
         <ComponentBoard patterns={perceptualPatternsList} ready />
-        <h3>Lets get a component board of visual language patterns</h3>
-        <ComponentBoard
-          patterns={this.state.patterns}
-          ready={this.state.ready}
-        />
       </Page>
     );
   }
