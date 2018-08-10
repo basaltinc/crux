@@ -23,7 +23,6 @@ const SiteFooter = styled.div`
 `;
 
 const Site = props => (
-  <ErrorCatcher>
     <div>
       <div className="site__header">
         <Header siteTitle={'Crux'} />
@@ -33,7 +32,6 @@ const Site = props => (
         <Footer />
       </SiteFooter>
     </div>
-  </ErrorCatcher>
 );
 
 Site.propTypes = {
