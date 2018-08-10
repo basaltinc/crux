@@ -198,7 +198,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/patterns/components`)
+      .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
       .then(patterns => {
         this.setState({
@@ -215,7 +215,7 @@ export default class App extends React.Component {
               ...patterns.map(pattern => ({
                 name: pattern.title,
                 id: pattern.id,
-                path: pattern.path,
+                path: `/patterns/components/${pattern.id}`,
               })),
             )
             .concat(resourcesLinks),
@@ -232,7 +232,7 @@ export default class App extends React.Component {
               ...patterns.map(pattern => ({
                 name: pattern.title,
                 id: pattern.id,
-                path: pattern.path,
+                path: `/patterns/components/${pattern.id}`,
               })),
             )
             .concat(resourcesLinks),

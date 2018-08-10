@@ -94,24 +94,21 @@ router.post('/render-twig', async (req, res) => {
 });
 
 /**
- * @api {get} /api/pattern-info/:type/:id Get Pattern Info
- * @apiParam {String="styleguide","layouts","components","templates"} type Pattern Type
+ * @api {get} /api/pattern-info/:id Get Pattern Info
  * @apiParam {String} id Pattern ID i.e. `media-block`
  * @apiName GetPatternInfo
  * @apiGroup Patterns
  * @apiDescription Returns info about a pattern
  * @apiSuccess {Object} Pattern Info
  */
-router.get('/pattern-info/:type/:id', async (req, res) => {
-  const results = await getPatternInfo(req.params.id, {
-    type: req.params.type,
-  });
+router.get('/pattern-info/:id', async (req, res) => {
+  const results = await getPatternInfo(req.params.id);
   res.send(results);
 });
 
 /**
  * @api {get} /api/patterns/:type Get Patterns Info
- * @apiParam {String="styleguide","layouts","components","templates"} type Pattern Type
+ * @apiParam {String="styleguide","layout","component","template"} type Pattern Type
  * @apiName GetPatterns
  * @apiGroup Patterns
  * @apiDescription Returns info about all types of patterns

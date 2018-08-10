@@ -20,7 +20,7 @@ class PatternsPage extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/patterns/components`)
+      .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
       .then(patterns => {
         this.setState({ patterns, ready: true });

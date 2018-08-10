@@ -18,7 +18,7 @@ export default class ComponentOverview extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/pattern-info/components/${this.props.id}`)
+      .fetch(`${apiUrlBase}/pattern-info/${this.props.id}`)
       .then(res => res.json())
       .then(info => {
         if (info.ok) {
