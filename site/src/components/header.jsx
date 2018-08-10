@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link'; // eslint-disable-line
+import { Link } from 'react-router-dom'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
