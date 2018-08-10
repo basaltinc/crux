@@ -74,26 +74,124 @@ const SidebarOneStyled = SidebarStyled.extend`
       : ''};
 `;
 
+const resourcesLinks = [
+  {
+    name: 'Branding',
+    id: 'branding',
+    isHeading: true,
+  },
+  {
+    name: 'Logo Downloads',
+    id: 'logo-downloads',
+    path: `/resources/logo-downloads`,
+  },
+  {
+    name: 'Logo Usage',
+    id: 'logo-usage',
+    path: '/resources/logo-usage',
+  },
+  {
+    name: 'Photography Guidelines',
+    id: 'photography-guidelines',
+    path: '/resources/photography-guidelines',
+  },
+  {
+    name: 'Brand Descriptors',
+    id: 'brand-descriptors',
+    path: '/resources/brand-descriptors',
+  },
+  {
+    name: 'Sketch Assets',
+    id: 'sketch',
+    isHeading: true,
+  },
+  {
+    name: 'Coming Soon...',
+    id: 'coming-soon',
+    path: '#',
+  },
+];
+const perceptualPatternsLinks = [
+  {
+    name: 'Visual Language',
+    id: 'visual',
+    isHeading: true,
+  },
+  {
+    name: 'Animations',
+    id: 'animations',
+    path: `/visual-language/animations`,
+  },
+  {
+    name: 'Breakpoints',
+    id: 'breakpoints',
+    path: '/visual-language/breakpoints',
+  },
+  {
+    name: 'Colors',
+    id: 'colors',
+    path: `/visual-language/colors`,
+  },
+  {
+    name: 'Spacings',
+    id: 'spacings',
+    path: '/visual-language/spacings',
+  },
+  {
+    name: 'Typography',
+    id: 'typography',
+    path: '/visual-language/typography',
+  },
+];
+const aboutLinks = [
+  {
+    name: 'About',
+    id: 'heading',
+    isHeading: true,
+  },
+  {
+    path: '/about',
+    name: 'Get Started',
+    id: 'about',
+  },
+  {
+    path: '/about/release-notes',
+    name: 'Release Notes',
+    id: 'release-notes',
+  },
+  {
+    path: '/about/feature-requests',
+    name: 'Feature Requests and Bugs',
+    id: 'feature-requests',
+  },
+];
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       sidebarOneOnTop: false,
-      filteredList: [
-        {
-          name: 'Patterns',
-          id: 'patterns',
-          isHeading: true,
-        },
-      ],
-      linkItems: [
-        {
-          name: 'Patterns',
-          id: 'patterns',
-          isHeading: true,
-        },
-      ],
+      filteredList: perceptualPatternsLinks
+        .concat(aboutLinks)
+        .concat([
+          {
+            name: 'Patterns',
+            id: 'patterns',
+            isHeading: true,
+          },
+        ])
+        .concat(resourcesLinks),
+      linkItems: perceptualPatternsLinks
+        .concat(aboutLinks)
+        .concat([
+          {
+            name: 'Patterns',
+            id: 'patterns',
+            isHeading: true,
+          },
+        ])
+        .concat(resourcesLinks),
       ready: false,
     };
 
@@ -107,22 +205,40 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(patterns => {
         this.setState({
-          linkItems: [
-            ...this.state.linkItems,
-            ...patterns.map(pattern => ({
-              name: pattern.title,
-              id: pattern.id,
-              path: pattern.path,
-            })),
-          ],
-          filteredList: [
-            ...this.state.linkItems,
-            ...patterns.map(pattern => ({
-              name: pattern.title,
-              id: pattern.id,
-              path: pattern.path,
-            })),
-          ],
+          filteredList: perceptualPatternsLinks
+            .concat(aboutLinks)
+            .concat([
+              {
+                name: 'Patterns',
+                id: 'patterns',
+                isHeading: true,
+              },
+            ])
+            .concat(
+              ...patterns.map(pattern => ({
+                name: pattern.title,
+                id: pattern.id,
+                path: pattern.path,
+              })),
+            )
+            .concat(resourcesLinks),
+          linkItems: perceptualPatternsLinks
+            .concat(aboutLinks)
+            .concat([
+              {
+                name: 'Patterns',
+                id: 'patterns',
+                isHeading: true,
+              },
+            ])
+            .concat(
+              ...patterns.map(pattern => ({
+                name: pattern.title,
+                id: pattern.id,
+                path: pattern.path,
+              })),
+            )
+            .concat(resourcesLinks),
         });
       });
   }
