@@ -1,5 +1,5 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema",
+  "$schema": "http://json-schema.org/draft-07/schema",
   "type": "object",
   "title": "Hero",
   "description": "The Hero component is a full width slab intended to draw the attention of the user.",
