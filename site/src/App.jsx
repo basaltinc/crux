@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 const Page1 = () => <div>ima Page1</div>;
 const Page2 = () => <div>ima Page2</div>;
@@ -31,15 +31,24 @@ export default class App extends React.Component {
               padding: '5px',
             }}
           >
-            <Route path="/page1" component={Page1} />
-            <Route path="/page2" component={Page2} />
-            <Route path="/page3" render={() => <div>ima Page3</div>} />
-            <Route
-              path="/components/:id"
-              render={({ match }) => (
-                <h3>ima component page {match.params.id}</h3>
-              )}
-            />
+            <Switch>
+              <Route path="/page1" component={Page1} />
+              <Route path="/page2" component={Page2} />
+              <Route path="/page3" render={() => <div>ima Page3</div>} />
+              <Route
+                path="/components/:id"
+                render={({ match }) => (
+                  <h3>ima component page {match.params.id}</h3>
+                )}
+              />
+              <Route
+                render={() => (
+                  <div>
+                    <h3>Page Not Found ¯\_(ツ)_/¯</h3>
+                  </div>
+                )}
+              />
+            </Switch>
           </article>
         </div>
       </Router>
