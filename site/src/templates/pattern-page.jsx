@@ -71,7 +71,6 @@ class PatternPage extends Component {
   filterableList() {
     return (
       <div>
-        <LinkList items={this.state.filteredList} />
         <TypeToFilterWrapper>
           <input
             type="text"
@@ -80,6 +79,7 @@ class PatternPage extends Component {
             onChange={this.handleFilterList}
           />
         </TypeToFilterWrapper>
+        <LinkList items={this.state.filteredList} />
       </div>
     );
   }
