@@ -4,6 +4,7 @@ $open: '.site-header-toggle:checked + .site-header';
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  background-color: white;
   &__logo {
     display: block;
     width: grid-width(5);
