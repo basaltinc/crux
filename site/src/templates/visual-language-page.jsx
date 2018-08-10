@@ -37,6 +37,11 @@ const perceptualPatternsList = [
     id: 'typography',
     path: '/visual-language/typography',
   },
+  {
+    name: 'Icons',
+    id: 'icons',
+    path: '/visual-language/icons',
+  },
 ];
 
 class VisualLanguagePage extends Component {
