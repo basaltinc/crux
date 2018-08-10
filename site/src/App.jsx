@@ -9,6 +9,9 @@ import ErrorCatcher from './bedrock/components/error-catcher';
 import { apiUrlBase } from '../config';
 import { TypeToFilterWrapper } from './bedrock/components/atoms';
 import LinkList from './components/link-list';
+import ComponentOverview from './layouts/component-overview';
+// import SchemaForm from "./bedrock/components/schema-form";
+// import SchemaForm from './components/SchemaForm';
 
 const Site = styled.div`
   display: flex;
@@ -293,7 +296,7 @@ export default class App extends React.Component {
                   <Route
                     path="/patterns/components/:id"
                     render={({ match }) => (
-                      <h3>ima component page {match.params.id}</h3>
+                      <ComponentOverview id={match.params.id} size="l" />
                     )}
                   />
                   <Route

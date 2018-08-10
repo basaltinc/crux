@@ -12,6 +12,7 @@ export default class ComponentOverview extends Component {
     super(props);
     this.state = {
       info: {},
+      data: props.data,
       ready: false,
     };
   }
@@ -21,12 +22,13 @@ export default class ComponentOverview extends Component {
       .fetch(`${apiUrlBase}/pattern-info/${this.props.id}`)
       .then(res => res.json())
       .then(info => {
-        if (info.ok) {
-          this.setState({ info, ready: true });
-        } else {
-          // @todo Show error
-          console.error('Uh oh, error!', info);
-        }
+        this.setState({
+          info,
+          data: info.schema.examples
+            ? info.schema.examples[0]
+            : this.state.data,
+          ready: true,
+        });
       });
   }
 
@@ -42,13 +44,13 @@ export default class ComponentOverview extends Component {
             template={template}
             schema={schema}
             demoSizes={this.props.demoSizes}
-            data={this.props.data}
+            data={this.state.data}
             size={this.props.size}
           />
           <VariationDemos
             schema={schema}
             template={template}
-            data={this.props.data}
+            data={this.state.data}
           />
           {this.props.dosAndDonts.map(item => (
             // @todo title is not a required prop, so we need to fix this key structure
@@ -61,9 +63,7 @@ export default class ComponentOverview extends Component {
         </article>
       );
     }
-    return (
-      <ErrorCatcher>{content}</ErrorCatcher>
-    );
+    return <ErrorCatcher>{content}</ErrorCatcher>;
   }
 }
 

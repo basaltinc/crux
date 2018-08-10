@@ -68,7 +68,9 @@ const Header = ({ siteTitle }) => (
           <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink to="/visual-language">Visual Language</SiteHeaderNavLink>
+          <SiteHeaderNavLink to="/visual-language">
+            Visual Language
+          </SiteHeaderNavLink>
         </li>
         <li>
           <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>

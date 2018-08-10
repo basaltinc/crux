@@ -1,5 +1,4 @@
 import { text, paragraph } from '@basalt/demo-data';
-import pkg from '../package.json';
 
 const examples = [
   {
@@ -96,7 +95,8 @@ const examples = [
 export default {
   title: 'Schema Form',
   type: 'object',
-  description: pkg.description,
+  description:
+    'The schema-form component takes a component schema and generates a form.',
   required: [],
   // additionalProperties: false,
   properties: {},
