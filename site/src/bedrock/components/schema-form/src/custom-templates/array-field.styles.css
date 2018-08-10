@@ -1,5 +1,6 @@
 .rjsf summary {
   cursor: pointer;
+  outline: none;
 }
 
 .rjsf .field-array__add-button {

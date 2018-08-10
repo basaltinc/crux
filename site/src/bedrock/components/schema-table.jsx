@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-import styled from 'styled-components';
 
 const SchemaTable = props => {
   // export default class SchemaTable extends React.Component {
@@ -16,10 +15,6 @@ const SchemaTable = props => {
     };
   });
 
-  const Summary = styled.summary`
-    outline: none;
-  `;
-  
   const columns = [
     {
       Header: 'Prop',
@@ -44,12 +39,11 @@ const SchemaTable = props => {
         if (cell.original.def.enum) {
           details = (
             <details>
-              <Summary>Must be one of:</Summary>
+              <summary>Must be one of:</summary>
               {cell.original.def.enum.join(', ')}
             </details>
           );
         }
-        // console.log(cell);
         return (
           <span>
             <code>{cell.value}</code>
