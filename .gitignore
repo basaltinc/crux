@@ -9,4 +9,5 @@ site/vendor
 site/public2
 site/node_modules
 vendor
+dist
 

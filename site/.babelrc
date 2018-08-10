@@ -1,0 +1,14 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "> 5%",
+          "not ie <= 11"
+        ]
+      }
+    }],
+    "@babel/preset-react"
+  ]
+}
