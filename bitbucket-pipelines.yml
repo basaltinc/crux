@@ -95,6 +95,11 @@ pipelines:
             script:
              - yarn run deploy:prod
 
+      feature/fu-gatsby:
+        - step:
+            script:
+              - echo 'skipping CI builds for now'
+
       master:
         - step:
             caches:

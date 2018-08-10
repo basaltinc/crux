@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "author": "Basalt",
   "scripts": {
-    "build:gatsby": "gatsby build",
+    "build:webpack": "wp",
     "build:apidoc": "apidoc --input api/ --output public2/apidoc/ --file-filters '.js' --file-filters '.jsx' ",
     "build:jsdoc": "jsdoc --configure jsdoc.json --recurse --destination public2/jsdoc",
     "build": "FORCE_COLOR=1 run-p --print-label build:*",
     "clean": "rm -rf public public2 .cache",
     "start": "run-p --print-label watch:*",
     "watch:twig": "nodemon --watch ../pattern-lab/source/_patterns/ --ext twig --exec 'echo \"restarting twig render server to clear twig cache...\" && touch server.js' ",
-    "watch:gatsby": "gatsby develop",
+    "watch:webpack": "wp --watch",
     "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'yarn run build:jsdoc'",
     "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'run-p build:apidoc serve' ",
     "serve": "babel-node --config-file ./.babelrc server.js"
@@ -51,7 +51,8 @@
     "nodemon": "1.18.3"
   },
   "keywords": [
-    "gatsby"
+    "design-system",
+    "basalt"
   ],
   "license": "MIT",
   "repository": {

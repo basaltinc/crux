@@ -1,5 +1,5 @@
 import React from 'react';
-import NavLink from 'gatsby-link'; // eslint-disable-line
+import { NavLink } from 'react-router-dom'; // eslint-disable-line
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 

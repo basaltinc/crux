@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NavLink from 'gatsby-link';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledUl = styled.ul`
