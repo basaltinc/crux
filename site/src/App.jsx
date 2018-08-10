@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Header from './components/header';
 import Footer from './components/footer';
+import { AnimationsPage, BreakpointsPage, ColorsPage, SpacingPage, TypographyPage  } from './pages/visual-language/index';
 import './global.css';
 import ErrorCatcher from './bedrock/components/error-catcher';
 import { apiUrlBase } from '../config';
@@ -116,27 +117,27 @@ const perceptualPatternsLinks = [
   },
   {
     name: 'Animations',
-    id: 'animations',
+    id: 'AnimationsPage',
     path: `/visual-language/animations`,
   },
   {
     name: 'Breakpoints',
-    id: 'breakpoints',
+    id: 'BreakpointsPage',
     path: '/visual-language/breakpoints',
   },
   {
     name: 'Colors',
-    id: 'colors',
+    id: 'ColorsPage',
     path: `/visual-language/colors`,
   },
   {
     name: 'Spacings',
-    id: 'spacings',
+    id: 'SpacingPage',
     path: '/visual-language/spacings',
   },
   {
     name: 'Typography',
-    id: 'typography',
+    id: 'TypographyPage',
     path: '/visual-language/typography',
   },
 ];
@@ -295,6 +296,14 @@ export default class App extends React.Component {
                     render={({ match }) => (
                       <h3>ima component page {match.params.id}</h3>
                     )}
+                  />
+                  <Route
+                    path="/resources/:id"
+                    render={({ match }) => {
+                        const Component = [match.id];
+                        return (<Component />);
+                      }
+                    }
                   />
                   <Route
                     render={() => (

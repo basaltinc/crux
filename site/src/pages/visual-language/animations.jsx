@@ -163,11 +163,11 @@ class AnimationsPage extends React.Component {
           </ul>
         </div>
         <br />
-        <ApiDemo
-          title="Animations API"
-          endpoint={`${apiUrlBase}/transitions`}
-          requestType={'get'}
-        />
+        {/*<ApiDemo*/}
+          {/*title="Animations API"*/}
+          {/*endpoint={`${apiUrlBase}/transitions`}*/}
+          {/*requestType={'get'}*/}
+        {/*/>*/}
         <DosAndDonts
           items={[
             {
