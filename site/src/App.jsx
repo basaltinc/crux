@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Header from './components/header';
@@ -13,10 +13,15 @@ import LinkList from './components/link-list';
 const Page1 = () => <div>ima Page1</div>;
 const Page2 = () => <div>ima Page2</div>;
 
-const SiteMain = styled.div`
+const Site = styled.div`
   display: flex;
   justify-content: center;
   min-height: calc(100vh - 229px);
+  width: 100%;
+`;
+
+const MainContent = styled.div`
+  flex-grow: 1;
 `;
 
 const SiteFooter = styled.div`
@@ -156,7 +161,7 @@ export default class App extends React.Component {
         <Router>
           <div>
             <Header siteTitle={'Crux'} />
-            <SiteMain>
+            <Site>
               <SidebarOneStyled {...this.state}>
                 {this.filterableList()}
                 <button
@@ -170,25 +175,27 @@ export default class App extends React.Component {
                   Toggle
                 </button>
               </SidebarOneStyled>
-              <Switch>
-                <Route path="/page1" component={Page1} />
-                <Route path="/page2" component={Page2} />
-                <Route path="/page3" render={() => <div>ima Page3</div>} />
-                <Route
-                  path="/components/:id"
-                  render={({ match }) => (
-                    <h3>ima component page {match.params.id}</h3>
-                  )}
-                />
-                <Route
-                  render={() => (
-                    <div>
-                      <h3>Page Not Found ¯\_(ツ)_/¯</h3>
-                    </div>
-                  )}
-                />
-              </Switch>
-            </SiteMain>
+              <MainContent>
+                <Switch>
+                  <Route path="/page1" component={Page1} />
+                  <Route path="/page2" component={Page2} />
+                  <Route path="/page3" render={() => <div>ima Page3</div>} />
+                  <Route
+                    path="/components/:id"
+                    render={({ match }) => (
+                      <h3>ima component page {match.params.id}</h3>
+                    )}
+                  />
+                  <Route
+                    render={() => (
+                      <div>
+                        <h3>Page Not Found ¯\_(ツ)_/¯</h3>
+                      </div>
+                    )}
+                  />
+                </Switch>
+              </MainContent>
+            </Site>
             <SiteFooter>
               <Footer />
             </SiteFooter>
