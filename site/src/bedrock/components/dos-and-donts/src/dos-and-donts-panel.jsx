@@ -10,6 +10,7 @@ const DosAndDontsPanelStyled = styled.figure`
     border-bottom-color: ${props => (props.do ? 'green' : 'red')};
     margin-bottom: 1rem;
     flex: 1 0 auto;
+    width: 100%;
   }
   b {
     color: ${props => (props.do ? 'green' : 'red')};
