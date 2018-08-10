@@ -33,10 +33,7 @@ const config = {
   },
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.jsx', '.css'],
-    modules: [
-      'node_modules',
-      path.resolve(__dirname, '../node_modules'),
-    ],
+    modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
   },
   devServer: {
     contentBase: path.join(__dirname, 'public'),
