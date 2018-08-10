@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import VisualLanguagePage from '../../templates/visual-language-page';
 import { apiUrlBase } from '../../../config';
 import ApiDemo from '../../bedrock/components/api-demo';
 
@@ -121,7 +120,7 @@ class BreakpointsPage extends React.Component {
 
   render() {
     return (
-      <VisualLanguagePage className="docs">
+      <div className="docs">
         <h4 className="eyebrow">Visual Language</h4>
         <h2>Breakpoints</h2>
         <BreakpointsWrapper>
@@ -141,7 +140,7 @@ class BreakpointsPage extends React.Component {
           endpoint={`${apiUrlBase}/devicewidths`}
           requestType={'get'}
         />
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

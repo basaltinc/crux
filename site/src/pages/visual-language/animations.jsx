@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { apiUrlBase } from '../../../config';
 import ApiDemo from '../../bedrock/components/api-demo';
-import VisualLanguagePage from '../../templates/visual-language-page';
 import { TwoUp } from '../../bedrock/components/atoms';
 import Spinner from '../../bedrock/components/spinner';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
@@ -64,7 +63,7 @@ class AnimationsPage extends React.Component {
 
   render() {
     return (
-      <VisualLanguagePage>
+      <div>
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Animation</h2>
@@ -184,7 +183,7 @@ class AnimationsPage extends React.Component {
             },
           ]}
         />
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

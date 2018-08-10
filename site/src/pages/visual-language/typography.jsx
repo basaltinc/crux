@@ -2,7 +2,6 @@ import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 
-import VisualLanguagePage from '../../templates/visual-language-page';
 import Spinner from '../../bedrock/components/spinner';
 import { apiUrlBase } from '../../../config';
 
@@ -87,7 +86,7 @@ class TypographyPage extends React.Component {
     /* eslint-disable react/no-unescaped-entities */
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     return (
-      <VisualLanguagePage className="docs t-crux-typography">
+      <div className="docs t-crux-typography">
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Typography</h2>
@@ -268,7 +267,7 @@ class TypographyPage extends React.Component {
             requestType={'get'}
           />
         </div>
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

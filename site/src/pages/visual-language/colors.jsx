@@ -1,6 +1,5 @@
 import React from 'react';
 
-import VisualLanguagePage from '../../templates/visual-language-page';
 import ColorSwatches from '../../bedrock/components/color-swatch';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
 import { apiUrlBase } from '../../../config';
@@ -28,7 +27,7 @@ class ColorsPage extends React.Component {
 
   render() {
     return (
-      <VisualLanguagePage className="docs">
+      <div className="docs">
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Colors</h2>
@@ -121,7 +120,7 @@ class ColorsPage extends React.Component {
             },
           ]}
         />
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

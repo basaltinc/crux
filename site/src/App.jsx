@@ -169,8 +169,8 @@ export default class App extends React.Component {
 
     this.state = {
       sidebarOneOnTop: false,
-      filteredList: perceptualPatternsLinks
-        .concat(aboutLinks)
+      filteredList: aboutLinks
+        .concat(perceptualPatternsLinks)
         .concat([
           {
             name: 'Patterns',
@@ -179,8 +179,8 @@ export default class App extends React.Component {
           },
         ])
         .concat(resourcesLinks),
-      linkItems: perceptualPatternsLinks
-        .concat(aboutLinks)
+      linkItems: aboutLinks
+        .concat(perceptualPatternsLinks)
         .concat([
           {
             name: 'Patterns',
@@ -202,8 +202,8 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(patterns => {
         this.setState({
-          filteredList: perceptualPatternsLinks
-            .concat(aboutLinks)
+          filteredList: aboutLinks
+            .concat(perceptualPatternsLinks)
             .concat([
               {
                 name: 'Patterns',
@@ -219,8 +219,8 @@ export default class App extends React.Component {
               })),
             )
             .concat(resourcesLinks),
-          linkItems: perceptualPatternsLinks
-            .concat(aboutLinks)
+          linkItems: aboutLinks
+            .concat(perceptualPatternsLinks)
             .concat([
               {
                 name: 'Patterns',
@@ -291,7 +291,7 @@ export default class App extends React.Component {
               <MainContent>
                 <Switch>
                   <Route
-                    path="/components/:id"
+                    path="/patterns/components/:id"
                     render={({ match }) => (
                       <h3>ima component page {match.params.id}</h3>
                     )}
