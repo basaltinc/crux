@@ -10,9 +10,6 @@ import { apiUrlBase } from '../config';
 import { TypeToFilterWrapper } from './bedrock/components/atoms';
 import LinkList from './components/link-list';
 
-const Page1 = () => <div>ima Page1</div>;
-const Page2 = () => <div>ima Page2</div>;
-
 const Site = styled.div`
   display: flex;
   justify-content: center;
@@ -293,9 +290,6 @@ export default class App extends React.Component {
               </SidebarOneStyled>
               <MainContent>
                 <Switch>
-                  <Route path="/page1" component={Page1} />
-                  <Route path="/page2" component={Page2} />
-                  <Route path="/page3" render={() => <div>ima Page3</div>} />
                   <Route
                     path="/components/:id"
                     render={({ match }) => (
