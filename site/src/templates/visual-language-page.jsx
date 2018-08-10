@@ -94,7 +94,6 @@ class VisualLanguagePage extends Component {
   filterableList() {
     return (
       <div>
-        <LinkList items={this.state.filteredList} />
         <TypeToFilterWrapper>
           <input
             type="text"
@@ -103,6 +102,7 @@ class VisualLanguagePage extends Component {
             onChange={this.handleFilterList}
           />
         </TypeToFilterWrapper>
+        <LinkList items={this.state.filteredList} />
       </div>
     );
   }
