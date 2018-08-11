@@ -996,6 +996,10 @@ babel-loader@^8.0.0-beta:
     mkdirp "^0.5.1"
     util.promisify "^1.0.0"
 
+babel-plugin-transform-react-remove-prop-types@0.4.14:
+  version "0.4.14"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.14.tgz#d3bf0ab39bd491c6670e71abd8642d4e6caae919"
+
 babylon@7.0.0-beta.19:
   version "7.0.0-beta.19"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-7.0.0-beta.19.tgz#e928c7e807e970e0536b078ab3e0c48f9e052503"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom'; // eslint-disable-line
+import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -62,7 +62,6 @@ const Header = ({ siteTitle }) => (
       </h3>
     </SiteHeaderBrandWrapper>
     <div>
-      {/* @todo clean this up; propagate these classnames */}
       <ul>
         <li>
           <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>

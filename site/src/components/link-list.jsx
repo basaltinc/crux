@@ -37,37 +37,42 @@ const StyledUl = styled.ul`
   }
 `;
 
-const generateLinkItems = items =>
-  items.map(item => {
-    if (item.isHeading) {
-      return (
-        <li key={item.id}>
-          <h4>
-            {item.path && <NavLink to={item.path}>{item.name}</NavLink>}
-            {!item.path && item.name}
-          </h4>
-        </li>
-      );
-    }
-    return (
-      <li key={item.id}>
-        <NavLink to={item.path} className="h5">
-          {item.name}
-        </NavLink>
-      </li>
-    );
-  });
-
-const LinkList = ({ items }) => (
+const LinkList = ({ items, basePath }) => (
   <nav className="link-list">
-    <StyledUl>{generateLinkItems(items)}</StyledUl>
+    <StyledUl>
+      {items.map(item => {
+        if (item.isHeading) {
+          return (
+            <li key={item.id}>
+              <h4>
+                {item.path && <NavLink to={item.path}>{item.title}</NavLink>}
+                {!item.path && item.title}
+              </h4>
+            </li>
+          );
+        }
+        const path = item.path ? item.path : `${basePath}${item.id}`;
+        return (
+          <li key={item.id}>
+            <NavLink to={path} className="h5">
+              {item.title}
+            </NavLink>
+          </li>
+        );
+      })}
+    </StyledUl>
   </nav>
 );
 
+LinkList.defaultProps = {
+  basePath: '',
+};
+
 LinkList.propTypes = {
+  basePath: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
       path: PropTypes.string,
     }),
