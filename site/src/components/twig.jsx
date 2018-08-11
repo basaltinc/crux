@@ -102,7 +102,7 @@ export default class Twig extends React.Component {
 
 Twig.defaultProps = {
   data: {},
-  showDataUsed: true,
+  showDataUsed: false,
   handleNewHtml: () => {},
   asString: false,
 };
