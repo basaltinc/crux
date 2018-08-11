@@ -16,9 +16,9 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@basalt/demo-data@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@basalt/demo-data/-/demo-data-0.3.0.tgz#f265fbc080f2d7dfd36e2367d2e7a987b186bd33"
+"@basalt/demo-data@0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@basalt/demo-data/-/demo-data-0.4.0.tgz#5c7253eb243876c17483c06a1724221ab9094268"
   dependencies:
     faker "^4.1.0"
 

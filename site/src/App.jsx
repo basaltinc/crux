@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
+import Loadable from 'react-loadable';
+import Spinner from './bedrock/components/spinner';
 
 import Header from './components/header';
 import Footer from './components/footer';
@@ -10,9 +12,11 @@ import ErrorCatcher from './bedrock/components/error-catcher';
 import { apiUrlBase } from '../config';
 import { TypeToFilterWrapper } from './bedrock/components/atoms';
 import LinkList from './components/link-list';
-import ComponentOverview from './layouts/component-overview';
-// import SchemaForm from "./bedrock/components/schema-form";
-// import SchemaForm from './components/SchemaForm';
+
+const LoadableComponentOverview = Loadable({
+  loader: () => import('./layouts/component-overview'),
+  loading: Spinner,
+});
 
 const Site = styled.div`
   display: flex;
@@ -297,7 +301,7 @@ export default class App extends React.Component {
                   <Route
                     path="/patterns/components/:id"
                     render={({ match }) => (
-                      <ComponentOverview id={match.params.id} size="l" />
+                      <LoadableComponentOverview id={match.params.id} size="l" />
                     )}
                   />
                   <Route
