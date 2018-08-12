@@ -20,15 +20,21 @@ class ErrorCatcher extends Component {
 
   render() {
     if (this.state.errorInfo) {
+      const [line1, line2, ...rest] = this.state.errorInfo.componentStack
+        .split('\n')
+        .filter(x => x); // removes empty lines
+
       return (
         <div style={{ width: '90%', margin: '0 auto' }}>
-          <h2>Something went wrong.</h2>
+          <h2>Something went wrong</h2>
           <h4 style={{ color: 'red' }}>
             {this.state.error && this.state.error.toString()}
           </h4>
+          <div>{line1}</div>
+          <div>{line2}</div>
           <details style={{ whiteSpace: 'pre-wrap' }}>
-            <summary>Stack Trace</summary>
-            {this.state.errorInfo.componentStack}
+            <summary>Rest of Stack Trace</summary>
+            {rest.join('\n')}
           </details>
         </div>
       );

@@ -4,6 +4,7 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
 const SchemaTable = props => {
+  if (!props.schema) return null;
   // export default class SchemaTable extends React.Component {
   const required = props.schema.required || [];
 

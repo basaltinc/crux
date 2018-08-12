@@ -5,19 +5,23 @@ import Loadable from 'react-loadable';
 import Spinner from './bedrock/components/spinner';
 
 import Header from './components/header';
-import Footer from './components/footer';
-import { AnimationsPage, BreakpointsPage, ColorsPage, SpacingPage, TypographyPage  } from './pages/visual-language/index';
+// import { AnimationsPage, BreakpointsPage, ColorsPage, SpacingPage, TypographyPage  } from './pages/visual-language/index';
 import './global.css';
 import ErrorCatcher from './bedrock/components/error-catcher';
 import { apiUrlBase } from '../config';
-import Sidebar from './components/sidebar';
+
 const LoadableComponentOverview = Loadable({
-  loader: () => import('./layouts/component-overview'),
+  loader: () => import(/* webpackChunkName: 'component-overview' */ './layouts/component-overview'),
   loading: Spinner,
 });
 
 const LoadableSidebar = Loadable({
-  loader: () => import('./components/sidebar'),
+  loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
+  loading: Spinner,
+});
+
+const LoadableFooter = Loadable({
+  loader: () => import(/* webpackChunkName: 'footer' */ './components/footer'),
   loading: Spinner,
 });
 
@@ -93,7 +97,7 @@ export default class App extends React.Component {
               </MainContent>
             </Site>
             <SiteFooter>
-              <Footer />
+              <LoadableFooter />
             </SiteFooter>
           </div>
         </Router>

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Twig from './twig';
 import SchemaForm from '../bedrock/components/schema-form';
-import SchemaTable from '../bedrock/components/schema-table';
 import { SelectStyledWrapper } from '../bedrock/components/atoms';
 import CodeBlock from './code-block';
 
@@ -278,28 +277,6 @@ class Overview extends React.Component {
             ]}
           />
         </CodeBlockWrapper>
-        <footer
-          style={{
-            display: this.state.fullScreen ? 'none' : 'block',
-          }}
-        >
-          {/* @todo Determine if there is still a use case for multiple size demo stages */}
-          {/* {demos && ( */}
-          {/* <details> */}
-          {/* <summary>Multiple Sizes Demoed</summary> */}
-          {/* {demos} */}
-          {/* </details> */}
-          {/* )} */}
-          <h4>Properties</h4>
-          <p>
-            The following properties make up the data that defines each instance
-            of this component.
-          </p>
-          <details open={this.props.isPropsTableOpen}>
-            <summary>Props Table</summary>
-            <SchemaTable schema={this.props.schema} />
-          </details>
-        </footer>
       </OverviewWrapper>
     );
   }
@@ -307,7 +284,6 @@ class Overview extends React.Component {
 
 Overview.defaultProps = {
   data: {},
-  isPropsTableOpen: true,
   demoSizes: [],
   size: 'l',
 };
@@ -317,7 +293,6 @@ Overview.propTypes = {
   data: PropTypes.object,
   schema: PropTypes.object.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
-  isPropsTableOpen: PropTypes.bool,
   size: PropTypes.oneOf(Object.values(sizes)),
 };
 

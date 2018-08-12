@@ -8,7 +8,7 @@ const config = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    chunkFilename: '[name].chunk.bundle.js',
+    chunkFilename: '[name].chunk.js',
   },
   module: {
     rules: [
