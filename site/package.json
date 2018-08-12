@@ -10,7 +10,7 @@
     "build": "FORCE_COLOR=1 run-p --print-label build:*",
     "clean": "rm -rf public public2 .cache",
     "start": "run-p --print-label watch:*",
-    "watch:twig": "nodemon --watch ../pattern-lab/source/_patterns/ --ext twig --exec 'echo \"restarting twig render server to clear twig cache...\" && touch server.js' ",
+    "watch:twig": "nodemon --watch ../pattern-lab/source/_patterns/ --ext twig,json,js --exec 'echo \"restarting twig render server to clear twig cache...\" && touch server.js' ",
     "watch:webpack": "wp --watch --run-dev",
     "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'yarn run build:jsdoc'",
     "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'run-p build:apidoc serve' ",
