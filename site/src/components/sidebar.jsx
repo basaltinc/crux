@@ -52,6 +52,11 @@ const resourcesLinks = [
     id: 'branding',
     isHeading: true,
   },
+  // {
+  //   title: 'Overview',
+  //   id: 'ResourcesPage',
+  //   path: `/resources`,
+  // },
   {
     title: 'Logo Downloads',
     id: 'logo-downloads',

@@ -58,11 +58,15 @@ const LoadableTypography = Loadable({
   loading: Spinner,
 });
 
-// const LoadablePatternsPage = Loadable({
-//   loader: () => import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
+const LoadablePatternsPage = Loadable({
+  loader: () => import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
+  loading: Spinner,
+});
+
+// const LoadableResourcesPage = Loadable({
+//   loader: () => import(/* webpackChunkName: 'resources-page' */ './pages/resources'),
 //   loading: Spinner,
 // });
-
 
 const LoadableLogoDownloads = Loadable({
   loader: () => import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),
@@ -179,9 +183,14 @@ export default class App extends React.Component {
                     path="/visual-language/typography"
                     component={LoadableTypography}
                   />
+                  <Route
+                    path="/patterns"
+                    component={LoadablePatternsPage}
+                    exact={true}
+                  />
                   {/*<Route*/}
-                    {/*path="/patterns"*/}
-                    {/*component={LoadablePatternsPage}*/}
+                    {/*path="/resources"*/}
+                    {/*component={LoadableResourcesPage}*/}
                     {/*exact={true}*/}
                   {/*/>*/}
                   <Route
