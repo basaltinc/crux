@@ -43,6 +43,11 @@ const LoadableColors = Loadable({
   loading: Spinner,
 });
 
+const LoadableSpacings = Loadable({
+  loader: () => import(/* webpackChunkName: 'spacings' */ './pages/visual-language/spacings'),
+  loading: Spinner,
+});
+
 const LoadableSidebar = Loadable({
   loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
@@ -124,6 +129,10 @@ export default class App extends React.Component {
                   <Route
                     path="/visual-language/colors"
                     component={LoadableColors}
+                  />
+                  <Route
+                    path="/visual-language/spacings"
+                    component={LoadableSpacings}
                   />
                   <Route
                     path="/patterns/components/:id"
