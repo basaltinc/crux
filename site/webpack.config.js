@@ -46,6 +46,7 @@ const config = {
     overlay: true,
     hot: true,
     contentBase: [
+      path.join(__dirname, 'public'),
       path.join(__dirname, 'public2'),
       path.join(__dirname, '../build'),
     ],
