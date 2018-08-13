@@ -1,11 +1,10 @@
 import React from 'react';
 
-import ResourcePage from '../../templates/resources-page';
 import { TwoUp } from '../../bedrock/components/atoms';
 
 function LogoUsage() {
   return (
-    <ResourcePage>
+    <div>
       <h3 className="eyebrow">Resources</h3>
       <h2>Descriptors</h2>
       <TwoUp>
@@ -58,7 +57,7 @@ function LogoUsage() {
           </ul>
         </div>
       </TwoUp>
-    </ResourcePage>
+    </div>
   );
 }
 

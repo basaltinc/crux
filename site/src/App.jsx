@@ -79,6 +79,11 @@ const LoadablePhotographyGuidelines = Loadable({
   loading: Spinner,
 });
 
+const LoadableBrandDescriptors = Loadable({
+  loader: () => import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
+  loading: Spinner,
+});
+
 const LoadableSidebar = Loadable({
   loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
@@ -190,6 +195,10 @@ export default class App extends React.Component {
                   <Route
                     path="/resources/photography-guidelines"
                     component={LoadablePhotographyGuidelines}
+                  />
+                  <Route
+                    path="/resources/brand-descriptors"
+                    component={LoadableBrandDescriptors}
                   />
                   <Route
                     path="/patterns/components/:id"
