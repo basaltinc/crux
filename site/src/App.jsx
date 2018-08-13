@@ -32,6 +32,11 @@ const LoadableAnimations = Loadable({
   loader: () => import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
   loading: Spinner,
 });
+
+const LoadableBreakpoints = Loadable({
+  loader: () => import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints'),
+  loading: Spinner,
+});
 const LoadableSidebar = Loadable({
   loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
@@ -105,6 +110,10 @@ export default class App extends React.Component {
                   <Route
                     path="/visual-language/animations"
                     component={LoadableAnimations}
+                  />
+                  <Route
+                    path="/visual-language/breakpoints"
+                    component={LoadableBreakpoints}
                   />
                   <Route
                     path="/patterns/components/:id"
