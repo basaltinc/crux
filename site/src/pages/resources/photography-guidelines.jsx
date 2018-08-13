@@ -1,11 +1,10 @@
 import React from 'react';
 
-import ResourcePage from '../../templates/resources-page';
 import PhotographyExamples from '../../../../images/photog-examples.png';
 
 function LogoUsage() {
   return (
-    <ResourcePage>
+    <div>
       <h3 className="eyebrow">Resources</h3>
       <h2>Photography Guidelines</h2>
       <p>
@@ -17,7 +16,7 @@ function LogoUsage() {
         photos that depict a potential user in situation.
       </p>
       <img src={PhotographyExamples} alt="Examples of proper photography use" />
-    </ResourcePage>
+    </div>
   );
 }
 
