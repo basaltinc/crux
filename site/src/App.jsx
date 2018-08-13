@@ -28,6 +28,10 @@ const LoadableFeatureRequest = Loadable({
   loading: Spinner,
 });
 
+const LoadableAnimations = Loadable({
+  loader: () => import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
+  loading: Spinner,
+});
 const LoadableSidebar = Loadable({
   loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
@@ -97,6 +101,10 @@ export default class App extends React.Component {
                   <Route
                     path="/about/feature-requests"
                     component={LoadableFeatureRequest}
+                  />
+                  <Route
+                    path="/visual-language/animations"
+                    component={LoadableAnimations}
                   />
                   <Route
                     path="/patterns/components/:id"
