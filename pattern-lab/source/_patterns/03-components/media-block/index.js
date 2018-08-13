@@ -15,6 +15,7 @@ const meta = {
   id: 'media-block',
   title: schema.title,
   type: 'component',
+  // selector: '.media-block',
   template: '@components/_media-block.twig',
   schema,
 };

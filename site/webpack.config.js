@@ -1,4 +1,7 @@
+const webpack = require('webpack');
 const path = require('path');
+
+const isProd = process.env.NODE_ENV === 'production';
 
 const config = {
   entry: {
@@ -34,14 +37,35 @@ const config = {
       },
     ],
   },
+  devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.jsx', '.css'],
     modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    overlay: true,
+    hot: true,
+    contentBase: [
+      path.join(__dirname, 'public2'),
+      path.join(__dirname, '../build'),
+    ],
+    proxy: {
+      '/api': 'http://localhost:3042',
+    },
+    after: app => {
+      app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'public/index.html'));
+      });
+    },
   },
   plugins: [],
 };
+
+if (isProd) {
+  config.mode = 'production';
+} else {
+  config.mode = 'development';
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
+}
 
 module.exports = config;
