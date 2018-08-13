@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const Stylish = require('webpack-stylish');
 const path = require('path');
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -42,6 +43,7 @@ const config = {
     extensions: ['.jsx', '.js', '.json', '.jsx', '.css'],
     modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
   },
+  stats: 'none',
   devServer: {
     overlay: true,
     hot: true,
@@ -59,7 +61,10 @@ const config = {
       });
     },
   },
-  plugins: [],
+  plugins: [
+    new Stylish(),
+    new webpack.NamedModulesPlugin(),
+  ],
 };
 
 if (isProd) {

@@ -4,7 +4,6 @@ import Loadable from 'react-loadable';
 import Overview from '../components/overview';
 import Spinner from '../bedrock/components/spinner';
 import { apiUrlBase } from '../../config';
-import { VariationDemos } from '../bedrock/components/variation-demo';
 import { Details } from '../bedrock/components/atoms';
 import ErrorCatcher from '../bedrock/components/error-catcher';
 import Twig from '../components/twig';
@@ -14,15 +13,15 @@ const LoadableSchemaTable = Loadable({
   loading: Spinner,
 });
 
+const LoadableVariationDemo = Loadable({
+  loader: () => import(/* webpackChunkName: 'variation-demo' */ '../bedrock/components/variation-demo'),
+  loading: Spinner,
+});
+
 const LoadableDosAndDonts = Loadable({
   loader: () => import(/* webpackChunkName: 'dos-and-donts' */ '../bedrock/components/dos-and-donts/src/dos-and-donts'),
   loading: Spinner,
 });
-
-// const LoadableVariationDemos = Loadable({
-//   loader: () => import(/* webpackChunkName: 'variation-demo' */ '../bedrock/components/variation-demo'),
-//   loading: Spinner,
-// });
 
 export default class ComponentOverview extends Component {
   constructor(props) {
@@ -84,7 +83,7 @@ export default class ComponentOverview extends Component {
             <LoadableSchemaTable schema={schema} />
           </Details>
 
-          <VariationDemos
+          <LoadableVariationDemo
             schema={schema}
             template={name}
             data={data}

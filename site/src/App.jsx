@@ -18,6 +18,11 @@ const LoadableAboutPage = Loadable({
   loading: Spinner,
 });
 
+const LoadableHomeSplash = Loadable({
+  loader: () => import(/* webpackChunkName: 'home-splash' */ './components/home-splash'),
+  loading: Spinner,
+});
+
 const LoadableReleaseNotes = Loadable({
   loader: () => import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes'),
   loading: Spinner,
@@ -93,6 +98,11 @@ const LoadableFooter = Loadable({
   loading: Spinner,
 });
 
+const LoadableSandbox = Loadable({
+  loader: () => import(/* webpackChunkName: 'footer' */ './pages/sandbox'),
+  loading: Spinner,
+});
+
 const Site = styled.div`
   display: flex;
   justify-content: center;
@@ -140,6 +150,11 @@ export default class App extends React.Component {
               <LoadableSidebar patterns={this.state.patterns} />
               <MainContent>
                 <Switch>
+                  <Route
+                    path="/"
+                    component={LoadableHomeSplash}
+                    exact={true}
+                  />
                   <Route
                     path="/about"
                     component={LoadableAboutPage}
@@ -203,6 +218,10 @@ export default class App extends React.Component {
                   <Route
                     path="/resources/brand-descriptors"
                     component={LoadableBrandDescriptors}
+                  />
+                  <Route
+                    path="/sandbox"
+                    component={LoadableSandbox}
                   />
                   <Route
                     path="/patterns/components/:id"

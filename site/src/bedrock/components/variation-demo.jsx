@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-
+import { FaEllipsisH, FaEllipsisV } from 'react-icons/fa';
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
 import TabbedPanel from './tabbed-panel';
@@ -47,7 +45,7 @@ const FooterRegion = styled.div`
   }
 `;
 
-class VariationDemo extends Component {
+export class VariationDemo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -157,13 +155,11 @@ class VariationDemo extends Component {
               right: '15px',
               bottom: '15px',
             }}
+            role="button"
+            onClick={() => this.setState({ expanded: !this.state.expanded })}
+            tabIndex={0}
           >
-            <FontAwesomeIcon
-              role="button"
-              onClick={() => this.setState({ expanded: !this.state.expanded })}
-              icon={this.state.expanded ? faEllipsisH : faEllipsisV}
-              size="lg"
-            />
+            {this.state.expanded ? <FaEllipsisH /> : <FaEllipsisV />}
           </div>
         </HeaderRegion>
         <div>{content}</div>
@@ -205,9 +201,7 @@ VariationDemo.propTypes = {
   color: PropTypes.string,
 };
 
-export default VariationDemo;
-
-export const VariationDemos = ({ schema, template, data, expanded }) => {
+export default function VariationDemos({ schema, template, data, expanded }) {
   const variationsData = [];
   Object.keys(schema.properties).forEach(propKey => {
     const prop = schema.properties[propKey];

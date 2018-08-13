@@ -9,12 +9,12 @@
     "build:jsdoc": "jsdoc --configure jsdoc.json --recurse --destination public2/jsdoc",
     "build": "FORCE_COLOR=1 run-p --print-label build:*",
     "clean": "rm -rf public public2 .cache",
-    "start": "run-p --print-label watch:* serve:webpack",
+    "start": "FORCE_COLOR=1 run-p --print-label watch:* serve:webpack",
     "watch:twig": "nodemon --watch ../pattern-lab/source/_patterns/ --ext twig,json,js --exec 'echo \"restarting twig render server to clear twig cache...\" && touch server.js' ",
     "Xwatch:webpack": "wp --watch --run-dev",
     "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'yarn run build:jsdoc'",
     "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'run-p build:apidoc serve' ",
-    "serve:webpack": "webpack-dev-server --open",
+    "serve:webpack": "webpack-dev-server --info=false",
     "serve": "babel-node --config-file ./.babelrc server.js",
     "wp": "wp"
   },
@@ -42,6 +42,7 @@
     "query-string": "6.1.0",
     "react-copy-to-clipboard": "5.0.1",
     "react-helmet": "^5.2.0",
+    "react-icons": "3.0.5",
     "react-jsonschema-form": "1.0.3",
     "react-loadable": "5.5.0",
     "react-router": "4.3.1",
@@ -53,7 +54,8 @@
     "webpack": "4.16.5",
     "webpack-cli": "3.1.0",
     "webpack-command": "0.4.1",
-    "webpack-dev-server": "3.1.5"
+    "webpack-dev-server": "3.1.5",
+    "webpack-stylish": "0.1.8"
   },
   "devDependencies": {
     "nodemon": "1.18.3"

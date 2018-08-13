@@ -2,7 +2,6 @@ import React from 'react';
 
 import { paragraph, title } from '@basalt/demo-data';
 
-import Page from '../templates/page';
 import DosAndDonts from '../bedrock/components/dos-and-donts';
 import Spinner from '../bedrock/components/spinner';
 import { Details } from '../bedrock/components/atoms';
@@ -43,7 +42,7 @@ const tabbedPanelItems = [
 });
 
 const SandboxPage = () => (
-  <Page>
+  <div>
     <h3>Sandbox</h3>
     <h4>Details</h4>
     <Details>
@@ -87,7 +86,7 @@ const SandboxPage = () => (
 
     <h4>Spinner</h4>
     <Spinner />
-  </Page>
+  </div>
 );
 
 export default SandboxPage;
