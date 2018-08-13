@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TwoUp } from '../../bedrock/components/atoms';
-import ResourcePage from '../../templates/resources-page';
 import main from '../../../../images/logos/main.png';
 import blackGrey from '../../../../images/logos/black-grey.png';
 import blackOnly from '../../../../images/logos/black-only.png';
@@ -110,7 +109,7 @@ function downloadTiles() {
 
 function LogoDownloads() {
   return (
-    <ResourcePage>
+    <div>
       <h3 className="eyebrow">Resources</h3>
       <h2>Logo Downloads</h2>
       <TwoUp>
@@ -229,7 +228,7 @@ function LogoDownloads() {
       >
         {downloadTiles()}
       </div>
-    </ResourcePage>
+    </div>
   );
 }
 

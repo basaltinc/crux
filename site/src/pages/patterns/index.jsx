@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import ComponentBoard from '../../components/component-board';
-import Page from '../../templates/page';
 import { apiUrlBase } from '../../../config';
 
 const PatternsHeader = styled.div`
@@ -29,7 +28,7 @@ class PatternsPage extends Component {
 
   render() {
     return (
-      <Page>
+      <div>
         <PatternsHeader>
           <h2>Patterns</h2>
           <p>
@@ -40,7 +39,7 @@ class PatternsPage extends Component {
           patterns={this.state.patterns}
           ready={this.state.ready}
         />
-      </Page>
+      </div>
     );
   }
 }
