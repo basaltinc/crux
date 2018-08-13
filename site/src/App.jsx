@@ -48,6 +48,11 @@ const LoadableSpacings = Loadable({
   loading: Spinner,
 });
 
+const LoadableTypography = Loadable({
+  loader: () => import(/* webpackChunkName: 'typography' */ './pages/visual-language/typography'),
+  loading: Spinner,
+});
+
 const LoadableSidebar = Loadable({
   loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
@@ -133,6 +138,10 @@ export default class App extends React.Component {
                   <Route
                     path="/visual-language/spacings"
                     component={LoadableSpacings}
+                  />
+                  <Route
+                    path="/visual-language/typography"
+                    component={LoadableTypography}
                   />
                   <Route
                     path="/patterns/components/:id"
