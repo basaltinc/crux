@@ -122,7 +122,7 @@ export default function ComponentsBoard(props) {
             key={pattern.id}
             className="u-crux-pattern-grid__item--component"
           >
-            <Link to={`/patterns/components/${pattern.id}`}>
+            <Link to={pattern.path ? pattern.path : `/patterns/components/${pattern.id}`}>
               {image && <PatternGridItemThumb src={image} alt="" />}
               <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
               <PatternGridItemDescription>

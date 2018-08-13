@@ -29,7 +29,7 @@ const LoadableFeatureRequest = Loadable({
 });
 
 const LoadableVisualLanguagePage = Loadable({
-  loader: () => import(/* webpackChunkName: 'visual-language-page' */ ' .pages/visual-language/visual-language-board'),
+  loader: () => import(/* webpackChunkName: 'visual-language-page' */ './pages/visual-language/visual-language-board'),
   loading: Spinner,
 });
 

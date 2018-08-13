@@ -47,7 +47,7 @@ const perceptualPatternsList = [
   },
 ];
 
-class VisualLanguageBoard extends Component {
+class VisualLanguagePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -75,4 +75,4 @@ class VisualLanguageBoard extends Component {
   }
 }
 
-export default VisualLanguageBoard;
+export default VisualLanguagePage;
