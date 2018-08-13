@@ -23,16 +23,29 @@
       "enum": ["component", "layout"],
       "enumNames": ["Component", "Layout"]
     },
-    "template": {
-      "title": "Template",
-      "type": "string",
-      "description":
-        "Path (prefixed with namespace) of pattern template. Example '@components/_media-block.twig'."
-    },
-    "schema": {
-      "title": "Schema",
-      "type": "object",
-      "description": "Json Schema (v7) describing pattern"
+    "templates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "template": {
+            "title": "Template",
+            "type": "string",
+            "description":
+            "Path (prefixed with namespace) of pattern template. Example '@components/_media-block.twig'."
+          },
+          "selector": {
+            "title": "CSS Selector",
+            "type": "string"
+          },
+          "schema": {
+            "title": "Schema",
+            "type": "object",
+            "description": "Json Schema (v7) describing pattern"
+          }
+        }
+      }
     }
   }
 }

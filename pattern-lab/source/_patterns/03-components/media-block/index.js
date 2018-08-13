@@ -13,11 +13,15 @@ schema.examples = [
 
 const meta = {
   id: 'media-block',
-  title: schema.title,
+  title: 'Media Block',
   type: 'component',
-  // selector: '.media-block',
-  template: '@components/_media-block.twig',
-  schema,
+  templates: [
+    {
+      template: '@components/_media-block.twig',
+      selector: '.media-block',
+      schema,
+    },
+  ],
 };
 
 module.exports = {
