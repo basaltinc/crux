@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import ComponentBoard from '../../components/component-board';
-import Page from '../../templates/page';
 import { apiUrlBase } from '../../../config';
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
@@ -68,10 +67,10 @@ class VisualLanguageBoard extends Component {
 
   render() {
     return (
-      <Page>
+      <div>
         <h2>Welcome to the Design System, Visual Language!</h2>
         <ComponentBoard patterns={perceptualPatternsList} ready />
-      </Page>
+      </div>
     );
   }
 }

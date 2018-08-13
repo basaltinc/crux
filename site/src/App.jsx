@@ -28,6 +28,11 @@ const LoadableFeatureRequest = Loadable({
   loading: Spinner,
 });
 
+// const LoadableVisualLanguagePage = Loadable({
+//   loader: () => import(/* webpackChunkName: 'visual-language-page' */ ' .pages/visual-language/visual-language-board'),
+//   loading: Spinner,
+// });
+
 const LoadableAnimations = Loadable({
   loader: () => import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
   loading: Spinner,
@@ -123,6 +128,11 @@ export default class App extends React.Component {
                     path="/about/feature-requests"
                     component={LoadableFeatureRequest}
                   />
+                  {/*<Route*/}
+                    {/*path="/visual-language"*/}
+                    {/*component={LoadableVisualLanguagePage}*/}
+                    {/*exact={true}*/}
+                  {/*/>*/}
                   <Route
                     path="/visual-language/animations"
                     component={LoadableAnimations}
