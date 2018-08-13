@@ -2,9 +2,9 @@ const schema = require('./logo-schema.json');
 
 schema.examples = [
   {
-    imgSrc: 'http://files.basalt.io/logos/main--500.png', // @todo use local copy
+    imgSrc: '/assets/images/logos/main.png',
     url: 'http://www.basalt.io',
-    size: 'large',
+    size: 'jumbo',
     greyscale: false,
   },
 ];

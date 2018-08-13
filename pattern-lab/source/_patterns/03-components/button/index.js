@@ -3,6 +3,12 @@ const schema = require('./button-schema.json');
 
 schema.examples = [
   {
+    text: 'Click Me!',
+    url: 'http://www.basalt.io',
+    size: 'large',
+    color: 'blue',
+  },
+  {
     text: text(),
     url: 'http://www.basalt.io',
     size: 'small',

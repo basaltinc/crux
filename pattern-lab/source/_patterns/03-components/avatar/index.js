@@ -4,6 +4,10 @@ const schema = require('./avatar-schema.json');
 schema.examples = [
   {
     size: 'xl',
+    img: '/assets/images/avatar-example.jpg',
+  },
+  {
+    size: 'xl',
     img: image(),
   },
 ];

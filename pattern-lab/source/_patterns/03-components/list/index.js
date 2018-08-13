@@ -3,6 +3,14 @@ const schema = require('./list-schema.json');
 
 schema.examples = [
   {
+    list_items:
+      'Json, React, Arrays, If Statements, Math, Logic, Jokes, Internet, Sorcery',
+    text_size: 'xl',
+    bullets: false,
+    ordered: true,
+    columns: '3',
+  },
+  {
     list_items: 'Json, React, Arrays, If Statements, Math',
     text_size: 'm',
     bullets: false,

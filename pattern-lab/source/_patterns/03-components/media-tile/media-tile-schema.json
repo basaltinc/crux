@@ -93,13 +93,6 @@
       "enum": ["blue", "green", "yellow", "iron", "black", "none"],
       "enumNames": ["Blue", "Green", "Yellow", "Iron", "Black", "None"]
     },
-    "media_padding": {
-      "title": "Media Padding",
-      "type": "string",
-      "description": "Space around the media.",
-      "enum": ["0", "s", "m", "l", "xl", "xxl"],
-      "enumNames": ["None", "Small", "Medium", "Large", "Extra Large", "XX Large"]
-    },
     "buttons": {
       "title": "Buttons",
       "type": "array",
