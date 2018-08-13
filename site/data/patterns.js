@@ -47,11 +47,11 @@ globby
 // console.log({ patterns });
 
 /**
- * Get Pattern Info
+ * Get Pattern Meta
  * @param {string} id - Which Pattern to get; i.e. `media-block`
  * @returns {Object} - Meta info about it
  */
-export function getPatternInfo(id) {
+export function getPatternMeta(id) {
   return patterns.find(p => p.id === id);
 }
 

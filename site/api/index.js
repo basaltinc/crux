@@ -7,7 +7,7 @@ import {
   getFontFamilies,
   getFontSizes,
   getPatterns,
-  getPatternInfo,
+  getPatternMeta,
   getDeviceWidths,
   getReleaseNotes,
 } from '../data';
@@ -94,25 +94,25 @@ router.post('/render-twig', async (req, res) => {
 });
 
 /**
- * @api {get} /api/pattern-info/:id Get Pattern Info
+ * @api {get} /api/pattern-meta/:id Get Pattern Meta
  * @apiParam {String} id Pattern ID i.e. `media-block`
- * @apiName GetPatternInfo
+ * @apiName GetPatternMeta
  * @apiGroup Patterns
- * @apiDescription Returns info about a pattern
- * @apiSuccess {Object} Pattern Info
+ * @apiDescription Returns meta about a pattern
+ * @apiSuccess {Object} Pattern Meta
  */
-router.get('/pattern-info/:id', async (req, res) => {
-  const results = await getPatternInfo(req.params.id);
+router.get('/pattern-meta/:id', async (req, res) => {
+  const results = await getPatternMeta(req.params.id);
   res.send(results);
 });
 
 /**
- * @api {get} /api/patterns/:type Get Patterns Info
+ * @api {get} /api/patterns/:type Get Patterns Meta
  * @apiParam {String="styleguide","layout","component","template"} type Pattern Type
  * @apiName GetPatterns
  * @apiGroup Patterns
- * @apiDescription Returns info about all types of patterns
- * @apiSuccess {Object[]} Array of Pattern Info
+ * @apiDescription Returns meta about all types of patterns
+ * @apiSuccess {Object[]} Array of Pattern Meta
  */
 router.get('/patterns/:type', async (req, res) => {
   const results = await getPatterns(req.params.type);

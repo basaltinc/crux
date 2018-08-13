@@ -28,22 +28,18 @@ export default class ComponentOverview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      info: {},
-      data: props.data,
+      meta: {},
       ready: false,
     };
   }
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/pattern-info/${this.props.id}`)
+      .fetch(`${apiUrlBase}/pattern-meta/${this.props.id}`)
       .then(res => res.json())
-      .then(info => {
+      .then(meta => {
         this.setState({
-          info,
-          data: info.schema.examples
-            ? info.schema.examples[0]
-            : this.state.data,
+          meta,
           ready: true,
         });
       });
@@ -54,22 +50,25 @@ export default class ComponentOverview extends Component {
     if (!this.state.ready) {
       content = <Spinner />;
     } else {
-      const { template, schema } = this.state.info;
+      // Just grabbing first available template for now
+      const [ template ] = this.state.meta.templates;
+      const { name, schema } = template;
+      const [ data, ...examples ] = schema.examples;
       content = (
         <article>
           <Overview
-            template={template}
+            template={name}
             schema={schema}
             demoSizes={this.props.demoSizes}
-            data={this.state.data}
+            data={data}
             size={this.props.size}
           />
 
-          {schema.examples && (
+          {examples && (
             <Details>
               <summary>Examples</summary>
-              {schema.examples.map((example, i) => (
-                <Twig template={template} data={example} key={i} />
+              {examples.map((example, i) => (
+                <Twig template={name} data={example} key={i} />
               ))}
             </Details>
           )}
@@ -86,8 +85,8 @@ export default class ComponentOverview extends Component {
 
           <VariationDemos
             schema={schema}
-            template={template}
-            data={this.state.data}
+            template={name}
+            data={data}
           />
 
           {this.props.dosAndDonts.map(item => (
@@ -106,7 +105,6 @@ export default class ComponentOverview extends Component {
 }
 
 ComponentOverview.defaultProps = {
-  data: {},
   demoSizes: [],
   size: Overview.defaultProps.size,
   dosAndDonts: [],
@@ -114,7 +112,6 @@ ComponentOverview.defaultProps = {
 
 ComponentOverview.propTypes = {
   id: PropTypes.string.isRequired,
-  data: PropTypes.object,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
   size: Overview.propTypes.size,
   dosAndDonts: PropTypes.arrayOf(
