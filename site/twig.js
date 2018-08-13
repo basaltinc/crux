@@ -10,7 +10,7 @@ const twigRenderer = new TwigRenderer({
     namespaces: [
       {
         id: 'svgs',
-        paths: ['images/svgs'],
+        paths: ['site/public/assets/images/svgs'],
       },
       {
         id: 'utils',
