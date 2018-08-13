@@ -6,51 +6,51 @@ import { TwoUp } from '../../bedrock/components/atoms';
 const logos = [
   {
     fileName: 'main',
-    importName: 'assets/images/logos/main.png',
+    importName: '/assets/images/logos/main.png',
   },
   {
     fileName: 'black-grey',
-    importName: 'assets/images/logos/black-grey.png',
+    importName: '/assets/images/logos/black-grey.png',
   },
   {
     fileName: 'black-only',
-    importName: 'assets/images/logos/black-only.png',
+    importName: '/assets/images/logos/black-only.png',
   },
   {
     fileName: 'white-color',
-    importName: 'assets/images/logos/white-color.png',
+    importName: '/assets/images/logos/white-color.png',
   },
   {
     fileName: 'white-grey',
-    importName: 'assets/images/logos/white-grey.png',
+    importName: '/assets/images/logos/white-grey.png',
   },
   {
     fileName: 'white',
-    importName: 'assets/images/logos/white.png',
+    importName: '/assets/images/logos/white.png',
   },
   {
     fileName: 'icon-black-grey',
-    importName: 'assets/images/logos/icon-black-grey.png',
+    importName: '/assets/images/logos/icon-black-grey.png',
   },
   {
     fileName: 'icon-black',
-    importName: 'assets/images/logos/icon-black.png',
+    importName: '/assets/images/logos/icon-black.png',
   },
   {
     fileName: 'icon-color',
-    importName: 'assets/images/logos/icon-color.png',
+    importName: '/assets/images/logos/icon-color.png',
   },
   {
     fileName: 'icon-white-color',
-    importName: 'assets/images/logos/icon-white-color.png',
+    importName: '/assets/images/logos/icon-white-color.png',
   },
   {
     fileName: 'icon-white-grey',
-    importName: 'assets/images/logos/icon-white-grey.png',
+    importName: '/assets/images/logos/icon-white-grey.png',
   },
   {
     fileName: 'icon-white',
-    importName: 'assets/images/logos/icon-white.png',
+    importName: '/assets/images/logos/icon-white.png',
   },
 ];
 const basePath = '../../../../images/logos/';

@@ -242,7 +242,7 @@ export default function VariationDemos({ schema, template, data, expanded }) {
       <TabbedPanel color="component" bleed="0" items={variations} />
     </VariationsWrapper>
   );
-};
+}
 
 VariationDemos.defaultProps = {
   expanded: false,
