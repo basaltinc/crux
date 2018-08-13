@@ -139,7 +139,7 @@ function LogoUsage() {
             do: true,
           },
           {
-            image: 'assets/images/logo-on-photo-overlay2.png',
+            image: '/assets/images/logo-on-photo-overlay2.png',
             caption: 'Figure C illustrates Unacceptable use of an overlay.',
             do: false,
           },
@@ -186,7 +186,7 @@ function LogoUsage() {
         <li>Don&#39;t place the logo in a solid box over a background image</li>
       </LetteredList>
       <img
-        src={'assets/images/logo-unacceptable-formats.png'}
+        src={'/assets/images/logo-unacceptable-formats.png'}
         alt="Unacceptable Logo Usages"
       />
     </div>
