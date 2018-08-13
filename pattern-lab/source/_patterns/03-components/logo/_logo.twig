@@ -1,4 +1,5 @@
 {% set classes = [
+  'logo',
   size ? 'logo--' ~ size,
 ] | merge(classes|default([])) %}
 
@@ -7,7 +8,7 @@
   greyscale ? 'logo_img--greyscale',
 ] %}
 
-<div class="logo {{ classes|join(' ') }}" {% if url %}
+<div class="{{ classes|join(' ') }}" {% if url %}
   data-linkto="{{ url }}" {% endif %}>
   {% include '@styleguide/_img.twig' with {
     bg: false,

@@ -16,10 +16,15 @@ schema.examples = [
 
 const meta = {
   id: 'blog-teaser',
-  title: schema.title,
+  title: 'Blog Teaser',
   type: 'component',
-  template: '@components/_blog-teaser.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_blog-teaser.twig',
+      selector: '.blog-teaser',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

@@ -13,10 +13,15 @@ schema.examples = [
 
 const meta = {
   id: 'list',
-  title: schema.title,
+  title: 'List',
   type: 'component',
-  template: '@components/_list.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_list.twig',
+      selector: '.list',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

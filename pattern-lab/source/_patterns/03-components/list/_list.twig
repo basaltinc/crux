@@ -1,4 +1,5 @@
 {% set classes = [
+  'list',
   text_size ? 'list--' ~ text_size,
   bullets ? 'list--bullets' : ordered ? 'list--ordered' : 'list--plain',
   columns ? 'list--columns-' ~ columns,
@@ -9,7 +10,7 @@
 {% set listItems = list_items|split(', ') %}
 {% set listType = ordered ? 'ol' : 'ul' %}
 
-<div class="list {{ classes|join(' ') }}">
+<div class="{{ classes|join(' ') }}">
   {% if listType %}
     <{{listType}}>
   {% endif %}

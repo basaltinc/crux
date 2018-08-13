@@ -2,10 +2,15 @@ const schema = require('./social-schema.json');
 
 const meta = {
   id: 'social',
-  title: schema.title,
+  title: 'Social',
   type: 'component',
-  template: '@components/_social.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_social.twig',
+      selector: '.social',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

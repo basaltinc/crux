@@ -17,10 +17,15 @@ schema.examples = [
 
 const meta = {
   id: 'media-tile',
-  title: schema.title,
+  title: 'Media Tile',
   type: 'component',
-  template: '@components/_media-tile.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_media-tile.twig',
+      selector: '.media-tile',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

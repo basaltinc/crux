@@ -13,10 +13,15 @@ schema.examples = [
 
 const meta = {
   id: 'exec-bio',
-  title: schema.title,
+  title: 'Executive Bio',
   type: 'component',
-  template: '@components/_exec-bio.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_exec-bio.twig',
+      selector: '.exec-bio',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

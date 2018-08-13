@@ -1,8 +1,8 @@
 {% set classes = [
-
+  'cta'
 ] | merge(classes|default([])) %}
 
-<div class="cta">
+<div class="{{ classes|join(' ') }}">
   {% if text %}
     <p>{{ text }}</p>
   {% else %}

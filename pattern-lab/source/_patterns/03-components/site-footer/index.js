@@ -26,10 +26,15 @@ schema.examples = [
 
 const meta = {
   id: 'site-footer',
-  title: schema.title,
+  title: 'Site Footer',
   type: 'component',
-  template: '@components/_site-footer.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_site-footer.twig',
+      selector: '.site-footer',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

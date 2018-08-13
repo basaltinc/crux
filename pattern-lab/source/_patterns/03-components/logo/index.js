@@ -11,10 +11,15 @@ schema.examples = [
 
 const meta = {
   id: 'logo',
-  title: schema.title,
+  title: 'Logo',
   type: 'component',
-  template: '@components/_logo.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_logo.twig',
+      selector: '.logo',
+      schema,
+    },
+  ],
 };
 
 module.exports = {
