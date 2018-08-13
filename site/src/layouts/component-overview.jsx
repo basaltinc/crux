@@ -53,7 +53,7 @@ export default class ComponentOverview extends Component {
       // Just grabbing first available template for now
       const [ template ] = this.state.meta.templates;
       const { name, schema } = template;
-      const [ data, ...examples ] = schema.examples;
+      const [ data, ...examples ] = schema.examples ? schema.examples : [{}];
       content = (
         <article>
           <Overview

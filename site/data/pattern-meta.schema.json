@@ -5,6 +5,7 @@
   "description":
     "Meta data that describes a pattern (component, layout, etc) that comes from the Basalt Crux Design System.",
   "additionalProperties": false,
+  "required": ["id", "templates"],
   "properties": {
     "title": {
       "title": "Title",
@@ -25,9 +26,11 @@
     },
     "templates": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "object",
         "additionalProperties": false,
+        "required": ["name", "schema"],
         "properties": {
           "name": {
             "title": "Template Name",
