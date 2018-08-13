@@ -69,6 +69,11 @@ const LoadableLogoDownloads = Loadable({
   loading: Spinner,
 });
 
+const LoadableLogoUsage = Loadable({
+  loader: () => import(/* webpackChunkName: 'logo-usage' */ './pages/resources/logo-usage'),
+  loading: Spinner,
+});
+
 const LoadableSidebar = Loadable({
   loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
@@ -172,6 +177,10 @@ export default class App extends React.Component {
                   <Route
                     path="/resources/logo-downloads"
                     component={LoadableLogoDownloads}
+                  />
+                  <Route
+                    path="/resources/logo-usage"
+                    component={LoadableLogoUsage}
                   />
                   <Route
                     path="/patterns/components/:id"

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { TwoUp } from '../../bedrock/components/atoms';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
-import ResourcePage from '../../templates/resources-page';
 import LogoColor from '../../../../images/logo--color.svg';
 import LogoConstruction from '../../../../images/logo-construction.png';
 import LogoColorTreatment from '../../../../images/logo-on-color-bgs.png';
@@ -19,7 +18,7 @@ const LetteredList = styled.ol`
 
 function LogoUsage() {
   return (
-    <ResourcePage>
+    <div>
       <h3 className="eyebrow">Resources</h3>
       <h2>Logo Usage</h2>
       <h4>Primary Logo</h4>
@@ -189,7 +188,7 @@ function LogoUsage() {
         <li>Don&#39;t place the logo in a solid box over a background image</li>
       </LetteredList>
       <img src={LogoUnacceptables} alt="Unacceptable Logo Usages" />
-    </ResourcePage>
+    </div>
   );
 }
 
