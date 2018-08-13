@@ -22,10 +22,15 @@ schema.examples = [
 
 const meta = {
   id: 'hero',
-  title: schema.title,
+  title: 'Hero',
   type: 'component',
-  template: '@components/_hero.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_hero.twig',
+      selector: '.hero',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

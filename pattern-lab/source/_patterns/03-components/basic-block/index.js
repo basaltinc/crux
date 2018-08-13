@@ -18,10 +18,15 @@ schema.examples = [
 
 const meta = {
   id: 'basic-block',
-  title: schema.title,
+  title: 'Basic Block',
   type: 'component',
-  template: '@components/_basic-block.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_basic-block.twig',
+      selector: '.basic-block',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

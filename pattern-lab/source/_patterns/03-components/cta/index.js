@@ -9,10 +9,15 @@ schema.examples = [
 
 const meta = {
   id: 'cta',
-  title: schema.title,
+  title: 'CTA',
   type: 'component',
-  template: '@components/_cta.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_cta.twig',
+      selector: '.cta',
+      schema,
+    },
+  ],
 };
 
 module.exports = {

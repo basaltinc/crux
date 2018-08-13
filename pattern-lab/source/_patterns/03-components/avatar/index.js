@@ -5,15 +5,20 @@ schema.examples = [
   {
     size: 'xl',
     img: image(),
-  }
-]
+  },
+];
 
 const meta = {
   id: 'avatar',
-  title: schema.title,
+  title: 'Avatar',
   type: 'component',
-  template: '@components/_avatar.twig',
-  schema,
+  templates: [
+    {
+      name: '@components/_avatar.twig',
+      selector: '.avatar',
+      schema,
+    },
+  ],
 };
 
 module.exports = {
