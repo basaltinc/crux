@@ -51,6 +51,7 @@ export default class ComponentOverview extends Component {
       content = <Spinner />;
     } else {
       // Just grabbing first available template for now
+      // @todo Consider how to demo Patterns with multiple templates
       const [ template ] = this.state.meta.templates;
       const { name, schema } = template;
       const [ data, ...examples ] = schema.examples ? schema.examples : [{}];
