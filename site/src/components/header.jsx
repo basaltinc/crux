@@ -3,8 +3,6 @@ import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import basalt from '../../../images/logos/white-grey.svg';
-
 const SiteHeaderWrapper = styled.nav`
   background: #16394b;
   display: flex;
@@ -85,7 +83,11 @@ const Header = ({ siteTitle }) => (
               textDecoration: 'none',
             }}
           >
-            <img src={basalt} alt="Basalt" style={{ height: '1rem' }} />
+            <img
+              src={'/assets/images/logos/white-grey.svg'}
+              alt="Basalt"
+              style={{ height: '1rem' }}
+            />
           </a>
         </li>
       </ul>

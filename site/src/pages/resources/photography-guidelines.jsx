@@ -1,7 +1,5 @@
 import React from 'react';
 
-import PhotographyExamples from '../../../../images/photog-examples.png';
-
 function LogoUsage() {
   return (
     <div>
@@ -15,7 +13,10 @@ function LogoUsage() {
         world, photos that use repetitive geometric and natural patterns, and
         photos that depict a potential user in situation.
       </p>
-      <img src={PhotographyExamples} alt="Examples of proper photography use" />
+      <img
+        src={'/assets/images/photog-examples.png'}
+        alt="Examples of proper photography use"
+      />
     </div>
   );
 }

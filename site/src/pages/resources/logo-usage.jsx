@@ -3,14 +3,6 @@ import styled from 'styled-components';
 
 import { TwoUp } from '../../bedrock/components/atoms';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
-import LogoColor from '../../../../images/logo--color.svg';
-import LogoConstruction from '../../../../images/logo-construction.png';
-import LogoColorTreatment from '../../../../images/logo-on-color-bgs.png';
-import LogoPhotoBackgrounds from '../../../../images/logo-on-photo-bg.png';
-import LogoPhotoBackgrounds2 from '../../../../images/logo-on-photo-bg2.png';
-import LogoPhotoOverlayDo from '../../../../images/logo-on-photo-overlay.png';
-import LogoPhotoOverlayDont from '../../../../images/logo-on-photo-overlay2.png';
-import LogoUnacceptables from '../../../../images/logo-unacceptable-formats.png';
 
 const LetteredList = styled.ol`
   list-style: upper-alpha;
@@ -47,11 +39,14 @@ function LogoUsage() {
             to use the icon only.
           </p>
         </div>
-        <img src={LogoColor} alt="Basalt Logo" />
+        <img src={'/assets/images/logo--color.svg'} alt="Basalt Logo" />
       </TwoUp>
       <h4>Construction</h4>
       <TwoUp>
-        <img src={LogoConstruction} alt="Basalt Logo Construction" />
+        <img
+          src={'/assets/images/logo-construction.png'}
+          alt="Basalt Logo Construction"
+        />
         <div>
           <p>
             The Basalt logo has been constructed with care, to ensure that it is
@@ -90,7 +85,10 @@ function LogoUsage() {
             </li>
           </ul>
         </div>
-        <img src={LogoColorTreatment} alt="Basalt Logo Treatment Examples" />
+        <img
+          src={'/assets/images/logo-on-color-bgs.png'}
+          alt="Basalt Logo Treatment Examples"
+        />
       </TwoUp>
       <h4>Photo Backgrounds</h4>
       <p>
@@ -102,13 +100,13 @@ function LogoUsage() {
       <DosAndDonts
         items={[
           {
-            image: LogoPhotoBackgrounds,
+            image: '/assets/images/logo-on-photo-bg.png',
             caption:
               'Fig. A and B illustrate how to best place a logo on a photographic background.',
             do: true,
           },
           {
-            image: LogoPhotoBackgrounds2,
+            image: '/assets/images/logo-on-photo-bg2.png',
             caption: 'Figure C illustrates unacceptable logo placement.',
             do: false,
           },
@@ -135,13 +133,13 @@ function LogoUsage() {
       <DosAndDonts
         items={[
           {
-            image: LogoPhotoOverlayDo,
+            image: '/assets/images/logo-on-photo-overlay.png',
             caption:
               'Fig. A and B illustrate how to best place an overlay on a photographic background.',
             do: true,
           },
           {
-            image: LogoPhotoOverlayDont,
+            image: 'assets/images/logo-on-photo-overlay2.png',
             caption: 'Figure C illustrates Unacceptable use of an overlay.',
             do: false,
           },
@@ -187,7 +185,10 @@ function LogoUsage() {
         <li>Don&#39;t add drop shadows or select to the type</li>
         <li>Don&#39;t place the logo in a solid box over a background image</li>
       </LetteredList>
-      <img src={LogoUnacceptables} alt="Unacceptable Logo Usages" />
+      <img
+        src={'assets/images/logo-unacceptable-formats.png'}
+        alt="Unacceptable Logo Usages"
+      />
     </div>
   );
 }

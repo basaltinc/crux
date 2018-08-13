@@ -4,8 +4,6 @@ import ColorSwatches from '../../bedrock/components/color-swatch';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
 import { apiUrlBase } from '../../../config';
 import ColorContrastBlock from '../../bedrock/components/color-contrast-block';
-import exampleDo from '../../../../images/dos-and-donts/background-colors/background-colors-do.png';
-import exampleDont from '../../../../images/dos-and-donts/background-colors/background-colors-dont.png';
 import ApiDemo from '../../bedrock/components/api-demo';
 
 class ColorsPage extends React.Component {
@@ -106,14 +104,16 @@ class ColorsPage extends React.Component {
         <DosAndDonts
           items={[
             {
-              image: exampleDont,
+              image:
+                '/assets/images/dos-and-donts/background-colors/background-colors-dont.png',
               caption:
                 'use color combinations with low color contrast that fail WCAG standards.',
               do: false,
             },
             {
               title: 'Do Example',
-              image: exampleDo,
+              image:
+                '/assets/images/dos-and-donts/background-colors/background-colors-do.png',
               caption:
                 'use color combinations with distinct contrast that fulfill WCAG standards.',
               do: true,

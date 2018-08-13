@@ -3,6 +3,9 @@ const schema = require('./media-block-schema.json');
 
 schema.examples = [
   {
+
+  },
+  {
     title: title(),
     body: paragraph(),
     desc: title(),

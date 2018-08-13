@@ -5,15 +5,11 @@ import styled from 'styled-components';
 
 import Spinner from '../bedrock/components/spinner';
 
-import mediaBlockImage from '../../../images/component-thumbnails/media-block.svg';
-import mediaTileImage from '../../../images/component-thumbnails/media-tile.svg';
-import heroImage from '../../../images/component-thumbnails/hero.svg';
-
 // @todo refactor
 const images = {
-  hero: heroImage,
-  'media-tile': mediaTileImage,
-  'media-block': mediaBlockImage,
+  hero: '/assets/images/component-thumbnails/hero.svg',
+  'media-tile': '/assets/images/component-thumbnails/media-tile.svg',
+  'media-block': '/assets/images/component-thumbnails/media-block.svg',
 };
 
 const PatternGrid = styled.ul`
@@ -122,7 +118,13 @@ export default function ComponentsBoard(props) {
             key={pattern.id}
             className="u-crux-pattern-grid__item--component"
           >
-            <Link to={pattern.path ? pattern.path : `/patterns/components/${pattern.id}`}>
+            <Link
+              to={
+                pattern.path
+                  ? pattern.path
+                  : `/patterns/components/${pattern.id}`
+              }
+            >
               {image && <PatternGridItemThumb src={image} alt="" />}
               <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
               <PatternGridItemDescription>

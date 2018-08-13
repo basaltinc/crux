@@ -6,8 +6,6 @@ import ApiDemo from '../../bedrock/components/api-demo';
 import { TwoUp } from '../../bedrock/components/atoms';
 import Spinner from '../../bedrock/components/spinner';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
-import spinnerDo from '../../../../images/dos-and-donts/spinner/spinner-dont.png';
-import spinnerDont from '../../../../images/dos-and-donts/spinner/spinner-do.png';
 
 const DemoTransition = styled.div`
   background: #ddd;
@@ -171,13 +169,13 @@ class AnimationsPage extends React.Component {
         <DosAndDonts
           items={[
             {
-              image: spinnerDo,
+              image: '/assets/images/dos-and-donts/spinner/spinner-dont.png',
               caption: 'add text to the spinner.',
               do: false,
             },
             {
               title: 'Do Example',
-              image: spinnerDont,
+              image: '/assets/images/dos-and-donts/spinner/spinner-do.png',
               caption: "let the spinner convey it's meaning.",
               do: true,
             },
