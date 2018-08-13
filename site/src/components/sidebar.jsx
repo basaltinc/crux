@@ -48,15 +48,10 @@ const SidebarOneStyled = SidebarStyled.extend`
 
 const resourcesLinks = [
   {
-    title: 'Branding',
-    id: 'branding',
+    title: 'Resources',
+    id: 'resources',
     isHeading: true,
   },
-  // {
-  //   title: 'Overview',
-  //   id: 'ResourcesPage',
-  //   path: `/resources`,
-  // },
   {
     title: 'Logo Downloads',
     id: 'logo-downloads',

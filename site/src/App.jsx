@@ -28,10 +28,10 @@ const LoadableFeatureRequest = Loadable({
   loading: Spinner,
 });
 
-// const LoadableVisualLanguagePage = Loadable({
-//   loader: () => import(/* webpackChunkName: 'visual-language-page' */ ' .pages/visual-language/visual-language-board'),
-//   loading: Spinner,
-// });
+const LoadableVisualLanguagePage = Loadable({
+  loader: () => import(/* webpackChunkName: 'visual-language-page' */ ' .pages/visual-language/visual-language-board'),
+  loading: Spinner,
+});
 
 const LoadableAnimations = Loadable({
   loader: () => import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
@@ -62,11 +62,6 @@ const LoadablePatternsPage = Loadable({
   loader: () => import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
   loading: Spinner,
 });
-
-// const LoadableResourcesPage = Loadable({
-//   loader: () => import(/* webpackChunkName: 'resources-page' */ './pages/resources'),
-//   loading: Spinner,
-// });
 
 const LoadableLogoDownloads = Loadable({
   loader: () => import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),
@@ -158,11 +153,11 @@ export default class App extends React.Component {
                     path="/about/feature-requests"
                     component={LoadableFeatureRequest}
                   />
-                  {/*<Route*/}
-                    {/*path="/visual-language"*/}
-                    {/*component={LoadableVisualLanguagePage}*/}
-                    {/*exact={true}*/}
-                  {/*/>*/}
+                  <Route
+                    path="/visual-language"
+                    component={LoadableVisualLanguagePage}
+                    exact={true}
+                  />
                   <Route
                     path="/visual-language/animations"
                     component={LoadableAnimations}
@@ -188,11 +183,11 @@ export default class App extends React.Component {
                     component={LoadablePatternsPage}
                     exact={true}
                   />
-                  {/*<Route*/}
-                    {/*path="/resources"*/}
-                    {/*component={LoadableResourcesPage}*/}
-                    {/*exact={true}*/}
-                  {/*/>*/}
+                  <Route
+                    path="/resources"
+                    component={LoadableLogoDownloads}
+                    exact={true}
+                  />
                   <Route
                     path="/resources/logo-downloads"
                     component={LoadableLogoDownloads}
