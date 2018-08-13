@@ -37,6 +37,12 @@ const LoadableBreakpoints = Loadable({
   loader: () => import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints'),
   loading: Spinner,
 });
+
+const LoadableColors = Loadable({
+  loader: () => import(/* webpackChunkName: 'colors' */ './pages/visual-language/colors'),
+  loading: Spinner,
+});
+
 const LoadableSidebar = Loadable({
   loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
@@ -114,6 +120,10 @@ export default class App extends React.Component {
                   <Route
                     path="/visual-language/breakpoints"
                     component={LoadableBreakpoints}
+                  />
+                  <Route
+                    path="/visual-language/colors"
+                    component={LoadableColors}
                   />
                   <Route
                     path="/patterns/components/:id"
