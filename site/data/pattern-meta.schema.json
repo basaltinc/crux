@@ -29,8 +29,8 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "template": {
-            "title": "Template",
+          "name": {
+            "title": "Template Name",
             "type": "string",
             "description":
             "Path (prefixed with namespace) of pattern template. Example '@components/_media-block.twig'."

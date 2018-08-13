@@ -17,7 +17,7 @@ const meta = {
   type: 'component',
   templates: [
     {
-      template: '@components/_media-block.twig',
+      name: '@components/_media-block.twig',
       selector: '.media-block',
       schema,
     },
