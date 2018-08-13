@@ -146,7 +146,7 @@ class Sidebar extends Component {
     this.state = {
       sidebarOneOnTop: false,
       filterTerm: '',
-      items : [],
+      items: [],
       ready: false,
     };
   }

@@ -12,8 +12,8 @@ schema.examples = [
     content_padding: 'l',
     text_align: 'center',
     title_size: '2',
-  }
-]
+  },
+];
 
 const meta = {
   id: 'media-tile',

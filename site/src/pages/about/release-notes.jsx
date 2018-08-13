@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import AboutPage from '../../templates/about-page';
 import { apiUrlBase } from '../../../config';
 
 const ReleaseWrapper = styled.div`
@@ -82,7 +81,7 @@ class ReleaseNotesPage extends React.Component {
 
   render() {
     return (
-      <AboutPage className="docs">
+      <div>
         <div className="body">
           <h4 className="eyebrow">About</h4>
           <h2>Release Notes</h2>
@@ -93,7 +92,7 @@ class ReleaseNotesPage extends React.Component {
           <hr />
         </div>
         <ReleaseNoteList items={this.state.releaseNotes} />
-      </AboutPage>
+      </div>
     );
   }
 }

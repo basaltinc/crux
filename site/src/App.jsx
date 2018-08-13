@@ -3,15 +3,28 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import Loadable from 'react-loadable';
 import Spinner from './bedrock/components/spinner';
-
 import Header from './components/header';
-// import { AnimationsPage, BreakpointsPage, ColorsPage, SpacingPage, TypographyPage  } from './pages/visual-language/index';
 import './global.css';
 import ErrorCatcher from './bedrock/components/error-catcher';
 import { apiUrlBase } from '../config';
 
 const LoadableComponentOverview = Loadable({
   loader: () => import(/* webpackChunkName: 'component-overview' */ './layouts/component-overview'),
+  loading: Spinner,
+});
+
+const LoadableAboutPage = Loadable({
+  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/about'),
+  loading: Spinner,
+});
+
+const LoadableReleaseNotes = Loadable({
+  loader: () => import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes'),
+  loading: Spinner,
+});
+
+const LoadableFeatureRequest = Loadable({
+  loader: () => import(/* webpackChunkName: 'feature-requests' */ './pages/about/feature-requests'),
   loading: Spinner,
 });
 
@@ -72,6 +85,19 @@ export default class App extends React.Component {
               <LoadableSidebar patterns={this.state.patterns} />
               <MainContent>
                 <Switch>
+                  <Route
+                    path="/about"
+                    component={LoadableAboutPage}
+                    exact={true}
+                  />
+                  <Route
+                    path="/about/release-notes"
+                    component={LoadableReleaseNotes}
+                  />
+                  <Route
+                    path="/about/feature-requests"
+                    component={LoadableFeatureRequest}
+                  />
                   <Route
                     path="/patterns/components/:id"
                     render={({ match }) => (
