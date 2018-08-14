@@ -40,7 +40,7 @@ const config = {
   },
   devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
   resolve: {
-    extensions: ['.jsx', '.js', '.json', '.jsx', '.css'],
+    extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
     modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
   },
   stats: 'none',
@@ -61,10 +61,10 @@ const config = {
       });
     },
   },
-  plugins: [
-    new Stylish(),
-    new webpack.NamedModulesPlugin(),
-  ],
+  plugins: [new Stylish(), new webpack.NamedModulesPlugin()],
+  performance: {
+    hints: isProd ? 'error' : 'warning',
+  },
 };
 
 if (isProd) {
