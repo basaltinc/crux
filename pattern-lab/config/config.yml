@@ -49,7 +49,7 @@ plugins:
     namespaces:
       svgs:
         paths:
-          - ../images/svgs
+          - ../site/public/assets/images/svgs
       utils:
         paths:
           - source/_utils
