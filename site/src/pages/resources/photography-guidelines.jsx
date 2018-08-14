@@ -14,7 +14,7 @@ function LogoUsage() {
         photos that depict a potential user in situation.
       </p>
       <img
-        src={'/assets/images/photog-examples.png'}
+        src="/assets/images/photog-examples.png"
         alt="Examples of proper photography use"
       />
     </div>

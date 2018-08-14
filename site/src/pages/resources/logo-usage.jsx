@@ -39,12 +39,12 @@ function LogoUsage() {
             to use the icon only.
           </p>
         </div>
-        <img src={'/assets/images/logo--color.svg'} alt="Basalt Logo" />
+        <img src="/assets/images/logo--color.svg" alt="Basalt Logo" />
       </TwoUp>
       <h4>Construction</h4>
       <TwoUp>
         <img
-          src={'/assets/images/logo-construction.png'}
+          src="/assets/images/logo-construction.png"
           alt="Basalt Logo Construction"
         />
         <div>
@@ -86,7 +86,7 @@ function LogoUsage() {
           </ul>
         </div>
         <img
-          src={'/assets/images/logo-on-color-bgs.png'}
+          src="/assets/images/logo-on-color-bgs.png"
           alt="Basalt Logo Treatment Examples"
         />
       </TwoUp>
@@ -186,7 +186,7 @@ function LogoUsage() {
         <li>Don&#39;t place the logo in a solid box over a background image</li>
       </LetteredList>
       <img
-        src={'/assets/images/logo-unacceptable-formats.png'}
+        src="/assets/images/logo-unacceptable-formats.png"
         alt="Unacceptable Logo Usages"
       />
     </div>

@@ -9,7 +9,8 @@ import ErrorCatcher from './bedrock/components/error-catcher';
 import { apiUrlBase } from '../config';
 
 const LoadableComponentOverview = Loadable({
-  loader: () => import(/* webpackChunkName: 'component-overview' */ './layouts/component-overview'),
+  loader: () =>
+    import(/* webpackChunkName: 'component-overview' */ './layouts/component-overview'),
   loading: Spinner,
 });
 
@@ -19,77 +20,92 @@ const LoadableAboutPage = Loadable({
 });
 
 const LoadableHomeSplash = Loadable({
-  loader: () => import(/* webpackChunkName: 'home-splash' */ './components/home-splash'),
+  loader: () =>
+    import(/* webpackChunkName: 'home-splash' */ './components/home-splash'),
   loading: Spinner,
 });
 
 const LoadableReleaseNotes = Loadable({
-  loader: () => import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes'),
+  loader: () =>
+    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes'),
   loading: Spinner,
 });
 
 const LoadableFeatureRequest = Loadable({
-  loader: () => import(/* webpackChunkName: 'feature-requests' */ './pages/about/feature-requests'),
+  loader: () =>
+    import(/* webpackChunkName: 'feature-requests' */ './pages/about/feature-requests'),
   loading: Spinner,
 });
 
 const LoadableVisualLanguagePage = Loadable({
-  loader: () => import(/* webpackChunkName: 'visual-language-page' */ './pages/visual-language/visual-language-board'),
+  loader: () =>
+    import(/* webpackChunkName: 'visual-language-page' */ './pages/visual-language/visual-language-board'),
   loading: Spinner,
 });
 
 const LoadableAnimations = Loadable({
-  loader: () => import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
+  loader: () =>
+    import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
   loading: Spinner,
 });
 
 const LoadableBreakpoints = Loadable({
-  loader: () => import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints'),
+  loader: () =>
+    import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints'),
   loading: Spinner,
 });
 
 const LoadableColors = Loadable({
-  loader: () => import(/* webpackChunkName: 'colors' */ './pages/visual-language/colors'),
+  loader: () =>
+    import(/* webpackChunkName: 'colors' */ './pages/visual-language/colors'),
   loading: Spinner,
 });
 
 const LoadableSpacings = Loadable({
-  loader: () => import(/* webpackChunkName: 'spacings' */ './pages/visual-language/spacings'),
+  loader: () =>
+    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/spacings'),
   loading: Spinner,
 });
 
 const LoadableTypography = Loadable({
-  loader: () => import(/* webpackChunkName: 'typography' */ './pages/visual-language/typography'),
+  loader: () =>
+    import(/* webpackChunkName: 'typography' */ './pages/visual-language/typography'),
   loading: Spinner,
 });
 
 const LoadablePatternsPage = Loadable({
-  loader: () => import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
+  loader: () =>
+    import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
   loading: Spinner,
 });
 
 const LoadableLogoDownloads = Loadable({
-  loader: () => import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),
+  loader: () =>
+    import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),
   loading: Spinner,
 });
 
 const LoadableLogoUsage = Loadable({
-  loader: () => import(/* webpackChunkName: 'logo-usage' */ './pages/resources/logo-usage'),
+  loader: () =>
+    import(/* webpackChunkName: 'logo-usage' */ './pages/resources/logo-usage'),
   loading: Spinner,
 });
 
 const LoadablePhotographyGuidelines = Loadable({
-  loader: () => import(/* webpackChunkName: 'photography-guidelines' */ './pages/resources/photography-guidelines'),
+  loader: () =>
+    import(/* webpackChunkName: 'photography-guidelines' */ './pages/resources/photography-guidelines'),
   loading: Spinner,
 });
 
 const LoadableBrandDescriptors = Loadable({
-  loader: () => import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
+  loader: () =>
+    import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
   loading: Spinner,
 });
 
 const LoadableSidebar = Loadable({
-  loader: () => import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
+  loader: () =>
+    import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
   loading: Spinner,
 });
 
@@ -142,25 +158,20 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (!this.state.ready) {
+      return <Spinner />;
+    }
     return (
       <ErrorCatcher>
         <Router>
           <div>
-            <Header siteTitle={'Crux'} />
+            <Header siteTitle="Crux" />
             <Site>
               <LoadableSidebar patterns={this.state.patterns} />
               <MainContent>
                 <Switch>
-                  <Route
-                    path="/"
-                    component={LoadableHomeSplash}
-                    exact={true}
-                  />
-                  <Route
-                    path="/about"
-                    component={LoadableAboutPage}
-                    exact={true}
-                  />
+                  <Route path="/" component={LoadableHomeSplash} exact />
+                  <Route path="/about" component={LoadableAboutPage} exact />
                   <Route
                     path="/about/release-notes"
                     component={LoadableReleaseNotes}
@@ -172,7 +183,7 @@ export default class App extends React.Component {
                   <Route
                     path="/visual-language"
                     component={LoadableVisualLanguagePage}
-                    exact={true}
+                    exact
                   />
                   <Route
                     path="/visual-language/animations"
@@ -197,12 +208,12 @@ export default class App extends React.Component {
                   <Route
                     path="/patterns"
                     component={LoadablePatternsPage}
-                    exact={true}
+                    exact
                   />
                   <Route
                     path="/resources"
                     component={LoadableLogoDownloads}
-                    exact={true}
+                    exact
                   />
                   <Route
                     path="/resources/logo-downloads"
@@ -220,23 +231,23 @@ export default class App extends React.Component {
                     path="/resources/brand-descriptors"
                     component={LoadableBrandDescriptors}
                   />
-                  <Route
-                    path="/sandbox"
-                    component={LoadableSandbox}
-                  />
+                  <Route path="/sandbox" component={LoadableSandbox} />
                   <Route
                     path="/patterns/components/:id"
                     render={({ match }) => (
-                      <LoadableComponentOverview id={match.params.id} size="m" key={match.params.id} />
+                      <LoadableComponentOverview
+                        id={match.params.id}
+                        size="m"
+                        key={match.params.id}
+                      />
                     )}
                   />
                   <Route
                     path="/resources/:id"
                     render={({ match }) => {
-                        const Component = [match.id];
-                        return (<Component />);
-                      }
-                    }
+                      const Component = [match.id];
+                      return <Component />;
+                    }}
                   />
                   <Route
                     render={() => (

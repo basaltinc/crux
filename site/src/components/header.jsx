@@ -84,7 +84,7 @@ const Header = ({ siteTitle }) => (
             }}
           >
             <img
-              src={'/assets/images/logos/white-grey.svg'}
+              src="/assets/images/logos/white-grey.svg"
               alt="Basalt"
               style={{ height: '1rem' }}
             />

@@ -42,9 +42,9 @@ export default class SpacingPage extends React.Component {
         </div>
         <br />
         <ApiDemo
-          title={'Spacing API'}
+          title="Spacing API"
           endpoint={`${apiUrlBase}/spacings`}
-          requestType={'get'}
+          requestType="get"
         />
       </div>
     );

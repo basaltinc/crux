@@ -28,9 +28,11 @@ const SchemaTable = props => {
       accessor: item => {
         if (item.def.type) {
           return item.def.type;
-        } else if (item.def.typeof) {
+        }
+        if (item.def.typeof) {
           return item.def.typeof;
-        } else if (item.prop === 'children') {
+        }
+        if (item.prop === 'children') {
           return 'React Children';
         }
         return 'hmm.... not sure...';

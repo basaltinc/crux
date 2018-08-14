@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 function BugsAndIssues(props) {
   return (
-    <div className={'feature-request'}>
+    <div className="feature-request">
       {props.title && <h3>{props.title}</h3>}
       {props.description && <p>{props.description}</p>}
       <a
         href={props.buttonDest}
-        className={'button button--color-blue button--size-medium'}
-        target={'_blank'}
+        className="button button--color-blue button--size-medium"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {props.buttonText}
       </a>

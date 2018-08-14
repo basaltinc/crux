@@ -11,17 +11,20 @@ import Twig from '../components/twig';
 import ApiDemo from '../bedrock/components/api-demo';
 
 const LoadableSchemaTable = Loadable({
-  loader: () => import(/* webpackChunkName: 'schema-table' */ '../bedrock/components/schema-table'),
+  loader: () =>
+    import(/* webpackChunkName: 'schema-table' */ '../bedrock/components/schema-table'),
   loading: Spinner,
 });
 
 const LoadableVariationDemo = Loadable({
-  loader: () => import(/* webpackChunkName: 'variation-demo' */ '../bedrock/components/variation-demo'),
+  loader: () =>
+    import(/* webpackChunkName: 'variation-demo' */ '../bedrock/components/variation-demo'),
   loading: Spinner,
 });
 
 const LoadableDosAndDonts = Loadable({
-  loader: () => import(/* webpackChunkName: 'dos-and-donts' */ '../bedrock/components/dos-and-donts/src/dos-and-donts'),
+  loader: () =>
+    import(/* webpackChunkName: 'dos-and-donts' */ '../bedrock/components/dos-and-donts/src/dos-and-donts'),
   loading: Spinner,
 });
 
@@ -64,14 +67,14 @@ export default class ComponentOverview extends Component {
     } else {
       const { title, description, type, templates } = this.state.meta;
       const { name, schema } = this.state.currentTemplate;
-      const [ data, ...examples ] = schema.examples ? schema.examples : [{}];
+      const [data, ...examples] = schema.examples ? schema.examples : [{}];
       content = (
         <article>
           <OverviewHeader>
             <h4 className="eyebrow">{type}</h4>
             <h2>{title}</h2>
             <p>{description}</p>
-            {templates.length > 1 &&
+            {templates.length > 1 && (
               <Select
                 label="Template"
                 items={templates.map(t => ({
@@ -81,10 +84,10 @@ export default class ComponentOverview extends Component {
                 handleChange={value => {
                   this.setState({
                     currentTemplate: templates.find(t => t.name === value),
-                  })
+                  });
                 }}
               />
-            }
+            )}
           </OverviewHeader>
           <Overview
             template={name}
@@ -98,8 +101,12 @@ export default class ComponentOverview extends Component {
           {examples && (
             <Details>
               <summary>Examples</summary>
-              {examples.map((example, i) => (
-                <Twig template={name} data={example} key={i} />
+              {examples.map(example => (
+                <Twig
+                  template={name}
+                  data={example}
+                  key={JSON.stringify(example)}
+                />
               ))}
             </Details>
           )}
@@ -114,11 +121,7 @@ export default class ComponentOverview extends Component {
             <LoadableSchemaTable schema={schema} />
           </Details>
 
-          <LoadableVariationDemo
-            schema={schema}
-            template={name}
-            data={data}
-          />
+          <LoadableVariationDemo schema={schema} template={name} data={data} />
 
           {this.props.dosAndDonts.map(item => (
             // @todo title is not a required prop, so we need to fix this key structure

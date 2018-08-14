@@ -35,7 +35,7 @@ const releaseNote = items =>
       <ReleaseDate>{item.niceDate}</ReleaseDate>
       {item.commits.map(commit => (
         <ReleaseCommit key={commit.shorthash}>
-          <CommitHash href={commit.href} target={'_blank'}>
+          <CommitHash href={commit.href} target="_blank">
             {commit.shorthash}
           </CommitHash>{' '}
           {commit.message}
