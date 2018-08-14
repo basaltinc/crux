@@ -6,6 +6,7 @@ import { apiUrlBase } from '../../config';
 // This is an intentional override of the utility class u-full-width
 // to prevent it from overflowing the demo stage
 const FullWidthFixedWrapper = styled.div`
+  width: 100%;
   .u-full-width {
     width: 100%;
     left: 0;
