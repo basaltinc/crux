@@ -34,16 +34,6 @@
       ] %}
       <div class="media-tile__body {{ body_classes| join(' ') }}">{{ body|raw }}</div>
     {% endif %}
-
-    {#@todo Does this work? Doesn't seem like it should. List component has a different data structure#}
-    {% if list %}
-      <div class="media-tile__list">
-        {% for i in list %}
-          {% include '@components/_list.twig' with i only %}
-        {% endfor %}
-      </div>
-    {% endif %}
-
     {% if buttons %}
       <div class="media-tile__buttons">
         {% for button in buttons %}
