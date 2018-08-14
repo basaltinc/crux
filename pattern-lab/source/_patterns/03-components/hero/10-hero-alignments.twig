@@ -1,4 +1,4 @@
-{% set schema = get_data('@components/hero-schema.json') %}
+{% set schema = get_data('@components/hero-schema') %}
 
 {% for all in schema.properties.alignment_all.oneOf %}
   <p>All: {{ all.enum|first }} ({{ all.title }}) - Content: {{ content }}</p>

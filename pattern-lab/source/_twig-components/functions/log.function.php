@@ -2,7 +2,7 @@
 
 // Usage:
 // <div>Component</div>
-//{{ validate_data('@components/hero-schema.json', _self) }}
+//{{ validate_data('@components/hero-schema.js', _self) }}
 
 $function = new \Twig_SimpleFunction('log', function ($context) {
 

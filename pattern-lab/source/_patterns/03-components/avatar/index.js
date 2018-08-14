@@ -1,21 +1,10 @@
-const { image } = require('@basalt/demo-data');
-const schema = require('./avatar-schema.json');
-
-schema.examples = [
-  {
-    size: 'xl',
-    img: '/assets/images/avatar-example.jpg',
-  },
-  {
-    size: 'xl',
-    img: image(),
-  },
-];
+const schema = require('./avatar-schema.js');
 
 const meta = {
   id: 'avatar',
   title: 'Avatar',
   type: 'component',
+  description: "Show a person's profile picture.",
   templates: [
     {
       name: '@components/_avatar.twig',

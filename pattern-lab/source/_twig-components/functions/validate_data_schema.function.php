@@ -7,7 +7,7 @@ use JsonSchema\Constraints\Constraint;
 
 // Usage:
 // <div>Component</div>
-//{{ validate_data('@components/hero-schema.json', _self) }}
+//{{ validate_data('@components/hero-schema.js', _self) }}
 
 $function = new \Twig_SimpleFunction('validate_data_schema', function (Twig_Environment $env, $context, $schema_path, $twig_self) {
 

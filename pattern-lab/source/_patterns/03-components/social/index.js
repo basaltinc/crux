@@ -1,9 +1,10 @@
-const schema = require('./social-schema.json');
+const schema = require('./social-schema');
 
 const meta = {
   id: 'social',
   title: 'Social',
   type: 'component',
+  description: 'Collection of Social Media Icons',
   templates: [
     {
       name: '@components/_social.twig',
