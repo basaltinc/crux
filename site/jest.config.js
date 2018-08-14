@@ -1,10 +1,6 @@
 module.exports = {
-  testPathIgnorePatterns: [
-    'node_modules',
-    'vendor',
-    'public2',
-    'dist',
-  ],
+  setupFiles: ['<rootDir>/jest.init.js'],
+  testPathIgnorePatterns: ['node_modules', 'vendor', 'public2', 'dist'],
   transform: {
     '^.+\\.jsx$': 'babel-7-jest',
     '^.+\\.js$': 'babel-7-jest',

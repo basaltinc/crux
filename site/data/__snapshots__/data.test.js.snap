@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Data Get Functions Colors 1`] = `
+Array [
+  Object {
+    "comment": "",
+    "name": "$c-blue--light",
+    "value": "hsl(165, 26%, 85%)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-blue",
+    "value": "hsl(200, 55%, 19%)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-green",
+    "value": "hsl(159, 20%, 17%)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-iron",
+    "value": "hsl(240, 3%, 85%)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-yellow",
+    "value": "hsl(52, 74%, 54%)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-white",
+    "value": "white",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-gray--dark",
+    "value": "hsl(0, 0%, 40%)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-black",
+    "value": "black",
+  },
+]
+`;
+
+exports[`Data Get Functions Colors 2`] = `
+Array [
+  Object {
+    "comment": "",
+    "name": "$c-blue--light",
+    "value": "rgb(207, 227, 222)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-blue",
+    "value": "rgb(22, 57, 75)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-green",
+    "value": "rgb(35, 52, 46)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-iron",
+    "value": "rgb(216, 216, 218)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-yellow",
+    "value": "rgb(225, 201, 51)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-white",
+    "value": "rgb(255, 255, 255)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-gray--dark",
+    "value": "rgb(102, 102, 102)",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-black",
+    "value": "rgb(0, 0, 0)",
+  },
+]
+`;
+
+exports[`Data Get Functions Colors 3`] = `
+Array [
+  Object {
+    "comment": "",
+    "name": "$c-blue--light",
+    "value": "#CFE3DE",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-blue",
+    "value": "#16394B",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-green",
+    "value": "#23342E",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-iron",
+    "value": "#D8D8DA",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-yellow",
+    "value": "#E1C933",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-white",
+    "value": "#FFFFFF",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-gray--dark",
+    "value": "#666666",
+  },
+  Object {
+    "comment": "",
+    "name": "$c-black",
+    "value": "#000000",
+  },
+]
+`;
