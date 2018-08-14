@@ -128,7 +128,7 @@ export default function ComponentsBoard(props) {
               {image && <PatternGridItemThumb src={image} alt="" />}
               <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
               <PatternGridItemDescription>
-                {pattern.schema.description}
+                {pattern.description}
               </PatternGridItemDescription>
             </Link>
           </PatternGridItem>
@@ -144,6 +144,7 @@ ComponentsBoard.propTypes = {
     PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,
+      description: PropTypes.string,
       path: PropTypes.string,
     }),
   ).isRequired,

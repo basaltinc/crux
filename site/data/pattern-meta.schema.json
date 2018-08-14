@@ -17,6 +17,10 @@
       "type": "string",
       "description": "Identifying machine friendly name of pattern. Usually the 'Block' in 'BEM'."
     },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
     "type": {
       "title": "Type",
       "type": "string",
