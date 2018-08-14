@@ -32,7 +32,7 @@
     "prepush": "yarn test",
     "start": "run-p --print-label watch:*",
     "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",
-    "test": "yarn lint",
+    "test": "yarn lint && cd site && yarn test",
     "watch:site": "cd site && yarn start",
     "watch:assets": "gulp"
   },
@@ -54,6 +54,7 @@
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jest": "21.21.0",
     "eslint-plugin-jsdoc": "3.7.1",
     "eslint-plugin-jsx-a11y": "6.1.1",
     "eslint-plugin-prettier": "2.6.2",

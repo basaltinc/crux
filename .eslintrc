@@ -6,8 +6,12 @@
   ],
   "plugins": [
     "prettier",
+    "jest",
     "jsdoc"
   ],
+  "env": {
+    "jest/globals": true
+  },
   "globals": {
     "document": true,
     "window": true
