@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const Stylish = require('webpack-stylish');
 const path = require('path');
+const buildBabelConfig = require('./buildBabelConfig');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -20,6 +21,7 @@ const config = {
         test: /\.(js|jsx|mjs)$/,
         loader: 'babel-loader',
         exclude: /(node_modules)/,
+        options: buildBabelConfig(true),
       },
       {
         test: [/\.jpeg?$/, /\.jpg?$/, /\.svg?$/, /\.png?$/],
@@ -63,7 +65,7 @@ const config = {
   },
   plugins: [new Stylish(), new webpack.NamedModulesPlugin()],
   performance: {
-    hints: isProd ? 'error' : 'warning',
+    hints: isProd ? 'error' : false,
   },
 };
 
