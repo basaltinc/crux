@@ -227,7 +227,7 @@ export default class App extends React.Component {
                   <Route
                     path="/patterns/components/:id"
                     render={({ match }) => (
-                      <LoadableComponentOverview id={match.params.id} size="l" key={match.params.id} />
+                      <LoadableComponentOverview id={match.params.id} size="m" key={match.params.id} />
                     )}
                   />
                   <Route

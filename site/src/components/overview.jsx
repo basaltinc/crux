@@ -3,15 +3,27 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Twig from './twig';
 import SchemaForm from '../bedrock/components/schema-form';
-import { SelectStyledWrapper } from '../bedrock/components/atoms';
+import { Select } from '../bedrock/components/atoms';
 import CodeBlock from './code-block';
 
-const sizes = {
-  Small: 's',
-  Medium: 'm',
-  Large: 'l',
-  Full: 'full',
-};
+const sizes = [
+  {
+    value: 's',
+    title: 'Small',
+  },
+  {
+    value: 'm',
+    title: 'Medium',
+  },
+  {
+    value: 'l',
+    title: 'Large',
+  },
+  {
+    value: 'full',
+    title: 'Full',
+  },
+];
 
 const OverviewWrapper = styled.div`
   width: 100%;
@@ -29,11 +41,6 @@ const OverviewWrapper = styled.div`
       z-index: 10000;
       height: 100vh;
   `};
-`;
-
-const OverviewHeader = styled.header`
-  position: relative;
-  margin-bottom: 2rem;
 `;
 
 const DemoStage = styled.div`
@@ -171,20 +178,6 @@ class Overview extends React.Component {
     //     />
     //   </Resizable>
     // ));
-    const sizeSelect = (
-      <SelectStyledWrapper>
-        <select
-          onChange={event => this.setState({ size: event.target.value })}
-          value={this.state.size}
-        >
-          {Object.keys(sizes).map(key => (
-            <option value={sizes[key]} key={sizes[key]}>
-              {key}
-            </option>
-          ))}
-        </select>
-      </SelectStyledWrapper>
-    );
 
     const dataString = JSON.stringify(this.state.data, null, '  ');
     const twigCodeExample = `
@@ -192,15 +185,13 @@ class Overview extends React.Component {
     `;
     return (
       <OverviewWrapper {...this.props} {...this.state}>
-        <OverviewHeader>
-          <h4 className="eyebrow">Component</h4>
-          <h2>{this.props.schema.title}</h2>
-          <p>{this.props.schema.description}</p>
-        </OverviewHeader>
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
           <DemoGridConrols>
-            <p>Adjust Demo Stage: </p>
-            {sizeSelect}
+            <Select
+              items={sizes}
+              handleChange={size => this.setState({ size })}
+              label="Adjust Demo Stage"
+            />
             <button
               className="button button--color-blue--light button--size-small"
               onClick={() =>
@@ -293,7 +284,7 @@ Overview.propTypes = {
   data: PropTypes.object,
   schema: PropTypes.object.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
-  size: PropTypes.oneOf(Object.values(sizes)),
+  size: PropTypes.oneOf(sizes.map(size => size.value)),
 };
 
 export default Overview;

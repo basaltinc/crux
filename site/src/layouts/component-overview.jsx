@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loadable from 'react-loadable';
+import styled from 'styled-components';
 import Overview from '../components/overview';
 import Spinner from '../bedrock/components/spinner';
 import { apiUrlBase } from '../../config';
-import { Details } from '../bedrock/components/atoms';
+import { Details, Select } from '../bedrock/components/atoms';
 import ErrorCatcher from '../bedrock/components/error-catcher';
 import Twig from '../components/twig';
+import ApiDemo from '../bedrock/components/api-demo';
 
 const LoadableSchemaTable = Loadable({
   loader: () => import(/* webpackChunkName: 'schema-table' */ '../bedrock/components/schema-table'),
@@ -23,10 +25,20 @@ const LoadableDosAndDonts = Loadable({
   loading: Spinner,
 });
 
+const OverviewHeader = styled.header`
+  position: relative;
+  margin-bottom: 2rem;
+`;
+
 export default class ComponentOverview extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      apiEndpoint: `${apiUrlBase}/pattern-meta/${props.id}`,
+      currentTemplate: {
+        name: '',
+        schema: {},
+      },
       meta: {},
       ready: false,
     };
@@ -34,11 +46,12 @@ export default class ComponentOverview extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/pattern-meta/${this.props.id}`)
+      .fetch(this.state.apiEndpoint)
       .then(res => res.json())
       .then(meta => {
         this.setState({
           meta,
+          currentTemplate: meta.templates[0],
           ready: true,
         });
       });
@@ -49,19 +62,37 @@ export default class ComponentOverview extends Component {
     if (!this.state.ready) {
       content = <Spinner />;
     } else {
-      // Just grabbing first available template for now
-      // @todo Consider how to demo Patterns with multiple templates
-      const [ template ] = this.state.meta.templates;
-      const { name, schema } = template;
+      const { title, description, type, templates } = this.state.meta;
+      const { name, schema } = this.state.currentTemplate;
       const [ data, ...examples ] = schema.examples ? schema.examples : [{}];
       content = (
         <article>
+          <OverviewHeader>
+            <h4 className="eyebrow">{type}</h4>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            {templates.length > 1 &&
+              <Select
+                label="Template"
+                items={templates.map(t => ({
+                  value: t.name,
+                  title: t.schema.title,
+                }))}
+                handleChange={value => {
+                  this.setState({
+                    currentTemplate: templates.find(t => t.name === value),
+                  })
+                }}
+              />
+            }
+          </OverviewHeader>
           <Overview
             template={name}
             schema={schema}
             demoSizes={this.props.demoSizes}
             data={data}
             size={this.props.size}
+            key={name}
           />
 
           {examples && (
@@ -97,6 +128,8 @@ export default class ComponentOverview extends Component {
               items={item.items}
             />
           ))}
+
+          <ApiDemo endpoint={this.state.apiEndpoint} />
         </article>
       );
     }

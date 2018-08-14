@@ -68,7 +68,7 @@ class ApiDemo extends React.Component {
             </PostOrGet>
           )}
           {'  '}
-          <b>{this.buildUrl()}</b>
+          <code>{this.buildUrl()}</code>
         </p>
         <Details>
           <summary>API Details</summary>

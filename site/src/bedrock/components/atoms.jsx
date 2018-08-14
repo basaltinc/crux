@@ -1,3 +1,5 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export const Checkerboard = styled.div`
@@ -40,15 +42,20 @@ export const Details = styled.details`
   }
 `;
 
-export const SelectStyledWrapper = styled.div`
+export const SelectStyledWrapper = styled.label`
   display: inline-block;
   height: 33px;
   overflow: hidden;
-  background-color: #cfe3de;
   padding-right: 3px;
   margin: 0 5px;
+  > .label-text {
+    margin-right: 5px;
+    &:after {
+      content: ':';
+    }
+  }
   > select {
-    background: transparent;
+    background-color: #cfe3de;
     border: none;
     font-size: 1rem;
     height: 33px;
@@ -59,6 +66,57 @@ export const SelectStyledWrapper = styled.div`
     }
   }
 `;
+
+export class Select extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentValue: this.props.items[props.initialItem].value,
+    };
+    this.handleSelection = this.handleSelection.bind(this);
+  }
+
+  handleSelection(event) {
+    this.setState({
+      currentValue: event.target.value,
+    });
+    this.props.handleChange(event.target.value);
+  }
+
+  render() {
+    return (
+      <SelectStyledWrapper>
+        {this.props.label && (
+          <span className="label-text">{this.props.label}</span>
+        )}
+        <select onChange={this.handleSelection} value={this.state.currentValue}>
+          {this.props.items.map(item => (
+            <option value={item.value} key={item.value}>
+              {item.title ? item.title : item.value}
+            </option>
+          ))}
+        </select>
+      </SelectStyledWrapper>
+    );
+  }
+}
+
+Select.defaultProps = {
+  initialItem: 0,
+  label: '',
+};
+
+Select.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  initialItem: PropTypes.number,
+  label: PropTypes.string,
+};
 
 export const TwoUp = styled.div`
   display: flex;
