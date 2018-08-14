@@ -16,7 +16,7 @@ class CodeBlock extends Component {
       let handleTyping = () => {};
       let isLive = false;
       if (item.handleTyping) {
-        handleTyping = item.handleTyping;
+        handleTyping = item.handleTyping; // eslint-disable-line prefer-destructuring
         isLive = true;
       }
 
@@ -29,7 +29,7 @@ class CodeBlock extends Component {
               onKeyUp={event => handleTyping(event.target.innerText)}
               contentEditable={isLive}
               suppressContentEditableWarning
-              role={'textbox'}
+              role="textbox"
               tabIndex={0}
               style={{
                 whiteSpace: 'pre',

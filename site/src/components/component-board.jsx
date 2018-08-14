@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Spinner from '../bedrock/components/spinner';
-
 // @todo refactor
 const images = {
   hero: '/assets/images/component-thumbnails/hero.svg',
@@ -102,9 +100,6 @@ const PatternGridItemDescription = styled.div`
 `;
 
 export default function ComponentsBoard(props) {
-  if (!props.ready) {
-    return <Spinner />;
-  }
   return (
     <PatternGrid
       className="smart-grid"
@@ -139,7 +134,6 @@ export default function ComponentsBoard(props) {
 }
 
 ComponentsBoard.propTypes = {
-  ready: PropTypes.bool.isRequired,
   patterns: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,

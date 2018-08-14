@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import ComponentBoard from '../../components/component-board';
 import { apiUrlBase } from '../../../config';
+import Spinner from '../../bedrock/components/spinner';
 
 const PatternsHeader = styled.div`
   margin-left: 50px;
@@ -27,6 +28,9 @@ class PatternsPage extends Component {
   }
 
   render() {
+    if (!this.state.ready) {
+      return <Spinner />;
+    }
     return (
       <div>
         <PatternsHeader>
@@ -35,10 +39,7 @@ class PatternsPage extends Component {
             Explore the design patterns that make up the Crux Design System.
           </p>
         </PatternsHeader>
-        <ComponentBoard
-          patterns={this.state.patterns}
-          ready={this.state.ready}
-        />
+        <ComponentBoard patterns={this.state.patterns} />
       </div>
     );
   }

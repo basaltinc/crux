@@ -147,11 +147,10 @@ class Sidebar extends Component {
       sidebarOneOnTop: false,
       filterTerm: '',
       items: [],
-      ready: false,
     };
   }
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props) {
     return {
       items: [
         ...aboutLinks,
@@ -198,10 +197,11 @@ class Sidebar extends Component {
         </div>
         <button
           className="button button--color-blue--light button--size-small"
+          type="button"
           onClick={() =>
-            this.setState({
-              sidebarOneOnTop: !this.state.sidebarOneOnTop,
-            })
+            this.setState(prevState => ({
+              sidebarOneOnTop: !prevState.sidebarOneOnTop,
+            }))
           }
         >
           Toggle
@@ -216,6 +216,7 @@ Sidebar.defaultProps = {
 };
 
 Sidebar.propTypes = {
+  // eslint-disable-next-line react/no-unused-prop-types
   patterns: PropTypes.arrayOf(
     // @todo pull in definition from `pattern-meta.schema.json`
     PropTypes.shape({

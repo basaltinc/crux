@@ -52,7 +52,7 @@ const BreakpointsWrapper = styled.div`
 const BreakpointsItems = items =>
   items.map(item => (
     <BreakpointListItem key={item.name} left={item.value}>
-      <span className={'label'}>
+      <span className="label">
         {item.name}:<br />
         {item.value}
       </span>
@@ -60,7 +60,7 @@ const BreakpointsItems = items =>
   ));
 
 const BreakpointList = ({ items }) => (
-  <ul className={'breakpoints'}>{BreakpointsItems(items)}</ul>
+  <ul className="breakpoints">{BreakpointsItems(items)}</ul>
 );
 
 BreakpointList.propTypes = {
@@ -75,7 +75,7 @@ BreakpointList.propTypes = {
 const DeviceWidthsItems = items =>
   items.map(item => (
     <DeviceListItem key={item.name} width={item.width}>
-      <span className={'label'}>
+      <span className="label">
         {item.name}: {item.width}
       </span>
     </DeviceListItem>
@@ -130,15 +130,15 @@ class BreakpointsPage extends React.Component {
         <br />
 
         <ApiDemo
-          title={'Breakpoints API'}
+          title="Breakpoints API"
           endpoint={`${apiUrlBase}/breakpoints`}
-          requestType={'get'}
+          requestType="get"
         />
         <br />
         <ApiDemo
-          title={'Device Widths API'}
+          title="Device Widths API"
           endpoint={`${apiUrlBase}/devicewidths`}
-          requestType={'get'}
+          requestType="get"
         />
       </div>
     );

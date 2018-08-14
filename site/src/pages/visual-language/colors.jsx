@@ -98,7 +98,7 @@ class ColorsPage extends React.Component {
                 },
               },
             }}
-            requestType={'get'}
+            requestType="get"
           />
         </div>
         <DosAndDonts

@@ -83,7 +83,8 @@ function downloadTiles() {
         rel="noopener noreferrer"
       >
         SVG
-      </a>&nbsp;&nbsp;
+      </a>
+      &nbsp;&nbsp;
       <a
         href={`${basePath}${logo.fileName}.png`}
         target="_blank"

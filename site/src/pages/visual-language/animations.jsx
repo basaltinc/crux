@@ -46,7 +46,7 @@ class AnimationsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      transitions: [],
+      transitions: [], // eslint-disable-line react/no-unused-state
     };
   }
 
@@ -55,7 +55,9 @@ class AnimationsPage extends React.Component {
       .fetch(`${apiUrlBase}/transitions`)
       .then(res => res.json())
       .then(transitions => {
-        this.setState({ transitions });
+        this.setState({
+          transitions, // eslint-disable-line react/no-unused-state
+        });
       });
   }
 
@@ -164,7 +166,7 @@ class AnimationsPage extends React.Component {
         <ApiDemo
           title="Animations API"
           endpoint={`${apiUrlBase}/transitions`}
-          requestType={'get'}
+          requestType="get"
         />
         <DosAndDonts
           items={[

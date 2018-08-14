@@ -84,6 +84,7 @@ class TabbedPanel extends Component {
           role="button"
           tabIndex={0}
           onClick={() => this.handleClick(item)}
+          onKeyUp={() => this.handleClick(item)}
           style={{
             background: '#FFF',
             outline: 'none',
@@ -168,6 +169,7 @@ TabbedPanel.propTypes = {
   ).isRequired,
   color: PropTypes.string,
   bleed: PropTypes.string,
+  type: PropTypes.string,
 };
 
 export default TabbedPanel;

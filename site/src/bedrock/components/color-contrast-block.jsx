@@ -192,7 +192,7 @@ class ColorContrastBlock extends React.Component {
         <Details>
           <summary>WCAG Details</summary>
           <p>
-            <a href={'https://www.w3.org/TR/WCAG20/'} target={'blank'}>
+            <a href="https://www.w3.org/TR/WCAG20/" target="blank">
               WCAG 2.0
             </a>{' '}
             standards require a contrast ratio of greater than 4.5:1 for normal

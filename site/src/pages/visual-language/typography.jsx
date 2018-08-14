@@ -139,6 +139,9 @@ class TypographyPage extends React.Component {
                   onClick={() =>
                     this.setState({ selectedFontFamily: fontFamily })
                   }
+                  onKeyUp={() =>
+                    this.setState({ selectedFontFamily: fontFamily })
+                  }
                   className={
                     this.state.selectedFontFamily.name === fontFamily.name
                       ? 'demo-tabs__tab is-active'
@@ -171,6 +174,7 @@ class TypographyPage extends React.Component {
                   <CopyToClipboard
                     text={this.state.selectedFontFamily.name}
                     onCopy={() =>
+                      // @todo Have icon show copy was successful; remove `alert`
                       window.alert(
                         `${
                           this.state.selectedFontFamily.name
@@ -256,15 +260,15 @@ class TypographyPage extends React.Component {
           </div>
           <br />
           <ApiDemo
-            title={'Font Sizes API'}
+            title="Font Sizes API"
             endpoint={`${apiUrlBase}/font-sizes`}
-            requestType={'get'}
+            requestType="get"
           />
           <br />
           <ApiDemo
-            title={'Font Families API'}
+            title="Font Families API"
             endpoint={`${apiUrlBase}/font-families`}
-            requestType={'get'}
+            requestType="get"
           />
         </div>
       </div>

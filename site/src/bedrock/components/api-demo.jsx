@@ -91,7 +91,7 @@ class ApiDemo extends React.Component {
                     'ui:widget': 'radio',
                   },
                 }}
-                inline
+                isInline
               />
               <br />
             </div>

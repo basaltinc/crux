@@ -153,7 +153,7 @@ class Overview extends React.Component {
       data: props.data,
       html: '',
       size: props.size,
-      isTemplateString: false,
+      isStringTemplate: false,
       template: props.template,
       fullScreen: false,
       showForm: true,
@@ -193,9 +193,12 @@ class Overview extends React.Component {
               label="Adjust Demo Stage"
             />
             <button
+              type="button"
               className="button button--color-blue--light button--size-small"
               onClick={() =>
-                this.setState({ fullScreen: !this.state.fullScreen })
+                this.setState(prevState => ({
+                  fullScreen: !prevState.fullScreen,
+                }))
               }
             >
               Toggle Fullscreen
@@ -211,7 +214,7 @@ class Overview extends React.Component {
                 data={this.state.data}
                 handleNewHtml={html => this.setState({ html })}
                 showDataUsed={false}
-                asString={this.state.isTemplateString}
+                isStringTemplate={this.state.isStringTemplate}
               />
             </Resizable>
           </DemoStage>
@@ -238,8 +241,9 @@ class Overview extends React.Component {
           <h4>Live Code Snippets</h4>
           <p>
             The following code snippets will generate the component in the live
-            demo above. <br />You may also edit the code below and see how this
-            effects the component.
+            demo above. <br />
+            You may also edit the code below and see how this effects the
+            component.
           </p>
           <CodeBlock
             items={[
@@ -249,7 +253,7 @@ class Overview extends React.Component {
                 language: 'twig',
                 handleTyping: text => {
                   this.setState({
-                    isTemplateString: true,
+                    isStringTemplate: true,
                     template: text,
                     showForm: false,
                   });
