@@ -112,6 +112,7 @@ const Site = styled.div`
 
 const MainContent = styled.div`
   flex-grow: 1;
+  padding: var(--spacing-l);
 `;
 
 const SiteFooter = styled.div`
