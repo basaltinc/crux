@@ -11,7 +11,6 @@ const schema = {
     {
       title: 'Who We Are',
       title_text_color: 'white',
-      url: 'https://basalt.io',
       body:
         'We founded Basalt to advance the industry with a better approach to web development and design. We are developers, designers, agency executives, entrepreneurs, marketers, and innovators.',
       body_text_color: 'white',
@@ -36,7 +35,6 @@ const schema = {
 
 const {
   title,
-  url,
   title_text_color,
   body,
   body_text_color,
@@ -45,7 +43,6 @@ const {
 
 schema.properties = {
   title,
-  url,
   title_text_color,
   body,
   body_text_color,

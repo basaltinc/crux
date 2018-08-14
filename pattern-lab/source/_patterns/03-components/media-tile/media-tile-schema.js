@@ -48,6 +48,8 @@ module.exports = {
       title: 'Title Text Color',
       type: 'string',
       description: 'Color of the main heading. Any utility color class.',
+      enum: ['white', 'blue', 'green', 'yellow', 'black'],
+      enumNames: ['White', 'Blue', 'Green', 'Yellow', 'Black'],
     },
     body: {
       title: 'Body Text',
@@ -59,6 +61,8 @@ module.exports = {
       title: 'Body Text Color',
       description:
         'Color of the text of the main body. Any utility color class.',
+      enum: ['white', 'blue', 'green', 'yellow', 'black'],
+      enumNames: ['White', 'Blue', 'Green', 'Yellow', 'Black'],
     },
     body_text_size: {
       title: 'Body Text Size',
