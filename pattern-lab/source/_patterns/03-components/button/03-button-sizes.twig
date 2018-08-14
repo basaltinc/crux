@@ -1,4 +1,4 @@
-{% set schema = get_data('@components/button-schema.json') %}
+{% set schema = get_data('@components/button-schema.js') %}
 
 {% for size in schema.properties.size.enum %}
   <p>Size: {{ size }}</p>
