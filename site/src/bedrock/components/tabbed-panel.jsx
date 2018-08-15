@@ -153,7 +153,7 @@ class TabbedPanel extends Component {
 
 TabbedPanel.defaultProps = {
   color: 'none',
-  type: 'none',
+  // type: 'none',
   bleed: '30px',
 };
 
@@ -169,7 +169,7 @@ TabbedPanel.propTypes = {
   ).isRequired,
   color: PropTypes.string,
   bleed: PropTypes.string,
-  type: PropTypes.string,
+  // type: PropTypes.string,
 };
 
 export default TabbedPanel;
