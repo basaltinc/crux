@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisH, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
-
+import { FaEllipsisH, FaEllipsisV } from 'react-icons/fa';
 import SchemaForm from './schema-form/src/SchemaForm';
 import Twig from '../../components/twig';
 import TabbedPanel from './tabbed-panel';
@@ -47,12 +45,12 @@ const FooterRegion = styled.div`
   }
 `;
 
-class VariationDemo extends Component {
+export class VariationDemo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: props.data,
-      expanded: props.expanded,
+      isExpanded: props.isExpanded,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -60,9 +58,9 @@ class VariationDemo extends Component {
   componentDidMount() {}
 
   handleChange(data) {
-    this.setState({
-      data: Object.assign({}, this.state.data, data.formData),
-    });
+    this.setState(prevState => ({
+      data: Object.assign({}, prevState.data, data.formData),
+    }));
   }
 
   render() {
@@ -77,7 +75,7 @@ class VariationDemo extends Component {
     };
 
     let content;
-    if (this.state.expanded) {
+    if (this.state.isExpanded) {
       // Items is either an enum of strings, or a boolean
       const items = prop.enum ? prop.enum : [true, false];
       content = items.map(item => {
@@ -116,7 +114,7 @@ class VariationDemo extends Component {
               schema={formSchema}
               onChange={this.handleChange}
               formData={this.state.data}
-              inline
+              isInline
               uiSchema={{
                 [propKey]: {
                   'ui:widget': 'radio',
@@ -157,20 +155,27 @@ class VariationDemo extends Component {
               right: '15px',
               bottom: '15px',
             }}
+            role="button"
+            onClick={() =>
+              this.setState(prevState => ({
+                isExpanded: !prevState.isExpanded,
+              }))
+            }
+            onKeyUp={() =>
+              this.setState(prevState => ({
+                isExpanded: !prevState.isExpanded,
+              }))
+            }
+            tabIndex={0}
           >
-            <FontAwesomeIcon
-              role="button"
-              onClick={() => this.setState({ expanded: !this.state.expanded })}
-              icon={this.state.expanded ? faEllipsisH : faEllipsisV}
-              size="lg"
-            />
+            {this.state.isExpanded ? <FaEllipsisH /> : <FaEllipsisV />}
           </div>
         </HeaderRegion>
         <div>{content}</div>
         <FooterRegion
           colorTheme={colorTheme}
           style={{
-            display: this.state.expanded ? 'none' : 'block',
+            display: this.state.isExpanded ? 'none' : 'block',
           }}
         >
           <details>
@@ -187,7 +192,7 @@ class VariationDemo extends Component {
 
 VariationDemo.defaultProps = {
   data: {},
-  expanded: false,
+  isExpanded: false,
   color: 'component',
 };
 
@@ -201,13 +206,11 @@ VariationDemo.propTypes = {
     description: PropTypes.string,
     enum: PropTypes.array,
   }).isRequired,
-  expanded: PropTypes.bool,
+  isExpanded: PropTypes.bool,
   color: PropTypes.string,
 };
 
-export default VariationDemo;
-
-export const VariationDemos = ({ schema, template, data, expanded }) => {
+export default function VariationDemos({ schema, template, data, isExpanded }) {
   const variationsData = [];
   Object.keys(schema.properties).forEach(propKey => {
     const prop = schema.properties[propKey];
@@ -231,7 +234,7 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
     children: (
       <VariationDemo
         {...variationData}
-        expanded={expanded}
+        isExpanded={isExpanded}
         key={variationData.propKey}
       />
     ),
@@ -241,22 +244,23 @@ export const VariationDemos = ({ schema, template, data, expanded }) => {
     <VariationsWrapper>
       <h4>Variations</h4>
       <p>
-        Explore the variations of each property of this component.<br />Use the
-        radio buttons, or press &quot;Show All Variations&quot; to see all
-        variations side by side.
+        Explore the variations of each property of this component.
+        <br />
+        Use the radio buttons, or press &quot;Show All Variations&quot; to see
+        all variations side by side.
       </p>
       <TabbedPanel color="component" bleed="0" items={variations} />
     </VariationsWrapper>
   );
-};
+}
 
 VariationDemos.defaultProps = {
-  expanded: false,
+  isExpanded: false,
 };
 
 VariationDemos.propTypes = {
   schema: PropTypes.object.isRequired,
   template: PropTypes.string.isRequired,
   data: PropTypes.object.isRequired,
-  expanded: PropTypes.bool,
+  isExpanded: PropTypes.bool,
 };

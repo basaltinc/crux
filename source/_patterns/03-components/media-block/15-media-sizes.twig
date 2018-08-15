@@ -1,0 +1,8 @@
+{% set schema = get_data('@components/media-block-schema.js') %}
+
+{% for item in schema.properties.media_size.enum %}
+  <p>Media Size: {{ item }}</p>
+  {% include '01-media-block--default.twig' with {
+    media_size: item,
+  } %}
+{% endfor %}

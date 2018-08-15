@@ -16,21 +16,21 @@ export default class SchemaForm extends React.Component {
   }
 
   onChange(data) {
-    if (this.props.debug) {
+    if (this.props.isDebug) {
       console.log('Form Data changed ', data);
     }
     this.props.onChange(data);
   }
 
   onSubmit(data) {
-    if (this.props.debug) {
+    if (this.props.isDebug) {
       console.log('Form Data submitted ', data);
     }
     this.props.onSubmit(data);
   }
 
   onError(data) {
-    if (this.props.debug) {
+    if (this.props.isDebug) {
       console.log('Form Data error ', data);
     }
     this.props.onError(data);
@@ -48,7 +48,7 @@ export default class SchemaForm extends React.Component {
         onChange={this.onChange}
         ArrayFieldTemplate={CustomArrayField}
         FieldTemplate={CustomField}
-        className={this.props.inline ? 'rjsf rjsf--inline' : 'rjsf'}
+        className={this.props.isInline ? 'rjsf rjsf--inline' : 'rjsf'}
       >
         <span />
         {/* @todo make it easier to disable SchemaForm submit button */}
@@ -59,9 +59,9 @@ export default class SchemaForm extends React.Component {
 
 SchemaForm.defaultProps = {
   idPrefix: `schema-form--${getRandomInt(10000)}`,
-  debug: false,
+  isDebug: false,
   uiSchema: {},
-  inline: false,
+  isInline: false,
   formData: {},
   onChange: () => {},
   onSubmit: () => {},
@@ -74,8 +74,8 @@ SchemaForm.propTypes = {
   onChange: PT.func,
   onError: PT.func,
   onSubmit: PT.func,
-  debug: PT.bool,
+  isDebug: PT.bool,
   idPrefix: PT.string,
-  inline: PT.bool, // @todo implement `inline` form for left-to-right mini-forms
+  isInline: PT.bool, // @todo implement `isInline` form for left-to-right mini-forms
   formData: PT.object,
 };

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import ComponentBoard from '../../components/component-board';
-import Page from '../../templates/page';
 import { apiUrlBase } from '../../../config';
+import Spinner from '../../bedrock/components/spinner';
 
 const PatternsHeader = styled.div`
   margin-left: 50px;
@@ -20,7 +20,7 @@ class PatternsPage extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/patterns/components`)
+      .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
       .then(patterns => {
         this.setState({ patterns, ready: true });
@@ -28,19 +28,19 @@ class PatternsPage extends Component {
   }
 
   render() {
+    if (!this.state.ready) {
+      return <Spinner />;
+    }
     return (
-      <Page>
+      <div>
         <PatternsHeader>
           <h2>Patterns</h2>
           <p>
             Explore the design patterns that make up the Crux Design System.
           </p>
         </PatternsHeader>
-        <ComponentBoard
-          patterns={this.state.patterns}
-          ready={this.state.ready}
-        />
-      </Page>
+        <ComponentBoard patterns={this.state.patterns} />
+      </div>
     );
   }
 }

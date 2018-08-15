@@ -1,12 +1,9 @@
 import React from 'react';
 
-import VisualLanguagePage from '../../templates/visual-language-page';
 import ColorSwatches from '../../bedrock/components/color-swatch';
 import DosAndDonts from '../../bedrock/components/dos-and-donts';
 import { apiUrlBase } from '../../../config';
 import ColorContrastBlock from '../../bedrock/components/color-contrast-block';
-import exampleDo from '../../../../images/dos-and-donts/background-colors/background-colors-do.png';
-import exampleDont from '../../../../images/dos-and-donts/background-colors/background-colors-dont.png';
 import ApiDemo from '../../bedrock/components/api-demo';
 
 class ColorsPage extends React.Component {
@@ -28,7 +25,7 @@ class ColorsPage extends React.Component {
 
   render() {
     return (
-      <VisualLanguagePage className="docs">
+      <div className="docs">
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Colors</h2>
@@ -101,27 +98,29 @@ class ColorsPage extends React.Component {
                 },
               },
             }}
-            requestType={'get'}
+            requestType="get"
           />
         </div>
         <DosAndDonts
           items={[
             {
-              image: exampleDont,
+              image:
+                '/assets/images/dos-and-donts/background-colors/background-colors-dont.png',
               caption:
                 'use color combinations with low color contrast that fail WCAG standards.',
               do: false,
             },
             {
               title: 'Do Example',
-              image: exampleDo,
+              image:
+                '/assets/images/dos-and-donts/background-colors/background-colors-do.png',
               caption:
                 'use color combinations with distinct contrast that fulfill WCAG standards.',
               do: true,
             },
           ]}
         />
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 
-import VisualLanguagePage from '../../templates/visual-language-page';
 import Spinner from '../../bedrock/components/spinner';
 import { apiUrlBase } from '../../../config';
 
@@ -87,7 +86,7 @@ class TypographyPage extends React.Component {
     /* eslint-disable react/no-unescaped-entities */
     /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
     return (
-      <VisualLanguagePage className="docs t-crux-typography">
+      <div className="docs t-crux-typography">
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Typography</h2>
@@ -140,6 +139,9 @@ class TypographyPage extends React.Component {
                   onClick={() =>
                     this.setState({ selectedFontFamily: fontFamily })
                   }
+                  onKeyUp={() =>
+                    this.setState({ selectedFontFamily: fontFamily })
+                  }
                   className={
                     this.state.selectedFontFamily.name === fontFamily.name
                       ? 'demo-tabs__tab is-active'
@@ -172,6 +174,7 @@ class TypographyPage extends React.Component {
                   <CopyToClipboard
                     text={this.state.selectedFontFamily.name}
                     onCopy={() =>
+                      // @todo Have icon show copy was successful; remove `alert`
                       window.alert(
                         `${
                           this.state.selectedFontFamily.name
@@ -257,18 +260,18 @@ class TypographyPage extends React.Component {
           </div>
           <br />
           <ApiDemo
-            title={'Font Sizes API'}
+            title="Font Sizes API"
             endpoint={`${apiUrlBase}/font-sizes`}
-            requestType={'get'}
+            requestType="get"
           />
           <br />
           <ApiDemo
-            title={'Font Families API'}
+            title="Font Families API"
             endpoint={`${apiUrlBase}/font-families`}
-            requestType={'get'}
+            requestType="get"
           />
         </div>
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

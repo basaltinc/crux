@@ -2,68 +2,55 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TwoUp } from '../../bedrock/components/atoms';
-import ResourcePage from '../../templates/resources-page';
-import main from '../../../../images/logos/main.png';
-import blackGrey from '../../../../images/logos/black-grey.png';
-import blackOnly from '../../../../images/logos/black-only.png';
-import whiteColor from '../../../../images/logos/white-color.png';
-import whiteGrey from '../../../../images/logos/white-grey.png';
-import white from '../../../../images/logos/white.png';
-import iconBlackGrey from '../../../../images/logos/icon-black-grey.png';
-import iconBlack from '../../../../images/logos/icon-black.png';
-import iconColor from '../../../../images/logos/icon-color.png';
-import iconWhiteColor from '../../../../images/logos/icon-white-color.png';
-import iconWhiteGrey from '../../../../images/logos/icon-white-grey.png';
-import iconWhite from '../../../../images/logos/icon-white.png';
 
 const logos = [
   {
     fileName: 'main',
-    importName: main,
+    importName: '/assets/images/logos/main.png',
   },
   {
     fileName: 'black-grey',
-    importName: blackGrey,
+    importName: '/assets/images/logos/black-grey.png',
   },
   {
     fileName: 'black-only',
-    importName: blackOnly,
+    importName: '/assets/images/logos/black-only.png',
   },
   {
     fileName: 'white-color',
-    importName: whiteColor,
+    importName: '/assets/images/logos/white-color.png',
   },
   {
     fileName: 'white-grey',
-    importName: whiteGrey,
+    importName: '/assets/images/logos/white-grey.png',
   },
   {
     fileName: 'white',
-    importName: white,
+    importName: '/assets/images/logos/white.png',
   },
   {
     fileName: 'icon-black-grey',
-    importName: iconBlackGrey,
+    importName: '/assets/images/logos/icon-black-grey.png',
   },
   {
     fileName: 'icon-black',
-    importName: iconBlack,
+    importName: '/assets/images/logos/icon-black.png',
   },
   {
     fileName: 'icon-color',
-    importName: iconColor,
+    importName: '/assets/images/logos/icon-color.png',
   },
   {
     fileName: 'icon-white-color',
-    importName: iconWhiteColor,
+    importName: '/assets/images/logos/icon-white-color.png',
   },
   {
     fileName: 'icon-white-grey',
-    importName: iconWhiteGrey,
+    importName: '/assets/images/logos/icon-white-grey.png',
   },
   {
     fileName: 'icon-white',
-    importName: iconWhite,
+    importName: '/assets/images/logos/icon-white.png',
   },
 ];
 const basePath = '../../../../images/logos/';
@@ -96,7 +83,8 @@ function downloadTiles() {
         rel="noopener noreferrer"
       >
         SVG
-      </a>&nbsp;&nbsp;
+      </a>
+      &nbsp;&nbsp;
       <a
         href={`${basePath}${logo.fileName}.png`}
         target="_blank"
@@ -110,7 +98,7 @@ function downloadTiles() {
 
 function LogoDownloads() {
   return (
-    <ResourcePage>
+    <div>
       <h3 className="eyebrow">Resources</h3>
       <h2>Logo Downloads</h2>
       <TwoUp>
@@ -229,7 +217,7 @@ function LogoDownloads() {
       >
         {downloadTiles()}
       </div>
-    </ResourcePage>
+    </div>
   );
 }
 

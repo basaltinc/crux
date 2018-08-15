@@ -30,7 +30,6 @@ pipelines:
       - step:
           name: Lint top level
           script:
-          - yarn lint:pl
           - yarn lint:style
       - step:
           name: Lint site
@@ -77,7 +76,6 @@ pipelines:
             - step:
                 name: Lint top level
                 script:
-                  - yarn lint:pl
                   - yarn lint:style
             - step:
                 name: Lint site

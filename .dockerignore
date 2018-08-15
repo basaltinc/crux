@@ -1,6 +1,5 @@
 node_modules
 vendor
-/site/public
 /site/public2
 /site/.cache
 /build

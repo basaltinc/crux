@@ -9,13 +9,14 @@ class BugReport extends React.Component {
 
   render() {
     return (
-      <div className={'bug-report'}>
+      <div className="bug-report">
         {this.props.title && <h3>{this.props.title}</h3>}
         {this.props.description && <p>{this.props.description}</p>}
         <a
           href={this.props.buttonDest}
-          className={'button button--color-blue button--size-medium'}
-          target={'_blank'}
+          className="button button--color-blue button--size-medium"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           {this.props.buttonText}
         </a>
