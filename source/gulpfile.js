@@ -14,7 +14,6 @@ function scssToJsonTask(done) {
 function scssToJsonWatch() {
   gulp.watch(config.scssToJsonItems.map(item => item.src), scssToJsonTask);
 }
-// gulp.task(webPackTasks.compile);
 
 gulp.task('css', cssTasks.compile);
 
@@ -24,41 +23,14 @@ gulp.task('validate', gulp.series([
 
 function copyFonts() {
   return gulp.src(['./fonts/**'])
-    .pipe(gulp.dest('./build/assets/fonts'));
+    .pipe(gulp.dest('./dist/fonts'));
 }
 
-function copyImages() {
-  return gulp.src(['./images/**'])
-    .pipe(gulp.dest('./build/assets/images'));
-}
-
-// function copyPages() {
-//   return gulp.src([
-//     './index.html',
-//   ])
-//     .pipe(gulp.dest('./build'));
-// }
-
-gulp.task('assets', gulp.series([
-  cssTasks.clean,
-  iconTasks.clean,
-  iconTasks.compile,
-  cssTasks.compile,
-  copyFonts,
-  copyImages,
-  webPackTasks.compile,
-]));
-
-gulp.task('compile', gulp.series([
-  cssTasks.clean,
-  iconTasks.clean,
-  // end clean tasks
+gulp.task('build', gulp.series([
   scssToJsonTask,
   iconTasks.compile,
   gulp.parallel([
     copyFonts,
-    copyImages,
-    // copyPages,
     cssTasks.compile,
     cssTasks.docs,
     webPackTasks.compile,
@@ -66,7 +38,7 @@ gulp.task('compile', gulp.series([
 ]));
 
 gulp.task('default', gulp.series([
-  'compile',
+  'build',
   gulp.parallel([
     cssTasks.watch,
     scssToJsonWatch,

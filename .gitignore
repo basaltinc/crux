@@ -1,6 +1,5 @@
 node_modules
 pattern-lab/vendor
-build
 .DS_Store
 .idea
 yarn-error.log
@@ -10,4 +9,3 @@ site/public2
 site/node_modules
 vendor
 dist
-

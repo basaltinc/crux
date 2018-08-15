@@ -32,6 +32,6 @@
     }
   ],
   "meta": {
-    "description": "To add to these items, use Sass variables that start with <code>$trans-</code> in <code>source/_patterns/00-styleguide/animations/01-transitions/_transitions.scss</code>"
+    "description": "To add to these items, use Sass variables that start with <code>$trans-</code> in <code>_patterns/00-styleguide/animations/01-transitions/_transitions.scss</code>"
   }
 }

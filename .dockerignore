@@ -1,9 +1,10 @@
 node_modules
+dist
 vendor
 /site/public2
 /site/.cache
-/build
 /site/node_modules
+/site/dist
 /site/vendor
 /pattern-lab/vendor
 /.idea

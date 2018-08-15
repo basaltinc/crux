@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    'pattern-lab': './source/js/pattern-lab.js',
-    'grav': './source/js/grav.js',
+    'pattern-lab': './js/pattern-lab.js',
+    'grav': './js/grav.js',
   },
 
   output: {
-    path: path.resolve(__dirname, 'build/assets'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
 
@@ -17,7 +17,7 @@ module.exports = {
         test: /\.js?$/,
         loader: 'babel-loader',
         options: {
-          presets: ['es2015'],
+          presets: ['env'],
         }
       }
     ]

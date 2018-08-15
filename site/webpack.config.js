@@ -52,7 +52,7 @@ const config = {
     contentBase: [
       path.join(__dirname, 'public'),
       path.join(__dirname, 'public2'),
-      path.join(__dirname, '../build'),
+      path.join(__dirname, '../source/dist'),
     ],
     proxy: {
       '/api': 'http://localhost:3042',
