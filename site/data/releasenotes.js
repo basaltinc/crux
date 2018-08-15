@@ -6,7 +6,7 @@ import { join } from 'path';
  */
 export async function getReleaseNotes() {
   const releaseNotesFile = await fs.readFile(
-    join(__dirname, '../../build/changelog.json'),
+    join(__dirname, '../../source/dist/changelog.json'),
     'utf8',
   );
   const releaseNotes = JSON.parse(releaseNotesFile);
