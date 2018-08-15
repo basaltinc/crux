@@ -46,13 +46,12 @@ pipelines:
       epic/v2:
         - step:
             name: Install
-            caches:
-              - composer
-              - node
-              - yarn
-              - site-node
-              - site-vendor
-              - pl-vendor
+#            caches:
+#              - composer
+#              - node
+#              - yarn
+#              - site-node
+#              - site-vendor
             script:
               - yarn --version && npm --version && node --version && composer --version && php --version
               - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
@@ -61,13 +60,12 @@ pipelines:
               - '**'
         - step:
             name: Build
-            caches:
-              - composer
-              - node
-              - yarn
-              - site-node
-              - site-vendor
-              - pl-vendor
+#            caches:
+#              - composer
+#              - node
+#              - yarn
+#              - site-node
+#              - site-vendor
             script:
               - yarn build
             artifacts:
@@ -118,4 +116,3 @@ definitions:
     yarn: $HOME/.yarn-cache
     site-node: site/node_modules
     site-vendor: site/vendor
-    pl-vendor: pattern-lab/vendor
