@@ -66,6 +66,7 @@ const config = {
   plugins: [new Stylish(), new webpack.NamedModulesPlugin()],
   performance: {
     hints: isProd ? 'error' : false,
+    maxAssetSize: 280000,
   },
 };
 
