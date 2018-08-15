@@ -97,6 +97,12 @@ const LoadablePhotographyGuidelines = Loadable({
   loading: Spinner,
 });
 
+const LoadableSketchAssets = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'photography-guidelines' */ './pages/resources/sketch-assets'),
+  loading: Spinner,
+});
+
 const LoadableBrandDescriptors = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
@@ -226,6 +232,10 @@ export default class App extends React.Component {
                   <Route
                     path="/resources/photography-guidelines"
                     component={LoadablePhotographyGuidelines}
+                  />
+                  <Route
+                    path="/resources/sketch-assets"
+                    component={LoadableSketchAssets}
                   />
                   <Route
                     path="/resources/brand-descriptors"
