@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FaEllipsisH, FaEllipsisV } from 'react-icons/fa';
-import SchemaForm from './schema-form/src/SchemaForm';
-import Twig from '../../components/twig';
-import TabbedPanel from './tabbed-panel';
-import { Checkerboard } from './atoms';
-import { getTypeColor } from '../../theme';
+import SchemaForm from '../../schema-form';
+import TabbedPanel from '../../tabbed-panel';
+import { Checkerboard } from '../../atoms';
+import Twig from '../../../../components/twig';
+
+// @todo reconsider how to handle color types - was pulling in site's theme, but now that it's a Bedrock component it doesn't make as much sense.
+import { getTypeColor } from './theme';
 
 const VariationsWrapper = styled.div`
   margin: 2rem 0;

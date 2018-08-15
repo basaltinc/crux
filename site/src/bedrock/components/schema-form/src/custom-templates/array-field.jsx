@@ -1,5 +1,5 @@
 import React from 'react';
-import { getRandomInt } from '../../../../packages/utils/index';
+import { getRandomInt } from '../../../../packages/utils/src/index';
 import './array-field.styles.css';
 import upArrow from '../assets/angle-up.svg';
 import downArrow from '../assets/angle-down.svg';

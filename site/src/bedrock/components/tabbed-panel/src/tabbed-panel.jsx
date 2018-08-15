@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import { getTypeColor } from '../../theme';
+// @todo reconsider how to handle color types - was pulling in site's theme, but now that it's a Bedrock component it doesn't make as much sense.
+import { getTypeColor } from './theme';
 
 const ShadowWrap = styled.div`
   position: relative;

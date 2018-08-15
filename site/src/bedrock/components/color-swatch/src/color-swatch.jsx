@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { convertColor } from '../packages/utils';
-import { SelectStyledWrapper } from './atoms';
+import { convertColor } from '../../../packages/utils';
+import { SelectStyledWrapper } from '../../atoms';
 
 const OuterSwatch = styled.div`
   width: 49%;
