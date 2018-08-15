@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "build": "FORCE_COLOR=1 run-p --print-label build:*",
-    "build:pl": "gulp pl",
     "build:assets": "NODE_ENV=production gulp assets",
     "build:changelog": "auto-changelog --template json --output ./build/changelog.json || true",
     "build:site": "cd site && yarn build",
@@ -22,7 +21,6 @@
     "setup": "run-p --print-label setup:*",
     "setup:site": "cd site && yarn --silent",
     "setup:sitephp": "cd site && composer install --no-interaction --no-progress --quiet",
-    "setup:pl": "cd pattern-lab && composer install --no-interaction --no-progress --quiet",
     "new": "yo pl-pattern --base pattern-lab/source/_patterns",
     "postversion": "git push && git push --tags",
     "prepush": "yarn test",
@@ -34,9 +32,7 @@
   },
   "dependencies": {
     "@basalt/demo-data": "0.5.0",
-    "@theme-tools/plugin-browser-sync": "^0.4.0",
     "@theme-tools/plugin-icon-font": "^0.4.3",
-    "@theme-tools/plugin-pattern-lab-php": "^0.5.0",
     "@theme-tools/plugin-sass": "^0.4.0",
     "@theme-tools/plugin-webpack": "^0.2.2",
     "babel-core": "6.26.3",
@@ -47,7 +43,6 @@
     "babel-preset-react": "6.24.1",
     "breakpoint-sass": "^2.7.1",
     "gulp": "^4.0.0",
-    "holderjs": "^2.9.4",
     "jest": "23.4.1",
     "jsonschema": "^1.2.0",
     "prop-types": "15.6.2",

@@ -13,10 +13,6 @@ const twigRenderer = new TwigRenderer({
         paths: ['site/public/assets/images/svgs'],
       },
       {
-        id: 'utils',
-        paths: ['pattern-lab/source/_utils'],
-      },
-      {
         id: 'styleguide',
         recursive: true,
         paths: ['pattern-lab/source/_patterns/00-styleguide'],

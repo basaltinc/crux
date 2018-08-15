@@ -17,10 +17,6 @@ module.exports = {
       '../../node_modules',
     ],
   },
-  browserSync: {
-    baseDir: './',
-    startPath: 'build/pattern-lab',
-  },
   icons: {
     src: 'images/icons/src/*.svg',
     dest: 'build/assets',
