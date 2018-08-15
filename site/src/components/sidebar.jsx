@@ -74,13 +74,8 @@ const resourcesLinks = [
   },
   {
     title: 'Sketch Assets',
-    id: 'sketch',
-    isHeading: true,
-  },
-  {
-    title: 'Coming Soon...',
-    id: 'coming-soon',
-    path: '#',
+    id: 'sketch-assets',
+    path: '/resources/sketch-assets',
   },
 ];
 
