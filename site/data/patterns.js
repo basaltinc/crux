@@ -7,7 +7,7 @@ import patternMetaSchema from './pattern-meta.schema.json';
 const ajv = new Ajv();
 const validatePatternMetaSchema = ajv.compile(patternMetaSchema);
 
-const patternsDir = join(__dirname, '../../pattern-lab/source/_patterns/');
+const patternsDir = join(__dirname, '../../source/_patterns/');
 
 const patterns = [];
 

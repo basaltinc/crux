@@ -15,7 +15,7 @@
     "lint:fix": "yarn run lint --fix",
     "start": "FORCE_COLOR=1 run-p --print-label watch:* serve:webpack",
     "test": "yarn run lint && jest",
-    "watch:twig": "nodemon --watch ../pattern-lab/source/_patterns/ --ext twig,json,js --exec 'echo \"restarting twig render server to clear twig cache...\" && touch server.js' ",
+    "watch:twig": "nodemon --watch ../source/_patterns/ --ext twig,json,js --exec 'echo \"restarting twig render server to clear twig cache...\" && touch server.js' ",
     "Xwatch:webpack": "wp --watch --run-dev",
     "watch:jsdoc": "nodemon --watch utils/ --watch data/ --exec 'yarn run build:jsdoc'",
     "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'run-p build:apidoc serve' ",

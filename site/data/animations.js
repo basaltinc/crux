@@ -8,7 +8,7 @@ export async function getTransitions() {
   const transitionsFile = await fs.readFile(
     join(
       __dirname,
-      '../../pattern-lab/source/_patterns/00-styleguide/animations/01-transitions/transitions.json',
+      '../../source/_patterns/00-styleguide/animations/01-transitions/transitions.json',
     ),
     'utf8',
   );
