@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production gulp build",
+    "new": "yo pl-pattern --base source/_patterns",
     "start": "gulp",
     "test": "gulp validate"
   },

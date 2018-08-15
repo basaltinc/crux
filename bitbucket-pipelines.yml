@@ -46,12 +46,12 @@ pipelines:
       epic/v2:
         - step:
             name: Install
-#            caches:
-#              - composer
-#              - node
-#              - yarn
-#              - site-node
-#              - site-vendor
+            caches:
+              - composer
+              - node
+              - yarn
+              - site-node
+              - site-vendor
             script:
               - yarn --version && npm --version && node --version && composer --version && php --version
               - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
@@ -60,25 +60,21 @@ pipelines:
               - '**'
         - step:
             name: Build
-#            caches:
-#              - composer
-#              - node
-#              - yarn
-#              - site-node
-#              - site-vendor
+            caches:
+              - composer
+              - node
+              - yarn
+              - site-node
+              - site-vendor
             script:
               - yarn build
             artifacts:
               - '**'
         - parallel:
             - step:
-                name: Lint top level
+                name: Test
                 script:
-                  - yarn lint:style
-            - step:
-                name: Lint site
-                script:
-                  - yarn lint:site
+                  - yarn test
         - step:
             name: Deploy to staging
             deployment: staging   # can be test, staging or production
