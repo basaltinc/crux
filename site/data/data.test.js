@@ -40,7 +40,6 @@ describe('Data Get Functions', () => {
 
   test('ReleaseNotes', async () => {
     const results = await getReleaseNotes();
-    console.log(results);
     expect(results.length > 0).toBe(true);
   });
 
