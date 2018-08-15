@@ -1,7 +1,6 @@
 module.exports = {
   css: {
     src: [
-      'scss/**/*.scss',
       'source/**/*.scss',
     ],
     dest: 'build/assets',
