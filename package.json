@@ -19,7 +19,6 @@
     "lint:site": "cd site && yarn run lint",
     "lint:style": "stylelint \"source/**/*.scss\"",
     "setup": "run-p --print-label setup:*",
-    "setup:site": "cd site && yarn --silent",
     "setup:sitephp": "cd site && composer install --no-interaction --no-progress --quiet",
     "new": "yo pl-pattern --base source/_patterns",
     "postversion": "git push && git push --tags",
@@ -30,6 +29,9 @@
     "watch:site": "cd site && yarn start",
     "watch:assets": "gulp"
   },
+  "workspaces": [
+    "site"
+  ],
   "dependencies": {
     "@basalt/demo-data": "0.5.0",
     "@theme-tools/plugin-icon-font": "^0.4.3",

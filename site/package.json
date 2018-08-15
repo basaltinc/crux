@@ -85,6 +85,7 @@
     "basalt"
   ],
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/basaltinc/our-design-system"
