@@ -28,6 +28,8 @@
     "watch:assets": "cd source && yarn start"
   },
   "workspaces": [
+    "bedrock/components/*",
+    "bedrock/packages/*",
     "source",
     "site"
   ],
