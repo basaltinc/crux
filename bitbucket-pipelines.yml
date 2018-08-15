@@ -13,7 +13,7 @@ pipelines:
         - yarn
         - site-node
         - site-vendor
-        - pl-vendor
+        - source-node
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
@@ -52,24 +52,27 @@ pipelines:
               - yarn
               - site-node
               - site-vendor
+              - source-node
             script:
               - yarn --version && npm --version && node --version && composer --version && php --version
               - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
               - yarn setup
-            artifacts:
-              - '**'
-        - step:
-            name: Build
-            caches:
-              - composer
-              - node
-              - yarn
-              - site-node
-              - site-vendor
-            script:
               - yarn build
             artifacts:
               - '**'
+#        - step:
+#            name: Build
+#            caches:
+#              - composer
+#              - node
+#              - yarn
+#              - site-node
+#              - site-vendor
+#              - source-node
+#            script:
+#              - yarn build
+#            artifacts:
+#              - '**'
         - parallel:
             - step:
                 name: Test
@@ -111,4 +114,5 @@ definitions:
   caches:
     yarn: $HOME/.yarn-cache
     site-node: site/node_modules
+    source-node: source/node_modules
     site-vendor: site/vendor
