@@ -18,29 +18,38 @@ pipelines:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
         - yarn setup
-        artifacts:
-        - '**'
-    - step:
-        name: Build
-        script:
         - yarn build
         artifacts:
         - '**'
+    #        - step:
+    #            name: Build
+    #            caches:
+    #              - composer
+    #              - node
+    #              - yarn
+    #              - site-node
+    #              - site-vendor
+    #              - source-node
+    #            script:
+    #              - yarn build
+    #            artifacts:
+    #              - '**'
     - parallel:
       - step:
-          name: Lint top level
+          name: Test
           script:
-          - yarn lint:style
-      - step:
-          name: Lint site
-          script:
-          - yarn lint:site
+          - yarn test
     - step:
-        name: Deploy to test
-        deployment: test   # can be test, staging or production
-        # trigger: manual  # uncomment to make manual deployment
+        name: Deploy to staging
+        deployment: staging   # can be test, staging or production
         script:
-        - yarn run deploy:test
+        - yarn run deploy:staging
+    - step:
+        name: Deploy to production
+        deployment: production   # can be test, staging or production
+        trigger: manual
+        script:
+        - yarn run deploy:prod
 
   branches:
       epic/v2:
