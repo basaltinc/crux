@@ -148,7 +148,6 @@ class Sidebar extends Component {
   static getDerivedStateFromProps(props) {
     return {
       items: [
-        ...aboutLinks,
         ...perceptualPatternsLinks,
         {
           title: 'Patterns',
@@ -157,6 +156,7 @@ class Sidebar extends Component {
         },
         ...props.patterns,
         ...resourcesLinks,
+        ...aboutLinks,
       ],
     };
   }
