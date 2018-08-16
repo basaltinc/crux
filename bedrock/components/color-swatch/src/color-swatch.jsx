@@ -109,7 +109,13 @@ class ColorSwatches extends Component {
 }
 
 ColorSwatches.propTypes = {
-  colors: PropTypes.arrayOf(PropTypes.object).isRequired,
+  colors: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      comment: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default ColorSwatches;
