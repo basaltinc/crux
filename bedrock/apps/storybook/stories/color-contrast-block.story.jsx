@@ -18,10 +18,25 @@ storiesOf('ColorContrastBlock', module).add(
           name: 'Red',
           value: 'red',
         },
-      ]},
+        {
+          name: 'Yellow',
+          value: 'yellow',
+        },
+      ]}
       textColors={[
-
-]}
+        {
+          name: 'Blue',
+          value: 'blue',
+        },
+        {
+          name: 'Red',
+          value: 'red',
+        },
+        {
+          name: 'Yellow',
+          value: 'yellow',
+        },
+      ]}
     />
   )),
 );
