@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { TypeToFilterWrapper } from '@basalt/bedrock-atoms';
+import { TextInput } from '@basalt/bedrock-atoms';
 import { FaChevronLeft } from 'react-icons/fa';
 import LinkList from './link-list';
 
@@ -215,8 +215,7 @@ class Sidebar extends Component {
     return (
       <SidebarStyled sidebarCollapsed={isCollapsed}>
         <SidebarColumn sidebarCollapsed={isCollapsed}>
-          <TypeToFilterWrapper>
-            <input
+            <TextInput
               type="text"
               className="type-to-filter"
               placeholder="Type to filter..."
@@ -225,7 +224,6 @@ class Sidebar extends Component {
                 this.setState({ filterTerm: event.target.value })
               }
             />
-          </TypeToFilterWrapper>
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
         <SidebarColumn2 onClick={this.handleToggleClick}>
