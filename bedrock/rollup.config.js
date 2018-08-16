@@ -28,7 +28,7 @@ const configs = [
   },
   {
     dir: './components/color-contrast-block',
-    entry: 'src/color-contrast-block.story.jsx',
+    entry: 'src/color-contrast-block.jsx',
   },
   {
     dir: './components/color-swatch',
