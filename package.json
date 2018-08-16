@@ -23,6 +23,7 @@
     "start": "run-p --print-label watch:*",
     "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",
     "test": "run-s test:source test:site",
+    "test:bedrock": "cd bedrock && yarn test",
     "test:site": "cd site && yarn test",
     "test:source": "cd source && yarn test",
     "watch:bedrock": "cd bedrock && yarn start",
