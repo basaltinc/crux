@@ -4,7 +4,7 @@
   "version": "1.2.6",
   "private": true,
   "scripts": {
-    "build": "FORCE_COLOR=1 run-s --print-label build:assets build:changelog build:site",
+    "build": "FORCE_COLOR=1 run-s --print-label build:bedrock build:assets build:changelog build:site",
     "build:assets": "cd source && yarn run build",
     "build:bedrock": "cd bedrock && yarn build",
     "build:changelog": "auto-changelog --template json --output ./source/dist/changelog.json || true",
