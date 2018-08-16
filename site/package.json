@@ -24,7 +24,6 @@
     "wp": "wp"
   },
   "dependencies": {
-
     "@babel/core": "7.0.0-rc.1",
     "@babel/node": "7.0.0-rc.1",
     "@babel/plugin-syntax-dynamic-import": "7.0.0-rc.1",

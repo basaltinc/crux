@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { convertColor } from '../../../packages/utils';
-import { Details, SelectStyledWrapper } from '../../atoms';
+import { convertColor } from '@basalt/bedrock-utils';
+import { Details, SelectStyledWrapper } from '@basalt/bedrock-atoms';
 
 const ColorContrastPlayground = styled.div`
   width: 100%;

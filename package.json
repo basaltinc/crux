@@ -28,17 +28,16 @@
     "watch:assets": "cd source && yarn start"
   },
   "workspaces": [
+    "bedrock",
     "bedrock/components/*",
     "bedrock/packages/*",
     "source",
     "site"
   ],
-  "dependencies": {
-
-  },
   "devDependencies": {
     "auto-changelog": "1.8.0",
     "husky": "0.14.3",
+    "lerna": "^3.0.5",
     "now": "canary",
     "npm-run-all": "4.1.3"
   },

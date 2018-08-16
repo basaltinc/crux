@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import qs from 'query-string';
-import SchemaForm from '../../schema-form';
-import SchemaTable from '../../schema-table';
-import { Details } from '../../atoms';
+import SchemaForm from '@basalt/bedrock-schema-form';
+import SchemaTable from '@basalt/bedrock-schema-table';
+import { Details } from '@basalt/bedrock-atoms';
 
 const PostOrGet = styled.span`
   background-color: ${props =>

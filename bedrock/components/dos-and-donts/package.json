@@ -2,7 +2,8 @@
   "name": "@basalt/bedrock-dos-and-donts",
   "version": "0.1.0",
   "description": "A Bedrock component that helps build Design Systems",
-  "main": "src/dos-and-donts.jsx",
+  "main": "dist/dos-and-donts.js",
+  "module": "dist/dos-and-donts.mjs",
   "scripts": {
   },
   "dependencies": {

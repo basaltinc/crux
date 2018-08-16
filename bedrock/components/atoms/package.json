@@ -2,7 +2,8 @@
   "name": "@basalt/bedrock-atoms",
   "version": "0.1.0",
   "description": "A Bedrock component that helps build Design Systems",
-  "main": "src/atoms.jsx",
+  "main": "dist/atoms.js",
+  "module": "dist/atoms.mjs",
   "scripts": {
   },
   "dependencies": {
