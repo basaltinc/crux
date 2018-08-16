@@ -53,7 +53,7 @@ const SidebarColumn2 = SidebarColumn.extend`
   //top: 50vh;
   height: 100%;
   &:hover {
-  border-left: solid 3px #e1c933;
+    border-left: solid 3px #e1c933;
   }
 `;
 
