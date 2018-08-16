@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import { join } from 'path';
 import api from './api';
 
+const port = process.env.PORT || 3042;
 const app = express();
 app.use(bodyParser.json());
 
@@ -26,6 +27,6 @@ app.get('*', (req, res) => {
   res.sendFile(join(__dirname, 'public/index.html'));
 });
 
-app.listen(3042, () =>
-  console.log('Express listening on http://localhost:3042'),
+app.listen(port, () =>
+  console.log(`Express listening on http://localhost:${port}`),
 );
