@@ -6,50 +6,25 @@ options:
 pipelines:
   default:
     - step:
-        name: Install
+        name: Install, Build, Test
         caches:
         - composer
         - node
         - yarn
-        - site-node
         - site-vendor
-        - source-node
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
         - yarn setup
         - yarn build
+        - yarn test
         artifacts:
         - '**'
-    #        - step:
-    #            name: Build
-    #            caches:
-    #              - composer
-    #              - node
-    #              - yarn
-    #              - site-node
-    #              - site-vendor
-    #              - source-node
-    #            script:
-    #              - yarn build
-    #            artifacts:
-    #              - '**'
-    - parallel:
-      - step:
-          name: Test
-          script:
-          - yarn test
     - step:
-        name: Deploy to staging
-        deployment: staging   # can be test, staging or production
+        name: Deploy to test
+        deployment: test   # can be test, staging or production
         script:
-        - yarn run deploy:staging
-    - step:
-        name: Deploy to production
-        deployment: production   # can be test, staging or production
-        trigger: manual
-        script:
-        - yarn run deploy:prod
+        - yarn run deploy:test
 
   branches:
       epic/v2:
@@ -59,37 +34,19 @@ pipelines:
               - composer
               - node
               - yarn
-              - site-node
               - site-vendor
-              - source-node
             script:
               - yarn --version && npm --version && node --version && composer --version && php --version
               - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
               - yarn setup
               - yarn build
+              - yarn test
             artifacts:
               - '**'
-#        - step:
-#            name: Build
-#            caches:
-#              - composer
-#              - node
-#              - yarn
-#              - site-node
-#              - site-vendor
-#              - source-node
-#            script:
-#              - yarn build
-#            artifacts:
-#              - '**'
-        - parallel:
-            - step:
-                name: Test
-                script:
-                  - yarn test
         - step:
             name: Deploy to staging
             deployment: staging   # can be test, staging or production
+            trigger: manual
             script:
              - yarn run deploy:staging
         - step:
