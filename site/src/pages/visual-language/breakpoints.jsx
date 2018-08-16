@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import ApiDemo from '@basalt/bedrock-api-demo';
 import { apiUrlBase } from '../../../config';
-import ApiDemo from '../../bedrock/components/api-demo';
 
 const BreakpointListItem = styled.li`
   left: ${props => props.left};

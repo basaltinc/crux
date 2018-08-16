@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import pretty from 'pretty';
-import TabbedPanel from '../bedrock/components/tabbed-panel';
+import TabbedPanel from '@basalt/bedrock-tabbed-panel';
 
 class CodeBlock extends Component {
   constructor(props) {

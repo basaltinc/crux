@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { TwoUp } from '../../bedrock/components/atoms';
+import { TwoUp } from '@basalt/bedrock-atoms';
 
 function LogoUsage() {
   return (

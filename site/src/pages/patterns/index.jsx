@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+import Spinner from '@basalt/bedrock-spinner';
 import ComponentBoard from '../../components/component-board';
 import { apiUrlBase } from '../../../config';
-import Spinner from '../../bedrock/components/spinner';
 
 const PatternsHeader = styled.div`
   margin-left: 50px;

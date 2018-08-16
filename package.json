@@ -6,6 +6,7 @@
   "scripts": {
     "build": "FORCE_COLOR=1 run-s --print-label build:assets build:changelog build:site",
     "build:assets": "cd source && yarn run build",
+    "build:bedrock": "cd bedrock && yarn build",
     "build:changelog": "auto-changelog --template json --output ./source/dist/changelog.json || true",
     "build:site": "cd site && yarn build",
     "clean": "rm -rf node_modules source/dist site/node_modules site/vendor site/public2 source/node_modules",
@@ -22,21 +23,31 @@
     "start": "run-p --print-label watch:*",
     "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",
     "test": "run-s test:source test:site",
+    "test:bedrock": "cd bedrock && yarn test",
     "test:site": "cd site && yarn test",
     "test:source": "cd source && yarn test",
+    "watch:bedrock": "cd bedrock && yarn start",
     "watch:site": "cd site && yarn start",
     "watch:assets": "cd source && yarn start"
   },
-  "workspaces": [
-    "source",
-    "site"
-  ],
-  "dependencies": {
-
+  "workspaces": {
+    "packages": [
+      "bedrock",
+      "bedrock/apps/*",
+      "bedrock/components/*",
+      "bedrock/packages/*",
+      "source",
+      "site"
+    ],
+    "nohoist": [
+      "**/@basalt/bedrock-storybook",
+      "**/@basalt/bedrock-storybook/**"
+    ]
   },
   "devDependencies": {
     "auto-changelog": "1.8.0",
     "husky": "0.14.3",
+    "lerna": "^3.0.5",
     "now": "canary",
     "npm-run-all": "4.1.3"
   },

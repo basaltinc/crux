@@ -1,10 +1,10 @@
 import React from 'react';
 
-import ColorSwatches from '../../bedrock/components/color-swatch';
-import DosAndDonts from '../../bedrock/components/dos-and-donts';
+import ColorSwatches from '@basalt/bedrock-color-swatch';
+import DosAndDonts from '@basalt/bedrock-dos-and-donts';
+import ColorContrastBlock from '@basalt/bedrock-color-contrast-block';
+import ApiDemo from '@basalt/bedrock-api-demo';
 import { apiUrlBase } from '../../../config';
-import ColorContrastBlock from '../../bedrock/components/color-contrast-block';
-import ApiDemo from '../../bedrock/components/api-demo';
 
 class ColorsPage extends React.Component {
   constructor(props) {

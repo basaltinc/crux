@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ApiDemo from '@basalt/bedrock-api-demo';
+import { TwoUp } from '@basalt/bedrock-atoms';
+import Spinner from '@basalt/bedrock-spinner';
+import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 import { apiUrlBase } from '../../../config';
-import ApiDemo from '../../bedrock/components/api-demo';
-import { TwoUp } from '../../bedrock/components/atoms';
-import Spinner from '../../bedrock/components/spinner';
-import DosAndDonts from '../../bedrock/components/dos-and-donts';
 
 const DemoTransition = styled.div`
   background: #ddd;
