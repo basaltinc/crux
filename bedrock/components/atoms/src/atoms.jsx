@@ -49,21 +49,29 @@ export const SelectStyledWrapper = styled.label`
   padding-right: 3px;
   margin: 0 5px;
   > .label-text {
+    display: inline-block;
     margin-right: 5px;
     &:after {
       content: ':';
     }
   }
-  > select {
-    background-color: #cfe3de;
-    border: none;
+  > span > select {
+    background-color: lightgrey;
     font-size: 1rem;
+    border: 0;
     height: 33px;
     padding: 5px; /* If you add too much padding here, the options won't show in IE */
     &:active,
     &:focus {
       outline: none;
     }
+  }
+  > span {
+    display: inline-block;
+    background-color: lightgrey;
+    border: 0;
+    border-radius: 0;
+    height: 33px;
   }
 `;
 
@@ -87,15 +95,17 @@ export class Select extends React.Component {
     return (
       <SelectStyledWrapper>
         {this.props.label && (
-          <span className="label-text">{this.props.label}</span>
+          <div className="label-text">{this.props.label}</div>
         )}
-        <select onChange={this.handleSelection} value={this.state.currentValue}>
+        <span>
+          <select onChange={this.handleSelection} value={this.state.currentValue}>
           {this.props.items.map(item => (
             <option value={item.value} key={item.value}>
               {item.title ? item.title : item.value}
             </option>
           ))}
         </select>
+        </span>
       </SelectStyledWrapper>
     );
   }
