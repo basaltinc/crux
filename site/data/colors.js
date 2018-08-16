@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import { join } from 'path';
-import { convertColor } from '../src/bedrock/packages/utils/src/index';
+import { convertColor } from '@basalt/bedrock-utils';
 
 /**
  * @param {string} format - Color format; one of 'hsl', 'rgb', 'hex'

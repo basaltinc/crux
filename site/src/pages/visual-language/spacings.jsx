@@ -1,8 +1,8 @@
 import React from 'react';
 
+import ApiDemo from '@basalt/bedrock-api-demo';
 import SpacingSwatches from '../../components/spacing';
 import { apiUrlBase } from '../../../config';
-import ApiDemo from '../../bedrock/components/api-demo';
 
 export default class SpacingPage extends React.Component {
   constructor(props) {

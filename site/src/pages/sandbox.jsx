@@ -2,10 +2,10 @@ import React from 'react';
 
 import { paragraph, title } from '@basalt/demo-data';
 
-import DosAndDonts from '../bedrock/components/dos-and-donts';
-import Spinner from '../bedrock/components/spinner';
-import { Details } from '../bedrock/components/atoms';
-import TabbedPanel from '../bedrock/components/tabbed-panel';
+import DosAndDonts from '@basalt/bedrock-dos-and-donts';
+import Spinner from '@basalt/bedrock-spinner';
+import { Details } from '@basalt/bedrock-atoms';
+import TabbedPanel from '@basalt/bedrock-tabbed-panel';
 
 const tabbedPanelItems = [
   {

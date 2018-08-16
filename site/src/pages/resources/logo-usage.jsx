@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TwoUp } from '../../bedrock/components/atoms';
-import DosAndDonts from '../../bedrock/components/dos-and-donts';
+import { TwoUp } from '@basalt/bedrock-atoms';
+import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 
 const LetteredList = styled.ol`
   list-style: upper-alpha;

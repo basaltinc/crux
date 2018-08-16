@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { TwoUp } from '../../bedrock/components/atoms';
+import { TwoUp } from '@basalt/bedrock-atoms';
 
 const logos = [
   {

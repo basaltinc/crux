@@ -16,5 +16,6 @@ module.exports = (useEsModules = false) => ({
   plugins: [
     '@babel/plugin-syntax-dynamic-import',
     'transform-react-remove-prop-types',
+    'babel-plugin-styled-components',
   ],
 });

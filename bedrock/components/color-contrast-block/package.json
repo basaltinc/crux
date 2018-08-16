@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A Bedrock component that helps build Design Systems",
   "main": "dist/color-contrast-block.js",
-  "module": "dist/color-contrast-block.mjs",
+  "module": "dist/color-contrast-block.mjs.js",
   "scripts": {
   },
   "dependencies": {
@@ -13,11 +13,13 @@
   },
   "devDependencies": {
     "prop-types": "^15.0.0",
-    "react": "^16.3.0"
+    "react": "^16.3.0",
+    "styled-components": "^3.4.2"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",
-    "react": "^16.3.0"
+    "react": "^16.3.0",
+    "styled-components": "^3.4.2"
   },
   "author": "Basalt (http://basalt.io)",
   "license": "UNLICENSED"

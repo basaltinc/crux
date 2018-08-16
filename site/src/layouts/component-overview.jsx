@@ -2,29 +2,29 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loadable from 'react-loadable';
 import styled from 'styled-components';
-import Overview from '../components/overview';
-import Spinner from '../bedrock/components/spinner';
-import { apiUrlBase } from '../../config';
-import { Details, Select } from '../bedrock/components/atoms';
-import ErrorCatcher from '../bedrock/components/error-catcher';
+import Spinner from '@basalt/bedrock-spinner';
+import { Details, Select } from '@basalt/bedrock-atoms';
+import ErrorCatcher from '@basalt/bedrock-error-catcher';
+import ApiDemo from '@basalt/bedrock-api-demo';
 import Twig from '../components/twig';
-import ApiDemo from '../bedrock/components/api-demo';
+import { apiUrlBase } from '../../config';
+import Overview from '../components/overview';
 
 const LoadableSchemaTable = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'schema-table' */ '../bedrock/components/schema-table'),
+    import(/* webpackChunkName: 'schema-table' */ '@basalt/bedrock-schema-table'),
   loading: Spinner,
 });
 
 const LoadableVariationDemo = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'variation-demo' */ '../bedrock/components/variation-demo'),
+    import(/* webpackChunkName: 'variation-demo' */ '@basalt/bedrock-variation-demo'),
   loading: Spinner,
 });
 
 const LoadableDosAndDonts = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'dos-and-donts' */ '../bedrock/components/dos-and-donts/src/dos-and-donts'),
+    import(/* webpackChunkName: 'dos-and-donts' */ '@basalt/bedrock-dos-and-donts'),
   loading: Spinner,
 });
 
@@ -111,15 +111,19 @@ export default class ComponentOverview extends Component {
             </Details>
           )}
 
-          <h4>Properties</h4>
-          <p>
-            The following properties make up the data that defines each instance
-            of this component.
-          </p>
-          <Details open>
-            <summary>Props Table</summary>
-            <LoadableSchemaTable schema={schema} />
-          </Details>
+          {Object.keys(schema.properties).length > 0 && (
+            <div>
+              <h4>Properties</h4>
+              <p>
+                The following properties make up the data that defines each
+                instance of this component.
+              </p>
+              <Details open>
+                <summary>Props Table</summary>
+                <LoadableSchemaTable schema={schema} />
+              </Details>
+            </div>
+          )}
 
           <LoadableVariationDemo schema={schema} template={name} data={data} />
 

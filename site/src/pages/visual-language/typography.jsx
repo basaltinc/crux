@@ -1,12 +1,10 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { image, paragraph, text, title } from '@basalt/demo-data';
-
-import Spinner from '../../bedrock/components/spinner';
+import ApiDemo from '@basalt/bedrock-api-demo';
+import Spinner from '@basalt/bedrock-spinner';
 import { apiUrlBase } from '../../../config';
-
 import './demos.css';
-import ApiDemo from '../../bedrock/components/api-demo';
 
 class TypographyPage extends React.Component {
   constructor(props) {

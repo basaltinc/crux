@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import Loadable from 'react-loadable';
-import Spinner from './bedrock/components/spinner';
+import Spinner from '@basalt/bedrock-spinner';
+import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import Header from './components/header';
 import './global.css';
-import ErrorCatcher from './bedrock/components/error-catcher';
 import { apiUrlBase } from '../config';
 
 const LoadableComponentOverview = Loadable({

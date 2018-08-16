@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import SchemaForm from '@basalt/bedrock-schema-form';
+import { Select } from '@basalt/bedrock-atoms';
 import Twig from './twig';
-import SchemaForm from '../bedrock/components/schema-form';
-import { Select } from '../bedrock/components/atoms';
 import CodeBlock from './code-block';
 
 const sizes = [

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { TypeToFilterWrapper } from '@basalt/bedrock-atoms';
 import LinkList from './link-list';
-import { TypeToFilterWrapper } from '../bedrock/components/atoms';
 
 const SidebarStyled = styled.aside`
   width: 10%;
