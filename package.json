@@ -6,6 +6,7 @@
   "scripts": {
     "build": "FORCE_COLOR=1 run-s --print-label build:assets build:changelog build:site",
     "build:assets": "cd source && yarn run build",
+    "build:bedrock": "cd bedrock && yarn build",
     "build:changelog": "auto-changelog --template json --output ./source/dist/changelog.json || true",
     "build:site": "cd site && yarn build",
     "clean": "rm -rf node_modules source/dist site/node_modules site/vendor site/public2 source/node_modules",
@@ -24,6 +25,7 @@
     "test": "run-s test:source test:site",
     "test:site": "cd site && yarn test",
     "test:source": "cd source && yarn test",
+    "watch:bedrock": "cd bedrock && yarn start",
     "watch:site": "cd site && yarn start",
     "watch:assets": "cd source && yarn start"
   },
