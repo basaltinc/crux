@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TypeToFilterWrapper } from '@basalt/bedrock-atoms';
+import { FaChevronLeft } from 'react-icons/fa';
 import LinkList from './link-list';
 
 const SidebarStyled = styled.aside`
-  width: 10%;
+  display: flex;
   flex-grow: 0;
   flex-shrink: 0;
-  min-width: 300px;
-  max-width: 350px;
-  padding: 2rem;
+  max-width: 325px;
+  position: relative;
   border-right: solid 1px lightgrey;
   background-color: #f2f3f3;
   h4 {
@@ -21,30 +21,60 @@ const SidebarStyled = styled.aside`
     padding-left: 0;
     margin: 0;
   }
+  transition: 0.5s;
+  ${props =>
+    props.sidebarCollapsed
+      ? `
+    max-width: 50px;
+    padding-left: 2rem;
+    `
+      : ``};
 `;
 
-const SidebarOneStyled = SidebarStyled.extend`
-  order: -1;
+const SidebarColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  transition: width 0.5s;
   ${props =>
-    props.sidebarOneOnTop
+    props.sidebarCollapsed
       ? `
-    width: 100%;
-    max-width: 100%;
-    border-right: 0;
-    border-bottom: solid 1px black;
-    ul {
-      display: flex;
-      align-items: center;
-      li {
-        margin: 5px 5px 5px 0;
-      }
-      * {
-        margin: 0;
-      }
-    }
-  `
-      : ''};
+    width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    `
+      : ``};
 `;
+
+const SidebarColumn2 = SidebarColumn.extend`
+  position: absolute;
+  padding: 0;
+  right: -20px;
+  //top: 50vh;
+  height: 100%;
+  &:hover {
+  border-left: solid 3px #e1c933;
+  }
+`;
+
+const ToggleChevron = styled(FaChevronLeft)`
+  &:hover {
+    color: #e1c933;
+    cursor: pointer;
+  }
+  transition: 0.5s;
+  margin-top: 50vh;
+  ${props =>
+    props.sidebarCollapsed
+      ? `
+    transform: rotate(180deg);
+    `
+      : ``};
+`;
+
+// ToggleChevron.propTypes = {
+//   sidebarCollapsed: PropTypes.bool.isRequired,
+// };
 
 const resourcesLinks = [
   {
@@ -138,8 +168,9 @@ const aboutLinks = [
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+    this.handleToggleClick = this.handleToggleClick.bind(this);
     this.state = {
-      sidebarOneOnTop: false,
+      sidebarCollapsed: props.isInitiallyCollapsed,
       filterTerm: '',
       items: [],
     };
@@ -161,7 +192,14 @@ class Sidebar extends Component {
     };
   }
 
+  handleToggleClick() {
+    this.setState(prevState => ({
+      sidebarCollapsed: !prevState.sidebarCollapsed,
+    }));
+  }
+
   render() {
+    const isCollapsed = this.state.sidebarCollapsed;
     const items =
       this.state.filterTerm === ''
         ? this.state.items
@@ -175,8 +213,8 @@ class Sidebar extends Component {
           });
 
     return (
-      <SidebarOneStyled sidebarOneOnTop={this.state.sidebarOneOnTop}>
-        <div>
+      <SidebarStyled sidebarCollapsed={isCollapsed}>
+        <SidebarColumn sidebarCollapsed={isCollapsed}>
           <TypeToFilterWrapper>
             <input
               type="text"
@@ -189,28 +227,22 @@ class Sidebar extends Component {
             />
           </TypeToFilterWrapper>
           <LinkList items={items} basePath="/patterns/components/" />
-        </div>
-        <button
-          className="button button--color-blue--light button--size-small"
-          type="button"
-          onClick={() =>
-            this.setState(prevState => ({
-              sidebarOneOnTop: !prevState.sidebarOneOnTop,
-            }))
-          }
-        >
-          Toggle
-        </button>
-      </SidebarOneStyled>
+        </SidebarColumn>
+        <SidebarColumn2 onClick={this.handleToggleClick}>
+          <ToggleChevron sidebarCollapsed={isCollapsed} />
+        </SidebarColumn2>
+      </SidebarStyled>
     );
   }
 }
 
 Sidebar.defaultProps = {
   patterns: [],
+  isInitiallyCollapsed: false,
 };
 
 Sidebar.propTypes = {
+  isInitiallyCollapsed: PropTypes.bool,
   // eslint-disable-next-line react/no-unused-prop-types
   patterns: PropTypes.arrayOf(
     // @todo pull in definition from `pattern-meta.schema.json`
