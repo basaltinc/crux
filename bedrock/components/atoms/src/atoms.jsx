@@ -149,3 +149,21 @@ export const TypeToFilterWrapper = styled.div`
     font-size: 0.875rem;
   }
 `;
+
+export const TextInput = styled.input`
+  box-sizing: border-box;
+  padding: 3px;
+  border: 1px solid lightgrey;
+  height: 33px;
+  background-color: white;
+  font-size: 15px;
+`;
+
+export const TextAreaInput = styled.textarea`
+  box-sizing: border-box;
+  padding: 3px;
+  border: 1px solid lightgrey;
+  height: 33px;
+  background-color: white;
+  font-size: 15px;
+`;
