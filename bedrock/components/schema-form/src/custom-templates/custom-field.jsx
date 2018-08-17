@@ -6,10 +6,11 @@ import info from '../assets/info-circle.svg';
 import './custom-field.styles.css';
 
 const CustomFieldWrapper = styled.div`
+  padding: 0.25rem 0;
   > label {
     display: block;
     color: grey;
-    font-size: 0.75rem;
+    font-size: 13.5px;
     font-weight: bold;
   }
 `;
