@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { SelectWrapper, TextInputWrapper } from '@basalt/bedrock-atoms';
 import info from '../assets/info-circle.svg';
 import './custom-field.styles.css';
 
 const CustomFieldWrapper = styled.div`
   > label {
+    display: block;
     color: grey;
     font-size: 0.75rem;
     font-weight: bold;
@@ -25,13 +27,26 @@ export default function CustomField(props) {
     children,
   } = props;
   const fieldDescription = description.props.description;
+  const inputSchema = children.props.schema;
+  console.log(inputSchema);
+  let inputContent = (<div/>);
+
+  if (inputSchema.type === 'string' && inputSchema.enum) {
+    inputContent = (<SelectWrapper>{children}</SelectWrapper>);
+  } else if (inputSchema.type === 'string') {
+    inputContent = (<TextInputWrapper>{children}</TextInputWrapper>);
+  } else {
+    inputContent = children;
+  }
   /* eslint-disable no-alert, jsx-a11y/label-has-for */
   return (
     <CustomFieldWrapper className={classNames}>
-      <label htmlFor={id} className="field-label">{label}{required ? "*" : null}</label>
-      {/*{description}*/}
-      {children}
-      {errors}
+      <label htmlFor={id} className="field-label">
+        {label}
+        {required ? '*' : null}
+      </label>
+      {inputContent}
+      {errors && errors}
       {help}
     </CustomFieldWrapper>
   );

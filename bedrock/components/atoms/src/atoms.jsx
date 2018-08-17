@@ -98,13 +98,16 @@ export class Select extends React.Component {
           <div className="label-text">{this.props.label}</div>
         )}
         <span>
-          <select onChange={this.handleSelection} value={this.state.currentValue}>
-          {this.props.items.map(item => (
-            <option value={item.value} key={item.value}>
-              {item.title ? item.title : item.value}
-            </option>
-          ))}
-        </select>
+          <select
+            onChange={this.handleSelection}
+            value={this.state.currentValue}
+          >
+            {this.props.items.map(item => (
+              <option value={item.value} key={item.value}>
+                {item.title ? item.title : item.value}
+              </option>
+            ))}
+          </select>
         </span>
       </SelectStyledWrapper>
     );
@@ -138,31 +141,36 @@ export const TwoUp = styled.div`
   }
 `;
 
-export const TypeToFilterWrapper = styled.div`
+export const SelectWrapper = styled.div`
   display: inline-block;
   height: 33px;
   overflow: hidden;
-  background-color: #cfe3de;
-  input {
+  background-color: lightgrey;
+  font-size: 1rem;
+  border: 0;
+  > select {
+    background-color: lightgrey;
+    font-size: 1rem;
+    border: 0;
     height: 33px;
-    background-color: none;
-    font-size: 0.875rem;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    &:active,
+    &:focus {
+      outline: none;
+    }
   }
 `;
 
-export const TextInput = styled.input`
-  box-sizing: border-box;
-  padding: 3px 8px;
-  border: 1px solid lightgrey;
-  height: 33px;
-  background-color: white;
-  font-size: 15px;
-`;
-
-export const TextAreaInput = styled.textarea`
-  box-sizing: border-box;
-  padding: 3px 8px;
-  border: 1px solid lightgrey;
-  background-color: white;
-  font-size: 15px;
+export const TextInputWrapper = styled.div`
+  > input,
+  > textarea {
+    box-sizing: border-box;
+    padding: 3px 8px;
+    border: 1px solid lightgrey;
+    background-color: white;
+    font-size: 15px;
+  }
+  > input {
+    height: 33px;
+  }
 `;
