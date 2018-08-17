@@ -169,8 +169,33 @@ export const TextInputWrapper = styled.div`
     border: 1px solid lightgrey;
     background-color: white;
     font-size: 15px;
+    width: 100%;
   }
   > input {
     height: 33px;
+  }
+`;
+
+export const RadioInputWrapper = styled.div`
+  height: 33px;
+  .radio {
+    margin-right: 13.5px;
+  }
+  input {
+    margin-right: 8px;
+  }
+`;
+
+export const CheckboxInputWrapper = styled.div`
+  p {
+    display: none;
+  }
+  label {
+    height: 33px;
+    display: flex;
+    align-items: center;
+  }
+  input {
+  margin-right: 8px;
   }
 `;

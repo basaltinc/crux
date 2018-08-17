@@ -140,6 +140,9 @@ const SchemaFormWrapperInner = styled.div`
   fieldset > legend + p {
     display: none;
   }
+  form > div > label {
+    display: none;
+  }
 `;
 
 const CodeBlockWrapper = styled.div`
