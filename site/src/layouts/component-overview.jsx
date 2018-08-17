@@ -68,7 +68,7 @@ export default class ComponentOverview extends Component {
       const { title, description, type, templates } = this.state.meta;
       const { name, schema } = this.state.currentTemplate;
       const [data, ...examples] = schema.examples ? schema.examples : [{}];
-      const dosAndDonts = schema.dosAndDonts ? schema.dosAndDonts : [{}];
+      const dosAndDonts = schema.dosAndDonts ? schema.dosAndDonts : [];
       content = (
         <article>
           <OverviewHeader>
@@ -128,15 +128,14 @@ export default class ComponentOverview extends Component {
 
           <LoadableVariationDemo schema={schema} template={name} data={data} />
 
-          {dosAndDonts &&
-            dosAndDonts.map(item => (
-              <LoadableDosAndDonts
-                key={item.title}
-                title={item.title}
-                description={item.description}
-                items={item.items}
-              />
-            ))}
+          {dosAndDonts.map(item => (
+            <LoadableDosAndDonts
+              key={item.title}
+              title={item.title}
+              description={item.description}
+              items={item.items}
+            />
+          ))}
 
           <ApiDemo endpoint={this.state.apiEndpoint} />
         </article>
@@ -149,17 +148,10 @@ export default class ComponentOverview extends Component {
 ComponentOverview.defaultProps = {
   demoSizes: [],
   size: Overview.defaultProps.size,
-  dosAndDonts: [],
 };
 
 ComponentOverview.propTypes = {
   id: PropTypes.string.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
   size: Overview.propTypes.size,
-  dosAndDonts: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      items: PropTypes.array,
-    }),
-  ),
 };
