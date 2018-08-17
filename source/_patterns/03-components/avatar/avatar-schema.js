@@ -28,4 +28,22 @@ module.exports = {
       img: image(),
     },
   ],
+  dosAndDonts: [
+    {
+      title: '',
+      items: [
+        {
+          image: '/assets/images/dos-and-donts/avatars/avatars-dont.png',
+          caption: 'add a border to avatars.',
+          do: false,
+        },
+        {
+          title: 'Do Example',
+          image: '/assets/images/dos-and-donts/avatars/avatars-do.png',
+          caption: 'use avatars as styled.',
+          do: true,
+        },
+      ],
+    },
+  ],
 };

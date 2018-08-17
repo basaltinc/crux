@@ -5,9 +5,6 @@ import styled from 'styled-components';
 const DosAndDontsPanelStyled = styled.figure`
   display: flex;
   flex-direction: column;
-  /*  &:first-child {
-    text-align: right;
-  }*/
   > div {
     margin-bottom: 1rem;
     flex: 1 0 auto;
