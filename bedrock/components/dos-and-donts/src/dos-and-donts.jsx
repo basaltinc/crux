@@ -6,6 +6,8 @@ import DosAndDontsPanel from './dos-and-donts-panel';
 const DoesAndDontsWrapper = styled.div`
   background-color: #f6f6f6;
   padding: 1rem 0;
+  max-width: 1500px;
+  margin: 1rem auto;
   @media (min-width: 450px) {
     display: flex;
     justify-content: space-between;

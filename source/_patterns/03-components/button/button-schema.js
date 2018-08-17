@@ -64,5 +64,23 @@ module.exports = {
       color: 'blue--light',
     },
   ],
+  dosAndDonts: [
+    {
+      items: [
+        {
+          title: "Don't Example",
+          image: '/assets/images/dos-and-donts/buttons/buttons-dont.png',
+          caption: 'use mismatched button sizes next to each other.',
+          do: false,
+        },
+        {
+          title: 'Do Example',
+          image: '/assets/images/dos-and-donts/buttons/buttons-do.png',
+          caption: 'use buttons of the same size.',
+          do: true,
+        },
+      ],
+    },
+  ],
   required: ['text', 'url'],
 };

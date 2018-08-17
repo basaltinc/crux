@@ -68,6 +68,7 @@ export default class ComponentOverview extends Component {
       const { title, description, type, templates } = this.state.meta;
       const { name, schema } = this.state.currentTemplate;
       const [data, ...examples] = schema.examples ? schema.examples : [{}];
+      const dosAndDonts = schema.dosAndDonts ? schema.dosAndDonts : [{}];
       content = (
         <article>
           <OverviewHeader>
@@ -127,14 +128,15 @@ export default class ComponentOverview extends Component {
 
           <LoadableVariationDemo schema={schema} template={name} data={data} />
 
-          {this.props.dosAndDonts.map(item => (
-            // @todo title is not a required prop, so we need to fix this key structure
-            <LoadableDosAndDonts
-              key={item.title}
-              title={item.title}
-              items={item.items}
-            />
-          ))}
+          {dosAndDonts &&
+            dosAndDonts.map(item => (
+              <LoadableDosAndDonts
+                key={item.title}
+                title={item.title}
+                description={item.description}
+                items={item.items}
+              />
+            ))}
 
           <ApiDemo endpoint={this.state.apiEndpoint} />
         </article>

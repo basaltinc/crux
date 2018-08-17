@@ -5,12 +5,19 @@ import styled from 'styled-components';
 const DosAndDontsPanelStyled = styled.figure`
   display: flex;
   flex-direction: column;
-  > img {
-    border-bottom: solid 8px;
-    border-bottom-color: ${props => (props.do ? 'green' : 'red')};
+  /*  &:first-child {
+    text-align: right;
+  }*/
+  > div {
     margin-bottom: 1rem;
     flex: 1 0 auto;
-    width: 100%;
+    background-color: white;
+    text-align: center;
+    border-bottom: solid 8px;
+    border-bottom-color: ${props => (props.do ? 'green' : 'red')};
+
+    > img {
+    }
   }
   b {
     color: ${props => (props.do ? 'green' : 'red')};
@@ -20,7 +27,9 @@ const DosAndDontsPanelStyled = styled.figure`
 export default function DosAndDontsPanel(props) {
   return (
     <DosAndDontsPanelStyled do={props.item.do}>
-      <img alt="" src={props.item.image} />
+      <div>
+        <img alt="" src={props.item.image} />
+      </div>
       <figcaption>
         <b>{props.item.do ? 'Do: ' : "Don't: "}</b>
         {props.item.caption}
