@@ -5,13 +5,13 @@ import SchemaForm from '@basalt/bedrock-schema-form';
 const dummyData = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
-  title: 'Media Block',
-  description: 'Image, Title, Body, and Buttons make this really flexible.',
+  title: 'Sample Schema',
+  description: 'This schema samples the various data structures definable through Json Schema.',
   properties: {
-    title: {
-      title: 'Title',
+    string: {
+      title: 'String',
       type: 'string',
-      description: 'Main heading of media block.',
+      description: 'A simple string.',
     },
     inset_title: {
       title: 'Inset Title',

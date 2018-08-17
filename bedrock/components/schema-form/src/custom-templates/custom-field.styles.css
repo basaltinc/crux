@@ -1,12 +1,12 @@
-.rjsf .field-array__item-field {
-  width: 100%;
-}
+/*.rjsf .field-array__item-field {*/
+  /*width: 100%;*/
+/*}*/
 
-.rjsf .field-array__item-field > .form-group {
-  padding: 0 0 0 0.75rem;
-}
+/*.rjsf .field-array__item-field > .form-group {*/
+  /*padding: 0 0 0 0.75rem;*/
+/*}*/
 
-.rjsf .field-array__item-field legend,
-.rjsf .field-array__item-field legend + p {
-  display: none;
-}
+/*.rjsf .field-array__item-field legend,*/
+/*.rjsf .field-array__item-field legend + p {*/
+  /*display: none;*/
+/*}*/

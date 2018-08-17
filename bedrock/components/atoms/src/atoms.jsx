@@ -152,7 +152,7 @@ export const TypeToFilterWrapper = styled.div`
 
 export const TextInput = styled.input`
   box-sizing: border-box;
-  padding: 3px;
+  padding: 3px 8px;
   border: 1px solid lightgrey;
   height: 33px;
   background-color: white;
@@ -161,9 +161,8 @@ export const TextInput = styled.input`
 
 export const TextAreaInput = styled.textarea`
   box-sizing: border-box;
-  padding: 3px;
+  padding: 3px 8px;
   border: 1px solid lightgrey;
-  height: 33px;
   background-color: white;
   font-size: 15px;
 `;
