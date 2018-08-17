@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { TextInputWrapper, Select } from '@basalt/bedrock-atoms';
+import { TextInputWrapper, Select, SelectWrapper } from '@basalt/bedrock-atoms';
 import { action } from '@storybook/addon-actions';
 
 storiesOf('Form Elements', module)
@@ -33,4 +33,4 @@ storiesOf('Form Elements', module)
       <textarea placeholder="Type here..." />
     </TextInputWrapper>
   ));
-  // .add('Text Area Input', () => <TextAreaInput placeholder="Type here..." />);
+// .add('Text Area Input', () => <TextAreaInput placeholder="Type here..." />);
