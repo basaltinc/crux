@@ -149,17 +149,10 @@ export default class ComponentOverview extends Component {
 ComponentOverview.defaultProps = {
   demoSizes: [],
   size: Overview.defaultProps.size,
-  dosAndDonts: [],
 };
 
 ComponentOverview.propTypes = {
   id: PropTypes.string.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
   size: Overview.propTypes.size,
-  dosAndDonts: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      items: PropTypes.array,
-    }),
-  ),
 };
