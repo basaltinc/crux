@@ -16,7 +16,6 @@
     "lint:staged": "lint-staged",
     "start": "FORCE_COLOR=1 run-p --print-label watch:* serve:webpack",
     "test": "yarn run lint && jest",
-    "watch:twig": "nodemon --watch ../source/_patterns/ --ext twig,json,js --exec 'echo \"restarting twig render server to clear twig cache...\" && touch server.js' ",
     "Xwatch:webpack": "wp --watch --run-dev",
     "watch:jsdoc": "nodemon --watch data/ --exec 'yarn run build:jsdoc'",
     "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'run-p build:apidoc serve' ",
@@ -55,6 +54,7 @@
     "babel-plugin-styled-components": "^1.5.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.14",
     "body-parser": "1.18.3",
+    "chokidar": "^2.0.4",
     "classnames": "2.2.6",
     "color": "3.0.0",
     "css-loader": "1.0.0",
@@ -95,7 +95,8 @@
     "webpack-cli": "3.1.0",
     "webpack-command": "0.4.1",
     "webpack-dev-server": "3.1.5",
-    "webpack-stylish": "0.1.8"
+    "webpack-stylish": "0.1.8",
+    "ws": "^6.0.0"
   },
   "devDependencies": {
     "nodemon": "1.18.3"

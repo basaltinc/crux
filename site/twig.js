@@ -40,11 +40,7 @@ const twigRenderer = new TwigRenderer({
       functions: ['setupTwig'],
     },
   ],
-  keepAlive: true,
+  keepAlive: false,
 });
-
-twigRenderer.init().then(() => console.log('twigRenderer.init done'));
-// eslint-disable-next-line
-console.log('Twig Renderer config made and ready to use.');
 
 module.exports = twigRenderer;

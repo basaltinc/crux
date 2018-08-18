@@ -1,7 +1,11 @@
 import express from 'express';
+import WebSocket from 'ws';
 import bodyParser from 'body-parser';
 import { join } from 'path';
 import api from './api';
+import events, { eventNames } from './server/events';
+import { websocketsPort } from './config';
+import { hasWebsockets } from './config--server';
 
 const port = process.env.PORT || 3042;
 const app = express();
@@ -26,6 +30,26 @@ app.use('/api', api);
 app.get('*', (req, res) => {
   res.sendFile(join(__dirname, 'public/index.html'));
 });
+
+if (hasWebsockets) {
+  const wss = new WebSocket.Server({
+    port: websocketsPort,
+  });
+
+  wss.on('connection', ws => {
+    // console.log('websocket server connection received');
+    // ws.on('message', message => {
+    //   console.log('received: %s', message);
+    // });
+
+    events.on(eventNames.PATTERN_CHANGED, ({ path }) => {
+      // console.log(path, `ws.readyState: ${ws.readyState}`);
+      if (ws.readyState === 1) {
+        ws.send(path);
+      }
+    });
+  });
+}
 
 app.listen(port, () =>
   console.log(`Express listening on http://localhost:${port}`),

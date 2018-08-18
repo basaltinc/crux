@@ -1,23 +1,31 @@
 import fs from 'fs-extra';
-import { join } from 'path';
+import { join, parse } from 'path';
 import globby from 'globby';
 import Ajv from 'ajv';
+import chokidar from 'chokidar';
+import events, { eventNames } from '../server/events';
 import patternMetaSchema from './pattern-meta.schema.json';
 
 const ajv = new Ajv();
 const validatePatternMetaSchema = ajv.compile(patternMetaSchema);
-
 const patternsDir = join(__dirname, '../../source/_patterns/');
+const patternsDirs = globby.sync([join(patternsDir, '*/*')], {
+  expandDirectories: true,
+  onlyFiles: false,
+});
+let allPatterns = [];
 
-const patterns = [];
+function createPatternsData() {
+  const patterns = [];
 
-globby
-  .sync([join(patternsDir, '*/*')], {
-    expandDirectories: true,
-    onlyFiles: false,
-  })
-  .forEach(dir => {
+  patternsDirs.forEach(dir => {
     if (fs.statSync(dir).isDirectory()) {
+      // Clearing the `require()` cache so we can run this function many times
+      // See https://nodejs.org/api/modules.html#modules_require_cache
+      // @todo Only clear the `require()` cache for the files that have changed
+      Object.keys(require.cache)
+        .filter(cachedPath => cachedPath.startsWith(dir))
+        .forEach(cachedPath => delete require.cache[cachedPath]);
       try {
         // eslint-disable-next-line
         const pattern = require(dir);
@@ -44,7 +52,32 @@ globby
     }
   });
 
-// console.log({ patterns });
+  return patterns;
+}
+
+export function updatePatternsData() {
+  allPatterns = createPatternsData();
+}
+
+updatePatternsData();
+
+const watcher = chokidar.watch(patternsDirs.map(d => join(d, '**')), {
+  ignoreInitial: true,
+  cwd: __dirname,
+  ignore: ['**/node_modules/**'],
+});
+
+watcher.on('all', (event, path) => {
+  // console.log(event, path);
+  const { ext } = parse(path);
+  switch (ext) {
+    case '.scss':
+      break;
+    default:
+      updatePatternsData();
+      events.emit(eventNames.PATTERN_CHANGED, { path, event });
+  }
+});
 
 /**
  * Get Pattern Meta
@@ -52,7 +85,7 @@ globby
  * @returns {Object} - Meta info about it
  */
 export function getPatternMeta(id) {
-  return patterns.find(p => p.id === id);
+  return allPatterns.find(p => p.id === id);
 }
 
 /**
@@ -61,5 +94,5 @@ export function getPatternMeta(id) {
  * @returns {Object[]} - Collection of pattern meta
  */
 export function getPatterns(type) {
-  return type ? patterns.filter(p => p.type === type) : patterns;
+  return type ? allPatterns.filter(p => p.type === type) : allPatterns;
 }

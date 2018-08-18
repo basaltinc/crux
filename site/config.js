@@ -1,7 +1,5 @@
-export const apiUrlBase = process.env.apiUrlBase
-  ? process.env.apiUrlBase
-  : '/api';
-
-export const assetUrlBase = process.env.assetUrlBase
-  ? process.env.assetUrlBase
-  : '/assets/';
+// only server, not client, has access to Environmental Variables via `process.env`
+// see `config--server.js`
+export const websocketsPort = 5042;
+export const apiUrlBase = '/api';
+export const assetUrlBase = '/assets/';
