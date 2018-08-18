@@ -12,6 +12,8 @@ pipelines:
         - node
         - yarn
         - site-vendor
+        - source-node
+        - bedrock-node
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
@@ -23,6 +25,7 @@ pipelines:
     - step:
         name: Deploy to test
         deployment: test   # can be test, staging or production
+        trigger: manual
         script:
         - yarn run deploy:test
 
@@ -35,6 +38,8 @@ pipelines:
               - node
               - yarn
               - site-vendor
+              - source-node
+              - bedrock-node
             script:
               - yarn --version && npm --version && node --version && composer --version && php --version
               - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
@@ -81,4 +86,5 @@ definitions:
     yarn: $HOME/.yarn-cache
     site-node: site/node_modules
     source-node: source/node_modules
+    bedrock-node: bedrock/node_modules
     site-vendor: site/vendor
