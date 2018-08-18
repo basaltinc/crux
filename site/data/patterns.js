@@ -73,9 +73,12 @@ watcher.on('all', (event, path) => {
   switch (ext) {
     case '.scss':
       break;
+    case '.twig':
+      events.emit(eventNames.PATTERN_CHANGED, { ext, path, event });
+      break;
     default:
       updatePatternsData();
-      events.emit(eventNames.PATTERN_CHANGED, { path, event });
+      events.emit(eventNames.PATTERN_CHANGED, { ext, path, event });
   }
 });
 

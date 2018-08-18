@@ -28,6 +28,8 @@ export default class Twig extends React.Component {
 
   componentDidMount() {
     this.getHtml(this.props.data);
+    this.controller = new window.AbortController();
+    this.signal = this.controller.signal;
     const { hostname } = window.location;
     if (hostname === 'localhost') {
       this.socket = new window.WebSocket(`ws://localhost:${websocketsPort}`);
@@ -36,10 +38,12 @@ export default class Twig extends React.Component {
       //   this.socket.send('Hello Server!', event);
       // });
 
-      // eslint-disable-next-line no-unused-vars
       this.socket.addEventListener('message', event => {
-        // console.log('Message from server ', event.data);
-        this.getHtml(this.props.data);
+        // console.log('Message from server ', event);
+        const { ext } = JSON.parse(event.data);
+        if (ext === '.twig') {
+          this.getHtml(this.props.data);
+        }
       });
     }
   }
@@ -53,6 +57,7 @@ export default class Twig extends React.Component {
   }
 
   componentWillUnmount() {
+    this.controller.abort();
     if (this.socket) {
       this.socket.close(1000, 'componentWillUnmount called');
     }
@@ -84,6 +89,7 @@ export default class Twig extends React.Component {
         headers: {
           'Content-Type': 'application/json',
         },
+        signal: this.signal,
       })
       .then(res => res.json())
       .then(results => {
@@ -99,6 +105,12 @@ export default class Twig extends React.Component {
             html: results.message,
           });
         }
+      })
+      .catch(error => {
+        console.error(
+          `Error running getHtml for Twig.jsx ${this.props.template}`,
+          error,
+        );
       });
   }
 

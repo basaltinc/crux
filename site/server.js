@@ -42,10 +42,10 @@ if (hasWebsockets) {
     //   console.log('received: %s', message);
     // });
 
-    events.on(eventNames.PATTERN_CHANGED, ({ path }) => {
+    events.on(eventNames.PATTERN_CHANGED, event => {
       // console.log(path, `ws.readyState: ${ws.readyState}`);
       if (ws.readyState === 1) {
-        ws.send(path);
+        ws.send(JSON.stringify(event));
       }
     });
   });
