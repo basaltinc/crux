@@ -39,18 +39,44 @@ const dummyData = {
         'Bottom Right',
       ],
     },
-    string_enum_two: {
-      title: 'String Enum Two',
-      type: 'string',
-      enum: ['left', 'right', 'top', 'bottom'],
-      enumNames: ['Left', 'Right', 'Top', 'Bottom'],
-    },
     radio: {
       title: 'String Enum as Radio',
       type: 'string',
       enum: ['left', 'right', 'top', 'bottom'],
       enumNames: ['Left', 'Right', 'Top', 'Bottom'],
       'ui:widget': 'radio',
+    },
+    tags: {
+      title: 'Tags',
+      description: 'This is an array of strings',
+      type: 'array',
+      items: {
+        title: 'Tag',
+        description: 'A single tag',
+        type: 'string',
+      },
+    },
+    names: {
+      title: 'Names',
+      description: 'This is an array of objects',
+      type: 'array',
+      items: {
+        title: 'Name',
+        description: 'An object with first and last strings',
+        type: 'object',
+        properties: {
+          first: {
+            title: 'First Name',
+            type: 'string',
+            description: 'Name, the first.',
+          },
+          last: {
+            title: 'Last Name',
+            type: 'string',
+            description: 'Name, the last.',
+          },
+        },
+      },
     },
   },
 };
