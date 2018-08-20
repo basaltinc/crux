@@ -130,7 +130,7 @@ export default class ComponentOverview extends Component {
 
           {dosAndDonts.map(item => (
             <LoadableDosAndDonts
-              key={item.title}
+              key={JSON.stringify(item)}
               title={item.title}
               description={item.description}
               items={item.items}
