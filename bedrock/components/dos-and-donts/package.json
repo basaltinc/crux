@@ -10,8 +10,7 @@
   },
   "devDependencies": {
     "prop-types": "^15.0.0",
-    "react": "^16.3.0",
-    "styled-components": "^3.4.2"
+    "react": "^16.3.0"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",

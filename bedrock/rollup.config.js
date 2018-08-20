@@ -92,7 +92,7 @@ const configs = [
   //   // ),
   // ].filter(x => x);
 
-  const externals = [...Object.keys(pkg.dependencies), ...external];
+  const externals = [...Object.keys(pkg.dependencies), ...external, 'styled-components'];
 
   // const externals = [
   //   ...external,
