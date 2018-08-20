@@ -12,6 +12,7 @@ const meta = {
       schema,
     },
   ],
+  demoSize: 'full',
 };
 
 module.exports = {
