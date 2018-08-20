@@ -24,7 +24,7 @@
     "postversion": "git push && git push --tags",
     "precommit": "yarn lint:staged:site && yarn lint:staged:bedrock",
     "prepush": "yarn test",
-    "start": "yarn build:assets && yarn build:bedrock && run-p --print-label watch:*",
+    "start": "yarn build:assets && yarn:build:changelog && yarn build:bedrock && run-p --print-label watch:*",
     "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",
     "test": "run-s test:source test:site",
     "test:bedrock": "cd bedrock && yarn test",
