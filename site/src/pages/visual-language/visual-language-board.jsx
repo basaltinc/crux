@@ -44,6 +44,14 @@ const perceptualPatternsList = [
       description: ``,
     },
   },
+  {
+    title: 'Icons',
+    id: 'icons',
+    path: '/visual-language/icons',
+    schema: {
+      description: ``,
+    },
+  },
 ];
 
 function VisualLanguagePage() {

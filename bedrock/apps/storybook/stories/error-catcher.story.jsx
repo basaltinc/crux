@@ -16,7 +16,14 @@ storiesOf('ErrorCatcher', module).add(
     <ErrorCatcher>
       <div>
         sub-components that could throw error
-        <div onClick={() => bad()}>click me to throw error</div>
+        <div
+          role="Button"
+          onClick={() => bad()}
+          onKeyPress={() => bad()}
+          tabIndex="0"
+        >
+          click me to throw error
+        </div>
       </div>
     </ErrorCatcher>
   )),
