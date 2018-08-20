@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "build-storybook --config-dir .storybook --output-dir dist",
     "start": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
