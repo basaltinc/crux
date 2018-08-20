@@ -72,7 +72,9 @@ export default class ComponentOverview extends Component {
       content = (
         <article>
           <OverviewHeader>
-            <h4 className="eyebrow" style={{ textTransform: 'capitalize' }}>{type}</h4>
+            <h4 className="eyebrow" style={{ textTransform: 'capitalize' }}>
+              {type}
+            </h4>
             <h2>{title}</h2>
             <p>{description}</p>
             {templates.length > 1 && (
