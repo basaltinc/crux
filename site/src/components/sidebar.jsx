@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { TypeToFilterWrapper } from '@basalt/bedrock-atoms';
+import { TextInputWrapper } from '@basalt/bedrock-atoms';
 import { FaChevronLeft } from 'react-icons/fa';
 import LinkList from './link-list';
 
@@ -135,6 +135,11 @@ const perceptualPatternsLinks = [
     id: 'TypographyPage',
     path: '/visual-language/typography',
   },
+  {
+    title: 'Icons',
+    id: 'IconsPage',
+    path: '/visual-language/icons',
+  },
 ];
 
 const aboutLinks = [
@@ -210,7 +215,7 @@ class Sidebar extends Component {
     return (
       <SidebarStyled sidebarCollapsed={isCollapsed}>
         <SidebarColumn sidebarCollapsed={isCollapsed}>
-          <TypeToFilterWrapper>
+          <TextInputWrapper>
             <input
               type="text"
               className="type-to-filter"
@@ -220,7 +225,7 @@ class Sidebar extends Component {
                 this.setState({ filterTerm: event.target.value })
               }
             />
-          </TypeToFilterWrapper>
+          </TextInputWrapper>
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
         <SidebarColumn2 onClick={this.handleToggleClick}>
