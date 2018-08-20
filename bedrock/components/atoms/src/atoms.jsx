@@ -196,6 +196,50 @@ export const CheckboxInputWrapper = styled.div`
     align-items: center;
   }
   input {
-  margin-right: 8px;
+    margin-right: 8px;
+  }
+`;
+
+export const FormIconButton = styled.div`
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-size: contain;
+  position: relative;
+  cursor: ${props => (props.active ? 'pointer' : 'auto')};
+  &::after {
+    background: ${props =>
+      props.backgroundImage ? props.backgroundImage : ''};
+    background-size: contain;
+    opacity: ${props => (props.active ? 1 : 0.25)};
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+`;
+
+export const FormIconTray = styled.div`
+  box-sizing: border-box;
+  border: solid 1px lightgrey;
+  display: inline-flex;
+  padding: 5px 8px;
+`;
+
+export const FormArrayItem = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
+  .field {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  & > * + * {
+    margin-left: 0.25rem;
   }
 `;
