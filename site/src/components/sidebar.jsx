@@ -140,6 +140,11 @@ const perceptualPatternsLinks = [
     id: 'TypographyPage',
     path: '/visual-language/typography',
   },
+  {
+    title: 'Icons',
+    id: 'IconsPage',
+    path: '/visual-language/icons',
+  },
 ];
 
 const aboutLinks = [
