@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import ApiDemo from '@basalt/bedrock-api-demo';
-import { TwoUp } from '@basalt/bedrock-atoms';
+import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import Spinner from '@basalt/bedrock-spinner';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 import { apiUrlBase } from '../../../config';
@@ -67,13 +67,13 @@ class AnimationsPage extends React.Component {
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Animation</h2>
-          <hr />
-          <blockquote>
+
+          <BlockQuoteWrapper>
             Animation offers a medium of story telling and visual entertainment
             which can bring pleasure and information to people of all ages
-            everywhere in the world. - Walt Disney
-          </blockquote>
-          <hr />
+            everywhere in the world.
+            <footer>Walt Disney</footer>
+          </BlockQuoteWrapper>
           <h4>Purpose</h4>
           <p>Animation is a fundamental component of any visual language.</p>
           <ul>
