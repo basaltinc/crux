@@ -26,7 +26,7 @@
     "prepush": "yarn test",
     "start": "yarn build:assets && yarn build:changelog && yarn build:bedrock && run-p --print-label watch:*",
     "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",
-    "test": "run-s test:source test:site",
+    "test": "run-s test:source test:site test:bedrock",
     "test:bedrock": "cd bedrock && yarn test",
     "test:site": "cd site && yarn test",
     "test:source": "cd source && yarn test",
