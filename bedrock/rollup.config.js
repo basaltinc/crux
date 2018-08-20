@@ -91,8 +91,13 @@ const configs = [
   //   //   x => !x.startsWith('@cambia'),
   //   // ),
   // ].filter(x => x);
+
   const dependencies = pkg.dependencies ? pkg.dependencies : {};
-  const externals = [...Object.keys(dependencies), ...external];
+  const externals = [
+    ...Object.keys(dependencies),
+    ...external,
+    'styled-components',
+  ];
 
   // const externals = [
   //   ...external,
