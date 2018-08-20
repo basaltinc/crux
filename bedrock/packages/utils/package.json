@@ -1,0 +1,18 @@
+{
+  "name": "@basalt/bedrock-utils",
+  "version": "0.1.0",
+  "description": "A Bedrock component that helps build Design Systems",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs.js",
+  "scripts": {
+  },
+  "dependencies": {
+    "color": "^3.0.0"
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+  },
+  "author": "Basalt (http://basalt.io)",
+  "license": "UNLICENSED"
+}

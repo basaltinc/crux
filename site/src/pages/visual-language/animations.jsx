@@ -1,14 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ApiDemo from '@basalt/bedrock-api-demo';
+import { TwoUp } from '@basalt/bedrock-atoms';
+import Spinner from '@basalt/bedrock-spinner';
+import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 import { apiUrlBase } from '../../../config';
-import ApiDemo from '../../bedrock/components/api-demo';
-import VisualLanguagePage from '../../templates/visual-language-page';
-import { TwoUp } from '../../bedrock/components/atoms';
-import Spinner from '../../bedrock/components/spinner';
-import DosAndDonts from '../../bedrock/components/dos-and-donts';
-import spinnerDo from '../../../../images/dos-and-donts/spinner/spinner-dont.png';
-import spinnerDont from '../../../../images/dos-and-donts/spinner/spinner-do.png';
 
 const DemoTransition = styled.div`
   background: #ddd;
@@ -49,7 +46,7 @@ class AnimationsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      transitions: [],
+      transitions: [], // eslint-disable-line react/no-unused-state
     };
   }
 
@@ -58,13 +55,15 @@ class AnimationsPage extends React.Component {
       .fetch(`${apiUrlBase}/transitions`)
       .then(res => res.json())
       .then(transitions => {
-        this.setState({ transitions });
+        this.setState({
+          transitions, // eslint-disable-line react/no-unused-state
+        });
       });
   }
 
   render() {
     return (
-      <VisualLanguagePage>
+      <div>
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Animation</h2>
@@ -167,24 +166,24 @@ class AnimationsPage extends React.Component {
         <ApiDemo
           title="Animations API"
           endpoint={`${apiUrlBase}/transitions`}
-          requestType={'get'}
+          requestType="get"
         />
         <DosAndDonts
           items={[
             {
-              image: spinnerDo,
+              image: '/assets/images/dos-and-donts/spinner/spinner-dont.png',
               caption: 'add text to the spinner.',
               do: false,
             },
             {
               title: 'Do Example',
-              image: spinnerDont,
+              image: '/assets/images/dos-and-donts/spinner/spinner-do.png',
               caption: "let the spinner convey it's meaning.",
               do: true,
             },
           ]}
         />
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

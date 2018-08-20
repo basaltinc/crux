@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import VisualLanguagePage from '../../templates/visual-language-page';
+import ApiDemo from '@basalt/bedrock-api-demo';
 import { apiUrlBase } from '../../../config';
-import ApiDemo from '../../bedrock/components/api-demo';
 
 const BreakpointListItem = styled.li`
   left: ${props => props.left};
@@ -53,7 +52,7 @@ const BreakpointsWrapper = styled.div`
 const BreakpointsItems = items =>
   items.map(item => (
     <BreakpointListItem key={item.name} left={item.value}>
-      <span className={'label'}>
+      <span className="label">
         {item.name}:<br />
         {item.value}
       </span>
@@ -61,7 +60,7 @@ const BreakpointsItems = items =>
   ));
 
 const BreakpointList = ({ items }) => (
-  <ul className={'breakpoints'}>{BreakpointsItems(items)}</ul>
+  <ul className="breakpoints">{BreakpointsItems(items)}</ul>
 );
 
 BreakpointList.propTypes = {
@@ -76,7 +75,7 @@ BreakpointList.propTypes = {
 const DeviceWidthsItems = items =>
   items.map(item => (
     <DeviceListItem key={item.name} width={item.width}>
-      <span className={'label'}>
+      <span className="label">
         {item.name}: {item.width}
       </span>
     </DeviceListItem>
@@ -121,7 +120,7 @@ class BreakpointsPage extends React.Component {
 
   render() {
     return (
-      <VisualLanguagePage className="docs">
+      <div className="docs">
         <h4 className="eyebrow">Visual Language</h4>
         <h2>Breakpoints</h2>
         <BreakpointsWrapper>
@@ -131,17 +130,17 @@ class BreakpointsPage extends React.Component {
         <br />
 
         <ApiDemo
-          title={'Breakpoints API'}
+          title="Breakpoints API"
           endpoint={`${apiUrlBase}/breakpoints`}
-          requestType={'get'}
+          requestType="get"
         />
         <br />
         <ApiDemo
-          title={'Device Widths API'}
+          title="Device Widths API"
           endpoint={`${apiUrlBase}/devicewidths`}
-          requestType={'get'}
+          requestType="get"
         />
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

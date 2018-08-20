@@ -1,0 +1,19 @@
+{% set classes = [
+  'cta'
+] | merge(classes|default([])) %}
+
+<div class="{{ classes|join(' ') }}">
+  {% if text %}
+    <p>{{ text }}</p>
+  {% else %}
+    <p>We build consistent, scalable, and maintainable solutions to power your digital&nbsp;strategy.</p>
+  {% endif %}
+  <div class="cta__button">
+    {% include '@components/_button.twig' with {
+      text: 'Get Started',
+      url: 'http://www.basalt.io/contact',
+      size: 'large',
+      color: 'iron',
+    } only %}
+  </div>
+</div>

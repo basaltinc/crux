@@ -1,0 +1,42 @@
+{
+  "items": [
+    {
+      "name": "$spacing--xs",
+      "value": ".5rem",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--s",
+      "value": ".75rem",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--m",
+      "value": "1rem",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--l",
+      "value": "1.5rem",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--xl",
+      "value": "2rem",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--xxl",
+      "value": "3.3rem",
+      "comment": ""
+    },
+    {
+      "name": "$spacing--xxxl",
+      "value": "5rem",
+      "comment": ""
+    }
+  ],
+  "meta": {
+    "description": "To add to these items, use Sass variables that start with <code>$spacing--</code> in <code>_patterns/00-styleguide/10-spacing/_spacing.scss</code>"
+  }
+}

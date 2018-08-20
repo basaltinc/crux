@@ -1,18 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import SchemaForm from '@basalt/bedrock-schema-form';
+import { Select } from '@basalt/bedrock-atoms';
 import Twig from './twig';
-import SchemaForm from '../bedrock/components/schema-form';
-import SchemaTable from '../bedrock/components/schema-table';
-import { SelectStyledWrapper } from '../bedrock/components/atoms';
 import CodeBlock from './code-block';
 
-const sizes = {
-  Small: 's',
-  Medium: 'm',
-  Large: 'l',
-  Full: 'full',
-};
+const sizes = [
+  {
+    value: 's',
+    title: 'Small',
+  },
+  {
+    value: 'm',
+    title: 'Medium',
+  },
+  {
+    value: 'l',
+    title: 'Large',
+  },
+  {
+    value: 'full',
+    title: 'Full',
+  },
+];
 
 const OverviewWrapper = styled.div`
   width: 100%;
@@ -30,11 +41,6 @@ const OverviewWrapper = styled.div`
       z-index: 10000;
       height: 100vh;
   `};
-`;
-
-const OverviewHeader = styled.header`
-  position: relative;
-  margin-bottom: 2rem;
 `;
 
 const DemoStage = styled.div`
@@ -88,7 +94,7 @@ const DemoGrid = styled.div`
   position: relative;
 `;
 
-const DemoGridConrols = styled.div`
+const DemoGridControls = styled.div`
   position: absolute;
   display: flex;
   justify-content: flex-end;
@@ -147,7 +153,7 @@ class Overview extends React.Component {
       data: props.data,
       html: '',
       size: props.size,
-      isTemplateString: false,
+      isStringTemplate: false,
       template: props.template,
       fullScreen: false,
       showForm: true,
@@ -155,9 +161,9 @@ class Overview extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ formData }) {
+  handleChange({ event }) {
     this.setState({
-      data: formData,
+      value: event.target.value,
     });
   }
 
@@ -172,20 +178,6 @@ class Overview extends React.Component {
     //     />
     //   </Resizable>
     // ));
-    const sizeSelect = (
-      <SelectStyledWrapper>
-        <select
-          onChange={event => this.setState({ size: event.target.value })}
-          value={this.state.size}
-        >
-          {Object.keys(sizes).map(key => (
-            <option value={sizes[key]} key={sizes[key]}>
-              {key}
-            </option>
-          ))}
-        </select>
-      </SelectStyledWrapper>
-    );
 
     const dataString = JSON.stringify(this.state.data, null, '  ');
     const twigCodeExample = `
@@ -193,24 +185,26 @@ class Overview extends React.Component {
     `;
     return (
       <OverviewWrapper {...this.props} {...this.state}>
-        <OverviewHeader>
-          <h4 className="eyebrow">Component</h4>
-          <h2>{this.props.schema.title}</h2>
-          <p>{this.props.schema.description}</p>
-        </OverviewHeader>
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
-          <DemoGridConrols>
-            <p>Adjust Demo Stage: </p>
-            {sizeSelect}
+          <DemoGridControls>
+            <Select
+              items={sizes}
+              value={this.state.size}
+              handleChange={size => this.setState({ size })}
+              label="Adjust Demo Stage"
+            />
             <button
+              type="button"
               className="button button--color-blue--light button--size-small"
               onClick={() =>
-                this.setState({ fullScreen: !this.state.fullScreen })
+                this.setState(prevState => ({
+                  fullScreen: !prevState.fullScreen,
+                }))
               }
             >
               Toggle Fullscreen
             </button>
-          </DemoGridConrols>
+          </DemoGridControls>
           <h4>Live Demo</h4>
         </div>
         <DemoGrid size={this.state.size}>
@@ -221,7 +215,7 @@ class Overview extends React.Component {
                 data={this.state.data}
                 handleNewHtml={html => this.setState({ html })}
                 showDataUsed={false}
-                asString={this.state.isTemplateString}
+                isStringTemplate={this.state.isStringTemplate}
               />
             </Resizable>
           </DemoStage>
@@ -248,8 +242,9 @@ class Overview extends React.Component {
           <h4>Live Code Snippets</h4>
           <p>
             The following code snippets will generate the component in the live
-            demo above. <br />You may also edit the code below and see how this
-            effects the component.
+            demo above. <br />
+            You may also edit the code below and see how this effects the
+            component.
           </p>
           <CodeBlock
             items={[
@@ -259,7 +254,7 @@ class Overview extends React.Component {
                 language: 'twig',
                 handleTyping: text => {
                   this.setState({
-                    isTemplateString: true,
+                    isStringTemplate: true,
                     template: text,
                     showForm: false,
                   });
@@ -278,28 +273,6 @@ class Overview extends React.Component {
             ]}
           />
         </CodeBlockWrapper>
-        <footer
-          style={{
-            display: this.state.fullScreen ? 'none' : 'block',
-          }}
-        >
-          {/* @todo Determine if there is still a use case for multiple size demo stages */}
-          {/* {demos && ( */}
-          {/* <details> */}
-          {/* <summary>Multiple Sizes Demoed</summary> */}
-          {/* {demos} */}
-          {/* </details> */}
-          {/* )} */}
-          <h4>Properties</h4>
-          <p>
-            The following properties make up the data that defines each instance
-            of this component.
-          </p>
-          <details open={this.props.isPropsTableOpen}>
-            <summary>Props Table</summary>
-            <SchemaTable schema={this.props.schema} />
-          </details>
-        </footer>
       </OverviewWrapper>
     );
   }
@@ -307,7 +280,6 @@ class Overview extends React.Component {
 
 Overview.defaultProps = {
   data: {},
-  isPropsTableOpen: true,
   demoSizes: [],
   size: 'l',
 };
@@ -317,8 +289,7 @@ Overview.propTypes = {
   data: PropTypes.object,
   schema: PropTypes.object.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
-  isPropsTableOpen: PropTypes.bool,
-  size: PropTypes.oneOf([{ ...sizes }]),
+  size: PropTypes.oneOf(sizes.map(size => size.value)),
 };
 
 export default Overview;

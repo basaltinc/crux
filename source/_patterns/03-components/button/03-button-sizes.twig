@@ -1,0 +1,8 @@
+{% set schema = get_data('@components/button-schema.js') %}
+
+{% for size in schema.properties.size.enum %}
+  <p>Size: {{ size }}</p>
+  {% include '01-button-default.twig' with {
+    size: size,
+  } %}
+{% endfor %}

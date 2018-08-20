@@ -1,0 +1,3 @@
+# Setting yarn.lock to a binary file (which is what things like images are set to) - so `git diff` doesn't show all the lines changed; just that it has changed
+yarn.lock binary
+

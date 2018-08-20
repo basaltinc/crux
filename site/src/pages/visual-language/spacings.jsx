@@ -1,9 +1,8 @@
 import React from 'react';
 
-import VisualLanguagePage from '../../templates/visual-language-page';
+import ApiDemo from '@basalt/bedrock-api-demo';
 import SpacingSwatches from '../../components/spacing';
 import { apiUrlBase } from '../../../config';
-import ApiDemo from '../../bedrock/components/api-demo';
 
 export default class SpacingPage extends React.Component {
   constructor(props) {
@@ -24,7 +23,7 @@ export default class SpacingPage extends React.Component {
 
   render() {
     return (
-      <VisualLanguagePage>
+      <div>
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Spacing</h2>
@@ -43,11 +42,11 @@ export default class SpacingPage extends React.Component {
         </div>
         <br />
         <ApiDemo
-          title={'Spacing API'}
+          title="Spacing API"
           endpoint={`${apiUrlBase}/spacings`}
-          requestType={'get'}
+          requestType="get"
         />
-      </VisualLanguagePage>
+      </div>
     );
   }
 }

@@ -1,19 +1,13 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-import Spinner from '../bedrock/components/spinner';
-
-import mediaBlockImage from '../../../images/component-thumbnails/media-block.svg';
-import mediaTileImage from '../../../images/component-thumbnails/media-tile.svg';
-import heroImage from '../../../images/component-thumbnails/hero.svg';
-
 // @todo refactor
 const images = {
-  hero: heroImage,
-  'media-tile': mediaTileImage,
-  'media-block': mediaBlockImage,
+  hero: '/assets/images/component-thumbnails/hero.svg',
+  'media-tile': '/assets/images/component-thumbnails/media-tile.svg',
+  'media-block': '/assets/images/component-thumbnails/media-block.svg',
 };
 
 const PatternGrid = styled.ul`
@@ -106,9 +100,6 @@ const PatternGridItemDescription = styled.div`
 `;
 
 export default function ComponentsBoard(props) {
-  if (!props.ready) {
-    return <Spinner />;
-  }
   return (
     <PatternGrid
       className="smart-grid"
@@ -122,11 +113,17 @@ export default function ComponentsBoard(props) {
             key={pattern.id}
             className="u-crux-pattern-grid__item--component"
           >
-            <Link to={pattern.path}>
+            <Link
+              to={
+                pattern.path
+                  ? pattern.path
+                  : `/patterns/components/${pattern.id}`
+              }
+            >
               {image && <PatternGridItemThumb src={image} alt="" />}
               <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
               <PatternGridItemDescription>
-                {pattern.schema.description}
+                {pattern.description}
               </PatternGridItemDescription>
             </Link>
           </PatternGridItem>
@@ -137,11 +134,11 @@ export default function ComponentsBoard(props) {
 }
 
 ComponentsBoard.propTypes = {
-  ready: PropTypes.bool.isRequired,
   patterns: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
       title: PropTypes.string,
+      description: PropTypes.string,
       path: PropTypes.string,
     }),
   ).isRequired,
