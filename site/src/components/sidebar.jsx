@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { TypeToFilterWrapper } from '@basalt/bedrock-atoms';
+import { TextInputWrapper } from '@basalt/bedrock-atoms';
 import { FaChevronLeft } from 'react-icons/fa';
 import LinkList from './link-list';
 
@@ -11,8 +11,8 @@ const SidebarStyled = styled.aside`
   flex-shrink: 0;
   max-width: 325px;
   position: relative;
-  border-right: solid 1px lightgrey;
   background-color: #f2f3f3;
+  transition: 0.6s;
   h4 {
     margin: 1.25rem 0 0.25rem;
   }
@@ -21,12 +21,10 @@ const SidebarStyled = styled.aside`
     padding-left: 0;
     margin: 0;
   }
-  transition: 0.5s;
   ${props =>
     props.sidebarCollapsed
       ? `
     max-width: 50px;
-    padding-left: 2rem;
     `
       : ``};
 `;
@@ -35,34 +33,35 @@ const SidebarColumn = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  transition: width 0.5s;
-  ${props =>
-    props.sidebarCollapsed
-      ? `
-    width: 0px;
-    overflow: hidden;
-    padding: 0px;
+  //transition: 0.6s;
+  * {
+    left: 0;
+    transition: left 0.6s;
+    ${props =>
+      props.sidebarCollapsed
+        ? `
+    left: -500px;
     `
-      : ``};
+        : ``};
+  }
 `;
 
 const SidebarColumn2 = SidebarColumn.extend`
   position: absolute;
   padding: 0;
   right: -20px;
-  //top: 50vh;
   height: 100%;
+  border-left: 1px solid lightgray;
   &:hover {
+    transition: 0.6s;
     border-left: solid 3px #e1c933;
+    color: #e1c933;
+    cursor: pointer;
   }
 `;
 
 const ToggleChevron = styled(FaChevronLeft)`
-  &:hover {
-    color: #e1c933;
-    cursor: pointer;
-  }
-  transition: 0.5s;
+  //transition: 0.1s;
   margin-top: 50vh;
   ${props =>
     props.sidebarCollapsed
@@ -71,10 +70,6 @@ const ToggleChevron = styled(FaChevronLeft)`
     `
       : ``};
 `;
-
-// ToggleChevron.propTypes = {
-//   sidebarCollapsed: PropTypes.bool.isRequired,
-// };
 
 const resourcesLinks = [
   {
@@ -139,6 +134,11 @@ const perceptualPatternsLinks = [
     title: 'Typography',
     id: 'TypographyPage',
     path: '/visual-language/typography',
+  },
+  {
+    title: 'Icons',
+    id: 'IconsPage',
+    path: '/visual-language/icons',
   },
 ];
 
@@ -215,7 +215,7 @@ class Sidebar extends Component {
     return (
       <SidebarStyled sidebarCollapsed={isCollapsed}>
         <SidebarColumn sidebarCollapsed={isCollapsed}>
-          <TypeToFilterWrapper>
+          <TextInputWrapper>
             <input
               type="text"
               className="type-to-filter"
@@ -225,7 +225,7 @@ class Sidebar extends Component {
                 this.setState({ filterTerm: event.target.value })
               }
             />
-          </TypeToFilterWrapper>
+          </TextInputWrapper>
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
         <SidebarColumn2 onClick={this.handleToggleClick}>

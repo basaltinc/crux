@@ -1,8 +1,0 @@
-{% include '@components/_exec-bio.twig' with {
-  name: random(authors),
-  role: 'CEO',
-  bio: random(paragraphs),
-  bg_color: 'iron',
-  twitter: 'basaltinc',
-  avatar: '../../../../images/brand-stock/' ~ random(get_file_list('images/brand-stock/*.jpg')),
-} only %}

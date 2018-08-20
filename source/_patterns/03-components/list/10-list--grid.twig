@@ -1,9 +1,0 @@
-{% set listItems = [random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles), random(titles)]|join(', ' )%}
-
-{% include '@components/_list.twig' with {
-  list_items: listItems,
-  text_size: 'm',
-  bullets: '0',
-  ordered: true,
-  columns: "2"
-} %}

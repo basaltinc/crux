@@ -94,7 +94,7 @@ const DemoGrid = styled.div`
   position: relative;
 `;
 
-const DemoGridConrols = styled.div`
+const DemoGridControls = styled.div`
   position: absolute;
   display: flex;
   justify-content: flex-end;
@@ -140,6 +140,9 @@ const SchemaFormWrapperInner = styled.div`
   fieldset > legend + p {
     display: none;
   }
+  form > div > label {
+    display: none;
+  }
 `;
 
 const CodeBlockWrapper = styled.div`
@@ -168,17 +171,6 @@ class Overview extends React.Component {
   }
 
   render() {
-    // @todo determine if this is still wanted/needed, otherwise delete
-    // const demos = this.props.demoSizes.map(size => (
-    //   <Resizable key={size} size={size}>
-    //     <Twig
-    //       template={this.props.template}
-    //       data={this.state.data}
-    //       handleNewHtml={html => this.setState({ html })}
-    //     />
-    //   </Resizable>
-    // ));
-
     const dataString = JSON.stringify(this.state.data, null, '  ');
     const twigCodeExample = `
       {% include '${this.props.template}' with ${dataString} %}
@@ -186,9 +178,10 @@ class Overview extends React.Component {
     return (
       <OverviewWrapper {...this.props} {...this.state}>
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
-          <DemoGridConrols>
+          <DemoGridControls>
             <Select
               items={sizes}
+              value={this.state.size}
               handleChange={size => this.setState({ size })}
               label="Adjust Demo Stage"
             />
@@ -203,7 +196,7 @@ class Overview extends React.Component {
             >
               Toggle Fullscreen
             </button>
-          </DemoGridConrols>
+          </DemoGridControls>
           <h4>Live Demo</h4>
         </div>
         <DemoGrid size={this.state.size}>

@@ -47,7 +47,6 @@ const SchemaTable = props => {
             </details>
           );
         }
-        // console.log(cell);
         return (
           <span>
             <code>{cell.value}</code>

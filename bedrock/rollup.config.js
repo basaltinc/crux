@@ -13,9 +13,10 @@ import clear from 'rollup-plugin-clear';
 import string from 'rollup-plugin-string';
 import url from 'rollup-plugin-url';
 
-const debug = true;
+const debug = false;
 const showSizeDetails = false;
-const showFilesize = true;
+const showFilesize = false;
+const clearDist = false;
 
 const configs = [
   {
@@ -91,7 +92,11 @@ const configs = [
   //   // ),
   // ].filter(x => x);
 
-  const externals = [...Object.keys(pkg.dependencies), ...external];
+  const externals = [
+    ...Object.keys(pkg.dependencies),
+    ...external,
+    'styled-components',
+  ];
 
   // const externals = [
   //   ...external,
@@ -167,14 +172,19 @@ const configs = [
         extends: join(__dirname, './.babelrc'),
       }),
       showFilesize ? filesize() : null,
-      clear({
-        targets: [distDir !== resolve(dir) ? distDir : null].filter(x => x),
-      }),
+      clearDist
+        ? clear({
+            targets: [distDir !== resolve(dir) ? distDir : null].filter(x => x),
+          })
+        : null,
       showSizeDetails ? analyzer() : null,
     ].filter(x => x),
     external: externals,
     watch: {
       clearScreen: false,
+      chokidar: {
+        ignoreInitial: true,
+      },
     },
   };
 });

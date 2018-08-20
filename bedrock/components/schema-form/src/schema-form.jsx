@@ -2,9 +2,9 @@ import React from 'react';
 import PT from 'prop-types';
 import Form from 'react-jsonschema-form';
 import { getRandomInt } from '../../../packages/utils/src/index';
+import ObjectFieldTemplate from './custom-templates/custom-object';
 import CustomArrayField from './custom-templates/array-field';
 import CustomField from './custom-templates/custom-field';
-import './form.styles.css';
 
 /* eslint-disable no-console */
 export default class SchemaForm extends React.Component {
@@ -39,16 +39,17 @@ export default class SchemaForm extends React.Component {
   render() {
     return (
       <Form
-        {...this.props}
         formData={this.props.formData}
         schema={this.props.schema}
         uiSchema={this.props.uiSchema}
         onSubmit={this.onSubmit}
         onError={this.onError}
         onChange={this.onChange}
+        ObjectFieldTemplate={ObjectFieldTemplate}
         ArrayFieldTemplate={CustomArrayField}
         FieldTemplate={CustomField}
         className={this.props.isInline ? 'rjsf rjsf--inline' : 'rjsf'}
+        {...this.props}
       >
         <span />
         {/* @todo make it easier to disable SchemaForm submit button */}

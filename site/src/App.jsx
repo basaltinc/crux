@@ -73,6 +73,12 @@ const LoadableTypography = Loadable({
   loading: Spinner,
 });
 
+const LoadableIcons = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'icons' */ './pages/visual-language/icons'),
+  loading: Spinner,
+});
+
 const LoadablePatternsPage = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
@@ -111,7 +117,8 @@ const LoadableBrandDescriptors = Loadable({
 
 const LoadableSidebar = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
+    import(/* webpackChunkName: 'sidebar' */
+    './components/sidebar'),
   loading: Spinner,
 });
 
@@ -210,6 +217,10 @@ export default class App extends React.Component {
                   <Route
                     path="/visual-language/typography"
                     component={LoadableTypography}
+                  />
+                  <Route
+                    path="/visual-language/icons"
+                    component={LoadableIcons}
                   />
                   <Route
                     path="/patterns"
