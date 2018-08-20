@@ -11,8 +11,8 @@ const SidebarStyled = styled.aside`
   flex-shrink: 0;
   max-width: 325px;
   position: relative;
-  border-right: solid 1px lightgrey;
   background-color: #f2f3f3;
+  transition: 0.6s;
   h4 {
     margin: 1.25rem 0 0.25rem;
   }
@@ -21,12 +21,10 @@ const SidebarStyled = styled.aside`
     padding-left: 0;
     margin: 0;
   }
-  transition: 0.5s;
   ${props =>
     props.sidebarCollapsed
       ? `
     max-width: 50px;
-    padding-left: 2rem;
     `
       : ``};
 `;
@@ -35,34 +33,35 @@ const SidebarColumn = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  transition: width 0.5s;
-  ${props =>
-    props.sidebarCollapsed
-      ? `
-    width: 0px;
-    overflow: hidden;
-    padding: 0px;
+  //transition: 0.6s;
+  * {
+    left: 0;
+    transition: left 0.6s;
+    ${props =>
+      props.sidebarCollapsed
+        ? `
+    left: -500px;
     `
-      : ``};
+        : ``};
+  }
 `;
 
 const SidebarColumn2 = SidebarColumn.extend`
   position: absolute;
   padding: 0;
   right: -20px;
-  //top: 50vh;
   height: 100%;
+  border-left: 1px solid lightgray;
   &:hover {
+    transition: 0.6s;
     border-left: solid 3px #e1c933;
+    color: #e1c933;
+    cursor: pointer;
   }
 `;
 
 const ToggleChevron = styled(FaChevronLeft)`
-  &:hover {
-    color: #e1c933;
-    cursor: pointer;
-  }
-  transition: 0.5s;
+  //transition: 0.1s;
   margin-top: 50vh;
   ${props =>
     props.sidebarCollapsed
@@ -71,10 +70,6 @@ const ToggleChevron = styled(FaChevronLeft)`
     `
       : ``};
 `;
-
-// ToggleChevron.propTypes = {
-//   sidebarCollapsed: PropTypes.bool.isRequired,
-// };
 
 const resourcesLinks = [
   {
