@@ -4,11 +4,12 @@
   "version": "1.2.6",
   "private": true,
   "scripts": {
-    "build": "FORCE_COLOR=1 run-s --print-label build:bedrock build:assets build:changelog build:site",
+    "build": "FORCE_COLOR=1 run-s --print-label build:bedrock build:assets build:changelog build:site build:storybook",
     "build:assets": "cd source && yarn run build",
     "build:bedrock": "cd bedrock && yarn build",
     "build:changelog": "auto-changelog --template json --output ./source/dist/changelog.json || true",
     "build:site": "cd site && yarn build",
+    "build:storybook": "cd bedrock/apps/storybook && yarn build",
     "clean": "rm -rf node_modules source/dist site/node_modules site/vendor site/public2 source/node_modules",
     "deploy": "now deploy --token=$NOW_TOKEN --team basalt && echo ' ' ",
     "deploy:test": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-test && echo ' ' ",
@@ -23,7 +24,7 @@
     "postversion": "git push && git push --tags",
     "precommit": "yarn lint:staged:site && yarn lint:staged:bedrock",
     "prepush": "yarn test",
-    "start": "run-p --print-label watch:*",
+    "start": "yarn build:assets && yarn build:bedrock && run-p --print-label watch:*",
     "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",
     "test": "run-s test:source test:site",
     "test:bedrock": "cd bedrock && yarn test",
@@ -31,6 +32,7 @@
     "test:source": "cd source && yarn test",
     "watch:bedrock": "cd bedrock && yarn start",
     "watch:site": "cd site && yarn start",
+    "watch:storybook": "cd bedrock/apps/storybook && yarn start",
     "watch:assets": "cd source && yarn start"
   },
   "workspaces": {
