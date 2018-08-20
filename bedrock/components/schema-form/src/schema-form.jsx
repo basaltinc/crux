@@ -39,7 +39,6 @@ export default class SchemaForm extends React.Component {
   render() {
     return (
       <Form
-        {...this.props}
         formData={this.props.formData}
         schema={this.props.schema}
         uiSchema={this.props.uiSchema}
@@ -50,6 +49,7 @@ export default class SchemaForm extends React.Component {
         ArrayFieldTemplate={CustomArrayField}
         FieldTemplate={CustomField}
         className={this.props.isInline ? 'rjsf rjsf--inline' : 'rjsf'}
+        {...this.props}
       >
         <span />
         {/* @todo make it easier to disable SchemaForm submit button */}

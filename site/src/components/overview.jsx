@@ -164,24 +164,13 @@ class Overview extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ event }) {
+  handleChange({ formData }) {
     this.setState({
-      value: event.target.value,
+      data: formData,
     });
   }
 
   render() {
-    // @todo determine if this is still wanted/needed, otherwise delete
-    // const demos = this.props.demoSizes.map(size => (
-    //   <Resizable key={size} size={size}>
-    //     <Twig
-    //       template={this.props.template}
-    //       data={this.state.data}
-    //       handleNewHtml={html => this.setState({ html })}
-    //     />
-    //   </Resizable>
-    // ));
-
     const dataString = JSON.stringify(this.state.data, null, '  ');
     const twigCodeExample = `
       {% include '${this.props.template}' with ${dataString} %}
