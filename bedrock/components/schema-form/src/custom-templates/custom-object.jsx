@@ -1,26 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function ObjectFieldTemplate({
-  TitleField,
-  properties,
-}) {
+export default function ObjectFieldTemplate({ properties }) {
   return (
     <div>
       {properties.map(prop => (
-        <div
-          key={prop.content.key}
-        >
-          {prop.content}
-        </div>
+        <div key={prop.content.key}>{prop.content}</div>
       ))}
     </div>
   );
 }
 
+ObjectFieldTemplate.defaultProps = {
+  properties: [],
+};
+
 ObjectFieldTemplate.propTypes = {
-  TitleField: PropTypes.string,
-  description: PropTypes.string,
-  properties: PropTypes.array,
-  title: PropTypes.string,
+  properties: PropTypes.arrayOf(PropTypes.object),
 };

@@ -7,7 +7,6 @@ import {
   TextInputWrapper,
   RadioInputWrapper,
 } from '@basalt/bedrock-atoms';
-import info from '../assets/info-circle.svg';
 
 const CustomFieldWrapper = styled.div`
   padding: 0.25rem 0;
@@ -51,10 +50,8 @@ export default function CustomField(props) {
     errors,
     children,
   } = props;
-  const fieldDescription = description.props.description;
+  const fieldDescription = description.props.description; /* eslint-disable-line */
   const inputSchema = children.props.schema;
-  console.log(inputSchema);
-
   let inputContent = <div />;
   if (
     inputSchema.type === 'string' &&

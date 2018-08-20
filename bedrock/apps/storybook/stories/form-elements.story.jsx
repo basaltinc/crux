@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { TextInputWrapper, Select, SelectWrapper } from '@basalt/bedrock-atoms';
+import { TextInputWrapper, Select } from '@basalt/bedrock-atoms';
 import { action } from '@storybook/addon-actions';
 
 storiesOf('Form Elements', module)

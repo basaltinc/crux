@@ -1,7 +1,9 @@
 import React from 'react';
-import { FormIconButton, FormIconTray, FormArrayItem } from '@basalt/bedrock-atoms';
-
-import { getRandomInt } from '../../../../packages/utils/src/index';
+import {
+  FormIconButton,
+  FormIconTray,
+  FormArrayItem,
+} from '@basalt/bedrock-atoms';
 
 import upArrow from '../assets/angle-up.svg';
 import downArrow from '../assets/angle-down.svg';
@@ -17,7 +19,7 @@ export default function CustomArrayField(props) {
       <details>
         <summary>{props.title}</summary>
         {props.items &&
-          props.items.map((element, index) => (
+          props.items.map(element => (
             <FormArrayItem className="field-array__item" key={element.index}>
               {element.children}
               <FormIconTray className="field-array__item-button-tray">
@@ -52,7 +54,7 @@ export default function CustomArrayField(props) {
                   tabIndex="0"
                 />
                 <FormIconButton
-                  active={true}
+                  active
                   backgroundImage={`url(${remove})`}
                   onClick={element.onDropIndexClick(element.index)}
                   onKeyPress={element.onDropIndexClick(element.index)}
