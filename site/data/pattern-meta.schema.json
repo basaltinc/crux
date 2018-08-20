@@ -95,6 +95,13 @@
           }
         }
       }
+    },
+    "demoSize": {
+      "title": "Demo Size",
+      "type": "string",
+      "description": "Size at which to demo this component",
+      "enum": ["s", "m", "l", "full"],
+      "enumNames": ["Small", "Medium", "Large", "full"]
     }
   }
 }

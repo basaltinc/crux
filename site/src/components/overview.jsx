@@ -94,7 +94,7 @@ const DemoGrid = styled.div`
   position: relative;
 `;
 
-const DemoGridConrols = styled.div`
+const DemoGridControls = styled.div`
   position: absolute;
   display: flex;
   justify-content: flex-end;
@@ -164,9 +164,9 @@ class Overview extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ formData }) {
+  handleChange({ event }) {
     this.setState({
-      data: formData,
+      value: event.target.value,
     });
   }
 
@@ -189,9 +189,10 @@ class Overview extends React.Component {
     return (
       <OverviewWrapper {...this.props} {...this.state}>
         <div style={{ position: 'relative', marginBottom: '1rem' }}>
-          <DemoGridConrols>
+          <DemoGridControls>
             <Select
               items={sizes}
+              value={this.state.size}
               handleChange={size => this.setState({ size })}
               label="Adjust Demo Stage"
             />
@@ -206,7 +207,7 @@ class Overview extends React.Component {
             >
               Toggle Fullscreen
             </button>
-          </DemoGridConrols>
+          </DemoGridControls>
           <h4>Live Demo</h4>
         </div>
         <DemoGrid size={this.state.size}>

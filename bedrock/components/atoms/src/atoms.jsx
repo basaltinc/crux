@@ -92,16 +92,19 @@ export class Select extends React.Component {
   }
 
   render() {
+    let { currentValue } = this.state;
+    /* eslint-disable react/prop-types */
+    if (this.props.value) {
+      currentValue = this.props.value;
+    }
+    /* eslint-enable react/prop-types */
     return (
       <SelectStyledWrapper>
         {this.props.label && (
           <div className="label-text">{this.props.label}</div>
         )}
         <span>
-          <select
-            onChange={this.handleSelection}
-            value={this.state.currentValue}
-          >
+          <select onChange={this.handleSelection} value={currentValue}>
             {this.props.items.map(item => (
               <option value={item.value} key={item.value}>
                 {item.title ? item.title : item.value}

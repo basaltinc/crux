@@ -65,7 +65,7 @@ export default class ComponentOverview extends Component {
     if (!this.state.ready) {
       content = <Spinner />;
     } else {
-      const { title, description, type, templates } = this.state.meta;
+      const { title, description, type, templates, demoSize } = this.state.meta;
       const { name, schema } = this.state.currentTemplate;
       const [data, ...examples] = schema.examples ? schema.examples : [{}];
       const dosAndDonts = schema.dosAndDonts ? schema.dosAndDonts : [];
@@ -97,7 +97,7 @@ export default class ComponentOverview extends Component {
             schema={schema}
             demoSizes={this.props.demoSizes}
             data={data}
-            size={this.props.size}
+            size={demoSize}
             key={name}
           />
 
@@ -132,7 +132,7 @@ export default class ComponentOverview extends Component {
 
           {dosAndDonts.map(item => (
             <LoadableDosAndDonts
-              key={item.title}
+              key={JSON.stringify(item)}
               title={item.title}
               description={item.description}
               items={item.items}
@@ -149,11 +149,9 @@ export default class ComponentOverview extends Component {
 
 ComponentOverview.defaultProps = {
   demoSizes: [],
-  size: Overview.defaultProps.size,
 };
 
 ComponentOverview.propTypes = {
   id: PropTypes.string.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
-  size: Overview.propTypes.size,
 };
