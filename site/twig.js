@@ -1,8 +1,7 @@
-const TwigRenderer = require('@basalt/twig-renderer');
-const { join } = require('path');
+import TwigRenderer from '@basalt/twig-renderer';
+import { join } from 'path';
+import { isDevMode } from './config';
 
-// by calling `new`, it'll build the config file we need there.
-// then, when `npm run serve:twig` is ran, that server has
 const twigRenderer = new TwigRenderer({
   relativeFrom: join(__dirname, '..'),
   src: {
@@ -40,7 +39,7 @@ const twigRenderer = new TwigRenderer({
       functions: ['setupTwig'],
     },
   ],
-  keepAlive: false,
+  keepAlive: !isDevMode, // when `true`, all Twig templates are cached and don't show new changes
 });
 
 module.exports = twigRenderer;

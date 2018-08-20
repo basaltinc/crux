@@ -4,8 +4,7 @@ import bodyParser from 'body-parser';
 import { join } from 'path';
 import api from './api';
 import events, { eventNames } from './server/events';
-import { websocketsPort } from './config';
-import { hasWebsockets } from './config--server';
+import { isDevMode, websocketsPort } from './config';
 
 const port = process.env.PORT || 3042;
 const app = express();
@@ -31,7 +30,7 @@ app.get('*', (req, res) => {
   res.sendFile(join(__dirname, 'public/index.html'));
 });
 
-if (hasWebsockets) {
+if (isDevMode) {
   const wss = new WebSocket.Server({
     port: websocketsPort,
   });

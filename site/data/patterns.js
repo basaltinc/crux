@@ -5,6 +5,7 @@ import Ajv from 'ajv';
 import chokidar from 'chokidar';
 import events, { eventNames } from '../server/events';
 import patternMetaSchema from './pattern-meta.schema.json';
+import { isDevMode } from '../config';
 
 const ajv = new Ajv();
 const validatePatternMetaSchema = ajv.compile(patternMetaSchema);
@@ -61,26 +62,28 @@ export function updatePatternsData() {
 
 updatePatternsData();
 
-const watcher = chokidar.watch(patternsDirs.map(d => join(d, '**')), {
-  ignoreInitial: true,
-  cwd: __dirname,
-  ignore: ['**/node_modules/**'],
-});
+if (isDevMode) {
+  const watcher = chokidar.watch(patternsDirs.map(d => join(d, '**')), {
+    ignoreInitial: true,
+    cwd: __dirname,
+    ignore: ['**/node_modules/**'],
+  });
 
-watcher.on('all', (event, path) => {
-  // console.log(event, path);
-  const { ext } = parse(path);
-  switch (ext) {
-    case '.scss':
-      break;
-    case '.twig':
-      events.emit(eventNames.PATTERN_CHANGED, { ext, path, event });
-      break;
-    default:
-      updatePatternsData();
-      events.emit(eventNames.PATTERN_CHANGED, { ext, path, event });
-  }
-});
+  watcher.on('all', (event, path) => {
+    // console.log(event, path);
+    const { ext } = parse(path);
+    switch (ext) {
+      case '.scss':
+        break;
+      case '.twig':
+        events.emit(eventNames.PATTERN_CHANGED, { ext, path, event });
+        break;
+      default:
+        updatePatternsData();
+        events.emit(eventNames.PATTERN_CHANGED, { ext, path, event });
+    }
+  });
+}
 
 /**
  * Get Pattern Meta

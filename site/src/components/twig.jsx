@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { apiUrlBase, websocketsPort } from '../../config';
+import { apiUrlBase, websocketsPort, isDevMode } from '../../config';
 
 // This is an intentional override of the utility class u-full-width
 // to prevent it from overflowing the demo stage
@@ -30,8 +30,7 @@ export default class Twig extends React.Component {
     this.getHtml(this.props.data);
     this.controller = new window.AbortController();
     this.signal = this.controller.signal;
-    const { hostname } = window.location;
-    if (hostname === 'localhost') {
+    if (isDevMode) {
       this.socket = new window.WebSocket(`ws://localhost:${websocketsPort}`);
 
       // this.socket.addEventListener('open', event => {
@@ -58,7 +57,7 @@ export default class Twig extends React.Component {
 
   componentWillUnmount() {
     this.controller.abort();
-    if (this.socket) {
+    if (isDevMode) {
       this.socket.close(1000, 'componentWillUnmount called');
     }
   }
