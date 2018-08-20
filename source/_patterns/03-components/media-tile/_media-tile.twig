@@ -1,0 +1,45 @@
+{% set classes = [
+  'media-tile',
+  media_padding ? 'media-tile__media--padding-' ~ media_padding,
+  text_align ? 'u-text-align-' ~ text_align|default('center'),
+  image_overlay ? 'media-tile--overlay-' ~ image_overlay,
+  bg_color ? 'u-bg-' ~ bg_color,
+  min_height ? 'es--' ~ min_height,
+
+] | merge(classes|default([])) %}
+
+{% set imgSrc = background_image is iterable ? background_image.src : background_image %}
+
+<div class="{{ classes|join(' ') }}" {% if url %}
+  data-linkto="{{ url }}" {% endif %} {% if imgSrc %} style="background-image: url({{ imgSrc }});" {%  endif %}>
+
+  <div class="media-tile__content {{ content_padding ? 'u-padding--' ~ content_padding|default('xl')
+ }} {{ text_align_vert ? 'media-tile__content--' ~ text_align_vert|default('center') }}">
+    {% if title %}
+      {% set title_classes = [
+        'media-tile__title',
+        title_bg_color ? 'u-bg-' ~ title_bg_color,
+        title_text_color ? 'u-c-' ~ title_text_color,
+        title_size ? 'h' ~ title_size,
+      ] %}
+      <h2 class="{{ title_classes|join(' ') }}">{{ title }}</h2>
+    {% endif %}
+
+    {% if body %}
+      {% set body_classes = [
+        'media-tile__body',
+        body_bg_color ? 'u-bg-' ~ body_bg_color,
+        body_text_color ? 'u-c-' ~ body_text_color,
+        body_text_size ? 'media-tile__body--' ~ body_text_size,
+      ] %}
+      <div class="media-tile__body {{ body_classes| join(' ') }}">{{ body|raw }}</div>
+    {% endif %}
+    {% if buttons %}
+      <div class="media-tile__buttons">
+        {% for button in buttons %}
+          {% include '@components/_button.twig' with button only %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

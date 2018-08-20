@@ -33,6 +33,12 @@ injectGlobal`
   --type-color--icon-accent: #e2e7ff;
   --type-color--color-accent: #d0f3ee;
   --type-color--none-accent: #e0e0e0;
+  
+  --spacing-xs: 4px;
+  --spacing-s: 8px;
+  --spacing-m: 16px;
+  --spacing-l: 32px;
+  --spacing-xl: 64px;
   }
   
   :focus {

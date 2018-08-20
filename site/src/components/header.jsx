@@ -1,9 +1,7 @@
 import React from 'react';
-import NavLink from 'gatsby-link'; // eslint-disable-line
+import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-
-import basalt from '../../../images/logos/white-grey.svg';
 
 const SiteHeaderWrapper = styled.nav`
   background: #16394b;
@@ -40,7 +38,14 @@ const SiteHeaderBrandWrapper = styled.div`
   padding-left: 20px;
 `;
 
-const SiteHeaderLink = styled(NavLink)`
+const SiteHeaderLink = styled(Link)`
+  && {
+    color: white;
+    text-decoration: none;
+  }
+`;
+
+const SiteHeaderNavLink = styled(NavLink)`
   && {
     color: white;
     text-decoration: none;
@@ -55,19 +60,20 @@ const Header = ({ siteTitle }) => (
       </h3>
     </SiteHeaderBrandWrapper>
     <div>
-      {/* @todo clean this up; propagate these classnames */}
       <ul>
         <li>
-          <SiteHeaderLink to="/about">Get Started</SiteHeaderLink>
+          <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderLink to="/visual-language">Visual Language</SiteHeaderLink>
+          <SiteHeaderNavLink to="/visual-language">
+            Visual Language
+          </SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderLink to="/patterns">Patterns</SiteHeaderLink>
+          <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderLink to="/resources">Resources</SiteHeaderLink>
+          <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
         </li>
         <li>
           <a
@@ -77,7 +83,11 @@ const Header = ({ siteTitle }) => (
               textDecoration: 'none',
             }}
           >
-            <img src={basalt} alt="Basalt" style={{ height: '1rem' }} />
+            <img
+              src="/assets/images/logos/white-grey.svg"
+              alt="Basalt"
+              style={{ height: '1rem' }}
+            />
           </a>
         </li>
       </ul>

@@ -1,121 +1,65 @@
 import fs from 'fs-extra';
 import { join } from 'path';
+import globby from 'globby';
+import Ajv from 'ajv';
+import patternMetaSchema from './pattern-meta.schema.json';
 
-const patternsDir = join(__dirname, '../../pattern-lab/source/_patterns/');
+const ajv = new Ajv();
+const validatePatternMetaSchema = ajv.compile(patternMetaSchema);
 
-// having problems with jsdoc returns promise that resolves with object
-/* eslint-disable jsdoc/check-types */
+const patternsDir = join(__dirname, '../../source/_patterns/');
+
+const patterns = [];
+
+globby
+  .sync([join(patternsDir, '*/*')], {
+    expandDirectories: true,
+    onlyFiles: false,
+  })
+  .forEach(dir => {
+    if (fs.statSync(dir).isDirectory()) {
+      try {
+        // eslint-disable-next-line
+        const pattern = require(dir);
+        if (pattern.meta) {
+          const isValid = validatePatternMetaSchema(pattern.meta);
+          if (!isValid) {
+            const name = dir.split('/').pop();
+            console.log();
+            console.error(
+              `Error! Pattern Meta Schema validation failed for "${name}"`,
+            );
+            console.error(
+              'Review the "meta" export from "index.js" in that folder and compare to "pattern-meta.schema.json"',
+            );
+            console.error(validatePatternMetaSchema.errors);
+            console.log();
+            process.exit(1);
+          }
+          patterns.push(pattern.meta);
+        }
+      } catch (e) {
+        // if it failed it's b/c it didn't have a `index.js` to grab; that's ok
+      }
+    }
+  });
+
+// console.log({ patterns });
 
 /**
- * Get Pattern Info
+ * Get Pattern Meta
  * @param {string} id - Which Pattern to get; i.e. `media-block`
- * @param {Object} options - Some options
- * @param {string} [options.type = 'component'] - The type
- * @returns {Promise<{ok: bool, id: string, title: string, schema: object, template: string}>} - Info about it
+ * @returns {Object} - Meta info about it
  */
-export async function getPatternInfo(id, { type = 'component' } = {}) {
-  let subDir;
-  let twigNamespace;
-  let pathPrefix;
-  switch (type) {
-    case 'styleguide' || 'styleguides':
-      subDir = '00-styleguide';
-      twigNamespace = '@styleguide';
-      pathPrefix = '/patterns/styleguide/';
-      break;
-    case 'layout' || 'layouts':
-      subDir = '02-layouts';
-      twigNamespace = '@layouts';
-      pathPrefix = '/patterns/layouts/';
-      break;
-    case 'component' || 'components':
-      subDir = '03-components';
-      twigNamespace = '@components';
-      pathPrefix = '/patterns/components/';
-      break;
-    case 'template' || 'templates':
-      subDir = '04-templates';
-      twigNamespace = '@templates';
-      pathPrefix = '/patterns/templates/';
-      break;
-    default:
-      subDir = '03-components';
-      twigNamespace = '@components';
-      pathPrefix = '/patterns/components/';
-  }
-
-  const subDirPath = join(patternsDir, subDir);
-  const patternDir = join(subDirPath, id);
-  const patternPath = join(patternDir, `_${id}.twig`);
-  const template = `${twigNamespace}/_${id}.twig`;
-  // const pattern = await fs.readFile(patternPath, 'utf8');
-  const schemaPath = join(patternDir, `${id}-schema.json`);
-
-  let patternPathExists;
-  try {
-    await fs.access(patternPath);
-    patternPathExists = true;
-  } catch (e) {
-    patternPathExists = false;
-  }
-
-  if (!patternPathExists) {
-    return {
-      ok: false,
-      message: `Could not find Pattern ${template} when looking for it at ${patternPath}`,
-    };
-  }
-
-  let hasSchema;
-  let schema;
-  try {
-    schema = await fs
-      .readFile(schemaPath, 'utf8')
-      .then(file => JSON.parse(file));
-    hasSchema = true;
-  } catch (e) {
-    hasSchema = false;
-  }
-
-  const results = {
-    id,
-    ok: patternPathExists,
-    template,
-    path: `${pathPrefix}${id}`,
-  };
-  if (hasSchema) {
-    results.title = schema.title;
-    results.schema = schema;
-  }
-
-  // console.log(results);
-  return results;
+export function getPatternMeta(id) {
+  return patterns.find(p => p.id === id);
 }
 
-export async function getPatterns(type) {
-  const types = {
-    components: [
-      'avatar',
-      'basic-block',
-      'button',
-      'blog-teaser',
-      'exec-bio',
-      'list',
-      'hero',
-      'logo',
-      'cta',
-      'media-tile',
-      'media-block',
-      'social',
-      'site-header',
-      'site-footer',
-    ],
-  };
-
-  const ids = types[type];
-  const patterns = await Promise.all(
-    ids.map(id => getPatternInfo(id, { type })),
-  );
-  // console.log(patterns);
-  return patterns;
+/**
+ * Get Patterns
+ * @param {string} [type] - Type of Pattern (optional)
+ * @returns {Object[]} - Collection of pattern meta
+ */
+export function getPatterns(type) {
+  return type ? patterns.filter(p => p.type === type) : patterns;
 }

@@ -6,40 +6,26 @@ options:
 pipelines:
   default:
     - step:
-        name: Install
+        name: Install, Build, Test
         caches:
         - composer
         - node
         - yarn
-        - site-node
         - site-vendor
-        - pl-vendor
+        - source-node
+        - bedrock-node
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
         - yarn setup
-        artifacts:
-        - '**'
-    - step:
-        name: Build
-        script:
         - yarn build
+        - yarn test
         artifacts:
         - '**'
-    - parallel:
-      - step:
-          name: Lint top level
-          script:
-          - yarn lint:pl
-          - yarn lint:style
-      - step:
-          name: Lint site
-          script:
-          - yarn lint:site
     - step:
         name: Deploy to test
         deployment: test   # can be test, staging or production
-        # trigger: manual  # uncomment to make manual deployment
+        trigger: manual
         script:
         - yarn run deploy:test
 
@@ -51,41 +37,21 @@ pipelines:
               - composer
               - node
               - yarn
-              - site-node
               - site-vendor
-              - pl-vendor
+              - source-node
+              - bedrock-node
             script:
               - yarn --version && npm --version && node --version && composer --version && php --version
               - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
               - yarn setup
-            artifacts:
-              - '**'
-        - step:
-            name: Build
-            caches:
-              - composer
-              - node
-              - yarn
-              - site-node
-              - site-vendor
-              - pl-vendor
-            script:
               - yarn build
+              - yarn test
             artifacts:
               - '**'
-        - parallel:
-            - step:
-                name: Lint top level
-                script:
-                  - yarn lint:pl
-                  - yarn lint:style
-            - step:
-                name: Lint site
-                script:
-                  - yarn lint:site
         - step:
             name: Deploy to staging
             deployment: staging   # can be test, staging or production
+            trigger: manual
             script:
              - yarn run deploy:staging
         - step:
@@ -119,5 +85,6 @@ definitions:
   caches:
     yarn: $HOME/.yarn-cache
     site-node: site/node_modules
+    source-node: source/node_modules
+    bedrock-node: bedrock/node_modules
     site-vendor: site/vendor
-    pl-vendor: pattern-lab/vendor

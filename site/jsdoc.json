@@ -3,7 +3,6 @@
   "recurseDepth": 10,
   "source": {
     "include": [
-      "src/bedrock",
       "data"
     ],
     "includePattern": ".+\\.js(doc|x)?$",

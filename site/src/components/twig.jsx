@@ -6,6 +6,7 @@ import { apiUrlBase } from '../../config';
 // This is an intentional override of the utility class u-full-width
 // to prevent it from overflowing the demo stage
 const FullWidthFixedWrapper = styled.div`
+  width: 100%;
   .u-full-width {
     width: 100%;
     left: 0;
@@ -42,11 +43,11 @@ export default class Twig extends React.Component {
    * @return {undefined}
    */
   getHtml(data) {
-    const type = this.props.asString ? 'renderString' : 'renderFile';
+    const type = this.props.isStringTemplate ? 'renderString' : 'renderFile';
     // let body = data;
     const url = `${apiUrlBase}/render-twig?type=${type}`;
 
-    // if (this.props.asString) {
+    // if (this.props.isStringTemplate) {
     //   url = `${apiUrlBase}/render-twig?templateString`;
     //   body = {
     //     template: this.props.template,
@@ -82,8 +83,8 @@ export default class Twig extends React.Component {
   }
 
   render() {
-    let html = this.state.html;
-    if (this.props.showDataUsed) {
+    let { html } = this.state;
+    if (this.props.isDataShown) {
       const code = JSON.stringify(this.props.data, null, '  ');
       html = `${html}
         <details>
@@ -102,16 +103,16 @@ export default class Twig extends React.Component {
 
 Twig.defaultProps = {
   data: {},
-  showDataUsed: true,
+  isDataShown: false,
   handleNewHtml: () => {},
-  asString: false,
+  isStringTemplate: false,
 };
 
 Twig.propTypes = {
   template: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object,
-  showDataUsed: PropTypes.bool,
+  isDataShown: PropTypes.bool,
   handleNewHtml: PropTypes.func,
-  asString: PropTypes.bool,
+  isStringTemplate: PropTypes.bool,
 };

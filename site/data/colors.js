@@ -1,6 +1,6 @@
 import fs from 'fs-extra';
 import { join } from 'path';
-import { convertColor } from '../src/bedrock/packages/utils';
+import { convertColor } from '@basalt/bedrock-utils';
 
 /**
  * @param {string} format - Color format; one of 'hsl', 'rgb', 'hex'
@@ -10,7 +10,7 @@ export async function getColors(format) {
   const colorsFile = await fs.readFile(
     join(
       __dirname,
-      '../../pattern-lab/source/_patterns/00-styleguide/05-colors/colors.json',
+      '../../source/_patterns/00-styleguide/05-colors/colors.json',
     ),
     'utf8',
   );
