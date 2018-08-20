@@ -117,7 +117,8 @@ const LoadableBrandDescriptors = Loadable({
 
 const LoadableSidebar = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'sidebar' */ './components/sidebar'),
+    import(/* webpackChunkName: 'sidebar' */
+    './components/sidebar'),
   loading: Spinner,
 });
 
