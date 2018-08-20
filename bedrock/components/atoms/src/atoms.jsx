@@ -49,21 +49,29 @@ export const SelectStyledWrapper = styled.label`
   padding-right: 3px;
   margin: 0 5px;
   > .label-text {
+    display: inline-block;
     margin-right: 5px;
     &:after {
       content: ':';
     }
   }
-  > select {
-    background-color: #cfe3de;
-    border: none;
+  > span > select {
+    background-color: lightgrey;
     font-size: 1rem;
+    border: 0;
     height: 33px;
     padding: 5px; /* If you add too much padding here, the options won't show in IE */
     &:active,
     &:focus {
       outline: none;
     }
+  }
+  > span {
+    display: inline-block;
+    background-color: lightgrey;
+    border: 0;
+    border-radius: 0;
+    height: 33px;
   }
 `;
 
@@ -93,15 +101,17 @@ export class Select extends React.Component {
     return (
       <SelectStyledWrapper>
         {this.props.label && (
-          <span className="label-text">{this.props.label}</span>
+          <div className="label-text">{this.props.label}</div>
         )}
-        <select onChange={this.handleSelection} value={currentValue}>
-          {this.props.items.map(item => (
-            <option value={item.value} key={item.value}>
-              {item.title ? item.title : item.value}
-            </option>
-          ))}
-        </select>
+        <span>
+          <select onChange={this.handleSelection} value={currentValue}>
+            {this.props.items.map(item => (
+              <option value={item.value} key={item.value}>
+                {item.title ? item.title : item.value}
+              </option>
+            ))}
+          </select>
+        </span>
       </SelectStyledWrapper>
     );
   }
@@ -134,14 +144,105 @@ export const TwoUp = styled.div`
   }
 `;
 
-export const TypeToFilterWrapper = styled.div`
+export const SelectWrapper = styled.div`
   display: inline-block;
   height: 33px;
   overflow: hidden;
-  background-color: #cfe3de;
-  input {
+  background-color: lightgrey;
+  font-size: 1rem;
+  border: 0;
+  > select {
+    background-color: lightgrey;
+    font-size: 1rem;
+    border: 0;
     height: 33px;
-    background-color: none;
-    font-size: 0.875rem;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+`;
+
+export const TextInputWrapper = styled.div`
+  > input,
+  > textarea {
+    box-sizing: border-box;
+    padding: 3px 8px;
+    border: 1px solid lightgrey;
+    background-color: white;
+    font-size: 15px;
+    width: 100%;
+  }
+  > input {
+    height: 33px;
+  }
+`;
+
+export const RadioInputWrapper = styled.div`
+  height: 33px;
+  .radio {
+    margin-right: 13.5px;
+  }
+  input {
+    margin-right: 8px;
+  }
+`;
+
+export const CheckboxInputWrapper = styled.div`
+  p {
+    display: none;
+  }
+  label {
+    height: 33px;
+    display: flex;
+    align-items: center;
+  }
+  input {
+    margin-right: 8px;
+  }
+`;
+
+export const FormIconButton = styled.div`
+  display: inline-block;
+  width: 21px;
+  height: 21px;
+  background-size: contain;
+  position: relative;
+  cursor: ${props => (props.active ? 'pointer' : 'auto')};
+  &::after {
+    background: ${props =>
+      props.backgroundImage ? props.backgroundImage : ''};
+    background-size: contain;
+    opacity: ${props => (props.active ? 1 : 0.25)};
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+  }
+`;
+
+export const FormIconTray = styled.div`
+  box-sizing: border-box;
+  border: solid 1px lightgrey;
+  display: inline-flex;
+  padding: 5px 8px;
+`;
+
+export const FormArrayItem = styled.div`
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 0.5rem;
+  .field {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  & > * + * {
+    margin-left: 0.25rem;
   }
 `;
