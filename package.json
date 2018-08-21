@@ -10,7 +10,7 @@
     "build:changelog": "auto-changelog --template json --output ./source/dist/changelog.json || true",
     "build:site": "cd site && yarn build",
     "build:storybook": "cd bedrock/apps/storybook && yarn build",
-    "clean": "rm -rf node_modules source/dist site/node_modules site/vendor site/public2 source/node_modules",
+    "clean": "lerna clean --yes && rm -rf node_modules source/dist site/vendor site/public2",
     "deploy": "now deploy --token=$NOW_TOKEN --team basalt && echo ' ' ",
     "deploy:test": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-test && echo ' ' ",
     "deploy:staging": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-staging && echo ' ' ",

@@ -1,12 +1,11 @@
 {
   "name": "@basalt/bedrock-spinner",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "private": true,
   "description": "A Bedrock component that helps build Design Systems",
   "main": "dist/spinner.js",
   "module": "dist/spinner.mjs.js",
   "scripts": {},
-  "dependencies": {
-  },
   "devDependencies": {
     "prop-types": "^15.0.0",
     "react": "^16.3.0"
