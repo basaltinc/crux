@@ -694,9 +694,9 @@
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@basalt/demo-data/-/demo-data-0.5.0.tgz#b769619dd42c7f12bc5e2154c1a4c89bcdc71539"
 
-"@basalt/twig-renderer@0.9.0":
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/@basalt/twig-renderer/-/twig-renderer-0.9.0.tgz#2d881840f415a26689fb6e8aa37b846619c06d3c"
+"@basalt/twig-renderer@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@basalt/twig-renderer/-/twig-renderer-0.9.1.tgz#ef6f0ec09dde2d895ebafee07b7e67fd1c08875a"
   dependencies:
     ajv "^6.5.2"
     execa "^0.10.0"
