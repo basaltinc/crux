@@ -55,7 +55,7 @@ const SidebarStyled = styled.aside`
 `;
 
 const SidebarColumn = styled.div`
-  position: absolute;
+  position: relative;
   width: calc(100% - 19px);
   height: 100%;
   display: flex;
