@@ -67,6 +67,10 @@ const configs = [
     dir: './packages/utils',
     entry: 'src/index.js',
   },
+  {
+    dir: './packages/core',
+    entry: 'src/index.js',
+  },
   // {
   //   dir: './packages/core',
   //   entry: 'src/index.js',
