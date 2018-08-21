@@ -286,15 +286,3 @@ export const BlockQuoteWrapper = styled.blockquote`
     bottom: -137px;
   }
 `;
-
-export const BlockQuoteWrapper = styled.blockquote`
-  border-left: solid 3px ${props => props.color || 'red'};
-  padding-left: 1.5rem;
-  max-width: 80%;
-  position: relative;
-  footer {
-    font-size: 0.6em;
-    float: right;
-    color: darken(white, 15%);
-  }
-`;
