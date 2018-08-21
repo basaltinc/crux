@@ -18,7 +18,7 @@ export const colors = {
   },
 };
 
-export const theme = {
+export const baseTheme = {
   colors: {
     text: 'black',
     headings: 'black',
@@ -45,9 +45,11 @@ export const theme = {
   },
 };
 
+export const baseContext = {
+  theme: baseTheme,
+};
+
 export const {
   Provider: BedrockContextProvider,
   Consumer: BedrockContextConsumer,
-} = React.createContext({
-  theme,
-});
+} = React.createContext(baseContext);
