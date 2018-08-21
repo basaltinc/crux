@@ -1,15 +1,16 @@
 {
-  "name": "@basalt/crux",
-  "version": "1.2.6",
+  "name": "@basalt/crux-assets",
+  "version": "2.0.1",
   "description": "Basalt Design System",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production gulp build",
     "new": "yo pl-pattern --base source/_patterns",
+    "prepare": "yarn build",
     "start": "gulp",
     "test": "gulp validate"
   },
-  "dependencies": {
+  "devDependencies": {
     "@basalt/demo-data": "0.5.0",
     "@theme-tools/plugin-icon-font": "^0.4.3",
     "@theme-tools/plugin-sass": "^0.4.0",
@@ -18,16 +19,17 @@
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.7.0",
     "breakpoint-sass": "^2.7.1",
+    "generator-pl-pattern": "^1.0.0",
     "gulp": "^4.0.0",
+    "npm-run-all": "4.1.3",
     "scsstojson": "^1.0.2",
     "stylelint": "9.3.0",
     "stylelint-scss": "1.5.2",
-    "webpack": "3.12.0"
-  },
-  "devDependencies": {
-    "generator-pl-pattern": "^1.0.0",
-    "npm-run-all": "4.1.3",
+    "webpack": "3.12.0",
     "yo": "1.8.3"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "author": "Basalt",
   "license": "MIT"

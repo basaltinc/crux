@@ -1,6 +1,7 @@
 {
   "name": "@basalt/bedrock-storybook",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "private": true,
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,9 +9,9 @@
     "start": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
-    "@storybook/react": "^3.4.10",
     "@storybook/addon-actions": "^3.4.10",
     "@storybook/addon-info": "^3.4.10",
+    "@storybook/react": "^3.4.10",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },

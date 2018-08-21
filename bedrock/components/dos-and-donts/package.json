@@ -1,13 +1,11 @@
 {
   "name": "@basalt/bedrock-dos-and-donts",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "private": true,
   "description": "A Bedrock component that helps build Design Systems",
   "main": "dist/dos-and-donts.js",
   "module": "dist/dos-and-donts.mjs.js",
-  "scripts": {
-  },
-  "dependencies": {
-  },
+  "scripts": {},
   "devDependencies": {
     "prop-types": "^15.0.0",
     "react": "^16.3.0"
