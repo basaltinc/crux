@@ -5,6 +5,10 @@ import { TextInputWrapper } from '@basalt/bedrock-atoms';
 import { FaChevronLeft } from 'react-icons/fa';
 import LinkList from './link-list';
 
+const TypeToFilterInputWrapper = TextInputWrapper.extend`
+  display: flex;
+`;
+
 const TypeToFilter = styled.div`
   > .eyebrow {
     margin-top: 0;
@@ -14,6 +18,24 @@ const TypeToFilter = styled.div`
   margin-bottom: 2rem;
   transition: left 0.6s ease;
   left: ${props => (props.sidebarCollapsed ? '-500px;' : '0px;')};
+`;
+
+const ClearFilterButton = styled.div`
+  border: solid 1px lightgrey;
+  border-left: none;
+  background-color: white;
+  height: 33px;
+  width: 33px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+  > i {
+    opacity: 0.5;
+  }
 `;
 
 const SidebarStyled = styled.aside`
@@ -186,6 +208,7 @@ class Sidebar extends Component {
     };
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
+    this.handleFilterReset = this.handleFilterReset.bind(this);
   }
 
   static getDerivedStateFromProps(props) {
@@ -210,6 +233,12 @@ class Sidebar extends Component {
     }));
   }
 
+  handleFilterReset() {
+    this.setState({
+      filterTerm: '',
+    });
+  }
+
   render() {
     const isCollapsed = this.state.sidebarCollapsed;
     const items =
@@ -229,7 +258,7 @@ class Sidebar extends Component {
         <SidebarColumn sidebarCollapsed={isCollapsed}>
           <TypeToFilter sidebarCollapsed={isCollapsed}>
             <h4 className="eyebrow">Filter List</h4>
-            <TextInputWrapper>
+            <TypeToFilterInputWrapper>
               <input
                 type="text"
                 className="type-to-filter"
@@ -239,7 +268,14 @@ class Sidebar extends Component {
                   this.setState({ filterTerm: event.target.value })
                 }
               />
-            </TextInputWrapper>
+              <ClearFilterButton
+                role="button"
+                onClick={this.handleFilterReset}
+                onKeyPress={this.handleFilterReset}
+              >
+                <i className="icon--close" />
+              </ClearFilterButton>
+            </TypeToFilterInputWrapper>
           </TypeToFilter>
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
