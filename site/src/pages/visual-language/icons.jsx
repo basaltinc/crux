@@ -1,18 +1,16 @@
 import React from 'react';
+import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 
 const IconsPage = () => (
   <div>
     <h4 className="eyebrow">Visual Language</h4>
     <h2>Icons</h2>
-    <hr />
-    <blockquote>
+    <BlockQuoteWrapper>
       Trying to capture the essence of an object or an idea with only a few
       lines and at the same time maintaining its elegance is pretty much design
-      in a nutshell. That’s what’s so great about icons, they’re tiny poems. -
-      Kyle Tezak, The Four Icon Challenge
-    </blockquote>
-    <hr />
-    <br />
+      in a nutshell. That’s what’s so great about icons, they’re tiny poems.
+      <footer>Kyle Tezak, The Four Icon Challenge</footer>
+    </BlockQuoteWrapper>
     <h3>How to Use Icons</h3>
     <p>
       The icon name is next to each icon and is represented by ICON-NAME below.

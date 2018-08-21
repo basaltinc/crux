@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { apiUrlBase } from '../../config';
+import { apiUrlBase, websocketsPort, isDevMode } from '../../config';
 
 // This is an intentional override of the utility class u-full-width
 // to prevent it from overflowing the demo stage
@@ -28,6 +28,23 @@ export default class Twig extends React.Component {
 
   componentDidMount() {
     this.getHtml(this.props.data);
+    this.controller = new window.AbortController();
+    this.signal = this.controller.signal;
+    if (isDevMode) {
+      this.socket = new window.WebSocket(`ws://localhost:${websocketsPort}`);
+
+      // this.socket.addEventListener('open', event => {
+      //   this.socket.send('Hello Server!', event);
+      // });
+
+      this.socket.addEventListener('message', event => {
+        // console.log('Message from server ', event);
+        const { ext } = JSON.parse(event.data);
+        if (ext === '.twig') {
+          this.getHtml(this.props.data);
+        }
+      });
+    }
   }
 
   componentDidUpdate(prevProps) {
@@ -35,6 +52,13 @@ export default class Twig extends React.Component {
     const newData = JSON.stringify(this.props.data);
     if (oldData !== newData || prevProps.template !== this.props.template) {
       this.getHtml(this.props.data);
+    }
+  }
+
+  componentWillUnmount() {
+    this.controller.abort();
+    if (isDevMode) {
+      this.socket.close(1000, 'componentWillUnmount called');
     }
   }
 
@@ -64,6 +88,7 @@ export default class Twig extends React.Component {
         headers: {
           'Content-Type': 'application/json',
         },
+        signal: this.signal,
       })
       .then(res => res.json())
       .then(results => {
@@ -79,6 +104,12 @@ export default class Twig extends React.Component {
             html: results.message,
           });
         }
+      })
+      .catch(error => {
+        console.error(
+          `Error running getHtml for Twig.jsx ${this.props.template}`,
+          error,
+        );
       });
   }
 

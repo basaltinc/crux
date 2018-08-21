@@ -1,14 +1,14 @@
 import React from 'react';
+import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 
 const FeatureRequest = () => (
   <div className="body">
     <h4 className="eyebrow">About</h4>
     <h2>Feature Requests and Bugs</h2>
-    <hr />
-    <blockquote>
-      Ask, and you shall receive (in three to five business days). - Genie
-    </blockquote>
-    <hr />
+    <BlockQuoteWrapper>
+      Ask, and you shall receive (in three to five business days).
+      <footer>Genie</footer>
+    </BlockQuoteWrapper>
     <h4>Feature Requests</h4>
     <p>
       At Basalt, we strive to serve the needs of our customers, users of design
