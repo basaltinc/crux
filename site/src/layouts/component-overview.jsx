@@ -7,7 +7,7 @@ import { Details, Select } from '@basalt/bedrock-atoms';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Twig from '../components/twig';
-import { apiUrlBase } from '../../config';
+import { apiUrlBase, websocketsPort, isDevMode } from '../../config';
 import Overview from '../components/overview';
 
 const LoadableSchemaTable = Loadable({
@@ -45,9 +45,35 @@ export default class ComponentOverview extends Component {
       meta: {},
       ready: false,
     };
+    this.getData = this.getData.bind(this);
   }
 
   componentDidMount() {
+    this.getData();
+    if (isDevMode) {
+      this.socket = new window.WebSocket(`ws://localhost:${websocketsPort}`);
+
+      // this.socket.addEventListener('open', event => {
+      //   this.socket.send('Hello Server!', event);
+      // });
+
+      this.socket.addEventListener('message', event => {
+        const { ext } = JSON.parse(event.data);
+        // console.log('Message from server ', ext, event.data);
+        if (ext !== '.twig') {
+          this.getData();
+        }
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    if (isDevMode) {
+      this.socket.close(1000, 'componentWillUnmount called');
+    }
+  }
+
+  getData() {
     window
       .fetch(this.state.apiEndpoint)
       .then(res => res.json())

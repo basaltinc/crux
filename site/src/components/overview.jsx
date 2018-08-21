@@ -92,6 +92,7 @@ const Resizable = styled.div`
 const DemoGrid = styled.div`
   display: ${props => (props.size === 'full' ? 'block' : 'flex')};
   position: relative;
+  flex-grow: 1;
 `;
 
 const DemoGridControls = styled.div`
@@ -230,7 +231,9 @@ class Overview extends React.Component {
             </SchemaFormWrapperInner>
           </SchemaFormWrapper>
         </DemoGrid>
-        <CodeBlockWrapper>
+        <CodeBlockWrapper
+          style={{ display: this.state.fullScreen ? 'none' : 'block' }}
+        >
           <h4>Live Code Snippets</h4>
           <p>
             The following code snippets will generate the component in the live

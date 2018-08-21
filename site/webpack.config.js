@@ -63,7 +63,16 @@ const config = {
       });
     },
   },
-  plugins: [new Stylish(), new webpack.NamedModulesPlugin()],
+  plugins: [
+    new Stylish(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        DEV_MODE: JSON.stringify(process.env.DEV_MODE),
+      },
+    }),
+  ],
   performance: {
     hints: isProd ? 'error' : false,
     maxAssetSize: 300000,
