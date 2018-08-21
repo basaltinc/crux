@@ -80,6 +80,7 @@ const configs = [
 ].map(({ dir, entry, only = [], external = [] }) => {
   const packageJsonPath = resolve(dir, 'package.json');
   const pkg = require(packageJsonPath); // eslint-disable-line
+  const { dependencies = {} } = pkg;
   const distDir = dirname(resolve(dir, pkg.main));
 
   // Modules not matching any entry will be marked as external
@@ -93,7 +94,7 @@ const configs = [
   // ].filter(x => x);
 
   const externals = [
-    ...Object.keys(pkg.dependencies),
+    ...Object.keys(dependencies),
     ...external,
     'styled-components',
   ];
