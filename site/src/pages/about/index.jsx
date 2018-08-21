@@ -1,15 +1,15 @@
 import React from 'react';
+import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 
 const AboutPage = () => (
   <div className="body">
     <h4 className="eyebrow">About</h4>
     <h2>Get Started</h2>
-    <hr />
-    <blockquote className="definition">
-      “It’s art if can’t be explained. It’s fashion if no one asks for an
-      explanation. It’s design if it doesn’t need explanation.” — Wouter Stokkel
-    </blockquote>
-    <hr />
+    <BlockQuoteWrapper>
+      It’s art if can’t be explained. It’s fashion if no one asks for an
+      explanation. It’s design if it doesn’t need explanation.
+      <footer>Wouter Stokkel</footer>
+    </BlockQuoteWrapper>
     <p>
       Crux is a design system created by Basalt, a premier web development
       agency that specializes in design systems.

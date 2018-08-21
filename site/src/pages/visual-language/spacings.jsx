@@ -1,4 +1,5 @@
 import React from 'react';
+import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 
 import ApiDemo from '@basalt/bedrock-api-demo';
 import SpacingSwatches from '../../components/spacing';
@@ -27,12 +28,10 @@ export default class SpacingPage extends React.Component {
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Spacing</h2>
-          <hr />
-          <blockquote>
-            Whitespace is like air: it is necessary for design to breathe. –
-            Wojciech Zieliński
-          </blockquote>
-          <hr />
+          <BlockQuoteWrapper>
+            Whitespace is like air: it is necessary for design to breathe.
+            <footer>Wojciech Zieliński</footer>
+          </BlockQuoteWrapper>
           <p>
             Space is a fundamental concept to any visual design language. Space
             and proximity are powerful conveyors of relationships. Like things

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { apiUrlBase } from '../../../config';
 
 const ReleaseWrapper = styled.div`
@@ -85,11 +86,10 @@ class ReleaseNotesPage extends React.Component {
         <div className="body">
           <h4 className="eyebrow">About</h4>
           <h2>Release Notes</h2>
-          <hr />
-          <blockquote>
-            Take note, we are releasing some amazing things. - Evan Lovely, CTO
-          </blockquote>
-          <hr />
+          <BlockQuoteWrapper>
+            Take note, we are releasing some amazing things.
+            <footer>Evan Lovely, CTO</footer>
+          </BlockQuoteWrapper>
         </div>
         <ReleaseNoteList items={this.state.releaseNotes} />
       </div>
