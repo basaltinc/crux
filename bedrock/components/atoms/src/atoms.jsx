@@ -248,13 +248,41 @@ export const FormArrayItem = styled.div`
 `;
 
 export const BlockQuoteWrapper = styled.blockquote`
-  border-left: solid 3px ${props => props.color || 'red'};
-  padding-left: 1.5rem;
-  max-width: 80%;
+  border-left: solid 6px ${props => props.color || '#16394B'};
+  padding: 2.25rem 4rem;
   position: relative;
+  //box shadow
+  -moz-box-shadow: 2px 2px 15px ${props => props.color || '#16394B'};
+  -webkit-box-shadow: 2px 2px 15px ${props => props.color || '#16394B'};
+  box-shadow: 2px 2px 15px ${props => props.color || '#16394B'};
   footer {
-    font-size: 0.6em;
-    float: right;
-    color: darken(white, 15%);
+    font-size: 0.8em;
+    color: #888889;
+    margin-top: 0.5rem;
+  }
+  ::before {
+    content: '\\201C'; /*Unicode for Left Double Quote*/
+    /*Font*/
+    font-family: Georgia, serif;
+    font-size: 200px;
+    opacity: 0.2;
+    font-weight: bold;
+    color: #999;
+
+    /*Positioning*/
+    position: absolute;
+    left: 0px;
+    top: -53px;
+  }
+  ::after {
+    content: '\\201D'; /*Unicode for Right Double Quote*/
+    font-family: Georgia, serif;
+    font-size: 200px;
+    opacity: 0.2;
+    font-weight: bold;
+    color: #999;
+    position: absolute;
+    right: 40px;
+    bottom: -137px;
   }
 `;
