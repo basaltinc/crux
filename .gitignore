@@ -9,3 +9,4 @@ site/public2
 site/node_modules
 vendor
 dist
+lerna-debug.log
