@@ -44,6 +44,10 @@ module.exports = {
       type: 'array',
       title: 'Content Classes',
       description: 'Used for setting BG and text color.',
+      items: {
+        title: 'Class Name',
+        type: 'string',
+      },
     },
     buttons: {
       title: 'Buttons',
