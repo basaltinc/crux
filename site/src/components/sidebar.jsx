@@ -5,6 +5,14 @@ import { TextInputWrapper } from '@basalt/bedrock-atoms';
 import { FaChevronLeft } from 'react-icons/fa';
 import LinkList from './link-list';
 
+const TypeToFilter = styled.div`
+  > .eyebrow {
+    margin-top: 0;
+    font-weight: bold;
+  }
+  margin-bottom: 2rem;
+`;
+
 const SidebarStyled = styled.aside`
   display: flex;
   flex-grow: 0;
@@ -14,7 +22,7 @@ const SidebarStyled = styled.aside`
   background-color: #f2f3f3;
   transition: 0.6s;
   h4 {
-    margin: 1.25rem 0 0.25rem;
+    margin: 1.25rem 0 0;
   }
   ul {
     list-style: none;
@@ -215,17 +223,20 @@ class Sidebar extends Component {
     return (
       <SidebarStyled sidebarCollapsed={isCollapsed}>
         <SidebarColumn sidebarCollapsed={isCollapsed}>
-          <TextInputWrapper>
-            <input
-              type="text"
-              className="type-to-filter"
-              placeholder="Type to filter..."
-              value={this.state.filterTerm}
-              onChange={event =>
-                this.setState({ filterTerm: event.target.value })
-              }
-            />
-          </TextInputWrapper>
+          <TypeToFilter>
+            <h4 className="eyebrow">Filter List</h4>
+            <TextInputWrapper>
+              <input
+                type="text"
+                className="type-to-filter"
+                placeholder="Type to filter..."
+                value={this.state.filterTerm}
+                onChange={event =>
+                  this.setState({ filterTerm: event.target.value })
+                }
+              />
+            </TextInputWrapper>
+          </TypeToFilter>
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
         <SidebarColumn2 onClick={this.handleToggleClick}>

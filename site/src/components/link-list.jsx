@@ -7,7 +7,7 @@ const StyledUl = styled.ul`
   && {
     margin-bottom: 2.25rem;
     h4 {
-      margin: 0 0 0.75rem -0rem;
+      margin: 0;
       color: grey;
     }
   }
@@ -18,7 +18,7 @@ const StyledUl = styled.ul`
     position: relative;
   }
   li:not(:first-child) h4 {
-    margin-top: 2.25rem;
+    margin-top: 1.25rem;
   }
   a {
     text-decoration: none;
