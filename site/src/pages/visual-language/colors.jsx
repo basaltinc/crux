@@ -4,6 +4,7 @@ import ColorSwatches from '@basalt/bedrock-color-swatch';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 import ColorContrastBlock from '@basalt/bedrock-color-contrast-block';
 import ApiDemo from '@basalt/bedrock-api-demo';
+import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { apiUrlBase } from '../../../config';
 
 class ColorsPage extends React.Component {
@@ -29,12 +30,11 @@ class ColorsPage extends React.Component {
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Colors</h2>
-          <hr />
-          <blockquote>
+          <BlockQuoteWrapper>
             Mere colour, unspoiled by meaning, and unallied with definite form,
-            can speak to the soul in a thousand different ways. - Oscar Wilde
-          </blockquote>
-          <hr />
+            can speak to the soul in a thousand different ways.
+            <footer>Oscar Wilde</footer>
+          </BlockQuoteWrapper>
           <br />
           <p>
             Color is a defining element of any strong brand identity. Dedicated
