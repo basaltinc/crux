@@ -16,8 +16,6 @@ const TypeToFilter = styled.div`
   }
   position: relative;
   margin-bottom: 2rem;
-  transition: left 0.6s ease;
-  left: ${props => (props.sidebarCollapsed ? '-500px;' : '0px;')};
 `;
 
 const ClearFilterButton = styled.div`
@@ -39,12 +37,12 @@ const ClearFilterButton = styled.div`
 `;
 
 const SidebarStyled = styled.aside`
-  display: flex;
-  flex-grow: 0;
-  flex-shrink: 0;
-  max-width: 325px;
   position: relative;
-  background-color: #f2f3f3;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: row;
+  transition: width 0.6s;
+  width: ${props => (props.sidebarCollapsed ? '50px' : '300px')};
   transition: 0.6s;
   h4 {
     margin: 1.25rem 0 0;
@@ -54,40 +52,33 @@ const SidebarStyled = styled.aside`
     padding-left: 0;
     margin: 0;
   }
-  ${props =>
-    props.sidebarCollapsed
-      ? `
-    max-width: 50px;
-    `
-      : ``};
 `;
 
 const SidebarColumn = styled.div`
+  position: absolute;
+  width: calc(100% - 19px);
+  height: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  //transition: 0.6s;
-  * {
-    left: 0;
-    transition: left 0.6s;
-    ${props =>
-      props.sidebarCollapsed
-        ? `
-    left: -500px;
-    `
-        : ``};
+  background-color: #f2f3f3;
+  padding: ${props => (props.sidebarCollapsed ? '25px' : '2rem')};
+  transition: 0.6s;
+  > * {
+    left: ${props => (props.sidebarCollapsed ? '-300px' : '0')};
+    opacity: ${props => (props.sidebarCollapsed ? '0' : '1')};
   }
 `;
 
-const SidebarColumn2 = SidebarColumn.extend`
+const SidebarTrayHandle = styled.div`
   position: absolute;
-  padding: 0;
-  right: -20px;
+  right: 0;
+  background-color: white;
+  box-sizing: border-box;
   height: 100%;
   border-left: 1px solid lightgray;
+  transition: all 0.3s;
   &:hover {
-    transition: 0.6s;
-    border-left: solid 3px #e1c933;
+    border-left: solid 1px #e1c933;
     color: #e1c933;
     cursor: pointer;
   }
@@ -279,9 +270,9 @@ class Sidebar extends Component {
           </TypeToFilter>
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
-        <SidebarColumn2 onClick={this.handleToggleClick}>
+        <SidebarTrayHandle onClick={this.handleToggleClick}>
           <ToggleChevron sidebarCollapsed={isCollapsed} />
-        </SidebarColumn2>
+        </SidebarTrayHandle>
       </SidebarStyled>
     );
   }

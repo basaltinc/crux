@@ -36,14 +36,14 @@ const DeviceListItem = styled.li`
 `;
 
 const DeviceWidthUl = styled.ul`
+  max-width: calc(75vw - 2 * var(--spacing-l));
   padding-top: 20px;
 `;
-// @todo this isn't really a longterm solution for the overflow (set max-width would ideally go away) but ... we couldn't figure out another way.
+
 const BreakpointsWrapper = styled.div`
-  overflow-x: scroll;
-  overflow-y: hidden;
+  width: 100%;
   position: relative;
-  max-width: 75vw;
+  overflow-y: hidden;
   li {
     list-style-type: none;
   }

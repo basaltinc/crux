@@ -35,7 +35,7 @@ const SiteHeaderWrapper = styled.nav`
 `;
 
 const SiteHeaderBrandWrapper = styled.div`
-  padding-left: 20px;
+  padding-left: 2rem;
 `;
 
 const SiteHeaderLink = styled(Link)`
@@ -52,28 +52,56 @@ const SiteHeaderNavLink = styled(NavLink)`
   }
 `;
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, handleClick }) => (
   <SiteHeaderWrapper>
     <SiteHeaderBrandWrapper>
       <h3 style={{ margin: 0 }}>
-        <SiteHeaderLink to="/">{siteTitle}</SiteHeaderLink>
+        <SiteHeaderLink
+          to="/"
+          onClick={() => handleClick()}
+          onKeyPress={() => handleClick()}
+        >
+          {siteTitle}
+        </SiteHeaderLink>
       </h3>
     </SiteHeaderBrandWrapper>
     <div>
       <ul>
         <li>
-          <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
+          <SiteHeaderNavLink
+            to="/about"
+            onClick={() => handleClick()}
+            onKeyPress={() => handleClick()}
+          >
+            Get Started
+          </SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink to="/visual-language">
+          <SiteHeaderNavLink
+            to="/visual-language"
+            onClick={() => handleClick()}
+            onKeyPress={() => handleClick()}
+          >
             Visual Language
           </SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>
+          <SiteHeaderNavLink
+            to="/patterns"
+            onClick={() => handleClick()}
+            onKeyPress={() => handleClick()}
+          >
+            Patterns
+          </SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
+          <SiteHeaderNavLink
+            to="/resources"
+            onClick={() => handleClick()}
+            onKeyPress={() => handleClick()}
+          >
+            Resources
+          </SiteHeaderNavLink>
         </li>
         <li>
           <a
@@ -97,10 +125,12 @@ const Header = ({ siteTitle }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  handleClick: PropTypes.func,
 };
 
 Header.defaultProps = {
   siteTitle: 'Site Title',
+  handleClick: () => console.log,
 };
 
 export default Header;
