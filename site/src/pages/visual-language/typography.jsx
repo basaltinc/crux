@@ -1,8 +1,10 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { image, paragraph, text, title } from '@basalt/demo-data';
+import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Spinner from '@basalt/bedrock-spinner';
+
 import { apiUrlBase } from '../../../config';
 import './demos.css';
 
@@ -88,13 +90,11 @@ class TypographyPage extends React.Component {
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Typography</h2>
-          <blockquote>
+          <BlockQuoteWrapper>
             <strong>Typography is the voice of a brand.</strong> This set of
             typefaces best represent Basalt’s brand attributes and personality.
             They should be used across all digital and print applications.
-          </blockquote>
-          <hr />
-
+          </BlockQuoteWrapper>
           <div className="demo-block">
             <h3 className="demo-block__title">Font sizes</h3>
             <p>
