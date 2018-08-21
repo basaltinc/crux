@@ -10,7 +10,10 @@ const TypeToFilter = styled.div`
     margin-top: 0;
     font-weight: bold;
   }
+  position: relative;
   margin-bottom: 2rem;
+  transition: left 0.6s ease;
+  left: ${props => (props.sidebarCollapsed ? '-500px;' : '0px;')};
 `;
 
 const SidebarStyled = styled.aside`
@@ -176,12 +179,13 @@ const aboutLinks = [
 class Sidebar extends Component {
   constructor(props) {
     super(props);
-    this.handleToggleClick = this.handleToggleClick.bind(this);
     this.state = {
       sidebarCollapsed: props.isInitiallyCollapsed,
       filterTerm: '',
       items: [],
     };
+
+    this.handleToggleClick = this.handleToggleClick.bind(this);
   }
 
   static getDerivedStateFromProps(props) {
@@ -223,7 +227,7 @@ class Sidebar extends Component {
     return (
       <SidebarStyled sidebarCollapsed={isCollapsed}>
         <SidebarColumn sidebarCollapsed={isCollapsed}>
-          <TypeToFilter>
+          <TypeToFilter sidebarCollapsed={isCollapsed}>
             <h4 className="eyebrow">Filter List</h4>
             <TextInputWrapper>
               <input
