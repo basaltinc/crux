@@ -80,7 +80,36 @@ const X = styled(FaTimes)`
 `;
 
 class Header extends React.Component {
-  static navigationLinks() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      windowWidth: window.innerWidth,
+      mobileNavVisible: false,
+    };
+    this.handleNavClick = this.handleNavClick.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize.bind(this));
+  }
+
+  handleResize() {
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
+  handleNavClick() {
+    if (!this.state.mobileNavVisible) {
+      this.setState({ mobileNavVisible: true });
+    } else {
+      this.setState({ mobileNavVisible: false });
+    }
+  }
+
+  navigationLinks() {
     return (
       <ul>
         <li>
@@ -116,42 +145,12 @@ class Header extends React.Component {
     );
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      windowWidth: window.innerWidth,
-      mobileNavVisible: false,
-    };
-    this.handleNavClick = this.handleNavClick.bind(this);
-    this.navigationLinks = this.navigationLinks.bind(this);
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize.bind(this));
-  }
-
-  handleResize() {
-    this.setState({ windowWidth: window.innerWidth });
-  }
-
-  handleNavClick() {
-    if (!this.state.mobileNavVisible) {
-      this.setState({ mobileNavVisible: true });
-    } else {
-      this.setState({ mobileNavVisible: false });
-    }
-  }
-
   renderMobileNav() {
     if (this.state.mobileNavVisible) {
       return this.navigationLinks();
     }
   }
-
+  
   renderNavigation() {
     if (this.state.windowWidth <= 900) {
       return (
