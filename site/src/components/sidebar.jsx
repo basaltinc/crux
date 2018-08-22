@@ -25,7 +25,7 @@ const ClearFilterButton = styled.div`
   height: 33px;
   width: 33px;
   flex-shrink: 0;
-  display: flex;
+  display: ${props => (props.isVisible ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   &:hover {
@@ -41,7 +41,6 @@ const SidebarStyled = styled.aside`
   display: flex;
   flex-shrink: 0;
   flex-direction: row;
-  transition: width 0.6s;
   width: ${props => (props.sidebarCollapsed ? '50px' : '300px')};
   transition: 0.6s;
   h4 {
@@ -218,6 +217,12 @@ class Sidebar extends Component {
     };
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.handleFilterReset();
+    }
+  }
+
   handleToggleClick() {
     this.setState(prevState => ({
       sidebarCollapsed: !prevState.sidebarCollapsed,
@@ -263,6 +268,7 @@ class Sidebar extends Component {
                 role="button"
                 onClick={this.handleFilterReset}
                 onKeyPress={this.handleFilterReset}
+                isVisible={!!this.state.filterTerm}
               >
                 <i className="icon--close" />
               </ClearFilterButton>
@@ -293,6 +299,9 @@ Sidebar.propTypes = {
       id: PropTypes.string,
     }),
   ),
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 export default Sidebar;

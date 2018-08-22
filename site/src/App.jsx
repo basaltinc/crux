@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import Loadable from 'react-loadable';
 import Spinner from '@basalt/bedrock-spinner';
@@ -177,10 +182,6 @@ export default class App extends React.Component {
       });
   }
 
-  resetFilters() {
-    console.log('reset filters');
-  }
-
   render() {
     if (!this.state.ready) {
       return <Spinner />;
@@ -205,7 +206,15 @@ export default class App extends React.Component {
                   <div>
                     <Header siteTitle="Crux" />
                     <Site>
-                      <LoadableSidebar patterns={this.state.patterns} />
+                      <Route
+                        path="/"
+                        component={routeProps => (
+                          <LoadableSidebar
+                            {...routeProps}
+                            patterns={this.state.patterns}
+                          />
+                        )}
+                      />
                       <MainContent>
                         <Switch>
                           <Route
@@ -303,13 +312,7 @@ export default class App extends React.Component {
                               return <Component />;
                             }}
                           />
-                          <Route
-                            render={() => (
-                              <div>
-                                <h3>Page Not Found ¯\_(ツ)_/¯</h3>
-                              </div>
-                            )}
-                          />
+                          <Redirect to="/" />
                         </Switch>
                       </MainContent>
                     </Site>

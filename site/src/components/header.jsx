@@ -52,56 +52,28 @@ const SiteHeaderNavLink = styled(NavLink)`
   }
 `;
 
-const Header = ({ siteTitle, handleClick }) => (
+const Header = ({ siteTitle }) => (
   <SiteHeaderWrapper>
     <SiteHeaderBrandWrapper>
       <h3 style={{ margin: 0 }}>
-        <SiteHeaderLink
-          to="/"
-          onClick={() => handleClick()}
-          onKeyPress={() => handleClick()}
-        >
-          {siteTitle}
-        </SiteHeaderLink>
+        <SiteHeaderLink to="/">{siteTitle}</SiteHeaderLink>
       </h3>
     </SiteHeaderBrandWrapper>
     <div>
       <ul>
         <li>
-          <SiteHeaderNavLink
-            to="/about"
-            onClick={() => handleClick()}
-            onKeyPress={() => handleClick()}
-          >
-            Get Started
-          </SiteHeaderNavLink>
+          <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink
-            to="/visual-language"
-            onClick={() => handleClick()}
-            onKeyPress={() => handleClick()}
-          >
+          <SiteHeaderNavLink to="/visual-language">
             Visual Language
           </SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink
-            to="/patterns"
-            onClick={() => handleClick()}
-            onKeyPress={() => handleClick()}
-          >
-            Patterns
-          </SiteHeaderNavLink>
+          <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink
-            to="/resources"
-            onClick={() => handleClick()}
-            onKeyPress={() => handleClick()}
-          >
-            Resources
-          </SiteHeaderNavLink>
+          <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
         </li>
         <li>
           <a
@@ -125,12 +97,10 @@ const Header = ({ siteTitle, handleClick }) => (
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
-  handleClick: PropTypes.func,
 };
 
 Header.defaultProps = {
   siteTitle: 'Site Title',
-  handleClick: () => console.log,
 };
 
 export default Header;
