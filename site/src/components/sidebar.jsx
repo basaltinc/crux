@@ -44,12 +44,16 @@ const SidebarStyled = styled.aside`
   width: ${props => (props.sidebarCollapsed ? '50px' : '300px')};
   transition: 0.6s;
   h4 {
+    white-space: nowrap;
     margin: 1.25rem 0 0;
   }
   ul {
     list-style: none;
     padding-left: 0;
     margin: 0;
+  }
+  a {
+    white-space: nowrap;
   }
 `;
 
@@ -111,7 +115,7 @@ const resourcesLinks = [
     path: '/resources/logo-usage',
   },
   {
-    title: 'Photography Guidelines',
+    title: 'Photo Guidelines',
     id: 'photography-guidelines',
     path: '/resources/photography-guidelines',
   },
@@ -183,7 +187,7 @@ const aboutLinks = [
   },
   {
     path: '/about/feature-requests',
-    title: 'Feature Requests and Bugs',
+    title: 'Requests & Bugs',
     id: 'feature-requests',
   },
 ];
