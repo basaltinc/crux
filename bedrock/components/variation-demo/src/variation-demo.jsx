@@ -109,6 +109,7 @@ export class VariationDemo extends Component {
         <div>
           <div
             style={{
+              padding: '0 15px',
               borderBottom: `1px solid ${colorTheme}`,
             }}
           >

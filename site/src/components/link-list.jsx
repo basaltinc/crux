@@ -54,7 +54,7 @@ const LinkList = ({ items, basePath }) => (
         const path = item.path ? item.path : `${basePath}${item.id}`;
         return (
           <li key={item.id}>
-            <NavLink to={path} className="h5">
+            <NavLink to={path} className="h5" exact>
               {item.title}
             </NavLink>
           </li>

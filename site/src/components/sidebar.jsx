@@ -51,6 +51,9 @@ const SidebarStyled = styled.aside`
     padding-left: 0;
     margin: 0;
   }
+  a {
+    white-space: ${props => (props.sidebarCollapsed ? 'nowrap' : 'normal')};
+  }
 `;
 
 const SidebarColumn = styled.div`
