@@ -80,35 +80,6 @@ const X = styled(FaTimes)`
 `;
 
 class Header extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      windowWidth: window.innerWidth,
-      mobileNavVisible: false,
-    };
-    this.handleNavClick = this.handleNavClick.bind(this);
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize.bind(this));
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize.bind(this));
-  }
-
-  handleResize() {
-    this.setState({ windowWidth: window.innerWidth });
-  }
-
-  handleNavClick() {
-    if (!this.state.mobileNavVisible) {
-      this.setState({ mobileNavVisible: true });
-    } else {
-      this.setState({ mobileNavVisible: false });
-    }
-  }
-
   static navigationLinks() {
     return (
       <ul>
@@ -143,6 +114,35 @@ class Header extends React.Component {
         </li>
       </ul>
     );
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      windowWidth: window.innerWidth,
+      mobileNavVisible: false,
+    };
+    this.handleNavClick = this.handleNavClick.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize.bind(this));
+  }
+
+  handleResize() {
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
+  handleNavClick() {
+    if (!this.state.mobileNavVisible) {
+      this.setState({ mobileNavVisible: true });
+    } else {
+      this.setState({ mobileNavVisible: false });
+    }
   }
 
   renderMobileNav() {
