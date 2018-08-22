@@ -107,7 +107,6 @@ const DemoGridControls = styled.div`
   align-items: center;
   margin-bottom: 1.5rem;
   > * {
-    margin-left: 10px;
     margin-bottom: 0;
   }
 `;
