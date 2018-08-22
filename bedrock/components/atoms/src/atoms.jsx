@@ -253,10 +253,6 @@ export const BlockQuoteWrapper = styled.blockquote`
   padding: 2.25rem 4rem;
   position: relative;
   margin: 2rem 2.25rem;
-  //box shadow
-  //-moz-box-shadow: 2px 2px 15px #ccc;
-  //-webkit-box-shadow: 2px 2px 15px #ccc;
-  //box-shadow: 2px 2px 15px #ccc;
   footer {
     font-size: 0.8em;
     color: #888889;

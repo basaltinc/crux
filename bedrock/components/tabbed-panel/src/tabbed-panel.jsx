@@ -10,7 +10,7 @@ const ShadowWrap = styled.div`
   border-radius: var(--border-radius);
   border-width: 1px 5px 1px 1px;
   border-style: solid;
-  border-color: ${props => props.colorTheme};
+  border-color: ${props => props.theme.colors.borders};
   // @todo We can bring this design element back in, 
   // @todo but it needs to be consistent with the rest of the site
   // &:after {

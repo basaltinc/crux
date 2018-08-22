@@ -9,7 +9,7 @@ const SiteHeaderWrapper = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 0;
-  font-family: AvenirMedium;
+  font-family: AvenirMedium, Helvetica, sans-serif;
   ul {
     list-style: none;
     display: flex;

@@ -67,6 +67,10 @@ const configs = [
     dir: './packages/utils',
     entry: 'src/index.js',
   },
+  {
+    dir: './packages/core',
+    entry: 'src/index.js',
+  },
   // {
   //   dir: './packages/core',
   //   entry: 'src/index.js',
@@ -93,7 +97,6 @@ const configs = [
   //   // ),
   // ].filter(x => x);
 
-  const dependencies = pkg.dependencies ? pkg.dependencies : {};
   const externals = [
     ...Object.keys(dependencies),
     ...external,
