@@ -9,7 +9,7 @@ const SiteNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
   font-family: AvenirMedium, Helvetica, sans-serif;
   ul {
     list-style: none;
