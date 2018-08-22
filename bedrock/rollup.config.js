@@ -97,7 +97,6 @@ const configs = [
   //   // ),
   // ].filter(x => x);
 
-  const dependencies = pkg.dependencies ? pkg.dependencies : {};
   const externals = [
     ...Object.keys(dependencies),
     ...external,
