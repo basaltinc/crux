@@ -12,7 +12,7 @@ const meta = {
       schema,
     },
   ],
-  demoSize: 's',
+  demoSize: 'm',
 };
 
 module.exports = {

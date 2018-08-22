@@ -19,6 +19,7 @@ const CustomFieldWrapper = styled.div`
   .field-radio-group {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     height: 33px;
     font-size: 18px;
     background-color: white;
