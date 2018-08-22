@@ -109,7 +109,7 @@ class Header extends React.Component {
     }
   }
 
-  navigationLinks() {
+  static navigationLinks() {
     return (
       <ul>
         <li>
@@ -147,10 +147,10 @@ class Header extends React.Component {
 
   renderMobileNav() {
     if (this.state.mobileNavVisible) {
-      return this.navigationLinks();
+      return Header.navigationLinks();
     }
   }
-  
+
   renderNavigation() {
     if (this.state.windowWidth <= 900) {
       return (
@@ -165,7 +165,7 @@ class Header extends React.Component {
     }
     return (
       <div key={7} className="nav_menu">
-        {this.navigationLinks()}
+        {Header.navigationLinks()}
       </div>
     );
   }
