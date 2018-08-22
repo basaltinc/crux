@@ -45,5 +45,11 @@ module.exports = {
         xlarge: '6',
       },
     },
+    {
+      demoItems: '9',
+      rowItems: {
+        medium: '3',
+      },
+    },
   ],
 };
