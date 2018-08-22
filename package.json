@@ -23,7 +23,7 @@
     "lint:staged:site": "cd site && yarn lint:staged",
     "pick": "pick-npm-run-all",
     "postversion": "git push && git push --tags",
-    "precommit": "yarn lint:staged:site && yarn lint:staged:bedrock",
+    "precommit": "yarn lint:staged:site || true && yarn lint:staged:bedrock || true",
     "prepush": "yarn test",
     "start": "yarn build:assets && yarn build:changelog && yarn build:bedrock && run-p --print-label watch:*",
     "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",

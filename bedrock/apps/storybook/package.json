@@ -9,6 +9,7 @@
     "start": "start-storybook -p 9001 -c .storybook"
   },
   "dependencies": {
+    "@basalt/bedrock-core": "^0.1.1",
     "@storybook/addon-actions": "^3.4.10",
     "@storybook/addon-info": "^3.4.10",
     "@storybook/react": "^3.4.10",
