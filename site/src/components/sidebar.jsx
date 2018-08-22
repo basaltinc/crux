@@ -33,7 +33,7 @@ const SidebarColumn = styled.div`
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  //transition: 0.6s;
+  transition: 0.6s;
   * {
     left: 0;
     transition: left 0.6s;

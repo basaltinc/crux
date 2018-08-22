@@ -251,9 +251,6 @@ export const BlockQuoteWrapper = styled.blockquote`
   border-left: solid 6px ${props => props.color || '#16394B'};
   padding: 2.25rem 4rem;
   position: relative;
-  //box shadow
-  -moz-box-shadow: 2px 2px 15px #ccc;
-  -webkit-box-shadow: 2px 2px 15px #ccc;
   box-shadow: 2px 2px 15px #ccc;
   footer {
     font-size: 0.8em;
