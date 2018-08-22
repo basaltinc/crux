@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import Loadable from 'react-loadable';
 import Spinner from '@basalt/bedrock-spinner';
@@ -143,6 +148,7 @@ const Site = styled.div`
   justify-content: center;
   min-height: calc(100vh - 229px);
   width: 100%;
+  max-width: 100vw;
 `;
 
 const MainContent = styled.div`
@@ -200,7 +206,15 @@ export default class App extends React.Component {
                   <div>
                     <Header siteTitle="Crux" />
                     <Site>
-                      <LoadableSidebar patterns={this.state.patterns} />
+                      <Route
+                        path="/"
+                        component={routeProps => (
+                          <LoadableSidebar
+                            {...routeProps}
+                            patterns={this.state.patterns}
+                          />
+                        )}
+                      />
                       <MainContent>
                         <Switch>
                           <Route
@@ -298,13 +312,7 @@ export default class App extends React.Component {
                               return <Component />;
                             }}
                           />
-                          <Route
-                            render={() => (
-                              <div>
-                                <h3>Page Not Found ¯\_(ツ)_/¯</h3>
-                              </div>
-                            )}
-                          />
+                          <Redirect to="/" />
                         </Switch>
                       </MainContent>
                     </Site>

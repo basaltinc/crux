@@ -7,7 +7,7 @@ const StyledUl = styled.ul`
   && {
     margin-bottom: 2.25rem;
     h4 {
-      margin: 0 0 0.75rem -0rem;
+      margin: 0;
       color: grey;
     }
   }
@@ -18,7 +18,7 @@ const StyledUl = styled.ul`
     position: relative;
   }
   li:not(:first-child) h4 {
-    margin-top: 2.25rem;
+    margin-top: 1.25rem;
   }
   a {
     text-decoration: none;
@@ -54,7 +54,7 @@ const LinkList = ({ items, basePath }) => (
         const path = item.path ? item.path : `${basePath}${item.id}`;
         return (
           <li key={item.id}>
-            <NavLink to={path} className="h5">
+            <NavLink to={path} className="h5" exact>
               {item.title}
             </NavLink>
           </li>

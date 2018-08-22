@@ -35,7 +35,7 @@ const SiteHeaderWrapper = styled.nav`
 `;
 
 const SiteHeaderBrandWrapper = styled.div`
-  padding-left: 20px;
+  padding-left: 2rem;
 `;
 
 const SiteHeaderLink = styled(Link)`

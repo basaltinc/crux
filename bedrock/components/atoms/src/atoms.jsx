@@ -248,10 +248,11 @@ export const FormArrayItem = styled.div`
 `;
 
 export const BlockQuoteWrapper = styled.blockquote`
+  border: solid 1px lightgrey;
   border-left: solid 6px ${props => props.color || '#16394B'};
   padding: 2.25rem 4rem;
   position: relative;
-  box-shadow: 2px 2px 15px #ccc;
+  margin: 2rem 2.25rem;
   footer {
     font-size: 0.8em;
     color: #888889;
@@ -261,7 +262,7 @@ export const BlockQuoteWrapper = styled.blockquote`
     content: '\\201C'; /*Unicode for Left Double Quote*/
     /*Font*/
     font-family: Georgia, serif;
-    font-size: 200px;
+    font-size: 130px;
     opacity: 0.2;
     font-weight: bold;
     color: #999;
@@ -269,17 +270,17 @@ export const BlockQuoteWrapper = styled.blockquote`
     /*Positioning*/
     position: absolute;
     left: 0px;
-    top: -53px;
+    top: -30px;
   }
   ::after {
     content: '\\201D'; /*Unicode for Right Double Quote*/
     font-family: Georgia, serif;
-    font-size: 200px;
+    font-size: 130px;
     opacity: 0.2;
     font-weight: bold;
     color: #999;
     position: absolute;
     right: 40px;
-    bottom: -137px;
+    bottom: -85px;
   }
 `;
