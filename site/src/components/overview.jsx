@@ -95,13 +95,17 @@ const DemoGrid = styled.div`
   flex-grow: 1;
 `;
 
+const FlexWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+
 const DemoGridControls = styled.div`
-  position: absolute;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  bottom: 0;
-  right: 0;
+  margin-bottom: 1.5rem;
   > * {
     margin-left: 10px;
     margin-bottom: 0;
@@ -178,7 +182,9 @@ class Overview extends React.Component {
     `;
     return (
       <OverviewWrapper {...this.props} {...this.state}>
-        <div style={{ position: 'relative', marginBottom: '1rem' }}>
+        <FlexWrapper>
+          <h4>Live Demo</h4>
+
           <DemoGridControls>
             <Select
               items={sizes}
@@ -198,8 +204,7 @@ class Overview extends React.Component {
               Toggle Fullscreen
             </button>
           </DemoGridControls>
-          <h4>Live Demo</h4>
-        </div>
+        </FlexWrapper>
         <DemoGrid size={this.state.size}>
           <DemoStage size={this.state.size}>
             <Resizable>
