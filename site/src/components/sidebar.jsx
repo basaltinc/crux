@@ -60,8 +60,8 @@ const SidebarColumn2 = SidebarColumn.extend`
   }
 `;
 
-const ToggleChevron = styled(FaChevronLeft)`
-  //transition: 0.1s;
+const ToggleChevronWrapper = styled.span`
+  transition: 0.3s transform linear;
   margin-top: 50vh;
   ${props =>
     props.sidebarCollapsed
@@ -229,7 +229,9 @@ class Sidebar extends Component {
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
         <SidebarColumn2 onClick={this.handleToggleClick}>
-          <ToggleChevron sidebarCollapsed={isCollapsed} />
+          <ToggleChevronWrapper sidebarCollapsed={isCollapsed}>
+            <FaChevronLeft />
+          </ToggleChevronWrapper>
         </SidebarColumn2>
       </SidebarStyled>
     );
