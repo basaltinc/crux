@@ -2,13 +2,14 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
-const SiteHeaderWrapper = styled.nav`
+const SiteNav = styled.nav`
   background: #16394b;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
   font-family: AvenirMedium, Helvetica, sans-serif;
   ul {
     list-style: none;
@@ -34,8 +35,22 @@ const SiteHeaderWrapper = styled.nav`
   }
 `;
 
-const SiteHeaderBrandWrapper = styled.div`
-  padding-left: 20px;
+const MobileNav = styled.div`
+  display: block;
+  ul {
+    background-color: #16394b;
+    z-index: 3;
+    display: block;
+    text-align: right;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    padding: 2rem 1rem 0 1rem;
+  }
+  li {
+    padding: 1rem 1rem 1rem 8rem;
+    border-top: solid 1px white;
+  }
 `;
 
 const SiteHeaderLink = styled(Link)`
@@ -52,14 +67,56 @@ const SiteHeaderNavLink = styled(NavLink)`
   }
 `;
 
-const Header = ({ siteTitle }) => (
-  <SiteHeaderWrapper>
-    <SiteHeaderBrandWrapper>
-      <h3 style={{ margin: 0 }}>
-        <SiteHeaderLink to="/">{siteTitle}</SiteHeaderLink>
-      </h3>
-    </SiteHeaderBrandWrapper>
-    <div>
+const Hamburger = styled(FaBars)`
+  color: white;
+  float: right;
+  font-size: 1.5rem;
+`;
+
+const X = styled(FaTimes)`
+  color: white;
+  float: right;
+  font-size: 1.5rem;
+`;
+
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      windowWidth: window.innerWidth,
+      mobileNavVisible: false,
+    };
+    this.handleNavClick = this.handleNavClick.bind(this);
+  }
+
+  handleResize() {
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize.bind(this));
+  }
+
+  renderMobileNav() {
+    if (this.state.mobileNavVisible) {
+      return this.navigationLinks();
+    }
+  }
+
+  handleNavClick() {
+    if (!this.state.mobileNavVisible) {
+      this.setState({ mobileNavVisible: true });
+    } else {
+      this.setState({ mobileNavVisible: false });
+    }
+  }
+
+  navigationLinks() {
+    return (
       <ul>
         <li>
           <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
@@ -91,9 +148,41 @@ const Header = ({ siteTitle }) => (
           </a>
         </li>
       </ul>
-    </div>
-  </SiteHeaderWrapper>
-);
+    );
+  }
+
+  renderNavigation() {
+    if (this.state.windowWidth <= 900) {
+      return (
+        <MobileNav>
+          {this.renderMobileNav()}
+          {this.state.mobileNavVisible && (
+            <X onClick={this.handleNavClick} />
+          )}
+          {!this.state.mobileNavVisible && (
+            <Hamburger onClick={this.handleNavClick} />
+          )}
+        </MobileNav>
+      );
+    }
+    return (
+      <div key={7} className="nav_menu">
+        {this.navigationLinks()}
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <SiteNav>
+        <h3 style={{ margin: 0 }}>
+          <SiteHeaderLink to="/">{this.props.siteTitle}</SiteHeaderLink>
+        </h3>
+        {this.renderNavigation()}
+      </SiteNav>
+    );
+  }
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
