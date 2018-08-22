@@ -45,7 +45,8 @@ function LogoUsage() {
             <li>Specialized</li>
             <li>Focused</li>
             <li>Small</li>
-            <li>Intimate Adventurous</li>
+            <li>Intimate</li>
+            <li>Adventurous</li>
             <li>Treasure Hunters</li>
             <li>Opinionated</li>
             <li>Iterative</li>
