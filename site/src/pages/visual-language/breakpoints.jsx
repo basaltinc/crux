@@ -16,13 +16,11 @@ const BreakpointListItem = styled.li`
     color: white;
   }
   &:hover {
-    // stylelint-disable max-nesting-depth, selector-max-specificity
     border-left-color: hsla(0, 0%, 35%);
     z-index: 2;
     > .label {
       background: hsl(0, 0%, 35%);
     }
-    // stylelint-enable max-nesting-depth, selector-max-specificity
   }
 `;
 
