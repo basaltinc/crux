@@ -3,13 +3,13 @@ import { join, parse } from 'path';
 import globby from 'globby';
 import Ajv from 'ajv';
 import chokidar from 'chokidar';
-import events, { eventNames } from '../server/events';
+import events, { eventNames } from '../events';
 import patternMetaSchema from './pattern-meta.schema.json';
-import { isDevMode } from '../config';
+import { isDevMode } from '../../config';
 
 const ajv = new Ajv();
 const validatePatternMetaSchema = ajv.compile(patternMetaSchema);
-const patternsDir = join(__dirname, '../../source/_patterns/');
+const patternsDir = join(__dirname, '../../../source/_patterns/');
 const patternsDirs = globby.sync([join(patternsDir, '*/*')], {
   expandDirectories: true,
   onlyFiles: false,

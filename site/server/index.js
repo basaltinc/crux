@@ -2,9 +2,9 @@ import express from 'express';
 import WebSocket from 'ws';
 import bodyParser from 'body-parser';
 import { join } from 'path';
-import api from './api';
-import events, { eventNames } from './server/events';
-import { isDevMode, websocketsPort } from './config';
+import api from './api/index';
+import events, { eventNames } from './events';
+import { isDevMode, websocketsPort } from '../config';
 
 const port = process.env.PORT || 3042;
 const app = express();
@@ -19,6 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
+// paths relative to CWD, which is `../`
 app.use(express.static('../source/dist'));
 app.use(express.static('dist'));
 app.use(express.static('public'));
@@ -27,7 +28,7 @@ app.use(express.static('public2'));
 app.use('/api', api);
 
 app.get('*', (req, res) => {
-  res.sendFile(join(__dirname, 'public/index.html'));
+  res.sendFile(join(__dirname, '../public/index.html'));
 });
 
 if (isDevMode) {

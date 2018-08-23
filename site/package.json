@@ -18,9 +18,9 @@
     "test": "yarn run lint && jest",
     "Xwatch:webpack": "wp --watch --run-dev",
     "watch:jsdoc": "nodemon --watch data/ --exec 'yarn run build:jsdoc'",
-    "watch:server": "nodemon --watch server.js --watch api/ --watch data/ --exec 'run-p build:apidoc serve' ",
+    "watch:server": "nodemon --watch server/ --exec 'yarn serve' ",
     "serve:webpack": "webpack-dev-server --info=false",
-    "serve": "babel-node --config-file ./.babelrc server.js",
+    "serve": "babel-node --config-file ./.babelrc server/index.js",
     "wp": "wp"
   },
   "dependencies": {
