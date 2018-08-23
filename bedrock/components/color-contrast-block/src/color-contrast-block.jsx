@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { convertColor } from '@basalt/bedrock-utils';
-import { Details, SelectStyledWrapper } from '@basalt/bedrock-atoms';
+import { Details, Select } from '@basalt/bedrock-atoms';
 
 const ColorContrastPlayground = styled.div`
   width: 100%;
@@ -71,7 +71,7 @@ class ColorContrastBlock extends React.Component {
       },
     };
     this.checkColorContrast = this.checkColorContrast.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -99,54 +99,53 @@ class ColorContrastBlock extends React.Component {
         });
       });
   }
-
-  handleChange(type, color) {
-    this.setState(
-      {
-        [type]: color,
-      },
-      () => this.checkColorContrast(),
-    );
-  }
+  //
+  // handleChange(type, color) {
+  //   this.setState(
+  //     {
+  //       [type]: color,
+  //     },
+  //     () => this.checkColorContrast(),
+  //   );
+  // }
 
   render() {
-    const bgColors = this.props.bgColors.map(color => (
-      <option value={color.value} key={color.name}>
-        {color.name}
-      </option>
-    ));
-    const textColors = this.props.textColors.map(color => (
-      <option value={color.value} key={color.name}>
-        {color.name}
-      </option>
-    ));
-
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
         <AccessabilityDropdowns>
           Background Color:
-          <SelectStyledWrapper>
-            <select
-              value={this.state.bgColor}
-              onChange={event =>
-                this.handleChange('bgColor', event.target.value)
-              }
-            >
-              {bgColors}
-            </select>
-          </SelectStyledWrapper>
+          {this.props.bgColors.length > 0 && (
+            <Select
+              value={this.state.bgColor.value}
+              items={this.props.bgColors.map(color => ({
+                value: color.value,
+                key: color.name,
+                title: color.name,
+              }))}
+              handleChange={value => {
+                this.setState({ bgColor: value }, () =>
+                  this.checkColorContrast(),
+                );
+              }}
+            />
+          )}
           Text Color:
-          <SelectStyledWrapper>
-            <select
-              value={this.state.textColor}
-              onChange={event =>
-                this.handleChange('textColor', event.target.value)
-              }
-            >
-              {textColors}
-            </select>
-          </SelectStyledWrapper>
+          {this.props.textColors.length > 0 && (
+            <Select
+              value={this.state.textColor.value}
+              items={this.props.textColors.map(color => ({
+                value: color.value,
+                key: color.name,
+                title: color.name,
+              }))}
+              handleChange={value => {
+                this.setState({ textColor: value }, () =>
+                  this.checkColorContrast(),
+                );
+              }}
+            />
+          )}
         </AccessabilityDropdowns>
         <ColorContrastPlayground bgColor={this.state.bgColor}>
           <LargeText color={this.state.textColor}>
