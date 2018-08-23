@@ -91,7 +91,7 @@ const ToggleChevron = styled(FaChevronLeft)`
   //transition: 0.1s;
   margin-top: 50vh;
   ${props =>
-    props.sidebarCollapsed
+    props.sidebarcollapsed === 'true'
       ? `
     transform: rotate(180deg);
     `
@@ -286,7 +286,7 @@ class Sidebar extends Component {
           <LinkList items={items} basePath="/patterns/components/" />
         </SidebarColumn>
         <SidebarTrayHandle onClick={this.handleToggleClick}>
-          <ToggleChevron sidebarCollapsed={isCollapsed} />
+          <ToggleChevron sidebarcollapsed={isCollapsed.toString()} />
         </SidebarTrayHandle>
       </SidebarStyled>
     );
