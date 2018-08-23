@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Spacing</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M60,60 L160,60 L160,160 L60,160 L60,60 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="100" height="100" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="100" height="100" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Visual-Language" transform="translate(-28.000000, -319.000000)">
+            <g id="Spacing" transform="translate(28.000000, 319.000000)">
+                <rect id="Rectangle" stroke="#CACACA" stroke-width="1" fill="#F5F5F5" fill-rule="evenodd" x="0.5" y="0.5" width="219" height="219" rx="15"></rect>
+                <path id="Line" d="M109.25,76 L104.75,85 L113.75,85 L109.25,76 Z M109.25,144 L113.75,135 L104.75,135 L109.25,144 Z M108.75,84.5 L108.75,90.5 L108.75,91 L109.75,91 L109.75,90.5 L109.75,84.5 L109.75,84 L108.75,84 L108.75,84.5 Z M108.75,92.5 L108.75,98.5 L108.75,99 L109.75,99 L109.75,98.5 L109.75,92.5 L109.75,92 L108.75,92 L108.75,92.5 Z M108.75,100.5 L108.75,106.5 L108.75,107 L109.75,107 L109.75,106.5 L109.75,100.5 L109.75,100 L108.75,100 L108.75,100.5 Z M108.75,108.5 L108.75,114.5 L108.75,115 L109.75,115 L109.75,114.5 L109.75,108.5 L109.75,108 L108.75,108 L108.75,108.5 Z M108.75,116.5 L108.75,122.5 L108.75,123 L109.75,123 L109.75,122.5 L109.75,116.5 L109.75,116 L108.75,116 L108.75,116.5 Z M108.75,124.5 L108.75,130.5 L108.75,131 L109.75,131 L109.75,130.5 L109.75,124.5 L109.75,124 L108.75,124 L108.75,124.5 Z M108.75,132.5 L108.75,135.5 L108.75,136 L109.75,136 L109.75,135.5 L109.75,132.5 L109.75,132 L108.75,132 L108.75,132.5 Z" fill="#4A90E2" fill-rule="nonzero"></path>
+                <path id="Line-2" d="M73,110.25 L82,114.75 L82,105.75 L73,110.25 Z M145,110.25 L136,105.75 L136,114.75 L145,110.25 Z M81.5,110.75 L87.5,110.75 L88,110.75 L88,109.75 L87.5,109.75 L81.5,109.75 L81,109.75 L81,110.75 L81.5,110.75 Z M89.5,110.75 L95.5,110.75 L96,110.75 L96,109.75 L95.5,109.75 L89.5,109.75 L89,109.75 L89,110.75 L89.5,110.75 Z M97.5,110.75 L103.5,110.75 L104,110.75 L104,109.75 L103.5,109.75 L97.5,109.75 L97,109.75 L97,110.75 L97.5,110.75 Z M105.5,110.75 L111.5,110.75 L112,110.75 L112,109.75 L111.5,109.75 L105.5,109.75 L105,109.75 L105,110.75 L105.5,110.75 Z M113.5,110.75 L119.5,110.75 L120,110.75 L120,109.75 L119.5,109.75 L113.5,109.75 L113,109.75 L113,110.75 L113.5,110.75 Z M121.5,110.75 L127.5,110.75 L128,110.75 L128,109.75 L127.5,109.75 L121.5,109.75 L121,109.75 L121,110.75 L121.5,110.75 Z M129.5,110.75 L135.5,110.75 L136,110.75 L136,109.75 L135.5,109.75 L129.5,109.75 L129,109.75 L129,110.75 L129.5,110.75 Z" fill="#4A90E2" fill-rule="nonzero"></path>
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Rectangle-2" stroke="#000000" mask="url(#mask-2)" stroke-width="4" stroke-dasharray="10,8">
+                    <use mask="url(#mask-4)" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

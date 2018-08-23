@@ -113,7 +113,7 @@ export default function ComponentsBoard(props) {
             }
           >
             <PatternGridItemThumb
-              src={`/assets/images/component-thumbnails/${pattern.id}.svg`}
+              src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
               alt=""
             />
             <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
