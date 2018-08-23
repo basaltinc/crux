@@ -13,7 +13,6 @@ import remove from '../assets/trash.svg';
 // @todo add prop types
 /* eslint-disable react/prop-types */
 export default function CustomArrayField(props) {
-  console.log(props);
   return (
     <div id={`field-array--${props.idSchema.$id}`} className={props.className}>
       <details>
