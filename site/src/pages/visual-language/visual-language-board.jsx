@@ -8,49 +8,37 @@ const perceptualPatternsList = [
     title: 'Animations',
     id: 'animations',
     path: `/visual-language/animations`,
-    schema: {
-      description: ``,
-    },
+    description: `Animations are the "stylistic sugar" used to "sweeten" the user experience. Used sparingly – animations provide that extra touch the makes an interface sing.`,
   },
   {
     title: 'Breakpoints',
     id: 'breakpoints',
     path: '/visual-language/breakpoints',
-    schema: {
-      description: ``,
-    },
+    description: `Breakpoints are the backbone of responsive design and provide us with the ability to effectively deliver layout within nearly any screen size or resolution.`,
   },
   {
     title: 'Colors',
     id: 'colors',
     path: `/visual-language/colors`,
-    schema: {
-      description: ``,
-    },
+    description: `Color is a defining element of any strong brand identity. We use color to express our brand, and to support or emphasize key messages within the interface.`,
   },
   {
     title: 'Spacings',
     id: 'spacings',
     path: '/visual-language/spacings',
-    schema: {
-      description: ``,
-    },
+    description: `Visual spacing is key to creating a clean and usable interface. Correctly implemented – visual spacing provides elements with the ability to "breath" by intentionally emphasizing white space.`,
   },
   {
     title: 'Typography',
     id: 'typography',
     path: '/visual-language/typography',
-    schema: {
-      description: ``,
-    },
+    description: `Typography is the voice of a brand. This set of typefaces best represent Basalt’s brand attributes and personality.`,
   },
   {
     title: 'Icons',
     id: 'icons',
     path: '/visual-language/icons',
-    schema: {
-      description: ``,
-    },
+    description: `Icons provide a visual and meaningful representation meant to guide the user to specific functionality or status.`,
   },
 ];
 
