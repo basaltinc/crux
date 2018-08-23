@@ -24,18 +24,12 @@
   }
   &--columns {
     &-2 {
-      // -webkit-columns: 2 300px;
-      // -moz-columns: 2 300px;
       columns: 2 300px;
     }
     &-3 {
-      // -webkit-columns: 3 200px;
-      // -moz-columns: 3 200px;
       columns: 3 200px;
     }
     &-4 {
-      // -webkit-columns: 4 150px;
-      // -moz-columns: 4 150px;
       columns: 4 150px;
     }
   }

@@ -153,6 +153,11 @@ const perceptualPatternsLinks = [
     path: `/visual-language/colors`,
   },
   {
+    title: 'Shadows',
+    id: 'ShadowsPage',
+    path: '/visual-language/shadows',
+  },
+  {
     title: 'Spacings',
     id: 'SpacingPage',
     path: '/visual-language/spacings',
