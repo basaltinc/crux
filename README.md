@@ -10,7 +10,7 @@
 
 ```bash
 yarn install
-yarn setup
+yarn start
 ```
 
 ## Starting Dev

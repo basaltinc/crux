@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   FormIconButton,
   FormIconTray,
@@ -10,10 +11,7 @@ import downArrow from '../assets/angle-down.svg';
 import add from '../assets/plus-square-o.svg';
 import remove from '../assets/trash.svg';
 
-// @todo add prop types
-/* eslint-disable react/prop-types */
 export default function CustomArrayField(props) {
-  console.log(props);
   return (
     <div id={`field-array--${props.idSchema.$id}`} className={props.className}>
       <details>
@@ -83,3 +81,13 @@ export default function CustomArrayField(props) {
     </div>
   );
 }
+
+CustomArrayField.propTypes = {
+  /* eslint-disable-next-line react/boolean-prop-naming */
+  canAdd: PropTypes.bool.isRequired,
+  className: PropTypes.string.isRequired,
+  idSchema: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onAddClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+};
