@@ -7,18 +7,22 @@ import { apiUrlBase } from '../../../config';
 const BreakpointListItem = styled.li`
   left: ${props => props.left};
   position: absolute;
-  border-left: solid 3px hsl(0, 0%, 35%, 0.4);
+  border-left: solid 3px hsl(0, 0%, 50%);
+  opacity: 0.7;
   height: 100%;
   > .label {
     display: block;
-    background: hsl(0, 0%, 35%, 0.4);
+    background: hsl(0, 0%, 50%);
+    opacity: 0.7;
     padding: 3px;
     color: white;
   }
   &:hover {
-    border-left-color: hsla(0, 0%, 35%);
+    opacity: 1;
+    border-left-color: hsl(0, 0%, 35%);
     z-index: 2;
     > .label {
+      opacity: 1;
       background: hsl(0, 0%, 35%);
     }
   }
