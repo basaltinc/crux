@@ -52,7 +52,7 @@ function ShadowsPage() {
       <div>
         <ShadowDemoBox
           className="crux-shadow--xsmall--animated"
-          tabIndex="1"
+          tabIndex="0"
           role="textbox"
         >
           <h5>Xsmall</h5>
@@ -60,7 +60,7 @@ function ShadowsPage() {
         </ShadowDemoBox>
         <ShadowDemoBox
           className="crux-shadow--small--animated"
-          tabIndex="1"
+          tabIndex="0"
           role="textbox"
         >
           <h5>Small</h5>
@@ -68,7 +68,7 @@ function ShadowsPage() {
         </ShadowDemoBox>
         <ShadowDemoBox
           className="crux-shadow--medium--animated"
-          tabIndex="1"
+          tabIndex="0"
           role="textbox"
         >
           <h5>Medium</h5>
@@ -76,7 +76,7 @@ function ShadowsPage() {
         </ShadowDemoBox>
         <ShadowDemoBox
           className="crux-shadow--large--animated"
-          tabIndex="1"
+          tabIndex="0"
           role="textbox"
         >
           <h5>Large</h5>
@@ -84,7 +84,7 @@ function ShadowsPage() {
         </ShadowDemoBox>
         <ShadowDemoBox
           className="crux-shadow--xlarge--animated"
-          tabIndex="1"
+          tabIndex="0"
           role="textbox"
         >
           <h5>Xlarge</h5>
@@ -92,7 +92,7 @@ function ShadowsPage() {
         </ShadowDemoBox>
         <ShadowDemoBox
           className="crux-shadow--inset--animated"
-          tabIndex="1"
+          tabIndex="0"
           role="textbox"
         >
           <h5>Inset</h5>
