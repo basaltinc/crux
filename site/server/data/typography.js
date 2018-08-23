@@ -8,7 +8,7 @@ export async function getFontFamilies() {
   const fontFamiliesFile = await fs.readFile(
     join(
       __dirname,
-      '../../source/_patterns/00-styleguide/15-typography/font-families.json',
+      '../../../source/_patterns/00-styleguide/15-typography/font-families.json',
     ),
     'utf8',
   );
@@ -23,7 +23,7 @@ export async function getFontSizes() {
   const fontSizesFile = await fs.readFile(
     join(
       __dirname,
-      '../../source/_patterns/00-styleguide/15-typography/font-sizes.json',
+      '../../../source/_patterns/00-styleguide/15-typography/font-sizes.json',
     ),
     'utf8',
   );

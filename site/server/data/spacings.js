@@ -8,7 +8,7 @@ export async function getSpacings() {
   const spacingsFile = await fs.readFile(
     join(
       __dirname,
-      '../../source/_patterns/00-styleguide/10-spacing/spacing.json',
+      '../../../source/_patterns/00-styleguide/10-spacing/spacing.json',
     ),
     'utf8',
   );

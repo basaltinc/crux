@@ -1,9 +1,9 @@
 import TwigRenderer from '@basalt/twig-renderer';
 import { join } from 'path';
-import { isDevMode } from './config';
+import { isDevMode } from '../config';
 
 const twigRenderer = new TwigRenderer({
-  relativeFrom: join(__dirname, '..'),
+  relativeFrom: join(__dirname, '../..'),
   src: {
     roots: ['source'],
     namespaces: [
@@ -35,7 +35,7 @@ const twigRenderer = new TwigRenderer({
   },
   alterTwigEnv: [
     {
-      file: join(__dirname, 'twig.php'),
+      file: join(__dirname, 'twig-setup.php'),
       functions: ['setupTwig'],
     },
   ],

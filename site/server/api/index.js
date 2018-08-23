@@ -10,8 +10,8 @@ import {
   getPatternMeta,
   getDeviceWidths,
   getReleaseNotes,
-} from '../data';
-import twigRenderer from '../twig';
+} from '../data/index';
+import twigRenderer from '../twig-renderer';
 
 const router = express.Router();
 
