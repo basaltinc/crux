@@ -55,24 +55,50 @@ const DemoStage = styled.div`
     linear-gradient(-45deg, transparent 75%, hsl(0, 0%, 90%) 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  width: ${({ size }) => {
-    switch (size) {
-      case 's':
-        return '33%';
-      case 'm':
-        return '50%';
-      case 'l':
-        return '67%';
-      default:
-        return '100%';
-    }
-  }};
+  width: 100%};
+  @media (min-width: 900px) {
+    width: ${({ size }) => {
+      switch (size) {
+        case 's':
+          return '33%';
+        case 'm':
+          return '50%';
+        case 'l':
+          return '67%';
+        default:
+          return '100%';
+      }
+    }};
+  }
+`;
+
+const Resizable = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  resize: horizontal;
+  overflow: hidden;
+  padding: 10px;
+  width: 100%;
+  max-width: ${props => props.size || '100%'};
+  background-color: rgba(77, 77, 77, 0.15);
+  &:hover:after {
+    position: absolute;
+    content: 'Resize';
+    bottom: 0;
+    right: 5px;
+    font-size: 14px;
+    font-weight: 700;
+  }
 `;
 
 const DemoGrid = styled.div`
-  display: ${props => (props.size === 'full' ? 'block' : 'flex')};
+  display: block;
   position: relative;
   flex-grow: 1;
+  @media (min-width: 900px) {
+    display: ${props => (props.size === 'full' ? 'block' : 'flex')};
+  }
 `;
 
 const FlexWrapper = styled.div`
@@ -98,6 +124,8 @@ const SchemaFormWrapper = styled.div`
   border: dotted 1px #ccc;
   position: relative;
   padding: 0.5rem;
+  width: 100%};
+  @media (min-width: 900px) {
   width: ${({ size }) => {
     switch (size) {
       case 's':
@@ -110,6 +138,7 @@ const SchemaFormWrapper = styled.div`
         return '100%';
     }
   }};
+  }
 `;
 
 const SchemaFormWrapperInner = styled.div`
@@ -186,13 +215,15 @@ class Overview extends React.Component {
         </FlexWrapper>
         <DemoGrid size={this.state.size}>
           <DemoStage size={this.state.size}>
-            <Twig
-              template={this.state.template}
-              data={this.state.data}
-              handleNewHtml={html => this.setState({ html })}
-              showDataUsed={false}
-              isStringTemplate={this.state.isStringTemplate}
-            />
+            <Resizable>
+              <Twig
+                template={this.state.template}
+                data={this.state.data}
+                handleNewHtml={html => this.setState({ html })}
+                showDataUsed={false}
+                isStringTemplate={this.state.isStringTemplate}
+              />
+            </Resizable>
           </DemoStage>
           <SchemaFormWrapper
             size={this.state.size}
