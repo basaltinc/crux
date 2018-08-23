@@ -83,9 +83,8 @@ export default function CustomArrayField(props) {
 }
 
 CustomArrayField.propTypes = {
-  canAdd:
-    PropTypes.bool
-      .isRequired /* eslint-disable-line react/boolean-prop-naming */,
+  /* eslint-disable-next-line react/boolean-prop-naming */
+  canAdd: PropTypes.bool.isRequired,
   className: PropTypes.string.isRequired,
   idSchema: PropTypes.string.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,

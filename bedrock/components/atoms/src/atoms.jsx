@@ -180,9 +180,8 @@ export const TextInputWrapper = styled.div`
 `;
 
 export const RadioInputWrapper = styled.div`
-  height: 33px;
-  .radio {
-    margin-right: 13.5px;
+  .field-radio-group.field-radio-group {
+    height: unset;
   }
   input {
     margin-right: 8px;
