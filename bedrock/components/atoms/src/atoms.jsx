@@ -55,12 +55,13 @@ export const SelectStyledWrapper = styled.label`
       content: ':';
     }
   }
+  /* stylelint-disable property-no-vendor-prefix */
   > span > select {
     background-color: lightgrey;
     font-size: 1rem;
     border: 0;
     //height: 33px;
-    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    //padding: 5px; /* If you add too much padding here, the options won't show in IE */
     &:active,
     &:focus {
       outline: none;
@@ -81,6 +82,8 @@ export const SelectStyledWrapper = styled.label`
     background-size: 5px 5px, 5px 5px, 1px 1.5rem;
     background-repeat: no-repeat;
   }
+  /* stylelint-enable property-no-vendor-prefix */
+
   > span {
     display: inline-block;
     background-color: lightgrey;

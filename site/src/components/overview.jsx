@@ -55,7 +55,7 @@ const DemoStage = styled.div`
     linear-gradient(-45deg, transparent 75%, hsl(0, 0%, 90%) 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  width: 100%};
+  width: 100%;
   @media (min-width: 900px) {
     width: ${({ size }) => {
       switch (size) {
@@ -124,20 +124,20 @@ const SchemaFormWrapper = styled.div`
   border: dotted 1px #ccc;
   position: relative;
   padding: 0.5rem;
-  width: 100%};
+  width: 100%;
   @media (min-width: 900px) {
-  width: ${({ size }) => {
-    switch (size) {
-      case 's':
-        return '67%';
-      case 'm':
-        return '50%';
-      case 'l':
-        return '33%';
-      default:
-        return '100%';
-    }
-  }};
+    width: ${({ size }) => {
+      switch (size) {
+        case 's':
+          return '67%';
+        case 'm':
+          return '50%';
+        case 'l':
+          return '33%';
+        default:
+          return '100%';
+      }
+    }};
   }
 `;
 
