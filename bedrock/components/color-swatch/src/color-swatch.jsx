@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { convertColor } from '@basalt/bedrock-utils';
-import { SelectStyledWrapper } from '@basalt/bedrock-atoms';
+import { Select } from '@basalt/bedrock-atoms';
 
 const OuterSwatch = styled.div`
   width: 49%;
@@ -80,11 +80,6 @@ class ColorSwatches extends Component {
   }
 
   render() {
-    const options = ['hsl', 'rgb', 'hex'].map(option => (
-      <option value={option} key={option}>
-        {option}
-      </option>
-    ));
     const colorSwatches = this.props.colors.map(color => (
       <ColorSwatch key={color.name} color={color} format={this.state.format} />
     ));
@@ -93,14 +88,17 @@ class ColorSwatches extends Component {
       <div>
         <RightLabel>
           Color Format:
-          <SelectStyledWrapper>
-            <select
-              value={this.state.value}
-              onChange={event => this.setState({ format: event.target.value })}
-            >
-              {options}
-            </select>
-          </SelectStyledWrapper>
+          <Select
+            value={this.state.value}
+            items={['hex', 'rgb', 'hsl'].map(option => ({
+              value: option,
+              key: option,
+              name: option,
+            }))}
+            handleChange={value => {
+              this.setState({ format: value });
+            }}
+          />
         </RightLabel>
         <SwatchesWrapper>{colorSwatches}</SwatchesWrapper>
       </div>
