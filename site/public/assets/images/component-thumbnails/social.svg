@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="220px" viewBox="0 0 360 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Social</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components" transform="translate(-1098.000000, -1037.000000)">
+            <g id="Social" transform="translate(1098.000000, 1037.000000)">
+                <rect id="Rectangle" fill="#4A90E2" opacity="0.99" x="0" y="0" width="360" height="220" rx="15"></rect>
+                <circle id="Oval-2" fill="#7DAFEA" cx="60.5" cy="110.5" r="27.5"></circle>
+                <polygon id="Star" stroke="#7BAEE9" stroke-width="1" fill="#FFFFFF" opacity="0.500892857" points="61 121.966673 49.2573542 128.140148 51.5 115.064519 42 105.804308 55.1286771 103.8966 61 92 66.8713229 103.8966 80 105.804308 70.5 115.064519 72.7426458 128.140148"></polygon>
+                <circle id="Oval-2" fill="#7DAFEA" cx="140.5" cy="110.5" r="27.5"></circle>
+                <polygon id="Star" stroke="#7BAEE9" stroke-width="1" fill="#FFFFFF" opacity="0.500892857" points="141 121.966673 129.257354 128.140148 131.5 115.064519 122 105.804308 135.128677 103.8966 141 92 146.871323 103.8966 160 105.804308 150.5 115.064519 152.742646 128.140148"></polygon>
+                <circle id="Oval-2" fill="#7DAFEA" cx="220.5" cy="110.5" r="27.5"></circle>
+                <polygon id="Star" stroke="#7BAEE9" stroke-width="1" fill="#FFFFFF" opacity="0.500892857" points="221 121.966673 209.257354 128.140148 211.5 115.064519 202 105.804308 215.128677 103.8966 221 92 226.871323 103.8966 240 105.804308 230.5 115.064519 232.742646 128.140148"></polygon>
+                <circle id="Oval-2" fill="#7DAFEA" cx="300.5" cy="110.5" r="27.5"></circle>
+                <polygon id="Star" stroke="#7BAEE9" stroke-width="1" fill="#FFFFFF" opacity="0.500892857" points="301 121.966673 289.257354 128.140148 291.5 115.064519 282 105.804308 295.128677 103.8966 301 92 306.871323 103.8966 320 105.804308 310.5 115.064519 312.742646 128.140148"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
