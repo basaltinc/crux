@@ -3,7 +3,7 @@
   "recurseDepth": 10,
   "source": {
     "include": [
-      "data"
+      "server"
     ],
     "includePattern": ".+\\.js(doc|x)?$",
     "excludePattern": "(^|\\/|\\\\)_"

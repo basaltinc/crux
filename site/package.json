@@ -5,7 +5,7 @@
   "author": "Basalt",
   "scripts": {
     "build:webpack": "NODE_ENV=production wp --run-prod",
-    "build:apidoc": "apidoc --input api/ --output public2/apidoc/ --file-filters '.js' --file-filters '.jsx' ",
+    "build:apidoc": "apidoc --input server/ --output public2/apidoc/ --file-filters '.js' --file-filters '.jsx' ",
     "build:jsdoc": "jsdoc --configure jsdoc.json --recurse --destination public2/jsdoc",
     "build": "FORCE_COLOR=1 run-p --print-label build:*",
     "clean": "rm -rf public public2 .cache",
@@ -17,7 +17,6 @@
     "start": "DEV_MODE=yes FORCE_COLOR=1 run-p --print-label watch:* serve:webpack",
     "test": "yarn run lint && jest",
     "Xwatch:webpack": "wp --watch --run-dev",
-    "watch:jsdoc": "nodemon --watch data/ --exec 'yarn run build:jsdoc'",
     "watch:server": "nodemon --watch server/ --exec 'yarn serve' ",
     "serve:webpack": "webpack-dev-server --info=false",
     "serve": "babel-node --config-file ./.babelrc server/index.js",
