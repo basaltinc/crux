@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="220px" viewBox="0 0 500 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>C2A</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components" transform="translate(-1049.000000, -371.000000)">
+            <g id="C2A" transform="translate(1049.000000, 371.000000)">
+                <rect id="Rectangle" stroke="#3578C7" stroke-width="1" fill="#4A90E2" x="0.5" y="0.5" width="499" height="219" rx="15"></rect>
+                <path d="M80,80 L422,80 C426.970563,80 431,84.0294373 431,89 L431,95 C431,99.9705627 426.970563,104 422,104 L338.722834,104 L80,104 C75.0294373,104 71,99.9705627 71,95 L71,89 C71,84.0294373 75.0294373,80 80,80 Z" id="Rectangle-2" fill="#FFFFFF"></path>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.245870536" x="193" y="129" width="114" height="18" rx="9"></rect>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.740345982" x="222" y="135" width="57" height="6" rx="3"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Avatar</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components" transform="translate(-571.000000, -371.000000)">
+            <g id="Avatar" transform="translate(571.000000, 371.000000)">
+                <g>
+                    <rect id="Rectangle" stroke="#3578C7" fill="#4A90E2" x="0.5" y="0.5" width="219" height="219" rx="15"></rect>
+                    <circle id="Oval" fill="#FFFFFF" cx="110" cy="84" r="30"></circle>
+                    <path d="M76.589026,122.692568 C87.6374764,129.24134 98.6859269,132.515726 109.734377,132.515726 C120.782828,132.515726 131.831279,129.24134 142.87973,122.692567 L142.879731,122.692568 C147.155601,120.158122 152.676454,121.569825 155.2109,125.845696 C156.034281,127.234825 156.46875,128.819899 156.46875,130.434717 L156.46875,157.607328 C156.46875,162.577891 152.439313,166.607328 147.46875,166.607328 L72,166.607329 C67.0294373,166.607329 63,162.577891 63,157.607329 C63,157.607328 63,157.607328 63,157.607328 L62.9999998,130.43472 C63.0000002,125.464155 67.0294393,121.434717 72.0000038,121.434717 C73.6148221,121.434717 75.1998966,121.869186 76.589026,122.692568 Z" id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

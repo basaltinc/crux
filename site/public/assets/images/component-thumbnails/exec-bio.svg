@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="360px" height="220px" viewBox="0 0 360 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Executive Bio</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components" transform="translate(-522.000000, -858.000000)">
+            <g id="Executive-Bio" transform="translate(522.000000, 858.000000)">
+                <rect id="Rectangle" fill="#4A90E2" opacity="0.99" x="0" y="0" width="360" height="220" rx="15"></rect>
+                <path d="M34,28 L156,28 C160.970563,28 165,32.0294373 165,37 L165,43 C165,47.9705627 160.970563,52 156,52 L129.114435,52 L34,52 C29.0294373,52 25,47.9705627 25,43 L25,37 C25,32.0294373 29.0294373,28 34,28 Z" id="Rectangle-2" fill="#FFFFFF"></path>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.799275" x="25" y="59" width="60" height="8" rx="4"></rect>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="25" y="120" width="229" height="8" rx="4"></rect>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="25" y="101" width="212" height="8" rx="4"></rect>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="25" y="140" width="266" height="8" rx="4"></rect>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="25" y="160" width="284" height="8" rx="4"></rect>
+                <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="25" y="180" width="302" height="8" rx="4"></rect>
+                <circle id="Oval-2" fill="#7DAFEA" cx="296.5" cy="64.5" r="42.5"></circle>
+                <g id="Group" stroke-width="1" transform="translate(277.000000, 42.000000)" fill="#FFFFFF">
+                    <ellipse id="Oval" cx="19.5" cy="12.0655738" rx="12.6176471" ry="12.0655738"></ellipse>
+                    <path d="M8.60530896,29.4492074 C12.236873,31.1229001 15.868437,31.9597465 19.5000009,31.9597465 C23.1315648,31.9597465 26.7631287,31.1229002 30.3946926,29.4492076 L30.3946903,29.4492025 C33.4373817,28.0469057 37.0407565,29.3767084 38.4430532,32.4193998 C38.8099892,33.2155743 39,34.0818207 39,34.9584826 L39,36.9999998 C39,41.9705625 34.9705627,45.9999998 30,45.9999998 L9,46.0000006 C4.02943725,46.0000006 -1.16763846e-15,41.9705633 -1.77635684e-15,37.0000006 C-1.77635687e-15,37.0000003 1.06581411e-14,37 3.19744231e-14,36.9999998 L9.45833893e-07,34.9584826 C1.2328246e-06,31.6081978 2.71594389,28.8922556 6.06622865,28.8922559 C6.94289039,28.892256 7.80913664,29.0822668 8.60531112,29.4492027 Z" id="Rectangle-2" opacity="0.602901786"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
