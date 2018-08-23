@@ -56,7 +56,7 @@ export default class Twig extends React.Component {
 
   componentDidMount() {
     this.getHtml(this.props.data);
-    if (window.hasOwnProperty('AbortController')) {
+    if (Object.prototype.hasOwnProperty.call(window, 'AbortController')) {
       this.controller = new window.AbortController();
       this.signal = this.controller.signal;
     }
@@ -101,7 +101,7 @@ export default class Twig extends React.Component {
   }
 
   componentWillUnmount() {
-    if (window.hasOwnProperty('AbortController')) {
+    if (Object.prototype.hasOwnProperty.call(window, 'AbortController')) {
       this.controller.abort();
     }
     this.iframeResizer.close(); // https://github.com/davidjbradshaw/iframe-resizer/issues/576
