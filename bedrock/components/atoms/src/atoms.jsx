@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { FaAngleDown } from 'react-icons/fa';
 
 export const Checkerboard = styled.div`
   background-image: linear-gradient(
@@ -59,12 +60,27 @@ export const SelectStyledWrapper = styled.label`
     background-color: lightgrey;
     font-size: 1rem;
     border: 0;
-    height: 33px;
+    //height: 33px;
     padding: 5px; /* If you add too much padding here, the options won't show in IE */
     &:active,
     &:focus {
       outline: none;
     }
+    display: inline-block;
+    padding: 0.35rem 2rem 0.5rem 1rem;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 20px) calc(1rem + -3px),
+      calc(100% - 15px) calc(1rem + -3px), calc(100% - 2.5rem) 0.5rem;
+    background-size: 5px 5px, 5px 5px, 1px 1.5rem;
+    background-repeat: no-repeat;
   }
   > span {
     display: inline-block;
