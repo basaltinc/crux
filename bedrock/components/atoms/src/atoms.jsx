@@ -260,6 +260,7 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
   ::before {
     content: '\\201C'; /*Unicode for Left Double Quote*/
+    width: 80px;
     /*Font*/
     font-family: Georgia, serif;
     font-size: 130px;
@@ -274,13 +275,14 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
   ::after {
     content: '\\201D'; /*Unicode for Right Double Quote*/
+    width: 80px;
     font-family: Georgia, serif;
     font-size: 130px;
     opacity: 0.2;
     font-weight: bold;
     color: #999;
     position: absolute;
-    right: 40px;
+    right: 10px;
     bottom: -85px;
   }
 `;
