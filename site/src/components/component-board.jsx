@@ -3,13 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-// @todo refactor
-const images = {
-  hero: '/assets/images/component-thumbnails/hero.svg',
-  'media-tile': '/assets/images/component-thumbnails/media-tile.svg',
-  'media-block': '/assets/images/component-thumbnails/media-block.svg',
-};
-
 const PatternGrid = styled.ul`
   margin: 50px;
   padding: 0;
@@ -100,35 +93,36 @@ const PatternGridItemDescription = styled.div`
 `;
 
 export default function ComponentsBoard(props) {
+  const components = props.patterns
+    .filter(item => item.id !== 'site-footer')
+    .filter(item => item.id !== 'site-header');
   return (
     <PatternGrid
       className="smart-grid"
       data-row-items-small="2"
       data-row-items-medium="3"
     >
-      {props.patterns.map(pattern => {
-        const image = images[pattern.id];
-        return (
-          <PatternGridItem
-            key={pattern.id}
-            className="u-crux-pattern-grid__item--component"
+      {components.map(pattern => (
+        <PatternGridItem
+          key={pattern.id}
+          className="u-crux-pattern-grid__item--component"
+        >
+          <Link
+            to={
+              pattern.path ? pattern.path : `/patterns/components/${pattern.id}`
+            }
           >
-            <Link
-              to={
-                pattern.path
-                  ? pattern.path
-                  : `/patterns/components/${pattern.id}`
-              }
-            >
-              {image && <PatternGridItemThumb src={image} alt="" />}
-              <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
-              <PatternGridItemDescription>
-                {pattern.description}
-              </PatternGridItemDescription>
-            </Link>
-          </PatternGridItem>
-        );
-      })}
+            <PatternGridItemThumb
+              src={`/assets/images/component-thumbnails/${pattern.id}.svg`}
+              alt=""
+            />
+            <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
+            <PatternGridItemDescription>
+              {pattern.description}
+            </PatternGridItemDescription>
+          </Link>
+        </PatternGridItem>
+      ))}
     </PatternGrid>
   );
 }
