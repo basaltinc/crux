@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FaBars, FaTimes, FaChevronLeft } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const SiteNav = styled.nav`
   background: #16394b;
@@ -51,7 +51,7 @@ const MobileNav = styled.div`
   }
   && li {
     padding: 1rem 1rem 1rem 8rem;
-    border-top: solid 1px rgba(255,255,255,0.5);
+    border-top: solid 1px rgba(255, 255, 255, 0.5);
     max-width: 400px;
     margin-left: auto;
   }
