@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const PatternGrid = styled.ul`
+  display: flex;
+  align-items: stretch;
   margin: 50px;
   padding: 0;
   list-style-type: none;
-  align-items: flex-start;
 `;
 
 const PatternGridItem = styled.li`
@@ -23,7 +24,9 @@ const PatternGridItem = styled.li`
   }
   > a:link,
   > a:visited {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     font-family: 'AvenirMedium', sans-serif;
     text-decoration: none;
     padding: 30px 30px 0;
@@ -99,8 +102,9 @@ export default function ComponentsBoard(props) {
   return (
     <PatternGrid
       className="smart-grid"
-      data-row-items-small="2"
-      data-row-items-medium="3"
+      data-row-items-small="1"
+      data-row-items-medium="2"
+      data-row-items-large="3"
     >
       {components.map(pattern => (
         <PatternGridItem
