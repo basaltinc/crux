@@ -45,7 +45,8 @@ const perceptualPatternsList = [
 function VisualLanguagePage() {
   return (
     <div>
-      <h2>Welcome to the Design System, Visual Language!</h2>
+      <h2>Visual Language</h2>
+      <p>Explore the visual language that makes up the Crux Design System.</p>
       <ComponentBoard patterns={perceptualPatternsList} ready />
     </div>
   );
