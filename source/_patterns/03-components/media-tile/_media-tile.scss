@@ -5,6 +5,12 @@
   display: flex;
   justify-content: center;
   z-index: 0;
+  &[data-linkto] {
+    @include overlay($c-black, 0.25);
+    &:hover {
+      @include overlay($c-black, 0.5);
+    }
+  }
   &--overlay-blue {
     @include overlay($c-blue, 0.4);
   }
@@ -69,24 +75,10 @@
     text-decoration: none;
     color: inherit;
   }
-  &[data-linkto] {
-    @include overlay($c-black, 0);
-    &:hover {
-      @include overlay($c-black, 0.5);
-    }
-  }
   &__list {
     @include breakpoint($bp--medium) {
       margin-left: 15%;
     }
-  }
-}
-
-.media-tile-grid {
-  margin-bottom: (-$spacing--m);
-  &--gutter {
-    margin-right: $spacing--m;
-    margin-left: $spacing--m;
   }
 }
 
@@ -121,11 +113,3 @@
   }
 }
 
-.custom-list-one-off {
-  .media-tile__body {
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-}

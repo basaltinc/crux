@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import {
   CheckboxInputWrapper,
   RadioInputWrapper,
-  SelectWrapper,
+  SelectStyledWrapper,
   TextInputWrapper,
 } from '@basalt/bedrock-atoms';
 
@@ -62,7 +62,11 @@ export default function CustomField(props) {
   ) {
     inputContent = <RadioInputWrapper>{children}</RadioInputWrapper>;
   } else if (inputSchema.type === 'string' && !!inputSchema.enum) {
-    inputContent = <SelectWrapper>{children}</SelectWrapper>;
+    inputContent = (
+      <SelectStyledWrapper>
+        <span>{children}</span>
+      </SelectStyledWrapper>
+    );
   } else if (inputSchema.type === 'string') {
     inputContent = <TextInputWrapper>{children}</TextInputWrapper>;
   } else if (inputSchema.type === 'boolean') {

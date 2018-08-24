@@ -56,18 +56,17 @@ export const SelectStyledWrapper = styled.label`
     }
   }
   /* stylelint-disable property-no-vendor-prefix */
-  > span > select {
+  select {
     background-color: lightgrey;
     font-size: 1rem;
     border: 0;
-    //height: 33px;
-    //padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    height: 33px;
     &:active,
     &:focus {
       outline: none;
     }
     display: inline-block;
-    padding: 0.35rem 2rem 0.5rem 1rem;
+    padding: 0.3rem 2rem 0.3rem 1rem;
     margin: 0;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
