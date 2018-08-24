@@ -210,7 +210,12 @@ export default class App extends React.Component {
               <ThemeProvider theme={theme}>
                 <Router>
                   <div>
-                    <Header siteTitle="Crux" />
+                    <Route
+                      path="/"
+                      component={routeProps => (
+                        <Header siteTitle="Crux" {...routeProps} />
+                      )}
+                    />
                     <Site>
                       <Route
                         path="/"

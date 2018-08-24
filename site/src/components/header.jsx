@@ -40,13 +40,13 @@ const MobileNav = styled.div`
   display: block;
   ul {
     background-color: #16394b;
-    z-index: 3;
+    z-index: 103;
     display: block;
     text-align: right;
     position: absolute;
     right: 0;
     top: 50px;
-    padding: 2rem 1rem 0 1rem;
+    padding: 2rem 1rem 2rem 1rem;
     width: 100%;
   }
   && li {
@@ -136,6 +136,14 @@ class Header extends React.Component {
     window.addEventListener('resize', this.handleResize.bind(this));
   }
 
+  /* eslint-disable */
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.setState({ mobileNavVisible: false });
+    }
+  }
+  /* eslint-enable */
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize.bind(this));
   }
@@ -145,11 +153,9 @@ class Header extends React.Component {
   }
 
   handleNavClick() {
-    if (!this.state.mobileNavVisible) {
-      this.setState({ mobileNavVisible: true });
-    } else {
-      this.setState({ mobileNavVisible: false });
-    }
+    this.setState(prevState => ({
+      mobileNavVisible: !prevState.mobileNavVisible,
+    }));
   }
 
   renderMobileNav() {
@@ -191,6 +197,9 @@ class Header extends React.Component {
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
 };
 
 Header.defaultProps = {
