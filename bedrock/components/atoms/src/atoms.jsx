@@ -55,17 +55,35 @@ export const SelectStyledWrapper = styled.label`
       content: ':';
     }
   }
+  /* stylelint-disable property-no-vendor-prefix */
   > span > select {
     background-color: lightgrey;
     font-size: 1rem;
     border: 0;
-    height: 33px;
-    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    //height: 33px;
+    //padding: 5px; /* If you add too much padding here, the options won't show in IE */
     &:active,
     &:focus {
       outline: none;
     }
+    display: inline-block;
+    padding: 0.35rem 2rem 0.5rem 1rem;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+      linear-gradient(135deg, gray 50%, transparent 50%),
+      linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 20px) calc(1rem + -3px),
+      calc(100% - 15px) calc(1rem + -3px), calc(100% - 2.5rem) 0.5rem;
+    background-size: 5px 5px, 5px 5px, 1px 1.5rem;
+    background-repeat: no-repeat;
   }
+  /* stylelint-enable property-no-vendor-prefix */
+
   > span {
     display: inline-block;
     background-color: lightgrey;
@@ -259,6 +277,7 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
   ::before {
     content: '\\201C'; /*Unicode for Left Double Quote*/
+    width: 80px;
     /*Font*/
     font-family: Georgia, serif;
     font-size: 130px;
@@ -273,13 +292,14 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
   ::after {
     content: '\\201D'; /*Unicode for Right Double Quote*/
+    width: 80px;
     font-family: Georgia, serif;
     font-size: 130px;
     opacity: 0.2;
     font-weight: bold;
     color: #999;
     position: absolute;
-    right: 40px;
+    right: 10px;
     bottom: -85px;
   }
 `;
