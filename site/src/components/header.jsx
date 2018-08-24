@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaChevronLeft } from 'react-icons/fa';
 
 const SiteNav = styled.nav`
   background: #16394b;
@@ -27,10 +27,11 @@ const SiteNav = styled.nav`
   a[aria-current='page'] {
     font-weight: bold;
     &:before {
-      color: #ffffff;
+      color: #e1c933;
       content: '>';
       position: absolute;
       left: -15px;
+      font-weight: bold;
     }
   }
 `;
@@ -46,10 +47,16 @@ const MobileNav = styled.div`
     right: 0;
     top: 50px;
     padding: 2rem 1rem 0 1rem;
+    width: 100%;
   }
-  li {
+  && li {
     padding: 1rem 1rem 1rem 8rem;
-    border-top: solid 1px white;
+    border-top: solid 1px rgba(255,255,255,0.5);
+    max-width: 400px;
+    margin-left: auto;
+  }
+  a {
+    position: relative;
   }
 `;
 
