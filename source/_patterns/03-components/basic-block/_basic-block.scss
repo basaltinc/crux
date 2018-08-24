@@ -28,7 +28,6 @@
   }
 
   @include breakpoint($bp--large) {
-    // width: 65%;
     &__image {
       margin-bottom: $spacing--xl;
     }

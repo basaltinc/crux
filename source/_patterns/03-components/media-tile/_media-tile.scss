@@ -5,6 +5,12 @@
   display: flex;
   justify-content: center;
   z-index: 0;
+  &[data-linkto] {
+    @include overlay($c-black, 0.25);
+    &:hover {
+      @include overlay($c-black, 0.5);
+    }
+  }
   &--overlay-blue {
     @include overlay($c-blue, 0.4);
   }
@@ -68,12 +74,6 @@
   a {
     text-decoration: none;
     color: inherit;
-  }
-  &[data-linkto] {
-    @include overlay($c-black, 0);
-    &:hover {
-      @include overlay($c-black, 0.5);
-    }
   }
   &__list {
     @include breakpoint($bp--medium) {
