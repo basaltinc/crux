@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { TextInputWrapper } from '@basalt/bedrock-atoms';
 import LinkList from './link-list';
+import SecondaryNavItems from './secondary-nav-items.json';
 
 const TypeToFilterInputWrapper = TextInputWrapper.extend`
   display: flex;
@@ -35,117 +36,12 @@ const ClearFilterButton = styled.div`
   }
 `;
 
-const resourcesLinks = [
-  {
-    title: 'Resources',
-    id: 'resources',
-    isHeading: true,
-  },
-  {
-    title: 'Logo Downloads',
-    id: 'logo-downloads',
-    path: `/resources/logo-downloads`,
-  },
-  {
-    title: 'Logo Usage',
-    id: 'logo-usage',
-    path: '/resources/logo-usage',
-  },
-  {
-    title: 'Photo Guidelines',
-    id: 'photography-guidelines',
-    path: '/resources/photography-guidelines',
-  },
-  {
-    title: 'Brand Descriptors',
-    id: 'brand-descriptors',
-    path: '/resources/brand-descriptors',
-  },
-  {
-    title: 'Sketch Assets',
-    id: 'sketch-assets',
-    path: '/resources/sketch-assets',
-  },
-];
-
-const perceptualPatternsLinks = [
-  {
-    title: 'Visual Language',
-    id: 'visual',
-    isHeading: true,
-  },
-  {
-    title: 'Animations',
-    id: 'AnimationsPage',
-    path: `/visual-language/animations`,
-  },
-  {
-    title: 'Breakpoints',
-    id: 'BreakpointsPage',
-    path: '/visual-language/breakpoints',
-  },
-  {
-    title: 'Colors',
-    id: 'ColorsPage',
-    path: `/visual-language/colors`,
-  },
-  {
-    title: 'Shadows',
-    id: 'ShadowsPage',
-    path: '/visual-language/shadows',
-  },
-  {
-    title: 'Spacings',
-    id: 'SpacingPage',
-    path: '/visual-language/spacings',
-  },
-  {
-    title: 'Typography',
-    id: 'TypographyPage',
-    path: '/visual-language/typography',
-  },
-  {
-    title: 'Icons',
-    id: 'IconsPage',
-    path: '/visual-language/icons',
-  },
-];
-
-const aboutLinks = [
-  {
-    title: 'About',
-    id: 'heading',
-    isHeading: true,
-  },
-  {
-    path: '/about',
-    title: 'Get Started',
-    id: 'about',
-  },
-  {
-    path: '/about/release-notes',
-    title: 'Release Notes',
-    id: 'release-notes',
-  },
-  {
-    path: '/about/feature-requests',
-    title: 'Requests & Bugs',
-    id: 'feature-requests',
-  },
-];
-
-const exampleLinks = [
-  {
-    title: 'Examples',
-    id: 'example-heading',
-    isHeading: true,
-  },
-  {
-    path: '/playground/example-1',
-    title: 'Playground - Example 1',
-    id: 'new-playground',
-  },
-];
+const {
+  resourcesLinks,
+  perceptualPatternsLinks,
+  aboutLinks,
+  exampleLinks,
+} = SecondaryNavItems;
 
 class SecondaryNav extends Component {
   constructor(props) {
