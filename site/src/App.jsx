@@ -219,12 +219,14 @@ export default class App extends React.Component {
                     <Site>
                       <Route
                         path="/"
-                        component={routeProps => (
-                          <LoadableSidebar
-                            {...routeProps}
-                            patterns={this.state.patterns}
-                          />
-                        )}
+                        component={routeProps =>
+                          routeProps.location.pathname !== '/' && (
+                            <LoadableSidebar
+                              {...routeProps}
+                              patterns={this.state.patterns}
+                            />
+                          )
+                        }
                       />
                       <MainContent>
                         <Switch>
