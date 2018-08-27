@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FaChevronLeft } from 'react-icons/fa';
+import SecondaryNav from './secondary-nav';
 
 const SidebarStyled = styled.aside`
   position: relative;
@@ -55,7 +56,6 @@ const SidebarTrayHandle = styled.div`
 `;
 
 const ToggleChevron = styled(FaChevronLeft)`
-  //transition: 0.1s;
   margin-top: 50vh;
   ${props =>
     props.sidebarcollapsed === 'true'
@@ -70,7 +70,6 @@ class Sidebar extends Component {
     super(props);
     this.state = {
       sidebarCollapsed: props.isInitiallyCollapsed,
-      // items: [],
     };
 
     this.handleToggleClick = this.handleToggleClick.bind(this);
@@ -88,7 +87,7 @@ class Sidebar extends Component {
     return (
       <SidebarStyled sidebarCollapsed={isCollapsed}>
         <SidebarColumn sidebarCollapsed={isCollapsed}>
-          {/* <SecondaryNav /> */}
+          <SecondaryNav {...this.props} />
         </SidebarColumn>
         <SidebarTrayHandle onClick={this.handleToggleClick}>
           <ToggleChevron sidebarcollapsed={isCollapsed.toString()} />
