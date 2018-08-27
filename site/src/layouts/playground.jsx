@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import uuid from 'uuid/v4';
 import Slice from '../components/slice';
 import PlaygroundEditForm from '../components/playground-edit-form';
+import Sidebar from '../components/sidebar';
+
+const MainContent = styled.div`
+  flex-grow: 1;
+  padding: var(--spacing-l);
+`;
+
+const Page = styled.div`
+  display: flex;
+  justify-content: center;
+  min-height: calc(100vh - 229px);
+  width: 100%;
+  max-width: 100vw;
+  // @todo fix this temp workaround for negatting the "MainContent" padding
+  margin: calc(-1 * var(--spacing-l));
+`;
 
 class Playground extends Component {
   constructor(props) {
@@ -24,6 +43,8 @@ class Playground extends Component {
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
     this.deleteSlice = this.deleteSlice.bind(this);
+    this.addSlice = this.addSlice.bind(this);
+    this.hideEditForm = this.hideEditForm.bind(this);
   }
 
   componentDidMount() {}
@@ -76,55 +97,104 @@ class Playground extends Component {
     }));
   }
 
+  addSlice(slice) {
+    // @todo pick where in `slices` one can add
+    this.setState(prevState => ({
+      slices: [slice, ...prevState.slices],
+    }));
+  }
+
   render() {
+    const sidebarContents = this.state.showEditForm ? (
+      <PlaygroundEditForm
+        schema={this.state.editForm.schema}
+        data={this.state.editForm.data}
+        handleChange={this.state.editForm.handleChange}
+        handleSubmit={this.state.editForm.handleSubmit}
+        handleError={this.state.editForm.handleError}
+        hideEditForm={this.hideEditForm}
+      />
+    ) : (
+      <div>
+        <h4>Patterns</h4>
+        <ul>
+          {this.props.patterns
+            .filter(pattern => pattern.id !== 'site-footer')
+            .filter(pattern => pattern.id !== 'site-header')
+            .map(pattern => (
+              <li key={pattern.id}>
+                <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
+                <img
+                  src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
+                  alt={pattern.title}
+                />
+                <button
+                  type="button"
+                  tabIndex="0"
+                  onKeyPress={() =>
+                    this.addSlice({
+                      id: uuid(),
+                      patternId: pattern.id,
+                      data: {},
+                    })
+                  }
+                  onClick={() =>
+                    this.addSlice({
+                      id: uuid(),
+                      patternId: pattern.id,
+                      data: {},
+                    })
+                  }
+                >
+                  Add {pattern.title}
+                </button>
+                <br />
+                <Link to={`/patterns/components/${pattern.id}`}>
+                  View Details
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </div>
+    );
     return (
-      <article>
-        <h1>{this.props.example.title}</h1>
-        <h2>Playground for id: {this.props.id}</h2>
-        {this.state.showEditForm && (
-          <PlaygroundEditForm
-            schema={this.state.editForm.schema}
-            data={this.state.editForm.data}
-            handleChange={this.state.editForm.handleChange}
-            handleSubmit={this.state.editForm.handleSubmit}
-            handleError={this.state.editForm.handleError}
-          />
-        )}
-        <hr />
-        {/* <ul> */}
-        {/* {this.props.patterns.map(p => ( */}
-        {/* <li key={p.id}>{p.id}</li> */}
-        {/* ))} */}
-        {/* </ul> */}
-        <hr />
-        {this.state.slices.map((slice, sliceIndex) => {
-          const pattern = this.props.patterns.find(
-            p => p.id === slice.patternId,
-          );
-          const template = pattern.templates[0];
-          return (
-            <Slice
-              key={slice.id}
-              template={template.name}
-              schema={template.schema}
-              data={slice.data}
-              showEditForm={this.showEditForm}
-              sliceIndex={sliceIndex}
-              totalSlicesLength={this.state.slices.length}
-              deleteMe={() => this.deleteSlice(slice.id)}
-              moveUp={() => this.moveSliceUp(sliceIndex)}
-              moveDown={() => this.moveSliceDown(sliceIndex)}
-              isBeingEdited={
-                this.state.editForm.sliceIndexCurrentlyBeingEdited ===
-                sliceIndex
-              }
-              // handleSubmit={data =>
-              //   this.handleSave(blockId, data, moduleName, packageVersion)
-              // }
-            />
-          );
-        })}
-      </article>
+      <Page>
+        <Sidebar>
+          <h2>ima sidebar</h2>
+          {sidebarContents}
+        </Sidebar>
+        <MainContent>
+          <h1>{this.props.example.title}</h1>
+          <h2>Playground for id: {this.props.id}</h2>
+          {this.state.slices.map((slice, sliceIndex) => {
+            const pattern = this.props.patterns.find(
+              p => p.id === slice.patternId,
+            );
+            const template = pattern.templates[0];
+            return (
+              <Slice
+                key={slice.id}
+                template={template.name}
+                schema={template.schema}
+                data={slice.data}
+                showEditForm={this.showEditForm}
+                sliceIndex={sliceIndex}
+                totalSlicesLength={this.state.slices.length}
+                deleteMe={() => this.deleteSlice(slice.id)}
+                moveUp={() => this.moveSliceUp(sliceIndex)}
+                moveDown={() => this.moveSliceDown(sliceIndex)}
+                isBeingEdited={
+                  this.state.editForm.sliceIndexCurrentlyBeingEdited ===
+                  sliceIndex
+                }
+                // handleSubmit={data =>
+                //   this.handleSave(blockId, data, moduleName, packageVersion)
+                // }
+              />
+            );
+          })}
+        </MainContent>
+      </Page>
     );
   }
 }

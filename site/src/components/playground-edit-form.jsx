@@ -59,6 +59,14 @@ export default class PlaygroundEditForm extends Component {
               onSubmit={this.props.handleSubmit}
               debug
             />
+            <button
+              onClick={this.props.hideEditForm}
+              onKeyPress={this.props.hideEditForm}
+              type="submit"
+              tabIndex="0"
+            >
+              Done
+            </button>
           </div>
           {!this.state.isModal && (
             <div className="edit-form__footer">{ButtonTray}</div>
@@ -81,5 +89,6 @@ PlaygroundEditForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleError: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  hideEditForm: PropTypes.func.isRequired,
   handleHideEditForm: PropTypes.func, // eslint-disable-line @todo consider removing
 };
