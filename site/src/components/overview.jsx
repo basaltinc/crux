@@ -115,6 +115,9 @@ const DemoGridControls = styled.div`
   > * {
     margin-bottom: 0;
   }
+  .button {
+    min-height: 33px;
+  }
 `;
 
 const SchemaFormWrapper = styled.div`
