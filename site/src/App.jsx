@@ -236,10 +236,11 @@ export default class App extends React.Component {
                     <Site>
                       <Switch>
                         <Route path="/" exact />
+                        <Route path="/examples" />
                         <Route
                           path="/"
                           render={({ location }) => (
-                            <LoadableSidebar patterns={this.state.patterns}>
+                            <LoadableSidebar>
                               <LoadableSecondaryNav
                                 patterns={this.state.patterns}
                                 location={location}
