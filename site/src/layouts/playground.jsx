@@ -8,7 +8,7 @@ class Playground extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      slices: props.slices || [],
+      slices: props.example.slices || [],
       showEditForm: false,
       editForm: {
         sliceIndexCurrentlyBeingEdited: null,
@@ -79,6 +79,7 @@ class Playground extends Component {
   render() {
     return (
       <article>
+        <h1>{this.props.example.title}</h1>
         <h2>Playground for id: {this.props.id}</h2>
         {this.state.showEditForm && (
           <PlaygroundEditForm
@@ -130,7 +131,7 @@ class Playground extends Component {
 
 Playground.propTypes = {
   patterns: PropTypes.array.isRequired, // eslint-disable-line
-  slices: PropTypes.array.isRequired, // eslint-disable-line
+  example: PropTypes.object.isRequired, // eslint-disable-line
   id: PropTypes.string.isRequired, // @todo save/show playgrounds based on `id`
 };
 

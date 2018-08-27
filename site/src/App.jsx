@@ -18,6 +18,9 @@ import merge from 'lodash.merge';
 import Header from './components/header';
 import './global.css';
 import { apiUrlBase } from '../config';
+import exampleOne from './examples/example-1';
+
+const examples = [exampleOne];
 
 const LoadableComponentOverview = Loadable({
   loader: () =>
@@ -241,56 +244,18 @@ export default class App extends React.Component {
                           />
                           <Route
                             path="/playground/:id"
-                            render={({ match }) => (
-                              <LoadablePlayground
-                                id={match.params.id}
-                                patterns={this.state.patterns}
-                                slices={[
-                                  {
-                                    id: 1,
-                                    patternId: 'hero',
-                                    data: {
-                                      title: 'What We Do',
-                                      body: 'Design Systems, start to finish.',
-                                      alignment_all: 'center',
-                                      image:
-                                        '/assets/images/brand-stock/rawpixel-com-191102.jpg',
-                                      image_overlay: 'black',
-                                      buttons: [
-                                        {
-                                          text: 'Learn More',
-                                          url: 'http://www.basalt.io',
-                                          size: 'medium',
-                                          color: 'iron',
-                                        },
-                                      ],
-                                    },
-                                  },
-                                  {
-                                    id: 2,
-                                    patternId: 'media-block',
-                                    data: {
-                                      title: 'What Is Basalt?',
-                                      body:
-                                        'Basalt represents our roots—the Pacific Northwest, and our belief that quality design begins with rock‑solid scalable components.',
-                                      desc: 'A Community of Experts',
-                                      media:
-                                        '/assets/images/brand-stock/julentto-photography-184055.jpg',
-                                      media_alignment: 'right',
-                                      media_size: 'm',
-                                      buttons: [
-                                        {
-                                          text: 'Read More',
-                                          url: '#',
-                                          size: 'medium',
-                                          color: 'green',
-                                        },
-                                      ],
-                                    },
-                                  },
-                                ]}
-                              />
-                            )}
+                            render={({ match }) => {
+                              const example = examples.find(
+                                e => e.id === match.params.id,
+                              );
+                              return (
+                                <LoadablePlayground
+                                  id={match.params.id}
+                                  patterns={this.state.patterns}
+                                  example={example}
+                                />
+                              );
+                            }}
                           />
                           <Route
                             path="/about"

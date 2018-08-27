@@ -196,8 +196,8 @@ const aboutLinks = [
     id: 'feature-requests',
   },
   {
-    path: '/playground/new',
-    title: 'New Playground',
+    path: '/playground/example-1',
+    title: 'Playground - Example 1',
     id: 'new-playground',
   },
 ];
