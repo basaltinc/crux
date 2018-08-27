@@ -31,7 +31,7 @@ const LoadableComponentOverview = Loadable({
 
 const LoadablePlayground = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'component-overview' */ './layouts/playground'),
+    import(/* webpackChunkName: 'playground' */ './layouts/playground'),
   loading: Spinner,
 });
 
@@ -149,6 +149,13 @@ const LoadableSidebar = Loadable({
   loading: Spinner,
 });
 
+const LoadableSecondaryNav = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'secondary-nav' */
+    './components/secondary-nav'),
+  loading: Spinner,
+});
+
 const LoadableFooter = Loadable({
   loader: () => import(/* webpackChunkName: 'footer' */ './components/footer'),
   loading: Spinner,
@@ -227,17 +234,20 @@ export default class App extends React.Component {
                       )}
                     />
                     <Site>
-                      <Route
-                        path="/"
-                        component={routeProps =>
-                          routeProps.location.pathname !== '/' && (
-                            <LoadableSidebar
-                              {...routeProps}
-                              patterns={this.state.patterns}
-                            />
-                          )
-                        }
-                      />
+                      <Switch>
+                        <Route path="/" exact />
+                        <Route
+                          path="/"
+                          render={({ location }) => (
+                            <LoadableSidebar patterns={this.state.patterns}>
+                              <LoadableSecondaryNav
+                                patterns={this.state.patterns}
+                                location={location}
+                              />
+                            </LoadableSidebar>
+                          )}
+                        />
+                      </Switch>
                       <MainContent>
                         <Switch>
                           <Route
