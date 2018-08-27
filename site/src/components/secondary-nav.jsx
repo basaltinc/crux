@@ -134,6 +134,19 @@ const aboutLinks = [
   },
 ];
 
+const exampleLinks = [
+  {
+    title: 'Examples',
+    id: 'example-heading',
+    isHeading: true,
+  },
+  {
+    path: '/playground/example-1',
+    title: 'Playground - Example 1',
+    id: 'new-playground',
+  },
+];
+
 class SecondaryNav extends Component {
   constructor(props) {
     super(props);
@@ -156,6 +169,7 @@ class SecondaryNav extends Component {
         ...props.patterns,
         ...resourcesLinks,
         ...aboutLinks,
+        ...exampleLinks,
       ],
     };
   }
