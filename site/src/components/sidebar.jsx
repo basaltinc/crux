@@ -195,6 +195,11 @@ const aboutLinks = [
     title: 'Requests & Bugs',
     id: 'feature-requests',
   },
+  {
+    path: '/playground/new',
+    title: 'New Playground',
+    id: 'new-playground',
+  },
 ];
 
 class Sidebar extends Component {
