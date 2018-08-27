@@ -104,7 +104,12 @@
     {
       "path": "/playground/example-1",
       "title": "Playground - Example 1",
-      "id": "new-playground"
+      "id": "playground-1"
+    },
+    {
+      "path": "/playground/example-2",
+      "title": "Playground - Example 2",
+      "id": "playground-2"
     }
   ]
 }

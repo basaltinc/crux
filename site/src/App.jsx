@@ -19,8 +19,9 @@ import Header from './components/header';
 import './global.css';
 import { apiUrlBase } from '../config';
 import exampleOne from './examples/example-1';
+import exampleTwo from './examples/example-2';
 
-const examples = [exampleOne];
+const examples = [exampleOne, exampleTwo];
 
 const LoadableComponentOverview = Loadable({
   loader: () =>
