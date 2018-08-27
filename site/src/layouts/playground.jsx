@@ -160,7 +160,6 @@ class Playground extends Component {
     return (
       <Page>
         <Sidebar>
-          <h2>ima sidebar</h2>
           {sidebarContents}
         </Sidebar>
         <MainContent>
