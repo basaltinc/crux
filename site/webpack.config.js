@@ -40,7 +40,7 @@ const config = {
       },
     ],
   },
-  devtool: isProd ? 'source-map' : 'eval-cheap-module-source-map',
+  devtool: isProd ? 'source-map' : 'cheap-module-source-map',
   resolve: {
     extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
     modules: ['node_modules', path.resolve(__dirname, '../node_modules')],

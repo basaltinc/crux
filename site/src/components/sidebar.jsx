@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FaChevronLeft } from 'react-icons/fa';
-import SecondaryNav from './secondary-nav';
 
 const SidebarStyled = styled.aside`
   position: relative;
@@ -87,7 +86,7 @@ class Sidebar extends Component {
     return (
       <SidebarStyled sidebarCollapsed={isCollapsed}>
         <SidebarColumn sidebarCollapsed={isCollapsed}>
-          <SecondaryNav {...this.props} />
+          {this.props.children}
         </SidebarColumn>
         <SidebarTrayHandle onClick={this.handleToggleClick}>
           <ToggleChevron sidebarcollapsed={isCollapsed.toString()} />
@@ -103,6 +102,7 @@ Sidebar.defaultProps = {
 
 Sidebar.propTypes = {
   isInitiallyCollapsed: PropTypes.bool,
+  children: PropTypes.node.isRequired,
 };
 
 export default Sidebar;

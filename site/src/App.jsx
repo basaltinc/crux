@@ -18,10 +18,20 @@ import merge from 'lodash.merge';
 import Header from './components/header';
 import './global.css';
 import { apiUrlBase } from '../config';
+import exampleOne from './examples/example-1';
+import exampleTwo from './examples/example-2';
+
+const examples = [exampleOne, exampleTwo];
 
 const LoadableComponentOverview = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'component-overview' */ './layouts/component-overview'),
+  loading: Spinner,
+});
+
+const LoadablePlayground = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'playground' */ './layouts/playground'),
   loading: Spinner,
 });
 
@@ -139,6 +149,13 @@ const LoadableSidebar = Loadable({
   loading: Spinner,
 });
 
+const LoadableSecondaryNav = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'secondary-nav' */
+    './components/secondary-nav'),
+  loading: Spinner,
+});
+
 const LoadableFooter = Loadable({
   loader: () => import(/* webpackChunkName: 'footer' */ './components/footer'),
   loading: Spinner,
@@ -217,23 +234,41 @@ export default class App extends React.Component {
                       )}
                     />
                     <Site>
-                      <Route
-                        path="/"
-                        component={routeProps =>
-                          routeProps.location.pathname !== '/' && (
-                            <LoadableSidebar
-                              {...routeProps}
-                              patterns={this.state.patterns}
-                            />
-                          )
-                        }
-                      />
+                      <Switch>
+                        <Route path="/" exact />
+                        <Route
+                          path="/"
+                          render={({ location }) => (
+                            <LoadableSidebar patterns={this.state.patterns}>
+                              <LoadableSecondaryNav
+                                patterns={this.state.patterns}
+                                location={location}
+                              />
+                            </LoadableSidebar>
+                          )}
+                        />
+                      </Switch>
                       <MainContent>
                         <Switch>
                           <Route
                             path="/"
                             component={LoadableHomeSplash}
                             exact
+                          />
+                          <Route
+                            path="/playground/:id"
+                            render={({ match }) => {
+                              const example = examples.find(
+                                e => e.id === match.params.id,
+                              );
+                              return (
+                                <LoadablePlayground
+                                  id={match.params.id}
+                                  patterns={this.state.patterns}
+                                  example={example}
+                                />
+                              );
+                            }}
                           />
                           <Route
                             path="/about"
