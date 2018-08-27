@@ -256,7 +256,7 @@ export default class App extends React.Component {
                             exact
                           />
                           <Route
-                            path="/playground/:id"
+                            path="/examples/:id"
                             render={({ match }) => {
                               const example = examples.find(
                                 e => e.id === match.params.id,

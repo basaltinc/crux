@@ -102,14 +102,14 @@
       "isHeading": true
     },
     {
-      "path": "/playground/example-1",
-      "title": "Playground - Example 1",
-      "id": "playground-1"
+      "path": "/examples/example-1",
+      "title": "Example 1",
+      "id": "examples-1"
     },
     {
-      "path": "/playground/example-2",
-      "title": "Playground - Example 2",
-      "id": "playground-2"
+      "path": "/examples/example-2",
+      "title": "Example 2",
+      "id": "examples-2"
     }
   ]
 }
