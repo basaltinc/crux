@@ -44,7 +44,6 @@ export const Details = styled.details`
 
 export const SelectStyledWrapper = styled.label`
   display: inline-block;
-  height: 33px;
   overflow: hidden;
   padding-right: 3px;
   margin: 0 5px;
