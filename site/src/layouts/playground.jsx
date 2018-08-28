@@ -4,6 +4,7 @@ import arrayMove from 'array-move';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
+import SchemaForm from '@basalt/bedrock-schema-form';
 import Spinner from '@basalt/bedrock-spinner';
 import Slice from '../components/slice';
 import PlaygroundEditForm from '../components/playground-edit-form';
@@ -26,6 +27,7 @@ const Page = styled.div`
 `;
 
 const StartInsertSlice = styled.div`
+  display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
   border: dashed 1px lightgrey;
   text-align: center;
   cursor: pointer;
@@ -254,11 +256,39 @@ class Playground extends Component {
         <h4>Playground</h4>
         <p>Edit, add, re-arrange, and delete slices.</p>
         <p>Wow, this is great copy!</p>
+        <SchemaForm
+          onChange={({ formData }) => {
+            this.setState(prevState => ({
+              example: Object.assign({}, prevState.example, formData),
+            }));
+          }}
+          formData={this.state.example}
+          schema={{
+            title: 'Metadata',
+            type: 'object',
+            properties: {
+              title: {
+                title: 'Example Title',
+                type: 'string',
+              },
+              description: {
+                title: 'Description',
+                type: 'string',
+              },
+              hasVisibleControls: {
+                title: 'Show Edit Controls',
+                type: 'boolean',
+                default: true,
+              },
+            },
+          }}
+        />
       </div>
     );
   }
 
   render() {
+    const { hasVisibleControls } = this.state.example;
     const sidebarContents = this.renderSidebar();
 
     if (!this.state.ready) {
@@ -283,6 +313,7 @@ class Playground extends Component {
           <StartInsertSlice
             onClick={() => this.handleStartInsertSlice(0)}
             onKeyPress={() => this.handleStartInsertSlice(0)}
+            hasVisibleControls={hasVisibleControls}
           >
             <h6>Click to Insert Content Here</h6>
           </StartInsertSlice>
@@ -304,6 +335,7 @@ class Playground extends Component {
                   deleteMe={() => this.deleteSlice(slice.id)}
                   moveUp={() => this.moveSliceUp(sliceIndex)}
                   moveDown={() => this.moveSliceDown(sliceIndex)}
+                  hasVisibleControls={hasVisibleControls}
                   isBeingEdited={this.state.editFormSliceId === slice.id}
                   isFirst={sliceIndex === 0}
                   isLast={this.state.slices.length - 1 === sliceIndex}
@@ -312,6 +344,7 @@ class Playground extends Component {
                   key={`${slice.id}--addSlice`}
                   onClick={() => this.handleStartInsertSlice(sliceIndex + 1)}
                   onKeyPress={() => this.handleStartInsertSlice(sliceIndex + 1)}
+                  hasVisibleControls={hasVisibleControls}
                 >
                   <h6>Click to Insert Content Here</h6>
                 </StartInsertSlice>
