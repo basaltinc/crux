@@ -8,14 +8,14 @@ const meta = {
   type: 'component',
   templates: [
     {
-      name: '@components/_media-tile--basic.twig',
-      selector: '.media-tile--basic',
-      schema: basicSchema,
-    },
-    {
       name: '@components/_media-tile.twig',
       selector: '.media-tile',
       schema,
+    },
+    {
+      name: '@components/_media-tile--basic.twig',
+      selector: '.media-tile--basic',
+      schema: basicSchema,
     },
   ],
   demoSize: 'l',
