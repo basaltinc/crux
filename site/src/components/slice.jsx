@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
+import { FaChevronDown, FaChevronUp, FaTrashAlt, FaEdit } from 'react-icons/fa';
 import Twig from './twig';
 
 export default class Slice extends Component {
@@ -40,9 +42,9 @@ export default class Slice extends Component {
           border: `dotted 1px ${this.props.isBeingEdited ? 'blue' : '#ccc'}`,
         }}
       >
-        <nav className="ei-content-block__button-tray">
+        <FormIconTray className="ei-content-block__button-tray field-array__item-button-tray">
           {this.props.sliceIndex !== 0 && (
-            <div
+            <FormIconButton
               className="ei-content-block__button"
               onKeyPress={() => this.props.moveUp()}
               onClick={() => this.props.moveUp()}
@@ -50,11 +52,11 @@ export default class Slice extends Component {
               aria-label="move item up"
               tabIndex="0"
             >
-              Up
-            </div>
+              <FaChevronUp fill="gray" />
+            </FormIconButton>
           )}
           {this.props.sliceIndex < this.props.totalSlicesLength - 1 && (
-            <div
+            <FormIconButton
               className="ei-content-block__button"
               onKeyPress={() => this.props.moveDown()}
               onClick={() => this.props.moveDown()}
@@ -62,12 +64,12 @@ export default class Slice extends Component {
               aria-label="move item up"
               tabIndex="0"
             >
-              Down
-            </div>
+              <FaChevronDown fill="gray" />
+            </FormIconButton>
           )}
           {/* {(this.props.sliceIndex !== 0 || */}
           {/* this.props.sliceIndex < this.props.contentBlocksLength - 1) && <hr />} */}
-          <div
+          <FormIconButton
             className="ei-content-block__button"
             onKeyPress={() => this.showEditform()}
             onClick={() => this.showEditform()}
@@ -75,10 +77,10 @@ export default class Slice extends Component {
             aria-label="being editing"
             tabIndex="0"
           >
-            Edit
-          </div>
+            <FaEdit fill="gray" />
+          </FormIconButton>
           {/* <hr /> */}
-          <div
+          <FormIconButton
             className="ei-content-block__button"
             onKeyPress={() => this.props.deleteMe()}
             onClick={() => this.props.deleteMe()}
@@ -86,9 +88,9 @@ export default class Slice extends Component {
             aria-label="delete component"
             tabIndex="0"
           >
-            Delete
-          </div>
-        </nav>
+            <FaTrashAlt fill="gray" />
+          </FormIconButton>
+        </FormIconTray>
 
         <Twig template={this.props.template} data={this.state.data} />
       </div>
