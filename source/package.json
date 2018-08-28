@@ -11,13 +11,13 @@
     "test": "gulp validate"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "@basalt/demo-data": "0.5.0",
     "@theme-tools/plugin-icon-font": "^0.4.3",
     "@theme-tools/plugin-sass": "^0.4.0",
     "@theme-tools/plugin-webpack": "^0.2.2",
-    "babel-core": "6.26.3",
-    "babel-loader": "7.1.4",
-    "babel-preset-env": "1.7.0",
+    "babel-loader": "^8.0.0",
     "breakpoint-sass": "^2.7.1",
     "generator-pl-pattern": "^1.0.0",
     "gulp": "^4.0.0",
