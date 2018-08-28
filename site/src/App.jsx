@@ -18,10 +18,6 @@ import merge from 'lodash.merge';
 import Header from './components/header';
 import './global.css';
 import { apiUrlBase } from '../config';
-import exampleOne from './examples/example-1';
-import exampleTwo from './examples/example-2';
-
-const examples = [exampleOne, exampleTwo];
 
 const LoadableComponentOverview = Loadable({
   loader: () =>
@@ -169,7 +165,7 @@ const LoadableSandbox = Loadable({
 const Site = styled.div`
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 229px);
+  min-height: calc(100vh - 175px);
   width: 100%;
   max-width: 100vw;
 `;
@@ -184,6 +180,10 @@ const SiteFooter = styled.div`
   color: white;
   && a {
     color: white;
+  }
+  ul,
+  li {
+    margin-bottom: 0;
   }
 `;
 
@@ -236,10 +236,11 @@ export default class App extends React.Component {
                     <Site>
                       <Switch>
                         <Route path="/" exact />
+                        <Route path="/examples" />
                         <Route
                           path="/"
                           render={({ location }) => (
-                            <LoadableSidebar patterns={this.state.patterns}>
+                            <LoadableSidebar>
                               <LoadableSecondaryNav
                                 patterns={this.state.patterns}
                                 location={location}
@@ -256,19 +257,13 @@ export default class App extends React.Component {
                             exact
                           />
                           <Route
-                            path="/playground/:id"
-                            render={({ match }) => {
-                              const example = examples.find(
-                                e => e.id === match.params.id,
-                              );
-                              return (
-                                <LoadablePlayground
-                                  id={match.params.id}
-                                  patterns={this.state.patterns}
-                                  example={example}
-                                />
-                              );
-                            }}
+                            path="/examples/:id"
+                            render={({ match }) => (
+                              <LoadablePlayground
+                                id={match.params.id}
+                                patterns={this.state.patterns}
+                              />
+                            )}
                           />
                           <Route
                             path="/about"

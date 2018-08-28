@@ -28,6 +28,7 @@ const SidebarColumn = styled.div`
   position: relative;
   width: calc(100% - 19px);
   height: 100%;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
   background-color: #f2f3f3;

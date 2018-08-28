@@ -12,12 +12,15 @@ import {
   getReleaseNotes,
 } from '../data/index';
 import twigRenderer from '../twig-renderer';
+import examplesRoute from './examples';
 
 const router = express.Router();
 
 // all routes in here have a `/api` prefix
 // all routes MUST be documented using `apidoc` - http://apidocjs.com
 // docs viewable at http://localhost:3042/apidoc/ (link in site footer)
+
+router.use(examplesRoute);
 
 router.get('/', (req, res) => {
   res.json({

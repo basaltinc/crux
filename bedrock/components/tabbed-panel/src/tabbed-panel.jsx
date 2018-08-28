@@ -11,21 +11,6 @@ const ShadowWrap = styled.div`
   border-width: 1px 5px 1px 1px;
   border-style: solid;
   border-color: ${props => props.theme.colors.borders};
-  // @todo We can bring this design element back in, 
-  // @todo but it needs to be consistent with the rest of the site
-  // &:after {
-  //   z-index: -1;
-  //   position: absolute;
-  //   content: '';
-  //   bottom: 15px;
-  //   right: 10px;
-  //   width: 50%;
-  //   top: 80%;
-  //   max-width: 300px;
-  //   background: ${props => props.colorTheme};
-  //   box-shadow: 0 15px 10px ${props => props.colorTheme};
-  //   transform: rotate(3deg);
-  // }
 `;
 
 const HeaderRegion = styled.div`
