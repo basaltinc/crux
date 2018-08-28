@@ -50,17 +50,9 @@ class Playground extends Component {
       showEditForm: false,
       showPatternForm: false,
       editFormInsertionIndex: 0,
-      editForm: {
-        sliceIndexCurrentlyBeingEdited: null,
-        schema: {},
-        data: {},
-        uiSchema: {},
-        handleSubmit: () => {},
-        handleChange: () => {},
-        handleError: () => {},
-      },
+      editFormSchema: {},
+      editFormSliceId: null,
     };
-    this.showEditForm = this.showEditForm.bind(this);
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
     this.deleteSlice = this.deleteSlice.bind(this);
@@ -102,25 +94,6 @@ class Playground extends Component {
       .then(results => {
         console.log('Save Results:', results);
       });
-  }
-
-  /**
-   * @param {Object} editForm - Options
-   * @param {Object} editForm.data - Current data to pass to Pattern
-   * @param {Object} editForm.uiSchema - Schema Form Ui Schema @todo not used currently
-   * @param {Object} editForm.schema - Schema of Pattern
-   * @param {Function} editForm.handleSubmit - Handle Schema Form submit
-   * @param {Function} editForm.handleChange - Handle Schema Form change
-   * @param {Function} editForm.handleError - Handle Schema Form error
-   * @param {number} editForm.contentBlockIndexCurrentlyBeingEdited - Which Slice
-   * @return {null} - sets state
-   */
-  showEditForm(editForm) {
-    this.setState({
-      showEditForm: true,
-      showPatternForm: false,
-      editForm,
-    });
   }
 
   hideEditForm() {
@@ -175,19 +148,22 @@ class Playground extends Component {
 
   renderSidebar() {
     if (this.state.showEditForm) {
+      const { slices, editFormSliceId, editFormSchema } = this.state;
       return (
         <PlaygroundEditForm
-          schema={this.state.editForm.schema}
-          data={this.state.editForm.data}
+          schema={editFormSchema}
+          data={slices.find(s => s.id === editFormSliceId).data}
           handleChange={data => {
-            console.info(
-              `@todo Update data in 'this.state.slices' for this item with this data `,
-              data.formData,
-            );
-            this.state.editForm.handleChange(data);
+            this.setState(prevState => ({
+              slices: prevState.slices.map(slice => {
+                if (slice.id === editFormSliceId) {
+                  slice.data = data.formData;
+                }
+                return slice;
+              }),
+            }));
           }}
-          handleSubmit={this.state.editForm.handleSubmit}
-          handleError={this.state.editForm.handleError}
+          handleError={console.error}
           hideEditForm={this.hideEditForm}
         />
       );
@@ -280,21 +256,20 @@ class Playground extends Component {
                 <Slice
                   key={slice.id}
                   template={template.name}
-                  schema={template.schema}
                   data={slice.data}
-                  showEditForm={this.showEditForm}
-                  sliceIndex={sliceIndex}
-                  totalSlicesLength={this.state.slices.length}
+                  showEditForm={() => {
+                    this.setState({
+                      editFormSliceId: slice.id,
+                      editFormSchema: template.schema,
+                      showEditForm: true,
+                    });
+                  }}
                   deleteMe={() => this.deleteSlice(slice.id)}
                   moveUp={() => this.moveSliceUp(sliceIndex)}
                   moveDown={() => this.moveSliceDown(sliceIndex)}
-                  isBeingEdited={
-                    this.state.editForm.sliceIndexCurrentlyBeingEdited ===
-                    sliceIndex
-                  }
-                  // handleSubmit={data =>
-                  //   this.handleSave(blockId, data, moduleName, packageVersion)
-                  // }
+                  isBeingEdited={this.state.editFormSliceId === slice.id}
+                  isFirst={sliceIndex === 0}
+                  isLast={this.state.slices.length - 1 === sliceIndex}
                 />
                 <StartInsertSlice
                   key={`${slice.id}--addSlice`}
