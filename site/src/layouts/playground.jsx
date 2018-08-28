@@ -128,7 +128,10 @@ class Playground extends Component {
   }
 
   hideEditForm() {
-    this.setState({ showEditForm: false });
+    this.setState({
+      showEditForm: false,
+      editFormSliceId: null,
+    });
   }
 
   /**
@@ -164,13 +167,18 @@ class Playground extends Component {
    * @param {Object} slice.data - Data for Pattern, usually `{}`
    * @returns {null} - sets state
    */
-  addSlice(slice) {
-    const { schema } = this.getTemplateFromPatternId(slice.patternId);
+  addSlice(patternId) {
+    const { schema } = this.getTemplateFromPatternId(patternId);
+    const id = uuid();
     this.setState(prevState => {
-      prevState.slices.splice(prevState.editFormInsertionIndex, 0, slice);
+      prevState.slices.splice(prevState.editFormInsertionIndex, 0, {
+        id,
+        patternId,
+        data: schema.examples ? schema.examples[0] : {},
+      });
       return {
         slices: prevState.slices,
-        editFormSliceId: slice.id,
+        editFormSliceId: id,
         editFormSchema: schema,
         showEditForm: true,
         showPatternForm: false,
@@ -193,20 +201,8 @@ class Playground extends Component {
         <div
           role="button"
           tabIndex="0"
-          onKeyPress={() =>
-            this.addSlice({
-              id: uuid(),
-              patternId: pattern.id,
-              data: {},
-            })
-          }
-          onClick={() =>
-            this.addSlice({
-              id: uuid(),
-              patternId: pattern.id,
-              data: {},
-            })
-          }
+          onKeyPress={() => this.addSlice(pattern.id)}
+          onClick={() => this.addSlice(pattern.id)}
         >
           <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
           <img
