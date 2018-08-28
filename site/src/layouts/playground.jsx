@@ -31,9 +31,10 @@ const StartInsertSlice = styled.div`
   cursor: pointer;
   padding: 1rem;
   margin: 1rem 0;
-  transition: border 0.3s ease;
+  transition: all 0.3s ease;
   &:hover,
   &:active {
+    color: #e1c933;
     border: dashed 1px #e1c933;
     text-decoration: underline;
   }
@@ -155,8 +156,11 @@ class Playground extends Component {
   addSlice(slice) {
     this.setState(prevState => {
       prevState.slices.splice(prevState.editFormInsertionIndex, 0, slice);
+      // @todo Instead of hiding all sidebar forms, lets show the proper edit form for the new slice
       return {
         slices: prevState.slices,
+        showEditForm: false,
+        showPatternForm: false,
       };
     });
   }
