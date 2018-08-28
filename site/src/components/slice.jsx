@@ -2,7 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
 import { FaChevronDown, FaChevronUp, FaTrashAlt, FaEdit } from 'react-icons/fa';
+import styled from 'styled-components';
 import Twig from './twig';
+
+const PlaygroundIcon = styled(FormIconButton)`
+  display: block;
+`;
+
+const PlaygroundIconWrapper = styled(FormIconTray)`
+  display: block;
+  height: 100%;
+  text-align: center;
+`;
 
 export default class Slice extends Component {
   static getDerivedStateFromProps(props, state) {
@@ -39,60 +50,62 @@ export default class Slice extends Component {
     return (
       <div
         style={{
-          border: `dotted 1px ${this.props.isBeingEdited ? 'blue' : '#ccc'}`,
+          display: 'flex',
         }}
       >
-        <FormIconTray className="ei-content-block__button-tray field-array__item-button-tray">
-          {this.props.sliceIndex !== 0 && (
-            <FormIconButton
-              className="ei-content-block__button"
-              onKeyPress={() => this.props.moveUp()}
-              onClick={() => this.props.moveUp()}
-              role="button"
-              aria-label="move item up"
-              tabIndex="0"
-            >
-              <FaChevronUp fill="gray" />
-            </FormIconButton>
-          )}
-          {this.props.sliceIndex < this.props.totalSlicesLength - 1 && (
-            <FormIconButton
-              className="ei-content-block__button"
-              onKeyPress={() => this.props.moveDown()}
-              onClick={() => this.props.moveDown()}
-              role="button"
-              aria-label="move item up"
-              tabIndex="0"
-            >
-              <FaChevronDown fill="gray" />
-            </FormIconButton>
-          )}
-          {/* {(this.props.sliceIndex !== 0 || */}
-          {/* this.props.sliceIndex < this.props.contentBlocksLength - 1) && <hr />} */}
-          <FormIconButton
-            className="ei-content-block__button"
+        <PlaygroundIconWrapper className="ei-content-block__button-tray">
+          {/* {this.props.sliceIndex !== 0 && ( */}
+          <PlaygroundIcon
+            onKeyPress={() => this.props.moveUp()}
+            onClick={() => this.props.moveUp()}
+            role="button"
+            aria-label="move item up"
+            tabIndex="0"
+            disabled
+          >
+            <FaChevronUp fill={this.props.sliceIndex === 0 && 'lightgrey'} />
+          </PlaygroundIcon>
+          <PlaygroundIcon
+            onKeyPress={() => this.props.moveDown()}
+            onClick={() => this.props.moveDown()}
+            role="button"
+            aria-label="move item up"
+            tabIndex="0"
+          >
+            <FaChevronDown
+              fill={
+                +this.props.sliceIndex + 1 === this.props.totalSlicesLength &&
+                'lightgrey'
+              }
+            />
+          </PlaygroundIcon>
+          <PlaygroundIcon
             onKeyPress={() => this.showEditform()}
             onClick={() => this.showEditform()}
             role="button"
             aria-label="being editing"
             tabIndex="0"
           >
-            <FaEdit fill="gray" />
-          </FormIconButton>
-          {/* <hr /> */}
-          <FormIconButton
-            className="ei-content-block__button"
+            <FaEdit />
+          </PlaygroundIcon>
+          <PlaygroundIcon
             onKeyPress={() => this.props.deleteMe()}
             onClick={() => this.props.deleteMe()}
             role="button"
             aria-label="delete component"
             tabIndex="0"
           >
-            <FaTrashAlt fill="gray" />
-          </FormIconButton>
-        </FormIconTray>
+            <FaTrashAlt />
+          </PlaygroundIcon>
+        </PlaygroundIconWrapper>
 
-        <Twig template={this.props.template} data={this.state.data} />
+        <Twig
+          style={{
+            border: `dotted 1px ${this.props.isBeingEdited ? 'blue' : '#ccc'}`,
+          }}
+          template={this.props.template}
+          data={this.state.data}
+        />
       </div>
     );
   }
