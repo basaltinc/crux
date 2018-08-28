@@ -73,7 +73,7 @@ const Slice = ({
       </PlaygroundIcon>
     </PlaygroundIconWrapper>
 
-    <Twig template={template} data={data} />
+    <Twig template={template} data={data} isResizable={false} />
   </div>
 );
 

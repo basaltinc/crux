@@ -233,8 +233,10 @@ class Playground extends Component {
       <Page>
         <Sidebar>
           <button type="submit" onKeyPress={this.save} onClick={this.save}>
-            Save Everything (not fully functioning)
+            Save Everything
           </button>
+          <small>Warning: server unresponsive for ~3s upon save</small>
+          {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
           {sidebarContents}
         </Sidebar>
         <MainContent>
