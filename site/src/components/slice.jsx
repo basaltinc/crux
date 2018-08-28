@@ -54,28 +54,38 @@ export default class Slice extends Component {
         }}
       >
         <PlaygroundIconWrapper className="ei-content-block__button-tray">
-          {/* {this.props.sliceIndex !== 0 && ( */}
           <PlaygroundIcon
-            onKeyPress={() => this.props.moveUp()}
-            onClick={() => this.props.moveUp()}
+            onKeyPress={() =>
+              this.props.sliceIndex !== 0 && this.props.moveUp()
+            }
+            onClick={() => this.props.sliceIndex !== 0 && this.props.moveUp()}
             role="button"
             aria-label="move item up"
             tabIndex="0"
             disabled
           >
-            <FaChevronUp fill={this.props.sliceIndex === 0 && 'lightgrey'} />
+            <FaChevronUp
+              fill={this.props.sliceIndex === 0 ? 'lightgrey' : 'black'}
+            />
           </PlaygroundIcon>
           <PlaygroundIcon
-            onKeyPress={() => this.props.moveDown()}
-            onClick={() => this.props.moveDown()}
+            onKeyPress={() =>
+              +this.props.sliceIndex + 1 !== this.props.totalSlicesLength &&
+              this.props.moveDown()
+            }
+            onClick={() =>
+              +this.props.sliceIndex + 1 !== this.props.totalSlicesLength &&
+              this.props.moveDown()
+            }
             role="button"
-            aria-label="move item up"
+            aria-label="move item down"
             tabIndex="0"
           >
             <FaChevronDown
               fill={
-                +this.props.sliceIndex + 1 === this.props.totalSlicesLength &&
-                'lightgrey'
+                +this.props.sliceIndex + 1 === this.props.totalSlicesLength
+                  ? 'lightgrey'
+                  : 'black'
               }
             />
           </PlaygroundIcon>
