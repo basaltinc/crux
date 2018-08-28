@@ -11,6 +11,5 @@
     ],
     "@babel/preset-react"
   ],
-  "plugins": [
-  ]
+  "plugins": ["babel-plugin-styled-components"]
 }
