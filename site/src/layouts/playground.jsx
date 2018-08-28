@@ -26,7 +26,17 @@ const Page = styled.div`
 `;
 
 const StartInsertSlice = styled.div`
-  border: solid 1px #e1c933;
+  border: dashed 1px lightgrey;
+  text-align: center;
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: border 0.3s ease;
+  &:hover,
+  &:active {
+    border: dashed 1px #e1c933;
+    text-decoration: underline;
+  }
 `;
 
 class Playground extends Component {
@@ -254,7 +264,7 @@ class Playground extends Component {
             onClick={() => this.handleStartInsertSlice(0)}
             onKeyPress={() => this.handleStartInsertSlice(0)}
           >
-            <hr />
+            <h6>Click to Insert Content Here</h6>
           </StartInsertSlice>
           {this.state.slices.map((slice, sliceIndex) => {
             const pattern = this.props.patterns.find(
@@ -287,7 +297,7 @@ class Playground extends Component {
                   onClick={() => this.handleStartInsertSlice(sliceIndex + 1)}
                   onKeyPress={() => this.handleStartInsertSlice(sliceIndex + 1)}
                 >
-                  <hr />
+                  <h6>Click to Insert Content Here</h6>
                 </StartInsertSlice>
               </React.Fragment>
             );
