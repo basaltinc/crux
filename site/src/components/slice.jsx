@@ -32,6 +32,7 @@ const PlaygroundSliceWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  border: solid 1px ${props => (props.active ? '#e1c933' : 'white')};
   ${PlaygroundIconWrapper} {
     margin-left: 1rem;
   }
@@ -48,7 +49,7 @@ const Slice = ({
   template,
   data,
 }) => (
-  <PlaygroundSliceWrapper>
+  <PlaygroundSliceWrapper active={isBeingEdited}>
     <PlaygroundIconWrapper className="ei-content-block__button-tray">
       <PlaygroundIcon
         onKeyPress={() => !isFirst && moveUp()}
