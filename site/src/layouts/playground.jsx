@@ -13,13 +13,13 @@ import { apiUrlBase } from '../../config';
 const MainContent = styled.div`
   flex-grow: 1;
   padding: var(--spacing-l);
+  overflow-y: scroll;
 `;
 
 const Page = styled.div`
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 229px);
-  width: 100%;
+  height: calc(100vh - 175px);
   max-width: 100vw;
   // @todo fix this temp workaround for negatting the "MainContent" padding
   margin: calc(-1 * var(--spacing-l));
@@ -280,8 +280,10 @@ class Playground extends Component {
           {sidebarContents}
         </Sidebar>
         <MainContent>
-          <h1>{this.state.example.title}</h1>
-          <h2>Playground for id: {this.props.id}</h2>
+          {/* <h2>Playground for id: {this.props.id}</h2> */}
+          <h4 className="eyebrow">Prototyping Sandbox</h4>
+          <h2>{this.state.example.title}</h2>
+
           <StartInsertSlice
             onClick={() => this.handleStartInsertSlice(0)}
             onKeyPress={() => this.handleStartInsertSlice(0)}
