@@ -25,6 +25,10 @@ const Page = styled.div`
   margin: calc(-1 * var(--spacing-l));
 `;
 
+const AddSlice = styled.div`
+  border: solid 1px #E1C933;
+`;
+
 class Playground extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +37,7 @@ class Playground extends Component {
       example: {},
       slices: [],
       showEditForm: false,
+      editFormInsertionIndex: 0,
       editForm: {
         sliceIndexCurrentlyBeingEdited: null,
         schema: {},
@@ -50,6 +55,8 @@ class Playground extends Component {
     this.addSlice = this.addSlice.bind(this);
     this.hideEditForm = this.hideEditForm.bind(this);
     this.save = this.save.bind(this);
+    this.renderSidebar = this.renderSidebar.bind(this);
+    this.handleAddSlice = this.handleAddSlice.bind(this);
   }
 
   componentDidMount() {
@@ -139,8 +146,12 @@ class Playground extends Component {
     }));
   }
 
-  render() {
-    const sidebarContents = this.state.showEditForm ? (
+  handleAddSlice(index) {
+    console.log(index);
+  }
+
+  renderSidebar() {
+    return this.state.showEditForm ? (
       <PlaygroundEditForm
         schema={this.state.editForm.schema}
         data={this.state.editForm.data}
@@ -198,6 +209,10 @@ class Playground extends Component {
         </ul>
       </div>
     );
+  }
+
+  render() {
+    const sidebarContents = this.renderSidebar();
 
     if (!this.state.ready) {
       return <Spinner />;
@@ -214,12 +229,16 @@ class Playground extends Component {
         <MainContent>
           <h1>{this.state.example.title}</h1>
           <h2>Playground for id: {this.props.id}</h2>
+          <AddSlice onClick={() => this.handleAddSlice(0)} onKeyPress={() => this.handleAddSlice(0)}>
+            <hr/>
+          </AddSlice>
           {this.state.slices.map((slice, sliceIndex) => {
             const pattern = this.props.patterns.find(
               p => p.id === slice.patternId,
             );
             const template = pattern.templates[0];
             return (
+              <React.Fragment>
               <Slice
                 key={slice.id}
                 template={template.name}
@@ -239,6 +258,10 @@ class Playground extends Component {
                 //   this.handleSave(blockId, data, moduleName, packageVersion)
                 // }
               />
+              <AddSlice onClick={() => this.handleAddSlice(sliceIndex + 1)} onKeyPress={() => this.handleAddSlice(sliceIndex + 1)}>
+                <hr/>
+              </AddSlice>
+              </React.Fragment>
             );
           })}
         </MainContent>
