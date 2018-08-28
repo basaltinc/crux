@@ -4,9 +4,11 @@ import arrayMove from 'array-move';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
+import Spinner from '@basalt/bedrock-spinner';
 import Slice from '../components/slice';
 import PlaygroundEditForm from '../components/playground-edit-form';
 import Sidebar from '../components/sidebar';
+import { apiUrlBase } from '../../config';
 
 const MainContent = styled.div`
   flex-grow: 1;
@@ -27,7 +29,9 @@ class Playground extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      slices: props.example.slices || [],
+      ready: false,
+      example: {},
+      slices: [],
       showEditForm: false,
       editForm: {
         sliceIndexCurrentlyBeingEdited: null,
@@ -47,7 +51,18 @@ class Playground extends Component {
     this.hideEditForm = this.hideEditForm.bind(this);
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    window
+      .fetch(`${apiUrlBase}/examples/${this.props.id}`)
+      .then(res => res.json())
+      .then(example => {
+        this.setState({
+          example,
+          slices: example.slices,
+          ready: true,
+        });
+      });
+  }
 
   /**
    * @param {Object} editForm - Options
@@ -157,11 +172,16 @@ class Playground extends Component {
         </ul>
       </div>
     );
+
+    if (!this.state.ready) {
+      return <Spinner />;
+    }
+
     return (
       <Page>
         <Sidebar>{sidebarContents}</Sidebar>
         <MainContent>
-          <h1>{this.props.example.title}</h1>
+          <h1>{this.state.example.title}</h1>
           <h2>Playground for id: {this.props.id}</h2>
           {this.state.slices.map((slice, sliceIndex) => {
             const pattern = this.props.patterns.find(
