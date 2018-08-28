@@ -7,12 +7,33 @@ import Twig from './twig';
 
 const PlaygroundIcon = styled(FormIconButton)`
   display: block;
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+  &:hover,
+  &:active {
+    cursor: ${props => (props.enabled ? 'pointer' : '')};
+  }
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const PlaygroundIconWrapper = styled(FormIconTray)`
   display: block;
   height: 100%;
   text-align: center;
+  padding: 0.5rem;
+`;
+
+const PlaygroundSliceWrapper = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  ${PlaygroundIconWrapper} {
+    margin-left: 1rem;
+  }
 `;
 
 const Slice = ({
