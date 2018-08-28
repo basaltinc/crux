@@ -9,7 +9,6 @@ router.get('/example/:id', async (req, res) => {
 });
 
 router.post('/example/:id', async (req, res) => {
-  console.log({ body: req.body });
   const results = await setExample(req.params.id, req.body);
   res.send(results);
 });

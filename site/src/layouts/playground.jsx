@@ -50,17 +50,9 @@ class Playground extends Component {
       showEditForm: false,
       showPatternForm: false,
       editFormInsertionIndex: 0,
-      editForm: {
-        sliceIndexCurrentlyBeingEdited: null,
-        schema: {},
-        data: {},
-        uiSchema: {},
-        handleSubmit: () => {},
-        handleChange: () => {},
-        handleError: () => {},
-      },
+      editFormSchema: {},
+      editFormSliceId: null,
     };
-    this.showEditForm = this.showEditForm.bind(this);
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
     this.deleteSlice = this.deleteSlice.bind(this);
@@ -70,6 +62,7 @@ class Playground extends Component {
     this.renderSidebar = this.renderSidebar.bind(this);
     this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
     this.addSlice = this.addSlice.bind(this);
+    this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
   }
 
   componentDidMount() {
@@ -83,6 +76,16 @@ class Playground extends Component {
           ready: true,
         });
       });
+  }
+
+  /**
+   * @param {string} patternId - ID of Pattern, i.e. `media-block`
+   * @return {{ name: string, schema: Object }} - First (main) template
+   */
+  getTemplateFromPatternId(patternId) {
+    const pattern = this.props.patterns.find(p => p.id === patternId);
+    // @todo Improve template grabbing method besides just "first" one
+    return pattern.templates[0];
   }
 
   save() {
@@ -102,25 +105,6 @@ class Playground extends Component {
       .then(results => {
         console.log('Save Results:', results);
       });
-  }
-
-  /**
-   * @param {Object} editForm - Options
-   * @param {Object} editForm.data - Current data to pass to Pattern
-   * @param {Object} editForm.uiSchema - Schema Form Ui Schema @todo not used currently
-   * @param {Object} editForm.schema - Schema of Pattern
-   * @param {Function} editForm.handleSubmit - Handle Schema Form submit
-   * @param {Function} editForm.handleChange - Handle Schema Form change
-   * @param {Function} editForm.handleError - Handle Schema Form error
-   * @param {number} editForm.contentBlockIndexCurrentlyBeingEdited - Which Slice
-   * @return {null} - sets state
-   */
-  showEditForm(editForm) {
-    this.setState({
-      showEditForm: true,
-      showPatternForm: false,
-      editForm,
-    });
   }
 
   hideEditForm() {
@@ -153,13 +137,22 @@ class Playground extends Component {
     }));
   }
 
+  /**
+   * @param {Object} slice - A Slice
+   * @param {string} slice.id - uuid
+   * @param {string} slice.patternId - ID of Pattern, i.e. `media-block`
+   * @param {Object} slice.data - Data for Pattern, usually `{}`
+   * @returns {null} - sets state
+   */
   addSlice(slice) {
+    const { schema } = this.getTemplateFromPatternId(slice.patternId);
     this.setState(prevState => {
       prevState.slices.splice(prevState.editFormInsertionIndex, 0, slice);
-      // @todo Instead of hiding all sidebar forms, lets show the proper edit form for the new slice
       return {
         slices: prevState.slices,
-        showEditForm: false,
+        editFormSliceId: slice.id,
+        editFormSchema: schema,
+        showEditForm: true,
         showPatternForm: false,
       };
     });
@@ -175,19 +168,22 @@ class Playground extends Component {
 
   renderSidebar() {
     if (this.state.showEditForm) {
+      const { slices, editFormSliceId, editFormSchema } = this.state;
       return (
         <PlaygroundEditForm
-          schema={this.state.editForm.schema}
-          data={this.state.editForm.data}
+          schema={editFormSchema}
+          data={slices.find(s => s.id === editFormSliceId).data}
           handleChange={data => {
-            console.info(
-              `@todo Update data in 'this.state.slices' for this item with this data `,
-              data.formData,
-            );
-            this.state.editForm.handleChange(data);
+            this.setState(prevState => ({
+              slices: prevState.slices.map(slice => {
+                if (slice.id === editFormSliceId) {
+                  slice.data = data.formData;
+                }
+                return slice;
+              }),
+            }));
           }}
-          handleSubmit={this.state.editForm.handleSubmit}
-          handleError={this.state.editForm.handleError}
+          handleError={console.error}
           hideEditForm={this.hideEditForm}
         />
       );
@@ -257,8 +253,10 @@ class Playground extends Component {
       <Page>
         <Sidebar>
           <button type="submit" onKeyPress={this.save} onClick={this.save}>
-            Save Everything (not fully functioning)
+            Save Everything
           </button>
+          <small>Warning: server unresponsive for ~3s upon save</small>
+          {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
           {sidebarContents}
         </Sidebar>
         <MainContent>
@@ -271,30 +269,26 @@ class Playground extends Component {
             <h6>Click to Insert Content Here</h6>
           </StartInsertSlice>
           {this.state.slices.map((slice, sliceIndex) => {
-            const pattern = this.props.patterns.find(
-              p => p.id === slice.patternId,
-            );
-            const template = pattern.templates[0];
+            const template = this.getTemplateFromPatternId(slice.patternId);
             return (
               <React.Fragment key={`${slice.id}--fragment`}>
                 <Slice
                   key={slice.id}
                   template={template.name}
-                  schema={template.schema}
                   data={slice.data}
-                  showEditForm={this.showEditForm}
-                  sliceIndex={sliceIndex}
-                  totalSlicesLength={this.state.slices.length}
+                  showEditForm={() => {
+                    this.setState({
+                      editFormSliceId: slice.id,
+                      editFormSchema: template.schema,
+                      showEditForm: true,
+                    });
+                  }}
                   deleteMe={() => this.deleteSlice(slice.id)}
                   moveUp={() => this.moveSliceUp(sliceIndex)}
                   moveDown={() => this.moveSliceDown(sliceIndex)}
-                  isBeingEdited={
-                    this.state.editForm.sliceIndexCurrentlyBeingEdited ===
-                    sliceIndex
-                  }
-                  // handleSubmit={data =>
-                  //   this.handleSave(blockId, data, moduleName, packageVersion)
-                  // }
+                  isBeingEdited={this.state.editFormSliceId === slice.id}
+                  isFirst={sliceIndex === 0}
+                  isLast={this.state.slices.length - 1 === sliceIndex}
                 />
                 <StartInsertSlice
                   key={`${slice.id}--addSlice`}

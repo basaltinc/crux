@@ -35,17 +35,6 @@ module.exports = {
       ],
     },
   },
-  js: {
-    src: [
-      'js/**/*.js',
-      '_patterns/**/*.js',
-    ],
-    dest: 'dist',
-    destName: 'script.js',
-    babelConfig: {
-      presets: ['babel-preset-env'].map(require.resolve),
-    },
-  },
   scssToJsonItems: [
     {
       src: '_patterns/00-styleguide/05-colors/_color-vars.scss',
