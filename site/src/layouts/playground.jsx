@@ -37,6 +37,7 @@ class Playground extends Component {
       example: {},
       slices: [],
       showEditForm: false,
+      showPatternForm: false,
       editFormInsertionIndex: 0,
       editForm: {
         sliceIndexCurrentlyBeingEdited: null,
@@ -57,6 +58,7 @@ class Playground extends Component {
     this.save = this.save.bind(this);
     this.renderSidebar = this.renderSidebar.bind(this);
     this.handleAddSlice = this.handleAddSlice.bind(this);
+    this.addSlice = this.addSlice.bind(this);
   }
 
   componentDidMount() {
@@ -140,75 +142,94 @@ class Playground extends Component {
   }
 
   addSlice(slice) {
-    // @todo pick where in `slices` one can add
+    const newSlices = this.state.slices.splice(this.state.editFormInsertionIndex, 0, slice);
     this.setState(prevState => ({
-      slices: [slice, ...prevState.slices],
+      newSlices,
     }));
   }
 
   handleAddSlice(index) {
     console.log(index);
+    const slices = this.state.slices;
+    console.log(slices);
+    this.setState({
+      showEditForm: false,
+      showPatternForm: true,
+      editFormInsertionIndex: index,
+    });
   }
 
   renderSidebar() {
-    return this.state.showEditForm ? (
-      <PlaygroundEditForm
-        schema={this.state.editForm.schema}
-        data={this.state.editForm.data}
-        handleChange={data => {
-          console.info(
-            `@todo Update data in 'this.state.slices' for this item with this data `,
-            data.formData,
-          );
-          this.state.editForm.handleChange(data);
-        }}
-        handleSubmit={this.state.editForm.handleSubmit}
-        handleError={this.state.editForm.handleError}
-        hideEditForm={this.hideEditForm}
-      />
-    ) : (
-      <div>
-        <h4>Patterns</h4>
-        <ul>
-          {this.props.patterns
-            .filter(pattern => pattern.id !== 'site-footer')
-            .filter(pattern => pattern.id !== 'site-header')
-            .map(pattern => (
-              <li key={pattern.id}>
-                <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
-                <img
-                  src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
-                  alt={pattern.title}
-                />
-                <button
-                  type="button"
-                  tabIndex="0"
-                  onKeyPress={() =>
-                    this.addSlice({
-                      id: uuid(),
-                      patternId: pattern.id,
-                      data: {},
-                    })
-                  }
-                  onClick={() =>
-                    this.addSlice({
-                      id: uuid(),
-                      patternId: pattern.id,
-                      data: {},
-                    })
-                  }
-                >
-                  Add {pattern.title}
-                </button>
-                <br />
-                <Link to={`/patterns/components/${pattern.id}`}>
-                  View Details
-                </Link>
-              </li>
-            ))}
-        </ul>
-      </div>
-    );
+    if (this.state.showEditForm) {
+      return (
+        <PlaygroundEditForm
+          schema={this.state.editForm.schema}
+          data={this.state.editForm.data}
+          handleChange={data => {
+            console.info(
+              `@todo Update data in 'this.state.slices' for this item with this data `,
+              data.formData,
+            );
+            this.state.editForm.handleChange(data);
+          }}
+          handleSubmit={this.state.editForm.handleSubmit}
+          handleError={this.state.editForm.handleError}
+          hideEditForm={this.hideEditForm}
+        />
+      );
+    } else if (this.state.showPatternForm) {
+      return (
+        <div>
+          <h4>Patterns</h4>
+          <ul>
+            {this.props.patterns
+              .filter(pattern => pattern.id !== 'site-footer')
+              .filter(pattern => pattern.id !== 'site-header')
+              .map(pattern => (
+                <li key={pattern.id}>
+                  <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
+                  <img
+                    src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
+                    alt={pattern.title}
+                  />
+                  <button
+                    type="button"
+                    tabIndex="0"
+                    onKeyPress={() =>
+                      this.addSlice({
+                        id: uuid(),
+                        patternId: pattern.id,
+                        data: {},
+                      })
+                    }
+                    onClick={() =>
+                      this.addSlice({
+                        id: uuid(),
+                        patternId: pattern.id,
+                        data: {},
+                      })
+                    }
+                  >
+                    Add {pattern.title}
+                  </button>
+                  <br />
+                  <Link to={`/patterns/components/${pattern.id}`}>
+                    View Details
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h4>Playground</h4>
+          <p>Edit, add, re-arrange, and delete slices.</p>
+          <p>Wow, this is great copy!</p>
+        </div>
+      );
+    }
   }
 
   render() {
@@ -262,6 +283,7 @@ class Playground extends Component {
                   // }
                 />
                 <AddSlice
+                  key={`${slice.id}--addSlice`}
                   onClick={() => this.handleAddSlice(sliceIndex + 1)}
                   onKeyPress={() => this.handleAddSlice(sliceIndex + 1)}
                 >
