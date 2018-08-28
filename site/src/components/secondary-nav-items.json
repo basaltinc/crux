@@ -94,22 +94,5 @@
       "title": "Requests & Bugs",
       "id": "feature-requests"
     }
-  ],
-  "exampleLinks": [
-    {
-      "title": "Examples",
-      "id": "example-heading",
-      "isHeading": true
-    },
-    {
-      "path": "/examples/example-1",
-      "title": "Example 1",
-      "id": "examples-1"
-    },
-    {
-      "path": "/examples/example-2",
-      "title": "Example 2",
-      "id": "examples-2"
-    }
   ]
 }

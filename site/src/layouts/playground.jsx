@@ -53,7 +53,7 @@ class Playground extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/examples/${this.props.id}`)
+      .fetch(`${apiUrlBase}/example/${this.props.id}`)
       .then(res => res.json())
       .then(example => {
         this.setState({

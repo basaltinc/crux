@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { TextInputWrapper } from '@basalt/bedrock-atoms';
 import LinkList from './link-list';
 import SecondaryNavItems from './secondary-nav-items.json';
+import { apiUrlBase } from '../../config';
 
 const TypeToFilterInputWrapper = TextInputWrapper.extend`
   display: flex;
@@ -40,7 +41,6 @@ const {
   resourcesLinks,
   perceptualPatternsLinks,
   aboutLinks,
-  exampleLinks,
 } = SecondaryNavItems;
 
 class SecondaryNav extends Component {
@@ -53,21 +53,47 @@ class SecondaryNav extends Component {
     this.handleFilterReset = this.handleFilterReset.bind(this);
   }
 
-  static getDerivedStateFromProps(props) {
-    return {
-      items: [
-        ...perceptualPatternsLinks,
-        {
-          title: 'Patterns',
-          id: 'patterns',
-          isHeading: true,
-        },
-        ...props.patterns,
-        ...resourcesLinks,
-        ...aboutLinks,
-        ...exampleLinks,
-      ],
-    };
+  static getDerivedStateFromProps(props, state) {
+    return state.items.length > 0
+      ? state
+      : {
+          items: [
+            ...perceptualPatternsLinks,
+            {
+              title: 'Patterns',
+              id: 'patterns',
+              isHeading: true,
+            },
+            ...props.patterns,
+            ...resourcesLinks,
+            ...aboutLinks,
+          ],
+        };
+  }
+
+  componentDidMount() {
+    window
+      .fetch(`${apiUrlBase}/examples`)
+      .then(res => res.json())
+      .then(examples => {
+        const exampleLinks = examples.map(example => ({
+          id: example.id,
+          title: example.title,
+          path: `/examples/${example.id}`,
+        }));
+
+        this.setState(prevState => ({
+          items: [
+            ...prevState.items,
+            {
+              title: 'Examples',
+              id: 'example-heading',
+              isHeading: true,
+            },
+            ...exampleLinks,
+          ],
+        }));
+      });
   }
 
   componentDidUpdate(prevProps) {

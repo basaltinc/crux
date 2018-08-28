@@ -20,7 +20,7 @@ const router = express.Router();
 // all routes MUST be documented using `apidoc` - http://apidocjs.com
 // docs viewable at http://localhost:3042/apidoc/ (link in site footer)
 
-router.use('/examples', examplesRoute);
+router.use(examplesRoute);
 
 router.get('/', (req, res) => {
   res.json({
