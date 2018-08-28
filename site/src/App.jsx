@@ -18,10 +18,6 @@ import merge from 'lodash.merge';
 import Header from './components/header';
 import './global.css';
 import { apiUrlBase } from '../config';
-import exampleOne from './examples/example-1';
-import exampleTwo from './examples/example-2';
-
-const examples = [exampleOne, exampleTwo];
 
 const LoadableComponentOverview = Loadable({
   loader: () =>
@@ -258,18 +254,12 @@ export default class App extends React.Component {
                           />
                           <Route
                             path="/examples/:id"
-                            render={({ match }) => {
-                              const example = examples.find(
-                                e => e.id === match.params.id,
-                              );
-                              return (
-                                <LoadablePlayground
-                                  id={match.params.id}
-                                  patterns={this.state.patterns}
-                                  example={example}
-                                />
-                              );
-                            }}
+                            render={({ match }) => (
+                              <LoadablePlayground
+                                id={match.params.id}
+                                patterns={this.state.patterns}
+                              />
+                            )}
                           />
                           <Route
                             path="/about"
