@@ -40,6 +40,26 @@ const StartInsertSlice = styled.div`
   }
 `;
 
+const PatternListItemWrapper = styled.li`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  > div {
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
+  a {
+    font-size: 13.5px;
+  }
+`;
+
 class Playground extends Component {
   constructor(props) {
     super(props);
@@ -166,6 +186,38 @@ class Playground extends Component {
     });
   }
 
+  renderPatternListItem(pattern) {
+    return (
+      <PatternListItemWrapper key={pattern.id} type="button">
+        <Link to={`/patterns/components/${pattern.id}`}>View Details</Link>
+        <div
+          role="button"
+          tabIndex="0"
+          onKeyPress={() =>
+            this.addSlice({
+              id: uuid(),
+              patternId: pattern.id,
+              data: {},
+            })
+          }
+          onClick={() =>
+            this.addSlice({
+              id: uuid(),
+              patternId: pattern.id,
+              data: {},
+            })
+          }
+        >
+          <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
+          <img
+            src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
+            alt={pattern.title}
+          />
+        </div>
+      </PatternListItemWrapper>
+    );
+  }
+
   renderSidebar() {
     if (this.state.showEditForm) {
       const { slices, editFormSliceId, editFormSchema } = this.state;
@@ -196,39 +248,7 @@ class Playground extends Component {
             {this.props.patterns
               .filter(pattern => pattern.id !== 'site-footer')
               .filter(pattern => pattern.id !== 'site-header')
-              .map(pattern => (
-                <li key={pattern.id}>
-                  <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
-                  <img
-                    src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
-                    alt={pattern.title}
-                  />
-                  <button
-                    type="button"
-                    tabIndex="0"
-                    onKeyPress={() =>
-                      this.addSlice({
-                        id: uuid(),
-                        patternId: pattern.id,
-                        data: {},
-                      })
-                    }
-                    onClick={() =>
-                      this.addSlice({
-                        id: uuid(),
-                        patternId: pattern.id,
-                        data: {},
-                      })
-                    }
-                  >
-                    Add {pattern.title}
-                  </button>
-                  <br />
-                  <Link to={`/patterns/components/${pattern.id}`}>
-                    View Details
-                  </Link>
-                </li>
-              ))}
+              .map(pattern => this.renderPatternListItem(pattern))}
           </ul>
         </div>
       );
