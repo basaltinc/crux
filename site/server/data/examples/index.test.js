@@ -6,9 +6,8 @@ describe('Examples', () => {
     expect(example.title === 'Example One').toBe(true);
   });
 
-  test('all', async () => {
+  test('Get All', async () => {
     const examples = await getExamples();
-    console.log(examples);
-    expect(true).toBe(true);
+    expect(examples.length > 0).toBe(true);
   });
 });

@@ -49,6 +49,7 @@ class Playground extends Component {
     this.deleteSlice = this.deleteSlice.bind(this);
     this.addSlice = this.addSlice.bind(this);
     this.hideEditForm = this.hideEditForm.bind(this);
+    this.save = this.save.bind(this);
   }
 
   componentDidMount() {
@@ -61,6 +62,25 @@ class Playground extends Component {
           slices: example.slices,
           ready: true,
         });
+      });
+  }
+
+  save() {
+    const newExample = Object.assign({}, this.state.example, {
+      slices: this.state.slices,
+    });
+
+    window
+      .fetch(`${apiUrlBase}/example/${this.props.id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newExample),
+      })
+      .then(res => res.json())
+      .then(results => {
+        console.log('Save Results:', results);
       });
   }
 
@@ -124,7 +144,13 @@ class Playground extends Component {
       <PlaygroundEditForm
         schema={this.state.editForm.schema}
         data={this.state.editForm.data}
-        handleChange={this.state.editForm.handleChange}
+        handleChange={data => {
+          console.info(
+            `@todo Update data in 'this.state.slices' for this item with this data `,
+            data.formData,
+          );
+          this.state.editForm.handleChange(data);
+        }}
         handleSubmit={this.state.editForm.handleSubmit}
         handleError={this.state.editForm.handleError}
         hideEditForm={this.hideEditForm}
@@ -179,7 +205,12 @@ class Playground extends Component {
 
     return (
       <Page>
-        <Sidebar>{sidebarContents}</Sidebar>
+        <Sidebar>
+          <button type="submit" onKeyPress={this.save} onClick={this.save}>
+            Save Everything (not fully functioning)
+          </button>
+          {sidebarContents}
+        </Sidebar>
         <MainContent>
           <h1>{this.state.example.title}</h1>
           <h2>Playground for id: {this.props.id}</h2>

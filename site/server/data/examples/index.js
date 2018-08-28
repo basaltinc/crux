@@ -26,3 +26,11 @@ export async function getExamples() {
     }),
   );
 }
+
+export async function setExample(id, data) {
+  await fs.writeFile(getPath(id), JSON.stringify(data, null, '  '));
+  return {
+    ok: true,
+    message: `Example ${id} saved successfully!`,
+  };
+}
