@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const FooterWrapper = styled.footer`
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1.5rem;
   border-top: 1px solid #000000;
 `;
 
