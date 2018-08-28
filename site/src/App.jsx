@@ -165,7 +165,7 @@ const LoadableSandbox = Loadable({
 const Site = styled.div`
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 229px);
+  min-height: calc(100vh - 175px);
   width: 100%;
   max-width: 100vw;
 `;
@@ -180,6 +180,10 @@ const SiteFooter = styled.div`
   color: white;
   && a {
     color: white;
+  }
+  ul,
+  li {
+    margin-bottom: 0;
   }
 `;
 
