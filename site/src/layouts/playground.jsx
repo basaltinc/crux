@@ -161,7 +161,7 @@ class Playground extends Component {
   }
 
   /**
-   * @param {Object} slice - A Slice
+   * @param {Object} patternId - a pattern id
    * @param {string} slice.id - uuid
    * @param {string} slice.patternId - ID of Pattern, i.e. `media-block`
    * @param {Object} slice.data - Data for Pattern, usually `{}`
