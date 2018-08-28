@@ -7,12 +7,13 @@ import Twig from './twig';
 
 const PlaygroundIcon = styled(FormIconButton)`
   display: block;
+  transition: all 0.3s ease;
   &:not(:last-child) {
     margin-bottom: 0.5rem;
   }
   &:hover,
   &:active {
-    cursor: ${props => (props.enabled ? 'pointer' : '')};
+    cursor: ${props => (props.disabled ? '' : 'pointer')};
   }
   > svg {
     width: 100%;
@@ -47,12 +48,7 @@ const Slice = ({
   template,
   data,
 }) => (
-  <div
-    style={{
-      display: 'flex',
-      border: `dotted 1px ${isBeingEdited ? 'blue' : '#ccc'}`,
-    }}
-  >
+  <PlaygroundSliceWrapper>
     <PlaygroundIconWrapper className="ei-content-block__button-tray">
       <PlaygroundIcon
         onKeyPress={() => !isFirst && moveUp()}
@@ -93,9 +89,10 @@ const Slice = ({
         <FaTrashAlt />
       </PlaygroundIcon>
     </PlaygroundIconWrapper>
-
-    <Twig template={template} data={data} isResizable={false} />
-  </div>
+    <div style={{ flexGrow: 1 }}>
+      <Twig template={template} data={data} isResizable={false} />
+    </div>
+  </PlaygroundSliceWrapper>
 );
 
 Slice.defaultProps = {
