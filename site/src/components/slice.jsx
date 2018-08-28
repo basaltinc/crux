@@ -26,6 +26,7 @@ const PlaygroundIconWrapper = styled(FormIconTray)`
   height: 100%;
   text-align: center;
   padding: 0.5rem;
+  margin-left: 1rem;
 `;
 
 const PlaygroundSliceWrapper = styled.div`
@@ -33,9 +34,6 @@ const PlaygroundSliceWrapper = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   border: solid 1px ${props => (props.active ? '#e1c933' : 'white')};
-  ${PlaygroundIconWrapper} {
-    margin-left: 1rem;
-  }
 `;
 
 const Slice = ({
