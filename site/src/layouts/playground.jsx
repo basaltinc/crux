@@ -26,7 +26,7 @@ const Page = styled.div`
 `;
 
 const AddSlice = styled.div`
-  border: solid 1px #E1C933;
+  border: solid 1px #e1c933;
 `;
 
 class Playground extends Component {
@@ -229,8 +229,11 @@ class Playground extends Component {
         <MainContent>
           <h1>{this.state.example.title}</h1>
           <h2>Playground for id: {this.props.id}</h2>
-          <AddSlice onClick={() => this.handleAddSlice(0)} onKeyPress={() => this.handleAddSlice(0)}>
-            <hr/>
+          <AddSlice
+            onClick={() => this.handleAddSlice(0)}
+            onKeyPress={() => this.handleAddSlice(0)}
+          >
+            <hr />
           </AddSlice>
           {this.state.slices.map((slice, sliceIndex) => {
             const pattern = this.props.patterns.find(
@@ -239,28 +242,31 @@ class Playground extends Component {
             const template = pattern.templates[0];
             return (
               <React.Fragment>
-              <Slice
-                key={slice.id}
-                template={template.name}
-                schema={template.schema}
-                data={slice.data}
-                showEditForm={this.showEditForm}
-                sliceIndex={sliceIndex}
-                totalSlicesLength={this.state.slices.length}
-                deleteMe={() => this.deleteSlice(slice.id)}
-                moveUp={() => this.moveSliceUp(sliceIndex)}
-                moveDown={() => this.moveSliceDown(sliceIndex)}
-                isBeingEdited={
-                  this.state.editForm.sliceIndexCurrentlyBeingEdited ===
-                  sliceIndex
-                }
-                // handleSubmit={data =>
-                //   this.handleSave(blockId, data, moduleName, packageVersion)
-                // }
-              />
-              <AddSlice onClick={() => this.handleAddSlice(sliceIndex + 1)} onKeyPress={() => this.handleAddSlice(sliceIndex + 1)}>
-                <hr/>
-              </AddSlice>
+                <Slice
+                  key={slice.id}
+                  template={template.name}
+                  schema={template.schema}
+                  data={slice.data}
+                  showEditForm={this.showEditForm}
+                  sliceIndex={sliceIndex}
+                  totalSlicesLength={this.state.slices.length}
+                  deleteMe={() => this.deleteSlice(slice.id)}
+                  moveUp={() => this.moveSliceUp(sliceIndex)}
+                  moveDown={() => this.moveSliceDown(sliceIndex)}
+                  isBeingEdited={
+                    this.state.editForm.sliceIndexCurrentlyBeingEdited ===
+                    sliceIndex
+                  }
+                  // handleSubmit={data =>
+                  //   this.handleSave(blockId, data, moduleName, packageVersion)
+                  // }
+                />
+                <AddSlice
+                  onClick={() => this.handleAddSlice(sliceIndex + 1)}
+                  onKeyPress={() => this.handleAddSlice(sliceIndex + 1)}
+                >
+                  <hr />
+                </AddSlice>
               </React.Fragment>
             );
           })}
