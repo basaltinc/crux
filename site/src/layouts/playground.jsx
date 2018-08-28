@@ -159,9 +159,7 @@ class Playground extends Component {
     );
     return (
       <Page>
-        <Sidebar>
-          {sidebarContents}
-        </Sidebar>
+        <Sidebar>{sidebarContents}</Sidebar>
         <MainContent>
           <h1>{this.props.example.title}</h1>
           <h2>Playground for id: {this.props.id}</h2>
