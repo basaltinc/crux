@@ -25,7 +25,7 @@ const Page = styled.div`
   margin: calc(-1 * var(--spacing-l));
 `;
 
-const AddSlice = styled.div`
+const StartInsertSlice = styled.div`
   border: solid 1px #e1c933;
 `;
 
@@ -57,7 +57,7 @@ class Playground extends Component {
     this.hideEditForm = this.hideEditForm.bind(this);
     this.save = this.save.bind(this);
     this.renderSidebar = this.renderSidebar.bind(this);
-    this.handleAddSlice = this.handleAddSlice.bind(this);
+    this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
     this.addSlice = this.addSlice.bind(this);
   }
 
@@ -107,6 +107,7 @@ class Playground extends Component {
   showEditForm(editForm) {
     this.setState({
       showEditForm: true,
+      showPatternForm: false,
       editForm,
     });
   }
@@ -142,16 +143,15 @@ class Playground extends Component {
   }
 
   addSlice(slice) {
-    const newSlices = this.state.slices.splice(this.state.editFormInsertionIndex, 0, slice);
-    this.setState(prevState => ({
-      newSlices,
-    }));
+    this.setState(prevState => {
+      prevState.slices.splice(prevState.editFormInsertionIndex, 0, slice);
+      return {
+        slices: prevState.slices,
+      };
+    });
   }
 
-  handleAddSlice(index) {
-    console.log(index);
-    const slices = this.state.slices;
-    console.log(slices);
+  handleStartInsertSlice(index) {
     this.setState({
       showEditForm: false,
       showPatternForm: true,
@@ -177,7 +177,8 @@ class Playground extends Component {
           hideEditForm={this.hideEditForm}
         />
       );
-    } else if (this.state.showPatternForm) {
+    }
+    if (this.state.showPatternForm) {
       return (
         <div>
           <h4>Patterns</h4>
@@ -221,15 +222,14 @@ class Playground extends Component {
           </ul>
         </div>
       );
-    } else {
-      return (
-        <div>
-          <h4>Playground</h4>
-          <p>Edit, add, re-arrange, and delete slices.</p>
-          <p>Wow, this is great copy!</p>
-        </div>
-      );
     }
+    return (
+      <div>
+        <h4>Playground</h4>
+        <p>Edit, add, re-arrange, and delete slices.</p>
+        <p>Wow, this is great copy!</p>
+      </div>
+    );
   }
 
   render() {
@@ -250,19 +250,19 @@ class Playground extends Component {
         <MainContent>
           <h1>{this.state.example.title}</h1>
           <h2>Playground for id: {this.props.id}</h2>
-          <AddSlice
-            onClick={() => this.handleAddSlice(0)}
-            onKeyPress={() => this.handleAddSlice(0)}
+          <StartInsertSlice
+            onClick={() => this.handleStartInsertSlice(0)}
+            onKeyPress={() => this.handleStartInsertSlice(0)}
           >
             <hr />
-          </AddSlice>
+          </StartInsertSlice>
           {this.state.slices.map((slice, sliceIndex) => {
             const pattern = this.props.patterns.find(
               p => p.id === slice.patternId,
             );
             const template = pattern.templates[0];
             return (
-              <React.Fragment>
+              <React.Fragment key={`${slice.id}--fragment`}>
                 <Slice
                   key={slice.id}
                   template={template.name}
@@ -282,13 +282,13 @@ class Playground extends Component {
                   //   this.handleSave(blockId, data, moduleName, packageVersion)
                   // }
                 />
-                <AddSlice
+                <StartInsertSlice
                   key={`${slice.id}--addSlice`}
-                  onClick={() => this.handleAddSlice(sliceIndex + 1)}
-                  onKeyPress={() => this.handleAddSlice(sliceIndex + 1)}
+                  onClick={() => this.handleStartInsertSlice(sliceIndex + 1)}
+                  onKeyPress={() => this.handleStartInsertSlice(sliceIndex + 1)}
                 >
                   <hr />
-                </AddSlice>
+                </StartInsertSlice>
               </React.Fragment>
             );
           })}
