@@ -8,10 +8,12 @@ import { Details } from '@basalt/bedrock-atoms';
 
 const PostOrGet = styled.span`
   background-color: ${props =>
-    props.requestType === 'get' ? 'green' : 'blue'};
+    props.requestType === 'get'
+      ? props.theme.colors.color.status.success
+      : props.theme.colors.primary};
   color: white;
   text-align: center;
-  border-radius: 0;
+  border-radius: ${props => props.theme.border.radius};
   padding: 0.35rem 1rem;
   margin-bottom: 0.5rem;
   font-weight: bold;

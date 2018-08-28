@@ -24,8 +24,8 @@ export const Checkerboard = styled.div`
 
 export const Details = styled.details`
   padding: 7px 0;
-  border-top: solid 1px grey;
-  border-bottom: solid 1px grey;
+  border-top: solid 1px ${props => props.theme.colors.color.gray.dark};
+  border-bottom: solid 1px ${props => props.theme.colors.color.gray.dark};
   margin-bottom: 10px;
   > summary {
     font-weight: bold;
@@ -56,10 +56,10 @@ export const SelectStyledWrapper = styled.label`
   }
   /* stylelint-disable property-no-vendor-prefix */
   select {
-    background-color: lightgrey;
+    background-color: ${props => props.theme.colors['neutral-light']};
     font-size: 1rem;
-    border: 0;
-    height: 33px;
+    border: ${props => props.theme.form.input['border-none']};
+    height: ${props => props.theme.form.input.height};
     &:active,
     &:focus {
       outline: none;
@@ -67,9 +67,7 @@ export const SelectStyledWrapper = styled.label`
     display: inline-block;
     padding: 0.3rem 2rem 0.3rem 1rem;
     margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+    box-sizing: ${props => props.theme.global['box-sizing']};
     -webkit-appearance: none;
     -moz-appearance: none;
     background-image: linear-gradient(45deg, transparent 50%, gray 50%),
@@ -84,10 +82,10 @@ export const SelectStyledWrapper = styled.label`
 
   > span {
     display: inline-block;
-    background-color: lightgrey;
-    border: 0;
-    border-radius: 0;
-    height: 33px;
+    background-color: ${props => props.theme.colors['neutral-light']};
+    border: ${props => props.theme.form.input['border-none']};
+    border-radius: ${props => props.theme.border.radius};
+    height: ${props => props.theme.form.input.height};
   }
 `;
 
@@ -162,17 +160,19 @@ export const TwoUp = styled.div`
 
 export const SelectWrapper = styled.div`
   display: inline-block;
-  height: 33px;
+  height: ${props => props.theme.form.input.height};
   overflow: hidden;
-  background-color: lightgrey;
-  font-size: 1rem;
-  border: 0;
+  background-color: ${props => props.theme.colors['neutral-light']};
+  font-size: ${props => props.theme.form.input['font-size']};
+  border: ${props => props.theme.form.input['border-none']};
   > select {
-    background-color: lightgrey;
-    font-size: 1rem;
-    border: 0;
-    height: 33px;
-    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    background-color: ${props => props.theme.colors['neutral-light']};
+    font-size: ${props => props.theme.form.input['font-size']};
+    border: ${props => props.theme.form.input['border-none']};
+    height: ${props => props.theme.form.input.height};
+    padding: ${props =>
+      props.theme.form.select
+        .padding}; /* If you add too much padding here, the options won't show in IE */
     &:active,
     &:focus {
       outline: none;
@@ -184,14 +184,14 @@ export const TextInputWrapper = styled.div`
   > input,
   > textarea {
     box-sizing: border-box;
-    padding: 3px 8px;
-    border: 1px solid lightgrey;
+    padding: ${props => props.theme.form.input.padding};
+    border: ${props => props.theme.form.input.border};
     background-color: white;
-    font-size: 15px;
+    font-size: ${props => props.theme.form.input['font-size']};
     width: 100%;
   }
   > input {
-    height: 33px;
+    height: ${props => props.theme.form.input.height};
   }
 `;
 
@@ -201,6 +201,9 @@ export const RadioInputWrapper = styled.div`
   }
   input {
     margin-right: 8px;
+    + span {
+      font-size: ${props => props.theme.form.input['font-size']};
+    }
   }
 `;
 
@@ -209,12 +212,15 @@ export const CheckboxInputWrapper = styled.div`
     display: none;
   }
   label {
-    height: 33px;
+    height: ${props => props.theme.form.input.height};
     display: flex;
     align-items: center;
   }
   input {
     margin-right: 8px;
+    + span {
+      font-size: ${props => props.theme.form.input['font-size']};
+    }
   }
 `;
 
@@ -242,9 +248,9 @@ export const FormIconButton = styled.div`
 
 export const FormIconTray = styled.div`
   box-sizing: border-box;
-  border: solid 1px lightgrey;
+  border: ${props => props.theme.form.border};
   display: inline-flex;
-  padding: 5px 8px;
+  padding: ${props => props.theme.form.padding};
 `;
 
 export const FormArrayItem = styled.div`
@@ -263,25 +269,25 @@ export const FormArrayItem = styled.div`
 `;
 
 export const BlockQuoteWrapper = styled.blockquote`
-  border: solid 1px lightgrey;
-  border-left: solid 6px ${props => props.color || '#16394B'};
-  padding: 2.25rem 4rem;
+  border: ${props => props.theme.blockquote.border};
+  border-left: ${props => props.theme.blockquote['border-left']};
+  padding: ${props => props.theme.blockquote.padding};
   position: relative;
-  margin: 2rem 2.25rem;
+  margin: ${props => props.theme.blockquote.margin};
   footer {
     font-size: 0.8em;
-    color: #888889;
+    color: ${props => props.theme.colors.color.gray.light};
     margin-top: 0.5rem;
   }
   ::before {
     content: '\\201C'; /*Unicode for Left Double Quote*/
-    width: 80px;
+    width: ${props => props.theme.blockquote.glyph.width};
     /*Font*/
-    font-family: Georgia, serif;
-    font-size: 130px;
-    opacity: 0.2;
+    font-family: ${props => props.theme.blockquote.glyph.font};
+    font-size: ${props => props.theme.blockquote.glyph.size};
+    opacity: ${props => props.theme.blockquote.glyph.opacity};
     font-weight: bold;
-    color: #999;
+    color: ${props => props.theme.blockquote.glyph.color};
 
     /*Positioning*/
     position: absolute;
@@ -290,12 +296,12 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
   ::after {
     content: '\\201D'; /*Unicode for Right Double Quote*/
-    width: 80px;
-    font-family: Georgia, serif;
-    font-size: 130px;
-    opacity: 0.2;
+    width: ${props => props.theme.blockquote.glyph.width};
+    font-family: ${props => props.theme.blockquote.glyph.font};
+    font-size: ${props => props.theme.blockquote.glyph.size};
+    opacity: ${props => props.theme.blockquote.glyph.opacity};
     font-weight: bold;
-    color: #999;
+    color: ${props => props.theme.blockquote.glyph.color};
     position: absolute;
     right: 10px;
     bottom: -85px;
