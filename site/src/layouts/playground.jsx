@@ -62,6 +62,7 @@ class Playground extends Component {
     this.renderSidebar = this.renderSidebar.bind(this);
     this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
     this.addSlice = this.addSlice.bind(this);
+    this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
   }
 
   componentDidMount() {
@@ -75,6 +76,16 @@ class Playground extends Component {
           ready: true,
         });
       });
+  }
+
+  /**
+   * @param {string} patternId - ID of Pattern, i.e. `media-block`
+   * @return {{ name: string, schema: Object }} - First (main) template
+   */
+  getTemplateFromPatternId(patternId) {
+    const pattern = this.props.patterns.find(p => p.id === patternId);
+    // @todo Improve template grabbing method besides just "first" one
+    return pattern.templates[0];
   }
 
   save() {
@@ -126,13 +137,22 @@ class Playground extends Component {
     }));
   }
 
+  /**
+   * @param {Object} slice - A Slice
+   * @param {string} slice.id - uuid
+   * @param {string} slice.patternId - ID of Pattern, i.e. `media-block`
+   * @param {Object} slice.data - Data for Pattern, usually `{}`
+   * @returns {null} - sets state
+   */
   addSlice(slice) {
+    const { schema } = this.getTemplateFromPatternId(slice.patternId);
     this.setState(prevState => {
       prevState.slices.splice(prevState.editFormInsertionIndex, 0, slice);
-      // @todo Instead of hiding all sidebar forms, lets show the proper edit form for the new slice
       return {
         slices: prevState.slices,
-        showEditForm: false,
+        editFormSliceId: slice.id,
+        editFormSchema: schema,
+        showEditForm: true,
         showPatternForm: false,
       };
     });
@@ -249,10 +269,7 @@ class Playground extends Component {
             <h6>Click to Insert Content Here</h6>
           </StartInsertSlice>
           {this.state.slices.map((slice, sliceIndex) => {
-            const pattern = this.props.patterns.find(
-              p => p.id === slice.patternId,
-            );
-            const template = pattern.templates[0];
+            const template = this.getTemplateFromPatternId(slice.patternId);
             return (
               <React.Fragment key={`${slice.id}--fragment`}>
                 <Slice
