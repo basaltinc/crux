@@ -9,6 +9,7 @@ import {
 import SchemaForm from '@basalt/bedrock-schema-form';
 import { Link } from 'react-router-dom';
 import PlaygroundEditForm from '../../components/playground-edit-form';
+import { SIDEBAR_FORM, SIDEBAR_PATTERNS } from './index';
 
 const PatternListItemWrapper = styled.li`
   display: flex;
@@ -33,7 +34,6 @@ const PatternListItemWrapper = styled.li`
 class PlaygroundSidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
     this.renderPatternListItem = this.renderPatternListItem.bind(this);
   }
 
@@ -58,7 +58,7 @@ class PlaygroundSidebar extends Component {
   }
 
   render() {
-    if (this.props.sidebarContent === 'form') {
+    if (this.props.sidebarContent === SIDEBAR_FORM) {
       const { slices, editFormSliceId, editFormSchema } = this.props;
       console.log('Yoco', editFormSliceId);
       return (
@@ -71,12 +71,12 @@ class PlaygroundSidebar extends Component {
         />
       );
     }
-    if (this.props.sidebarContent === 'patterns') {
+    if (this.props.sidebarContent === SIDEBAR_PATTERNS) {
       const patterns = this.props.patterns
         .filter(pattern => pattern.id !== 'site-footer')
         .filter(pattern => pattern.id !== 'site-header');
       const items =
-        this.state.filterTerm === ''
+        this.props.filterTerm === ''
           ? patterns
           : patterns.filter(
               item =>
@@ -112,7 +112,7 @@ class PlaygroundSidebar extends Component {
         </div>
       );
     }
-    // if (this.props.sidebarContent === 'default' or anything else)
+    // if (this.props.sidebarContent === SIDEBAR_DEFAULT or anything else)
     return (
       <div>
         <h4>Playground</h4>
@@ -154,6 +154,20 @@ class PlaygroundSidebar extends Component {
   }
 }
 
-PlaygroundSidebar.propTypes = {};
+PlaygroundSidebar.propTypes = {
+  editFormSchema: PropTypes.object.isRequired,
+  editFormSliceId: PropTypes.string.isRequired,
+  filterTerm: PropTypes.string.isRequired,
+  handleAddSlice: PropTypes.func.isRequired,
+  handleEditFormChange: PropTypes.func.isRequired,
+  handleFilterChange: PropTypes.func.isRequired,
+  handleFilterReset: PropTypes.func.isRequired,
+  handleHideEditForm: PropTypes.func.isRequired,
+  handleMetaFormChange: PropTypes.func.isRequired,
+  metaFormData: PropTypes.object.isRequired,
+  patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
+  sidebarContent: PropTypes.string.isRequired,
+  slices: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default PlaygroundSidebar;

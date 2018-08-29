@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
 import Slice from '../../components/slice';
@@ -41,7 +40,10 @@ const StartInsertSlice = styled.div`
   }
 `;
 
-const allowedSidebarContent = ['default', 'form', 'patterns'];
+// Export of allowed sidebarContent states
+export const SIDEBAR_DEFAULT = 'default';
+export const SIDEBAR_FORM = 'form';
+export const SIDEBAR_PATTERNS = 'patterns';
 
 class Playground extends Component {
   constructor(props) {
@@ -50,9 +52,7 @@ class Playground extends Component {
       ready: false,
       example: {},
       slices: [],
-      showEditForm: false,
-      showPatternForm: false,
-      sidebarContent: allowedSidebarContent[0],
+      sidebarContent: SIDEBAR_DEFAULT,
       editFormInsertionIndex: 0,
       editFormSchema: {},
       editFormSliceId: null,
@@ -123,7 +123,7 @@ class Playground extends Component {
   handleHideEditForm() {
     this.setState({
       editFormSliceId: null,
-      sidebarContent: allowedSidebarContent[0],
+      sidebarContent: SIDEBAR_DEFAULT,
     });
   }
 
@@ -173,7 +173,7 @@ class Playground extends Component {
         slices: prevState.slices,
         editFormSliceId: id,
         editFormSchema: schema,
-        sidebarContent: allowedSidebarContent[1],
+        sidebarContent: SIDEBAR_FORM,
       };
     });
     this.handleFilterReset();
@@ -181,7 +181,7 @@ class Playground extends Component {
 
   handleStartInsertSlice(index) {
     this.setState({
-      sidebarContent: allowedSidebarContent[2],
+      sidebarContent: SIDEBAR_PATTERNS,
       editFormInsertionIndex: index,
     });
   }
@@ -198,14 +198,14 @@ class Playground extends Component {
   }
 
   handleFilterChange(event) {
-      this.setState({ filterTerm: event.target.value })
+    this.setState({ filterTerm: event.target.value });
   }
 
   handleMetaFormChange(formData) {
-  this.setState(prevState => ({
-    example: Object.assign({}, prevState.example, formData),
-  }));
-}
+    this.setState(prevState => ({
+      example: Object.assign({}, prevState.example, formData),
+    }));
+  }
 
   render() {
     const { hasVisibleControls } = this.state.example;
@@ -223,18 +223,19 @@ class Playground extends Component {
           <small>Warning: server unresponsive for ~3s upon save</small>
           {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
           <PlaygroundSidebar
-            sidebarContent={this.state.sidebarContent}
-            slices={this.state.slices}
-            editFormSliceId={this.state.editFormSliceId}
             editFormSchema={this.state.editFormSchema}
+            editFormSliceId={this.state.editFormSliceId}
+            filterTerm={this.state.filterTerm}
+            handleAddSlice={this.handleAddSlice}
             handleEditFormChange={this.handleEditFormChange}
             handleHideEditForm={this.handleHideEditForm}
-            patterns={this.props.patterns}
-            filterTerm={this.state.filterTerm}
             handleFilterChange={this.handleFilterChange}
-            handleAddSlice={this.handleAddSlice}
+            handleFilterReset={this.handleFilterReset}
             handleMetaFormChange={this.handleMetaFormChange}
             metaFormData={this.state.example}
+            patterns={this.props.patterns}
+            sidebarContent={this.state.sidebarContent}
+            slices={this.state.slices}
           />
         </Sidebar>
         <MainContent>
@@ -261,8 +262,7 @@ class Playground extends Component {
                     this.setState({
                       editFormSliceId: slice.id,
                       editFormSchema: template.schema,
-                      showEditForm: true,
-                      sidebarContent: allowedSidebarContent[1],
+                      sidebarContent: SIDEBAR_FORM,
                     });
                   }}
                   deleteMe={() => this.deleteSlice(slice.id)}
