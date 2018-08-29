@@ -4,10 +4,16 @@ import arrayMove from 'array-move';
 import styled from 'styled-components';
 import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
+import {
+  ClearFilterButton,
+  TypeToFilter,
+  TypeToFilterInputWrapper,
+  StatusMessage,
+} from '@basalt/bedrock-atoms';
 import PlaygroundSlice from './playground-slice';
+import PlaygroundSidebar from './playground-sidebar';
 import Sidebar from '../../components/sidebar';
 import { apiUrlBase } from '../../../config';
-import PlaygroundSidebar from './playground-sidebar';
 
 const MainContent = styled.div`
   flex-grow: 1;
@@ -57,6 +63,9 @@ class Playground extends Component {
       editFormSchema: {},
       editFormSliceId: null,
       filterTerm: '',
+      statusMessage: '',
+      statusType: 'info',
+      hasVisibleControls: true,
     };
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
@@ -76,12 +85,23 @@ class Playground extends Component {
     window
       .fetch(`${apiUrlBase}/example/${this.props.id}`)
       .then(res => res.json())
-      .then(example => {
-        this.setState({
-          example,
-          slices: example.slices,
-          ready: true,
-        });
+      .then(results => {
+        if (results.ok) {
+          this.setState(prevState => ({
+            example: results.example,
+            slices: results.example.slices,
+            hasVisibleControls: results.example.hasVisibleControls
+              ? results.example.hasVisibleControls
+              : prevState.hasVisibleControls,
+            ready: true,
+          }));
+        } else {
+          this.setState({
+            statusMessage: results.message,
+            statusType: 'error',
+            ready: true,
+          });
+        }
       });
   }
 
@@ -116,7 +136,10 @@ class Playground extends Component {
       })
       .then(res => res.json())
       .then(results => {
-        console.log('Save Results:', results);
+        this.setState({
+          statusMessage: results.message,
+          statusType: results.ok ? 'success' : 'error',
+        });
       });
   }
 
@@ -242,6 +265,13 @@ class Playground extends Component {
           {/* <h2>Playground for id: {this.props.id}</h2> */}
           <h4 className="eyebrow">Prototyping Sandbox</h4>
           <h2>{this.state.example.title}</h2>
+
+          {this.state.statusMessage && (
+            <StatusMessage
+              message={this.state.statusMessage}
+              type={this.state.statusType}
+            />
+          )}
 
           <StartInsertSlice
             onClick={() => this.handleStartInsertSlice(0)}

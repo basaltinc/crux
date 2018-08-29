@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { Details, Select } from '@basalt/bedrock-atoms';
+import { Details, Select, StatusMessage } from '@basalt/bedrock-atoms';
 import { paragraph } from '@basalt/demo-data';
 
 storiesOf('Atoms', module)
@@ -30,4 +30,17 @@ storiesOf('Atoms', module)
       />
     )),
   )
-  .add('Details', () => <Details>{paragraph()}</Details>);
+  .add('Details', () => <Details>{paragraph()}</Details>)
+  .add(
+    'StatusMessage',
+    withInfo({
+      inline: true,
+    })(() => (
+      <div>
+        <StatusMessage type="info" message={paragraph()} />
+        <StatusMessage type="success" message={paragraph()} />
+        <StatusMessage type="warning" message={paragraph()} />
+        <StatusMessage type="error" message={paragraph()} />
+      </div>
+    )),
+  );
