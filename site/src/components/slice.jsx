@@ -22,7 +22,7 @@ const PlaygroundIcon = styled(FormIconButton)`
 `;
 
 const PlaygroundIconWrapper = styled(FormIconTray)`
-  display: block;
+  display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
   height: 100%;
   text-align: center;
   padding: 0.5rem;
@@ -46,9 +46,13 @@ const Slice = ({
   isLast,
   template,
   data,
+  hasVisibleControls,
 }) => (
   <PlaygroundSliceWrapper active={isBeingEdited}>
-    <PlaygroundIconWrapper className="ei-content-block__button-tray">
+    <PlaygroundIconWrapper
+      className="ei-content-block__button-tray"
+      hasVisibleControls={hasVisibleControls}
+    >
       <PlaygroundIcon
         onKeyPress={() => !isFirst && moveUp()}
         onClick={() => !isFirst && moveUp()}
@@ -108,6 +112,7 @@ Slice.propTypes = {
   isBeingEdited: PropTypes.bool.isRequired,
   isFirst: PropTypes.bool.isRequired,
   isLast: PropTypes.bool.isRequired,
+  hasVisibleControls: PropTypes.bool.isRequired,
 };
 
 export default Slice;

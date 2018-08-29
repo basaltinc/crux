@@ -22,11 +22,6 @@
       }
     },
     {
-      "id": "3a9c0b4e-8e9b-44e0-9119-f7f311660187",
-      "patternId": "button",
-      "data": {}
-    },
-    {
       "id": "db7e56ce-3462-414a-ab6a-ff9f8b8bd493",
       "patternId": "media-block",
       "data": {
@@ -46,5 +41,6 @@
         ]
       }
     }
-  ]
+  ],
+  "hasVisibleControls": true
 }
