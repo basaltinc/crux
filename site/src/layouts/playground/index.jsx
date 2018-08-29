@@ -155,6 +155,7 @@ class Playground extends Component {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index - 1),
       editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
     }));
   }
 
@@ -166,6 +167,7 @@ class Playground extends Component {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index + 1),
       editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
     }));
   }
 
@@ -174,6 +176,7 @@ class Playground extends Component {
       slices: prevState.slices.filter(slice => slice.id !== sliceId),
       sidebarContent: SIDEBAR_DEFAULT,
       editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
     }));
   }
 
