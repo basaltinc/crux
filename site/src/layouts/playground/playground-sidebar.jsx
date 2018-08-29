@@ -38,13 +38,14 @@ class PlaygroundSidebar extends Component {
   render() {
     if (this.props.sidebarContent === 'form') {
       const { slices, editFormSliceId, editFormSchema } = this.props;
+      console.log("Yoco", editFormSliceId);
       return (
         <PlaygroundEditForm
           schema={editFormSchema}
           data={slices.find(s => s.id === editFormSliceId).data}
           handleChange={data => this.props.handleEditFormChange(data)}
           handleError={console.error}
-          hideEditForm={this.hideEditForm}
+          hideEditForm={this.props.hideEditForm}
         />
       );
     }

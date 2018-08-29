@@ -141,8 +141,8 @@ class Playground extends Component {
 
   hideEditForm() {
     this.setState({
-      showEditForm: false,
       editFormSliceId: null,
+      sidebarContent: allowedSidebarContent[0],
     });
   }
 
@@ -209,7 +209,7 @@ class Playground extends Component {
   handleEditFormChange(data) {
     this.setState(prevState => ({
       slices: prevState.slices.map(slice => {
-        if (slice.id === editFormSliceId) {
+        if (slice.id === prevState.editFormSliceId) {
           slice.data = data.formData;
         }
         return slice;
@@ -238,6 +238,7 @@ class Playground extends Component {
             editFormSliceId={this.state.editFormSliceId}
             editFormSchema={this.state.editFormSchema}
             handleEditFormChange={this.handleEditFormChange}
+            hideEditForm={this.hideEditForm}
           />
         </Sidebar>
         <MainContent>
