@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
 import { FaChevronDown, FaChevronUp, FaTrashAlt, FaEdit } from 'react-icons/fa';
 import styled from 'styled-components';
-import Twig from './twig';
+import Twig from '../../components/twig';
 
 const PlaygroundIcon = styled(FormIconButton)`
   display: block;
@@ -33,10 +33,11 @@ const PlaygroundSliceWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  border: solid 1px ${props => (props.active ? '#e1c933' : 'white')};
+  ${props => props.active && 'box-shadow: 0 0 1.5rem #e1c933;'};
+  box-sizing: border-box;
 `;
 
-const Slice = ({
+const PlaygroundSlice = ({
   moveUp,
   moveDown,
   deleteMe,
@@ -98,11 +99,11 @@ const Slice = ({
   </PlaygroundSliceWrapper>
 );
 
-Slice.defaultProps = {
+PlaygroundSlice.defaultProps = {
   data: {},
 };
 
-Slice.propTypes = {
+PlaygroundSlice.propTypes = {
   template: PropTypes.string.isRequired,
   data: PropTypes.object, // eslint-disable-line react/no-unused-prop-types
   showEditForm: PropTypes.func.isRequired,
@@ -115,4 +116,4 @@ Slice.propTypes = {
   hasVisibleControls: PropTypes.bool.isRequired,
 };
 
-export default Slice;
+export default PlaygroundSlice;

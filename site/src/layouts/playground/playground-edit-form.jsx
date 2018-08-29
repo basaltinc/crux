@@ -7,7 +7,7 @@ const PlaygroundEditForm = ({
   data,
   handleChange,
   handleError,
-  hideEditForm,
+  handleHideEditForm,
 }) => (
   <div>
     <SchemaForm
@@ -23,8 +23,8 @@ const PlaygroundEditForm = ({
       debug
     />
     <button
-      onClick={hideEditForm}
-      onKeyPress={hideEditForm}
+      onClick={handleHideEditForm}
+      onKeyPress={handleHideEditForm}
       type="submit"
       tabIndex="0"
     >
@@ -42,7 +42,7 @@ PlaygroundEditForm.propTypes = {
   data: PropTypes.object,
   handleChange: PropTypes.func.isRequired,
   handleError: PropTypes.func.isRequired,
-  hideEditForm: PropTypes.func.isRequired,
+  handleHideEditForm: PropTypes.func.isRequired,
 };
 
 export default PlaygroundEditForm;
