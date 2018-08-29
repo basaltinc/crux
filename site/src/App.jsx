@@ -31,6 +31,11 @@ const LoadablePlayground = Loadable({
   loading: Spinner,
 });
 
+const LoadableExamplesPage = Loadable({
+  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/examples'),
+  loading: Spinner,
+});
+
 const LoadableAboutPage = Loadable({
   loader: () => import(/* webpackChunkName: 'about-page' */ './pages/about'),
   loading: Spinner,
@@ -236,7 +241,7 @@ export default class App extends React.Component {
                     <Site>
                       <Switch>
                         <Route path="/" exact />
-                        <Route path="/examples" />
+                        <Route path="/examples/*" />
                         <Route
                           path="/"
                           render={({ location }) => (
@@ -264,6 +269,11 @@ export default class App extends React.Component {
                                 patterns={this.state.patterns}
                               />
                             )}
+                          />
+                          <Route
+                            path="/examples"
+                            component={LoadableExamplesPage}
+                            exact
                           />
                           <Route
                             path="/about"

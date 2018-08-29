@@ -89,6 +89,7 @@ class SecondaryNav extends Component {
               title: 'Examples',
               id: 'example-heading',
               isHeading: true,
+              path: '/examples',
             },
             ...exampleLinks,
           ],
