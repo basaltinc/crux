@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { apiUrlBase } from '../../../config';
 
 class ExamplesLandingPage extends Component {
@@ -24,15 +23,17 @@ class ExamplesLandingPage extends Component {
         }));
 
         this.setState({
-          exampleLinks
+          exampleLinks,
         });
       });
   }
 
   render() {
-    const examples = this.state.exampleLinks.map(exampleLink => {
-      return (<li key={exampleLink.id}><Link to={exampleLink.path}>{exampleLink.title}</Link></li>);
-    });
+    const examples = this.state.exampleLinks.map(exampleLink => (
+      <li key={exampleLink.id}>
+        <Link to={exampleLink.path}>{exampleLink.title}</Link>
+      </li>
+    ));
     return (
       <div>
         <h4 className="eyebrow">Prototyping and Samples</h4>
@@ -57,14 +58,14 @@ class ExamplesLandingPage extends Component {
           </div>
           <div>
             <h3>Interactive Examples</h3>
-            <ul>
-              {examples}
-            </ul>
+            <ul>{examples}</ul>
           </div>
         </TwoUp>
         <div>
           <h3>Create a New Example</h3>
-          <a className="button button--color-blue button--size-large" href="#">Get Started</a>
+          <a className="button button--color-blue button--size-large" href="#">
+            Get Started
+          </a>
         </div>
       </div>
     );
