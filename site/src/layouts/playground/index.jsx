@@ -279,7 +279,11 @@ class Playground extends Component {
             hasVisibleControls={hasVisibleControls}
             isActive={this.state.editFormInsertionIndex === 0}
           >
-            <h6>Click to Insert Content Here</h6>
+            {this.state.editFormInsertionIndex === 0 ? (
+              <h6>Select a component to add from the sidebar</h6>
+            ) : (
+              <h6>Click to Insert Content Here</h6>
+            )}
           </StartInsertSlice>
           {this.state.slices.map((slice, sliceIndex) => {
             const template = this.getTemplateFromPatternId(slice.patternId);
@@ -314,7 +318,11 @@ class Playground extends Component {
                     this.state.editFormInsertionIndex === sliceIndex + 1
                   }
                 >
-                  <h6>Click to Insert Content Here</h6>
+                  {this.state.editFormInsertionIndex === sliceIndex + 1 ? (
+                    <h6>Select a component to add from the sidebar</h6>
+                  ) : (
+                    <h6>Click to Insert Content Here</h6>
+                  )}
                 </StartInsertSlice>
               </React.Fragment>
             );
