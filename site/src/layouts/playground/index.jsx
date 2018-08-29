@@ -208,6 +208,7 @@ class Playground extends Component {
     this.setState({
       sidebarContent: SIDEBAR_PATTERNS,
       editFormInsertionIndex: index,
+      editFormSliceId: null,
     });
   }
 
