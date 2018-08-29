@@ -14,6 +14,7 @@ const MainContent = styled.div`
   flex-grow: 1;
   padding: var(--spacing-l);
   overflow-y: scroll;
+  box-sizing: border-box;
 `;
 
 const Page = styled.div`
@@ -252,18 +253,20 @@ class Playground extends Component {
             slices={this.state.slices}
           />
         </Sidebar>
-        <MainContent>
-          {/* <h2>Playground for id: {this.props.id}</h2> */}
-          <h4 className="eyebrow">Prototyping Sandbox</h4>
-          <h2>{this.state.example.title}</h2>
+        <MainContent hasVisibleControls={hasVisibleControls}>
+          {hasVisibleControls && (
+            <React.Fragment>
+              <h4 className="eyebrow">Prototyping Sandbox</h4>
+              <h2>{this.state.example.title}</h2>
 
-          {this.state.statusMessage && (
-            <StatusMessage
-              message={this.state.statusMessage}
-              type={this.state.statusType}
-            />
+              {this.state.statusMessage && (
+                <StatusMessage
+                  message={this.state.statusMessage}
+                  type={this.state.statusType}
+                />
+              )}
+            </React.Fragment>
           )}
-
           <StartInsertSlice
             onClick={() => this.handleStartInsertSlice(0)}
             onKeyPress={() => this.handleStartInsertSlice(0)}
