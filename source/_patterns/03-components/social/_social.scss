@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  width: 100%;
   &__link {
     $x: 1rem;
     @include a-link($deco: none, $deco--hover: none);

@@ -14,6 +14,7 @@ const MainContent = styled.div`
   flex-grow: 1;
   padding: var(--spacing-l);
   overflow-y: scroll;
+  box-sizing: border-box;
 `;
 
 const Page = styled.div`
@@ -27,6 +28,7 @@ const Page = styled.div`
 
 const StartInsertSlice = styled.div`
   display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
+  ${props => props.isActive && 'box-shadow: 0 0 1.5rem #e1c933;'};
   border: dashed 1px lightgrey;
   text-align: center;
   cursor: pointer;
@@ -54,7 +56,7 @@ class Playground extends Component {
       example: {},
       slices: [],
       sidebarContent: SIDEBAR_DEFAULT,
-      editFormInsertionIndex: 0,
+      editFormInsertionIndex: null,
       editFormSchema: {},
       editFormSliceId: null,
       filterTerm: '',
@@ -152,6 +154,7 @@ class Playground extends Component {
   moveSliceUp(index) {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index - 1),
+      editFormInsertionIndex: null,
     }));
   }
 
@@ -162,6 +165,7 @@ class Playground extends Component {
   moveSliceDown(index) {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index + 1),
+      editFormInsertionIndex: null,
     }));
   }
 
@@ -169,6 +173,7 @@ class Playground extends Component {
     this.setState(prevState => ({
       slices: prevState.slices.filter(slice => slice.id !== sliceId),
       sidebarContent: SIDEBAR_DEFAULT,
+      editFormInsertionIndex: null,
     }));
   }
 
@@ -193,6 +198,7 @@ class Playground extends Component {
         editFormSliceId: id,
         editFormSchema: schema,
         sidebarContent: SIDEBAR_FORM,
+        editFormInsertionIndex: null,
       };
     });
     this.handleFilterReset();
@@ -236,11 +242,6 @@ class Playground extends Component {
     return (
       <Page>
         <Sidebar>
-          <button type="submit" onKeyPress={this.save} onClick={this.save}>
-            Save Everything
-          </button>
-          <small>Warning: server unresponsive for ~3s upon save</small>
-          {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
           <PlaygroundSidebar
             editFormSchema={this.state.editFormSchema}
             editFormSliceId={this.state.editFormSliceId}
@@ -251,30 +252,38 @@ class Playground extends Component {
             handleFilterChange={this.handleFilterChange}
             handleFilterReset={this.handleFilterReset}
             handleMetaFormChange={this.handleMetaFormChange}
+            handleSave={this.save}
             metaFormData={this.state.example}
             patterns={this.props.patterns}
             sidebarContent={this.state.sidebarContent}
             slices={this.state.slices}
           />
         </Sidebar>
-        <MainContent>
-          {/* <h2>Playground for id: {this.props.id}</h2> */}
-          <h4 className="eyebrow">Prototyping Sandbox</h4>
-          <h2>{this.state.example.title}</h2>
+        <MainContent hasVisibleControls={hasVisibleControls}>
+          {hasVisibleControls && (
+            <React.Fragment>
+              <h4 className="eyebrow">Prototyping Sandbox</h4>
+              <h2>{this.state.example.title}</h2>
 
-          {this.state.statusMessage && (
-            <StatusMessage
-              message={this.state.statusMessage}
-              type={this.state.statusType}
-            />
+              {this.state.statusMessage && (
+                <StatusMessage
+                  message={this.state.statusMessage}
+                  type={this.state.statusType}
+                />
+              )}
+            </React.Fragment>
           )}
-
           <StartInsertSlice
             onClick={() => this.handleStartInsertSlice(0)}
             onKeyPress={() => this.handleStartInsertSlice(0)}
             hasVisibleControls={hasVisibleControls}
+            isActive={this.state.editFormInsertionIndex === 0}
           >
-            <h6>Click to Insert Content Here</h6>
+            {this.state.editFormInsertionIndex === 0 ? (
+              <h6>Select a component to add from the sidebar</h6>
+            ) : (
+              <h6>Click to Insert Content Here</h6>
+            )}
           </StartInsertSlice>
           {this.state.slices.map((slice, sliceIndex) => {
             const template = this.getTemplateFromPatternId(slice.patternId);
@@ -289,6 +298,7 @@ class Playground extends Component {
                       editFormSliceId: slice.id,
                       editFormSchema: template.schema,
                       sidebarContent: SIDEBAR_FORM,
+                      editFormInsertionIndex: null,
                     });
                   }}
                   deleteMe={() => this.deleteSlice(slice.id)}
@@ -304,8 +314,15 @@ class Playground extends Component {
                   onClick={() => this.handleStartInsertSlice(sliceIndex + 1)}
                   onKeyPress={() => this.handleStartInsertSlice(sliceIndex + 1)}
                   hasVisibleControls={hasVisibleControls}
+                  isActive={
+                    this.state.editFormInsertionIndex === sliceIndex + 1
+                  }
                 >
-                  <h6>Click to Insert Content Here</h6>
+                  {this.state.editFormInsertionIndex === sliceIndex + 1 ? (
+                    <h6>Select a component to add from the sidebar</h6>
+                  ) : (
+                    <h6>Click to Insert Content Here</h6>
+                  )}
                 </StartInsertSlice>
               </React.Fragment>
             );
