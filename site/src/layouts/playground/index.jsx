@@ -28,8 +28,8 @@ const Page = styled.div`
 
 const StartInsertSlice = styled.div`
   display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
-  ${props => props.isActive && 'box-shadow: 0 0 1.5rem #e1c933;'};
-  border: dashed 1px lightgrey;
+  border: ${props =>
+    props.isActive ? 'solid 2px #e1c933' : 'dashed 1px rgba(0,0,0,0.3)'};
   text-align: center;
   cursor: pointer;
   padding: 1rem;
@@ -38,7 +38,7 @@ const StartInsertSlice = styled.div`
   &:hover,
   &:active {
     color: #e1c933;
-    border: dashed 1px #e1c933;
+    border: ${props => !props.isActive && 'dashed 1px #e1c933'};
     text-decoration: underline;
   }
 `;
