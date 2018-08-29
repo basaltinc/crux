@@ -35,6 +35,16 @@ function wrapHtml(html, isReadyForIframe = true) {
 <body>
 ${html}
 <script src="/grav.js"></script>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .u-full-width.u-full-width {
+    position: unset;
+  }
+</style>
 </body>
 </html>
 `;
