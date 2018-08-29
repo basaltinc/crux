@@ -105,7 +105,6 @@ class PatternsPage extends Component {
               },
             }}
             onChange={({ formData }) => {
-              console.log(formData);
               this.setState({
                 visibleStatuses: formData.visibleStatuses,
                 visibleUses: formData.visibleUses,
