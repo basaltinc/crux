@@ -3,6 +3,31 @@
   "title": "Example One",
   "slices": [
     {
+      "id": "0e8f96cd-48a1-4749-b80d-ce0fdef324b4",
+      "patternId": "site-header",
+      "data": {
+        "menu_items": [
+          {
+            "url": "http://basalt.io/who-we-are",
+            "text": "Who We Are"
+          },
+          {
+            "url": "http://basalt.io/what-we-do",
+            "text": "What We Do",
+            "active": true
+          },
+          {
+            "url": "http://basalt.io/what-are-design-systems",
+            "text": "What are Design Systems?"
+          },
+          {
+            "url": "http://basalt.io/contact",
+            "text": "Contact Us"
+          }
+        ]
+      }
+    },
+    {
       "id": "d360ac97-1498-4739-ab37-b3422d0219cc",
       "patternId": "media-block",
       "data": {
