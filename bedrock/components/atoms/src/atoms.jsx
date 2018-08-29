@@ -235,7 +235,7 @@ export const FormIconButton = styled.div`
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
   }
 `;
 
@@ -244,12 +244,16 @@ export const FormIconTray = styled.div`
   border: solid 1px lightgrey;
   display: inline-flex;
   padding: 5px 8px;
+  margin-bottom: 0.25rem;
 `;
 
 export const FormArrayItem = styled.div`
   display: flex;
   align-items: flex-end;
-  margin-bottom: 0.5rem;
+  margin: 0.75rem 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
   .field {
     padding: 0;
     display: flex;
@@ -258,6 +262,10 @@ export const FormArrayItem = styled.div`
   }
   & > * + * {
     margin-left: 0.25rem;
+  }
+  &:not(:last-child) {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid lightgrey;
   }
 `;
 

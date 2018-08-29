@@ -31,6 +31,13 @@ const PatternListItemWrapper = styled.li`
   }
 `;
 
+export const PlaygroundStyledSchemaForm = styled(SchemaForm)`
+  > div > label {
+    display: none;
+  }
+  margin-bottom: 1rem;
+`;
+
 class PlaygroundSidebar extends Component {
   constructor(props) {
     super(props);
@@ -89,7 +96,7 @@ class PlaygroundSidebar extends Component {
         <div>
           <h4>Patterns</h4>
           <TypeToFilter>
-            <h4 className="eyebrow">Filter List</h4>
+            <h6 className="eyebrow">Filter List</h6>
             <TypeToFilterInputWrapper>
               <input
                 type="text"
@@ -116,9 +123,7 @@ class PlaygroundSidebar extends Component {
     return (
       <div>
         <h4>Playground</h4>
-        <p>Edit, add, re-arrange, and delete slices.</p>
-        <p>Wow, this is great copy!</p>
-        <SchemaForm
+        <PlaygroundStyledSchemaForm
           onChange={({ formData }) => this.props.handleMetaFormChange(formData)}
           formData={this.props.metaFormData}
           schema={{
@@ -149,6 +154,27 @@ class PlaygroundSidebar extends Component {
             },
           }}
         />
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <button
+            type="submit"
+            onKeyPress={this.props.handleSave}
+            onClick={this.props.handleSave}
+            className="button button--color-blue button--size-small"
+          >
+            Save*
+          </button>
+          <Link
+            to="/examples"
+            className="button button--color-white button--size-small"
+          >
+            Back
+          </Link>
+        </div>
+        <p>
+          <br />
+          <small>* Warning: server unresponsive for ~3s upon save</small>
+        </p>
+        {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
       </div>
     );
   }
@@ -164,6 +190,7 @@ PlaygroundSidebar.propTypes = {
   handleFilterReset: PropTypes.func.isRequired,
   handleHideEditForm: PropTypes.func.isRequired,
   handleMetaFormChange: PropTypes.func.isRequired,
+  handleSave: PropTypes.func.isRequired,
   metaFormData: PropTypes.object.isRequired,
   patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
   sidebarContent: PropTypes.string.isRequired,
