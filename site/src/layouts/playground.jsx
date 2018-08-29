@@ -10,6 +10,11 @@ import Slice from '../components/slice';
 import PlaygroundEditForm from '../components/playground-edit-form';
 import Sidebar from '../components/sidebar';
 import { apiUrlBase } from '../../config';
+import {
+  ClearFilterButton,
+  TypeToFilter,
+  TypeToFilterInputWrapper,
+} from '../../../bedrock/components/atoms';
 
 const MainContent = styled.div`
   flex-grow: 1;
@@ -74,6 +79,7 @@ class Playground extends Component {
       editFormInsertionIndex: 0,
       editFormSchema: {},
       editFormSliceId: null,
+      filterTerm: '',
     };
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
@@ -85,6 +91,7 @@ class Playground extends Component {
     this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
     this.addSlice = this.addSlice.bind(this);
     this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
+    this.handleFilterReset = this.handleFilterReset.bind(this);
   }
 
   componentDidMount() {
@@ -108,6 +115,12 @@ class Playground extends Component {
     const pattern = this.props.patterns.find(p => p.id === patternId);
     // @todo Improve template grabbing method besides just "first" one
     return pattern.templates[0];
+  }
+
+  handleFilterReset() {
+    this.setState({
+      filterTerm: '',
+    });
   }
 
   save() {
@@ -186,6 +199,7 @@ class Playground extends Component {
         showPatternForm: false,
       };
     });
+    this.handleFilterReset();
   }
 
   handleStartInsertSlice(index) {
@@ -239,15 +253,45 @@ class Playground extends Component {
       );
     }
     if (this.state.showPatternForm) {
+      const patterns = this.props.patterns
+        .filter(pattern => pattern.id !== 'site-footer')
+        .filter(pattern => pattern.id !== 'site-header');
+      const items =
+        this.state.filterTerm === ''
+          ? patterns
+          : patterns.filter(
+              item =>
+                item.title
+                  .toLowerCase()
+                  .search(this.state.filterTerm.toLowerCase()) !== -1,
+            );
+
       return (
         <div>
           <h4>Patterns</h4>
-          <ul>
-            {this.props.patterns
-              .filter(pattern => pattern.id !== 'site-footer')
-              .filter(pattern => pattern.id !== 'site-header')
-              .map(pattern => this.renderPatternListItem(pattern))}
-          </ul>
+          <TypeToFilter>
+            <h4 className="eyebrow">Filter List</h4>
+            <TypeToFilterInputWrapper>
+              <input
+                type="text"
+                className="type-to-filter"
+                placeholder="Type to filter..."
+                value={this.state.filterTerm}
+                onChange={event =>
+                  this.setState({ filterTerm: event.target.value })
+                }
+              />
+              <ClearFilterButton
+                role="button"
+                onClick={this.handleFilterReset}
+                onKeyPress={this.handleFilterReset}
+                isVisible={!!this.state.filterTerm}
+              >
+                <i className="icon--close" />
+              </ClearFilterButton>
+            </TypeToFilterInputWrapper>
+          </TypeToFilter>
+          <ul>{items.map(pattern => this.renderPatternListItem(pattern))}</ul>
         </div>
       );
     }
