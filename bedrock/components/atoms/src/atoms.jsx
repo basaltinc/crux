@@ -66,8 +66,6 @@ export const SelectStyledWrapper = styled.label`
     display: inline-block;
     padding: 0.3rem 2rem 0.3rem 1rem;
     margin: 0;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
