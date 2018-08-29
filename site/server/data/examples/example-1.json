@@ -1,26 +1,7 @@
 {
   "id": "example-1",
-  "title": "Example One",
+  "title": "Example Two",
   "slices": [
-    {
-      "id": "a0e78d0d-9068-4402-b102-9bc883665e05",
-      "patternId": "hero",
-      "data": {
-        "title": "What We Do",
-        "body": "Design Systems, start to finish.",
-        "alignment_all": "center",
-        "image": "/assets/images/brand-stock/rawpixel-com-191102.jpg",
-        "image_overlay": "black",
-        "buttons": [
-          {
-            "text": "Learn More",
-            "url": "http://www.basalt.io",
-            "size": "medium",
-            "color": "iron"
-          }
-        ]
-      }
-    },
     {
       "id": "d360ac97-1498-4739-ab37-b3422d0219cc",
       "patternId": "media-block",
@@ -40,7 +21,46 @@
           }
         ]
       }
+    },
+    {
+      "id": "2cef9200-36d8-4334-9b28-77ae13a04bb8",
+      "patternId": "hero",
+      "data": {
+        "title": "What We Do",
+        "body": "Design Systems, start to finish.",
+        "alignment_all": "center",
+        "image": "/assets/images/brand-stock/rawpixel-com-191102.jpg",
+        "image_overlay": "black",
+        "buttons": [
+          {
+            "text": "Learn More",
+            "url": "http://www.basalt.io",
+            "size": "medium",
+            "color": "iron"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a0e78d0d-9068-4402-b102-9bc883665e05",
+      "patternId": "hero",
+      "data": {
+        "title": "What We Do",
+        "body": "Design Systems, start to finish.",
+        "alignment_all": "center",
+        "image": "/assets/images/brand-stock/rawpixel-com-191102.jpg",
+        "image_overlay": "black",
+        "buttons": [
+          {
+            "text": "Learn More",
+            "url": "http://www.basalt.io",
+            "size": "medium",
+            "color": "iron"
+          }
+        ]
+      }
     }
   ],
-  "hasVisibleControls": true
+  "hasVisibleControls": true,
+  "description": "This is the description"
 }

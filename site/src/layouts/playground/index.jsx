@@ -41,26 +41,6 @@ const StartInsertSlice = styled.div`
   }
 `;
 
-const PatternListItemWrapper = styled.li`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  margin: 1.5rem 0;
-  img {
-    width: 50px;
-    height: 50px;
-  }
-  > div {
-    &:hover,
-    &:active {
-      cursor: pointer;
-    }
-  }
-  a {
-    font-size: 13.5px;
-  }
-`;
-
 const allowedSidebarContent = ['default', 'form', 'patterns'];
 
 class Playground extends Component {
@@ -81,14 +61,15 @@ class Playground extends Component {
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
     this.deleteSlice = this.deleteSlice.bind(this);
-    this.addSlice = this.addSlice.bind(this);
-    this.hideEditForm = this.hideEditForm.bind(this);
+    this.handleHideEditForm = this.handleHideEditForm.bind(this);
     this.save = this.save.bind(this);
-    this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
-    this.addSlice = this.addSlice.bind(this);
     this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
-    this.handleFilterReset = this.handleFilterReset.bind(this);
+    this.handleAddSlice = this.handleAddSlice.bind(this);
     this.handleEditFormChange = this.handleEditFormChange.bind(this);
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleFilterReset = this.handleFilterReset.bind(this);
+    this.handleMetaFormChange = this.handleMetaFormChange.bind(this);
+    this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
   }
 
   componentDidMount() {
@@ -139,7 +120,7 @@ class Playground extends Component {
       });
   }
 
-  hideEditForm() {
+  handleHideEditForm() {
     this.setState({
       editFormSliceId: null,
       sidebarContent: allowedSidebarContent[0],
@@ -179,7 +160,7 @@ class Playground extends Component {
    * @param {Object} slice.data - Data for Pattern, usually `{}`
    * @returns {null} - sets state
    */
-  addSlice(patternId) {
+  handleAddSlice(patternId) {
     const { schema } = this.getTemplateFromPatternId(patternId);
     const id = uuid();
     this.setState(prevState => {
@@ -192,8 +173,7 @@ class Playground extends Component {
         slices: prevState.slices,
         editFormSliceId: id,
         editFormSchema: schema,
-        showEditForm: true,
-        showPatternForm: false,
+        sidebarContent: allowedSidebarContent[1],
       };
     });
     this.handleFilterReset();
@@ -217,6 +197,16 @@ class Playground extends Component {
     }));
   }
 
+  handleFilterChange(event) {
+      this.setState({ filterTerm: event.target.value })
+  }
+
+  handleMetaFormChange(formData) {
+  this.setState(prevState => ({
+    example: Object.assign({}, prevState.example, formData),
+  }));
+}
+
   render() {
     const { hasVisibleControls } = this.state.example;
 
@@ -238,7 +228,13 @@ class Playground extends Component {
             editFormSliceId={this.state.editFormSliceId}
             editFormSchema={this.state.editFormSchema}
             handleEditFormChange={this.handleEditFormChange}
-            hideEditForm={this.hideEditForm}
+            handleHideEditForm={this.handleHideEditForm}
+            patterns={this.props.patterns}
+            filterTerm={this.state.filterTerm}
+            handleFilterChange={this.handleFilterChange}
+            handleAddSlice={this.handleAddSlice}
+            handleMetaFormChange={this.handleMetaFormChange}
+            metaFormData={this.state.example}
           />
         </Sidebar>
         <MainContent>
@@ -278,7 +274,7 @@ class Playground extends Component {
                   isLast={this.state.slices.length - 1 === sliceIndex}
                 />
                 <StartInsertSlice
-                  key={`${slice.id}--addSlice`}
+                  key={`${slice.id}--handleAddSlice`}
                   onClick={() => this.handleStartInsertSlice(sliceIndex + 1)}
                   onKeyPress={() => this.handleStartInsertSlice(sliceIndex + 1)}
                   hasVisibleControls={hasVisibleControls}

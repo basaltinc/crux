@@ -188,7 +188,7 @@ const SiteFooter = styled.div`
   }
   ul,
   li {
-    margin-bottom: 0;
+    margin-bottom: 2px;
   }
 `;
 

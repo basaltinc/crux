@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import {
   ClearFilterButton,
   TypeToFilter,
@@ -9,21 +10,42 @@ import SchemaForm from '@basalt/bedrock-schema-form';
 import { Link } from 'react-router-dom';
 import PlaygroundEditForm from '../../components/playground-edit-form';
 
+const PatternListItemWrapper = styled.li`
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin: 1.5rem 0;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+  > div {
+    &:hover,
+    &:active {
+      cursor: pointer;
+    }
+  }
+  a {
+    font-size: 13.5px;
+  }
+`;
+
 class PlaygroundSidebar extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.renderPatternListItem = this.renderPatternListItem.bind(this);
   }
 
-  static renderPatternListItem(pattern) {
+  renderPatternListItem(pattern) {
     return (
       <PatternListItemWrapper key={pattern.id} type="button">
         <Link to={`/patterns/components/${pattern.id}`}>View Details</Link>
         <div
           role="button"
           tabIndex="0"
-          onKeyPress={() => this.addSlice(pattern.id)}
-          onClick={() => this.addSlice(pattern.id)}
+          onKeyPress={() => this.props.handleAddSlice(pattern.id)}
+          onClick={() => this.props.handleAddSlice(pattern.id)}
         >
           <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
           <img
@@ -38,14 +60,14 @@ class PlaygroundSidebar extends Component {
   render() {
     if (this.props.sidebarContent === 'form') {
       const { slices, editFormSliceId, editFormSchema } = this.props;
-      console.log("Yoco", editFormSliceId);
+      console.log('Yoco', editFormSliceId);
       return (
         <PlaygroundEditForm
           schema={editFormSchema}
           data={slices.find(s => s.id === editFormSliceId).data}
           handleChange={data => this.props.handleEditFormChange(data)}
           handleError={console.error}
-          hideEditForm={this.props.hideEditForm}
+          handleHideEditForm={this.props.handleHideEditForm}
         />
       );
     }
@@ -60,7 +82,7 @@ class PlaygroundSidebar extends Component {
               item =>
                 item.title
                   .toLowerCase()
-                  .search(this.state.filterTerm.toLowerCase()) !== -1,
+                  .search(this.props.filterTerm.toLowerCase()) !== -1,
             );
 
       return (
@@ -73,16 +95,14 @@ class PlaygroundSidebar extends Component {
                 type="text"
                 className="type-to-filter"
                 placeholder="Type to filter..."
-                value={this.state.filterTerm}
-                onChange={event =>
-                  this.setState({ filterTerm: event.target.value })
-                }
+                value={this.props.filterTerm}
+                onChange={event => this.props.handleFilterChange(event)}
               />
               <ClearFilterButton
                 role="button"
                 onClick={this.props.handleFilterReset}
                 onKeyPress={this.props.handleFilterReset}
-                isVisible={!!this.state.filterTerm}
+                isVisible={!!this.props.filterTerm}
               >
                 <i className="icon--close" />
               </ClearFilterButton>
@@ -99,12 +119,8 @@ class PlaygroundSidebar extends Component {
         <p>Edit, add, re-arrange, and delete slices.</p>
         <p>Wow, this is great copy!</p>
         <SchemaForm
-          onChange={({ formData }) => {
-            this.setState(prevState => ({
-              example: Object.assign({}, prevState.example, formData),
-            }));
-          }}
-          formData={this.state.example}
+          onChange={({ formData }) => this.props.handleMetaFormChange(formData)}
+          formData={this.props.metaFormData}
           schema={{
             title: 'Metadata',
             type: 'object',
