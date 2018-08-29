@@ -1,41 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { TextInputWrapper } from '@basalt/bedrock-atoms';
+import {
+  TypeToFilter,
+  TypeToFilterInputWrapper,
+  ClearFilterButton,
+} from '@basalt/bedrock-atoms';
 import LinkList from './link-list';
 import SecondaryNavItems from './secondary-nav-items.json';
 import { apiUrlBase } from '../../config';
-
-const TypeToFilterInputWrapper = TextInputWrapper.extend`
-  display: flex;
-`;
-
-const TypeToFilter = styled.div`
-  > .eyebrow {
-    margin-top: 0;
-    font-weight: bold;
-  }
-  position: relative;
-  margin-bottom: 2rem;
-`;
-
-const ClearFilterButton = styled.div`
-  border: solid 1px lightgrey;
-  border-left: none;
-  background-color: white;
-  height: 33px;
-  width: 33px;
-  flex-shrink: 0;
-  display: ${props => (props.isVisible ? 'flex' : 'none')};
-  justify-content: center;
-  align-items: center;
-  &:hover {
-    cursor: pointer;
-  }
-  > i {
-    opacity: 0.5;
-  }
-`;
 
 const {
   resourcesLinks,
