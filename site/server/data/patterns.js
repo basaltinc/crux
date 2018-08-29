@@ -1,14 +1,12 @@
 import fs from 'fs-extra';
 import { join, parse } from 'path';
 import globby from 'globby';
-import Ajv from 'ajv';
+import { validateSchemaAndAssignDefaults } from '@basalt/bedrock-utils';
 import chokidar from 'chokidar';
 import events, { eventNames } from '../events';
 import patternMetaSchema from './pattern-meta.schema.json';
 import { isDevMode } from '../../config';
 
-const ajv = new Ajv();
-const validatePatternMetaSchema = ajv.compile(patternMetaSchema);
 const patternsDir = join(__dirname, '../../../source/_patterns/');
 const patternsDirs = globby.sync([join(patternsDir, '*/*')], {
   expandDirectories: true,
@@ -31,21 +29,24 @@ function createPatternsData() {
         // eslint-disable-next-line
         const pattern = require(dir);
         if (pattern.meta) {
-          const isValid = validatePatternMetaSchema(pattern.meta);
-          if (!isValid) {
+          const results = validateSchemaAndAssignDefaults(
+            patternMetaSchema,
+            pattern.meta,
+          );
+          if (!results.ok) {
             const name = dir.split('/').pop();
             console.log();
             console.error(
               `Error! Pattern Meta Schema validation failed for "${name}"`,
+              results.message,
             );
             console.error(
               'Review the "meta" export from "index.js" in that folder and compare to "pattern-meta.schema.json"',
             );
-            console.error(validatePatternMetaSchema.errors);
             console.log();
             process.exit(1);
           }
-          patterns.push(pattern.meta);
+          patterns.push(results.data);
         }
       } catch (e) {
         // if it failed it's b/c it didn't have a `index.js` to grab; that's ok
