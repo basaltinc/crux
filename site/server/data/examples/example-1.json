@@ -138,6 +138,6 @@
       }
     }
   ],
-  "hasVisibleControls": false,
+  "hasVisibleControls": true,
   "description": "This is the description of great magnitude."
 }

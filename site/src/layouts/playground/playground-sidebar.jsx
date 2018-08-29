@@ -31,7 +31,7 @@ const PatternListItemWrapper = styled.li`
   }
 `;
 
-const PlaygroundStyledSchemaForm = styled(SchemaForm)`
+export const PlaygroundStyledSchemaForm = styled(SchemaForm)`
   > div > label {
     display: none;
   }
@@ -96,7 +96,7 @@ class PlaygroundSidebar extends Component {
         <div>
           <h4>Patterns</h4>
           <TypeToFilter>
-            <h4 className="eyebrow">Filter List</h4>
+            <h6 className="eyebrow">Filter List</h6>
             <TypeToFilterInputWrapper>
               <input
                 type="text"
