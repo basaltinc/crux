@@ -261,6 +261,7 @@ export default class App extends React.Component {
                             component={LoadableHomeSplash}
                             exact
                           />
+
                           <Route
                             path="/examples/:id"
                             render={({ match }) => (
