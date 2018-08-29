@@ -4,17 +4,11 @@ import arrayMove from 'array-move';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
-import SchemaForm from '@basalt/bedrock-schema-form';
 import Spinner from '@basalt/bedrock-spinner';
-import {
-  ClearFilterButton,
-  TypeToFilter,
-  TypeToFilterInputWrapper,
-} from '@basalt/bedrock-atoms';
 import Slice from '../../components/slice';
-import PlaygroundEditForm from '../../components/playground-edit-form';
 import Sidebar from '../../components/sidebar';
 import { apiUrlBase } from '../../../config';
+import PlaygroundSidebar from './playground-sidebar';
 
 const MainContent = styled.div`
   flex-grow: 1;
@@ -67,6 +61,8 @@ const PatternListItemWrapper = styled.li`
   }
 `;
 
+const allowedSidebarContent = ['default', 'form', 'patterns'];
+
 class Playground extends Component {
   constructor(props) {
     super(props);
@@ -76,6 +72,7 @@ class Playground extends Component {
       slices: [],
       showEditForm: false,
       showPatternForm: false,
+      sidebarContent: allowedSidebarContent[0],
       editFormInsertionIndex: 0,
       editFormSchema: {},
       editFormSliceId: null,
@@ -87,7 +84,6 @@ class Playground extends Component {
     this.addSlice = this.addSlice.bind(this);
     this.hideEditForm = this.hideEditForm.bind(this);
     this.save = this.save.bind(this);
-    this.renderSidebar = this.renderSidebar.bind(this);
     this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
     this.addSlice = this.addSlice.bind(this);
     this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
@@ -230,118 +226,8 @@ class Playground extends Component {
     );
   }
 
-  renderSidebar() {
-    if (this.state.showEditForm) {
-      const { slices, editFormSliceId, editFormSchema } = this.state;
-      return (
-        <PlaygroundEditForm
-          schema={editFormSchema}
-          data={slices.find(s => s.id === editFormSliceId).data}
-          handleChange={data => {
-            this.setState(prevState => ({
-              slices: prevState.slices.map(slice => {
-                if (slice.id === editFormSliceId) {
-                  slice.data = data.formData;
-                }
-                return slice;
-              }),
-            }));
-          }}
-          handleError={console.error}
-          hideEditForm={this.hideEditForm}
-        />
-      );
-    }
-    if (this.state.showPatternForm) {
-      const patterns = this.props.patterns
-        .filter(pattern => pattern.id !== 'site-footer')
-        .filter(pattern => pattern.id !== 'site-header');
-      const items =
-        this.state.filterTerm === ''
-          ? patterns
-          : patterns.filter(
-              item =>
-                item.title
-                  .toLowerCase()
-                  .search(this.state.filterTerm.toLowerCase()) !== -1,
-            );
-
-      return (
-        <div>
-          <h4>Patterns</h4>
-          <TypeToFilter>
-            <h4 className="eyebrow">Filter List</h4>
-            <TypeToFilterInputWrapper>
-              <input
-                type="text"
-                className="type-to-filter"
-                placeholder="Type to filter..."
-                value={this.state.filterTerm}
-                onChange={event =>
-                  this.setState({ filterTerm: event.target.value })
-                }
-              />
-              <ClearFilterButton
-                role="button"
-                onClick={this.handleFilterReset}
-                onKeyPress={this.handleFilterReset}
-                isVisible={!!this.state.filterTerm}
-              >
-                <i className="icon--close" />
-              </ClearFilterButton>
-            </TypeToFilterInputWrapper>
-          </TypeToFilter>
-          <ul>{items.map(pattern => this.renderPatternListItem(pattern))}</ul>
-        </div>
-      );
-    }
-    return (
-      <div>
-        <h4>Playground</h4>
-        <p>Edit, add, re-arrange, and delete slices.</p>
-        <p>Wow, this is great copy!</p>
-        <SchemaForm
-          onChange={({ formData }) => {
-            this.setState(prevState => ({
-              example: Object.assign({}, prevState.example, formData),
-            }));
-          }}
-          formData={this.state.example}
-          schema={{
-            title: 'Metadata',
-            type: 'object',
-            properties: {
-              title: {
-                title: 'Example Title',
-                type: 'string',
-              },
-              description: {
-                title: 'Description',
-                type: 'string',
-              },
-              hasVisibleControls: {
-                title: 'Show Edit Controls',
-                type: 'boolean',
-                default: true,
-              },
-            },
-          }}
-          uiSchema={{
-            description: {
-              'ui:widget': 'textarea',
-              'ui:options': {
-                rows: 10,
-              },
-            },
-          }}
-        />
-      </div>
-    );
-  }
-
   render() {
     const { hasVisibleControls } = this.state.example;
-    const sidebarContents = this.renderSidebar();
 
     if (!this.state.ready) {
       return <Spinner />;
@@ -355,7 +241,7 @@ class Playground extends Component {
           </button>
           <small>Warning: server unresponsive for ~3s upon save</small>
           {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
-          {sidebarContents}
+          <PlaygroundSidebar/>
         </Sidebar>
         <MainContent>
           {/* <h2>Playground for id: {this.props.id}</h2> */}
