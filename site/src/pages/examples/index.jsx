@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import uuid from 'uuid/v4';
 import { apiUrlBase } from '../../../config';
 
 class ExamplesLandingPage extends Component {
@@ -8,7 +9,9 @@ class ExamplesLandingPage extends Component {
     super(props);
     this.state = {
       exampleLinks: [],
+      redirect: '',
     };
+    this.makeNewExample = this.makeNewExample.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +31,32 @@ class ExamplesLandingPage extends Component {
       });
   }
 
+  makeNewExample() {
+    const id = uuid();
+    window
+      .fetch(`${apiUrlBase}/example/${id}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id,
+          title: 'My New Example',
+          slices: [],
+        }),
+      })
+      .then(res => res.json())
+      .then(() => {
+        this.setState({
+          redirect: id,
+        });
+      });
+  }
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect to={`/examples/${this.state.redirect}`} />;
+    }
     const examples = this.state.exampleLinks.map(exampleLink => (
       <li key={exampleLink.id}>
         <Link to={exampleLink.path}>{exampleLink.title}</Link>
@@ -63,9 +91,14 @@ class ExamplesLandingPage extends Component {
         </TwoUp>
         <div>
           <h3>Create a New Example</h3>
-          <a className="button button--color-blue button--size-large" href="#">
+          <button
+            className="button button--color-blue button--size-large"
+            onClick={this.makeNewExample}
+            onKeyPress={this.makeNewExample}
+            type="submit"
+          >
             Get Started
-          </a>
+          </button>
         </div>
       </div>
     );

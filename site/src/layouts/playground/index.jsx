@@ -83,6 +83,7 @@ class Playground extends Component {
       filterTerm: '',
       statusMessage: '',
       statusType: 'info',
+      hasVisibleControls: true,
     };
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
@@ -103,11 +104,14 @@ class Playground extends Component {
       .then(res => res.json())
       .then(results => {
         if (results.ok) {
-          this.setState({
+          this.setState(prevState => ({
             example: results.example,
             slices: results.example.slices,
+            hasVisibleControls: results.example.hasVisibleControls
+              ? results.example.hasVisibleControls
+              : prevState.hasVisibleControls,
             ready: true,
-          });
+          }));
         } else {
           this.setState({
             statusMessage: results.message,
@@ -318,6 +322,7 @@ class Playground extends Component {
           onChange={({ formData }) => {
             this.setState(prevState => ({
               example: Object.assign({}, prevState.example, formData),
+              hasVisibleControls: formData.hasVisibleControls,
             }));
           }}
           formData={this.state.example}
@@ -354,7 +359,7 @@ class Playground extends Component {
   }
 
   render() {
-    const { hasVisibleControls } = this.state.example;
+    const { hasVisibleControls } = this.state;
     const sidebarContents = this.renderSidebar();
 
     if (!this.state.ready) {
