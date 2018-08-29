@@ -96,9 +96,7 @@ const PatternGridItemDescription = styled.div`
 `;
 
 export default function ComponentsBoard(props) {
-  const components = props.patterns
-    .filter(item => item.id !== 'site-footer')
-    .filter(item => item.id !== 'site-header');
+  const components = props.patterns;
   return (
     <PatternGrid
       className="smart-grid"

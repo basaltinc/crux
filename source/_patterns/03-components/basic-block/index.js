@@ -4,6 +4,8 @@ const meta = {
   id: 'basic-block',
   title: 'Basic Block',
   type: 'component',
+  status: 'draft',
+  uses: ['inSlice', 'inGrid'],
   description: 'A block with a title, text, and CTA.',
   templates: [
     {

@@ -168,6 +168,7 @@ class Playground extends Component {
   deleteSlice(sliceId) {
     this.setState(prevState => ({
       slices: prevState.slices.filter(slice => slice.id !== sliceId),
+      sidebarContent: SIDEBAR_DEFAULT,
     }));
   }
 

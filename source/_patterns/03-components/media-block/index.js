@@ -6,16 +6,17 @@ const meta = {
   title: 'Media Block',
   type: 'component',
   description: 'Image, Title, Body, and Buttons make this really flexible.',
+  uses: ['inGrid', 'inSlice'],
   templates: [
-    {
-      name: '@components/_media-block--basic.twig',
-      selector: '.media-block--basic',
-      schema: basicSchema,
-    },
     {
       name: '@components/_media-block.twig',
       selector: '.media-block',
       schema,
+    },
+    {
+      name: '@components/_media-block--basic.twig',
+      selector: '.media-block--basic',
+      schema: basicSchema,
     },
   ],
   demoSize: 'l',

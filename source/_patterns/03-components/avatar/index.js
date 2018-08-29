@@ -5,6 +5,7 @@ const meta = {
   title: 'Avatar',
   type: 'component',
   description: "Show a person's profile picture.",
+  uses: ['inComponent'],
   templates: [
     {
       name: '@components/_avatar.twig',

@@ -60,7 +60,6 @@ class PlaygroundSidebar extends Component {
   render() {
     if (this.props.sidebarContent === SIDEBAR_FORM) {
       const { slices, editFormSliceId, editFormSchema } = this.props;
-      console.log('Yoco', editFormSliceId);
       return (
         <PlaygroundEditForm
           schema={editFormSchema}
@@ -73,6 +72,7 @@ class PlaygroundSidebar extends Component {
     }
     if (this.props.sidebarContent === SIDEBAR_PATTERNS) {
       const patterns = this.props.patterns
+        .filter(pattern => pattern.uses.includes('inSlice'))
         .filter(pattern => pattern.id !== 'site-footer')
         .filter(pattern => pattern.id !== 'site-header');
       const items =

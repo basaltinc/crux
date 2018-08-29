@@ -6,6 +6,7 @@ const meta = {
   type: 'component',
   description:
     'The Executive Bio a UI component designed to profile members of the executive team.',
+  uses: ['inSlice'],
   templates: [
     {
       name: '@components/_exec-bio.twig',

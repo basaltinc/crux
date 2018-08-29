@@ -5,6 +5,8 @@ const meta = {
   title: 'List',
   type: 'component',
   description: 'List',
+  status: 'draft',
+  uses: ['inSlice'],
   templates: [
     {
       name: '@components/_list.twig',
