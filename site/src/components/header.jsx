@@ -104,7 +104,7 @@ class Header extends React.Component {
           <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink to="/examples">Prototype</SiteHeaderNavLink>
+          <SiteHeaderNavLink to="/examples">Examples</SiteHeaderNavLink>
         </li>
         <li>
           <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
