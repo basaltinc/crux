@@ -34,8 +34,9 @@ const PlaygroundSliceWrapper = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   box-sizing: border-box;
-  ${props => props.active && 'box-shadow: 0 0 1.5rem #e1c933;'};
-  ${props => props.hasVisibleControls || 'margin-bottom: 1.5rem;'};
+  border: solid 2px ${props => (props.active ? '#e1c933' : 'rgba(0,0,0,0)')};
+  ${props =>
+    props.hasVisibleControls ? 'padding: 5px;' : 'margin-bottom: 1.5rem;'};
 `;
 
 const PlaygroundSlice = ({
@@ -50,7 +51,10 @@ const PlaygroundSlice = ({
   data,
   hasVisibleControls,
 }) => (
-  <PlaygroundSliceWrapper active={isBeingEdited}>
+  <PlaygroundSliceWrapper
+    active={isBeingEdited}
+    hasVisibleControls={hasVisibleControls}
+  >
     <PlaygroundIconWrapper
       className="ei-content-block__button-tray"
       hasVisibleControls={hasVisibleControls}
