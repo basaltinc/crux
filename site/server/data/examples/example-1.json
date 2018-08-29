@@ -3,6 +3,31 @@
   "title": "Example Two",
   "slices": [
     {
+      "id": "0e8f96cd-48a1-4749-b80d-ce0fdef324b4",
+      "patternId": "site-header",
+      "data": {
+        "menu_items": [
+          {
+            "url": "http://basalt.io/who-we-are",
+            "text": "Who We Are"
+          },
+          {
+            "url": "http://basalt.io/what-we-do",
+            "text": "What We Do",
+            "active": true
+          },
+          {
+            "url": "http://basalt.io/what-are-design-systems",
+            "text": "What are Design Systems?"
+          },
+          {
+            "url": "http://basalt.io/contact",
+            "text": "Contact Us"
+          }
+        ]
+      }
+    },
+    {
       "id": "d360ac97-1498-4739-ab37-b3422d0219cc",
       "patternId": "media-block",
       "data": {
@@ -58,47 +83,29 @@
       }
     },
     {
-      "id": "0e8f96cd-48a1-4749-b80d-ce0fdef324b4",
-      "patternId": "site-header",
+      "id": "bf655dc4-b7ab-434e-b4ad-1d245e1ba535",
+      "patternId": "blog-teaser",
       "data": {
-        "menu_items": [
-          {
-            "url": "http://basalt.io/who-we-are",
-            "text": "Who We Are"
-          },
-          {
-            "url": "http://basalt.io/what-we-do",
-            "text": "What We Do",
-            "active": true
-          },
-          {
-            "url": "http://basalt.io/what-are-design-systems",
-            "text": "What are Design Systems?"
-          },
-          {
-            "url": "http://basalt.io/contact",
-            "text": "Contact Us"
-          }
-        ]
+        "title": "A Tale of Two Lego Cities",
+        "author": "Nam Ho",
+        "teaser_avatar": "/assets/images/avatar-example2.jpg",
+        "date": "November 8, 2017",
+        "summary": "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
+        "image": "/assets/images/legos.jpg",
+        "is_even": true
       }
     },
     {
-      "id": "a0e78d0d-9068-4402-b102-9bc883665e05",
-      "patternId": "hero",
+      "id": "b7d0c7be-284f-4e06-92b4-e48832e1735c",
+      "patternId": "blog-teaser",
       "data": {
-        "title": "What We Do",
-        "body": "Design Systems, start to finish.",
-        "alignment_all": "center",
-        "image": "/assets/images/brand-stock/rawpixel-com-191102.jpg",
-        "image_overlay": "black",
-        "buttons": [
-          {
-            "text": "Learn More",
-            "url": "http://www.basalt.io",
-            "size": "medium",
-            "color": "iron"
-          }
-        ]
+        "title": "A Tale of Two Lego Cities",
+        "author": "Nam Ho",
+        "teaser_avatar": "/assets/images/avatar-example2.jpg",
+        "date": "November 8, 2017",
+        "summary": "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
+        "image": "/assets/images/legos.jpg",
+        "is_even": false
       }
     }
   ],

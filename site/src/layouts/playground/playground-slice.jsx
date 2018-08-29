@@ -33,8 +33,9 @@ const PlaygroundSliceWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  ${props => props.active && 'box-shadow: 0 0 1.5rem #e1c933;'};
   box-sizing: border-box;
+  ${props => props.active && 'box-shadow: 0 0 1.5rem #e1c933;'};
+  ${props => props.hasVisibleControls || 'margin-bottom: 1.5rem;'};
 `;
 
 const PlaygroundSlice = ({
