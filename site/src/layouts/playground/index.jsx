@@ -88,6 +88,7 @@ class Playground extends Component {
     this.addSlice = this.addSlice.bind(this);
     this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
     this.handleFilterReset = this.handleFilterReset.bind(this);
+    this.handleEditFormChange = this.handleEditFormChange.bind(this);
   }
 
   componentDidMount() {
@@ -200,30 +201,20 @@ class Playground extends Component {
 
   handleStartInsertSlice(index) {
     this.setState({
-      showEditForm: false,
-      showPatternForm: true,
+      sidebarContent: allowedSidebarContent[2],
       editFormInsertionIndex: index,
     });
   }
 
-  renderPatternListItem(pattern) {
-    return (
-      <PatternListItemWrapper key={pattern.id} type="button">
-        <Link to={`/patterns/components/${pattern.id}`}>View Details</Link>
-        <div
-          role="button"
-          tabIndex="0"
-          onKeyPress={() => this.addSlice(pattern.id)}
-          onClick={() => this.addSlice(pattern.id)}
-        >
-          <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
-          <img
-            src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
-            alt={pattern.title}
-          />
-        </div>
-      </PatternListItemWrapper>
-    );
+  handleEditFormChange(data) {
+    this.setState(prevState => ({
+      slices: prevState.slices.map(slice => {
+        if (slice.id === editFormSliceId) {
+          slice.data = data.formData;
+        }
+        return slice;
+      }),
+    }));
   }
 
   render() {
@@ -241,7 +232,13 @@ class Playground extends Component {
           </button>
           <small>Warning: server unresponsive for ~3s upon save</small>
           {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
-          <PlaygroundSidebar/>
+          <PlaygroundSidebar
+            sidebarContent={this.state.sidebarContent}
+            slices={this.state.slices}
+            editFormSliceId={this.state.editFormSliceId}
+            editFormSchema={this.state.editFormSchema}
+            handleEditFormChange={this.handleEditFormChange}
+          />
         </Sidebar>
         <MainContent>
           {/* <h2>Playground for id: {this.props.id}</h2> */}
@@ -268,6 +265,7 @@ class Playground extends Component {
                       editFormSliceId: slice.id,
                       editFormSchema: template.schema,
                       showEditForm: true,
+                      sidebarContent: allowedSidebarContent[1],
                     });
                   }}
                   deleteMe={() => this.deleteSlice(slice.id)}

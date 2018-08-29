@@ -6,15 +6,13 @@ import {
   TypeToFilterInputWrapper,
 } from '@basalt/bedrock-atoms';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import PlaygroundEditForm from '../../components/playground-edit-form';
 import { Link } from 'react-router-dom';
+import PlaygroundEditForm from '../../components/playground-edit-form';
 
 class PlaygroundSidebar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    }
+    this.state = {};
   }
 
   static renderPatternListItem(pattern) {
@@ -38,28 +36,19 @@ class PlaygroundSidebar extends Component {
   }
 
   render() {
-    if (this.state.showEditForm) {
-      const { slices, editFormSliceId, editFormSchema } = this.state;
+    if (this.props.sidebarContent === 'form') {
+      const { slices, editFormSliceId, editFormSchema } = this.props;
       return (
         <PlaygroundEditForm
           schema={editFormSchema}
           data={slices.find(s => s.id === editFormSliceId).data}
-          handleChange={data => {
-            this.setState(prevState => ({
-              slices: prevState.slices.map(slice => {
-                if (slice.id === editFormSliceId) {
-                  slice.data = data.formData;
-                }
-                return slice;
-              }),
-            }));
-          }}
+          handleChange={data => this.props.handleEditFormChange(data)}
           handleError={console.error}
           hideEditForm={this.hideEditForm}
         />
       );
     }
-    if (this.state.showPatternForm) {
+    if (this.props.sidebarContent === 'patterns') {
       const patterns = this.props.patterns
         .filter(pattern => pattern.id !== 'site-footer')
         .filter(pattern => pattern.id !== 'site-header');
@@ -67,11 +56,11 @@ class PlaygroundSidebar extends Component {
         this.state.filterTerm === ''
           ? patterns
           : patterns.filter(
-          item =>
-            item.title
-              .toLowerCase()
-              .search(this.state.filterTerm.toLowerCase()) !== -1,
-          );
+              item =>
+                item.title
+                  .toLowerCase()
+                  .search(this.state.filterTerm.toLowerCase()) !== -1,
+            );
 
       return (
         <div>
@@ -102,6 +91,7 @@ class PlaygroundSidebar extends Component {
         </div>
       );
     }
+    // if (this.props.sidebarContent === 'default' or anything else)
     return (
       <div>
         <h4>Playground</h4>
