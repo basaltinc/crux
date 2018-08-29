@@ -11,7 +11,7 @@ const ajvDefaults = new Ajv({
  * Validates against contents of the `$schema` field
  * @link https://github.com/epoberezkin/ajv#validateschemaobject-schema---boolean
  * @param {Object} schema - JSON Schema
- * @return {{ok: boolean, message: string}}
+ * @return {{ok: boolean, message: string}} - True if valid
  */
 export function validateSchema(schema) {
   const isSchemaValid = ajv.validateSchema(schema);
