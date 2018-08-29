@@ -298,3 +298,34 @@ export const BlockQuoteWrapper = styled.blockquote`
     bottom: -85px;
   }
 `;
+
+export const TypeToFilterInputWrapper = TextInputWrapper.extend`
+  display: flex;
+`;
+
+export const TypeToFilter = styled.div`
+  > .eyebrow {
+    margin-top: 0;
+    font-weight: bold;
+  }
+  position: relative;
+  margin-bottom: 2rem;
+`;
+
+export const ClearFilterButton = styled.div`
+  border: solid 1px lightgrey;
+  border-left: none;
+  background-color: white;
+  height: 33px;
+  width: 33px;
+  flex-shrink: 0;
+  display: ${props => (props.isVisible ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+  > i {
+    opacity: 0.5;
+  }
+`;
