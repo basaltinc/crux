@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import {PlaygroundStyledSchemaForm} from './playground-sidebar';
+import { PlaygroundStyledSchemaForm } from './playground-sidebar';
 
 const PlaygroundEditForm = ({
   schema,
