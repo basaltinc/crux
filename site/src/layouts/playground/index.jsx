@@ -10,6 +10,7 @@ import {
   ClearFilterButton,
   TypeToFilter,
   TypeToFilterInputWrapper,
+  StatusMessage,
 } from '@basalt/bedrock-atoms';
 import Slice from '../../components/slice';
 import PlaygroundEditForm from '../../components/playground-edit-form';
@@ -80,6 +81,8 @@ class Playground extends Component {
       editFormSchema: {},
       editFormSliceId: null,
       filterTerm: '',
+      statusMessage: '',
+      statusType: 'info',
     };
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
@@ -98,12 +101,20 @@ class Playground extends Component {
     window
       .fetch(`${apiUrlBase}/example/${this.props.id}`)
       .then(res => res.json())
-      .then(example => {
-        this.setState({
-          example,
-          slices: example.slices,
-          ready: true,
-        });
+      .then(results => {
+        if (results.ok) {
+          this.setState({
+            example: results.example,
+            slices: results.example.slices,
+            ready: true,
+          });
+        } else {
+          this.setState({
+            statusMessage: results.message,
+            statusType: 'error',
+            ready: true,
+          });
+        }
       });
   }
 
@@ -138,7 +149,10 @@ class Playground extends Component {
       })
       .then(res => res.json())
       .then(results => {
-        console.log('Save Results:', results);
+        this.setState({
+          statusMessage: results.message,
+          statusType: results.ok ? 'success' : 'error',
+        });
       });
   }
 
@@ -361,6 +375,13 @@ class Playground extends Component {
           {/* <h2>Playground for id: {this.props.id}</h2> */}
           <h4 className="eyebrow">Prototyping Sandbox</h4>
           <h2>{this.state.example.title}</h2>
+
+          {this.state.statusMessage && (
+            <StatusMessage
+              message={this.state.statusMessage}
+              type={this.state.statusType}
+            />
+          )}
 
           <StartInsertSlice
             onClick={() => this.handleStartInsertSlice(0)}
