@@ -10,9 +10,6 @@ const ResizableWrapper = styled.div`
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  resize: horizontal;
-  border: 2px dotted hsl(0, 0%, 70%);
-  padding: 5px;
 `;
 
 /**
