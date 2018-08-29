@@ -4,7 +4,7 @@ import arrayMove from 'array-move';
 import styled from 'styled-components';
 import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
-import Slice from '../../components/slice';
+import PlaygroundSlice from './playground-slice';
 import Sidebar from '../../components/sidebar';
 import { apiUrlBase } from '../../../config';
 import PlaygroundSidebar from './playground-sidebar';
@@ -254,7 +254,7 @@ class Playground extends Component {
             const template = this.getTemplateFromPatternId(slice.patternId);
             return (
               <React.Fragment key={`${slice.id}--fragment`}>
-                <Slice
+                <PlaygroundSlice
                   key={slice.id}
                   template={template.name}
                   data={slice.data}

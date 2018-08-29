@@ -8,7 +8,7 @@ import {
 } from '@basalt/bedrock-atoms';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import { Link } from 'react-router-dom';
-import PlaygroundEditForm from '../../components/playground-edit-form';
+import PlaygroundEditForm from './playground-edit-form';
 import { SIDEBAR_FORM, SIDEBAR_PATTERNS } from './index';
 
 const PatternListItemWrapper = styled.li`
