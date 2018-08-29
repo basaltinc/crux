@@ -2,6 +2,7 @@
 
 export * from './color';
 export * from './arrays';
+export * from './schemas';
 
 /**
  * Get Random Integer
