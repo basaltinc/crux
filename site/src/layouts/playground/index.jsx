@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 import uuid from 'uuid/v4';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import Spinner from '@basalt/bedrock-spinner';
-import Slice from '../components/slice';
-import PlaygroundEditForm from '../components/playground-edit-form';
-import Sidebar from '../components/sidebar';
-import { apiUrlBase } from '../../config';
+import Slice from '../../components/slice';
+import PlaygroundEditForm from '../../components/playground-edit-form';
+import Sidebar from '../../components/sidebar';
+import { apiUrlBase } from '../../../config';
 
 const MainContent = styled.div`
   flex-grow: 1;
@@ -279,6 +279,14 @@ class Playground extends Component {
                 title: 'Show Edit Controls',
                 type: 'boolean',
                 default: true,
+              },
+            },
+          }}
+          uiSchema={{
+            description: {
+              'ui:widget': 'textarea',
+              'ui:options': {
+                rows: 10,
               },
             },
           }}
