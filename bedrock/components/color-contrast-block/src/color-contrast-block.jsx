@@ -99,15 +99,6 @@ class ColorContrastBlock extends React.Component {
         });
       });
   }
-  //
-  // handleChange(type, color) {
-  //   this.setState(
-  //     {
-  //       [type]: color,
-  //     },
-  //     () => this.checkColorContrast(),
-  //   );
-  // }
 
   render() {
     /* eslint-disable jsx-a11y/label-has-for */
@@ -117,7 +108,7 @@ class ColorContrastBlock extends React.Component {
           Background Color:
           {this.props.bgColors.length > 0 && (
             <Select
-              value={this.state.bgColor.value}
+              value={this.state.bgColor}
               items={this.props.bgColors.map(color => ({
                 value: color.value,
                 key: color.name,
@@ -133,7 +124,7 @@ class ColorContrastBlock extends React.Component {
           Text Color:
           {this.props.textColors.length > 0 && (
             <Select
-              value={this.state.textColor.value}
+              value={this.state.textColor}
               items={this.props.textColors.map(color => ({
                 value: color.value,
                 key: color.name,
