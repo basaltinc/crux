@@ -172,6 +172,7 @@ class Playground extends Component {
   deleteSlice(sliceId) {
     this.setState(prevState => ({
       slices: prevState.slices.filter(slice => slice.id !== sliceId),
+      sidebarContent: SIDEBAR_DEFAULT,
       editFormInsertionIndex: null,
     }));
   }
@@ -180,7 +181,7 @@ class Playground extends Component {
    * @param {Object} patternId - a pattern id
    * @param {string} slice.id - uuid
    * @param {string} slice.patternId - ID of Pattern, i.e. `media-block`
-   * @param {Object} slice.data - Data for Pattern, usually `{}`
+   * @param {Object} slice.data - Data for Pattern,s usually `{}`
    * @returns {null} - sets state
    */
   handleAddSlice(patternId) {

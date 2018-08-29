@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
+import { uniqueArray, flattenArray } from '@basalt/bedrock-utils';
 import Spinner from '@basalt/bedrock-spinner';
+import SchemaForm from '@basalt/bedrock-schema-form';
 import ComponentBoard from '../../components/component-board';
 import { apiUrlBase } from '../../../config';
 
@@ -15,6 +16,10 @@ class PatternsPage extends Component {
     this.state = {
       patterns: [],
       ready: false,
+      visibleStatuses: [],
+      statuses: [],
+      uses: [],
+      visibleUses: [],
     };
   }
 
@@ -23,7 +28,19 @@ class PatternsPage extends Component {
       .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
       .then(patterns => {
-        this.setState({ patterns, ready: true });
+        const statuses = uniqueArray(patterns.map(p => p.status));
+        const uses = uniqueArray(
+          flattenArray(patterns.map(p => p.uses)),
+        ).filter(Boolean);
+
+        this.setState({
+          patterns,
+          ready: true,
+          statuses,
+          visibleStatuses: statuses,
+          uses,
+          visibleUses: uses,
+        });
       });
   }
 
@@ -31,6 +48,15 @@ class PatternsPage extends Component {
     if (!this.state.ready) {
       return <Spinner />;
     }
+
+    const { patterns, visibleUses, visibleStatuses } = this.state;
+
+    const visibleItems = patterns
+      .filter(item => item.id !== 'site-footer')
+      .filter(item => item.id !== 'site-header')
+      .filter(item => visibleStatuses.includes(item.status))
+      .filter(item => item.uses.some(use => visibleUses.includes(use)));
+
     return (
       <div>
         <PatternsHeader>
@@ -38,8 +64,55 @@ class PatternsPage extends Component {
           <p>
             Explore the design patterns that make up the Crux Design System.
           </p>
+          <SchemaForm
+            isInline
+            formData={this.state}
+            schema={{
+              type: 'object',
+              properties: {
+                visibleStatuses: {
+                  title: 'Status',
+                  type: 'array',
+                  uniqueItems: true,
+                  items: {
+                    type: 'string',
+                    enum: this.state.statuses,
+                  },
+                },
+                visibleUses: {
+                  title: 'Uses',
+                  type: 'array',
+                  uniqueItems: true,
+                  items: {
+                    type: 'string',
+                    enum: this.state.uses,
+                  },
+                },
+              },
+            }}
+            uiSchema={{
+              visibleStatuses: {
+                'ui:widget': 'checkboxes',
+                'ui:options': {
+                  inline: true,
+                },
+              },
+              visibleUses: {
+                'ui:widget': 'checkboxes',
+                'ui:options': {
+                  inline: true,
+                },
+              },
+            }}
+            onChange={({ formData }) => {
+              this.setState({
+                visibleStatuses: formData.visibleStatuses,
+                visibleUses: formData.visibleUses,
+              });
+            }}
+          />
         </PatternsHeader>
-        <ComponentBoard patterns={this.state.patterns} />
+        <ComponentBoard patterns={visibleItems} />
       </div>
     );
   }
