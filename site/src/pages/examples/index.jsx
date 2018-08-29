@@ -46,8 +46,7 @@ class ExamplesLandingPage extends Component {
         }),
       })
       .then(res => res.json())
-      .then(results => {
-        console.log(results);
+      .then(() => {
         this.setState({
           redirect: id,
         });
