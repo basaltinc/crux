@@ -1,32 +1,7 @@
 {
   "id": "example-1",
-  "title": "Example One",
+  "title": "Example Two",
   "slices": [
-    {
-      "id": "0e8f96cd-48a1-4749-b80d-ce0fdef324b4",
-      "patternId": "site-header",
-      "data": {
-        "menu_items": [
-          {
-            "url": "http://basalt.io/who-we-are",
-            "text": "Who We Are"
-          },
-          {
-            "url": "http://basalt.io/what-we-do",
-            "text": "What We Do",
-            "active": true
-          },
-          {
-            "url": "http://basalt.io/what-are-design-systems",
-            "text": "What are Design Systems?"
-          },
-          {
-            "url": "http://basalt.io/contact",
-            "text": "Contact Us"
-          }
-        ]
-      }
-    },
     {
       "id": "d360ac97-1498-4739-ab37-b3422d0219cc",
       "patternId": "media-block",
@@ -40,6 +15,22 @@
         "buttons": [
           {
             "text": "Read More",
+            "url": "#",
+            "size": "medium",
+            "color": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "290a30f6-c656-4ee3-855a-c476478a37ca",
+      "patternId": "basic-block",
+      "data": {
+        "title": "A Community of Experts",
+        "content": "The Design System methodology is supported by a rich community of developers, designers, managers, and product owners. At Basalt we believe it is important to be active members of this community, both by contributing thought leadership and promoting the great work of others. New to Design Systems? Here are some fundamental resources to get started and learn more about the smart way to build for the modern web.",
+        "buttons": [
+          {
+            "text": "Join Us",
             "url": "#",
             "size": "medium",
             "color": "green"
@@ -62,6 +53,31 @@
             "url": "http://www.basalt.io",
             "size": "medium",
             "color": "iron"
+          }
+        ]
+      }
+    },
+    {
+      "id": "0e8f96cd-48a1-4749-b80d-ce0fdef324b4",
+      "patternId": "site-header",
+      "data": {
+        "menu_items": [
+          {
+            "url": "http://basalt.io/who-we-are",
+            "text": "Who We Are"
+          },
+          {
+            "url": "http://basalt.io/what-we-do",
+            "text": "What We Do",
+            "active": true
+          },
+          {
+            "url": "http://basalt.io/what-are-design-systems",
+            "text": "What are Design Systems?"
+          },
+          {
+            "url": "http://basalt.io/contact",
+            "text": "Contact Us"
           }
         ]
       }

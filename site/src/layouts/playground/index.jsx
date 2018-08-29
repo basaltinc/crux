@@ -235,11 +235,6 @@ class Playground extends Component {
     return (
       <Page>
         <Sidebar>
-          <button type="submit" onKeyPress={this.save} onClick={this.save}>
-            Save Everything
-          </button>
-          <small>Warning: server unresponsive for ~3s upon save</small>
-          {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
           <PlaygroundSidebar
             editFormSchema={this.state.editFormSchema}
             editFormSliceId={this.state.editFormSliceId}
@@ -250,6 +245,7 @@ class Playground extends Component {
             handleFilterChange={this.handleFilterChange}
             handleFilterReset={this.handleFilterReset}
             handleMetaFormChange={this.handleMetaFormChange}
+            handleSave={this.save}
             metaFormData={this.state.example}
             patterns={this.props.patterns}
             sidebarContent={this.state.sidebarContent}
