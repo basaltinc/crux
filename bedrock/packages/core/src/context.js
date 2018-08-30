@@ -1,5 +1,42 @@
 import React from 'react';
 
+export const typeColors = {
+  icon: {
+    base: '#536dfe',
+    accent: '#e2e7ff',
+  },
+  component: {
+    base: '#16394B',
+    accent: '#CFE3DE',
+  },
+  typography: {
+    base: '#16394B',
+    accent: '#e3dfcc',
+  },
+  layout: {
+    base: '#FFA000',
+    accent: '#fff5e6',
+  },
+  color: {
+    base: '#00695c',
+    accent: '#d0f3ee',
+  },
+  none: {
+    base: '#000',
+    accent: '#e0e0e0',
+  },
+};
+
+/**
+ * Get Type Color
+ * @param {string} type - A color type
+ * @param {string} [subtype=base] - A subtype
+ * @returns {string} - A CSS var name
+ */
+export function getTypeColor(type, subtype = 'base') {
+  return typeColors[type][subtype];
+}
+
 export const colors = {
   blue: {
     base: 'hsl(200, 55%, 19%)',
@@ -28,6 +65,7 @@ export const colors = {
 export const baseTheme = {
   colors: {
     color: colors,
+    type: typeColors,
     text: 'black',
     headings: 'black',
     primary: colors.blue.base,

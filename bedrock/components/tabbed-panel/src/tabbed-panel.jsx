@@ -2,22 +2,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-// @todo reconsider how to handle color types - was pulling in site's theme, but now that it's a Bedrock component it doesn't make as much sense.
-import { getTypeColor } from './theme';
+import { getTypeColor } from '../../../packages/core/src/context';
 
 const ShadowWrap = styled.div`
   position: relative;
-  border-radius: var(--border-radius);
+  border-radius: ${props => props.theme.border.radius};
   border-width: 1px 5px 1px 1px;
   border-style: solid;
-  border-color: ${props => props.theme.colors.borders};
+  border-color: ${props => props.colorTheme};
 `;
 
 const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: var(--border-radius);
-  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: ${props => props.theme.border.radius};
+  border-top-left-radius: ${props => props.theme.border.radius};
   display: flex;
   padding: 30px;
   line-height: 1;
@@ -30,8 +29,23 @@ const HeaderRegion = styled.div`
 
 const DemoStage = styled.div`
   background: #fff;
-  border-radius: var(--border-radius);
+  border-radius: ${props => props.theme.border.radius};
   padding: ${props => props.bleed};
+`;
+
+const DemoTabsWrap = styled.div`
+  margin: 0 0 -3px;
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const DemoTab = styled.div`
+  background: #fff;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
 `;
 
 const FooterRegion = styled.div`
@@ -60,35 +74,29 @@ class TabbedPanel extends Component {
   }
 
   render() {
-    const colorTheme = `var(${getTypeColor(this.props.color)})`;
-    const colorThemeAccent = `var(${getTypeColor(this.props.color, 'accent')})`;
+    const colorTheme = getTypeColor(this.props.color);
+    const colorThemeAccent = getTypeColor(this.props.color, 'accent');
     const tabs = this.props.items.map(item => {
       const isPropVariation = !!item.children.props.prop;
       return (
-        <div
+        <DemoTab
           key={item.id}
           role="button"
           tabIndex={0}
           onClick={() => this.handleClick(item)}
           onKeyUp={() => this.handleClick(item)}
           style={{
-            background: '#FFF',
-            outline: 'none',
-            padding: '0',
-            margin: '0',
             borderBottom:
               this.state.activeId === item.id
                 ? `5px solid ${colorTheme}`
                 : '5px solid transparent',
             color: this.state.activeId === item.id ? colorTheme : 'black',
-            cursor: 'pointer',
-            userSelect: 'none',
             zIndex: this.state.activeId === item.id ? 1 : 0,
             fontWeight: this.state.activeId === item.id ? 'bold' : 'normal',
           }}
         >
           {isPropVariation ? item.children.props.prop.title : item.title}
-        </div>
+        </DemoTab>
       );
     });
 
@@ -122,15 +130,7 @@ class TabbedPanel extends Component {
     ));
     return (
       <div>
-        <div
-          style={{
-            margin: '0 0 -3px',
-            display: 'flex',
-            justifyContent: 'space-evenly',
-          }}
-        >
-          {tabs}
-        </div>
+        <DemoTabsWrap>{tabs}</DemoTabsWrap>
         <ShadowWrap colorTheme={colorTheme}>{content}</ShadowWrap>
       </div>
     );
