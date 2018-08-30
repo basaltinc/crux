@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import DosAndDontsPanel from './dos-and-donts-panel';
 
 const DoesAndDontsWrapper = styled.div`
-  background-color: #f6f6f6;
+  background-color: ${props => props.theme.colors.color.gray.xxlight};
   padding: 1rem 0;
   max-width: 1500px;
   margin: 1rem auto;

@@ -9,13 +9,13 @@ const OuterSwatch = styled.div`
   width: 49%;
   margin-bottom: 10px;
   padding: 5px;
-  border: solid 1px grey;
+  border: solid 1px ${props => props.theme.colors.neutral};
 `;
 
 const InnerSwatch = styled.div`
   height: 50px;
   background-color: ${props => (props.colorValue ? props.colorValue : 'auto')};
-  border: dashed 1px grey;
+  border: dashed 1px ${props => props.theme.colors.neutral};
 `;
 
 const RightLabel = styled.div`
