@@ -139,6 +139,11 @@ class Playground extends Component {
           statusMessage: results.message,
           statusType: results.ok ? 'success' : 'error',
         });
+        setTimeout(() => {
+          this.setState({
+            statusMessage: '',
+          });
+        }, 3000);
       });
   }
 
@@ -186,6 +191,14 @@ class Playground extends Component {
       sidebarContent: SIDEBAR_DEFAULT,
       editFormInsertionIndex: null,
     }));
+    this.setState({
+      statusMessage: 'Slice Deleted',
+    });
+    setTimeout(() => {
+      this.setState({
+        statusMessage: '',
+      });
+    }, 3000);
   }
 
   briefHighlight(sliceId) {
