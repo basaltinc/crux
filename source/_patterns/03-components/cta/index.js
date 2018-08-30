@@ -6,6 +6,7 @@ const meta = {
   type: 'component',
   description:
     "This 'Call To Action' is designed to specifically encourage the user to contact Basalt.",
+  uses: ['inSlice'],
   templates: [
     {
       name: '@components/_cta.twig',

@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SchemaForm from '@basalt/bedrock-schema-form';
+import { PlaygroundStyledSchemaForm } from './playground-sidebar';
 
 const PlaygroundEditForm = ({
   schema,
   data,
   handleChange,
   handleError,
-  hideEditForm,
+  handleHideEditForm,
 }) => (
   <div>
-    <SchemaForm
+    <h4>Edit</h4>
+    <PlaygroundStyledSchemaForm
       schema={schema}
       formData={data}
       onChange={handleChange}
@@ -23,10 +24,11 @@ const PlaygroundEditForm = ({
       debug
     />
     <button
-      onClick={hideEditForm}
-      onKeyPress={hideEditForm}
+      onClick={handleHideEditForm}
+      onKeyPress={handleHideEditForm}
       type="submit"
       tabIndex="0"
+      className="button button--color-blue button--size-small"
     >
       Done
     </button>
@@ -42,7 +44,7 @@ PlaygroundEditForm.propTypes = {
   data: PropTypes.object,
   handleChange: PropTypes.func.isRequired,
   handleError: PropTypes.func.isRequired,
-  hideEditForm: PropTypes.func.isRequired,
+  handleHideEditForm: PropTypes.func.isRequired,
 };
 
 export default PlaygroundEditForm;

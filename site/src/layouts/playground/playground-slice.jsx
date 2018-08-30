@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
 import { FaChevronDown, FaChevronUp, FaTrashAlt, FaEdit } from 'react-icons/fa';
 import styled from 'styled-components';
-import Twig from './twig';
+import Twig from '../../components/twig';
 
 const PlaygroundIcon = styled(FormIconButton)`
   display: block;
@@ -22,7 +22,7 @@ const PlaygroundIcon = styled(FormIconButton)`
 `;
 
 const PlaygroundIconWrapper = styled(FormIconTray)`
-  display: block;
+  display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
   height: 100%;
   text-align: center;
   padding: 0.5rem;
@@ -33,10 +33,13 @@ const PlaygroundSliceWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  border: solid 1px ${props => (props.active ? '#e1c933' : 'white')};
+  box-sizing: border-box;
+  border: solid 2px ${props => (props.active ? '#e1c933' : 'rgba(0,0,0,0)')};
+  ${props =>
+    props.hasVisibleControls ? 'padding: 5px;' : 'margin-bottom: 1.5rem;'};
 `;
 
-const Slice = ({
+const PlaygroundSlice = ({
   moveUp,
   moveDown,
   deleteMe,
@@ -46,9 +49,16 @@ const Slice = ({
   isLast,
   template,
   data,
+  hasVisibleControls,
 }) => (
-  <PlaygroundSliceWrapper active={isBeingEdited}>
-    <PlaygroundIconWrapper className="ei-content-block__button-tray">
+  <PlaygroundSliceWrapper
+    active={isBeingEdited}
+    hasVisibleControls={hasVisibleControls}
+  >
+    <PlaygroundIconWrapper
+      className="ei-content-block__button-tray"
+      hasVisibleControls={hasVisibleControls}
+    >
       <PlaygroundIcon
         onKeyPress={() => !isFirst && moveUp()}
         onClick={() => !isFirst && moveUp()}
@@ -94,11 +104,11 @@ const Slice = ({
   </PlaygroundSliceWrapper>
 );
 
-Slice.defaultProps = {
+PlaygroundSlice.defaultProps = {
   data: {},
 };
 
-Slice.propTypes = {
+PlaygroundSlice.propTypes = {
   template: PropTypes.string.isRequired,
   data: PropTypes.object, // eslint-disable-line react/no-unused-prop-types
   showEditForm: PropTypes.func.isRequired,
@@ -108,6 +118,7 @@ Slice.propTypes = {
   isBeingEdited: PropTypes.bool.isRequired,
   isFirst: PropTypes.bool.isRequired,
   isLast: PropTypes.bool.isRequired,
+  hasVisibleControls: PropTypes.bool.isRequired,
 };
 
-export default Slice;
+export default PlaygroundSlice;

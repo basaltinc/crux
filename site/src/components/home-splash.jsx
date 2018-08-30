@@ -11,7 +11,7 @@ const HomeSplashCore = styled.div`
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  height: calc(100vh - 86px);
+  height: calc(100vh - 240px);
   max-width: 960px;
   padding: 2rem;
   text-align: right;

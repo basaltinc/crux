@@ -10,7 +10,7 @@ const SidebarStyled = styled.aside`
   flex-direction: row;
   width: ${props => (props.sidebarCollapsed ? '50px' : '300px')};
   transition: 0.6s;
-  h4 {
+  h4:not(:first-child) {
     white-space: nowrap;
     margin: 1.25rem 0 0;
   }

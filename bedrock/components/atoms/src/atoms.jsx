@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+export * from './status-message';
+
 export const Checkerboard = styled.div`
   background-image: linear-gradient(
       45deg,
@@ -46,7 +48,6 @@ export const SelectStyledWrapper = styled.label`
   display: inline-block;
   overflow: hidden;
   padding-right: 3px;
-  margin: 0 5px;
   > .label-text {
     display: inline-block;
     margin-right: 5px;
@@ -74,7 +75,7 @@ export const SelectStyledWrapper = styled.label`
       linear-gradient(135deg, gray 50%, transparent 50%),
       linear-gradient(to right, #ccc, #ccc);
     background-position: calc(100% - 20px) calc(1rem + -3px),
-      calc(100% - 15px) calc(1rem + -3px), calc(100% - 2.5rem) 0.5rem;
+      calc(100% - 15px) calc(1rem + -3px), calc(30% - 2.5rem) 0.5rem;
     background-size: 5px 5px, 5px 5px, 1px 1.5rem;
     background-repeat: no-repeat;
   }
@@ -242,7 +243,7 @@ export const FormIconButton = styled.div`
     bottom: 0;
     right: 0;
     position: absolute;
-    z-index: -1;
+    z-index: 1;
   }
 `;
 
@@ -251,12 +252,16 @@ export const FormIconTray = styled.div`
   border: ${props => props.theme.form.border};
   display: inline-flex;
   padding: ${props => props.theme.form.padding};
+  margin-bottom: 0.25rem;
 `;
 
 export const FormArrayItem = styled.div`
   display: flex;
   align-items: flex-end;
-  margin-bottom: 0.5rem;
+  margin: 0.75rem 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
   .field {
     padding: 0;
     display: flex;
@@ -265,6 +270,10 @@ export const FormArrayItem = styled.div`
   }
   & > * + * {
     margin-left: 0.25rem;
+  }
+  &:not(:last-child) {
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid lightgrey;
   }
 `;
 
@@ -305,5 +314,35 @@ export const BlockQuoteWrapper = styled.blockquote`
     position: absolute;
     right: 10px;
     bottom: -85px;
+  }
+`;
+
+export const TypeToFilterInputWrapper = TextInputWrapper.extend`
+  display: flex;
+`;
+
+export const TypeToFilter = styled.div`
+  > .eyebrow {
+    margin-top: 0;
+    font-weight: bold;
+  }
+  position: relative;
+  margin-bottom: 2rem;
+`;
+
+export const ClearFilterButton = styled.div`
+  border: solid 1px ${props => props.theme.form.border};
+  border-left: none;
+  height: ${props => props.theme.form.input.height};
+  width: 33px;
+  flex-shrink: 0;
+  display: ${props => (props.isVisible ? 'flex' : 'none')};
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+  > i {
+    opacity: 0.5;
   }
 `;

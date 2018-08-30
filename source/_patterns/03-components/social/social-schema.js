@@ -4,4 +4,5 @@ module.exports = {
   description: 'Collection of Social Media Icons',
   title: 'Social Media Icons',
   properties: {},
+  examples: [{}],
 };

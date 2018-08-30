@@ -6,6 +6,7 @@ const meta = {
   title: 'Blog Teaser',
   type: 'component',
   description: 'A block with a title, text, and CTA.',
+  uses: ['inSlice'],
   templates: [
     {
       name: '@components/_blog-teaser.twig',

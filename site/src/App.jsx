@@ -31,6 +31,11 @@ const LoadablePlayground = Loadable({
   loading: Spinner,
 });
 
+const LoadableExamplesPage = Loadable({
+  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/examples'),
+  loading: Spinner,
+});
+
 const LoadableAboutPage = Loadable({
   loader: () => import(/* webpackChunkName: 'about-page' */ './pages/about'),
   loading: Spinner,
@@ -183,7 +188,7 @@ const SiteFooter = styled.div`
   }
   ul,
   li {
-    margin-bottom: 0;
+    margin-bottom: 2px;
   }
 `;
 
@@ -236,7 +241,7 @@ export default class App extends React.Component {
                     <Site>
                       <Switch>
                         <Route path="/" exact />
-                        <Route path="/examples" />
+                        <Route path="/examples/*" />
                         <Route
                           path="/"
                           render={({ location }) => (
@@ -256,6 +261,7 @@ export default class App extends React.Component {
                             component={LoadableHomeSplash}
                             exact
                           />
+
                           <Route
                             path="/examples/:id"
                             render={({ match }) => (
@@ -264,6 +270,11 @@ export default class App extends React.Component {
                                 patterns={this.state.patterns}
                               />
                             )}
+                          />
+                          <Route
+                            path="/examples"
+                            component={LoadableExamplesPage}
+                            exact
                           />
                           <Route
                             path="/about"

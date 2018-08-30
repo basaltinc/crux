@@ -5,6 +5,7 @@ const meta = {
   title: 'Button',
   type: 'component',
   description: "Buttons are for clickin' and tappin'!",
+  uses: ['inComponent'],
   templates: [
     {
       name: '@components/_button.twig',

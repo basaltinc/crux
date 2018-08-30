@@ -3,20 +3,26 @@
   "title": "Example One",
   "slices": [
     {
-      "id": "a0e78d0d-9068-4402-b102-9bc883665e05",
-      "patternId": "hero",
+      "id": "0e8f96cd-48a1-4749-b80d-ce0fdef324b4",
+      "patternId": "site-header",
       "data": {
-        "title": "What We Do",
-        "body": "Design Systems, start to finish.",
-        "alignment_all": "center",
-        "image": "/assets/images/brand-stock/rawpixel-com-191102.jpg",
-        "image_overlay": "black",
-        "buttons": [
+        "menu_items": [
           {
-            "text": "Learn More",
-            "url": "http://www.basalt.io",
-            "size": "medium",
-            "color": "iron"
+            "url": "http://basalt.io/who-we-are",
+            "text": "Who We Are"
+          },
+          {
+            "url": "http://basalt.io/what-we-do",
+            "text": "What We Do",
+            "active": true
+          },
+          {
+            "url": "http://basalt.io/what-are-design-systems",
+            "text": "What are Design Systems?"
+          },
+          {
+            "url": "http://basalt.io/contact",
+            "text": "Contact Us"
           }
         ]
       }
@@ -40,6 +46,98 @@
           }
         ]
       }
+    },
+    {
+      "id": "290a30f6-c656-4ee3-855a-c476478a37ca",
+      "patternId": "basic-block",
+      "data": {
+        "title": "A Community of Experts",
+        "content": "The Design System methodology is supported by a rich community of developers, designers, managers, and product owners. At Basalt we believe it is important to be active members of this community, both by contributing thought leadership and promoting the great work of others. New to Design Systems? Here are some fundamental resources to get started and learn more about the smart way to build for the modern web.",
+        "buttons": [
+          {
+            "text": "Join Us",
+            "url": "#",
+            "size": "medium",
+            "color": "green"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2cef9200-36d8-4334-9b28-77ae13a04bb8",
+      "patternId": "hero",
+      "data": {
+        "title": "What We Do",
+        "body": "Design Systems, start to finish.",
+        "alignment_all": "center",
+        "image": "/assets/images/brand-stock/rawpixel-com-191102.jpg",
+        "image_overlay": "black",
+        "buttons": [
+          {
+            "text": "Learn More",
+            "url": "http://www.basalt.io",
+            "size": "medium",
+            "color": "iron"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bf655dc4-b7ab-434e-b4ad-1d245e1ba535",
+      "patternId": "blog-teaser",
+      "data": {
+        "title": "A Tale of Two Lego Cities",
+        "author": "Nam Ho",
+        "teaser_avatar": "/assets/images/avatar-example2.jpg",
+        "date": "November 8, 2017",
+        "summary": "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
+        "image": "/assets/images/legos.jpg",
+        "is_even": true
+      }
+    },
+    {
+      "id": "b7d0c7be-284f-4e06-92b4-e48832e1735c",
+      "patternId": "blog-teaser",
+      "data": {
+        "title": "A Tale of Two Lego Cities",
+        "author": "Nam Ho",
+        "teaser_avatar": "/assets/images/avatar-example2.jpg",
+        "date": "November 8, 2017",
+        "summary": "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
+        "image": "/assets/images/legos.jpg",
+        "is_even": false
+      }
+    },
+    {
+      "id": "bf587831-cb84-4b8f-ba46-312e4fcd000e",
+      "patternId": "site-footer",
+      "data": {
+        "menu_items": [
+          {
+            "url": "http://basalt.io/who-we-are",
+            "text": "Who We Are",
+            "active": true
+          },
+          {
+            "url": "http://basalt.io/what-we-do",
+            "text": "What We Do"
+          },
+          {
+            "url": "http://basalt.io/what-are-design-systems",
+            "text": "What are Design Systems?"
+          },
+          {
+            "url": "http://basalt.io/journal",
+            "text": "Journal"
+          },
+          {
+            "url": "http://basalt.io/contact",
+            "text": "Contact Us"
+          }
+        ]
+      }
     }
-  ]
+  ],
+  "hasVisibleControls": true,
+  "description": "This is the description of great magnitude."
 }

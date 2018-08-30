@@ -17,8 +17,10 @@ const SiteNav = styled.nav`
     margin: 0;
     li {
       position: relative;
-      padding-right: 45px;
       margin: 0;
+      &:not(:last-child) {
+        padding-right: 35px;
+      }
     }
   }
   & a:hover {
@@ -100,6 +102,9 @@ class Header extends React.Component {
         </li>
         <li>
           <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>
+        </li>
+        <li>
+          <SiteHeaderNavLink to="/examples">Examples</SiteHeaderNavLink>
         </li>
         <li>
           <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
