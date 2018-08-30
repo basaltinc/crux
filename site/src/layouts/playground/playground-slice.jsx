@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
 import { FaChevronDown, FaChevronUp, FaTrashAlt, FaEdit } from 'react-icons/fa';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Twig from '../../components/twig';
 
 const PlaygroundIcon = styled(FormIconButton)`
@@ -18,6 +18,14 @@ const PlaygroundIcon = styled(FormIconButton)`
   > svg {
     width: 100%;
     height: 100%;
+  }
+`;
+
+const briefHighlight = keyframes`
+  from {
+    box-shadow: 0 0 1.5rem #e1c933;
+  } to {
+    box-shadow: none;
   }
 `;
 
@@ -37,6 +45,7 @@ const PlaygroundSliceWrapper = styled.div`
   border: solid 2px ${props => (props.active ? '#e1c933' : 'rgba(0,0,0,0)')};
   ${props =>
     props.hasVisibleControls ? 'padding: 5px;' : 'margin-bottom: 1.5rem;'};
+  ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};
 `;
 
 const PlaygroundSlice = ({
@@ -50,10 +59,12 @@ const PlaygroundSlice = ({
   template,
   data,
   hasVisibleControls,
+  isChanged,
 }) => (
   <PlaygroundSliceWrapper
     active={isBeingEdited}
     hasVisibleControls={hasVisibleControls}
+    isChanged={isChanged}
   >
     <PlaygroundIconWrapper
       className="ei-content-block__button-tray"
@@ -119,6 +130,7 @@ PlaygroundSlice.propTypes = {
   isFirst: PropTypes.bool.isRequired,
   isLast: PropTypes.bool.isRequired,
   hasVisibleControls: PropTypes.bool.isRequired,
+  isChanged: PropTypes.bool.isRequired,
 };
 
 export default PlaygroundSlice;
