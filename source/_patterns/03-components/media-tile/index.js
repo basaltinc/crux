@@ -6,7 +6,7 @@ const meta = {
   title: 'Media Tile',
   description: 'Full Image overlayed with optional Title, Body, and Buttons.',
   type: 'component',
-  uses: ['inGrid'],
+  uses: ['inGrid', 'inSlice'],
   templates: [
     {
       name: '@components/_media-tile.twig',
