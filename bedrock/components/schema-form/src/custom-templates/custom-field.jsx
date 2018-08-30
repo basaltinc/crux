@@ -12,15 +12,15 @@ const CustomFieldWrapper = styled.div`
   padding: 0.25rem 0;
   > label {
     display: block;
-    color: grey;
-    font-size: 13.5px;
+    color: ${props => props.theme.form.label.color};
+    font-size: ${props => props.theme.form.label['font-size']};
     font-weight: bold;
   }
   .field-radio-group {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    height: 33px;
+    height: ${props => props.theme.form.input.height};
     font-size: 18px;
     background-color: white;
     > div {

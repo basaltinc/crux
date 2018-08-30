@@ -12,10 +12,11 @@ export const colors = {
     base: 'hsl(52, 74%, 54%)',
   },
   gray: {
+    dark: 'hsl(0, 0%, 40%)',
     base: 'hsl(240, 3%, 85%)',
     light: 'hsl(0, 0%, 60%)',
     xlight: 'hsl(0, 0%, 80%)',
-    dark: 'hsl(0, 0%, 40%)',
+    xxlight: 'hsl(0, 0%, 95%)',
   },
   status: {
     success: 'hsl(120, 100%, 25%)',
@@ -54,6 +55,10 @@ export const baseTheme = {
   form: {
     border: `1px solid ${colors.gray.xlight}`,
     padding: '5px 8px',
+    label: {
+      color: colors.gray.dark,
+      'font-size': '13.5px',
+    },
     input: {
       'font-size': '0.75rem',
       height: '33px',

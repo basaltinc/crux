@@ -9,7 +9,7 @@ import { Details } from '@basalt/bedrock-atoms';
 const PostOrGet = styled.span`
   background-color: ${props =>
     props.requestType === 'get'
-      ? props.theme.colors.color.status.success
+      ? props.theme.colors.secondary
       : props.theme.colors.primary};
   color: white;
   text-align: center;

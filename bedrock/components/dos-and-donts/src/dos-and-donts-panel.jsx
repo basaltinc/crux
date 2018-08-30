@@ -8,18 +8,24 @@ const DosAndDontsPanelStyled = styled.figure`
   align-items: center;
   > div {
     margin-bottom: 1rem;
-    background-color: #f6f6f6;
+    background-color: ${props => props.theme.colors.color.gray.xxlight};
     > img {
       border-bottom: solid 8px;
-      border-bottom-color: ${props => (props.do ? 'green' : 'red')};
+      border-bottom-color: ${props =>
+        props.do
+          ? props.theme.colors.color.status.success
+          : props.theme.colors.color.status.error};
     }
     figcaption {
       text-align: left;
       padding-top: 1rem;
     }
   }
-  b {
-    color: ${props => (props.do ? 'green' : 'red')};
+  strong {
+    color: ${props =>
+      props.do
+        ? props.theme.colors.color.status.success
+        : props.theme.colors.color.status.error};
   }
 `;
 
@@ -29,7 +35,7 @@ export default function DosAndDontsPanel(props) {
       <div>
         <img alt="" src={props.item.image} />
         <figcaption>
-          <b>{props.item.do ? 'Do: ' : "Don't: "}</b>
+          <strong>{props.item.do ? 'Do: ' : "Don't: "}</strong>
           {props.item.caption}
         </figcaption>
       </div>

@@ -8,7 +8,7 @@ const ColorContrastPlayground = styled.div`
   width: 100%;
   margin-bottom: 10px;
   padding: 2rem;
-  border: solid 1px grey;
+  border: solid 1px ${props => props.theme.colors.borders};
   text-align: center;
   background-color: ${props => (props.bgColor ? props.bgColor : 'none')};
 `;
@@ -27,20 +27,30 @@ const AccessibilityInfo = styled.div`
 `;
 
 const AccessibilityResults = styled.span`
-  background-color: ${props => (props.pass === 'pass' ? 'green' : 'red')};
+  background-color: ${props =>
+    props.pass === 'pass'
+      ? props.theme.colors.color.status.success
+      : props.theme.colors.color.status.error};
   color: white;
   text-align: center;
-  border-radius: 0;
+  border-radius: ${props => props.theme.border.radius};
   font-weight: bold;
   display: inline;
   padding: 0.35rem 0.75rem;
 `;
 
 const Ratio = styled.span`
-  border: 1px solid ${props => (props.ratio > '4.5' ? 'green' : 'red')};
-  color: ${props => (props.ratio > '4.5' ? 'green' : 'red')};
+  border: 1px solid
+    ${props =>
+      props.ratio > '4.5'
+        ? props.theme.colors.color.status.success
+        : props.theme.colors.color.status.error};
+  color: ${props =>
+    props.ratio > '4.5'
+      ? props.theme.colors.color.status.success
+      : props.theme.colors.color.status.error};
   text-align: center;
-  border-radius: 0;
+  border-radius: ${props => props.theme.border.radius};
   font-weight: bold;
   display: inline;
   padding: 0.35rem 1rem;
