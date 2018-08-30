@@ -7,7 +7,7 @@
 
 ] | merge(classes|default([])) %}
 
-{% set listItems = list_items|split(', ') %}
+{% set listItems = list_items %}
 {% set listType = ordered ? 'ol' : 'ul' %}
 
 <div class="{{ classes|join(' ') }}">
