@@ -41,5 +41,10 @@
         {% endfor %}
       </div>
     {% endif %}
+    {% if list %}
+      <div class="media-tile__list">
+        {% include '@components/_list.twig' with list only %}
+      </div>
+    {% endif %}
   </div>
 </div>

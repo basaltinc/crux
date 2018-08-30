@@ -8,6 +8,16 @@ module.exports = {
       title: 'List Items',
       type: 'array',
       description: 'Array of strings of list of items',
+      items: {
+        type: 'object',
+        title: 'list item',
+        properties: {
+          text: {
+            type: 'string',
+            title: 'text',
+          }
+        }
+      }
     },
     text_size: {
       title: 'Text Size',
@@ -39,14 +49,30 @@ module.exports = {
   },
   examples: [
     {
-      list_items: ['JSON', 'React', 'Arrays', 'If Statements', 'Math', 'Logic', 'Jokes', 'Interent', 'Sorcery'],
+      list_items: [
+        {text: 'JSON'},
+        {text:'React'},
+        {text:'Arrays'},
+        {text:'If Statements'},
+        {text:'Math'},
+        {text:'Logic'},
+        {text:'Jokes'},
+        {text:'Interent'},
+        {text:'Sorcery'},
+      ],
       text_size: 'xl',
       bullets: false,
       ordered: true,
       columns: '3',
     },
     {
-      list_items: ['JSON', 'React', 'Arrays', 'If Statements', 'Math'],
+      list_items: [
+        {text: 'JSON'},
+        {text: 'React'},
+        {text: 'Arrays'},
+        {text: 'If Statements'},
+        {text: 'Math'},
+      ],
       text_size: 'm',
       bullets: false,
       ordered: false,
