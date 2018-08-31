@@ -44,7 +44,7 @@ import {
   LoadableSpacings,
   LoadableTypography,
   LoadableResourcesLanding,
-} from "./loadable-components";
+} from './loadable-components';
 
 const Site = styled.div`
   display: flex;

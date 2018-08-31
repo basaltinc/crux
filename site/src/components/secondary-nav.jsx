@@ -61,7 +61,7 @@ class SecondaryNav extends Component {
           path: `/examples/${example.id}`,
         }));
 
-        this.setState(prevState => ({
+        this.setState({
           items: [
             ...perceptualPatternsLinks,
             {
@@ -81,7 +81,7 @@ class SecondaryNav extends Component {
             ...aboutLinks,
             ...resourcesLinks,
           ],
-        }));
+        });
       });
   }
 
