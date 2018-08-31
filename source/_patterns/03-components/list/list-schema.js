@@ -4,16 +4,24 @@ module.exports = {
   title: 'List',
   description: 'List',
   properties: {
-    list_items: {
+    items: {
       title: 'List Items',
       type: 'array',
-      description: 'Array of strings of list of items',
+      description: 'Items in the list',
       items: {
-        type: 'array',
-        title: 'list items in individual arrays',
+        type: 'object',
+        title: 'List item',
         properties: {
-          type: 'string',
-          title: 'item',
+          text: {
+            title: 'Item Text',
+            type: 'string',
+            description: 'Item text',
+          },
+          url: {
+            title: 'Url',
+            type: 'string',
+            description: 'Url of item link',
+          },
         },
       },
     },
@@ -47,16 +55,16 @@ module.exports = {
   },
   examples: [
     {
-      list_items: [
-        ['JSON'],
-        ['React'],
-        ['Arrays'],
-        ['If Statements'],
-        ['Math'],
-        ['Logic'],
-        ['Jokes'],
-        ['Interent'],
-        ['Sorcery']
+      items: [
+        { text: 'JSON' },
+        { text: 'React' },
+        { text: 'Arrays' },
+        { text: 'If Statements' },
+        { text: 'Math' },
+        { text: 'Logic' },
+        { text: 'Jokes' },
+        { text: 'Interent' },
+        { text: 'Sorcery' },
       ],
       text_size: 'xl',
       bullets: false,
@@ -64,12 +72,12 @@ module.exports = {
       columns: '3',
     },
     {
-      list_items: [
-        ['JSON'],
-        ['React'],
-        ['Arrays'],
-        ['If Statements'],
-        ['Math'],
+      items: [
+        { text: 'JSON' },
+        { text: 'React' },
+        { text: 'Arrays' },
+        { text: 'If Statements' },
+        { text: 'Math' },
       ],
       text_size: 'm',
       bullets: true,
