@@ -2,6 +2,7 @@ import React from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
 import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
+import { DragSource, DropTarget } from 'react-dnd';
 import {
   FaChevronDown,
   FaChevronUp,
@@ -9,8 +10,7 @@ import {
   FaEdit,
   FaArrowsAlt,
 } from 'react-icons/fa';
-import styled from 'styled-components';
-import { DragSource, DropTarget } from 'react-dnd';
+import styled, { keyframes } from 'styled-components';
 import Twig from '../../components/twig';
 import { DragTypes } from '../../../config';
 
@@ -30,6 +30,14 @@ const PlaygroundIcon = styled(FormIconButton)`
   }
 `;
 
+const briefHighlight = keyframes`
+  from {
+    box-shadow: 0 0 1.5rem #e1c933;
+  } to {
+    box-shadow: none;
+  }
+`;
+
 const PlaygroundIconWrapper = styled(FormIconTray)`
   display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
   height: 100%;
@@ -46,6 +54,7 @@ const PlaygroundSliceWrapper = styled.div`
   border: solid 2px ${props => (props.active ? '#e1c933' : 'rgba(0,0,0,0)')};
   ${props =>
     props.hasVisibleControls ? 'padding: 5px;' : 'margin-bottom: 1.5rem;'};
+  ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};
 `;
 
 const PlaygroundSlice = ({
@@ -59,6 +68,7 @@ const PlaygroundSlice = ({
   template,
   data,
   hasVisibleControls,
+  isChanged,
   connectDragSource,
   connectDropTarget,
 }) =>
@@ -68,6 +78,7 @@ const PlaygroundSlice = ({
         <PlaygroundSliceWrapper
           active={isBeingEdited}
           hasVisibleControls={hasVisibleControls}
+          isChanged={isChanged}
         >
           <PlaygroundIconWrapper
             className="ei-content-block__button-tray"
@@ -140,6 +151,7 @@ PlaygroundSlice.propTypes = {
   hasVisibleControls: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  isChanged: PropTypes.bool.isRequired,
 };
 
 const sliceSource = {

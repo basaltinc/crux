@@ -5,6 +5,7 @@ const meta = {
   title: 'Logo',
   type: 'component',
   description: 'Logo',
+  uses: ['inComponent'],
   templates: [
     {
       name: '@components/_logo.twig',

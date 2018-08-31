@@ -30,8 +30,8 @@ const Page = styled.div`
 
 const StartInsertSlice = styled.div`
   display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
-  ${props => props.isActive && 'box-shadow: 0 0 1.5rem #e1c933;'};
-  border: dashed 1px lightgrey;
+  border: ${props =>
+    props.isActive ? 'solid 2px #e1c933' : 'dashed 1px rgba(0,0,0,0.3)'};
   text-align: center;
   cursor: pointer;
   padding: 1rem;
@@ -40,7 +40,7 @@ const StartInsertSlice = styled.div`
   &:hover,
   &:active {
     color: #e1c933;
-    border: dashed 1px #e1c933;
+    border: ${props => !props.isActive && 'dashed 1px #e1c933'};
     text-decoration: underline;
   }
 `;
@@ -65,6 +65,7 @@ class Playground extends Component {
       statusMessage: '',
       statusType: 'info',
       hasVisibleControls: true,
+      changeId: null,
     };
     this.moveSlice = this.moveSlice.bind(this);
     this.moveSliceUp = this.moveSliceUp.bind(this);
@@ -79,6 +80,7 @@ class Playground extends Component {
     this.handleFilterReset = this.handleFilterReset.bind(this);
     this.handleMetaFormChange = this.handleMetaFormChange.bind(this);
     this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
+    this.briefHighlight = this.briefHighlight.bind(this);
   }
 
   componentDidMount() {
@@ -140,6 +142,11 @@ class Playground extends Component {
           statusMessage: results.message,
           statusType: results.ok ? 'success' : 'error',
         });
+        setTimeout(() => {
+          this.setState({
+            statusMessage: '',
+          });
+        }, 3000);
       });
   }
 
@@ -147,6 +154,7 @@ class Playground extends Component {
     this.setState({
       editFormSliceId: null,
       sidebarContent: SIDEBAR_DEFAULT,
+      changeId: null,
     });
   }
 
@@ -165,24 +173,32 @@ class Playground extends Component {
 
   /**
    * @param {number} index - Index of item in `this.state.slices` to move up
+   * @param {number} id - ID of item in `this.state.slices` to move up
    * @return {null} - sets state
    */
-  moveSliceUp(index) {
+  moveSliceUp(index, id) {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index - 1),
       editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
+      editFormSliceId: null,
     }));
+    this.briefHighlight(id);
   }
 
   /**
    * @param {number} index - Index of item in `this.state.slices` to move down
+   * @param {number} id - ID of item in `this.state.slices` to move down
    * @return {null} - sets state
    */
-  moveSliceDown(index) {
+  moveSliceDown(index, id) {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index + 1),
       editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
+      editFormSliceId: null,
     }));
+    this.briefHighlight(id);
   }
 
   deleteSlice(sliceId) {
@@ -191,6 +207,25 @@ class Playground extends Component {
       sidebarContent: SIDEBAR_DEFAULT,
       editFormInsertionIndex: null,
     }));
+    this.setState({
+      statusMessage: 'Slice Deleted',
+    });
+    setTimeout(() => {
+      this.setState({
+        statusMessage: '',
+      });
+    }, 3000);
+  }
+
+  briefHighlight(sliceId) {
+    this.setState({
+      changeId: sliceId,
+    });
+    setTimeout(() => {
+      this.setState({
+        changeId: null,
+      });
+    }, 1000);
   }
 
   /**
@@ -217,6 +252,7 @@ class Playground extends Component {
         editFormInsertionIndex: null,
       };
     });
+    this.briefHighlight(id);
     this.handleFilterReset();
   }
 
@@ -224,6 +260,7 @@ class Playground extends Component {
     this.setState({
       sidebarContent: SIDEBAR_PATTERNS,
       editFormInsertionIndex: index,
+      editFormSliceId: null,
     });
   }
 
@@ -318,18 +355,20 @@ class Playground extends Component {
                       sidebarContent: SIDEBAR_FORM,
                       editFormInsertionIndex: null,
                     });
+                    this.briefHighlight(slice.id);
                   }}
                   deleteMe={() => this.deleteSlice(slice.id)}
                   moveSlice={(dragIndex, hoverIndex) => {
                     console.log('moving...', { dragIndex, hoverIndex });
                     this.moveSlice(dragIndex, hoverIndex);
                   }}
-                  moveUp={() => this.moveSliceUp(sliceIndex)}
-                  moveDown={() => this.moveSliceDown(sliceIndex)}
+                  moveUp={() => this.moveSliceUp(sliceIndex, slice.id)}
+                  moveDown={() => this.moveSliceDown(sliceIndex, slice.id)}
                   hasVisibleControls={hasVisibleControls}
                   isBeingEdited={this.state.editFormSliceId === slice.id}
                   isFirst={sliceIndex === 0}
                   isLast={this.state.slices.length - 1 === sliceIndex}
+                  isChanged={this.state.changeId === slice.id}
                 />
                 <StartInsertSlice
                   key={`${slice.id}--handleAddSlice`}

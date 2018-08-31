@@ -5,6 +5,7 @@ const meta = {
   title: 'Site Header',
   type: 'component',
   description: 'A global site header',
+  uses: ['inSlice'],
   templates: [
     {
       name: '@components/_site-header.twig',
