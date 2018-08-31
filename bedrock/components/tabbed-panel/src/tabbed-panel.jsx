@@ -1,62 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
 import { getTypeColor } from '../../../packages/core/src/context';
-
-const ShadowWrap = styled.div`
-  position: relative;
-  border-radius: ${props => props.theme.border.radius};
-  border-width: 1px 5px 1px 1px;
-  border-style: solid;
-  border-color: ${props => props.colorTheme};
-`;
-
-const HeaderRegion = styled.div`
-  background: ${props => props.colorThemeAccent};
-  border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: ${props => props.theme.border.radius};
-  border-top-left-radius: ${props => props.theme.border.radius};
-  display: flex;
-  padding: 30px;
-  line-height: 1;
-  position: relative;
-  code {
-    color: #fff;
-    background: ${props => props.colorTheme};
-  }
-`;
-
-const DemoStage = styled.div`
-  background: #fff;
-  border-radius: ${props => props.theme.border.radius};
-  padding: ${props => props.bleed};
-`;
-
-const DemoTabsWrap = styled.div`
-  margin: 0 0 -3px;
-  display: flex;
-  justify-content: space-evenly;
-`;
-
-const DemoTab = styled.div`
-  background: #fff;
-  outline: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  user-select: none;
-`;
-
-const FooterRegion = styled.div`
-  border-top: 1px solid ${props => props.colorTheme};
-  padding-top: 1.5rem;
-  margin-bottom: -0.5rem;
-  h5 {
-    color: ${props => props.colorTheme};
-    margin-bottom: 0.5rem;
-  }
-`;
+import {
+  ShadowWrap,
+  DemoStage,
+  DemoTab,
+  DemoTabsWrap,
+  FooterRegion,
+  HeaderRegion,
+} from './tabbed-panel.styles';
 
 class TabbedPanel extends Component {
   constructor(props) {

@@ -1,70 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { convertColor } from '@basalt/bedrock-utils';
 import { Details, Select } from '@basalt/bedrock-atoms';
-
-const ColorContrastPlayground = styled.div`
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 2rem;
-  border: solid 1px ${props => props.theme.colors.borders};
-  text-align: center;
-  background-color: ${props => (props.bgColor ? props.bgColor : 'none')};
-`;
-
-const AccessabilityDropdowns = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-`;
-
-const AccessibilityInfo = styled.div`
-  p {
-    display: inline-block;
-    margin: 0.5rem 1rem;
-  }
-`;
-
-const AccessibilityResults = styled.span`
-  background-color: ${props =>
-    props.pass === 'pass'
-      ? props.theme.colors.color.status.success
-      : props.theme.colors.color.status.error};
-  color: white;
-  text-align: center;
-  border-radius: ${props => props.theme.border.radius};
-  font-weight: bold;
-  display: inline;
-  padding: 0.35rem 0.75rem;
-`;
-
-const Ratio = styled.span`
-  border: 1px solid
-    ${props =>
-      props.ratio > '4.5'
-        ? props.theme.colors.color.status.success
-        : props.theme.colors.color.status.error};
-  color: ${props =>
-    props.ratio > '4.5'
-      ? props.theme.colors.color.status.success
-      : props.theme.colors.color.status.error};
-  text-align: center;
-  border-radius: ${props => props.theme.border.radius};
-  font-weight: bold;
-  display: inline;
-  padding: 0.35rem 1rem;
-`;
-
-const LargeText = styled.h3`
-  font-weight: bold;
-  color: ${props => props.color};
-`;
-
-const SmallText = styled.h5`
-  color: ${props => props.color};
-  font-weight: normal;
-`;
+import {
+  ColorContrastPlayground,
+  AccessibilityInfo,
+  AccessabilityDropdowns,
+  AccessibilityResults,
+  LargeText,
+  Ratio,
+  SmallText,
+} from './color-contrast-block.styles';
 
 class ColorContrastBlock extends React.Component {
   constructor(props) {
