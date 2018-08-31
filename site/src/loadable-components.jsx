@@ -95,6 +95,12 @@ export const LoadablePatternsPage = Loadable({
   loading: Spinner,
 });
 
+export const LoadableResourcesLanding = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'component-overview' */ './pages/resources/'),
+  loading: Spinner,
+});
+
 export const LoadableLogoDownloads = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),

@@ -43,6 +43,7 @@ import {
   LoadableSidebar,
   LoadableSpacings,
   LoadableTypography,
+  LoadableResourcesLanding,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -207,7 +208,7 @@ export default class App extends React.Component {
                           />
                           <Route
                             path="/resources"
-                            component={LoadableLogoDownloads}
+                            component={LoadableResourcesLanding}
                             exact
                           />
                           <Route
