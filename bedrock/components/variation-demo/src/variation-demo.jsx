@@ -7,8 +7,7 @@ import TabbedPanel from '@basalt/bedrock-tabbed-panel';
 import { Checkerboard } from '@basalt/bedrock-atoms';
 import Twig from '../../../../site/src/components/twig';
 
-// @todo reconsider how to handle color types - was pulling in site's theme, but now that it's a Bedrock component it doesn't make as much sense.
-import { getTypeColor } from './theme';
+import { getTypeColor } from '../../../packages/core/src/context';
 
 const VariationsWrapper = styled.div`
   margin: 2rem 0;
@@ -17,17 +16,37 @@ const VariationsWrapper = styled.div`
   }
 `;
 
+const VariationItem = styled.div`
+  padding: 0 15px;
+  border-bottom: 1px solid ${props => props.colorTheme};
+`;
+
+const VariationItemExpanded = styled.div`
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+`;
+
 const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: var(--border-radius);
-  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: ${props => props.theme.border.radius};
+  border-top-left-radius: ${props => props.theme.border.radius};
   padding: 30px;
   line-height: 1;
   position: relative;
   h5 {
     color: ${props => props.colorTheme};
   }
+`;
+
+const HeaderInner = styled.div`
+  cursor: pointer;
+  position: absolute;
+  color: ${props => props.colorTheme};
+  font-weight: bold;
+  display: inline-block;
+  right: 15px;
+  bottom: 15px;
 `;
 
 const FooterRegion = styled.div`
@@ -67,8 +86,8 @@ export class VariationDemo extends Component {
 
   render() {
     const { prop, propKey } = this.props;
-    const colorTheme = `var(${getTypeColor(this.props.color)})`;
-    const colorThemeAccent = `var(${getTypeColor(this.props.color, 'accent')})`;
+    const colorTheme = getTypeColor(this.props.color);
+    const colorThemeAccent = getTypeColor(this.props.color, 'accent');
     const formSchema = {
       type: 'object',
       properties: {
@@ -85,13 +104,7 @@ export class VariationDemo extends Component {
           [propKey]: item,
         });
         return (
-          <div
-            key={item.propKey}
-            style={{
-              paddingBottom: '10px',
-              marginBottom: '10px',
-            }}
-          >
+          <VariationItemExpanded key={item.propKey}>
             <h4>
               <code>{propKey}</code>:{' '}
               <code>
@@ -101,18 +114,13 @@ export class VariationDemo extends Component {
             <Checkerboard bleed="20px">
               <Twig template={this.props.template} data={itemData} />
             </Checkerboard>
-          </div>
+          </VariationItemExpanded>
         );
       });
     } else {
       content = (
         <div>
-          <div
-            style={{
-              padding: '0 15px',
-              borderBottom: `1px solid ${colorTheme}`,
-            }}
-          >
+          <VariationItem colorTheme={colorTheme}>
             <SchemaForm
               schema={formSchema}
               onChange={this.handleChange}
@@ -124,7 +132,7 @@ export class VariationDemo extends Component {
                 },
               }}
             />
-          </div>
+          </VariationItem>
           <Checkerboard bleed="20px">
             <Twig
               template={this.props.template}
@@ -148,16 +156,8 @@ export class VariationDemo extends Component {
               <p>{prop.description}</p>
             </div>
           )}
-          <div
-            style={{
-              cursor: 'pointer',
-              position: 'absolute',
-              color: colorTheme,
-              fontWeight: 'bold',
-              display: 'inline-block',
-              right: '15px',
-              bottom: '15px',
-            }}
+          <HeaderInner
+            colorTheme={colorTheme}
             role="button"
             onClick={() =>
               this.setState(prevState => ({
@@ -172,7 +172,7 @@ export class VariationDemo extends Component {
             tabIndex={0}
           >
             {this.state.isExpanded ? <FaEllipsisH /> : <FaEllipsisV />}
-          </div>
+          </HeaderInner>
         </HeaderRegion>
         <div>{content}</div>
         <FooterRegion

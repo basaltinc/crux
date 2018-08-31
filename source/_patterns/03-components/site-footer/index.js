@@ -5,6 +5,7 @@ const meta = {
   title: 'Site Footer',
   type: 'component',
   description: 'A global site footer',
+  uses: ['inSlice'],
   templates: [
     {
       name: '@components/_site-footer.twig',

@@ -3,6 +3,7 @@
     {
       "title": "Resources",
       "id": "resources",
+      "path": "/resources/",
       "isHeading": true
     },
     {
@@ -35,6 +36,7 @@
     {
       "title": "Visual Language",
       "id": "visual",
+      "path": "/visual-language",
       "isHeading": true
     },
     {
@@ -77,7 +79,8 @@
     {
       "title": "About",
       "id": "heading",
-      "isHeading": true
+      "isHeading": true,
+      "path": "/about"
     },
     {
       "path": "/about",

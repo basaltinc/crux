@@ -1,6 +1,6 @@
 {
   "name": "@basalt/bedrock-atoms",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "A Bedrock component that helps build Design Systems",
   "main": "dist/atoms.js",
@@ -18,6 +18,6 @@
   "author": "Basalt (http://basalt.io)",
   "license": "UNLICENSED",
   "dependencies": {
-    "@basalt/bedrock-core": "^0.1.1"
+    "@basalt/bedrock-core": "^0.1.2"
   }
 }

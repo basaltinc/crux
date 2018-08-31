@@ -6,7 +6,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
-import Loadable from 'react-loadable';
 import Spinner from '@basalt/bedrock-spinner';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import {
@@ -18,154 +17,34 @@ import merge from 'lodash.merge';
 import Header from './components/header';
 import './global.css';
 import { apiUrlBase } from '../config';
-
-const LoadableComponentOverview = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'component-overview' */ './layouts/component-overview'),
-  loading: Spinner,
-});
-
-const LoadablePlayground = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'playground' */ './layouts/playground'),
-  loading: Spinner,
-});
-
-const LoadableExamplesPage = Loadable({
-  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/examples'),
-  loading: Spinner,
-});
-
-const LoadableAboutPage = Loadable({
-  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/about'),
-  loading: Spinner,
-});
-
-const LoadableHomeSplash = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'home-splash' */ './components/home-splash'),
-  loading: Spinner,
-});
-
-const LoadableReleaseNotes = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes'),
-  loading: Spinner,
-});
-
-const LoadableFeatureRequest = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'feature-requests' */ './pages/about/feature-requests'),
-  loading: Spinner,
-});
-
-const LoadableVisualLanguagePage = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'visual-language-page' */ './pages/visual-language/visual-language-board'),
-  loading: Spinner,
-});
-
-const LoadableAnimations = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
-  loading: Spinner,
-});
-
-const LoadableBreakpoints = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints'),
-  loading: Spinner,
-});
-
-const LoadableColors = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'colors' */ './pages/visual-language/colors'),
-  loading: Spinner,
-});
-
-const LoadableShadows = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/shadows'),
-  loading: Spinner,
-});
-
-const LoadableSpacings = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/spacings'),
-  loading: Spinner,
-});
-
-const LoadableTypography = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'typography' */ './pages/visual-language/typography'),
-  loading: Spinner,
-});
-
-const LoadableIcons = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'icons' */ './pages/visual-language/icons'),
-  loading: Spinner,
-});
-
-const LoadablePatternsPage = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
-  loading: Spinner,
-});
-
-const LoadableLogoDownloads = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),
-  loading: Spinner,
-});
-
-const LoadableLogoUsage = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'logo-usage' */ './pages/resources/logo-usage'),
-  loading: Spinner,
-});
-
-const LoadablePhotographyGuidelines = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'photography-guidelines' */ './pages/resources/photography-guidelines'),
-  loading: Spinner,
-});
-
-const LoadableSketchAssets = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'photography-guidelines' */ './pages/resources/sketch-assets'),
-  loading: Spinner,
-});
-
-const LoadableBrandDescriptors = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
-  loading: Spinner,
-});
-
-const LoadableSidebar = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'sidebar' */
-    './components/sidebar'),
-  loading: Spinner,
-});
-
-const LoadableSecondaryNav = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'secondary-nav' */
-    './components/secondary-nav'),
-  loading: Spinner,
-});
-
-const LoadableFooter = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './components/footer'),
-  loading: Spinner,
-});
-
-const LoadableSandbox = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './pages/sandbox'),
-  loading: Spinner,
-});
+import {
+  LoadableComponentOverview,
+  LoadableVisualLanguagePage,
+  LoadableFeatureRequest,
+  LoadableReleaseNotes,
+  LoadableAboutPage,
+  LoadableExamplesPage,
+  LoadableHomeSplash,
+  LoadablePlayground,
+  LoadableSketchAssets,
+  LoadableLogoDownloads,
+  LoadableBreakpoints,
+  LoadableAnimations,
+  LoadableBrandDescriptors,
+  LoadableColors,
+  LoadableFooter,
+  LoadableIcons,
+  LoadableLogoUsage,
+  LoadablePatternsPage,
+  LoadablePhotographyGuidelines,
+  LoadableSandbox,
+  LoadableSecondaryNav,
+  LoadableShadows,
+  LoadableSidebar,
+  LoadableSpacings,
+  LoadableTypography,
+  LoadableResourcesLanding,
+} from './loadable-components';
 
 const Site = styled.div`
   display: flex;
@@ -329,7 +208,7 @@ export default class App extends React.Component {
                           />
                           <Route
                             path="/resources"
-                            component={LoadableLogoDownloads}
+                            component={LoadableResourcesLanding}
                             exact
                           />
                           <Route

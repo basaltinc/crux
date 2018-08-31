@@ -5,7 +5,7 @@ import {
   TypeToFilterInputWrapper,
   ClearFilterButton,
 } from '@basalt/bedrock-atoms';
-import LinkList from './link-list';
+import NavList from './nav-list/nav-list';
 import SecondaryNavItems from './secondary-nav-items.json';
 import { apiUrlBase } from '../../config';
 
@@ -34,11 +34,18 @@ class SecondaryNav extends Component {
             {
               title: 'Patterns',
               id: 'patterns',
+              path: '/patterns',
               isHeading: true,
             },
             ...props.patterns,
-            ...resourcesLinks,
+            {
+              title: 'Examples',
+              id: 'example-heading',
+              isHeading: true,
+              path: '/examples',
+            },
             ...aboutLinks,
+            ...resourcesLinks,
           ],
         };
   }
@@ -54,9 +61,16 @@ class SecondaryNav extends Component {
           path: `/examples/${example.id}`,
         }));
 
-        this.setState(prevState => ({
+        this.setState({
           items: [
-            ...prevState.items,
+            ...perceptualPatternsLinks,
+            {
+              title: 'Patterns',
+              id: 'patterns',
+              path: '/patterns',
+              isHeading: true,
+            },
+            ...this.props.patterns,
             {
               title: 'Examples',
               id: 'example-heading',
@@ -64,8 +78,10 @@ class SecondaryNav extends Component {
               path: '/examples',
             },
             ...exampleLinks,
+            ...aboutLinks,
+            ...resourcesLinks,
           ],
-        }));
+        });
       });
   }
 
@@ -117,7 +133,7 @@ class SecondaryNav extends Component {
             </ClearFilterButton>
           </TypeToFilterInputWrapper>
         </TypeToFilter>
-        <LinkList items={items} basePath="/patterns/components/" />
+        <NavList items={items} basePath="/patterns/components/" />
       </div>
     );
   }
