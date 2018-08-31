@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
 import { StatusMessage } from '@basalt/bedrock-atoms';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import PlaygroundSlice from './playground-slice';
 import PlaygroundSidebar from './playground-sidebar';
 import Sidebar from '../../components/sidebar';
@@ -64,6 +66,7 @@ class Playground extends Component {
       statusType: 'info',
       hasVisibleControls: true,
     };
+    this.moveSlice = this.moveSlice.bind(this);
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
     this.deleteSlice = this.deleteSlice.bind(this);
@@ -145,6 +148,19 @@ class Playground extends Component {
       editFormSliceId: null,
       sidebarContent: SIDEBAR_DEFAULT,
     });
+  }
+
+  /**
+   * Move Slice
+   * @param {number} fromIndex - Move this item
+   * @param {number} toIndex - To this index
+   * @return {null} - sets state
+   */
+  moveSlice(fromIndex, toIndex) {
+    this.setState(prevState => ({
+      slices: arrayMove(prevState.slices, fromIndex, toIndex),
+      editFormInsertionIndex: null,
+    }));
   }
 
   /**
@@ -291,6 +307,8 @@ class Playground extends Component {
               <React.Fragment key={`${slice.id}--fragment`}>
                 <PlaygroundSlice
                   key={slice.id}
+                  id={slice.id}
+                  index={sliceIndex}
                   template={template.name}
                   data={slice.data}
                   showEditForm={() => {
@@ -302,6 +320,10 @@ class Playground extends Component {
                     });
                   }}
                   deleteMe={() => this.deleteSlice(slice.id)}
+                  moveSlice={(dragIndex, hoverIndex) => {
+                    console.log('moving...', { dragIndex, hoverIndex });
+                    this.moveSlice(dragIndex, hoverIndex);
+                  }}
                   moveUp={() => this.moveSliceUp(sliceIndex)}
                   moveDown={() => this.moveSliceDown(sliceIndex)}
                   hasVisibleControls={hasVisibleControls}
@@ -339,4 +361,4 @@ Playground.propTypes = {
   id: PropTypes.string.isRequired, // @todo save/show playgrounds based on `id`
 };
 
-export default Playground;
+export default DragDropContext(HTML5Backend)(Playground);

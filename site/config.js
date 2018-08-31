@@ -5,3 +5,6 @@ export const assetUrlBase = '/assets/';
 export const isDebug = true;
 export const isDevMode = process.env.DEV_MODE === 'yes';
 export const isProd = process.env.NODE_ENV === 'production';
+export const DragTypes = {
+  SLICE: 'SLICE',
+};
