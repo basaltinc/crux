@@ -76,6 +76,7 @@ class Playground extends Component {
     this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
     this.handleAddSlice = this.handleAddSlice.bind(this);
     this.handleEditFormChange = this.handleEditFormChange.bind(this);
+    this.handleClearData = this.handleClearData.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.handleFilterReset = this.handleFilterReset.bind(this);
     this.handleMetaFormChange = this.handleMetaFormChange.bind(this);
@@ -277,6 +278,17 @@ class Playground extends Component {
     }));
   }
 
+  handleClearData() {
+    this.setState(prevState => ({
+      slices: prevState.slices.map(slice => {
+        if (slice.id === prevState.editFormSliceId) {
+          slice.data = {};
+        }
+        return slice;
+      }),
+    }));
+  }
+
   handleFilterChange(event) {
     this.setState({ filterTerm: event.target.value });
   }
@@ -303,6 +315,7 @@ class Playground extends Component {
             filterTerm={this.state.filterTerm}
             handleAddSlice={this.handleAddSlice}
             handleEditFormChange={this.handleEditFormChange}
+            handleClearData={this.handleClearData}
             handleHideEditForm={this.handleHideEditForm}
             handleFilterChange={this.handleFilterChange}
             handleFilterReset={this.handleFilterReset}
