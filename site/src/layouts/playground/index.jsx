@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
-import styled from 'styled-components';
 import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
 import { StatusMessage } from '@basalt/bedrock-atoms';
@@ -11,39 +10,7 @@ import PlaygroundSlice from './playground-slice';
 import PlaygroundSidebar from './playground-sidebar';
 import Sidebar from '../../components/sidebar/sidebar';
 import { apiUrlBase } from '../../../config';
-
-const MainContent = styled.div`
-  flex-grow: 1;
-  padding: var(--spacing-l);
-  overflow-y: scroll;
-  box-sizing: border-box;
-`;
-
-const Page = styled.div`
-  display: flex;
-  justify-content: center;
-  height: calc(100vh - 175px);
-  max-width: 100vw;
-  // @todo fix this temp workaround for negatting the "MainContent" padding
-  margin: calc(-1 * var(--spacing-l));
-`;
-
-const StartInsertSlice = styled.div`
-  display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
-  border: ${props =>
-    props.isActive ? 'solid 2px #e1c933' : 'dashed 1px rgba(0,0,0,0.3)'};
-  text-align: center;
-  cursor: pointer;
-  padding: 1rem;
-  margin: 1rem 0;
-  transition: all 0.3s ease;
-  &:hover,
-  &:active {
-    color: #e1c933;
-    border: ${props => !props.isActive && 'dashed 1px #e1c933'};
-    text-decoration: underline;
-  }
-`;
+import { MainContent, StartInsertSlice, Page } from './playground.styles';
 
 // Export of allowed sidebarContent states
 export const SIDEBAR_DEFAULT = 'default';

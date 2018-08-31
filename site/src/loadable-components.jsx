@@ -31,7 +31,7 @@ export const LoadableHomeSplash = Loadable({
 
 export const LoadableReleaseNotes = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes'),
+    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes/release-notes'),
   loading: Spinner,
 });
 

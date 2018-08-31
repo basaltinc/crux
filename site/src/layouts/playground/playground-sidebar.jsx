@@ -1,42 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import {
   ClearFilterButton,
   TypeToFilter,
   TypeToFilterInputWrapper,
 } from '@basalt/bedrock-atoms';
-import SchemaForm from '@basalt/bedrock-schema-form';
 import { Link } from 'react-router-dom';
 import PlaygroundEditForm from './playground-edit-form';
 import { SIDEBAR_FORM, SIDEBAR_PATTERNS } from './index';
-
-const PatternListItemWrapper = styled.li`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  margin: 1.5rem 0;
-  img {
-    width: 50px;
-    height: 50px;
-  }
-  > div {
-    &:hover,
-    &:active {
-      cursor: pointer;
-    }
-  }
-  a {
-    font-size: 13.5px;
-  }
-`;
-
-export const PlaygroundStyledSchemaForm = styled(SchemaForm)`
-  > div > label {
-    display: none;
-  }
-  margin-bottom: 1rem;
-`;
+import {
+  PatternListItemWrapper,
+  PlaygroundStyledSchemaForm,
+} from './playground.styles';
 
 class PlaygroundSidebar extends Component {
   constructor(props) {

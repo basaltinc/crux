@@ -1,7 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import PropTypes from 'prop-types';
-import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
 import { DragSource, DropTarget } from 'react-dnd';
 import {
   FaChevronDown,
@@ -10,52 +9,13 @@ import {
   FaEdit,
   FaArrowsAlt,
 } from 'react-icons/fa';
-import styled, { keyframes } from 'styled-components';
 import Twig from '../../components/twig/twig';
 import { DragTypes } from '../../../config';
-
-const PlaygroundIcon = styled(FormIconButton)`
-  display: block;
-  transition: all 0.3s ease;
-  &:not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
-  &:hover,
-  &:active {
-    cursor: ${props => (props.disabled ? '' : 'pointer')};
-  }
-  > svg {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const briefHighlight = keyframes`
-  from {
-    box-shadow: 0 0 1.5rem #e1c933;
-  } to {
-    box-shadow: none;
-  }
-`;
-
-const PlaygroundIconWrapper = styled(FormIconTray)`
-  display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
-  height: 100%;
-  text-align: center;
-  padding: 0.5rem;
-  margin-left: 1rem;
-`;
-
-const PlaygroundSliceWrapper = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  box-sizing: border-box;
-  border: solid 2px ${props => (props.active ? '#e1c933' : 'rgba(0,0,0,0)')};
-  ${props =>
-    props.hasVisibleControls ? 'padding: 5px;' : 'margin-bottom: 1.5rem;'};
-  ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};
-`;
+import {
+  PlaygroundIcon,
+  PlaygroundIconWrapper,
+  PlaygroundSliceWrapper,
+} from './playground.styles';
 
 const PlaygroundSlice = ({
   moveUp,
