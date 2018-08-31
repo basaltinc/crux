@@ -162,13 +162,15 @@ class Playground extends Component {
    * Move Slice
    * @param {number} fromIndex - Move this item
    * @param {number} toIndex - To this index
+   * @param {string} id - Slice Id
    * @return {null} - sets state
    */
-  moveSlice(fromIndex, toIndex) {
+  moveSlice(fromIndex, toIndex, id) {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, fromIndex, toIndex),
       editFormInsertionIndex: null,
     }));
+    this.briefHighlight(id);
   }
 
   /**
@@ -360,7 +362,7 @@ class Playground extends Component {
                   deleteMe={() => this.deleteSlice(slice.id)}
                   moveSlice={(dragIndex, hoverIndex) => {
                     console.log('moving...', { dragIndex, hoverIndex });
-                    this.moveSlice(dragIndex, hoverIndex);
+                    this.moveSlice(dragIndex, hoverIndex, slice.id);
                   }}
                   moveUp={() => this.moveSliceUp(sliceIndex, slice.id)}
                   moveDown={() => this.moveSliceDown(sliceIndex, slice.id)}
