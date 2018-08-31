@@ -1,9 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const PatternGrid = styled.ul`
+export const PatternGrid = styled.ul`
   display: flex;
   align-items: stretch;
   margin: 50px;
@@ -11,7 +8,7 @@ const PatternGrid = styled.ul`
   list-style-type: none;
 `;
 
-const PatternGridItem = styled.li`
+export const PatternGridItem = styled.li`
   background: #fff;
   position: relative;
   transition: all 0.3s ease-in-out;
@@ -50,7 +47,7 @@ const PatternGridItem = styled.li`
   }
 `;
 
-const PatternGridItemThumb = styled.img`
+export const PatternGridItemThumb = styled.img`
   display: block;
   max-width: 250px;
   width: 100%;
@@ -63,7 +60,7 @@ const PatternGridItemThumb = styled.img`
   }
 `;
 
-const PatternGridItemTitle = styled.span`
+export const PatternGridItemTitle = styled.span`
   color: #000;
   margin-bottom: -3px;
   border-bottom: 5px solid var(--type-color--component);
@@ -71,7 +68,7 @@ const PatternGridItemTitle = styled.span`
   transition: all 0.2s ease-in-out;
 `;
 
-const PatternGridItemDescription = styled.div`
+export const PatternGridItemDescription = styled.div`
   font-family: 'AvenirLight', sans-serif;
   line-height: 1.25;
   font-size: 14px;
@@ -94,48 +91,3 @@ const PatternGridItemDescription = styled.div`
     position: relative;
   }
 `;
-
-export default function ComponentsBoard(props) {
-  const components = props.patterns;
-  return (
-    <PatternGrid
-      className="smart-grid"
-      data-row-items-small="1"
-      data-row-items-medium="2"
-      data-row-items-large="3"
-    >
-      {components.map(pattern => (
-        <PatternGridItem
-          key={pattern.id}
-          className="u-crux-pattern-grid__item--component"
-        >
-          <Link
-            to={
-              pattern.path ? pattern.path : `/patterns/components/${pattern.id}`
-            }
-          >
-            <PatternGridItemThumb
-              src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
-              alt=""
-            />
-            <PatternGridItemTitle>{pattern.title}</PatternGridItemTitle>
-            <PatternGridItemDescription>
-              {pattern.description}
-            </PatternGridItemDescription>
-          </Link>
-        </PatternGridItem>
-      ))}
-    </PatternGrid>
-  );
-}
-
-ComponentsBoard.propTypes = {
-  patterns: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      title: PropTypes.string,
-      description: PropTypes.string,
-      path: PropTypes.string,
-    }),
-  ).isRequired,
-};

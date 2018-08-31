@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeSplash from '../components/home-splash';
+import HomeSplash from '../components/home-splash/home-splash';
 
 const IndexPage = () => (
   <div>

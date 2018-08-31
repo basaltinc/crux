@@ -1,16 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import iframeResizer from 'iframe-resizer/js/iframeResizer'; // https://www.npmjs.com/package/iframe-resizer
 import { version as iframeResizerVersion } from 'iframe-resizer/package.json';
-import { apiUrlBase, websocketsPort, isDevMode } from '../../config';
-
-const ResizableWrapper = styled.div`
-  width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-`;
+import { apiUrlBase, websocketsPort, isDevMode } from '../../../config';
+import { ResizableWrapper } from './twig.styles';
 
 /**
  * Wrap HTML in full HTML page with CSS & JS assets.

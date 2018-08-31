@@ -9,7 +9,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PlaygroundSlice from './playground-slice';
 import PlaygroundSidebar from './playground-sidebar';
-import Sidebar from '../../components/sidebar';
+import Sidebar from '../../components/sidebar/sidebar';
 import { apiUrlBase } from '../../../config';
 
 const MainContent = styled.div`

@@ -14,7 +14,7 @@ import {
   baseContext,
 } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
-import Header from './components/header';
+import Header from './components/header/header';
 import './global.css';
 import { apiUrlBase } from '../config';
 import {

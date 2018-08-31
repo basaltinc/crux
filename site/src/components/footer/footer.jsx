@@ -1,22 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-
-const FooterWrapper = styled.footer`
-  display: flex;
-  justify-content: space-between;
-  padding: 1.5rem;
-  border-top: 1px solid #000000;
-`;
-
-const FooterMenu = styled.ul`
-  display: flex;
-  list-style: none;
-`;
-
-const FooterMenuItem = styled.li`
-  margin-right: 10px;
-`;
+import { FooterWrapper, FooterMenu, FooterMenuItem } from './footer.styles';
 
 const Footer = () => (
   <FooterWrapper>

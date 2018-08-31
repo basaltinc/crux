@@ -25,7 +25,7 @@ export const LoadableAboutPage = Loadable({
 
 export const LoadableHomeSplash = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'home-splash' */ './components/home-splash'),
+    import(/* webpackChunkName: 'home-splash' */ './components/home-splash/home-splash'),
   loading: Spinner,
 });
 
@@ -134,19 +134,20 @@ export const LoadableBrandDescriptors = Loadable({
 export const LoadableSidebar = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'sidebar' */
-    './components/sidebar'),
+    './components/sidebar/sidebar'),
   loading: Spinner,
 });
 
 export const LoadableSecondaryNav = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'secondary-nav' */
-    './components/secondary-nav'),
+    './components/secondary-nav/secondary-nav'),
   loading: Spinner,
 });
 
 export const LoadableFooter = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './components/footer'),
+  loader: () =>
+    import(/* webpackChunkName: 'footer' */ './components/footer/footer'),
   loading: Spinner,
 });
 

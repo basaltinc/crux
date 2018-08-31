@@ -11,7 +11,7 @@ import {
   FaArrowsAlt,
 } from 'react-icons/fa';
 import styled, { keyframes } from 'styled-components';
-import Twig from '../../components/twig';
+import Twig from '../../components/twig/twig';
 import { DragTypes } from '../../../config';
 
 const PlaygroundIcon = styled(FormIconButton)`
