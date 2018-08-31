@@ -15,7 +15,9 @@
     <{{listType}}>
   {% endif %}
     {% for item in listItems %}
-    <li>{{ item.text }}</li>
+      {% for text in item %}
+        <li>{{ text }}</li>
+      {% endfor %}
     {% endfor %}
   {% if listType %}
     </{{listType}}>
