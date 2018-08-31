@@ -7,15 +7,18 @@
 
 ] | merge(classes|default([])) %}
 
-{% set listItems = list_items|split(', ') %}
 {% set listType = ordered ? 'ol' : 'ul' %}
 
 <div class="{{ classes|join(' ') }}">
   {% if listType %}
     <{{listType}}>
   {% endif %}
-    {% for item in listItems %}
-    <li>{{ item }}</li>
+    {% for item in items %}
+      {% if item.url %}
+        <li><a href="{{ item.url }}">{{ item.text }}</a></li>
+      {% else %}
+        <li>{{ item.text }}</li>
+      {% endif %}
     {% endfor %}
   {% if listType %}
     </{{listType}}>

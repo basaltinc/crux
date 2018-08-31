@@ -4,10 +4,26 @@ module.exports = {
   title: 'List',
   description: 'List',
   properties: {
-    list_items: {
+    items: {
       title: 'List Items',
-      type: 'string',
-      description: 'Comma separated list of items',
+      type: 'array',
+      description: 'Items in the list',
+      items: {
+        type: 'object',
+        title: 'List item',
+        properties: {
+          text: {
+            title: 'Item Text',
+            type: 'string',
+            description: 'Item text',
+          },
+          url: {
+            title: 'Url',
+            type: 'string',
+            description: 'Url of item link',
+          },
+        },
+      },
     },
     text_size: {
       title: 'Text Size',
@@ -39,17 +55,32 @@ module.exports = {
   },
   examples: [
     {
-      list_items:
-        'Json, React, Arrays, If Statements, Math, Logic, Jokes, Internet, Sorcery',
+      items: [
+        { text: 'JSON' },
+        { text: 'React' },
+        { text: 'Arrays' },
+        { text: 'If Statements' },
+        { text: 'Math' },
+        { text: 'Logic' },
+        { text: 'Jokes' },
+        { text: 'Interent' },
+        { text: 'Sorcery' },
+      ],
       text_size: 'xl',
       bullets: false,
       ordered: true,
       columns: '3',
     },
     {
-      list_items: 'Json, React, Arrays, If Statements, Math',
+      items: [
+        { text: 'JSON' },
+        { text: 'React' },
+        { text: 'Arrays' },
+        { text: 'If Statements' },
+        { text: 'Math' },
+      ],
       text_size: 'm',
-      bullets: false,
+      bullets: true,
       ordered: false,
       columns: '1',
     },
