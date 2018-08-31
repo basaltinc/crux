@@ -34,11 +34,18 @@ class SecondaryNav extends Component {
             {
               title: 'Patterns',
               id: 'patterns',
+              path: '/patterns',
               isHeading: true,
             },
             ...props.patterns,
-            ...resourcesLinks,
+            {
+              title: 'Examples',
+              id: 'example-heading',
+              isHeading: true,
+              path: '/examples',
+            },
             ...aboutLinks,
+            ...resourcesLinks,
           ],
         };
   }
@@ -56,7 +63,14 @@ class SecondaryNav extends Component {
 
         this.setState(prevState => ({
           items: [
-            ...prevState.items,
+            ...perceptualPatternsLinks,
+            {
+              title: 'Patterns',
+              id: 'patterns',
+              path: '/patterns',
+              isHeading: true,
+            },
+            ...this.props.patterns,
             {
               title: 'Examples',
               id: 'example-heading',
@@ -64,6 +78,8 @@ class SecondaryNav extends Component {
               path: '/examples',
             },
             ...exampleLinks,
+            ...aboutLinks,
+            ...resourcesLinks,
           ],
         }));
       });
