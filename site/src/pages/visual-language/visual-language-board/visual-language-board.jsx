@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ComponentBoard from '../../components/component-board/component-board';
+import ComponentBoard from '../../../components/component-board/component-board';
 
 // @todo think of a way to not have these be hard coded, then implement that brilliant idea
 const perceptualPatternsList = [

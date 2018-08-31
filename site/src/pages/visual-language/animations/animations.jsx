@@ -1,46 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-
 import ApiDemo from '@basalt/bedrock-api-demo';
 import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import Spinner from '@basalt/bedrock-spinner';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
-import { apiUrlBase } from '../../../config';
-
-const DemoTransition = styled.div`
-  background: #ddd;
-  padding: 1em;
-  margin-bottom: 1em;
-  text-align: center;
-  border-radius: 0;
-  cursor: pointer;
-  max-width: 800px;
-`;
-
-const DemoTransitionOpacity = DemoTransition.extend`
-  transition: opacity var(--transition-time) var(--transition-function);
-  &:hover {
-    opacity: 0;
-  }
-`;
-
-const DemoTransitionMove = DemoTransition.extend`
-  position: relative;
-  &:after {
-    content: '';
-    display: inline-block;
-    position: absolute;
-    width: 3px;
-    top: 0;
-    left: 8px;
-    bottom: 0;
-    background: black;
-    transition: left var(--transition-time) var(--transition-function);
-  }
-  &:hover:after {
-    left: calc(100% - 8px);
-  }
-`;
+import { apiUrlBase } from '../../../../config';
+import { DemoTransitionMove, DemoTransitionOpacity } from './animations.styles';
 
 class AnimationsPage extends React.Component {
   constructor(props) {

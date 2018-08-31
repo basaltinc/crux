@@ -1,16 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
-
-const ShadowDemoBox = styled.div`
-  display: inline-block;
-  height: 155px;
-  margin: 0 2.5rem 2.5rem 0;
-  position: relative;
-  width: 325px;
-  vertical-align: top;
-  padding: 0.7rem;
-`;
+import { ShadowDemoBox } from './shadows.styles';
 
 function ShadowsPage() {
   return (
