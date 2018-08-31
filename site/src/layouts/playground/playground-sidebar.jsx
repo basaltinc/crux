@@ -74,6 +74,7 @@ class PlaygroundSidebar extends Component {
           handleChange={data => this.props.handleEditFormChange(data)}
           handleError={console.error}
           handleHideEditForm={this.props.handleHideEditForm}
+          handleClearData={data => this.props.handleClearData(data)}
         />
       );
     }
@@ -186,6 +187,7 @@ PlaygroundSidebar.propTypes = {
   filterTerm: PropTypes.string.isRequired,
   handleAddSlice: PropTypes.func.isRequired,
   handleEditFormChange: PropTypes.func.isRequired,
+  handleClearData: PropTypes.func.isRequired,
   handleFilterChange: PropTypes.func.isRequired,
   handleFilterReset: PropTypes.func.isRequired,
   handleHideEditForm: PropTypes.func.isRequired,
