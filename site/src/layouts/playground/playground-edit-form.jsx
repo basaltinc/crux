@@ -8,6 +8,7 @@ const PlaygroundEditForm = ({
   handleChange,
   handleError,
   handleHideEditForm,
+  handleClearData,
 }) => (
   <div>
     <h4>Edit</h4>
@@ -32,6 +33,16 @@ const PlaygroundEditForm = ({
     >
       Done
     </button>
+    <button
+      style={{ marginLeft: '1rem' }}
+      onClick={handleClearData}
+      onKeyPress={handleClearData}
+      type="submit"
+      tabIndex="0"
+      className="button button--color-iron button--size-small"
+    >
+      Clear
+    </button>
   </div>
 );
 
@@ -45,6 +56,7 @@ PlaygroundEditForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleError: PropTypes.func.isRequired,
   handleHideEditForm: PropTypes.func.isRequired,
+  handleClearData: PropTypes.func.isRequired,
 };
 
 export default PlaygroundEditForm;
