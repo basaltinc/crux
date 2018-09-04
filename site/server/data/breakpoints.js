@@ -8,7 +8,7 @@ export async function getBreakpoints() {
   const breakpointsFile = await fs.readFile(
     join(
       __dirname,
-      '../../../source/_patterns/00-styleguide/00-breakpoints/breakpoints.json',
+      '../../../crux-assets/_patterns/00-styleguide/00-breakpoints/breakpoints.json',
     ),
     'utf8',
   );

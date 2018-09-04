@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 });
 
 // paths relative to CWD, which is `../`
-app.use(express.static('../source/dist'));
+app.use(express.static('../crux-assets/dist'));
 app.use(express.static('dist'));
 app.use(express.static('public'));
 app.use(express.static('public2'));
