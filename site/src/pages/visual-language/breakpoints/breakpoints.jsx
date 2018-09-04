@@ -1,55 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ApiDemo from '@basalt/bedrock-api-demo';
-import { apiUrlBase } from '../../../config';
-
-const BreakpointListItem = styled.li`
-  left: ${props => props.left};
-  position: absolute;
-  border-left: solid 3px hsl(0, 0%, 50%);
-  opacity: 0.7;
-  height: 100%;
-  > .label {
-    display: block;
-    background: hsl(0, 0%, 50%);
-    opacity: 0.7;
-    padding: 3px;
-    color: white;
-  }
-  &:hover {
-    opacity: 1;
-    border-left-color: hsl(0, 0%, 35%);
-    z-index: 2;
-    > .label {
-      opacity: 1;
-      background: hsl(0, 0%, 35%);
-    }
-  }
-`;
-
-const DeviceListItem = styled.li`
-  width: ${props => props.width}px;
-  border-bottom: solid 3px hsl(0, 0%, 80%);
-  text-align: right;
-  margin-bottom: 15px;
-  padding-right: 15px;
-  border-right: solid 3px hsl(0, 0%, 80%);
-`;
-
-const DeviceWidthUl = styled.ul`
-  max-width: calc(75vw - 2 * var(--spacing-l));
-  padding-top: 20px;
-`;
-
-const BreakpointsWrapper = styled.div`
-  width: 100%;
-  position: relative;
-  overflow-y: hidden;
-  li {
-    list-style-type: none;
-  }
-`;
+import { apiUrlBase } from '../../../../config';
+import {
+  BreakpointListItem,
+  BreakpointsWrapper,
+  DeviceListItem,
+  DeviceWidthUl,
+} from './breakpoints.styles';
 
 const BreakpointsItems = items =>
   items.map(item => (

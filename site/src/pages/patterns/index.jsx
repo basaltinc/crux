@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { uniqueArray, flattenArray } from '@basalt/bedrock-utils';
 import Spinner from '@basalt/bedrock-spinner';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import ComponentBoard from '../../components/component-board';
+import ComponentBoard from '../../components/component-board/component-board';
 import { apiUrlBase } from '../../../config';
 
 const PatternsHeader = styled.div`

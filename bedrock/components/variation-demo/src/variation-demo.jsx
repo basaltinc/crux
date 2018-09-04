@@ -5,7 +5,7 @@ import { FaEllipsisH, FaEllipsisV } from 'react-icons/fa';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import TabbedPanel from '@basalt/bedrock-tabbed-panel';
 import { Checkerboard } from '@basalt/bedrock-atoms';
-import Twig from '../../../../site/src/components/twig';
+import Twig from '../../../../site/src/components/twig/twig';
 
 import { getTypeColor } from '../../../packages/core/src/context';
 

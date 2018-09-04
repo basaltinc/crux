@@ -5,8 +5,8 @@ import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Spinner from '@basalt/bedrock-spinner';
 
-import { apiUrlBase } from '../../../config';
-import './demos.css';
+import { apiUrlBase } from '../../../../config';
+import '../demos.css';
 
 class TypographyPage extends React.Component {
   constructor(props) {

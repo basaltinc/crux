@@ -25,13 +25,13 @@ export const LoadableAboutPage = Loadable({
 
 export const LoadableHomeSplash = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'home-splash' */ './components/home-splash'),
+    import(/* webpackChunkName: 'home-splash' */ './components/home-splash/home-splash'),
   loading: Spinner,
 });
 
 export const LoadableReleaseNotes = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes'),
+    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes/release-notes'),
   loading: Spinner,
 });
 
@@ -43,49 +43,49 @@ export const LoadableFeatureRequest = Loadable({
 
 export const LoadableVisualLanguagePage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'visual-language-page' */ './pages/visual-language/visual-language-board'),
+    import(/* webpackChunkName: 'visual-language-page' */ './pages/visual-language/visual-language-board/visual-language-board'),
   loading: Spinner,
 });
 
 export const LoadableAnimations = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations'),
+    import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations/animations'),
   loading: Spinner,
 });
 
 export const LoadableBreakpoints = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints'),
+    import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints/breakpoints'),
   loading: Spinner,
 });
 
 export const LoadableColors = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'colors' */ './pages/visual-language/colors'),
+    import(/* webpackChunkName: 'colors' */ './pages/visual-language/colors/colors'),
   loading: Spinner,
 });
 
 export const LoadableShadows = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/shadows'),
+    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/shadows/shadows'),
   loading: Spinner,
 });
 
 export const LoadableSpacings = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/spacings'),
+    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/spacings/spacings'),
   loading: Spinner,
 });
 
 export const LoadableTypography = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'typography' */ './pages/visual-language/typography'),
+    import(/* webpackChunkName: 'typography' */ './pages/visual-language/typography/typography'),
   loading: Spinner,
 });
 
 export const LoadableIcons = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'icons' */ './pages/visual-language/icons'),
+    import(/* webpackChunkName: 'icons' */ './pages/visual-language/icons/icons'),
   loading: Spinner,
 });
 
@@ -134,19 +134,20 @@ export const LoadableBrandDescriptors = Loadable({
 export const LoadableSidebar = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'sidebar' */
-    './components/sidebar'),
+    './components/sidebar/sidebar'),
   loading: Spinner,
 });
 
 export const LoadableSecondaryNav = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'secondary-nav' */
-    './components/secondary-nav'),
+    './components/secondary-nav/secondary-nav'),
   loading: Spinner,
 });
 
 export const LoadableFooter = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './components/footer'),
+  loader: () =>
+    import(/* webpackChunkName: 'footer' */ './components/footer/footer'),
   loading: Spinner,
 });
 

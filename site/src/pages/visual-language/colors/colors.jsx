@@ -5,7 +5,7 @@ import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 import ColorContrastBlock from '@basalt/bedrock-color-contrast-block';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
-import { apiUrlBase } from '../../../config';
+import { apiUrlBase } from '../../../../config';
 
 class ColorsPage extends React.Component {
   constructor(props) {

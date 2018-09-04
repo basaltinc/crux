@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PlaygroundStyledSchemaForm } from './playground-sidebar';
+import { PlaygroundStyledSchemaForm } from './playground.styles';
 
 const PlaygroundEditForm = ({
   schema,

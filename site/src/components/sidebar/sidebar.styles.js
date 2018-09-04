@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FaChevronLeft } from 'react-icons/fa';
 
-const SidebarStyled = styled.aside`
+export const SidebarStyled = styled.aside`
   position: relative;
   display: flex;
   flex-shrink: 0;
@@ -24,7 +22,7 @@ const SidebarStyled = styled.aside`
   }
 `;
 
-const SidebarColumn = styled.div`
+export const SidebarColumn = styled.div`
   position: relative;
   width: calc(100% - 19px);
   height: 100%;
@@ -40,7 +38,7 @@ const SidebarColumn = styled.div`
   }
 `;
 
-const SidebarTrayHandle = styled.div`
+export const SidebarTrayHandle = styled.div`
   position: absolute;
   right: 0;
   background-color: white;
@@ -55,7 +53,7 @@ const SidebarTrayHandle = styled.div`
   }
 `;
 
-const ToggleChevron = styled(FaChevronLeft)`
+export const ToggleChevron = styled(FaChevronLeft)`
   margin-top: 50vh;
   ${props =>
     props.sidebarcollapsed === 'true'
@@ -64,46 +62,3 @@ const ToggleChevron = styled(FaChevronLeft)`
     `
       : ``};
 `;
-
-class Sidebar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sidebarCollapsed: props.isInitiallyCollapsed,
-    };
-
-    this.handleToggleClick = this.handleToggleClick.bind(this);
-  }
-
-  handleToggleClick() {
-    this.setState(prevState => ({
-      sidebarCollapsed: !prevState.sidebarCollapsed,
-    }));
-  }
-
-  render() {
-    const isCollapsed = this.state.sidebarCollapsed;
-
-    return (
-      <SidebarStyled sidebarCollapsed={isCollapsed}>
-        <SidebarColumn sidebarCollapsed={isCollapsed}>
-          {this.props.children}
-        </SidebarColumn>
-        <SidebarTrayHandle onClick={this.handleToggleClick}>
-          <ToggleChevron sidebarcollapsed={isCollapsed.toString()} />
-        </SidebarTrayHandle>
-      </SidebarStyled>
-    );
-  }
-}
-
-Sidebar.defaultProps = {
-  isInitiallyCollapsed: false,
-};
-
-Sidebar.propTypes = {
-  isInitiallyCollapsed: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-};
-
-export default Sidebar;

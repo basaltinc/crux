@@ -5,9 +5,9 @@ import {
   TypeToFilterInputWrapper,
   ClearFilterButton,
 } from '@basalt/bedrock-atoms';
-import NavList from './nav-list/nav-list';
+import NavList from '../nav-list/nav-list';
 import SecondaryNavItems from './secondary-nav-items.json';
-import { apiUrlBase } from '../../config';
+import { apiUrlBase } from '../../../config';
 
 const {
   resourcesLinks,

@@ -1,33 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
-import { apiUrlBase } from '../../../config';
-
-const ReleaseWrapper = styled.div`
-  padding: 1rem;
-`;
-
-const ReleaseVersion = styled.h3`
-  margin-bottom: 0.5rem;
-`;
-
-const ReleaseDate = styled.h5`
-  margin-bottom: 1rem;
-`;
-
-const ReleaseCommit = styled.p`
-  margin-bottom: 0;
-  line-height: 2;
-`;
-
-const CommitHash = styled.a`
-  background-color: #9a9b9f;
-  padding: 0.35rem 0.75rem;
-  color: black !important;
-  border-radius: 0;
-  width: 92px;
-`;
+import { apiUrlBase } from '../../../../config';
+import {
+  ReleaseCommit,
+  CommitHash,
+  ReleaseDate,
+  ReleaseWrapper,
+  ReleaseVersion,
+} from './release-notes.styles';
 
 const releaseNote = items =>
   items.map(item => (

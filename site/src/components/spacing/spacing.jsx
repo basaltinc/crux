@@ -1,17 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SpacingOuter, SpacingWrapper } from './spacing.styles';
 
 const SpacingSwatch = ({ space }) => (
-  <div
-    style={{
-      display: 'flex',
-      alignItems: 'center',
-      marginBottom: '10px',
-      padding: '5px',
-      border: 'solid 1px grey',
-    }}
-  >
-    <div style={{ width: '6rem' }}>
+  <SpacingWrapper>
+    <SpacingOuter>
       <div
         style={{
           height: space.value,
@@ -19,13 +12,13 @@ const SpacingSwatch = ({ space }) => (
           border: 'dashed 1px grey',
         }}
       />
-    </div>
+    </SpacingOuter>
     <div>
       Name: <code>{space.name}</code>
       <br />
       Value: <code>{space.value}</code>
     </div>
-  </div>
+  </SpacingWrapper>
 );
 
 /* eslint-disable no-useless-constructor, react/prefer-stateless-function */
