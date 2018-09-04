@@ -31,15 +31,12 @@ module.exports = {
       enum: ['xs', 's', 'm', 'l', 'xl'],
       enumNames: ['Extra Small', 'Small', 'Medium', 'Large', 'Extra Large'],
     },
-    bullets: {
-      title: 'Bullets',
-      type: 'boolean',
-      description: 'Display bullets next to list items',
-    },
-    ordered: {
-      title: 'Ordered',
-      type: 'boolean',
-      description: 'Display ordered numbers next to list items',
+    display: {
+      title: 'List Style',
+      description: 'Display list as bulleted, ordered, or plain.',
+      type: 'string',
+      enum: ['bullets', 'ordered', 'plain'],
+      enumNames: ['Bullets', 'Ordered List', 'None'],
     },
     text_color: {
       title: 'Text Color',
@@ -67,8 +64,7 @@ module.exports = {
         { text: 'Sorcery' },
       ],
       text_size: 'xl',
-      bullets: false,
-      ordered: true,
+      display: 'bullets',
       columns: '3',
     },
     {
@@ -80,8 +76,7 @@ module.exports = {
         { text: 'Math' },
       ],
       text_size: 'm',
-      bullets: true,
-      ordered: false,
+      display: 'ordered',
       columns: '1',
     },
   ],

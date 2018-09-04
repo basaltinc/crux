@@ -1,13 +1,17 @@
 {% set classes = [
   'list',
   text_size ? 'list--' ~ text_size,
-  bullets ? 'list--bullets' : ordered ? 'list--ordered' : 'list--plain',
+  display ? 'list--' ~ display,
   columns ? 'list--columns-' ~ columns,
   text_color ? 'u-c-' ~ text_color,
 
 ] | merge(classes|default([])) %}
 
-{% set listType = ordered ? 'ol' : 'ul' %}
+{% if display == 'ordered' %}
+  {% set listType = 'ol'%}
+{% else %}
+  {% set listType = 'ul' %}
+{% endif %}
 
 <div class="{{ classes|join(' ') }}">
   {% if listType %}
