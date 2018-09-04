@@ -7,7 +7,7 @@ import events, { eventNames } from '../events';
 import patternMetaSchema from './pattern-meta.schema.json';
 import { isDevMode } from '../../config';
 
-const patternsDir = join(__dirname, '../../../source/_patterns/');
+const patternsDir = join(__dirname, '../../../crux-assets/_patterns/');
 const patternsDirs = globby.sync([join(patternsDir, '*/*')], {
   expandDirectories: true,
   onlyFiles: false,

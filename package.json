@@ -5,12 +5,12 @@
   "private": true,
   "scripts": {
     "build": "FORCE_COLOR=1 run-s --print-label build:bedrock build:assets build:changelog build:site build:storybook",
-    "build:assets": "cd source && yarn run build",
+    "build:assets": "cd crux-assets && yarn run build",
     "build:bedrock": "cd bedrock && yarn build",
-    "build:changelog": "auto-changelog --template json --output ./source/dist/changelog.json || true",
+    "build:changelog": "auto-changelog --template json --output ./crux-assets/dist/changelog.json || true",
     "build:site": "cd site && yarn build",
     "build:storybook": "cd bedrock/apps/storybook && yarn build",
-    "clean": "lerna clean --yes && rm -rf node_modules source/dist site/vendor site/public2",
+    "clean": "lerna clean --yes && rm -rf node_modules crux-assets/dist site/vendor site/public2",
     "deploy": "now deploy --token=$NOW_TOKEN --team basalt && echo ' ' ",
     "deploy:test": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-test && echo ' ' ",
     "deploy:staging": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-staging && echo ' ' ",
@@ -31,12 +31,12 @@
     "test": "run-s lint:style test:source test:site test:bedrock",
     "test:bedrock": "cd bedrock && yarn test",
     "test:site": "cd site && yarn test",
-    "test:source": "cd source && yarn test",
+    "test:source": "cd crux-assets && yarn test",
     "watch": "pick-npm-run-all watch:",
     "watch:bedrock": "cd bedrock && yarn start",
     "watch:site": "cd site && yarn start",
     "watch:storybook": "cd bedrock/apps/storybook && yarn start",
-    "watch:assets": "cd source && yarn start"
+    "watch:assets": "cd crux-assets && yarn start"
   },
   "workspaces": {
     "packages": [
@@ -44,7 +44,7 @@
       "bedrock/apps/*",
       "bedrock/components/*",
       "bedrock/packages/*",
-      "source",
+      "crux-assets",
       "site"
     ],
     "nohoist": [
