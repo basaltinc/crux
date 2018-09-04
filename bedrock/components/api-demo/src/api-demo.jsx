@@ -1,23 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import qs from 'query-string';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import SchemaTable from '@basalt/bedrock-schema-table';
 import { Details } from '@basalt/bedrock-atoms';
-
-const PostOrGet = styled.span`
-  background-color: ${props =>
-    props.requestType === 'get'
-      ? props.theme.colors.secondary
-      : props.theme.colors.primary};
-  color: white;
-  text-align: center;
-  border-radius: ${props => props.theme.border.radius};
-  padding: 0.35rem 1rem;
-  margin-bottom: 0.5rem;
-  font-weight: bold;
-`;
+import { PostOrGet } from './api-demo.styles';
 
 class ApiDemo extends React.Component {
   constructor(props) {
