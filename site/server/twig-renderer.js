@@ -5,7 +5,7 @@ import { isDevMode } from '../config';
 const twigRenderer = new TwigRenderer({
   relativeFrom: join(__dirname, '../..'),
   src: {
-    roots: ['source'],
+    roots: ['crux-assets'],
     namespaces: [
       {
         id: 'svgs',
