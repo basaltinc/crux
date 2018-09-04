@@ -82,12 +82,11 @@
   }
 }
 
-.media-tile {
+.media-tile__list {
   //@todo properly incorporate list component into media tile
   ul,
   ol {
     padding: 0;
-    list-style: none;
   }
 
   li {
@@ -95,7 +94,6 @@
     align-items: center;
     margin-bottom: 0;
     padding: 0.25rem;
-    @include icon('icon-black');
     &:before {
       padding-right: $spacing--s;
       padding-bottom: 0.25rem;
@@ -104,7 +102,11 @@
       border-bottom: $c-gray--dark;
     }
   }
-
+  .list--bullets {
+    li {
+      @include icon('icon-black');
+    }
+  }
   // @todo better handling of spacing in media tiles with lists
   .media-tile__body ul,
   .media-tile__body ol {

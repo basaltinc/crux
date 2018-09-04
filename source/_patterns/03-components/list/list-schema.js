@@ -42,6 +42,8 @@ module.exports = {
       title: 'Text Color',
       type: 'string',
       description: 'Any utility color class',
+      enum: ['white', 'blue', 'green', 'yellow', 'black'],
+      enumNames: ['White', 'Blue', 'Green', 'Yellow', 'Black'],
     },
     columns: {
       title: 'Columns',
