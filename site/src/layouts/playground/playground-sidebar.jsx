@@ -93,10 +93,10 @@ class PlaygroundSidebar extends Component {
           </TypeToFilter>
           <ul>{items.map(pattern => this.renderPatternListItem(pattern))}</ul>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-
             <button
               onClick={this.props.handleCancelAddSlice}
               onKeyPress={this.props.handleCancelAddSlice}
+              type="button"
               className="button button--color-white button--size-small"
             >
               Cancel
