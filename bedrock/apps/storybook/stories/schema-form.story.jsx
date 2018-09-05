@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import SchemaForm from '@basalt/bedrock-schema-form';
+import styled from 'styled-components';
 
 const dummyData = {
   $schema: 'http://json-schema.org/draft-07/schema',
@@ -793,6 +794,18 @@ const headerData = {
   },
 };
 
+const LargeWrapper = styled.div`
+  width: 800px;
+`;
+
+const MediumWrapper = styled.div`
+  width: 560px;
+`;
+
+const SmallWrapper = styled.div`
+  width: 209px;
+`;
+
 storiesOf('Schema Form', module)
   .add('Overview', () => (
     <SchemaForm
@@ -811,5 +824,20 @@ storiesOf('Schema Form', module)
   .add('Logo', () => <SchemaForm schema={logoData} />)
   .add('Media Block', () => <SchemaForm schema={mediaBlockData} />)
   .add('Media Tile', () => <SchemaForm schema={mediaTileData} />)
+  .add('Media Tile Large Constrains', () => (
+    <LargeWrapper>
+      <SchemaForm schema={mediaTileData} />
+    </LargeWrapper>
+  ))
+  .add('Media Tile Medium Constrains', () => (
+    <MediumWrapper>
+      <SchemaForm schema={mediaTileData} />
+    </MediumWrapper>
+  ))
+  .add('Media Tile Small Constrains', () => (
+    <SmallWrapper>
+      <SchemaForm schema={mediaTileData} />
+    </SmallWrapper>
+  ))
   .add('Footer', () => <SchemaForm schema={footerData} />)
   .add('Header', () => <SchemaForm schema={headerData} />);

@@ -253,7 +253,6 @@ export const FormIconTray = styled.div`
   border: ${props => props.theme.form.border};
   display: inline-flex;
   padding: ${props => props.theme.form.padding};
-  margin-bottom: 0.25rem;
 `;
 
 export const FormArrayItem = styled.div`
