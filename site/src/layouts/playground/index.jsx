@@ -44,6 +44,7 @@ class Playground extends Component {
     this.handleAddSlice = this.handleAddSlice.bind(this);
     this.handleEditFormChange = this.handleEditFormChange.bind(this);
     this.handleClearData = this.handleClearData.bind(this);
+    this.handleCancelAddSlice = this.handleCancelAddSlice.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.handleFilterReset = this.handleFilterReset.bind(this);
     this.handleMetaFormChange = this.handleMetaFormChange.bind(this);
@@ -256,6 +257,14 @@ class Playground extends Component {
     }));
   }
 
+  handleCancelAddSlice() {
+    this.setState({
+      editFormSliceId: null,
+      editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
+    });
+  }
+
   handleFilterChange(event) {
     this.setState({ filterTerm: event.target.value });
   }
@@ -283,6 +292,7 @@ class Playground extends Component {
             handleAddSlice={this.handleAddSlice}
             handleEditFormChange={this.handleEditFormChange}
             handleClearData={this.handleClearData}
+            handleCancelAddSlice={this.handleCancelAddSlice}
             handleHideEditForm={this.handleHideEditForm}
             handleFilterChange={this.handleFilterChange}
             handleFilterReset={this.handleFilterReset}
