@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const CustomFieldWrapper = styled.div`
   padding: 0.25rem 0;
+  margin-top: 10px;
   > label {
     display: block;
     color: ${props => props.theme.form.label.color};

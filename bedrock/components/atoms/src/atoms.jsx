@@ -253,11 +253,10 @@ export const FormIconTray = styled.div`
   border: ${props => props.theme.form.border};
   display: inline-flex;
   padding: ${props => props.theme.form.padding};
+  margin-top: 1rem;
 `;
 
 export const FormArrayItem = styled.div`
-  display: flex;
-  align-items: flex-end;
   margin: 0.75rem 0;
   &:last-child {
     margin-bottom: 0;
@@ -269,7 +268,7 @@ export const FormArrayItem = styled.div`
     align-items: flex-start;
   }
   & > * + * {
-    margin-left: 0.25rem;
+    //margin-left: 0.25rem;
   }
   &:not(:last-child) {
     padding-bottom: 0.75rem;
