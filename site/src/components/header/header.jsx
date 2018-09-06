@@ -11,7 +11,17 @@ import {
 } from './header.styles';
 
 class Header extends React.Component {
-  static navigationLinks() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      windowWidth: window.innerWidth,
+      mobileNavVisible: false,
+    };
+    this.handleNavClick = this.handleNavClick.bind(this);
+    this.renderNavigation = this.renderNavigation.bind(this);
+  }
+
+  renderNavigationLinks() {
     return (
       <ul>
         <li>
@@ -31,6 +41,7 @@ class Header extends React.Component {
         <li>
           <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
         </li>
+
         <li>
           <a
             href="http://www.basalt.io"
@@ -48,15 +59,6 @@ class Header extends React.Component {
         </li>
       </ul>
     );
-  }
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      windowWidth: window.innerWidth,
-      mobileNavVisible: false,
-    };
-    this.handleNavClick = this.handleNavClick.bind(this);
   }
 
   componentDidMount() {
@@ -85,29 +87,20 @@ class Header extends React.Component {
     }));
   }
 
-  renderMobileNav() {
-    if (this.state.mobileNavVisible) {
-      return Header.navigationLinks();
-    }
-  }
-
   renderNavigation() {
-    if (this.state.windowWidth <= 900) {
-      return (
+    // If Mobile
+    if (this.state.windowWidth <= 950) {
+      return this.state.mobileNavVisible ? (
         <MobileNav>
-          {this.renderMobileNav()}
-          {this.state.mobileNavVisible && <X onClick={this.handleNavClick} />}
-          {!this.state.mobileNavVisible && (
-            <Hamburger onClick={this.handleNavClick} />
-          )}
+          {this.renderNavigationLinks()}
+          <X onClick={this.handleNavClick} />
         </MobileNav>
+      ) : (
+        <Hamburger onClick={this.handleNavClick} />
       );
     }
-    return (
-      <div key={7} className="nav_menu">
-        {Header.navigationLinks()}
-      </div>
-    );
+    // If Desktop
+    return this.renderNavigationLinks();
   }
 
   render() {
