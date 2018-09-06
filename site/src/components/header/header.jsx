@@ -21,7 +21,33 @@ class Header extends React.Component {
     this.renderNavigation = this.renderNavigation.bind(this);
   }
 
-  renderLinks(settings) {
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  /* eslint-disable */
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.setState({ mobileNavVisible: false });
+    }
+  }
+  /* eslint-enable */
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize.bind(this));
+  }
+
+  handleResize() {
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
+  handleNavClick() {
+    this.setState(prevState => ({
+      mobileNavVisible: !prevState.mobileNavVisible,
+    }));
+  }
+
+  static renderLinks(settings) {
     return (
       <ul>
         <li>
@@ -65,38 +91,12 @@ class Header extends React.Component {
     );
   }
 
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize.bind(this));
-  }
-
-  /* eslint-disable */
-  componentDidUpdate(prevProps) {
-    if (this.props.location.pathname !== prevProps.location.pathname) {
-      this.setState({ mobileNavVisible: false });
-    }
-  }
-  /* eslint-enable */
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize.bind(this));
-  }
-
-  handleResize() {
-    this.setState({ windowWidth: window.innerWidth });
-  }
-
-  handleNavClick() {
-    this.setState(prevState => ({
-      mobileNavVisible: !prevState.mobileNavVisible,
-    }));
-  }
-
   renderNavigation(settings) {
     // If Mobile
     if (this.state.windowWidth <= 950) {
       return this.state.mobileNavVisible ? (
         <MobileNav>
-          {this.renderLinks(settings)}
+          {Header.renderLinks(settings)}
           <X onClick={this.handleNavClick} />
         </MobileNav>
       ) : (
@@ -104,7 +104,7 @@ class Header extends React.Component {
       );
     }
     // If Desktop
-    return this.renderLinks(settings);
+    return Header.renderLinks(settings);
   }
 
   render() {
