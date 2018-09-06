@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import { join, parse } from 'path';
 import globby from 'globby';
-import { validateSchemaAndAssignDefaults } from '@basalt/bedrock-utils';
+import { validateSchemaAndAssignDefaults } from '@basalt/bedrock-schema-utils';
 import chokidar from 'chokidar';
 import events, { eventNames } from '../events';
 import patternMetaSchema from './pattern-meta.schema.json';
