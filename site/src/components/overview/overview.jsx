@@ -113,6 +113,7 @@ class Overview extends React.Component {
                 schema={this.props.schema}
                 formData={this.state.data}
                 onChange={this.handleChange}
+                uiSchema={this.props.uiSchema}
               />
             </SchemaFormWrapperInner>
           </SchemaFormWrapper>
@@ -163,12 +164,14 @@ Overview.defaultProps = {
   data: {},
   demoSizes: [],
   size: 'l',
+  uiSchema: {},
 };
 
 Overview.propTypes = {
   template: PropTypes.string.isRequired,
   data: PropTypes.object,
   schema: PropTypes.object.isRequired,
+  uiSchema: PropTypes.object,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
   size: PropTypes.oneOf(sizes.map(size => size.value)),
 };

@@ -69,6 +69,11 @@
             "type": "object",
             "description": "Json Schema (v7) describing pattern",
             "required": ["examples"]
+          },
+          "uiSchema": {
+            "title": "uiSchema",
+            "type": "object",
+            "description": "UI for Json Schema (v7)"
           }
         }
       }

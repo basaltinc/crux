@@ -13,6 +13,7 @@ import {
   LoadableVariationDemo,
   LoadableDosAndDonts,
 } from '../loadable-components';
+import SchemaForm from "@basalt/bedrock-schema-form";
 
 const OverviewHeader = styled.header`
   position: relative;
@@ -27,6 +28,7 @@ export default class ComponentOverview extends Component {
       currentTemplate: {
         name: '',
         schema: {},
+        uiSchema: {},
       },
       meta: {},
       ready: false,
@@ -78,7 +80,7 @@ export default class ComponentOverview extends Component {
       content = <Spinner />;
     } else {
       const { title, description, type, templates, demoSize } = this.state.meta;
-      const { name, schema } = this.state.currentTemplate;
+      const { name, schema, uiSchema } = this.state.currentTemplate;
       const [data, ...examples] = schema.examples ? schema.examples : [{}];
       const dosAndDonts = schema.dosAndDonts ? schema.dosAndDonts : [];
       content = (
@@ -107,6 +109,7 @@ export default class ComponentOverview extends Component {
           <Overview
             template={name}
             schema={schema}
+            uiSchema={uiSchema}
             demoSizes={this.props.demoSizes}
             data={data}
             size={demoSize}
