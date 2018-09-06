@@ -115,9 +115,7 @@ export default class App extends React.Component {
                   <div>
                     <Route
                       path="/"
-                      component={routeProps => (
-                        <Header {...routeProps} />
-                      )}
+                      component={routeProps => <Header {...routeProps} />}
                     />
                     <Site>
                       <Switch>

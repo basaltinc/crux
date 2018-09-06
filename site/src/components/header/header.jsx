@@ -116,7 +116,9 @@ class Header extends React.Component {
         {context => (
           <SiteNav>
             <h3 style={{ margin: 0 }}>
-              <SiteHeaderLink to="/">{context.settings.site.title}</SiteHeaderLink>
+              <SiteHeaderLink to="/">
+                {context.settings.site.title}
+              </SiteHeaderLink>
             </h3>
             {this.renderNavigation()}
           </SiteNav>
@@ -127,14 +129,9 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
-};
-
-Header.defaultProps = {
-  siteTitle: 'Site Title',
 };
 
 export default Header;
