@@ -41,10 +41,16 @@ class PlaygroundSidebar extends Component {
 
   render() {
     if (this.props.sidebarContent === SIDEBAR_FORM) {
-      const { slices, editFormSliceId, editFormSchema } = this.props;
+      const {
+        slices,
+        editFormSliceId,
+        editFormSchema,
+        editFormUiSchema,
+      } = this.props;
       return (
         <PlaygroundEditForm
           schema={editFormSchema}
+          uiSchema={editFormUiSchema}
           data={slices.find(s => s.id === editFormSliceId).data}
           handleChange={data => this.props.handleEditFormChange(data)}
           handleError={console.error}
@@ -168,6 +174,7 @@ class PlaygroundSidebar extends Component {
 
 PlaygroundSidebar.propTypes = {
   editFormSchema: PropTypes.object.isRequired,
+  editFormUiSchema: PropTypes.object.isRequired,
   editFormSliceId: PropTypes.string.isRequired,
   filterTerm: PropTypes.string.isRequired,
   handleAddSlice: PropTypes.func.isRequired,

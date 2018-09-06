@@ -9,11 +9,13 @@ const PlaygroundEditForm = ({
   handleError,
   handleHideEditForm,
   handleClearData,
+  uiSchema,
 }) => (
   <div>
     <h4>Edit</h4>
     <PlaygroundStyledSchemaForm
       schema={schema}
+      uiSchema={uiSchema}
       formData={data}
       onChange={handleChange}
       onError={handleError}
@@ -52,6 +54,7 @@ PlaygroundEditForm.defaultProps = {
 
 PlaygroundEditForm.propTypes = {
   schema: PropTypes.object.isRequired,
+  uiSchema: PropTypes.object.isRequired,
   data: PropTypes.object,
   handleChange: PropTypes.func.isRequired,
   handleError: PropTypes.func.isRequired,

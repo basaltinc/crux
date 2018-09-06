@@ -27,6 +27,7 @@ class Playground extends Component {
       sidebarContent: SIDEBAR_DEFAULT,
       editFormInsertionIndex: null,
       editFormSchema: {},
+      editFormUiSchema: {},
       editFormSliceId: null,
       filterTerm: '',
       statusMessage: '',
@@ -78,7 +79,7 @@ class Playground extends Component {
 
   /**
    * @param {string} patternId - ID of Pattern, i.e. `media-block`
-   * @return {{ name: string, schema: Object }} - First (main) template
+   * @return {{ name: string, selector: string, schema: Object, uiSchema: Object }} - First (main) template
    */
   getTemplateFromPatternId(patternId) {
     const pattern = this.props.patterns.find(p => p.id === patternId);
@@ -207,7 +208,7 @@ class Playground extends Component {
    * @returns {null} - sets state
    */
   handleAddSlice(patternId) {
-    const { schema } = this.getTemplateFromPatternId(patternId);
+    const { schema, uiSchema } = this.getTemplateFromPatternId(patternId);
     const id = uuid();
     this.setState(prevState => {
       prevState.slices.splice(prevState.editFormInsertionIndex, 0, {
@@ -219,6 +220,7 @@ class Playground extends Component {
         slices: prevState.slices,
         editFormSliceId: id,
         editFormSchema: schema,
+        editFormUiSchema: uiSchema,
         sidebarContent: SIDEBAR_FORM,
         editFormInsertionIndex: null,
       };
@@ -287,6 +289,7 @@ class Playground extends Component {
         <Sidebar>
           <PlaygroundSidebar
             editFormSchema={this.state.editFormSchema}
+            editFormUiSchema={this.state.editFormUiSchema}
             editFormSliceId={this.state.editFormSliceId}
             filterTerm={this.state.filterTerm}
             handleAddSlice={this.handleAddSlice}
@@ -344,6 +347,7 @@ class Playground extends Component {
                     this.setState({
                       editFormSliceId: slice.id,
                       editFormSchema: template.schema,
+                      editFormUiSchema: template.uiSchema,
                       sidebarContent: SIDEBAR_FORM,
                       editFormInsertionIndex: null,
                     });
