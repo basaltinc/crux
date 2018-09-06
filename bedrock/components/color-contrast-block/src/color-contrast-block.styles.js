@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ColorContrastPlayground = styled.div`
-  width: 100%;
+  max-width: 100%;
   margin-bottom: 10px;
   padding: 2rem;
   border: solid 1px ${props => props.theme.colors.borders};

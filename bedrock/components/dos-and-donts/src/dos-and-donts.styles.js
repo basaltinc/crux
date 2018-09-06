@@ -9,6 +9,8 @@ export const DosAndDontsPanelStyled = styled.figure`
     background-color: ${props => props.theme.colors.color.gray.xxlight};
     > img {
       border-bottom: solid 8px;
+      max-width: 100%;
+      height: auto;
       border-bottom-color: ${props =>
         props.do
           ? props.theme.colors.color.status.success
@@ -37,7 +39,7 @@ export const DosAndDontsWrapper = styled.div`
     justify-content: space-between;
     padding: 0;
     & > * {
-      width: 50%;
+      max-width: 50%;
     }
   }
 `;

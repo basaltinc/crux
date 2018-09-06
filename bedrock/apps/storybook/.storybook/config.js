@@ -17,7 +17,7 @@ addDecorator(story => (
   <BedrockContextConsumer>
     {({ theme }) => (
       <ThemeProvider theme={theme}>
-        <div style={{ fontSize: theme.fonts.sizes.m }}>
+        <div style={{ fontSize: theme.fonts.sizes.m, maxWidth: 1100,}}>
           {story()}
         </div>
       </ThemeProvider>
