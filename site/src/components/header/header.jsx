@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BedrockContextConsumer } from '@basalt/bedrock-core';
 import {
   SiteHeaderLink,
   Hamburger,
@@ -111,12 +112,16 @@ class Header extends React.Component {
 
   render() {
     return (
-      <SiteNav>
-        <h3 style={{ margin: 0 }}>
-          <SiteHeaderLink to="/">{this.props.siteTitle}</SiteHeaderLink>
-        </h3>
-        {this.renderNavigation()}
-      </SiteNav>
+      <BedrockContextConsumer>
+        {context => (
+          <SiteNav>
+            <h3 style={{ margin: 0 }}>
+              <SiteHeaderLink to="/">{context.settings.site.title}</SiteHeaderLink>
+            </h3>
+            {this.renderNavigation()}
+          </SiteNav>
+        )}
+      </BedrockContextConsumer>
     );
   }
 }

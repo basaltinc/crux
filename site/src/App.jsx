@@ -16,6 +16,7 @@ import {
 import merge from 'lodash.merge';
 import Header from './components/header/header';
 import './global.css';
+import initialSettings from '../settings';
 import { apiUrlBase } from '../config';
 import {
   LoadableComponentOverview,
@@ -101,6 +102,7 @@ export default class App extends React.Component {
           // borders: 'red',
         },
       },
+      settings: initialSettings,
     });
 
     return (
@@ -114,7 +116,7 @@ export default class App extends React.Component {
                     <Route
                       path="/"
                       component={routeProps => (
-                        <Header siteTitle="Crux" {...routeProps} />
+                        <Header {...routeProps} />
                       )}
                     />
                     <Site>
