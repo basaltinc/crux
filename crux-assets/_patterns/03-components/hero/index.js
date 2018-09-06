@@ -1,5 +1,11 @@
 const schema = require('./hero-schema');
 
+const uiSchema = {
+  alignment_all: {
+    "ui:widget": "radio",
+  }
+}
+
 const meta = {
   id: 'hero',
   title: 'Hero',
@@ -12,6 +18,7 @@ const meta = {
       name: '@components/_hero.twig',
       selector: '.hero',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'full',

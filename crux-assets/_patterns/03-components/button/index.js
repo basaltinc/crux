@@ -1,5 +1,11 @@
 const schema = require('./button-schema');
 
+const uiSchema = {
+  size: {
+    "ui:widget": "radio",
+  }
+}
+
 const meta = {
   id: 'button',
   title: 'Button',
@@ -11,6 +17,7 @@ const meta = {
       name: '@components/_button.twig',
       selector: '.button',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 's',

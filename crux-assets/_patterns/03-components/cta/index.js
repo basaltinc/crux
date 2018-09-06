@@ -1,5 +1,14 @@
 const schema = require('./cta-schema.js');
 
+const uiSchema = {
+  text: {
+    "ui:widget": "textarea",
+    "ui:options": {
+      rows: 5
+    }
+  }
+}
+
 const meta = {
   id: 'cta',
   title: 'CTA',
@@ -12,6 +21,7 @@ const meta = {
       name: '@components/_cta.twig',
       selector: '.cta',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'l',

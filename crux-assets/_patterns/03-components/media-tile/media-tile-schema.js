@@ -36,6 +36,24 @@ module.exports = {
       title: 'Title Background Color',
       type: 'string',
       description: 'Any utility color class.',
+      enum: [
+        'blue',
+        'blue--light',
+        'green',
+        'iron',
+        'yellow',
+        'white',
+        'black',
+      ],
+      enumNames: [
+        'Blue',
+        'Light Blue',
+        'Green',
+        'Iron',
+        'Yellow',
+        'White',
+        'Black',
+      ],
     },
     title_size: {
       title: 'Title Size',
@@ -43,6 +61,14 @@ module.exports = {
       description:
         'Title size corresponds to site-wide heading sizes. 1 = h1, 2 = h2, etc.',
       enum: ['1', '2', '3', '4', '5', '6'],
+      enumNames: [
+        'Jumbo',
+        'Extra Large',
+        'Large',
+        'Medium',
+        'Small',
+        'Extra Small',
+      ],
     },
     title_text_color: {
       title: 'Title Text Color',

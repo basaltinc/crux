@@ -13,7 +13,6 @@ import {
   LoadableVariationDemo,
   LoadableDosAndDonts,
 } from '../loadable-components';
-import SchemaForm from "@basalt/bedrock-schema-form";
 
 const OverviewHeader = styled.header`
   position: relative;

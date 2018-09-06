@@ -1,5 +1,12 @@
 const schema = require('./logo-schema');
 
+
+const uiSchema = {
+  size: {
+    "ui:widget": "radio",
+  }
+}
+
 const meta = {
   id: 'logo',
   title: 'Logo',
@@ -11,6 +18,7 @@ const meta = {
       name: '@components/_logo.twig',
       selector: '.logo',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'm',
