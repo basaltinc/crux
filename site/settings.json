@@ -1,5 +1,10 @@
 {
   "site": {
-    "title": "Super Crux!"
+    "title": "Crux"
+  },
+  "parentBrand": {
+    "title": "Basalt",
+    "logo": "/assets/images/logos/white-grey.svg",
+    "homepage": "http://www.basalt.io"
   }
 }

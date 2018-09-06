@@ -21,7 +21,7 @@ class Header extends React.Component {
     this.renderNavigation = this.renderNavigation.bind(this);
   }
 
-  renderNavigationLinks() {
+  renderLinks(settings) {
     return (
       <ul>
         <li>
@@ -41,22 +41,26 @@ class Header extends React.Component {
         <li>
           <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
         </li>
-
-        <li>
-          <a
-            href="http://www.basalt.io"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            <img
-              src="/assets/images/logos/white-grey.svg"
-              alt="Basalt"
-              style={{ height: '1rem' }}
-            />
-          </a>
-        </li>
+        {settings.parentBrand && (
+          <li>
+            <a
+              href={settings.parentBrand.homepage}
+              style={{
+                color: 'white',
+                textDecoration: 'none',
+              }}
+            >
+              {(settings.parentBrand.logo && (
+                <img
+                  src={settings.parentBrand.logo}
+                  alt={settings.parentBrand.title}
+                  style={{ height: '1rem' }}
+                />
+              )) ||
+                settings.parentBrand.title}
+            </a>
+          </li>
+        )}
       </ul>
     );
   }
@@ -87,12 +91,12 @@ class Header extends React.Component {
     }));
   }
 
-  renderNavigation() {
+  renderNavigation(settings) {
     // If Mobile
     if (this.state.windowWidth <= 950) {
       return this.state.mobileNavVisible ? (
         <MobileNav>
-          {this.renderNavigationLinks()}
+          {this.renderLinks(settings)}
           <X onClick={this.handleNavClick} />
         </MobileNav>
       ) : (
@@ -100,20 +104,18 @@ class Header extends React.Component {
       );
     }
     // If Desktop
-    return this.renderNavigationLinks();
+    return this.renderLinks(settings);
   }
 
   render() {
     return (
       <BedrockContextConsumer>
-        {context => (
+        {({ settings }) => (
           <SiteNav>
             <h3 style={{ margin: 0 }}>
-              <SiteHeaderLink to="/">
-                {context.settings.site.title}
-              </SiteHeaderLink>
+              <SiteHeaderLink to="/">{settings.site.title}</SiteHeaderLink>
             </h3>
-            {this.renderNavigation()}
+            {this.renderNavigation(settings)}
           </SiteNav>
         )}
       </BedrockContextConsumer>
