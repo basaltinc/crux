@@ -44,6 +44,7 @@ const config = {
   resolve: {
     extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
     modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
+    mainFields: ['src', 'module', 'main'],
   },
   stats: 'none',
   devServer: {
