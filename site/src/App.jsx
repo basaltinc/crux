@@ -78,6 +78,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       patterns: [],
+      settings: initialSettings,
       ready: false,
     };
   }
@@ -103,7 +104,8 @@ export default class App extends React.Component {
           // borders: 'red',
         },
       },
-      settings: initialSettings,
+      settings: this.state.settings,
+      setSettings: (newSettings) => this.setState({ settings: newSettings }),
     });
 
     return (
