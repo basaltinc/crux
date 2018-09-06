@@ -1,14 +1,14 @@
 {
-  "name": "@basalt/bedrock-core",
+  "name": "@basalt/bedrock-schema-utils",
   "version": "0.1.2",
-  "src": "src/index.js",
   "private": true,
   "description": "A Bedrock component that helps build Design Systems",
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "src": "src/schema-utils.js",
+  "main": "dist/schema-utils.js",
+  "module": "dist/schema-utils.mjs.js",
   "scripts": {},
-  "peerDependencies": {
-    "react": "^16.4.2"
+  "dependencies": {
+    "ajv": "^6.5.3"
   },
   "author": "Basalt (http://basalt.io)",
   "license": "UNLICENSED"

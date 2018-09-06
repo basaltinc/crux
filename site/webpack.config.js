@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const Stylish = require('webpack-stylish');
+const Visualizer = require('webpack-visualizer-plugin');
 const path = require('path');
 const buildBabelConfig = require('./buildBabelConfig');
 
@@ -44,6 +45,7 @@ const config = {
   resolve: {
     extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
     modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
+    mainFields: ['src', 'module', 'main'],
   },
   stats: 'none',
   devServer: {
@@ -72,6 +74,7 @@ const config = {
         DEV_MODE: JSON.stringify(process.env.DEV_MODE),
       },
     }),
+    new Visualizer(), // view at output-dir/stats.html
   ],
   performance: {
     hints: isProd ? 'error' : false,

@@ -1,10 +1,11 @@
 {
   "name": "@basalt/bedrock-schema-form",
   "version": "0.1.2",
+  "src": "src/schema-form.jsx",
   "private": true,
   "description": "A Bedrock component that helps build Design Systems",
-  "main": "dist/schema-form.js",
-  "module": "dist/schema-form.mjs.js",
+  "main": "src/schema-form.jsx",
+  "module": "src/schema-form.jsx",
   "scripts": {},
   "dependencies": {
     "@basalt/bedrock-core": "^0.1.2",

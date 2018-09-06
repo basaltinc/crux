@@ -42,6 +42,7 @@
     "@basalt/bedrock-schema-table": "^0.1.2",
     "@basalt/bedrock-spinner": "^0.1.2",
     "@basalt/bedrock-tabbed-panel": "^0.1.2",
+    "@basalt/bedrock-schema-utils": "^0.1.2",
     "@basalt/bedrock-utils": "^0.1.2",
     "@basalt/bedrock-variation-demo": "^0.1.2",
     "@basalt/demo-data": "0.5.0",
@@ -101,6 +102,7 @@
     "webpack-command": "0.4.1",
     "webpack-dev-server": "3.1.5",
     "webpack-stylish": "0.1.8",
+    "webpack-visualizer-plugin": "0.1.11",
     "ws": "^6.0.0"
   },
   "devDependencies": {
