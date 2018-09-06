@@ -2,13 +2,12 @@ const webpack = require('webpack');
 const Stylish = require('webpack-stylish');
 const Visualizer = require('webpack-visualizer-plugin');
 const path = require('path');
-const buildBabelConfig = require('./buildBabelConfig');
 
 const isProd = process.env.NODE_ENV === 'production';
 
 const config = {
   entry: {
-    main: './src',
+    main: path.resolve(__dirname, './src'),
   },
   output: {
     filename: '[name].bundle.js',
@@ -21,8 +20,11 @@ const config = {
       {
         test: /\.(js|jsx|mjs)$/,
         loader: 'babel-loader',
-        exclude: /(node_modules)/,
-        options: buildBabelConfig(true),
+        exclude: [
+          /(node_modules)/,
+          path.resolve(__dirname, 'node_modules'),
+          path.resolve(__dirname, '../node_modules'),
+        ],
       },
       {
         test: [/\.jpeg?$/, /\.jpg?$/, /\.svg?$/, /\.png?$/],
@@ -44,7 +46,10 @@ const config = {
   devtool: isProd ? 'source-map' : 'cheap-module-source-map',
   resolve: {
     extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
-    modules: ['node_modules', path.resolve(__dirname, '../node_modules')],
+    modules: [
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(__dirname, '../node_modules'),
+    ],
     mainFields: ['src', 'module', 'main'],
   },
   stats: 'none',
