@@ -2,6 +2,7 @@ import React from 'react';
 import { BedrockContextConsumer } from '@basalt/bedrock-core';
 import { Link } from 'react-router-dom';
 import { FooterWrapper, FooterMenu, FooterMenuItem } from './footer.styles';
+import { isDevMode } from '../../../config';
 
 const today = new Date();
 const currentYear = today.getFullYear();
@@ -29,12 +30,16 @@ const Footer = () => (
               JSDocs
             </a>
           </FooterMenuItem>
-          <FooterMenuItem>
-            <Link to="/sandbox">Sandbox</Link>
-          </FooterMenuItem>
-          <FooterMenuItem>
-            <Link to="/settings">Page Settings</Link>
-          </FooterMenuItem>
+          {isDevMode && (
+            <React.Fragment>
+              <FooterMenuItem>
+                <Link to="/sandbox">Sandbox</Link>
+              </FooterMenuItem>
+              <FooterMenuItem>
+                <Link to="/settings">Page Settings</Link>
+              </FooterMenuItem>
+            </React.Fragment>
+          )}
         </FooterMenu>
         <p>
           Copyright {currentYear} -{' '}

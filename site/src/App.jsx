@@ -105,7 +105,7 @@ export default class App extends React.Component {
         },
       },
       settings: this.state.settings,
-      setSettings: (newSettings) => this.setState({ settings: newSettings }),
+      setSettings: newSettings => this.setState({ settings: newSettings }),
     });
 
     return (

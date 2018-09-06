@@ -13,6 +13,21 @@
           "title": "Title",
           "type": "string",
           "description": "The title of the site"
+        },
+        "subtitle": {
+            "title": "Subtitle",
+            "type": "string",
+            "description": "Site subtitle"
+        },
+        "slogan": {
+            "title": "Slogan",
+            "type": "string",
+            "description": "Slogan for this design system"
+        },
+        "version": {
+            "title": "Version",
+            "type": "string",
+            "description": "Current version"
         }
       }
     },
