@@ -19,32 +19,33 @@ import './global.css';
 import initialSettings from '../settings';
 import { apiUrlBase } from '../config';
 import {
-  LoadableComponentOverview,
-  LoadableVisualLanguagePage,
-  LoadableFeatureRequest,
-  LoadableReleaseNotes,
   LoadableAboutPage,
-  LoadableExamplesPage,
-  LoadableHomeSplash,
-  LoadablePlayground,
-  LoadableSketchAssets,
-  LoadableLogoDownloads,
-  LoadableBreakpoints,
   LoadableAnimations,
   LoadableBrandDescriptors,
+  LoadableBreakpoints,
   LoadableColors,
+  LoadableComponentOverview,
+  LoadableExamplesPage,
+  LoadableFeatureRequest,
   LoadableFooter,
+  LoadableHomeSplash,
   LoadableIcons,
+  LoadableLogoDownloads,
   LoadableLogoUsage,
   LoadablePatternsPage,
   LoadablePhotographyGuidelines,
+  LoadablePlayground,
+  LoadableReleaseNotes,
+  LoadableResourcesLanding,
   LoadableSandbox,
   LoadableSecondaryNav,
+  LoadableSettingsPage,
   LoadableShadows,
   LoadableSidebar,
   LoadableSpacings,
+  LoadableSketchAssets,
   LoadableTypography,
-  LoadableResourcesLanding,
+  LoadableVisualLanguagePage,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -230,6 +231,10 @@ export default class App extends React.Component {
                           <Route
                             path="/resources/brand-descriptors"
                             component={LoadableBrandDescriptors}
+                          />
+                          <Route
+                            path="/settings"
+                            component={LoadableSettingsPage}
                           />
                           <Route path="/sandbox" component={LoadableSandbox} />
                           <Route
