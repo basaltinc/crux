@@ -3,7 +3,8 @@
   "version": "0.1.2",
   "private": true,
   "scripts": {
-    "build": "rollup --config rollup.config.js",
+    "build": "echo 'no build needed - temp disabling Rollup for now'",
+    "buildOld": "rollup --config rollup.config.js",
     "fix": "yarn run lint --fix",
     "lint": "eslint --ext .js,.jsx .",
     "lint:staged": "lint-staged",
@@ -48,3 +49,4 @@
     "rollup-plugin-url": "^1.4.0"
   }
 }
+

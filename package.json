@@ -4,9 +4,9 @@
   "version": "1.2.6",
   "private": true,
   "scripts": {
-    "build": "FORCE_COLOR=1 run-s --print-label build:bedrock build:assets build:changelog build:site build:storybook",
+    "build": "FORCE_COLOR=1 run-s --print-label build:assets build:changelog build:site build:storybook",
     "build:assets": "cd crux-assets && yarn run build",
-    "build:bedrock": "cd bedrock && yarn build",
+    "Xbuild:bedrock": "cd bedrock && yarn build",
     "build:changelog": "auto-changelog --template json --output ./crux-assets/dist/changelog.json || true",
     "build:site": "cd site && yarn build",
     "build:storybook": "cd bedrock/apps/storybook && yarn build",
