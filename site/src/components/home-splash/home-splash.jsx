@@ -1,4 +1,5 @@
 import React from 'react';
+import { BedrockContextConsumer } from '@basalt/bedrock-core';
 import {
   HomeSplashCore,
   EyeBrow,
@@ -9,14 +10,22 @@ import {
 } from './home-splash.styles';
 
 const HomeSplash = () => (
-  <HomeSplashWrapper>
-    <HomeSplashCore>
-      <EyeBrow>Design System by Basalt</EyeBrow>
-      <Title>Crux</Title>
-      <Subtitle>Let Us Handle The Hard Part</Subtitle>
-      <VersionTag>v0.1-alpha</VersionTag>
-    </HomeSplashCore>
-  </HomeSplashWrapper>
+  <BedrockContextConsumer>
+    {({ settings }) => (
+      <HomeSplashWrapper>
+        <HomeSplashCore>
+          {settings.site.subtitle && (
+            <EyeBrow>{settings.site.subtitle}</EyeBrow>
+          )}
+          <Title>{settings.site.title}</Title>
+          {settings.site.slogan && <Subtitle>{settings.site.slogan}</Subtitle>}
+          {settings.site.version && (
+            <VersionTag>{settings.site.version}</VersionTag>
+          )}
+        </HomeSplashCore>
+      </HomeSplashWrapper>
+    )}
+  </BedrockContextConsumer>
 );
 
 export default HomeSplash;
