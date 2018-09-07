@@ -1,5 +1,6 @@
 import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import {
   BedrockContextProvider,
   BedrockContextConsumer,
@@ -23,5 +24,7 @@ addDecorator(story => (
     )}
   </BedrockContextConsumer>
 ));
+
+addDecorator(withKnobs);
 
 configure(loadStories, module);

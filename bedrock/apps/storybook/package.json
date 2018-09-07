@@ -17,6 +17,8 @@
     "react-dom": "^16.4.2"
   },
   "devDependencies": {
+    "@storybook/addon-knobs": "^3.4.10",
+    "@storybook/addon-viewport": "^3.4.10",
     "babel-core": "^6.26.3"
   },
   "author": "",
