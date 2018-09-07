@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-    @todo jake, can you please remove these?
+    // @todo jake, can you please remove these?
     :root {
     // animations
     --transition-time: 0.3s;
