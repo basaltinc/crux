@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaInfoCircle } from 'react-icons/fa';
 
 export const CustomFieldWrapper = styled.div`
   padding: 0.25rem 0;
@@ -30,4 +31,9 @@ export const CustomFieldWrapper = styled.div`
       margin-right: 8px;
     }
   }
+`;
+
+export const InfoIcon = styled(FaInfoCircle)`
+  margin-left: 3px;
+  color: grey;
 `;

@@ -7,13 +7,12 @@ import { boolean } from '@storybook/addon-knobs';
 const basicSchema = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
-  title: 'Basic Schema ',
-  description: 'Basic Schema Example',
+  title: 'Basic Schema',
+  required: ['text'],
   properties: {
     text: {
       title: 'Text',
       type: 'string',
-      description: 'Text',
     },
     textarea: {
       title: 'Text Area',
@@ -64,12 +63,17 @@ const kitchenSinkSchema = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
   title: 'Kitchen Sink Schema',
-  description: 'Kitchen Sink Schema Examples',
+  required: ['required'],
   properties: {
     text: {
       title: 'Text',
       type: 'string',
       description: 'Text',
+    },
+    required: {
+      title: 'Required Text',
+      type: 'string',
+      description: 'Required Text',
     },
     textarea: {
       title: 'Text Area',
@@ -223,9 +227,9 @@ const kitchenSinkSchemaUi = {
   },
   multipleChoices: {
     'ui:widget': 'checkboxes',
-    // 'ui:options': {
-    //   inline: true,
-    // },
+    'ui:options': {
+      inline: true,
+    },
   },
 };
 
@@ -233,7 +237,6 @@ const nestedSchema = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
   title: 'Grandparent',
-  description: 'Grandparent',
   properties: {
     title: {
       title: 'Title',
@@ -370,14 +373,3 @@ storiesOf('Schema Form', module)
       );
     }),
   );
-
-// storiesOf('Schema Form', module).add('Overview', () => {
-//   const isInline = boolean('isInline', false);
-//   return (
-//     <SchemaForm
-//       schema={dummyData}
-//       uiSchema={{ radio: { 'ui:widget': 'radio' } }}
-//       isInline={isInline}
-//     />
-//   );
-// });

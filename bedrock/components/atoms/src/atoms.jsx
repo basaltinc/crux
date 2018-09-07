@@ -116,14 +116,14 @@ export class Select extends React.Component {
     }
     /* eslint-enable react/prop-types */
     return (
-      <SelectStyledWrapper>
+      <SelectStyledWrapper tabIndex="0">
         {this.props.label && (
           <div className="label-text">{this.props.label}</div>
         )}
         <span>
           <select onChange={this.handleSelection} value={currentValue}>
             {this.props.items.map(item => (
-              <option value={item.value} key={item.value}>
+              <option tabIndex="0" value={item.value} key={item.value}>
                 {item.title ? item.title : item.value}
               </option>
             ))}
