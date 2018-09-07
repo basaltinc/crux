@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { SmartGrid } from '@basalt/bedrock-smart-grid';
 import {
-  PatternGrid,
   PatternGridItem,
   PatternGridItemDescription,
   PatternGridItemThumb,

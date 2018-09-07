@@ -1,6 +1,7 @@
-import { injectGlobal } from "styled-components";
+import { injectGlobal } from 'styled-components';
 
 const applyGlobalStyles = () => {
+  /* eslint-disable-next-line no-unused-expressions */
   injectGlobal`
     @charset "UTF-8";
     * {
