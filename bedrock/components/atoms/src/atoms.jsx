@@ -57,6 +57,7 @@ export const SelectStyledWrapper = styled.label`
   }
   /* stylelint-disable property-no-vendor-prefix */
   select {
+    max-width: 100%;
     background-color: ${props => props.theme.colors['neutral-light']};
     font-size: 1rem;
     border: ${props => props.theme.form.input['border-none']};
@@ -87,6 +88,7 @@ export const SelectStyledWrapper = styled.label`
     border: ${props => props.theme.form.input['border-none']};
     border-radius: ${props => props.theme.border.radius};
     height: ${props => props.theme.form.input.height};
+    max-width: 100%;
   }
 `;
 

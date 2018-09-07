@@ -223,6 +223,9 @@ const kitchenSinkSchemaUi = {
   },
   multipleChoices: {
     'ui:widget': 'checkboxes',
+    // 'ui:options': {
+    //   inline: true,
+    // },
   },
 };
 
