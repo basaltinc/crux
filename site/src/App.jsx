@@ -82,7 +82,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    applyGlobalStyles();
+    applyGlobalStyles(); // Applies global bedrock styles, such as typography
     window
       .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
@@ -106,165 +106,167 @@ export default class App extends React.Component {
     });
 
     return (
-      <ErrorCatcher>
-        <BedrockContextProvider value={cruxContext}>
-          <BedrockContextConsumer>
-            {({ theme }) => (
-              <ThemeProvider theme={theme}>
-                <Router>
-                  <div>
-                    <Route
-                      path="/"
-                      component={routeProps => (
-                        <Header siteTitle="Crux" {...routeProps} />
-                      )}
-                    />
-                    <Site>
-                      <Switch>
-                        <Route path="/" exact />
-                        <Route path="/examples/*" />
-                        <Route
-                          path="/"
-                          render={({ location }) => (
-                            <LoadableSidebar>
-                              <LoadableSecondaryNav
-                                patterns={this.state.patterns}
-                                location={location}
-                              />
-                            </LoadableSidebar>
-                          )}
-                        />
-                      </Switch>
-                      <MainContent>
+      <React.StrictMode>
+        <ErrorCatcher>
+          <BedrockContextProvider value={cruxContext}>
+            <BedrockContextConsumer>
+              {({ theme }) => (
+                <ThemeProvider theme={theme}>
+                  <Router>
+                    <div>
+                      <Route
+                        path="/"
+                        component={routeProps => (
+                          <Header siteTitle="Crux" {...routeProps} />
+                        )}
+                      />
+                      <Site>
                         <Switch>
+                          <Route path="/" exact />
+                          <Route path="/examples/*" />
                           <Route
                             path="/"
-                            component={LoadableHomeSplash}
-                            exact
-                          />
-
-                          <Route
-                            path="/examples/:id"
-                            render={({ match }) => (
-                              <LoadablePlayground
-                                id={match.params.id}
-                                patterns={this.state.patterns}
-                              />
+                            render={({ location }) => (
+                              <LoadableSidebar>
+                                <LoadableSecondaryNav
+                                  patterns={this.state.patterns}
+                                  location={location}
+                                />
+                              </LoadableSidebar>
                             )}
                           />
-                          <Route
-                            path="/examples"
-                            component={LoadableExamplesPage}
-                            exact
-                          />
-                          <Route
-                            path="/about"
-                            component={LoadableAboutPage}
-                            exact
-                          />
-                          <Route
-                            path="/about/release-notes"
-                            component={LoadableReleaseNotes}
-                          />
-                          <Route
-                            path="/about/feature-requests"
-                            component={LoadableFeatureRequest}
-                          />
-                          <Route
-                            path="/visual-language"
-                            component={LoadableVisualLanguagePage}
-                            exact
-                          />
-                          <Route
-                            path="/visual-language/animations"
-                            component={LoadableAnimations}
-                          />
-                          <Route
-                            path="/visual-language/breakpoints"
-                            component={LoadableBreakpoints}
-                          />
-                          <Route
-                            path="/visual-language/colors"
-                            component={LoadableColors}
-                          />
-                          <Route
-                            path="/visual-language/shadows"
-                            component={LoadableShadows}
-                          />
-                          <Route
-                            path="/visual-language/spacings"
-                            component={LoadableSpacings}
-                          />
-                          <Route
-                            path="/visual-language/typography"
-                            component={LoadableTypography}
-                          />
-                          <Route
-                            path="/visual-language/icons"
-                            component={LoadableIcons}
-                          />
-                          <Route
-                            path="/patterns"
-                            component={LoadablePatternsPage}
-                            exact
-                          />
-                          <Route
-                            path="/resources"
-                            component={LoadableResourcesLanding}
-                            exact
-                          />
-                          <Route
-                            path="/resources/logo-downloads"
-                            component={LoadableLogoDownloads}
-                          />
-                          <Route
-                            path="/resources/logo-usage"
-                            component={LoadableLogoUsage}
-                          />
-                          <Route
-                            path="/resources/photography-guidelines"
-                            component={LoadablePhotographyGuidelines}
-                          />
-                          <Route
-                            path="/resources/sketch-assets"
-                            component={LoadableSketchAssets}
-                          />
-                          <Route
-                            path="/resources/brand-descriptors"
-                            component={LoadableBrandDescriptors}
-                          />
-                          <Route path="/sandbox" component={LoadableSandbox} />
-                          <Route
-                            path="/patterns/components/:id"
-                            render={({ match }) => (
-                              <LoadableComponentOverview
-                                id={match.params.id}
-                                size="m"
-                                key={match.params.id}
-                              />
-                            )}
-                          />
-                          <Route
-                            path="/resources/:id"
-                            render={({ match }) => {
-                              const Component = [match.id];
-                              return <Component />;
-                            }}
-                          />
-                          <Redirect to="/" />
                         </Switch>
-                      </MainContent>
-                    </Site>
-                    <SiteFooter>
-                      <LoadableFooter />
-                    </SiteFooter>
-                  </div>
-                </Router>
-              </ThemeProvider>
-            )}
-          </BedrockContextConsumer>
-        </BedrockContextProvider>
-      </ErrorCatcher>
+                        <MainContent>
+                          <Switch>
+                            <Route
+                              path="/"
+                              component={LoadableHomeSplash}
+                              exact
+                            />
+
+                            <Route
+                              path="/examples/:id"
+                              render={({ match }) => (
+                                <LoadablePlayground
+                                  id={match.params.id}
+                                  patterns={this.state.patterns}
+                                />
+                              )}
+                            />
+                            <Route
+                              path="/examples"
+                              component={LoadableExamplesPage}
+                              exact
+                            />
+                            <Route
+                              path="/about"
+                              component={LoadableAboutPage}
+                              exact
+                            />
+                            <Route
+                              path="/about/release-notes"
+                              component={LoadableReleaseNotes}
+                            />
+                            <Route
+                              path="/about/feature-requests"
+                              component={LoadableFeatureRequest}
+                            />
+                            <Route
+                              path="/visual-language"
+                              component={LoadableVisualLanguagePage}
+                              exact
+                            />
+                            <Route
+                              path="/visual-language/animations"
+                              component={LoadableAnimations}
+                            />
+                            <Route
+                              path="/visual-language/breakpoints"
+                              component={LoadableBreakpoints}
+                            />
+                            <Route
+                              path="/visual-language/colors"
+                              component={LoadableColors}
+                            />
+                            <Route
+                              path="/visual-language/shadows"
+                              component={LoadableShadows}
+                            />
+                            <Route
+                              path="/visual-language/spacings"
+                              component={LoadableSpacings}
+                            />
+                            <Route
+                              path="/visual-language/typography"
+                              component={LoadableTypography}
+                            />
+                            <Route
+                              path="/visual-language/icons"
+                              component={LoadableIcons}
+                            />
+                            <Route
+                              path="/patterns"
+                              component={LoadablePatternsPage}
+                              exact
+                            />
+                            <Route
+                              path="/resources"
+                              component={LoadableResourcesLanding}
+                              exact
+                            />
+                            <Route
+                              path="/resources/logo-downloads"
+                              component={LoadableLogoDownloads}
+                            />
+                            <Route
+                              path="/resources/logo-usage"
+                              component={LoadableLogoUsage}
+                            />
+                            <Route
+                              path="/resources/photography-guidelines"
+                              component={LoadablePhotographyGuidelines}
+                            />
+                            <Route
+                              path="/resources/sketch-assets"
+                              component={LoadableSketchAssets}
+                            />
+                            <Route
+                              path="/resources/brand-descriptors"
+                              component={LoadableBrandDescriptors}
+                            />
+                            <Route path="/sandbox" component={LoadableSandbox} />
+                            <Route
+                              path="/patterns/components/:id"
+                              render={({ match }) => (
+                                <LoadableComponentOverview
+                                  id={match.params.id}
+                                  size="m"
+                                  key={match.params.id}
+                                />
+                              )}
+                            />
+                            <Route
+                              path="/resources/:id"
+                              render={({ match }) => {
+                                const Component = [match.id];
+                                return <Component />;
+                              }}
+                            />
+                            <Redirect to="/" />
+                          </Switch>
+                        </MainContent>
+                      </Site>
+                      <SiteFooter>
+                        <LoadableFooter />
+                      </SiteFooter>
+                    </div>
+                  </Router>
+                </ThemeProvider>
+              )}
+            </BedrockContextConsumer>
+          </BedrockContextProvider>
+        </ErrorCatcher>
+      </React.StrictMode>
     );
   }
 }
