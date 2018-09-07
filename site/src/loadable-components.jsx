@@ -173,3 +173,9 @@ export const LoadableDosAndDonts = Loadable({
     import(/* webpackChunkName: 'dos-and-donts' */ '@basalt/bedrock-dos-and-donts'),
   loading: Spinner,
 });
+
+export const LoadableSettingsPage = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'patterns-page' */ './pages/settings'),
+  loading: Spinner,
+});

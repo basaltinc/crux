@@ -16,35 +16,38 @@ import {
 } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header/header';
-import { apiUrlBase } from '../config';
 import {
-  LoadableComponentOverview,
-  LoadableVisualLanguagePage,
-  LoadableFeatureRequest,
-  LoadableReleaseNotes,
   LoadableAboutPage,
-  LoadableExamplesPage,
-  LoadableHomeSplash,
-  LoadablePlayground,
-  LoadableSketchAssets,
-  LoadableLogoDownloads,
-  LoadableBreakpoints,
   LoadableAnimations,
   LoadableBrandDescriptors,
+  LoadableBreakpoints,
   LoadableColors,
+  LoadableComponentOverview,
+  LoadableExamplesPage,
+  LoadableFeatureRequest,
   LoadableFooter,
+  LoadableHomeSplash,
   LoadableIcons,
+  LoadableLogoDownloads,
   LoadableLogoUsage,
   LoadablePatternsPage,
   LoadablePhotographyGuidelines,
+  LoadablePlayground,
+  LoadableReleaseNotes,
+  LoadableResourcesLanding,
   LoadableSandbox,
   LoadableSecondaryNav,
+  LoadableSettingsPage,
   LoadableShadows,
   LoadableSidebar,
+  LoadableSketchAssets,
   LoadableSpacings,
   LoadableTypography,
-  LoadableResourcesLanding,
+  LoadableVisualLanguagePage,
 } from './loadable-components';
+import initialSettings from '../settings';
+import { apiUrlBase } from '../config';
+
 
 const Site = styled.div`
   display: flex;
@@ -76,6 +79,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       patterns: [],
+      settings: initialSettings,
       ready: false,
     };
   }
@@ -102,6 +106,8 @@ export default class App extends React.Component {
           // borders: 'red',
         },
       },
+      settings: this.state.settings,
+      setSettings: newSettings => this.setState({ settings: newSettings }),
     });
 
     return (
@@ -117,9 +123,7 @@ export default class App extends React.Component {
                       <div>
                         <Route
                           path="/"
-                          component={routeProps => (
-                            <Header siteTitle="Crux" {...routeProps} />
-                          )}
+                          component={routeProps => <Header {...routeProps} />}
                         />
                         <Site>
                           <Switch>
@@ -144,7 +148,6 @@ export default class App extends React.Component {
                                 component={LoadableHomeSplash}
                                 exact
                               />
-
                               <Route
                                 path="/examples/:id"
                                 render={({ match }) => (
@@ -234,6 +237,10 @@ export default class App extends React.Component {
                               <Route
                                 path="/resources/brand-descriptors"
                                 component={LoadableBrandDescriptors}
+                              />
+                              <Route
+                                path="/settings"
+                                component={LoadableSettingsPage}
                               />
                               <Route
                                 path="/sandbox"

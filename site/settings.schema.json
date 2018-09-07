@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "Settings",
+  "description": "Settings for building a design system management site based on Bedrock",
+  "properties": {
+    "site": {
+      "title": "Site",
+      "type": "object",
+      "description": "Settings related to site meta data, such as title and brand logos",
+      "properties": {
+        "title": {
+          "title": "Title",
+          "type": "string",
+          "description": "The title of the site"
+        },
+        "subtitle": {
+            "title": "Subtitle",
+            "type": "string",
+            "description": "Site subtitle"
+        },
+        "slogan": {
+            "title": "Slogan",
+            "type": "string",
+            "description": "Slogan for this design system"
+        },
+        "version": {
+            "title": "Version",
+            "type": "string",
+            "description": "Current version"
+        }
+      }
+    },
+    "parentBrand": {
+      "title": "Parent Brand",
+      "type": "object",
+      "description": "Settings related to the parent brand that owns/uses the design system",
+      "properties": {
+        "logo": {
+          "title": "Logo",
+          "type": "string",
+          "description": "URI of image file for brand logo"
+        },
+        "title": {
+            "title": "Title",
+            "type": "string",
+            "description": "Title/name of the parent brand"
+        },
+        "homepage": {
+            "title": "Homepage",
+            "type": "string",
+            "description": "URI of homepage of parent brand"
+        }
+      }
+    }
+  }
+}

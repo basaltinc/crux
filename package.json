@@ -37,7 +37,7 @@
     "test:source": "cd crux-assets && yarn test",
     "watch": "pick-npm-run-all watch:",
     "watch:serve:site": "nodemon --watch site/server/ --exec 'yarn serve:site' ",
-    "watch:webpack": "webpack-dev-server --config site/webpack.config.js --info=false",
+    "watch:webpack": "DEV_MODE=yes webpack-dev-server --config site/webpack.config.js --info=false",
     "watch:storybook": "cd bedrock/apps/storybook && yarn start",
     "watch:assets": "cd crux-assets && yarn start"
   },
