@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import { getTypeColor } from '@basalt/bedrock/packages/core/src/context';
+
 const PatternGrid = styled.ul`
   display: flex;
   align-items: stretch;
-  margin: 50px;
+  margin-top: 50px;
   padding: 0;
   list-style-type: none;
 `;
