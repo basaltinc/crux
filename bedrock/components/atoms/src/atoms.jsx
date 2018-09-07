@@ -318,7 +318,7 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
 `;
 
-export const TypeToFilterInputWrapper = TextInputWrapper.extend`
+export const TypeToFilterInputWrapper = styled(TextInputWrapper)`
   display: flex;
 `;
 

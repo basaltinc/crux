@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import Spinner from '@basalt/bedrock-spinner';
-import applyGlobalStyles from '@basalt/bedrock-global-styles';
+import GlobalStyles from '@basalt/bedrock-global-styles';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import {
   BedrockContextConsumer,
@@ -16,7 +16,6 @@ import {
 } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header/header';
-import './global.css';
 import { apiUrlBase } from '../config';
 import {
   LoadableComponentOverview,
@@ -82,7 +81,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    applyGlobalStyles(); // Applies global bedrock styles, such as typography
+    // applyGlobalStyles(); // Applies global bedrock styles, such as typography
     window
       .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
@@ -112,6 +111,8 @@ export default class App extends React.Component {
             <BedrockContextConsumer>
               {({ theme }) => (
                 <ThemeProvider theme={theme}>
+                  <React.Fragment>
+                  <GlobalStyles />
                   <Router>
                     <div>
                       <Route
@@ -261,6 +262,7 @@ export default class App extends React.Component {
                       </SiteFooter>
                     </div>
                   </Router>
+                  </React.Fragment>
                 </ThemeProvider>
               )}
             </BedrockContextConsumer>

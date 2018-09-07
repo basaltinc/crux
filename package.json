@@ -112,7 +112,7 @@
     "react-table": "^6.8.6",
     "react-test-render": "^1.1.1",
     "style-loader": "^0.22.1",
-    "styled-components": "^3.4.2",
+    "styled-components": "^4.0.0",
     "stylelint": "^9.5.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",

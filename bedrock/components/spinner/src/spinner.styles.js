@@ -35,6 +35,6 @@ export const CubeOne = styled.div`
   animation: ${SquareDance} 1.8s infinite ease-in-out;
 `;
 
-export const CubeTwo = CubeOne.extend`
+export const CubeTwo = styled(CubeOne)`
   animation-delay: -0.9s;
 `;
