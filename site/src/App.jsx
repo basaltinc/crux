@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import styled, { ThemeProvider } from 'styled-components';
 import Spinner from '@basalt/bedrock-spinner';
+import applyGlobalStyles from '@basalt/bedrock-global-styles';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import {
   BedrockContextConsumer,
@@ -81,6 +82,7 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    applyGlobalStyles();
     window
       .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
