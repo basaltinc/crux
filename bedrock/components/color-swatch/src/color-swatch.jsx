@@ -1,38 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { convertColor } from '@basalt/bedrock-utils';
 import { Select } from '@basalt/bedrock-atoms';
-
-const OuterSwatch = styled.div`
-  width: 49%;
-  margin-bottom: 10px;
-  padding: 5px;
-  border: solid 1px ${props => props.theme.colors.neutral};
-`;
-
-const InnerSwatch = styled.div`
-  height: 50px;
-  background-color: ${props => (props.colorValue ? props.colorValue : 'auto')};
-  border: dashed 1px ${props => props.theme.colors.neutral};
-`;
-
-const RightLabel = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-`;
-
-const SwatchesWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-`;
-
-const CopyToClipboardWrapper = styled.div`
-  float: right;
-`;
+import {
+  OuterSwatch,
+  RightLabel,
+  InnerSwatch,
+  CopyToClipboardWrapper,
+  SwatchesWrapper,
+} from './color-swatch.styles';
 
 const ColorSwatch = ({ color, format }) => {
   const colorValue = convertColor(color.value, format);

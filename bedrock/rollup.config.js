@@ -21,59 +21,48 @@ const clearDist = false;
 const configs = [
   {
     dir: './components/api-demo',
-    entry: 'src/api-demo.jsx',
   },
   {
     dir: './components/atoms',
-    entry: 'src/atoms.jsx',
   },
   {
     dir: './components/color-contrast-block',
-    entry: 'src/color-contrast-block.jsx',
   },
   {
     dir: './components/color-swatch',
-    entry: 'src/color-swatch.jsx',
   },
   {
     dir: './components/dos-and-donts',
-    entry: 'src/dos-and-donts.jsx',
   },
   {
     dir: './components/error-catcher',
-    entry: 'src/error-catcher.jsx',
   },
   {
     dir: './components/schema-form',
-    entry: 'src/schema-form.jsx',
   },
   {
     dir: './components/schema-table',
-    entry: 'src/schema-table.jsx',
   },
   {
     dir: './components/spinner',
-    entry: 'src/spinner.jsx',
   },
   {
     dir: './components/tabbed-panel',
-    entry: 'src/tabbed-panel.jsx',
   },
   {
     dir: './components/variation-demo',
-    entry: 'src/variation-demo.jsx',
   },
   {
     dir: './packages/utils',
-    entry: 'src/index.js',
+  },
+  {
+    dir: './packages/schema-utils',
   },
   {
     dir: './packages/core',
-    entry: 'src/index.js',
   },
   // {
   //   dir: './packages/core',
-  //   entry: 'src/index.js',
   //   external: [
   //     'ajv',
   //     'ajv-keywords',
@@ -81,7 +70,7 @@ const configs = [
   //     'lodash.merge',
   //   ],
   // },
-].map(({ dir, entry, only = [], external = [] }) => {
+].map(({ dir, only = [], external = [] }) => {
   const packageJsonPath = resolve(dir, 'package.json');
   const pkg = require(packageJsonPath); // eslint-disable-line
   const { dependencies = {} } = pkg;
@@ -118,7 +107,7 @@ const configs = [
   }
 
   return {
-    input: join(dir, entry),
+    input: join(dir, pkg.src),
     output: [
       {
         file: join(dir, pkg.main),

@@ -1,10 +1,11 @@
 {
   "name": "@basalt/bedrock-dos-and-donts",
-  "version": "0.1.1",
+  "version": "0.1.2",
+  "src": "src/dos-and-donts.jsx",
   "private": true,
   "description": "A Bedrock component that helps build Design Systems",
-  "main": "dist/dos-and-donts.js",
-  "module": "dist/dos-and-donts.mjs.js",
+  "main": "src/dos-and-donts.jsx",
+  "module": "src/dos-and-donts.jsx",
   "scripts": {},
   "devDependencies": {
     "prop-types": "^15.0.0",
@@ -17,6 +18,6 @@
   "author": "Basalt (http://basalt.io)",
   "license": "UNLICENSED",
   "dependencies": {
-    "@basalt/bedrock-core": "^0.1.1"
+    "@basalt/bedrock-core": "^0.1.2"
   }
 }

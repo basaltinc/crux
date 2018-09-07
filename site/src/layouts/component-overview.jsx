@@ -1,32 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Loadable from 'react-loadable';
 import styled from 'styled-components';
 import Spinner from '@basalt/bedrock-spinner';
 import { Details, Select } from '@basalt/bedrock-atoms';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import ApiDemo from '@basalt/bedrock-api-demo';
-import Twig from '../components/twig';
+import Twig from '../components/twig/twig';
 import { apiUrlBase, websocketsPort, isDevMode } from '../../config';
-import Overview from '../components/overview';
-
-const LoadableSchemaTable = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'schema-table' */ '@basalt/bedrock-schema-table'),
-  loading: Spinner,
-});
-
-const LoadableVariationDemo = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'variation-demo' */ '@basalt/bedrock-variation-demo'),
-  loading: Spinner,
-});
-
-const LoadableDosAndDonts = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'dos-and-donts' */ '@basalt/bedrock-dos-and-donts'),
-  loading: Spinner,
-});
+import Overview from '../components/overview/overview';
+import {
+  LoadableSchemaTable,
+  LoadableVariationDemo,
+  LoadableDosAndDonts,
+} from '../loadable-components';
 
 const OverviewHeader = styled.header`
   position: relative;

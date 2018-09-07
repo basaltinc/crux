@@ -23,7 +23,9 @@ const AboutPage = () => (
     </ul>
     <h3 id="usingcrux">Using Crux</h3>
     <pre>
-      <code className="bash language-bash">yarn install @basalt/crux-ass</code>
+      <code className="bash language-bash">
+        yarn install @basalt/crux-assets
+      </code>
     </pre>
     <p>
       After installation, you will need to register Twig namespaces for the

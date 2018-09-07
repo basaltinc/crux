@@ -10,7 +10,7 @@ export async function getColors(format) {
   const colorsFile = await fs.readFile(
     join(
       __dirname,
-      '../../../source/_patterns/00-styleguide/05-colors/colors.json',
+      '../../../crux-assets/_patterns/00-styleguide/05-colors/colors.json',
     ),
     'utf8',
   );

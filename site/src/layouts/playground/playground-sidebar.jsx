@@ -1,42 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import {
   ClearFilterButton,
   TypeToFilter,
   TypeToFilterInputWrapper,
 } from '@basalt/bedrock-atoms';
-import SchemaForm from '@basalt/bedrock-schema-form';
 import { Link } from 'react-router-dom';
 import PlaygroundEditForm from './playground-edit-form';
 import { SIDEBAR_FORM, SIDEBAR_PATTERNS } from './index';
-
-const PatternListItemWrapper = styled.li`
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  margin: 1.5rem 0;
-  img {
-    width: 50px;
-    height: 50px;
-  }
-  > div {
-    &:hover,
-    &:active {
-      cursor: pointer;
-    }
-  }
-  a {
-    font-size: 13.5px;
-  }
-`;
-
-export const PlaygroundStyledSchemaForm = styled(SchemaForm)`
-  > div > label {
-    display: none;
-  }
-  margin-bottom: 1rem;
-`;
+import {
+  PatternListItemWrapper,
+  PlaygroundStyledSchemaForm,
+} from './playground.styles';
 
 class PlaygroundSidebar extends Component {
   constructor(props) {
@@ -74,6 +49,7 @@ class PlaygroundSidebar extends Component {
           handleChange={data => this.props.handleEditFormChange(data)}
           handleError={console.error}
           handleHideEditForm={this.props.handleHideEditForm}
+          handleClearData={data => this.props.handleClearData(data)}
         />
       );
     }
@@ -116,6 +92,16 @@ class PlaygroundSidebar extends Component {
             </TypeToFilterInputWrapper>
           </TypeToFilter>
           <ul>{items.map(pattern => this.renderPatternListItem(pattern))}</ul>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <button
+              onClick={this.props.handleCancelAddSlice}
+              onKeyPress={this.props.handleCancelAddSlice}
+              type="button"
+              className="button button--color-white button--size-small"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       );
     }
@@ -186,6 +172,8 @@ PlaygroundSidebar.propTypes = {
   filterTerm: PropTypes.string.isRequired,
   handleAddSlice: PropTypes.func.isRequired,
   handleEditFormChange: PropTypes.func.isRequired,
+  handleClearData: PropTypes.func.isRequired,
+  handleCancelAddSlice: PropTypes.func.isRequired,
   handleFilterChange: PropTypes.func.isRequired,
   handleFilterReset: PropTypes.func.isRequired,
   handleHideEditForm: PropTypes.func.isRequired,

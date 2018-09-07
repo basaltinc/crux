@@ -1,47 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import arrayMove from 'array-move';
-import styled from 'styled-components';
 import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
 import { StatusMessage } from '@basalt/bedrock-atoms';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import PlaygroundSlice from './playground-slice';
 import PlaygroundSidebar from './playground-sidebar';
-import Sidebar from '../../components/sidebar';
+import Sidebar from '../../components/sidebar/sidebar';
 import { apiUrlBase } from '../../../config';
-
-const MainContent = styled.div`
-  flex-grow: 1;
-  padding: var(--spacing-l);
-  overflow-y: scroll;
-  box-sizing: border-box;
-`;
-
-const Page = styled.div`
-  display: flex;
-  justify-content: center;
-  height: calc(100vh - 175px);
-  max-width: 100vw;
-  // @todo fix this temp workaround for negatting the "MainContent" padding
-  margin: calc(-1 * var(--spacing-l));
-`;
-
-const StartInsertSlice = styled.div`
-  display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
-  ${props => props.isActive && 'box-shadow: 0 0 1.5rem #e1c933;'};
-  border: dashed 1px lightgrey;
-  text-align: center;
-  cursor: pointer;
-  padding: 1rem;
-  margin: 1rem 0;
-  transition: all 0.3s ease;
-  &:hover,
-  &:active {
-    color: #e1c933;
-    border: dashed 1px #e1c933;
-    text-decoration: underline;
-  }
-`;
+import { MainContent, StartInsertSlice, Page } from './playground.styles';
 
 // Export of allowed sidebarContent states
 export const SIDEBAR_DEFAULT = 'default';
@@ -63,7 +32,9 @@ class Playground extends Component {
       statusMessage: '',
       statusType: 'info',
       hasVisibleControls: true,
+      changeId: null,
     };
+    this.moveSlice = this.moveSlice.bind(this);
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
     this.deleteSlice = this.deleteSlice.bind(this);
@@ -72,10 +43,13 @@ class Playground extends Component {
     this.getTemplateFromPatternId = this.getTemplateFromPatternId.bind(this);
     this.handleAddSlice = this.handleAddSlice.bind(this);
     this.handleEditFormChange = this.handleEditFormChange.bind(this);
+    this.handleClearData = this.handleClearData.bind(this);
+    this.handleCancelAddSlice = this.handleCancelAddSlice.bind(this);
     this.handleFilterChange = this.handleFilterChange.bind(this);
     this.handleFilterReset = this.handleFilterReset.bind(this);
     this.handleMetaFormChange = this.handleMetaFormChange.bind(this);
     this.handleStartInsertSlice = this.handleStartInsertSlice.bind(this);
+    this.briefHighlight = this.briefHighlight.bind(this);
   }
 
   componentDidMount() {
@@ -137,6 +111,11 @@ class Playground extends Component {
           statusMessage: results.message,
           statusType: results.ok ? 'success' : 'error',
         });
+        setTimeout(() => {
+          this.setState({
+            statusMessage: '',
+          });
+        }, 3000);
       });
   }
 
@@ -144,29 +123,53 @@ class Playground extends Component {
     this.setState({
       editFormSliceId: null,
       sidebarContent: SIDEBAR_DEFAULT,
+      changeId: null,
     });
   }
 
   /**
-   * @param {number} index - Index of item in `this.state.slices` to move up
+   * Move Slice
+   * @param {number} fromIndex - Move this item
+   * @param {number} toIndex - To this index
+   * @param {string} id - Slice Id
    * @return {null} - sets state
    */
-  moveSliceUp(index) {
+  moveSlice(fromIndex, toIndex, id) {
+    this.setState(prevState => ({
+      slices: arrayMove(prevState.slices, fromIndex, toIndex),
+      editFormInsertionIndex: null,
+    }));
+    this.briefHighlight(id);
+  }
+
+  /**
+   * @param {number} index - Index of item in `this.state.slices` to move up
+   * @param {number} id - ID of item in `this.state.slices` to move up
+   * @return {null} - sets state
+   */
+  moveSliceUp(index, id) {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index - 1),
       editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
+      editFormSliceId: null,
     }));
+    this.briefHighlight(id);
   }
 
   /**
    * @param {number} index - Index of item in `this.state.slices` to move down
+   * @param {number} id - ID of item in `this.state.slices` to move down
    * @return {null} - sets state
    */
-  moveSliceDown(index) {
+  moveSliceDown(index, id) {
     this.setState(prevState => ({
       slices: arrayMove(prevState.slices, index, index + 1),
       editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
+      editFormSliceId: null,
     }));
+    this.briefHighlight(id);
   }
 
   deleteSlice(sliceId) {
@@ -175,6 +178,25 @@ class Playground extends Component {
       sidebarContent: SIDEBAR_DEFAULT,
       editFormInsertionIndex: null,
     }));
+    this.setState({
+      statusMessage: 'Slice Deleted',
+    });
+    setTimeout(() => {
+      this.setState({
+        statusMessage: '',
+      });
+    }, 3000);
+  }
+
+  briefHighlight(sliceId) {
+    this.setState({
+      changeId: sliceId,
+    });
+    setTimeout(() => {
+      this.setState({
+        changeId: null,
+      });
+    }, 1000);
   }
 
   /**
@@ -201,6 +223,7 @@ class Playground extends Component {
         editFormInsertionIndex: null,
       };
     });
+    this.briefHighlight(id);
     this.handleFilterReset();
   }
 
@@ -208,6 +231,7 @@ class Playground extends Component {
     this.setState({
       sidebarContent: SIDEBAR_PATTERNS,
       editFormInsertionIndex: index,
+      editFormSliceId: null,
     });
   }
 
@@ -220,6 +244,25 @@ class Playground extends Component {
         return slice;
       }),
     }));
+  }
+
+  handleClearData() {
+    this.setState(prevState => ({
+      slices: prevState.slices.map(slice => {
+        if (slice.id === prevState.editFormSliceId) {
+          slice.data = {};
+        }
+        return slice;
+      }),
+    }));
+  }
+
+  handleCancelAddSlice() {
+    this.setState({
+      editFormSliceId: null,
+      editFormInsertionIndex: null,
+      sidebarContent: SIDEBAR_DEFAULT,
+    });
   }
 
   handleFilterChange(event) {
@@ -248,6 +291,8 @@ class Playground extends Component {
             filterTerm={this.state.filterTerm}
             handleAddSlice={this.handleAddSlice}
             handleEditFormChange={this.handleEditFormChange}
+            handleClearData={this.handleClearData}
+            handleCancelAddSlice={this.handleCancelAddSlice}
             handleHideEditForm={this.handleHideEditForm}
             handleFilterChange={this.handleFilterChange}
             handleFilterReset={this.handleFilterReset}
@@ -291,6 +336,8 @@ class Playground extends Component {
               <React.Fragment key={`${slice.id}--fragment`}>
                 <PlaygroundSlice
                   key={slice.id}
+                  id={slice.id}
+                  index={sliceIndex}
                   template={template.name}
                   data={slice.data}
                   showEditForm={() => {
@@ -300,14 +347,20 @@ class Playground extends Component {
                       sidebarContent: SIDEBAR_FORM,
                       editFormInsertionIndex: null,
                     });
+                    this.briefHighlight(slice.id);
                   }}
                   deleteMe={() => this.deleteSlice(slice.id)}
-                  moveUp={() => this.moveSliceUp(sliceIndex)}
-                  moveDown={() => this.moveSliceDown(sliceIndex)}
+                  moveSlice={(dragIndex, hoverIndex) => {
+                    console.log('moving...', { dragIndex, hoverIndex });
+                    this.moveSlice(dragIndex, hoverIndex, slice.id);
+                  }}
+                  moveUp={() => this.moveSliceUp(sliceIndex, slice.id)}
+                  moveDown={() => this.moveSliceDown(sliceIndex, slice.id)}
                   hasVisibleControls={hasVisibleControls}
                   isBeingEdited={this.state.editFormSliceId === slice.id}
                   isFirst={sliceIndex === 0}
                   isLast={this.state.slices.length - 1 === sliceIndex}
+                  isChanged={this.state.changeId === slice.id}
                 />
                 <StartInsertSlice
                   key={`${slice.id}--handleAddSlice`}
@@ -339,4 +392,4 @@ Playground.propTypes = {
   id: PropTypes.string.isRequired, // @todo save/show playgrounds based on `id`
 };
 
-export default Playground;
+export default DragDropContext(HTML5Backend)(Playground);
