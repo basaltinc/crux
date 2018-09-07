@@ -3,6 +3,7 @@ import ApiDemo from '@basalt/bedrock-api-demo';
 import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import Spinner from '@basalt/bedrock-spinner';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
+import Twig from '../../../components/twig/twig';
 import { apiUrlBase } from '../../../../config';
 import { DemoTransitionMove, DemoTransitionOpacity } from './animations.styles';
 
@@ -64,24 +65,20 @@ class AnimationsPage extends React.Component {
             <DemoTransitionOpacity>
               <strong>Opacity</strong> (Hover to see effect)
             </DemoTransitionOpacity>
-            <div
-              className="media-tile u-text-align-center"
-              data-linkto="#"
-              style={{
-                backgroundImage:
-                  'url(https://basalt-demo-data.netlify.com/basalt-brand-stock/julentto-photography-184055.jpg)',
+            <Twig
+              template="@components/_media-tile.twig"
+              data={{
+                title: 'Hover this Media Tile',
+                body:
+                  'Hovering over this Media Tile will cause the opacity of the image overlay to transition to a more opaque color.',
+                background_image:
+                  'https://basalt-demo-data.netlify.com/basalt-brand-stock/julentto-photography-184055.jpg',
+                url: '#',
+                text_align: 'center',
+                title_text_color: 'white',
+                body_text_color: 'white',
               }}
-            >
-              <div className="media-tile__content u-padding--l">
-                <h2 className="media-tile__title u-c-white h2">
-                  Hover over this Media Tile
-                </h2>
-                <div className="media-tile__body media-tile__body u-c-white">
-                  Hovering over this Media Tile will cause the opacity of the
-                  image overlay to transition to a more opaque color.
-                </div>
-              </div>
-            </div>
+            />
           </TwoUp>
           <br />
           <h4>Movement</h4>

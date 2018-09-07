@@ -149,12 +149,13 @@ Select.propTypes = {
   label: PropTypes.string,
 };
 
+// @todo Replace use of this temp solution with SmartGrid
 export const TwoUp = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 2.25rem;
-  & > * {
+  && > * {
     width: 48%;
   }
 `;
@@ -317,7 +318,7 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
 `;
 
-export const TypeToFilterInputWrapper = TextInputWrapper.extend`
+export const TypeToFilterInputWrapper = styled(TextInputWrapper)`
   display: flex;
 `;
 

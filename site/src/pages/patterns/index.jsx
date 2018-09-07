@@ -7,7 +7,7 @@ import ComponentBoard from '../../components/component-board/component-board';
 import { apiUrlBase } from '../../../config';
 
 const PatternsHeader = styled.div`
-  margin-left: 50px;
+  //margin-left: 50px;
 `;
 
 class PatternsPage extends Component {
