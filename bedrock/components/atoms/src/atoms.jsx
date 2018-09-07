@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { SmartGrid } from '../../smart-grid';
 
 export * from './status-message';
 
@@ -149,12 +150,13 @@ Select.propTypes = {
   label: PropTypes.string,
 };
 
+// @todo Replace use of this temp solution with SmartGrid
 export const TwoUp = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 2.25rem;
-  & > * {
+  && > * {
     width: 48%;
   }
 `;

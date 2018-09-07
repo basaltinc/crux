@@ -85,7 +85,7 @@ module.exports = {
         'XX Large',
       ],
     },
-    media: {
+    background_image: {
       type: 'string',
       title: 'Background Image',
       description: 'Path to image.',

@@ -1,0 +1,23 @@
+{
+  "name": "@basalt/bedrock-global-styles",
+  "version": "0.1.2",
+  "src": "src/global-styles.js",
+  "private": true,
+  "description": "A Bedrock component that exports global stylings, such as typography.",
+  "main": "src/global-styles.jsx",
+  "module": "src/global-styles.jsx",
+  "scripts": {},
+  "dependencies": {
+  },
+  "devDependencies": {
+    "prop-types": "^15.0.0",
+    "react": "^16.3.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.0.0",
+    "react": "^16.3.0",
+    "styled-components": "^3.4.2"
+  },
+  "author": "Basalt (http://basalt.io)",
+  "license": "UNLICENSED"
+}
