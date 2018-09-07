@@ -39,8 +39,6 @@ export const SidebarColumn = styled.div`
 `;
 
 export const SidebarTrayHandle = styled.div`
-  position: absolute;
-  right: 0;
   background-color: white;
   box-sizing: border-box;
   height: 100%;

@@ -85,7 +85,6 @@
     "eslint-plugin-react": "^7.11.1",
     "express": "^4.16.3",
     "globby": "^8.0.1",
-    "husky": "^0.14.3",
     "iframe-resizer": "^3.6.1",
     "jest": "^23.5.0",
     "lerna": "^3.0.5",

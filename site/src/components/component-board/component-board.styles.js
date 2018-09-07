@@ -1,18 +1,11 @@
 import styled from 'styled-components';
+import { SmartGrid } from '@basalt/bedrock-smart-grid';
 
-export const PatternGrid = styled.ul`
-  display: flex;
-  align-items: stretch;
-  margin: 50px;
-  padding: 0;
-  list-style-type: none;
-`;
-
-export const PatternGridItem = styled.li`
+export const PatternGridItem = styled.div`
   background: #fff;
   position: relative;
   transition: all 0.3s ease-in-out;
-  ${PatternGrid}:hover & {
+  ${SmartGrid}:hover & {
     filter: blur(0.75px);
   }
   &:hover {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { SmartGrid } from '@basalt/bedrock-smart-grid';
 import {
   PatternGrid,
   PatternGridItem,
@@ -12,7 +13,7 @@ import {
 export default function ComponentsBoard(props) {
   const components = props.patterns;
   return (
-    <PatternGrid
+    <SmartGrid
       className="smart-grid"
       data-row-items-small="1"
       data-row-items-medium="2"
@@ -39,7 +40,7 @@ export default function ComponentsBoard(props) {
           </Link>
         </PatternGridItem>
       ))}
-    </PatternGrid>
+    </SmartGrid>
   );
 }
 
