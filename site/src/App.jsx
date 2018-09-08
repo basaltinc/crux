@@ -48,7 +48,6 @@ import {
 import initialSettings from '../settings';
 import { apiUrlBase } from '../config';
 
-
 const Site = styled.div`
   display: flex;
   justify-content: center;
