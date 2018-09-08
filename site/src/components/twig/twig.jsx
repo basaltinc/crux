@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import iframeResizer from 'iframe-resizer/js/iframeResizer'; // https://www.npmjs.com/package/iframe-resizer
 import { version as iframeResizerVersion } from 'iframe-resizer/package.json';
-import { apiUrlBase, websocketsPort, isDevMode } from '../../../config';
+import {
+  apiUrlBase,
+  websocketsPort,
+  isDevMode,
+  cruxCssUrl,
+  cruxJsUrl,
+} from '../../../config';
 import { ResizableWrapper } from './twig.styles';
 
 /**
@@ -18,7 +24,7 @@ function wrapHtml(html, isReadyForIframe = true) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="${cruxCssUrl}">
   ${
     isReadyForIframe
       ? `<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/${iframeResizerVersion}/iframeResizer.contentWindow.min.js"></script>`
@@ -27,7 +33,7 @@ function wrapHtml(html, isReadyForIframe = true) {
 </head>
 <body>
 ${html}
-<script src="/grav.js"></script>
+<script src="${cruxJsUrl}"></script>
 <style>
   body {
     display: flex;
@@ -69,8 +75,8 @@ export default class Twig extends React.Component {
 
       this.socket.addEventListener('message', event => {
         // console.log('Message from server ', event);
-        const { ext } = JSON.parse(event.data);
-        if (ext === '.twig') {
+        const { path } = JSON.parse(event.data);
+        if (path.endsWith('.twig')) {
           this.getHtml(this.props.data);
         }
       });

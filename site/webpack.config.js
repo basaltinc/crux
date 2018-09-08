@@ -56,14 +56,7 @@ const config = {
   devServer: {
     overlay: true,
     hot: true,
-    contentBase: [
-      path.join(__dirname, 'public'),
-      path.join(__dirname, 'public2'),
-      path.join(__dirname, '../crux-assets/dist'),
-    ],
-    proxy: {
-      '/api': 'http://localhost:3042',
-    },
+    contentBase: [path.join(__dirname, 'public')],
     after: app => {
       app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, 'public/index.html'));

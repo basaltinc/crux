@@ -28,9 +28,7 @@
     "@basalt/bedrock-schema-utils": "^0.1.2",
     "@basalt/bedrock-utils": "^0.1.2",
     "@basalt/bedrock-variation-demo": "^0.1.2",
-    "@basalt/crux-assets": "*",
-    "@basalt/demo-data": "0.5.0",
-    "@basalt/twig-renderer": "^0.9.2"
+    "@basalt/demo-data": "0.5.0"
   },
   "devDependencies": {
 
