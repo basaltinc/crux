@@ -13,6 +13,13 @@ const uiSchema = {
   },
   media_size: {
     "ui:widget": "radio",
+  },
+  buttons: {
+    items: {
+      size: {
+        "ui:widget": "radio",
+      }
+    }
   }
 }
 

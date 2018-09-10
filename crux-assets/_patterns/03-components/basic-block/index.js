@@ -5,6 +5,13 @@ const uiSchema = {
     "ui:widget": "textarea",
     "ui:options": {
       rows: 10
+    },
+  },
+  buttons: {
+    items: {
+      size: {
+        "ui:widget": "radio",
+      }
     }
   }
 }

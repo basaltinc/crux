@@ -14,6 +14,13 @@ const uiSchema = {
   },
   text_align_vert: {
     "ui:widget": "radio",
+  },
+  buttons: {
+    items: {
+      size: {
+        "ui:widget": "radio",
+      }
+    }
   }
 }
 

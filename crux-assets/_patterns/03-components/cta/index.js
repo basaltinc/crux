@@ -6,6 +6,13 @@ const uiSchema = {
     "ui:options": {
       rows: 5
     }
+  },
+  buttons: {
+    items: {
+      size: {
+        "ui:widget": "radio",
+      }
+    }
   }
 }
 
