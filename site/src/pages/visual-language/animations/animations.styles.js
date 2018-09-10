@@ -10,14 +10,14 @@ export const DemoTransition = styled.div`
   max-width: 800px;
 `;
 
-export const DemoTransitionOpacity = DemoTransition.extend`
+export const DemoTransitionOpacity = styled(DemoTransition)`
   transition: opacity var(--transition-time) var(--transition-function);
   &:hover {
     opacity: 0;
   }
 `;
 
-export const DemoTransitionMove = DemoTransition.extend`
+export const DemoTransitionMove = styled(DemoTransition)`
   position: relative;
   &:after {
     content: '';
