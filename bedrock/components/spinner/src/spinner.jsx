@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { CubeOne, CubeTwo, SpinnerCore } from './spinner.styles';
 
 const Spinner = props => {
-  if (props.error) {// used by `react-loadable`
+  if (props.error) {
+    // used by `react-loadable`
     throw new Error(props.error);
   }
   return (
@@ -11,7 +12,7 @@ const Spinner = props => {
       <br />
       <SpinnerCore>
         <CubeOne />
-        {/*@todo the added styles below are for a bug introduced in v4 of sytled components*/}
+        {/* @todo the added styles below are for a bug introduced in v4 of sytled components */}
         <CubeTwo style={{ animationDelay: '-0.9s' }} />
       </SpinnerCore>
       <br />
@@ -22,10 +23,12 @@ const Spinner = props => {
 
 Spinner.propTypes = {
   text: PropTypes.string,
+  error: PropTypes.string,
 };
 
 Spinner.defaultProps = {
   text: '',
+  error: null,
 };
 
 export default Spinner;
