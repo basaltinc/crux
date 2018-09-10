@@ -348,7 +348,7 @@ storiesOf('Schema Form', module)
       inline: true,
       source: false,
     })(() => {
-      const isInline = boolean('isInline', false);
+      const isInline = boolean('isInline', true);
       const data = {
         schema: basicSchema,
         uiSchema: basicSchemaUi,
@@ -379,12 +379,11 @@ storiesOf('Schema Form', module)
       source: false,
     })(() => {
       const isInline = boolean('isInline', false);
-      return (
-        <SchemaForm
-          schema={nestedSchema}
-          uiSchema={nestedSchemaUi}
-          isInline={isInline}
-        />
-      );
+      const data = {
+        schema: nestedSchema,
+        uiSchema: nestedSchemaUi,
+        isInline,
+      };
+      return schemaFormDemo(data);
     }),
   );

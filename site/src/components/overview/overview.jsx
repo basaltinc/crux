@@ -114,6 +114,7 @@ class Overview extends React.Component {
                 formData={this.state.data}
                 onChange={this.handleChange}
                 uiSchema={this.props.uiSchema}
+                isInline={this.props.isInline}
               />
             </SchemaFormWrapperInner>
           </SchemaFormWrapper>
@@ -165,6 +166,7 @@ Overview.defaultProps = {
   demoSizes: [],
   size: 'l',
   uiSchema: {},
+  isInline: false,
 };
 
 Overview.propTypes = {
@@ -172,6 +174,7 @@ Overview.propTypes = {
   data: PropTypes.object,
   schema: PropTypes.object.isRequired,
   uiSchema: PropTypes.object,
+  isInline: PropTypes.bool,
   demoSizes: PropTypes.arrayOf(PropTypes.string),
   size: PropTypes.oneOf(sizes.map(size => size.value)),
 };

@@ -18,6 +18,7 @@ const meta = {
       selector: '.button',
       schema,
       uiSchema,
+      isInline: true,
     },
   ],
   demoSize: 's',

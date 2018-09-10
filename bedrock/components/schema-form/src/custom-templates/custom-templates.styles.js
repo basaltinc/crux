@@ -2,6 +2,16 @@ import styled from 'styled-components';
 import { FaInfoCircle } from 'react-icons/fa';
 
 export const CustomFieldWrapper = styled.div`
+  .rjsf--inline > & {
+    > div {
+      display: flex;
+      justify-content: left;
+      flex-wrap: wrap;
+      > div {
+        padding: 0 1rem;
+      }
+    }
+  }
   padding: 0.25rem 0;
   margin-top: 10px;
   > label {

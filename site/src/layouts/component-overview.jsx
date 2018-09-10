@@ -28,6 +28,7 @@ export default class ComponentOverview extends Component {
         name: '',
         schema: {},
         uiSchema: {},
+        isInline: false,
       },
       meta: {},
       ready: false,
@@ -79,7 +80,7 @@ export default class ComponentOverview extends Component {
       content = <Spinner />;
     } else {
       const { title, description, type, templates, demoSize } = this.state.meta;
-      const { name, schema, uiSchema } = this.state.currentTemplate;
+      const { name, schema, uiSchema, isInline } = this.state.currentTemplate;
       const [data, ...examples] = schema.examples ? schema.examples : [{}];
       const dosAndDonts = schema.dosAndDonts ? schema.dosAndDonts : [];
       content = (
@@ -113,6 +114,7 @@ export default class ComponentOverview extends Component {
             data={data}
             size={demoSize}
             key={name}
+            isInline={isInline}
           />
 
           {examples && (
