@@ -31,12 +31,12 @@ const basicSchema = {
     textarea: {
       title: 'Text Area',
       type: 'string',
-      description: 'Text Area',
+      description: 'This is a text area, where you might write a lot of text.',
     },
     select: {
       title: 'Select',
       type: 'string',
-      description: 'Select',
+      description: 'Select one of the options',
       default: 'option1',
       enum: ['option1', 'option1', 'superlongoptionnumberthree', 'option4'],
       enumNames: [
@@ -49,7 +49,7 @@ const basicSchema = {
     radio: {
       title: 'Radio',
       type: 'string',
-      description: 'Radio',
+      description: 'Choose one option',
       enum: ['small', 'medium', 'large', 'jumbo'],
       enumNames: ['Small', 'Medium', 'Large', 'Jumbo'],
     },
@@ -77,7 +77,7 @@ const kitchenSinkSchema = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
   title: 'Kitchen Sink Schema',
-  required: ['required'],
+  required: ['required', 'requiredInfo'],
   properties: {
     text: {
       title: 'Text',
@@ -87,12 +87,16 @@ const kitchenSinkSchema = {
     required: {
       title: 'Required Text',
       type: 'string',
-      description: 'Required Text',
+    },
+    requiredInfo: {
+      title: 'Required Text with Info',
+      type: 'string',
+      description: 'This field is both required, and has information.',
     },
     textarea: {
       title: 'Text Area',
       type: 'string',
-      description: 'Text Area',
+      description: 'This is a text area, where you might write a lot of text.',
     },
     email: {
       title: 'Email',
@@ -102,7 +106,7 @@ const kitchenSinkSchema = {
     password: {
       title: 'Password',
       type: 'string',
-      description: 'Password',
+      description: 'Choose a strong password',
     },
     url: {
       title: 'URL',
@@ -113,12 +117,12 @@ const kitchenSinkSchema = {
       title: 'File Upload',
       type: 'string',
       format: 'data-url',
-      description: 'Data URL',
+      description: 'This field allows you to upload a file from your computer.',
     },
     date: {
       title: 'Date',
       type: 'string',
-      description: 'Date',
+      description: 'Use your keyboard or mouse to select a date',
     },
     dateTime: {
       title: 'Date & Time',
