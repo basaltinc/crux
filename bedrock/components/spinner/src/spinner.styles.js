@@ -35,6 +35,13 @@ export const CubeOne = styled.div`
   animation: ${SquareDance} 1.8s infinite ease-in-out;
 `;
 
-export const CubeTwo = styled(CubeOne)`
+export const CubeTwo = styled.div`
+  background-color: #333;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: ${SquareDance} 1.8s infinite ease-in-out;
   animation-delay: -0.9s;
 `;

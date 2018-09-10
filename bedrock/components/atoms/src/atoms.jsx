@@ -318,8 +318,20 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
 `;
 
-export const TypeToFilterInputWrapper = styled(TextInputWrapper)`
+export const TypeToFilterInputWrapper = styled.div`
   display: flex;
+  > input,
+  > textarea {
+    box-sizing: border-box;
+    padding: ${props => props.theme.form.input.padding};
+    border: ${props => props.theme.form.input.border};
+    background-color: white;
+    font-size: ${props => props.theme.form.input['font-size']};
+    width: 100%;
+  }
+  > input {
+    height: ${props => props.theme.form.input.height};
+  }
 `;
 
 export const TypeToFilter = styled.div`

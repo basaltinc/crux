@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import { FormIconButton, FormIconTray } from '@basalt/bedrock-atoms';
 
 // index.js
 
@@ -68,9 +67,27 @@ export const PlaygroundStyledSchemaForm = styled(SchemaForm)`
 
 // playground-slice.jsx
 
-export const PlaygroundIcon = styled(FormIconButton)`
+export const PlaygroundIcon = styled.div`
   display: block;
   transition: all 0.3s ease;
+  width: 21px;
+  height: 21px;
+  background-size: contain;
+  position: relative;
+  cursor: ${props => (props.active ? 'pointer' : 'auto')};
+  &::after {
+    background: ${props =>
+      props.backgroundImage ? props.backgroundImage : ''};
+    background-size: contain;
+    opacity: ${props => (props.active ? 1 : 0.25)};
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+  }
   &:not(:last-child) {
     margin-bottom: 0.5rem;
   }
@@ -92,7 +109,10 @@ export const briefHighlight = keyframes`
   }
 `;
 
-export const PlaygroundIconWrapper = styled(FormIconTray)`
+export const PlaygroundIconWrapper = styled.div`
+  box-sizing: border-box;
+  border: ${props => props.theme.form.border};
+  margin-bottom: 0;
   display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
   height: 100%;
   text-align: center;

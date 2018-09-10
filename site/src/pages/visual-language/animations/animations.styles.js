@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const DemoTransition = styled.div`
+export const DemoTransitionOpacity = styled.div`
   background: #ddd;
   padding: 1em;
   margin-bottom: 1em;
@@ -8,16 +8,20 @@ export const DemoTransition = styled.div`
   border-radius: 0;
   cursor: pointer;
   max-width: 800px;
-`;
-
-export const DemoTransitionOpacity = styled(DemoTransition)`
   transition: opacity var(--transition-time) var(--transition-function);
   &:hover {
     opacity: 0;
   }
 `;
 
-export const DemoTransitionMove = styled(DemoTransition)`
+export const DemoTransitionMove = styled.div`
+  background: #ddd;
+  padding: 1em;
+  margin-bottom: 1em;
+  text-align: center;
+  border-radius: 0;
+  cursor: pointer;
+  max-width: 800px;
   position: relative;
   &:after {
     content: '';
