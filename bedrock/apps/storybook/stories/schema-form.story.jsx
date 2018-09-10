@@ -4,6 +4,20 @@ import { withInfo } from '@storybook/addon-info';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import { boolean } from '@storybook/addon-knobs';
 
+function schemaFormDemo(data) {
+  return (
+    <div>
+      <SchemaForm {...data} />
+      <details>
+        <summary>JSON Data</summary>
+        <pre>
+          <code>{JSON.stringify(data, null, '  ')}</code>
+        </pre>
+      </details>
+    </div>
+  );
+}
+
 const basicSchema = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
@@ -332,36 +346,37 @@ storiesOf('Schema Form', module)
     'Basic Schema',
     withInfo({
       inline: true,
+      source: false,
     })(() => {
       const isInline = boolean('isInline', false);
-      return (
-        <SchemaForm
-          schema={basicSchema}
-          uiSchema={basicSchemaUi}
-          isInline={isInline}
-        />
-      );
+      const data = {
+        schema: basicSchema,
+        uiSchema: basicSchemaUi,
+        isInline,
+      };
+      return schemaFormDemo(data);
     }),
   )
   .add(
     'Kitchen Sink Schema',
     withInfo({
       inline: true,
+      source: false,
     })(() => {
       const isInline = boolean('isInline', false);
-      return (
-        <SchemaForm
-          schema={kitchenSinkSchema}
-          uiSchema={kitchenSinkSchemaUi}
-          isInline={isInline}
-        />
-      );
+      const data = {
+        schema: kitchenSinkSchema,
+        uiSchema: kitchenSinkSchemaUi,
+        isInline,
+      };
+      return schemaFormDemo(data);
     }),
   )
   .add(
     'Nested Schema',
     withInfo({
       inline: true,
+      source: false,
     })(() => {
       const isInline = boolean('isInline', false);
       return (
