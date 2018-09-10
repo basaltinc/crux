@@ -64,7 +64,7 @@ export const SelectStyledWrapper = styled.label`
     height: ${props => props.theme.form.input.height};
     &:active,
     &:focus {
-      outline: none;
+      //outline: none;
     }
     display: inline-block;
     padding: 0.3rem 2rem 0.3rem 1rem;
