@@ -2,8 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    'pattern-lab': './js/pattern-lab.js',
-    'grav': './js/grav.js',
+    crux: './js/crux.js',
   },
 
   output: {
@@ -18,8 +17,8 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/preset-env'],
-        }
-      }
-    ]
-  }
+        },
+      },
+    ],
+  },
 };

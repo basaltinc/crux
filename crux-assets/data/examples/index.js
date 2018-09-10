@@ -1,5 +1,5 @@
-import fs from 'fs-extra';
-import path from 'path';
+const fs = require('fs-extra');
+const path = require('path');
 
 const getPath = id => path.join(__dirname, `./${id}.json`);
 
@@ -8,12 +8,12 @@ const getPath = id => path.join(__dirname, `./${id}.json`);
  * @param {string} id - ID of Example to get
  * @return {Object} - Data for the Example
  */
-export async function getExample(id) {
+async function getExample(id) {
   const fileString = await fs.readFile(getPath(id), 'utf8');
   return JSON.parse(fileString);
 }
 
-export async function getExamples() {
+async function getExamples() {
   const files = await fs.readdir(__dirname);
   const filePaths = files
     .filter(filePath => filePath.endsWith('json'))
@@ -27,10 +27,16 @@ export async function getExamples() {
   );
 }
 
-export async function setExample(id, data) {
+async function setExample(id, data) {
   await fs.writeFile(getPath(id), JSON.stringify(data, null, '  '));
   return {
     ok: true,
     message: `Example ${id} saved successfully!`,
   };
 }
+
+module.exports = {
+  getExample,
+  getExamples,
+  setExample,
+};

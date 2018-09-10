@@ -1,4 +1,4 @@
-import { getExample, getExamples } from '.';
+const { getExample, getExamples } = require('./index');
 
 describe('Examples', () => {
   test('Basic Read', async () => {

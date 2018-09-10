@@ -1,11 +1,13 @@
-import { getColors } from './colors';
-import { getTransitions } from './animations';
-import { getBreakpoints } from './breakpoints';
-import { getDeviceWidths } from './devicewidths';
-import { getPatternMeta, getPatterns } from './patterns';
-import { getReleaseNotes } from './releasenotes';
-import { getSpacings } from './spacings';
-import { getFontFamilies, getFontSizes } from './typography';
+const {
+  getColors,
+  getTransitions,
+  getBreakpoints,
+  getDeviceWidths,
+  getReleaseNotes,
+  getSpacings,
+  getFontFamilies,
+  getFontSizes,
+} = require('./index');
 
 describe('Data Get Functions', () => {
   test('Colors', async () => {
@@ -24,18 +26,6 @@ describe('Data Get Functions', () => {
 
   test('DeviceWidths', async () => {
     expect(await getDeviceWidths()).toMatchSnapshot();
-  });
-
-  test('PatternMeta', async () => {
-    const results = await getPatternMeta('media-block');
-    expect(results).toHaveProperty('id', 'media-block');
-    expect(results).toHaveProperty('title');
-    expect(results.templates.length > 0).toBe(true);
-  });
-
-  test('Patterns', async () => {
-    const results = await getPatterns();
-    expect(results.length > 0).toBe(true);
   });
 
   test('ReleaseNotes', async () => {

@@ -70,7 +70,7 @@ Array [
   Object {
     "comment": "",
     "name": "$c-white",
-    "value": "white",
+    "value": "hsl(0, 0%, 100%)",
   },
   Object {
     "comment": "",
@@ -80,7 +80,7 @@ Array [
   Object {
     "comment": "",
     "name": "$c-black",
-    "value": "black",
+    "value": "hsl(0, 0%, 0%)",
   },
 ]
 `;
@@ -90,42 +90,42 @@ Array [
   Object {
     "comment": "",
     "name": "$c-blue--light",
-    "value": "rgb(207, 227, 222)",
+    "value": "hsl(165, 26%, 85%)",
   },
   Object {
     "comment": "",
     "name": "$c-blue",
-    "value": "rgb(22, 57, 75)",
+    "value": "hsl(200, 55%, 19%)",
   },
   Object {
     "comment": "",
     "name": "$c-green",
-    "value": "rgb(35, 52, 46)",
+    "value": "hsl(159, 20%, 17%)",
   },
   Object {
     "comment": "",
     "name": "$c-iron",
-    "value": "rgb(216, 216, 218)",
+    "value": "hsl(240, 3%, 85%)",
   },
   Object {
     "comment": "",
     "name": "$c-yellow",
-    "value": "rgb(225, 201, 51)",
+    "value": "hsl(52, 74%, 54%)",
   },
   Object {
     "comment": "",
     "name": "$c-white",
-    "value": "rgb(255, 255, 255)",
+    "value": "hsl(0, 0%, 100%)",
   },
   Object {
     "comment": "",
     "name": "$c-gray--dark",
-    "value": "rgb(102, 102, 102)",
+    "value": "hsl(0, 0%, 40%)",
   },
   Object {
     "comment": "",
     "name": "$c-black",
-    "value": "rgb(0, 0, 0)",
+    "value": "hsl(0, 0%, 0%)",
   },
 ]
 `;
@@ -135,42 +135,42 @@ Array [
   Object {
     "comment": "",
     "name": "$c-blue--light",
-    "value": "#CFE3DE",
+    "value": "hsl(165, 26%, 85%)",
   },
   Object {
     "comment": "",
     "name": "$c-blue",
-    "value": "#16394B",
+    "value": "hsl(200, 55%, 19%)",
   },
   Object {
     "comment": "",
     "name": "$c-green",
-    "value": "#23342E",
+    "value": "hsl(159, 20%, 17%)",
   },
   Object {
     "comment": "",
     "name": "$c-iron",
-    "value": "#D8D8DA",
+    "value": "hsl(240, 3%, 85%)",
   },
   Object {
     "comment": "",
     "name": "$c-yellow",
-    "value": "#E1C933",
+    "value": "hsl(52, 74%, 54%)",
   },
   Object {
     "comment": "",
     "name": "$c-white",
-    "value": "#FFFFFF",
+    "value": "hsl(0, 0%, 100%)",
   },
   Object {
     "comment": "",
     "name": "$c-gray--dark",
-    "value": "#666666",
+    "value": "hsl(0, 0%, 40%)",
   },
   Object {
     "comment": "",
     "name": "$c-black",
-    "value": "#000000",
+    "value": "hsl(0, 0%, 0%)",
   },
 ]
 `;

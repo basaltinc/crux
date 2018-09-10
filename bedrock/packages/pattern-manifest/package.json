@@ -1,0 +1,20 @@
+{
+  "name": "@basalt/bedrock-pattern-manifest",
+  "version": "0.1.2",
+  "private": true,
+  "description": "API Server",
+  "src": "src/bedrock-pattern-manifest.js",
+  "main": "src/bedrock-pattern-manifest.js",
+  "module": "src/bedrock-pattern-manifest.js",
+  "scripts": {},
+  "dependencies": {
+    "@basalt/bedrock-schema-utils": "0.1.2",
+    "fs-extra": "^7.0.0",
+    "globby": "^8.0.1",
+    "chokidar": "^2.0.4"
+  },
+  "peerDependencies": {},
+  "author": "Basalt (http://basalt.io)",
+  "license": "UNLICENSED"
+}
+

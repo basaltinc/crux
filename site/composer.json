@@ -1,6 +1,0 @@
-{
-    "name": "basaltinc/site",
-    "require": {
-        "basaltinc/twig-tools": "^1.4"
-    }
-}
