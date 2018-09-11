@@ -1,0 +1,19 @@
+{
+  "name": "@basalt/crux-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "crux-api-server 3042",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@basalt/crux-api-server": "*",
+    "@basalt/crux-assets": "^2.0.2",
+    "@basalt/bedrock-site": "1.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "private": true,
+  "license": "ISC"
+}
