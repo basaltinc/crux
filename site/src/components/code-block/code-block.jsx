@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import pretty from 'pretty';
 import TabbedPanel from '@basalt/bedrock-tabbed-panel';
 
+import { CodePreview } from './code-block.styles';
+
 class CodeBlock extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,7 @@ class CodeBlock extends Component {
         title: item.name,
         id: item.language,
         children: (
-          <pre className={`language-${item.language}`} style={{}}>
+          <CodePreview>
             <code
               onKeyUp={event => handleTyping(event.target.innerText)}
               contentEditable={isLive}
@@ -41,7 +43,7 @@ class CodeBlock extends Component {
                 ? pretty(item.code.trim(), { ocd: true })
                 : item.code.trim()}
             </code>
-          </pre>
+          </CodePreview>
         ),
       };
     });
