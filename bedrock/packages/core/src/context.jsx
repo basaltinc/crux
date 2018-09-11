@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const typeColors = {
   icon: {
@@ -143,3 +144,15 @@ export const {
   Provider: BedrockContextProvider,
   Consumer: BedrockContextConsumer,
 } = React.createContext(baseContext);
+
+export function connectToContext(Component) {
+  return props => (
+    <BedrockContextConsumer>
+      {context => <Component {...props} context={context} />}
+    </BedrockContextConsumer>
+  );
+}
+
+export const contextPropTypes = PropTypes.shape({
+  theme: PropTypes.object.isRequired,
+});
