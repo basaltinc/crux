@@ -80,8 +80,8 @@ export const baseTheme = {
   },
   fonts: {
     families: {
-      avenirLight: 'AvenirLight, sans-serif',
-      avenirMedium: 'AvenirMedium, sans-serif',
+      avenirLight: 'AvenirLight, Helvetica, sans-serif',
+      avenirMedium: 'AvenirMedium, Helvetica, sans-serif',
     },
     sizes: {
       s: '14px',

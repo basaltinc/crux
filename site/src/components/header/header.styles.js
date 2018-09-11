@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
 export const SiteNav = styled.nav`
-  background: #16394b;
+  background: ${props => props.theme.colors.primary};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  font-family: AvenirMedium, Helvetica, sans-serif;
+  font-family: ${props => props.theme.fonts.families.avenirMedium};
   ul {
     list-style: none;
     display: flex;
@@ -27,7 +27,7 @@ export const SiteNav = styled.nav`
   a[aria-current='page'] {
     font-weight: bold;
     &:before {
-      color: #e1c933;
+      color: ${props => props.theme.colors.color.yellow.base};
       content: '>';
       position: absolute;
       left: -15px;
@@ -39,7 +39,7 @@ export const SiteNav = styled.nav`
 export const MobileNav = styled.div`
   display: block;
   ul {
-    background-color: #16394b;
+    background-color: ${props => props.theme.colors.primary};
     z-index: 103;
     display: block;
     text-align: right;
