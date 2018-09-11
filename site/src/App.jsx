@@ -81,6 +81,7 @@ export default class App extends React.Component {
       designTokens: [],
       ready: false,
     };
+    this.isDesignTokenAvailable = this.isDesignTokenAvailable.bind(this);
   }
 
   componentDidMount() {
@@ -95,8 +96,17 @@ export default class App extends React.Component {
       .fetch(`${apiUrlBase}/design-tokens`)
       .then(res => res.json())
       .then(designTokens => {
-        this.setState({ designTokens });
+        this.setState({
+          designTokens: designTokens.map(designToken => ({
+            path: `/design-tokens/${designToken.id}`,
+            ...designToken,
+          })),
+        });
       });
+  }
+
+  isDesignTokenAvailable(id) {
+    return this.state.designTokens.some(t => t.id === id);
   }
 
   render() {
@@ -111,6 +121,8 @@ export default class App extends React.Component {
           // borders: 'red',
         },
       },
+      patterns: this.state.patterns,
+      designTokens: this.state.designTokens,
       settings: this.state.settings,
       setSettings: newSettings => this.setState({ settings: newSettings }),
     });
@@ -181,38 +193,80 @@ export default class App extends React.Component {
                                 component={LoadableFeatureRequest}
                               />
                               <Route
-                                path="/visual-language"
+                                path="/design-tokens"
                                 component={LoadableVisualLanguagePage}
                                 exact
                               />
-                              <Route
-                                path="/visual-language/animations"
-                                component={LoadableAnimations}
-                              />
-                              <Route
-                                path="/visual-language/breakpoints"
-                                component={LoadableBreakpoints}
-                              />
-                              <Route
-                                path="/visual-language/colors"
-                                component={LoadableColors}
-                              />
-                              <Route
-                                path="/visual-language/shadows"
-                                component={LoadableShadows}
-                              />
-                              <Route
-                                path="/visual-language/spacings"
-                                component={LoadableSpacings}
-                              />
-                              <Route
-                                path="/visual-language/typography"
-                                component={LoadableTypography}
-                              />
-                              <Route
-                                path="/visual-language/icons"
-                                component={LoadableIcons}
-                              />
+                              {this.isDesignTokenAvailable('transitions') && (
+                                <Route
+                                  path={
+                                    this.state.designTokens.find(
+                                      t => t.id === 'transitions',
+                                    ).path
+                                  }
+                                  component={LoadableAnimations}
+                                />
+                              )}
+                              {this.isDesignTokenAvailable('breakpoints') && (
+                                <Route
+                                  path={
+                                    this.state.designTokens.find(
+                                      t => t.id === 'breakpoints',
+                                    ).path
+                                  }
+                                  component={LoadableBreakpoints}
+                                />
+                              )}
+                              {this.isDesignTokenAvailable('colors') && (
+                                <Route
+                                  path={
+                                    this.state.designTokens.find(
+                                      t => t.id === 'colors',
+                                    ).path
+                                  }
+                                  component={LoadableColors}
+                                />
+                              )}
+                              {this.isDesignTokenAvailable('shadows') && (
+                                <Route
+                                  path={
+                                    this.state.designTokens.find(
+                                      t => t.id === 'shadows',
+                                    ).path
+                                  }
+                                  component={LoadableShadows}
+                                />
+                              )}
+                              {this.isDesignTokenAvailable('spacings') && (
+                                <Route
+                                  path={
+                                    this.state.designTokens.find(
+                                      t => t.id === 'spacings',
+                                    ).path
+                                  }
+                                  component={LoadableSpacings}
+                                />
+                              )}
+                              {this.isDesignTokenAvailable('typography') && (
+                                <Route
+                                  path={
+                                    this.state.designTokens.find(
+                                      t => t.id === 'typography',
+                                    ).path
+                                  }
+                                  component={LoadableTypography}
+                                />
+                              )}
+                              {this.isDesignTokenAvailable('icons') && (
+                                <Route
+                                  path={
+                                    this.state.designTokens.find(
+                                      t => t.id === 'icons',
+                                    ).path
+                                  }
+                                  component={LoadableIcons}
+                                />
+                              )}
                               <Route
                                 path="/patterns"
                                 component={LoadablePatternsPage}
