@@ -9,7 +9,7 @@ import {
   FaEdit,
   FaArrowsAlt,
 } from 'react-icons/fa';
-import Twig from '../../../../site/src/components/twig/twig';
+import Twig from '../../twig/src/twig';
 import { DragTypes } from '../../../../site/config';
 import {
   PlaygroundIcon,

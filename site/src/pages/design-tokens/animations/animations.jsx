@@ -3,7 +3,7 @@ import ApiDemo from '@basalt/bedrock-api-demo';
 import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import Spinner from '@basalt/bedrock-spinner';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
-import Twig from '../../../components/twig/twig';
+import Twig from '../../../../../bedrock/components/twig/src/twig';
 import { apiUrlBase } from '../../../../config';
 import { DemoTransitionMove, DemoTransitionOpacity } from './animations.styles';
 

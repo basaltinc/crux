@@ -1,0 +1,24 @@
+{
+  "name": "@basalt/bedrock-overview",
+  "version": "0.1.2",
+  "src": "src/overview.jsx",
+  "private": true,
+  "description": "A Bedrock component that helps build Design Systems",
+  "main": "src/overview.jsx",
+  "module": "src/overview.jsx",
+  "scripts": {},
+  "devDependencies": {
+    "prop-types": "^15.0.0",
+    "react": "^16.3.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.0.0",
+    "react": "^16.3.0",
+    "styled-components": "beta"
+  },
+  "author": "Basalt (http://basalt.io)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@basalt/bedrock-core": "^0.1.2"
+  }
+}
