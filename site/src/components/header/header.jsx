@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BedrockContextConsumer } from '@basalt/bedrock-core';
+import { BedrockContextConsumer, connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import {
   SiteHeaderLink,
   Hamburger,
@@ -109,16 +109,14 @@ class Header extends React.Component {
 
   render() {
     return (
-      <BedrockContextConsumer>
-        {({ settings }) => (
-          <SiteNav>
-            <h3 style={{ margin: 0 }}>
-              <SiteHeaderLink to="/">{settings.site.title}</SiteHeaderLink>
-            </h3>
-            {this.renderNavigation(settings)}
-          </SiteNav>
-        )}
-      </BedrockContextConsumer>
+      <SiteNav>
+        <h3 style={{ margin: 0 }}>
+          <SiteHeaderLink to="/">
+            {this.props.context.settings.site.title}
+          </SiteHeaderLink>
+        </h3>
+        {this.renderNavigation(this.props.context.settings)}
+      </SiteNav>
     );
   }
 }
@@ -127,6 +125,7 @@ Header.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
+  context: contextPropTypes.isRequired,
 };
 
-export default Header;
+export default connectToContext(Header);
