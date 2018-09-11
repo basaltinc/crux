@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import { Button, Select } from '@basalt/bedrock-atoms';
+import CodeBlock from '@basalt/bedrock-code-block';
 import Twig from '../twig/twig';
-import CodeBlock from '../code-block/code-block';
 import {
   OverviewWrapper,
   CodeBlockWrapper,

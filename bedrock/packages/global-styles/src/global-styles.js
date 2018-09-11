@@ -236,33 +236,6 @@ const GlobalStyles = createGlobalStyle`
       color: currentColor;
       width: 75%;
     }
-    //@todo Consider creating a "code block" atom for these and remove from globals
-    pre {
-      border-radius: 3px;
-      white-space: pre-wrap;
-      word-break: break-all;
-      position: relative;
-      margin: 0 0 0.75rem;
-    }
-    pre > code {
-      padding: 1.75em;
-      background: black;
-      color: white;
-      width: 100%;
-      display: block;
-      white-space: pre-wrap !important;
-      word-wrap: break-word !important;
-      border-radius: 0;
-    }
-    code {
-      background: rgba(216, 216, 218, 0.8);
-      padding: 0 3px;
-      border-radius: 4px;
-    }
-    // Remove extra margin when single code preview in div
-    div > pre:only-child {
-      margin: 0;
-    }
     //@todo Once Shadows are on the server, remove this from global import
     .crux-shadow--inset {
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
