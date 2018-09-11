@@ -9,7 +9,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PlaygroundSlice from './playground-slice';
 import PlaygroundSidebar from './playground-sidebar';
-import { apiUrlBase } from '../../../config';
+import { apiUrlBase } from '../../../../site/config';
 import { MainContent, StartInsertSlice, Page } from './playground.styles';
 
 // Export of allowed sidebarContent states

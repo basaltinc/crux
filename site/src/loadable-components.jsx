@@ -9,7 +9,7 @@ export const LoadableComponentOverview = Loadable({
 
 export const LoadablePlayground = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'playground' */ './layouts/playground'),
+    import(/* webpackChunkName: 'playground' */ '@basalt/bedrock-playground'),
   loading: Spinner,
 });
 
