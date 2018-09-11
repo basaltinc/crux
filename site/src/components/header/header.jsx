@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BedrockContextConsumer, connectToContext, contextPropTypes } from '@basalt/bedrock-core';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import {
   SiteHeaderLink,
   Hamburger,
