@@ -45,7 +45,6 @@ import {
   LoadableTypography,
   LoadableVisualLanguagePage,
 } from './loadable-components';
-import initialSettings from '../settings';
 import { apiUrlBase } from '../config';
 
 const Site = styled.div`
@@ -78,7 +77,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       patterns: [],
-      settings: initialSettings,
+      settings: props.bedrockSettings,
       ready: false,
     };
   }

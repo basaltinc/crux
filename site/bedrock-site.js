@@ -85,13 +85,13 @@ function createWebPackConfig(config) {
       new HtmlWebpackPlugin({
         template: HtmlTemplate,
         inject: false,
-        // title: config.settings.site.title,
+        title: config.settings.site.title,
         appMountId: 'app',
         cache: false,
         mobile: true,
-        // window: {
-        //   bedrockConfig: config,
-        // },
+        window: {
+          bedrockSettings: config.settings,
+        },
       }),
     ],
     performance: {
