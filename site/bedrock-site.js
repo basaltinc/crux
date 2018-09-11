@@ -10,8 +10,8 @@ const isProd = process.env.NODE_ENV === 'production';
 
 /**
  * @private
- * @param config
- * @return {object} - WebPack config
+ * @param {Object} config - @todo document
+ * @return {Object} - WebPack config
  */
 function createWebPackConfig(config) {
   const webpackConfig = {
@@ -68,7 +68,7 @@ function createWebPackConfig(config) {
       hot: true,
       contentBase: [config.dist, config.public],
       historyApiFallback: {
-        index: '/index.html'
+        index: '/index.html',
       },
     },
     plugins: [
