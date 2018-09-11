@@ -1,11 +1,11 @@
 {
-  "name": "@basalt/bedrock-spacing-swatch",
+  "name": "@basalt/bedrock-sidebar",
   "version": "0.1.2",
-  "src": "src/spacing-swatch.jsx",
+  "src": "src/sidebar.jsx",
   "private": true,
   "description": "A Bedrock component that helps build Design Systems",
-  "main": "src/spacing-swatch.jsx",
-  "module": "src/spacing-swatch.jsx",
+  "main": "src/sidebar.jsx",
+  "module": "src/sidebar.jsx",
   "scripts": {},
   "devDependencies": {
     "prop-types": "^15.0.0",

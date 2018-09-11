@@ -4,11 +4,11 @@ import arrayMove from 'array-move';
 import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
 import { StatusMessage } from '@basalt/bedrock-atoms';
+import Sidebar from '@basalt/bedrock-sidebar';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PlaygroundSlice from './playground-slice';
 import PlaygroundSidebar from './playground-sidebar';
-import Sidebar from '../../components/sidebar/sidebar';
 import { apiUrlBase } from '../../../config';
 import { MainContent, StartInsertSlice, Page } from './playground.styles';
 

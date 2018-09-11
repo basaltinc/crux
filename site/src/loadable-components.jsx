@@ -134,7 +134,7 @@ export const LoadableBrandDescriptors = Loadable({
 export const LoadableSidebar = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'sidebar' */
-    './components/sidebar/sidebar'),
+    '@basalt/bedrock-sidebar'),
   loading: Spinner,
 });
 
