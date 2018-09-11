@@ -4,7 +4,7 @@
   "version": "1.2.6",
   "private": true,
   "scripts": {
-    "build": "FORCE_COLOR=1 run-s --print-label build:assets build:changelog build:site build:storybook",
+    "build": "FORCE_COLOR=1 run-s --print-label build:*",
     "build:assets": "cd crux-assets && yarn run build",
     "Xbuild:bedrock": "cd bedrock && yarn build",
     "build:changelog": "auto-changelog --template json --output ./crux-assets/dist/changelog.json || true",
@@ -29,7 +29,7 @@
     "serve:site": "crux-api-server 3042",
     "start": "run-p --print-label watch:**",
     "start:site": "run-p --print-label watch:serve:site watch:webpack",
-    "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label setup:* build:*",
+    "reset": "yarn clean && yarn install --silent && FORCE_COLOR=1 run-s --print-label build:*",
     "test": "run-s lint:style lint:site test:source test:jest test:bedrock",
     "test:bedrock": "cd bedrock && yarn test",
     "test:jest": "jest",
@@ -50,8 +50,7 @@
       "crux-api-server",
       "site"
     ],
-    "nohoist": [
-    ]
+    "nohoist": []
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
