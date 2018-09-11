@@ -20,7 +20,7 @@ function createWebPackConfig(config) {
     },
     output: {
       filename: '[name].bundle.js',
-      path: path.resolve(__dirname, 'dist'),
+      path: config.dist,
       publicPath: '/',
       chunkFilename: '[name].chunk.js',
     },
@@ -56,20 +56,19 @@ function createWebPackConfig(config) {
     resolve: {
       extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
       modules: [
+        path.resolve(process.cwd(), 'node_modules'),
         path.resolve(__dirname, 'node_modules'),
         path.resolve(__dirname, '../node_modules'),
       ],
       mainFields: ['src', 'module', 'main'],
     },
-    stats: 'none',
+    // stats: 'none',
     devServer: {
       overlay: true,
       hot: true,
-      contentBase: [path.join(__dirname, 'public')],
-      after: app => {
-        app.get('*', (req, res) => {
-          res.sendFile(path.join(__dirname, 'public/index.html'));
-        });
+      contentBase: [config.dist, config.public],
+      historyApiFallback: {
+        index: '/index.html'
       },
     },
     plugins: [
@@ -82,6 +81,18 @@ function createWebPackConfig(config) {
         },
       }),
       new Visualizer(), // view at output-dir/stats.html
+      new DashboardPlugin(),
+      new HtmlWebpackPlugin({
+        template: HtmlTemplate,
+        inject: false,
+        // title: config.settings.site.title,
+        appMountId: 'app',
+        cache: false,
+        mobile: true,
+        // window: {
+        //   bedrockConfig: config,
+        // },
+      }),
     ],
     performance: {
       hints: isProd ? 'error' : false,
