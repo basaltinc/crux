@@ -1,5 +1,5 @@
 import React from 'react';
-import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
+import { Button, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 
 const FeatureRequest = () => (
   <div className="body">
@@ -18,14 +18,13 @@ const FeatureRequest = () => (
       Is there a feature you would like to see? Have a great idea? Can we serve
       you better?
     </p>
-    <a
+    <Button
       href="https://3.basecamp.com/3884180/buckets/5827789/todolists/1207207552#adding_to_1207207552"
-      className="button button--color-blue button--size-medium"
       target="_blank"
       rel="noopener noreferrer"
     >
       Request a Feature
-    </a>
+    </Button>
     <br />
     <br />
     <h4>Bugs and Issues</h4>
@@ -34,14 +33,13 @@ const FeatureRequest = () => (
       innovate and grow, bugs sometimes slip through the cracks. Help us catch
       them by reporting any bugs or issues you may be experiencing.
     </p>
-    <a
+    <Button
       href="https://3.basecamp.com/3884180/buckets/5827789/todolists/1219730803"
-      className="button button--color-blue button--size-medium"
       target="_blank"
       rel="noopener noreferrer"
     >
       Report a Bug
-    </a>
+    </Button>
   </div>
 );
 

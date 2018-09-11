@@ -33,6 +33,7 @@ const PlaygroundEditForm = ({
       type="submit"
       tabIndex="0"
       className="button button--color-blue button--size-small"
+      primary
     >
       Done
     </Button>

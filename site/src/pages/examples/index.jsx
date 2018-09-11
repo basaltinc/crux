@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
+import { Button, TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { Link, Redirect } from 'react-router-dom';
 import uuid from 'uuid/v4';
 import { apiUrlBase } from '../../../config';
@@ -91,14 +91,14 @@ class ExamplesLandingPage extends Component {
         </TwoUp>
         <div>
           <h3>Create a New Example</h3>
-          <button
-            className="button button--color-blue button--size-large"
+          <Button
+            primary
             onClick={this.makeNewExample}
             onKeyPress={this.makeNewExample}
             type="submit"
           >
             Get Started
-          </button>
+          </Button>
         </div>
       </div>
     );

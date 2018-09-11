@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 
+export const Button = styled.button`
+  & {
+    height: 33px;
+    border: none;
+    background-color: ${props =>
+      props.primary ? props.theme.colors.primary : props.theme.colors.neutral};
+    color: ${props => (props.primary ? 'white' : 'black')};
+    font-size: 0.75rem;
+  }
+`;
+
 export const BlockQuoteWrapper = styled.blockquote`
   border: ${props => props.theme.blockquote.border};
   border-left: ${props => props.theme.blockquote['border-left']};
@@ -38,12 +49,6 @@ export const BlockQuoteWrapper = styled.blockquote`
     right: 10px;
     bottom: -85px;
   }
-`;
-
-export const Button = styled.button`
-  border: none;
-  background-color: grey;
-  font-size: 0.75rem;
 `;
 
 export const Details = styled.details`

@@ -152,16 +152,11 @@ class PlaygroundSidebar extends Component {
             type="submit"
             onKeyPress={this.props.handleSave}
             onClick={this.props.handleSave}
-            className="button button--color-blue button--size-small"
+            primary
           >
             Save*
           </Button>
-          <Link
-            to="/examples"
-            className="button button--color-white button--size-small"
-          >
-            Back
-          </Link>
+          <Link to="/examples">Back</Link>
         </div>
         <p>
           <br />
