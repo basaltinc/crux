@@ -8,14 +8,13 @@ import Sidebar from '@basalt/bedrock-sidebar';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PlaygroundSlice from './playground-slice';
-import PlaygroundSidebar from './playground-sidebar';
+import PlaygroundSidebar, {
+  SIDEBAR_DEFAULT,
+  SIDEBAR_FORM,
+  SIDEBAR_PATTERNS,
+} from './playground-sidebar';
 import { apiUrlBase } from '../../../../site/config';
 import { MainContent, StartInsertSlice, Page } from './playground.styles';
-
-// Export of allowed sidebarContent states
-export const SIDEBAR_DEFAULT = 'default';
-export const SIDEBAR_FORM = 'form';
-export const SIDEBAR_PATTERNS = 'patterns';
 
 class Playground extends Component {
   constructor(props) {
