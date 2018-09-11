@@ -23,25 +23,17 @@ class TypographyPage extends React.Component {
         title: title(),
       },
     };
+    this.apiEndpoint = `${apiUrlBase}/design-token/typography`;
   }
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/font-sizes`)
+      .fetch(this.apiEndpoint)
       .then(res => res.json())
-      .then(fontSizes => {
+      .then(({ fontSizes, fontFamilies }) => {
         this.setState({
           fontSizes,
-          ready: true,
-        });
-      });
-    window
-      .fetch(`${apiUrlBase}/font-families`)
-      .then(res => res.json())
-      .then(fontFamilies => {
-        this.setState({
           fontFamilies,
-          selectedFontFamily: fontFamilies[0],
           ready: true,
         });
       });
@@ -258,16 +250,11 @@ class TypographyPage extends React.Component {
           </div>
           <br />
           <ApiDemo
-            title="Font Sizes API"
-            endpoint={`${apiUrlBase}/font-sizes`}
+            title="Typography API"
+            endpoint={this.apiEndpoint}
             requestType="get"
           />
           <br />
-          <ApiDemo
-            title="Font Families API"
-            endpoint={`${apiUrlBase}/font-families`}
-            requestType="get"
-          />
         </div>
       </div>
     );

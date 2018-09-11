@@ -13,11 +13,12 @@ class AnimationsPage extends React.Component {
     this.state = {
       transitions: [], // eslint-disable-line react/no-unused-state
     };
+    this.apiEndpoint = `${apiUrlBase}/design-token/transitions`;
   }
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/transitions`)
+      .fetch(this.apiEndpoint)
       .then(res => res.json())
       .then(transitions => {
         this.setState({
@@ -125,8 +126,8 @@ class AnimationsPage extends React.Component {
         </div>
         <br />
         <ApiDemo
-          title="Animations API"
-          endpoint={`${apiUrlBase}/transitions`}
+          title="Transitions API"
+          endpoint={this.apiEndpoint}
           requestType="get"
         />
         <DosAndDonts

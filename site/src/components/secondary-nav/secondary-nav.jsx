@@ -5,15 +5,12 @@ import {
   TypeToFilterInputWrapper,
   ClearFilterButton,
 } from '@basalt/bedrock-atoms';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import NavList from '../nav-list/nav-list';
 import SecondaryNavItems from './secondary-nav-items.json';
 import { apiUrlBase } from '../../../config';
 
-const {
-  resourcesLinks,
-  perceptualPatternsLinks,
-  aboutLinks,
-} = SecondaryNavItems;
+const { resourcesLinks, aboutLinks } = SecondaryNavItems;
 
 class SecondaryNav extends Component {
   constructor(props) {
@@ -30,7 +27,13 @@ class SecondaryNav extends Component {
       ? state
       : {
           items: [
-            ...perceptualPatternsLinks,
+            {
+              title: 'Design Tokens',
+              id: 'design-tokens',
+              path: '/design-tokens',
+              isHeading: true,
+            },
+            ...props.context.designTokens,
             {
               title: 'Patterns',
               id: 'patterns',
@@ -63,7 +66,13 @@ class SecondaryNav extends Component {
 
         this.setState({
           items: [
-            ...perceptualPatternsLinks,
+            {
+              title: 'Design Tokens',
+              id: 'design-tokens',
+              path: '/design-tokens',
+              isHeading: true,
+            },
+            ...this.props.context.designTokens,
             {
               title: 'Patterns',
               id: 'patterns',
@@ -142,8 +151,6 @@ class SecondaryNav extends Component {
   }
 }
 
-export default SecondaryNav;
-
 SecondaryNav.defaultProps = {
   patterns: [],
 };
@@ -160,4 +167,7 @@ SecondaryNav.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
+  context: contextPropTypes.isRequired,
 };
+
+export default connectToContext(SecondaryNav);

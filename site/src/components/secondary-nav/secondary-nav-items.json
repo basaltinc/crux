@@ -32,49 +32,6 @@
       "path": "/resources/sketch-assets"
     }
   ],
-  "perceptualPatternsLinks": [
-    {
-      "title": "Visual Language",
-      "id": "visual",
-      "path": "/visual-language",
-      "isHeading": true
-    },
-    {
-      "title": "Animations",
-      "id": "AnimationsPage",
-      "path": "/visual-language/animations"
-    },
-    {
-      "title": "Breakpoints",
-      "id": "BreakpointsPage",
-      "path": "/visual-language/breakpoints"
-    },
-    {
-      "title": "Colors",
-      "id": "ColorsPage",
-      "path": "/visual-language/colors"
-    },
-    {
-      "title": "Shadows",
-      "id": "ShadowsPage",
-      "path": "/visual-language/shadows"
-    },
-    {
-      "title": "Spacings",
-      "id": "SpacingPage",
-      "path": "/visual-language/spacings"
-    },
-    {
-      "title": "Typography",
-      "id": "TypographyPage",
-      "path": "/visual-language/typography"
-    },
-    {
-      "title": "Icons",
-      "id": "IconsPage",
-      "path": "/visual-language/icons"
-    }
-  ],
   "aboutLinks": [
     {
       "title": "About",

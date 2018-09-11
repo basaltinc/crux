@@ -37,7 +37,11 @@ class BedrockApiServer {
 
     if (this.config.designTokens) {
       this.config.designTokens.forEach(designToken => {
-        const url = urlJoin(this.config.baseUrl, designToken.id);
+        const url = urlJoin(
+          this.config.baseUrl,
+          'design-token',
+          designToken.id,
+        );
         // console.log(`Setting up "${url}" api endpoint...`);
         this.registerEndpoint(url);
         this.app.get(url, async (req, res) => {
@@ -45,6 +49,12 @@ class BedrockApiServer {
           // console.log(`Responding on "${url}" api endpoint with: `, response);
           res.send(response);
         });
+      });
+
+      const url2 = urlJoin(this.config.baseUrl, 'design-tokens');
+      this.registerEndpoint(url2);
+      this.app.get(url2, async (req, res) => {
+        res.send(this.config.designTokens);
       });
     }
 

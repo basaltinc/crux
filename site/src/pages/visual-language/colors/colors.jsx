@@ -13,11 +13,12 @@ class ColorsPage extends React.Component {
     this.state = {
       colors: [],
     };
+    this.apiEndpoint = `${apiUrlBase}/design-token/colors`;
   }
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/colors`)
+      .fetch(this.apiEndpoint)
       .then(res => res.json())
       .then(colors => {
         this.setState({ colors });
@@ -76,7 +77,7 @@ class ColorsPage extends React.Component {
           />
           <ApiDemo
             title="Colors API"
-            endpoint={`${apiUrlBase}/colors`}
+            endpoint={this.apiEndpoint}
             queryData={{
               format: 'hsl',
             }}

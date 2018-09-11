@@ -54,8 +54,8 @@ class Header extends React.Component {
           <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
         </li>
         <li>
-          <SiteHeaderNavLink to="/visual-language">
-            Visual Language
+          <SiteHeaderNavLink to="/design-tokens">
+            Design Tokens
           </SiteHeaderNavLink>
         </li>
         <li>

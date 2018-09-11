@@ -6,9 +6,7 @@ const {
   getColors,
   getReleaseNotes,
   getSpacings,
-  getFontFamilies,
-  getFontSizes,
-  getDeviceWidths,
+  getTypography,
 } = require('./data');
 const { getExamples, getExample, setExample } = require('./data/examples');
 const twigRenderer = require('./data/twig-renderer');
@@ -35,50 +33,42 @@ const designTokens = [
   {
     title: 'Spacings',
     id: 'spacings',
-    // two ways to get it
-    // a `get` function that doesn't cache results
+    description:
+      'Visual spacing is key to creating a clean and usable interface. Correctly implemented – visual spacing provides elements with the ability to "breath" by intentionally emphasizing white space.',
     get: getSpacings,
-    // a `data` object that is cached
-    data: getSpacings(),
   },
   {
     title: 'Colors',
     id: 'colors',
+    description:
+      'Color is a defining element of any strong brand identity. We use color to express our brand, and to support or emphasize key messages within the interface.',
     get: getColors,
-    data: getColors(),
   },
   {
     title: 'Breakpoints',
     id: 'breakpoints',
+    description:
+      'Breakpoints are the backbone of responsive design and provide us with the ability to effectively deliver layout within nearly any screen size or resolution.',
     get: getBreakpoints,
-    data: getBreakpoints(),
   },
   {
-    id: 'devicewidths',
-    get: getDeviceWidths,
-    data: getDeviceWidths(),
+    title: 'Typography',
+    id: 'typography',
+    description:
+      'Typography is the voice of a brand. This set of typefaces best represent Basalt’s brand attributes and personality.',
+    get: getTypography,
   },
   {
-    id: 'font-sizes',
-    get: getFontSizes,
-    data: getFontSizes(),
-  },
-  {
-    id: 'font-families',
-    get: getFontFamilies,
-    data: getFontFamilies(),
-  },
-  {
-    title: 'Animations',
+    title: 'Transitions',
     id: 'transitions',
+    description:
+      'Animations are the "stylistic sugar" used to "sweeten" the user experience. Used sparingly – animations provide that extra touch the makes an interface sing.',
     get: getTransitions,
-    data: getTransitions(),
   },
-  {
-    id: 'releasenotes',
-    get: getReleaseNotes,
-    data: getReleaseNotes(),
-  },
+  // {
+  //   id: 'releasenotes',
+  //   get: getReleaseNotes,
+  // },
 ];
 
 module.exports = {
