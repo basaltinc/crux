@@ -1,5 +1,21 @@
 const schema = require('./basic-block-schema.js');
 
+const uiSchema = {
+  content: {
+    "ui:widget": "textarea",
+    "ui:options": {
+      rows: 10
+    },
+  },
+  buttons: {
+    items: {
+      size: {
+        "ui:widget": "radio",
+      }
+    }
+  }
+}
+
 const meta = {
   id: 'basic-block',
   title: 'Basic Block',
@@ -12,6 +28,7 @@ const meta = {
       name: '@components/_basic-block.twig',
       selector: '.basic-block',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'm',

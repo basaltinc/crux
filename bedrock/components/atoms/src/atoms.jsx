@@ -57,13 +57,14 @@ export const SelectStyledWrapper = styled.label`
   }
   /* stylelint-disable property-no-vendor-prefix */
   select {
+    max-width: 100%;
     background-color: ${props => props.theme.colors['neutral-light']};
     font-size: 1rem;
     border: ${props => props.theme.form.input['border-none']};
     height: ${props => props.theme.form.input.height};
     &:active,
     &:focus {
-      outline: none;
+      //outline: none;
     }
     display: inline-block;
     padding: 0.3rem 2rem 0.3rem 1rem;
@@ -87,6 +88,7 @@ export const SelectStyledWrapper = styled.label`
     border: ${props => props.theme.form.input['border-none']};
     border-radius: ${props => props.theme.border.radius};
     height: ${props => props.theme.form.input.height};
+    max-width: 100%;
   }
 `;
 
@@ -114,14 +116,14 @@ export class Select extends React.Component {
     }
     /* eslint-enable react/prop-types */
     return (
-      <SelectStyledWrapper>
+      <SelectStyledWrapper tabIndex="0">
         {this.props.label && (
           <div className="label-text">{this.props.label}</div>
         )}
         <span>
           <select onChange={this.handleSelection} value={currentValue}>
             {this.props.items.map(item => (
-              <option value={item.value} key={item.value}>
+              <option tabIndex="0" value={item.value} key={item.value}>
                 {item.title ? item.title : item.value}
               </option>
             ))}
@@ -253,12 +255,10 @@ export const FormIconTray = styled.div`
   border: ${props => props.theme.form.border};
   display: inline-flex;
   padding: ${props => props.theme.form.padding};
-  margin-bottom: 0.25rem;
+  margin-top: 1rem;
 `;
 
 export const FormArrayItem = styled.div`
-  display: flex;
-  align-items: flex-end;
   margin: 0.75rem 0;
   &:last-child {
     margin-bottom: 0;
@@ -270,7 +270,7 @@ export const FormArrayItem = styled.div`
     align-items: flex-start;
   }
   & > * + * {
-    margin-left: 0.25rem;
+    //margin-left: 0.25rem;
   }
   &:not(:last-child) {
     padding-bottom: 0.75rem;

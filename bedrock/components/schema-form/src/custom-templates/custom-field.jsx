@@ -5,7 +5,11 @@ import {
   SelectStyledWrapper,
   TextInputWrapper,
 } from '@basalt/bedrock-atoms';
-import { CustomFieldWrapper } from './custom-templates.styles';
+import {
+  CustomFieldWrapper,
+  InfoIcon,
+  IconWrapper,
+} from './custom-templates.styles';
 
 /* eslint-disable react/prop-types */
 export default function CustomField(props) {
@@ -19,7 +23,7 @@ export default function CustomField(props) {
     errors,
     children,
   } = props;
-  const fieldDescription = description.props.description; /* eslint-disable-line */
+  const fieldDescription = description.props.description;
   const inputSchema = children.props.schema;
   let inputContent = <div />;
   const uiSchema = children.props.uiSchema ? children.props.uiSchema : {};
@@ -49,6 +53,12 @@ export default function CustomField(props) {
       <label htmlFor={id} className="field-label">
         {label}
         {required ? '*' : null}
+        {fieldDescription && (
+          <IconWrapper>
+            <InfoIcon />
+            <span>{fieldDescription}</span>
+          </IconWrapper>
+        )}
       </label>
       {inputContent}
       {errors && errors}

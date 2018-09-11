@@ -69,6 +69,16 @@
             "type": "object",
             "description": "Json Schema (v7) describing pattern",
             "required": ["examples"]
+          },
+          "uiSchema": {
+            "title": "uiSchema",
+            "type": "object",
+            "description": "UI for Json Schema (v7)"
+          },
+          "isInline": {
+            "title": "Is Inline",
+            "type": "boolean",
+            "description": "Denote if this form should be displayed inline"
           }
         }
       }

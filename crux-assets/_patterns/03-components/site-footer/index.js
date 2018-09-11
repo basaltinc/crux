@@ -1,5 +1,7 @@
 const schema = require('./site-footer-schema');
 
+const uiSchema = {};
+
 const meta = {
   id: 'site-footer',
   title: 'Site Footer',
@@ -11,6 +13,7 @@ const meta = {
       name: '@components/_site-footer.twig',
       selector: '.site-footer',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'full',

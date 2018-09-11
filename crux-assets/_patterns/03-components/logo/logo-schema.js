@@ -16,6 +16,7 @@ module.exports = {
     size: {
       title: 'Size',
       type: 'string',
+      default: 'auto',
       enum: ['auto', 'small', 'medium', 'large', 'jumbo'],
       enumNames: ['Auto', 'Small', 'Medium', 'Large', 'Jumbo'],
     },

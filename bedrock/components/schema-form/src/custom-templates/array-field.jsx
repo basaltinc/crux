@@ -64,7 +64,7 @@ export default function CustomArrayField(props) {
             </FormArrayItem>
           ))}
         {props.canAdd && (
-          <FormIconTray>
+          <FormIconTray style={{ marginTop: '5px' }}>
             <FormIconButton
               style={{
                 backgroundImage: `url(${add})`,

@@ -1,5 +1,15 @@
 const schema = require('./list-schema');
 
+
+const uiSchema = {
+  display: {
+    "ui:widget": "radio",
+  },
+  columns: {
+    "ui:widget": "radio",
+  }
+}
+
 const meta = {
   id: 'list',
   title: 'List',
@@ -12,6 +22,7 @@ const meta = {
       name: '@components/_list.twig',
       selector: '.list',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'm',

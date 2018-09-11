@@ -1,5 +1,7 @@
 const schema = require('./site-header-schema');
 
+const uiSchema = {};
+
 const meta = {
   id: 'site-header',
   title: 'Site Header',
@@ -11,6 +13,7 @@ const meta = {
       name: '@components/_site-header.twig',
       selector: '.site-header',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'full',

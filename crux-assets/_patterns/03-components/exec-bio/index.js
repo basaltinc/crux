@@ -1,5 +1,14 @@
 const schema = require('./exec-bio-schema.js');
 
+const uiSchema = {
+  bio: {
+    "ui:widget": "textarea",
+    "ui:options": {
+      rows: 15
+    }
+  }
+}
+
 const meta = {
   id: 'exec-bio',
   title: 'Executive Bio',
@@ -12,6 +21,7 @@ const meta = {
       name: '@components/_exec-bio.twig',
       selector: '.exec-bio',
       schema,
+      uiSchema,
     },
   ],
   demoSize: 'l',
