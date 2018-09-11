@@ -6,9 +6,7 @@ const {
   getColors,
   getReleaseNotes,
   getSpacings,
-  getFontFamilies,
-  getFontSizes,
-  getDeviceWidths,
+  getTypography,
 } = require('./data');
 const { getExamples, getExample, setExample } = require('./data/examples');
 const twigRenderer = require('./data/twig-renderer');
@@ -35,50 +33,32 @@ const designTokens = [
   {
     title: 'Spacings',
     id: 'spacings',
-    // two ways to get it
-    // a `get` function that doesn't cache results
     get: getSpacings,
-    // a `data` object that is cached
-    data: getSpacings(),
   },
   {
     title: 'Colors',
     id: 'colors',
     get: getColors,
-    data: getColors(),
   },
   {
     title: 'Breakpoints',
     id: 'breakpoints',
     get: getBreakpoints,
-    data: getBreakpoints(),
   },
   {
-    id: 'devicewidths',
-    get: getDeviceWidths,
-    data: getDeviceWidths(),
+    title: 'Typography',
+    id: 'typography',
+    get: getTypography,
   },
   {
-    id: 'font-sizes',
-    get: getFontSizes,
-    data: getFontSizes(),
-  },
-  {
-    id: 'font-families',
-    get: getFontFamilies,
-    data: getFontFamilies(),
-  },
-  {
-    title: 'Animations',
+    title: 'Transitions',
     id: 'transitions',
     get: getTransitions,
-    data: getTransitions(),
   },
-  {
-    id: 'releasenotes',
-    get: getReleaseNotes,
-    data: getReleaseNotes(),
-  },
+  // {
+  //   id: 'releasenotes',
+  //   get: getReleaseNotes,
+  // },
 ];
 
 module.exports = {

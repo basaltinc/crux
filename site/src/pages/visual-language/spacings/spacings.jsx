@@ -11,11 +11,12 @@ export default class SpacingPage extends React.Component {
     this.state = {
       spacings: [],
     };
+    this.apiEndpoint = `${apiUrlBase}/design-token/spacings`;
   }
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/spacings`)
+      .fetch(this.apiEndpoint)
       .then(res => res.json())
       .then(spacings => {
         this.setState({ spacings });
@@ -42,7 +43,7 @@ export default class SpacingPage extends React.Component {
         <br />
         <ApiDemo
           title="Spacing API"
-          endpoint={`${apiUrlBase}/spacings`}
+          endpoint={this.apiEndpoint}
           requestType="get"
         />
       </div>

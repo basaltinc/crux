@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import { apiUrlBase } from '../../../../config';
+import deviceWidths from './device-widths';
 import {
   BreakpointListItem,
   BreakpointsWrapper,
@@ -59,22 +60,16 @@ class BreakpointsPage extends React.Component {
     super(props);
     this.state = {
       breakpoints: [],
-      deviceWidths: [],
     };
+    this.apiEndpoint = `${apiUrlBase}/design-token/breakpoints`;
   }
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/breakpoints`)
+      .fetch(this.apiEndpoint)
       .then(res => res.json())
       .then(breakpoints => {
         this.setState({ breakpoints });
-      });
-    window
-      .fetch(`${apiUrlBase}/devicewidths`)
-      .then(res => res.json())
-      .then(deviceWidths => {
-        this.setState({ deviceWidths });
       });
   }
 
@@ -85,19 +80,13 @@ class BreakpointsPage extends React.Component {
         <h2>Breakpoints</h2>
         <BreakpointsWrapper>
           <BreakpointList items={this.state.breakpoints} />
-          <DeviceWidthList items={this.state.deviceWidths} />
+          <DeviceWidthList items={deviceWidths} />
         </BreakpointsWrapper>
         <br />
 
         <ApiDemo
           title="Breakpoints API"
-          endpoint={`${apiUrlBase}/breakpoints`}
-          requestType="get"
-        />
-        <br />
-        <ApiDemo
-          title="Device Widths API"
-          endpoint={`${apiUrlBase}/devicewidths`}
+          endpoint={this.apiEndpoint}
           requestType="get"
         />
       </div>

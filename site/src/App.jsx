@@ -78,6 +78,7 @@ export default class App extends React.Component {
     this.state = {
       patterns: [],
       settings: props.bedrockSettings,
+      designTokens: [],
       ready: false,
     };
   }
@@ -88,6 +89,13 @@ export default class App extends React.Component {
       .then(res => res.json())
       .then(patterns => {
         this.setState({ patterns, ready: true });
+      });
+
+    window
+      .fetch(`${apiUrlBase}/design-tokens`)
+      .then(res => res.json())
+      .then(designTokens => {
+        this.setState({ designTokens });
       });
   }
 
