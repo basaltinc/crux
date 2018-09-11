@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
+  Button,
   ClearFilterButton,
   TypeToFilter,
   TypeToFilterInputWrapper,
@@ -99,14 +100,14 @@ class PlaygroundSidebar extends Component {
           </TypeToFilter>
           <ul>{items.map(pattern => this.renderPatternListItem(pattern))}</ul>
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <button
+            <Button
               onClick={this.props.handleCancelAddSlice}
               onKeyPress={this.props.handleCancelAddSlice}
               type="button"
               className="button button--color-white button--size-small"
             >
               Cancel
-            </button>
+            </Button>
           </div>
         </div>
       );
@@ -147,20 +148,15 @@ class PlaygroundSidebar extends Component {
           }}
         />
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <button
+          <Button
             type="submit"
             onKeyPress={this.props.handleSave}
             onClick={this.props.handleSave}
-            className="button button--color-blue button--size-small"
+            primary
           >
             Save*
-          </button>
-          <Link
-            to="/examples"
-            className="button button--color-white button--size-small"
-          >
-            Back
-          </Link>
+          </Button>
+          <Link to="/examples">Back</Link>
         </div>
         <p>
           <br />

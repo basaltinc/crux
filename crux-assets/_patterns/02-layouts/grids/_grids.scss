@@ -34,6 +34,7 @@ $grid-sizes: 1, 2, 3, 4, 6;
 @mixin smart-grid($row-items: 4, $gutter: $grid-gutter) {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
   > * {
     margin-bottom: $gutter;
     @if $row-items > 1 {

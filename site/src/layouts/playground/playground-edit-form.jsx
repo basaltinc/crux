@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '@basalt/bedrock-atoms';
 import { PlaygroundStyledSchemaForm } from './playground.styles';
 
 const PlaygroundEditForm = ({
@@ -26,16 +27,17 @@ const PlaygroundEditForm = ({
       }
       debug
     />
-    <button
+    <Button
       onClick={handleHideEditForm}
       onKeyPress={handleHideEditForm}
       type="submit"
       tabIndex="0"
       className="button button--color-blue button--size-small"
+      primary
     >
       Done
-    </button>
-    <button
+    </Button>
+    <Button
       style={{ marginLeft: '1rem' }}
       onClick={handleClearData}
       onKeyPress={handleClearData}
@@ -44,7 +46,7 @@ const PlaygroundEditForm = ({
       className="button button--color-iron button--size-small"
     >
       Clear
-    </button>
+    </Button>
   </div>
 );
 
