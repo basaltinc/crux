@@ -5,9 +5,9 @@ import Spinner from '@basalt/bedrock-spinner';
 import { Details, Select } from '@basalt/bedrock-atoms';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import ApiDemo from '@basalt/bedrock-api-demo';
-import Twig from '../components/twig/twig';
+import Overview from '@basalt/bedrock-overview';
+import Twig from '@basalt/bedrock-twig';
 import { apiUrlBase, websocketsPort, isDevMode } from '../../config';
-import Overview from '../components/overview/overview';
 import {
   LoadableSchemaTable,
   LoadableVariationDemo,

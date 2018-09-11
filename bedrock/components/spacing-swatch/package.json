@@ -1,0 +1,24 @@
+{
+  "name": "@basalt/bedrock-spacing-swatch",
+  "version": "0.1.2",
+  "src": "src/spacing-swatch.jsx",
+  "private": true,
+  "description": "A Bedrock component that helps build Design Systems",
+  "main": "src/spacing-swatch.jsx",
+  "module": "src/spacing-swatch.jsx",
+  "scripts": {},
+  "devDependencies": {
+    "prop-types": "^15.0.0",
+    "react": "^16.3.0"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.0.0",
+    "react": "^16.3.0",
+    "styled-components": "beta"
+  },
+  "author": "Basalt (http://basalt.io)",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@basalt/bedrock-core": "^0.1.2"
+  }
+}

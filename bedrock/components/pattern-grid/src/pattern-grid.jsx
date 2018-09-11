@@ -7,9 +7,9 @@ import {
   PatternGridItemDescription,
   PatternGridItemThumb,
   PatternGridItemTitle,
-} from './component-board.styles';
+} from './pattern-grid.styles';
 
-export default function ComponentsBoard(props) {
+export default function PatternGrid(props) {
   const components = props.patterns;
   return (
     <SmartGrid
@@ -19,10 +19,7 @@ export default function ComponentsBoard(props) {
       data-row-items-large="3"
     >
       {components.map(pattern => (
-        <PatternGridItem
-          key={pattern.id}
-          className="u-crux-pattern-grid__item--component"
-        >
+        <PatternGridItem key={pattern.id}>
           <Link
             to={
               pattern.path ? pattern.path : `/patterns/components/${pattern.id}`
@@ -43,7 +40,7 @@ export default function ComponentsBoard(props) {
   );
 }
 
-ComponentsBoard.propTypes = {
+PatternGrid.propTypes = {
   patterns: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,

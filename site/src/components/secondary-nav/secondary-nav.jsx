@@ -6,7 +6,7 @@ import {
   ClearFilterButton,
 } from '@basalt/bedrock-atoms';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
-import NavList from '../nav-list/nav-list';
+import NavList from '@basalt/bedrock-nav-list';
 import SecondaryNavItems from './secondary-nav-items.json';
 import { apiUrlBase } from '../../../config';
 
