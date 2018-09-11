@@ -17,7 +17,6 @@ pipelines:
         script:
         - yarn --version && npm --version && node --version && composer --version && php --version
         - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
-        - yarn setup
         - yarn build
         - yarn test
         artifacts:
@@ -43,7 +42,6 @@ pipelines:
             script:
               - yarn --version && npm --version && node --version && composer --version && php --version
               - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
-              - yarn setup
               - yarn build
               - yarn test
             artifacts:

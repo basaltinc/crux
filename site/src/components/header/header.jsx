@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BedrockContextConsumer } from '@basalt/bedrock-core';
 import {
   SiteHeaderLink,
   Hamburger,
@@ -10,45 +11,6 @@ import {
 } from './header.styles';
 
 class Header extends React.Component {
-  static navigationLinks() {
-    return (
-      <ul>
-        <li>
-          <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
-        </li>
-        <li>
-          <SiteHeaderNavLink to="/visual-language">
-            Visual Language
-          </SiteHeaderNavLink>
-        </li>
-        <li>
-          <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>
-        </li>
-        <li>
-          <SiteHeaderNavLink to="/examples">Examples</SiteHeaderNavLink>
-        </li>
-        <li>
-          <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
-        </li>
-        <li>
-          <a
-            href="http://www.basalt.io"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            <img
-              src="/assets/images/logos/white-grey.svg"
-              alt="Basalt"
-              style={{ height: '1rem' }}
-            />
-          </a>
-        </li>
-      </ul>
-    );
-  }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -56,6 +18,7 @@ class Header extends React.Component {
       mobileNavVisible: false,
     };
     this.handleNavClick = this.handleNavClick.bind(this);
+    this.renderNavigation = this.renderNavigation.bind(this);
   }
 
   componentDidMount() {
@@ -84,52 +47,86 @@ class Header extends React.Component {
     }));
   }
 
-  renderMobileNav() {
-    if (this.state.mobileNavVisible) {
-      return Header.navigationLinks();
-    }
+  static renderLinks(settings) {
+    return (
+      <ul>
+        <li>
+          <SiteHeaderNavLink to="/about">Get Started</SiteHeaderNavLink>
+        </li>
+        <li>
+          <SiteHeaderNavLink to="/visual-language">
+            Visual Language
+          </SiteHeaderNavLink>
+        </li>
+        <li>
+          <SiteHeaderNavLink to="/patterns">Patterns</SiteHeaderNavLink>
+        </li>
+        <li>
+          <SiteHeaderNavLink to="/examples">Examples</SiteHeaderNavLink>
+        </li>
+        <li>
+          <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
+        </li>
+        {settings.parentBrand && (
+          <li>
+            <a
+              href={settings.parentBrand.homepage}
+              style={{
+                color: 'white',
+                textDecoration: 'none',
+              }}
+            >
+              {(settings.parentBrand.logo && (
+                <img
+                  src={settings.parentBrand.logo}
+                  alt={settings.parentBrand.title}
+                  style={{ height: '1rem' }}
+                />
+              )) ||
+                settings.parentBrand.title}
+            </a>
+          </li>
+        )}
+      </ul>
+    );
   }
 
-  renderNavigation() {
-    if (this.state.windowWidth <= 900) {
-      return (
+  renderNavigation(settings) {
+    // If Mobile
+    if (this.state.windowWidth <= 950) {
+      return this.state.mobileNavVisible ? (
         <MobileNav>
-          {this.renderMobileNav()}
-          {this.state.mobileNavVisible && <X onClick={this.handleNavClick} />}
-          {!this.state.mobileNavVisible && (
-            <Hamburger onClick={this.handleNavClick} />
-          )}
+          {Header.renderLinks(settings)}
+          <X onClick={this.handleNavClick} />
         </MobileNav>
+      ) : (
+        <Hamburger onClick={this.handleNavClick} />
       );
     }
-    return (
-      <div key={7} className="nav_menu">
-        {Header.navigationLinks()}
-      </div>
-    );
+    // If Desktop
+    return Header.renderLinks(settings);
   }
 
   render() {
     return (
-      <SiteNav>
-        <h3 style={{ margin: 0 }}>
-          <SiteHeaderLink to="/">{this.props.siteTitle}</SiteHeaderLink>
-        </h3>
-        {this.renderNavigation()}
-      </SiteNav>
+      <BedrockContextConsumer>
+        {({ settings }) => (
+          <SiteNav>
+            <h3 style={{ margin: 0 }}>
+              <SiteHeaderLink to="/">{settings.site.title}</SiteHeaderLink>
+            </h3>
+            {this.renderNavigation(settings)}
+          </SiteNav>
+        )}
+      </BedrockContextConsumer>
     );
   }
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
-};
-
-Header.defaultProps = {
-  siteTitle: 'Site Title',
 };
 
 export default Header;

@@ -82,6 +82,9 @@ class SecondaryNav extends Component {
             ...resourcesLinks,
           ],
         });
+      })
+      .catch(err => {
+        console.error(err);
       });
   }
 

@@ -1,4 +1,4 @@
-import Ajv from 'ajv'; // https://github.com/epoberezkin/ajv
+const Ajv = require('ajv'); // https://github.com/epoberezkin/ajv
 
 const ajv = new Ajv();
 
@@ -13,7 +13,7 @@ const ajvDefaults = new Ajv({
  * @param {Object} schema - JSON Schema
  * @return {{ok: boolean, message: string}} - True if valid
  */
-export function validateSchema(schema) {
+function validateSchema(schema) {
   const isSchemaValid = ajv.validateSchema(schema);
   return {
     ok: isSchemaValid,
@@ -31,7 +31,7 @@ export function validateSchema(schema) {
  * @param {Object} data - Data to validate
  * @return {{ok: boolean, message: string, data: Object}} - Results
  */
-export function validateSchemaAndAssignDefaults(schema, data) {
+function validateSchemaAndAssignDefaults(schema, data) {
   const { ok, message } = validateSchema(schema);
   if (!ok) {
     return {
@@ -58,7 +58,7 @@ export function validateSchemaAndAssignDefaults(schema, data) {
  * @param {Object} data - Data to validate
  * @return {{ok: boolean, message: string}} - Results
  */
-export function validateDataAgainstSchema(schema, data) {
+function validateDataAgainstSchema(schema, data) {
   const { ok, message } = validateSchema(schema);
   if (!ok) {
     return {
@@ -73,3 +73,9 @@ export function validateDataAgainstSchema(schema, data) {
     message: isValid ? '' : ajv.errorsText(),
   };
 }
+
+module.exports = {
+  validateSchema,
+  validateSchemaAndAssignDefaults,
+  validateDataAgainstSchema,
+};
