@@ -41,9 +41,9 @@ export const LoadableFeatureRequest = Loadable({
   loading: Spinner,
 });
 
-export const LoadableVisualLanguagePage = Loadable({
+export const LoadableDesignTokenPage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'visual-language-page' */ './pages/design-tokens/visual-language-board/visual-language-board'),
+    import(/* webpackChunkName: 'design-token-page' */ './pages/design-tokens/design-token-board/design-token-board'),
   loading: Spinner,
 });
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { uniqueArray, flattenArray } from '@basalt/bedrock-utils';
 import Spinner from '@basalt/bedrock-spinner';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import ComponentBoard from '../../components/component-board/component-board';
+import PatternGrid from '@basalt/bedrock-pattern-grid';
 import { apiUrlBase } from '../../../config';
 
 class PatternsPage extends Component {
@@ -103,7 +103,7 @@ class PatternsPage extends Component {
             });
           }}
         />
-        <ComponentBoard patterns={visibleItems} />
+        <PatternGrid patterns={visibleItems} />
       </div>
     );
   }
