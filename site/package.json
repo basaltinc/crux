@@ -1,8 +1,9 @@
 {
-  "name": "@basalt/temp-crux-site",
+  "name": "@basalt/bedrock-site",
   "description": "Basalt Design System Site",
   "version": "1.0.2",
   "author": "Basalt",
+  "main": "bedrock-site.js",
   "scripts": {
     "build": "echo 'run yarn build:site in ../'",
     "fix": "yarn run lint:fix",
