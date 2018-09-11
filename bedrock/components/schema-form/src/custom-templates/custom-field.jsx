@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  CheckboxInputWrapper,
   RadioInputWrapper,
   SelectStyledWrapper,
   TextInputWrapper,
+  Toggle,
 } from '@basalt/bedrock-atoms';
 import {
   CustomFieldWrapper,
@@ -42,7 +42,7 @@ export default function CustomField(props) {
   } else if (inputSchema.type === 'string') {
     inputContent = <TextInputWrapper>{children}</TextInputWrapper>;
   } else if (inputSchema.type === 'boolean') {
-    inputContent = <CheckboxInputWrapper>{children}</CheckboxInputWrapper>;
+    inputContent = <Toggle>{children}</Toggle>;
   } else {
     inputContent = children;
   }

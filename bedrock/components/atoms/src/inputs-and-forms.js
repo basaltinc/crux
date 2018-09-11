@@ -93,3 +93,66 @@ export const FormArrayItem = styled.div`
     border-bottom: 1px solid lightgrey;
   }
 `;
+
+export const Toggle = styled.div`
+  width: 50px;
+  p {
+    display: none;
+  }
+  span {
+    height: ${props => props.theme.form.input.height};
+    display: flex;
+    align-items: center;
+  }
+  // input {
+  //   margin-right: 8px;
+  //   + span {
+  //     font-size: ${props => props.theme.form.input['font-size']};
+  //   }
+  // }
+  
+   input[type=checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    display: none;
+  }
+
+  span {
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 50px;
+    height: 25px;
+    background: grey;
+    display: block;
+    border-radius: 50px;
+    position: relative;
+  }
+
+  span:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: #fff;
+    border-radius: 22px;
+    transition: 0.3s;
+  }
+
+  input:checked + span {
+    background: #E1C933;
+  }
+
+  input:checked + span:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+  }
+
+  label:active:after {
+    width: 32px;
+  }
+}
+  
+`;
