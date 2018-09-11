@@ -40,6 +40,12 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
 `;
 
+export const Button = styled.button`
+  border: none;
+  background-color: grey;
+  font-size: 0.75rem;
+`;
+
 export const Details = styled.details`
   padding: 7px 0;
   border-top: solid 1px ${props => props.theme.colors.color.gray.dark};

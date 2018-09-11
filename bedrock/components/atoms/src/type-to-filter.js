@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const TypeToFilterInputWrapper = styled.div`
   display: flex;
   > input,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import { Select } from '@basalt/bedrock-atoms';
+import { Button, Select } from '@basalt/bedrock-atoms';
 import Twig from '../twig/twig';
 import CodeBlock from '../code-block/code-block';
 import {
@@ -73,7 +73,7 @@ class Overview extends React.Component {
               handleChange={size => this.setState({ size })}
               label="Adjust Demo Stage"
             />
-            <button
+            <Button
               type="button"
               className="button button--color-blue--light button--size-small"
               onClick={() =>
@@ -83,7 +83,7 @@ class Overview extends React.Component {
               }
             >
               Toggle Fullscreen
-            </button>
+            </Button>
           </DemoGridControls>
         </FlexWrapper>
         <DemoGrid size={this.state.size}>

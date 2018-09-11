@@ -53,7 +53,7 @@ export const FormIconButton = styled.div`
   cursor: ${props => (props.active ? 'pointer' : 'auto')};
   &::after {
     background: ${props =>
-  props.backgroundImage ? props.backgroundImage : ''};
+      props.backgroundImage ? props.backgroundImage : ''};
     background-size: contain;
     opacity: ${props => (props.active ? 1 : 0.25)};
     content: '';
