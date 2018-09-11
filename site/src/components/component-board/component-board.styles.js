@@ -4,7 +4,7 @@ import { SmartGrid } from '@basalt/bedrock-smart-grid';
 export const PatternGridItem = styled.div`
   background: #fff;
   position: relative;
-  transition: all 0.3s ease-in-out;
+  transition: ${props => props.theme.transition.all};
   ${SmartGrid}:hover & {
     filter: blur(0.75px);
   }
@@ -17,22 +17,23 @@ export const PatternGridItem = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: 'AvenirMedium', sans-serif;
+    font-family: ${props => props.theme.fonts.families.avenirMedium};
     text-decoration: none;
-    padding: 30px 30px 0;
+    padding: ${props => props.theme.spacing.l} ${props => props.theme.spacing.l}
+      0;
     height: 100%;
-    border: solid 1px #ccc;
-    border-radius: var(--border-radius);
+    border: solid 1px ${props => props.theme.colors.borders};
+    border-radius: ${props => props.theme.border.radius};
     text-align: center;
-    transition: all 0.2s ease-in-out;
+    transition: ${props => props.theme.transition.all};
     position: relative;
     z-index: 100;
   }
   > a:hover {
     position: absolute;
     background: #fff;
-    border-radius: var(--border-radius);
-    border-color: var(--type-color--component);
+    border-radius: ${props => props.theme.border.radius};
+    border-color: ${props => props.theme.colors.type.component.base};
     transform: scale(1.05);
     width: 100%;
     height: auto;
@@ -47,7 +48,7 @@ export const PatternGridItemThumb = styled.img`
   max-height: 110px;
   margin: 0 auto 15px;
   filter: grayscale(75%);
-  transition: all 0.2s ease-in-out;
+  transition: ${props => props.theme.transition.all};
   ${PatternGridItem}:hover & {
     filter: grayscale(0%);
   }
@@ -56,18 +57,18 @@ export const PatternGridItemThumb = styled.img`
 export const PatternGridItemTitle = styled.span`
   color: #000;
   margin-bottom: -3px;
-  border-bottom: 5px solid var(--type-color--component);
+  border-bottom: 5px solid ${props => props.theme.colors.type.component.base};
   display: inline-block;
-  transition: all 0.2s ease-in-out;
+  transition: ${props => props.theme.transition.all};
 `;
 
 export const PatternGridItemDescription = styled.div`
-  font-family: 'AvenirLight', sans-serif;
+  font-family: ${props => props.theme.fonts.families.avenirLight};
   line-height: 1.25;
-  font-size: 14px;
+  font-size: ${props => props.theme.fonts.sizes.s};
   color: #000;
   font-style: italic;
-  padding: 25px 0 25px;
+  padding: ${props => props.theme.spacing.l} 0 ${props => props.theme.spacing.l};
   max-width: 250px;
   margin: 0 auto;
   opacity: 0;

@@ -80,7 +80,12 @@ export const baseTheme = {
     },
   },
   fonts: {
+    families: {
+      avenirLight: 'AvenirLight, Helvetica, sans-serif',
+      avenirMedium: 'AvenirMedium, Helvetica, sans-serif',
+    },
     sizes: {
+      s: '14px',
       m: '18px',
     },
   },
@@ -89,7 +94,8 @@ export const baseTheme = {
     s: '8px',
     m: '16px',
     l: '32px',
-    xl: '64px',
+    xl: '50px',
+    xxl: '64px',
   },
   form: {
     border: `1px solid ${colors.gray.xlight}`,
@@ -128,6 +134,10 @@ export const baseTheme = {
       opacity: 0.2,
       color: colors.gray.light,
     },
+  },
+  transition: {
+    all: 'all 0.3s ease-in-out',
+    speed: '0.3s',
   },
 };
 

@@ -57,11 +57,11 @@ const Site = styled.div`
 
 const MainContent = styled.div`
   flex-grow: 1;
-  padding: var(--spacing-l);
+  padding: ${props => props.theme.spacing.l};
 `;
 
 const SiteFooter = styled.div`
-  background-color: #16394b;
+  background-color: ${props => props.theme.colors.primary};
   color: white;
   && a {
     color: white;
