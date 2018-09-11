@@ -21,7 +21,7 @@
   "peerDependencies": {
     "prop-types": "^15.0.0",
     "react": "^16.3.0",
-    "styled-components": "^4.0.0"
+    "styled-components": "beta"
   },
   "author": "Basalt (http://basalt.io)",
   "license": "UNLICENSED"
