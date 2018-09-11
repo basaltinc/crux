@@ -1,4 +1,6 @@
-const { validateSchemaAndAssignDefaults } = require('@basalt/bedrock-schema-utils');
+const {
+  validateSchemaAndAssignDefaults,
+} = require('@basalt/bedrock-schema-utils');
 const webpack = require('webpack');
 const Stylish = require('webpack-stylish');
 const Visualizer = require('webpack-visualizer-plugin');
@@ -114,7 +116,10 @@ function createWebPackConfig(config) {
 
 class BedrockSite {
   constructor(config) {
-    const results = validateSchemaAndAssignDefaults(bedrockConfigSchema, config);
+    const results = validateSchemaAndAssignDefaults(
+      bedrockConfigSchema,
+      config,
+    );
     if (!results.ok) {
       console.error(results.message);
       console.error('bedrock config schema validation failed');
