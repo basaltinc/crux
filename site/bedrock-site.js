@@ -1,3 +1,4 @@
+const { validateSchemaAndAssignDefaults } = require('@basalt/bedrock-schema-utils');
 const webpack = require('webpack');
 const Stylish = require('webpack-stylish');
 const Visualizer = require('webpack-visualizer-plugin');
@@ -5,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlTemplate = require('html-webpack-template');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const path = require('path');
+const bedrockConfigSchema = require('./bedrock.config.schema');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -112,7 +114,13 @@ function createWebPackConfig(config) {
 
 class BedrockSite {
   constructor(config) {
-    this.config = config;
+    const results = validateSchemaAndAssignDefaults(bedrockConfigSchema, config);
+    if (!results.ok) {
+      console.error(results.message);
+      console.error('bedrock config schema validation failed');
+      process.exit(1);
+    }
+    this.config = results.data;
   }
 
   get webpackConfig() {

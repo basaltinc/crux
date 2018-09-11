@@ -1,7 +1,7 @@
 import React from 'react';
 import { BedrockContextConsumer } from '@basalt/bedrock-core';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import settingsSchema from '../../settings.schema';
+import bedrockConfigSchema from '../../bedrock.config.schema';
 import { isDevMode } from '../../config';
 
 function SettingsPage() {
@@ -26,7 +26,7 @@ function SettingsPage() {
               <br />
               <hr />
               <SchemaForm
-                schema={settingsSchema}
+                schema={bedrockConfigSchema.properties.settings}
                 formData={settings}
                 onChange={({ formData }) => setSettings(formData)}
               />
