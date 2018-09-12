@@ -27,7 +27,7 @@ const Footer = props => (
           JSDocs
         </a>
       </FooterMenuItem>
-      {props.context.settings.config.isDevMode && (
+      {props.context.settings.isDevMode && (
         <React.Fragment>
           <FooterMenuItem>
             <Link to="/sandbox">Sandbox</Link>

@@ -53,8 +53,9 @@ class ReleaseNotesPage extends React.Component {
   }
 
   componentDidMount() {
+    const apiEndpoint = this.props.context.settings.apiUrlBase;
     window
-      .fetch(`${this.props.context.settings.config.apiUrlBase}/releasenotes`)
+      .fetch(`${apiEndpoint}/releasenotes`)
       .then(res => res.json())
       .then(releaseNotes => {
         this.setState({ releaseNotes });

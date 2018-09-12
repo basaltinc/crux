@@ -18,6 +18,7 @@ class SecondaryNav extends Component {
       filterTerm: '',
       items: [],
     };
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
     this.handleFilterReset = this.handleFilterReset.bind(this);
   }
 
@@ -54,7 +55,7 @@ class SecondaryNav extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${this.props.context.settings.config.apiUrlBase}/examples`)
+      .fetch(`${this.apiEndpoint}/examples`)
       .then(res => res.json())
       .then(examples => {
         const exampleLinks = examples.map(example => ({

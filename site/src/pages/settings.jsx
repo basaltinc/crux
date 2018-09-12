@@ -7,7 +7,7 @@ const SettingsPage = props => (
   <div>
     <h4 className="eyebrow">Configuration</h4>
     <h2>Settings</h2>
-    {(props.context.settings.config.isDevMode && (
+    {(props.context.settings.isDevMode && (
       <React.Fragment>
         <hr />
         <br />

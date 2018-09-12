@@ -20,8 +20,28 @@
       "type": "object",
       "title": "Settings",
       "additionalProperties": false,
-      "required": ["site", "parentBrand", "config"],
+      "required": ["site", "parentBrand", "isDebug", "isDevMode", "isProd", "websocketsPort"],
       "properties": {
+        "isDebug": {
+          "title": "Is Debug Mode",
+          "type": "boolean",
+          "description": "Debug mode"
+        },
+        "isDevMode": {
+          "title": "Is Dev Mode",
+          "type": "boolean",
+          "description": "Is this Dev Mode"
+        },
+        "isProd": {
+          "title": "Is Prod",
+          "type": "boolean",
+          "description": "Is this production mode"
+        },
+        "websocketsPort": {
+          "title": "Websocket Port",
+          "type": "number",
+          "description": "Port number on which the component renderer is listening"
+        },
         "site": {
           "title": "Site",
           "type": "object",
@@ -75,50 +95,37 @@
             }
           }
         },
-        "config": {
-          "title": "Configuration",
+        "urls": {
+          "title": "Urls",
           "type": "object",
-          "description": "Configurations, such as the api urls and debug.",
+          "description": "Various resource urls",
+          "additionalProperties": false,
+          "required": ["apiUrlBase", "cssUrls", "jsUrls"],
           "properties": {
             "apiUrlBase": {
               "title": "Api Url Base",
               "type": "string",
               "description": "Url base for the api that supplies DS data"
             },
-            "cruxCssUrl": {
-              "title": "Css Url",
-              "type": "string",
-              "description": "Url for the DS css assets"
+            "cssUrls": {
+                "title": "Css Urls",
+                "type": "array",
+                "description": "Urls for Design System css assets",
+              "items": {
+                "title": "Url",
+                "type": "string",
+                "description": "A url for css assets"
+              }
             },
-            "cruxJsUrl": {
-              "title": "Js Url",
-              "type": "string",
-              "description": "Url for the DS js assets"
-            },
-            "assetUrlBase": {
-              "title": "Assets (images, etc) url base",
-              "type": "string",
-              "description": "Url base fo the location of assets such as images"
-            },
-            "isDebug": {
-              "title": "Is Debug Mode",
-              "type": "boolean",
-              "description": "Debug mode"
-            },
-            "isDevMode": {
-              "title": "Is Dev Mode",
-              "type": "boolean",
-              "description": "Is this Dev Mode"
-            },
-            "isProd": {
-              "title": "Is Prod",
-              "type": "boolean",
-              "description": "Is this production mode"
-            },
-            "websocketsPort": {
-              "title": "Websockets Port",
-              "type": "number",
-              "description": "Port number on which the component renderer is listening"
+            "jsUrls": {
+              "title": "Js Urls",
+              "type": "array",
+              "description": "Urls for Design System js assets",
+              "items": {
+                "title": "Url",
+                "type": "string",
+                "description": "A url for js assets"
+              }
             }
           }
         }

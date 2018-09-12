@@ -7,6 +7,10 @@ const cruxSite = new BedrockSite({
   public: path.join(__dirname, 'public'),
   // everything in `settings` MUST be JSON serializable
   settings: {
+    isDebug: true,
+    isDevMode: process.env.DEV_MODE === 'yes',
+    isProd: process.env.NODE_ENV === 'production',
+    websocketsPort: 5042,
     site: {
       title: 'Crux',
       subtitle: 'Design System by Basalt',
@@ -18,15 +22,10 @@ const cruxSite = new BedrockSite({
       logo: '/assets/images/logos/white-grey.svg',
       homepage: 'http://www.basalt.io',
     },
-    config: {
+    urls: {
       apiUrlBase: 'http://localhost:3042/api',
-      assetUrlBase: '/assets/',
-      cruxCssUrl: 'http://localhost:3042/assets/crux.css',
-      cruxJsUrl: 'http://localhost:3042/assets/crux.js',
-      isDebug: true,
-      isDevMode: process.env.DEV_MODE === 'yes',
-      isProd: process.env.NODE_ENV === 'production',
-      websocketsPort: 5042,
+      cssUrls: ['http://localhost:3042/assets/crux.css'],
+      jsUrls: ['http://localhost:3042/assets/crux.js'],
     },
   },
 });

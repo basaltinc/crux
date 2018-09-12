@@ -14,7 +14,7 @@ class AnimationsPage extends React.Component {
       transitions: [], // eslint-disable-line react/no-unused-state
     };
     this.apiEndpoint = `${
-      props.context.settings.config.apiUrlBase
+      props.context.settings.urls.apiUrlBase
     }/design-token/transitions`;
   }
 

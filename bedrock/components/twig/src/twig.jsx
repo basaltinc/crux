@@ -8,19 +8,21 @@ import { ResizableWrapper } from './twig.styles';
 /**
  * Wrap HTML in full HTML page with CSS & JS assets.
  * @param {string} html - HTML for body
- * @param {string} cssUrl - Url for Design System css assets
- * @param {string} jsUrl - Url for Design System js assets
+ * @param {string[]} cssUrls - Url for Design System css assets
+ * @param {string[]} jsUrls - Url for Design System js assets
  * @param {boolean} [isReadyForIframe=true] - Add JS that prepares it for iFrame use.
  * @returns {string} - Full HTML page.
  */
-function wrapHtml(html, cssUrl, jsUrl, isReadyForIframe = true) {
+function wrapHtml(html, cssUrls, jsUrls, isReadyForIframe = true) {
   return `
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="${cssUrl}">
+  ${cssUrls.map(
+    cssUrl => `<link rel="stylesheet" type="text/css" href="${cssUrl}">`,
+  )}
   ${
     isReadyForIframe
       ? `<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/${iframeResizerVersion}/iframeResizer.contentWindow.min.js"></script>`
@@ -29,7 +31,7 @@ function wrapHtml(html, cssUrl, jsUrl, isReadyForIframe = true) {
 </head>
 <body>
 ${html}
-<script src="${jsUrl}"></script>
+${jsUrls.map(jsUrl => `<script src="${jsUrl}"></script>`)}
 <style>
   body {
     display: flex;
@@ -50,9 +52,13 @@ class Twig extends React.Component {
     super(props);
     this.state = {
       html: '',
-      ...props.context.settings.config,
+      cssUrls: props.context.settings.urls.cssUrls,
+      jsUrls: props.context.settings.urls.jsUrls,
       // detailsOpen: false, @todo preserve if `<details>` is open between renders
     };
+    this.isDevMode = props.context.settings.isDevMode;
+    this.websocketsPort = props.context.settings.websocketsPort;
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
     this.iframeRef = React.createRef();
     this.getHtml = this.getHtml.bind(this);
   }
@@ -63,9 +69,9 @@ class Twig extends React.Component {
       this.controller = new window.AbortController();
       this.signal = this.controller.signal;
     }
-    if (this.state.isDevMode) {
+    if (this.isDevMode) {
       this.socket = new window.WebSocket(
-        `ws://localhost:${this.state.websocketsPort}`,
+        `ws://localhost:${this.websocketsPort}`,
       );
 
       // this.socket.addEventListener('open', event => {
@@ -111,7 +117,7 @@ class Twig extends React.Component {
     }
     this.iframeResizer.close(); // https://github.com/davidjbradshaw/iframe-resizer/issues/576
     clearInterval(this.resizerIntervalId);
-    if (this.state.isDevMode) {
+    if (this.isDevMode) {
       this.socket.close(1000, 'componentWillUnmount called');
     }
   }
@@ -123,7 +129,7 @@ class Twig extends React.Component {
   getHtml(data) {
     const type = this.props.isStringTemplate ? 'renderString' : 'renderFile';
     // let body = data;
-    const url = `${this.state.apiUrlBase}/render-twig?type=${type}`;
+    const url = `${this.apiEndpoint}/render-twig?type=${type}`;
 
     // if (this.props.isStringTemplate) {
     //   url = `${apiUrlBase}/render-twig?templateString`;
@@ -203,7 +209,7 @@ class Twig extends React.Component {
         id={this.state.id}
         title={this.props.template}
         ref={this.iframeRef}
-        srcDoc={wrapHtml(html, this.state.cruxCssUrl, this.state.cruxJsUrl)}
+        srcDoc={wrapHtml(html, this.state.cssUrls, this.state.jsUrls)}
       />
     );
 

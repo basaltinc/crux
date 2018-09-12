@@ -71,25 +71,25 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiUrlBase: props.bedrockSettings.config.apiUrlBase,
       patterns: [],
       settings: props.bedrockSettings,
       designTokens: [],
       ready: false,
     };
+    this.apiEndpoint = `${props.bedrockSettings.urls.apiUrlBase}`;
     this.isDesignTokenAvailable = this.isDesignTokenAvailable.bind(this);
   }
 
   componentDidMount() {
     window
-      .fetch(`${this.state.apiUrlBase}/patterns/component`)
+      .fetch(`${this.apiEndpoint}/patterns/component`)
       .then(res => res.json())
       .then(patterns => {
         this.setState({ patterns, ready: true });
       });
 
     window
-      .fetch(`${this.state.apiUrlBase}/design-tokens`)
+      .fetch(`${this.apiEndpoint}/design-tokens`)
       .then(res => res.json())
       .then(designTokens => {
         this.setState({

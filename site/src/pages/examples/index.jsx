@@ -10,14 +10,14 @@ class ExamplesLandingPage extends Component {
     this.state = {
       exampleLinks: [],
       redirect: '',
-      apiEndpoint: props.context.settings.config.apiUrlBase,
     };
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
     this.makeNewExample = this.makeNewExample.bind(this);
   }
 
   componentDidMount() {
     window
-      .fetch(`${this.state.apiEndpoint}/examples`)
+      .fetch(`${this.apiEndpoint}/examples`)
       .then(res => res.json())
       .then(examples => {
         const exampleLinks = examples.map(example => ({
@@ -35,7 +35,7 @@ class ExamplesLandingPage extends Component {
   makeNewExample() {
     const id = uuid();
     window
-      .fetch(`${this.state.apiEndpoint}/example/${id}`, {
+      .fetch(`${this.apiEndpoint}/example/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

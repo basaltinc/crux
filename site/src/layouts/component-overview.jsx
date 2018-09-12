@@ -23,9 +23,6 @@ class ComponentOverview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiEndpoint: `${
-        this.props.context.settings.config.apiUrlBase
-      }/pattern-meta/${props.id}`,
       currentTemplate: {
         name: '',
         schema: {},
@@ -35,14 +32,19 @@ class ComponentOverview extends Component {
       meta: {},
       ready: false,
     };
+    this.apiEndpoint = `${
+      props.context.settings.urls.apiUrlBase
+    }/pattern-meta/${props.id}`;
+    this.isDevMode = this.props.context.settings.isDevMode;
+    this.websocketsPort = this.props.context.settings.websocketsPort;
     this.getData = this.getData.bind(this);
   }
 
   componentDidMount() {
     this.getData();
-    if (this.props.context.settings.config.isDevMode) {
+    if (this.isDevMode) {
       this.socket = new window.WebSocket(
-        `ws://localhost:${this.props.context.settings.config.websocketsPort}`,
+        `ws://localhost:${this.websocketsPort}`,
       );
 
       // this.socket.addEventListener('open', event => {
@@ -60,14 +62,14 @@ class ComponentOverview extends Component {
   }
 
   componentWillUnmount() {
-    if (this.props.context.settings.config.isDevMode) {
+    if (this.isDevMode) {
       this.socket.close(1000, 'componentWillUnmount called');
     }
   }
 
   getData() {
     window
-      .fetch(this.state.apiEndpoint)
+      .fetch(this.apiEndpoint)
       .then(res => res.json())
       .then(meta => {
         this.setState({
@@ -159,7 +161,7 @@ class ComponentOverview extends Component {
             />
           ))}
 
-          <ApiDemo endpoint={this.state.apiEndpoint} />
+          <ApiDemo endpoint={this.apiEndpoint} />
         </article>
       );
     }

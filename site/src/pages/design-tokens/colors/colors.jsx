@@ -13,7 +13,7 @@ class ColorsPage extends React.Component {
       colors: [],
     };
     this.apiEndpoint = `${
-      props.context.settings.config.apiUrlBase
+      props.context.settings.urls.apiUrlBase
     }/design-token/colors`;
   }
 

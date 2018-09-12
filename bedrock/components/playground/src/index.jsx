@@ -33,8 +33,10 @@ class Playground extends Component {
       statusType: 'info',
       hasVisibleControls: true,
       changeId: null,
-      apiEndpoint: props.context.settings.config.apiUrlBase,
     };
+    // Static properties
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
+    // Bindings
     this.moveSlice = this.moveSlice.bind(this);
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
@@ -55,7 +57,7 @@ class Playground extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${this.state.apiEndpoint}/example/${this.props.id}`)
+      .fetch(`${this.apiEndpoint}/example/${this.props.id}`)
       .then(res => res.json())
       .then(results => {
         if (results.ok) {
@@ -99,7 +101,7 @@ class Playground extends Component {
     });
 
     window
-      .fetch(`${this.state.apiEndpoint}/example/${this.props.id}`, {
+      .fetch(`${this.apiEndpoint}/example/${this.props.id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

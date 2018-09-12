@@ -12,7 +12,7 @@ class SpacingPage extends React.Component {
       spacings: [],
     };
     this.apiEndpoint = `${
-      this.props.context.settings.config.apiUrlBase
+      this.props.context.settings.urls.apiUrlBase
     }/design-token/spacings`;
   }
 
