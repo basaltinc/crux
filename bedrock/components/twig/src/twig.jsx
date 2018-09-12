@@ -8,6 +8,8 @@ import { ResizableWrapper } from './twig.styles';
 /**
  * Wrap HTML in full HTML page with CSS & JS assets.
  * @param {string} html - HTML for body
+ * @param {string} cssUrl - Url for Design System css assets
+ * @param {string} jsUrl - Url for Design System js assets
  * @param {boolean} [isReadyForIframe=true] - Add JS that prepares it for iFrame use.
  * @returns {string} - Full HTML page.
  */
@@ -62,7 +64,9 @@ class Twig extends React.Component {
       this.signal = this.controller.signal;
     }
     if (this.state.isDevMode) {
-      this.socket = new window.WebSocket(`ws://localhost:${this.state.websocketsPort}`);
+      this.socket = new window.WebSocket(
+        `ws://localhost:${this.state.websocketsPort}`,
+      );
 
       // this.socket.addEventListener('open', event => {
       //   this.socket.send('Hello Server!', event);
@@ -225,7 +229,7 @@ Twig.defaultProps = {
 Twig.propTypes = {
   template: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
-  context: contextPropTypes,
+  context: contextPropTypes.isRequired,
   data: PropTypes.object,
   isDataShown: PropTypes.bool,
   handleNewHtml: PropTypes.func,
