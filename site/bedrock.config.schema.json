@@ -76,44 +76,61 @@
           }
         },
         "config": {
-            "title": "Configuration",
-            "type": "object",
-            "description": "Configurations, such as the api urls and debug.",
+          "title": "Configuration",
+          "type": "object",
+          "description": "Configurations, such as the api urls and debug.",
           "properties": {
             "apiUrlBase": {
-                "title": "Api Url Base",
-                "type": "string",
-                "description": "Url base for the api that supplies DS data"
+              "title": "Api Url Base",
+              "type": "string",
+              "description": "Url base for the api that supplies DS data"
             },
             "cruxCssUrl": {
-                "title": "Css Url",
-                "type": "string",
-                "description": "Url for the DS css assets"
+              "title": "Css Url",
+              "type": "string",
+              "description": "Url for the DS css assets"
             },
             "cruxJsUrl": {
-                "title": "Js Url",
-                "type": "string",
-                "description": "Url for the DS js assets"
+              "title": "Js Url",
+              "type": "string",
+              "description": "Url for the DS js assets"
             },
             "assetUrlBase": {
-                "title": "Assets (images, etc) url base",
-                "type": "string",
-                "description": "Url base fo the location of assets such as images"
+              "title": "Assets (images, etc) url base",
+              "type": "string",
+              "description": "Url base fo the location of assets such as images"
             },
             "isDebug": {
-                "title": "Is Debug Mode",
-                "type": "boolean",
-                "description": "Debug mode"
+              "title": "Is Debug Mode",
+              "type": "boolean",
+              "description": "Debug mode"
             },
             "isDevMode": {
-                "title": "Is Dev Mode",
-                "type": "boolean",
-                "description": "Is this Dev Mode"
+              "title": "Is Dev Mode",
+              "type": "boolean",
+              "description": "Is this Dev Mode"
             },
             "isProd": {
-                "title": "Is Prod",
-                "type": "boolean",
-                "description": "Is this production mode"
+              "title": "Is Prod",
+              "type": "boolean",
+              "description": "Is this production mode"
+            },
+            "websocketsPort": {
+              "title": "Websockets Port",
+              "type": "number",
+              "description": "Port number on which the component renderer is listening"
+            },
+            "DragTypes": {
+              "title": "Drag Types",
+              "type": "object",
+              "description": "Drag types globals for managing drag and drop",
+              "properties": {
+                "SLICE": {
+                  "title": "Slice",
+                  "type": "string",
+                  "description": "The slice type for drag and drop"
+                }
+              }
             }
           }
         }

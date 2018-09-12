@@ -20,12 +20,16 @@ const cruxSite = new BedrockSite({
     },
     config: {
       apiUrlBase: 'http://localhost:3042/api',
+      assetUrlBase: '/assets/',
       cruxCssUrl: 'http://localhost:3042/assets/crux.css',
       cruxJsUrl: 'http://localhost:3042/assets/crux.js',
-      assetUrlBase: '/assets/',
       isDebug: true,
       isDevMode: process.env.DEV_MODE === 'yes',
       isProd: process.env.NODE_ENV === 'production',
+      websocketsPort: 5042,
+      DragTypes: {
+        SLICE: 'SLICE',
+      },
     },
   },
 });
