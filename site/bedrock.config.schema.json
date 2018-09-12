@@ -119,18 +119,6 @@
               "title": "Websockets Port",
               "type": "number",
               "description": "Port number on which the component renderer is listening"
-            },
-            "DragTypes": {
-              "title": "Drag Types",
-              "type": "object",
-              "description": "Drag types globals for managing drag and drop",
-              "properties": {
-                "SLICE": {
-                  "title": "Slice",
-                  "type": "string",
-                  "description": "The slice type for drag and drop"
-                }
-              }
             }
           }
         }

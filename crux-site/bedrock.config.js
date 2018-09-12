@@ -27,9 +27,6 @@ const cruxSite = new BedrockSite({
       isDevMode: process.env.DEV_MODE === 'yes',
       isProd: process.env.NODE_ENV === 'production',
       websocketsPort: 5042,
-      DragTypes: {
-        SLICE: 'SLICE',
-      },
     },
   },
 });

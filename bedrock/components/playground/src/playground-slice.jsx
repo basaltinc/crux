@@ -9,8 +9,9 @@ import {
   FaEdit,
   FaArrowsAlt,
 } from 'react-icons/fa';
-import Twig from '../../twig/src/twig';
-import { DragTypes } from '../../../../site/config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
+import Twig from '@basalt/bedrock-twig';
+import { DragTypes } from './DragTypes';
 import {
   PlaygroundIcon,
   PlaygroundIconWrapper,
@@ -112,6 +113,7 @@ PlaygroundSlice.propTypes = {
   id: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
   isChanged: PropTypes.bool.isRequired,
+  context: contextPropTypes.isRequired,
 };
 
 const sliceSource = {
@@ -210,4 +212,4 @@ const DroppableDraggablePlaygroundSlice = DropTarget(
 )(DraggablePlaygroundSlice); // <- HOC takes in a component here
 
 // Now it's Draggable & Droppable (i.e. re-arrangable)
-export default DroppableDraggablePlaygroundSlice;
+export default connectToContext(DroppableDraggablePlaygroundSlice);
