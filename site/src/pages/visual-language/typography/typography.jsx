@@ -3,6 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styled from 'styled-components';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 import { BlockQuoteWrapper, DemoBlock } from '@basalt/bedrock-atoms';
+import { SmartGrid } from '@basalt/bedrock-smart-grid';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Spinner from '@basalt/bedrock-spinner';
 import TabbedPanel from '@basalt/bedrock-tabbed-panel';
@@ -165,42 +166,44 @@ class TypographyPage extends React.Component {
         </React.Fragment>
       ),
       children: (
-        <TypographyChildrenDemoWrapper fontFamily={fontFamily.value}>
-          <p
-            style={{
-              fontSize: '1.5rem',
-            }}
-            contentEditable
-            suppressContentEditableWarning
-          >
-            {this.state.demo.paragraph}
-          </p>
-          <blockquote
-            style={{
-              fontSize: '1.25rem',
-            }}
-            contentEditable
-            suppressContentEditableWarning
-          >
-            {this.state.demo.paragraph}
-          </blockquote>
-          <div
-            className="smart-grid"
-            data-row-items-small="1"
-            data-row-items-medium="2"
-          >
-            <ul contentEditable suppressContentEditableWarning>
-              <li>{this.state.demo.text}</li>
-              <li>{this.state.demo.title}</li>
-              <li>{this.state.demo.paragraph}</li>
-            </ul>
-            <ol contentEditable suppressContentEditableWarning>
-              <li>{this.state.demo.text}</li>
-              <li>{this.state.demo.title}</li>
-              <li>{this.state.demo.paragraph}</li>
-            </ol>
-          </div>
-        </TypographyChildrenDemoWrapper>
+        <React.Fragment>
+          <TypographyChildrenDemoWrapper fontFamily={fontFamily.value}>
+            <p
+              style={{
+                fontSize: '1.5rem',
+              }}
+              contentEditable
+              suppressContentEditableWarning
+            >
+              {this.state.demo.paragraph}
+            </p>
+            <blockquote
+              style={{
+                fontSize: '1.25rem',
+              }}
+              contentEditable
+              suppressContentEditableWarning
+            >
+              {this.state.demo.paragraph}
+            </blockquote>
+            <SmartGrid
+              className="smart-grid"
+              data-row-items-small="1"
+              data-row-items-medium="2"
+            >
+              <ul contentEditable suppressContentEditableWarning>
+                <li>{this.state.demo.text}</li>
+                <li>{this.state.demo.title}</li>
+                <li>{this.state.demo.paragraph}</li>
+              </ul>
+              <ol contentEditable suppressContentEditableWarning>
+                <li>{this.state.demo.text}</li>
+                <li>{this.state.demo.title}</li>
+                <li>{this.state.demo.paragraph}</li>
+              </ol>
+            </SmartGrid>
+          </TypographyChildrenDemoWrapper>
+        </React.Fragment>
       ),
     }));
 
