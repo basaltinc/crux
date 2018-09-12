@@ -2,7 +2,7 @@ import React from 'react';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 
 import ApiDemo from '@basalt/bedrock-api-demo';
-import SpacingSwatches from '../../../components/spacing/spacing';
+import SpacingSwatches from '@basalt/bedrock-spacing-swatch';
 import { apiUrlBase } from '../../../../config';
 
 export default class SpacingPage extends React.Component {

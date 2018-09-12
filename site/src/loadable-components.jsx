@@ -9,7 +9,7 @@ export const LoadableComponentOverview = Loadable({
 
 export const LoadablePlayground = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'playground' */ './layouts/playground'),
+    import(/* webpackChunkName: 'playground' */ '@basalt/bedrock-playground'),
   loading: Spinner,
 });
 
@@ -41,51 +41,51 @@ export const LoadableFeatureRequest = Loadable({
   loading: Spinner,
 });
 
-export const LoadableVisualLanguagePage = Loadable({
+export const LoadableDesignTokenPage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'visual-language-page' */ './pages/visual-language/visual-language-board/visual-language-board'),
+    import(/* webpackChunkName: 'design-token-page' */ './pages/design-tokens/design-token-board/design-token-board'),
   loading: Spinner,
 });
 
 export const LoadableAnimations = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'animations' */ './pages/visual-language/animations/animations'),
+    import(/* webpackChunkName: 'animations' */ './pages/design-tokens/animations/animations'),
   loading: Spinner,
 });
 
 export const LoadableBreakpoints = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'breakpoints' */ './pages/visual-language/breakpoints/breakpoints'),
+    import(/* webpackChunkName: 'breakpoints' */ './pages/design-tokens/breakpoints/breakpoints'),
   loading: Spinner,
 });
 
 export const LoadableColors = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'colors' */ './pages/visual-language/colors/colors'),
+    import(/* webpackChunkName: 'colors' */ './pages/design-tokens/colors/colors'),
   loading: Spinner,
 });
 
 export const LoadableShadows = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/shadows/shadows'),
+    import(/* webpackChunkName: 'spacings' */ './pages/design-tokens/shadows/shadows'),
   loading: Spinner,
 });
 
 export const LoadableSpacings = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/visual-language/spacings/spacings'),
+    import(/* webpackChunkName: 'spacings' */ './pages/design-tokens/spacings/spacings'),
   loading: Spinner,
 });
 
 export const LoadableTypography = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'typography' */ './pages/visual-language/typography/typography'),
+    import(/* webpackChunkName: 'typography' */ './pages/design-tokens/typography/typography'),
   loading: Spinner,
 });
 
 export const LoadableIcons = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'icons' */ './pages/visual-language/icons/icons'),
+    import(/* webpackChunkName: 'icons' */ './pages/design-tokens/icons/icons'),
   loading: Spinner,
 });
 
@@ -134,7 +134,7 @@ export const LoadableBrandDescriptors = Loadable({
 export const LoadableSidebar = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'sidebar' */
-    './components/sidebar/sidebar'),
+    '@basalt/bedrock-sidebar'),
   loading: Spinner,
 });
 

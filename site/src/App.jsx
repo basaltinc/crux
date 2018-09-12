@@ -23,6 +23,7 @@ import {
   LoadableBreakpoints,
   LoadableColors,
   LoadableComponentOverview,
+  LoadableDesignTokenPage,
   LoadableExamplesPage,
   LoadableFeatureRequest,
   LoadableFooter,
@@ -43,7 +44,6 @@ import {
   LoadableSketchAssets,
   LoadableSpacings,
   LoadableTypography,
-  LoadableVisualLanguagePage,
 } from './loadable-components';
 import { apiUrlBase } from '../config';
 
@@ -194,7 +194,7 @@ export default class App extends React.Component {
                               />
                               <Route
                                 path="/design-tokens"
-                                component={LoadableVisualLanguagePage}
+                                component={LoadableDesignTokenPage}
                                 exact
                               />
                               {this.isDesignTokenAvailable('transitions') && (

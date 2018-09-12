@@ -8,7 +8,7 @@ import {
   isDevMode,
   cruxCssUrl,
   cruxJsUrl,
-} from '../../../config';
+} from '../../../../site/config';
 import { ResizableWrapper } from './twig.styles';
 
 /**

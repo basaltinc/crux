@@ -2,11 +2,8 @@ const {
   getColors,
   getTransitions,
   getBreakpoints,
-  getDeviceWidths,
-  getReleaseNotes,
   getSpacings,
-  getFontFamilies,
-  getFontSizes,
+  getTypography,
 } = require('./index');
 
 describe('Data Get Functions', () => {
@@ -24,24 +21,11 @@ describe('Data Get Functions', () => {
     expect(await getBreakpoints()).toMatchSnapshot();
   });
 
-  test('DeviceWidths', async () => {
-    expect(await getDeviceWidths()).toMatchSnapshot();
-  });
-
-  test('ReleaseNotes', async () => {
-    const results = await getReleaseNotes();
-    expect(results.length > 0).toBe(true);
-  });
-
   test('getSpacings', async () => {
     expect(await getSpacings()).toMatchSnapshot();
   });
 
-  test('getFontFamilies', async () => {
-    expect(await getFontFamilies()).toMatchSnapshot();
-  });
-
-  test('getFontSizes', async () => {
-    expect(await getFontSizes()).toMatchSnapshot();
+  test('getTypography', async () => {
+    expect(await getTypography()).toMatchSnapshot();
   });
 });

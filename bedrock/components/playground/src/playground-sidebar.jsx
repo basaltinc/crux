@@ -8,11 +8,15 @@ import {
 } from '@basalt/bedrock-atoms';
 import { Link } from 'react-router-dom';
 import PlaygroundEditForm from './playground-edit-form';
-import { SIDEBAR_FORM, SIDEBAR_PATTERNS } from './index';
 import {
   PatternListItemWrapper,
   PlaygroundStyledSchemaForm,
 } from './playground.styles';
+
+// Export of allowed sidebarContent states
+export const SIDEBAR_DEFAULT = 'default';
+export const SIDEBAR_FORM = 'form';
+export const SIDEBAR_PATTERNS = 'patterns';
 
 class PlaygroundSidebar extends Component {
   constructor(props) {
