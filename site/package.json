@@ -19,6 +19,7 @@
     "@basalt/bedrock-atoms": "^0.1.2",
     "@basalt/bedrock-color-contrast-block": "^0.1.2",
     "@basalt/bedrock-color-swatch": "^0.1.2",
+    "@basalt/bedrock-config-babel": "^0.1.2",
     "@basalt/bedrock-core": "^0.1.2",
     "@basalt/bedrock-dos-and-donts": "^0.1.2",
     "@basalt/bedrock-error-catcher": "^0.1.2",
