@@ -23,7 +23,9 @@ class ComponentOverview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiEndpoint: `${this.props.context.settings.config.apiUrlBase}/pattern-meta/${props.id}`,
+      apiEndpoint: `${
+        this.props.context.settings.config.apiUrlBase
+      }/pattern-meta/${props.id}`,
       currentTemplate: {
         name: '',
         schema: {},
@@ -39,7 +41,9 @@ class ComponentOverview extends Component {
   componentDidMount() {
     this.getData();
     if (this.props.context.settings.config.isDevMode) {
-      this.socket = new window.WebSocket(`ws://localhost:${this.props.context.settings.config.websocketsPort}`);
+      this.socket = new window.WebSocket(
+        `ws://localhost:${this.props.context.settings.config.websocketsPort}`,
+      );
 
       // this.socket.addEventListener('open', event => {
       //   this.socket.send('Hello Server!', event);

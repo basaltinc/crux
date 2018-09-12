@@ -4,8 +4,7 @@ import { image, paragraph, text, title } from '@basalt/demo-data';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Spinner from '@basalt/bedrock-spinner';
-
-import { apiUrlBase } from '../../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import '../demos.css';
 
 class TypographyPage extends React.Component {
@@ -23,7 +22,9 @@ class TypographyPage extends React.Component {
         title: title(),
       },
     };
-    this.apiEndpoint = `${apiUrlBase}/design-token/typography`;
+    this.apiEndpoint = `${
+      props.context.settings.config.apiUrlBase
+    }/design-token/typography`;
   }
 
   componentDidMount() {
@@ -261,4 +262,8 @@ class TypographyPage extends React.Component {
   }
 }
 
-export default TypographyPage;
+TypographyPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(TypographyPage);

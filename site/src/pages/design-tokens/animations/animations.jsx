@@ -3,8 +3,8 @@ import ApiDemo from '@basalt/bedrock-api-demo';
 import { TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import Spinner from '@basalt/bedrock-spinner';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
-import Twig from '../../../../../bedrock/components/twig/src/twig';
-import { apiUrlBase } from '../../../../config';
+import Twig from '@basalt/bedrock-twig';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import { DemoTransitionMove, DemoTransitionOpacity } from './animations.styles';
 
 class AnimationsPage extends React.Component {
@@ -13,7 +13,9 @@ class AnimationsPage extends React.Component {
     this.state = {
       transitions: [], // eslint-disable-line react/no-unused-state
     };
-    this.apiEndpoint = `${apiUrlBase}/design-token/transitions`;
+    this.apiEndpoint = `${
+      props.context.settings.config.apiUrlBase
+    }/design-token/transitions`;
   }
 
   componentDidMount() {
@@ -150,4 +152,8 @@ class AnimationsPage extends React.Component {
   }
 }
 
-export default AnimationsPage;
+AnimationsPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(AnimationsPage);

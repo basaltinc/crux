@@ -3,15 +3,17 @@ import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 
 import ApiDemo from '@basalt/bedrock-api-demo';
 import SpacingSwatches from '@basalt/bedrock-spacing-swatch';
-import { apiUrlBase } from '../../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
-export default class SpacingPage extends React.Component {
+class SpacingPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       spacings: [],
     };
-    this.apiEndpoint = `${apiUrlBase}/design-token/spacings`;
+    this.apiEndpoint = `${
+      this.props.context.settings.config.apiUrlBase
+    }/design-token/spacings`;
   }
 
   componentDidMount() {
@@ -50,3 +52,9 @@ export default class SpacingPage extends React.Component {
     );
   }
 }
+
+SpacingPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(SpacingPage);

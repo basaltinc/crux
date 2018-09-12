@@ -3,7 +3,7 @@ import { uniqueArray, flattenArray } from '@basalt/bedrock-utils';
 import Spinner from '@basalt/bedrock-spinner';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import PatternGrid from '@basalt/bedrock-pattern-grid';
-import { apiUrlBase } from '../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
 class PatternsPage extends Component {
   constructor(props) {
@@ -20,7 +20,9 @@ class PatternsPage extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/patterns/component`)
+      .fetch(
+        `${this.props.context.settings.config.apiUrlBase}/patterns/component`,
+      )
       .then(res => res.json())
       .then(patterns => {
         const statuses = uniqueArray(patterns.map(p => p.status));
@@ -109,4 +111,8 @@ class PatternsPage extends Component {
   }
 }
 
-export default PatternsPage;
+PatternsPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(PatternsPage);

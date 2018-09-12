@@ -1,11 +1,10 @@
 import React from 'react';
-
 import ColorSwatches from '@basalt/bedrock-color-swatch';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 import ColorContrastBlock from '@basalt/bedrock-color-contrast-block';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
-import { apiUrlBase } from '../../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
 class ColorsPage extends React.Component {
   constructor(props) {
@@ -13,7 +12,9 @@ class ColorsPage extends React.Component {
     this.state = {
       colors: [],
     };
-    this.apiEndpoint = `${apiUrlBase}/design-token/colors`;
+    this.apiEndpoint = `${
+      props.context.settings.config.apiUrlBase
+    }/design-token/colors`;
   }
 
   componentDidMount() {
@@ -126,4 +127,8 @@ class ColorsPage extends React.Component {
   }
 }
 
-export default ColorsPage;
+ColorsPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(ColorsPage);

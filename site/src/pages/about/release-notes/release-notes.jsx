@@ -79,7 +79,7 @@ class ReleaseNotesPage extends React.Component {
 }
 
 ReleaseNotesPage.propTypes = {
-  context: contextPropTypes,
+  context: contextPropTypes.isRequired,
 };
 
 export default connectToContext(ReleaseNotesPage);
