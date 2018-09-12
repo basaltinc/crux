@@ -17,6 +17,7 @@
     "deploy:test": "yarn run deploy && now --token=$NOW_TOKEN --team basalt alias crux-test && echo ' ' ",
     "docker:build": "docker build --tag crux .",
     "docker:run": "docker run --tty --rm crux",
+    "jest": "jest",
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:js:fix": "yarn lint:js --fix",
     "lint:style": "stylelint './bedrock/**/*.jsx' './site/**/*.jsx' --syntax scss",
@@ -29,10 +30,7 @@
     "start:assets": "cd crux-assets && yarn start",
     "start:crux-site": "cd crux-site && yarn start",
     "start:storybook": "cd bedrock/apps/storybook && yarn start",
-    "test": "run-s lint:style lint:site test:source test:jest test:bedrock",
-    "test:bedrock": "cd bedrock && yarn test",
-    "test:jest": "jest",
-    "test:source": "cd crux-assets && yarn test"
+    "test": "run-s lint:style lint:js jest"
   },
   "workspaces": {
     "packages": [
