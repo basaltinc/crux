@@ -72,7 +72,7 @@ export const baseTheme = {
     primary: colors.blue.base,
     secondary: colors.green.base,
     neutral: colors.gray.base,
-    'neutral-light': colors.gray.xlight,
+    neutral_light: colors.gray.xlight,
     borders: colors.gray.light,
     link: {
       base: colors.blue.base,
@@ -137,7 +137,9 @@ export const baseTheme = {
   },
   transition: {
     all: 'all 0.3s ease-in-out',
+    speed_and_function: '0.3s ease-in-out',
     speed: '0.3s',
+    function: 'ease-in-out',
   },
 };
 

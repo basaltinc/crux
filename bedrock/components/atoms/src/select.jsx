@@ -16,7 +16,7 @@ export const SelectStyledWrapper = styled.label`
   /* stylelint-disable property-no-vendor-prefix */
   select {
     max-width: 100%;
-    background-color: ${props => props.theme.colors['neutral-light']};
+    background-color: ${props => props.theme.colors.neutral_light};
     font-size: 1rem;
     border: ${props => props.theme.form.input['border-none']};
     height: ${props => props.theme.form.input.height};
@@ -42,7 +42,7 @@ export const SelectStyledWrapper = styled.label`
 
   > span {
     display: inline-block;
-    background-color: ${props => props.theme.colors['neutral-light']};
+    background-color: ${props => props.theme.colors.neutral_light};
     border: ${props => props.theme.form.input['border-none']};
     border-radius: ${props => props.theme.border.radius};
     height: ${props => props.theme.form.input.height};

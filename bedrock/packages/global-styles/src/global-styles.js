@@ -2,12 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 
-    // @todo jake, can you please remove these?
     :root {
-    // animations
-    --transition-time: 0.3s;
-    --transition-function: ease-in;
-    
     // borders
     --border-radius: 0;
     --border-color: #CCC;
