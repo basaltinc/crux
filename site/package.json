@@ -5,13 +5,6 @@
   "author": "Basalt",
   "main": "bedrock-site.js",
   "scripts": {
-    "build": "echo 'run yarn build:site in ../'",
-    "fix": "yarn run lint:fix",
-    "lint": "eslint --ext .js,.jsx .",
-    "lint:fix": "yarn run lint --fix",
-    "lint:staged": "lint-staged",
-    "start": "echo 'run this in ../'",
-    "test": "yarn run lint && jest",
     "uuid": "node -e \"process.stdout.write(require('uuid/v4')()) \" | pbcopy && echo 'uuid copied' "
   },
   "dependencies": {

@@ -4,12 +4,7 @@
   "private": true,
   "scripts": {
     "build": "echo 'no build needed - temp disabling Rollup for now'",
-    "buildOld": "rollup --config rollup.config.js",
-    "fix": "yarn run lint --fix",
-    "lint": "eslint --ext .js,.jsx .",
-    "lint:staged": "lint-staged",
-    "start": "yarn run build --watch",
-    "test": "yarn run lint"
+    "buildOld": "rollup --config rollup.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
