@@ -9,36 +9,17 @@ class PatternsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      patterns: [],
-      ready: false,
-      visibleStatuses: [],
-      statuses: [],
-      uses: [],
-      visibleUses: [],
+      patterns: props.context.patterns,
+      ready: true,
+      visibleStatuses: uniqueArray(props.context.patterns.map(p => p.status)),
+      statuses: uniqueArray(props.context.patterns.map(p => p.status)),
+      uses: uniqueArray(
+        flattenArray(props.context.patterns.map(p => p.uses)),
+      ).filter(Boolean),
+      visibleUses: uniqueArray(
+        flattenArray(props.context.patterns.map(p => p.uses)),
+      ).filter(Boolean),
     };
-  }
-
-  componentDidMount() {
-    window
-      .fetch(
-        `${this.props.context.settings.config.apiUrlBase}/patterns/component`,
-      )
-      .then(res => res.json())
-      .then(patterns => {
-        const statuses = uniqueArray(patterns.map(p => p.status));
-        const uses = uniqueArray(
-          flattenArray(patterns.map(p => p.uses)),
-        ).filter(Boolean);
-
-        this.setState({
-          patterns,
-          ready: true,
-          statuses,
-          visibleStatuses: statuses,
-          uses,
-          visibleUses: uses,
-        });
-      });
   }
 
   render() {
@@ -47,7 +28,6 @@ class PatternsPage extends Component {
     }
 
     const { patterns, visibleUses, visibleStatuses } = this.state;
-
     const visibleItems = patterns
       .filter(item => item.id !== 'site-footer')
       .filter(item => item.id !== 'site-header')
