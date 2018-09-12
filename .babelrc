@@ -1,0 +1,3 @@
+{
+  "extends": "@basalt/bedrock-config-babel"
+}
