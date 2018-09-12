@@ -69,7 +69,7 @@ function createWebPackConfig(config) {
       ],
       mainFields: ['src', 'module', 'main'],
     },
-    // stats: 'none',
+    stats: 'none',
     devServer: {
       overlay: true,
       hot: true,
