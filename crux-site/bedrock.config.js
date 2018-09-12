@@ -24,6 +24,8 @@ const cruxSite = new BedrockSite({
       cruxJsUrl: 'http://localhost:3042/assets/crux.js',
       assetUrlBase: '/assets/',
       isDebug: true,
+      isDevMode: process.env.DEV_MODE === 'yes',
+      isProd: process.env.NODE_ENV === 'production',
     },
   },
 });

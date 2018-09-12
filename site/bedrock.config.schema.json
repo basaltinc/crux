@@ -104,6 +104,16 @@
                 "title": "Is Debug Mode",
                 "type": "boolean",
                 "description": "Debug mode"
+            },
+            "isDevMode": {
+                "title": "Is Dev Mode",
+                "type": "boolean",
+                "description": "Is this Dev Mode"
+            },
+            "isProd": {
+                "title": "Is Prod",
+                "type": "boolean",
+                "description": "Is this production mode"
             }
           }
         }
