@@ -40,7 +40,7 @@ class SecondaryNav extends Component {
               path: '/patterns',
               isHeading: true,
             },
-            ...props.patterns,
+            ...props.context.patterns,
             {
               title: 'Examples',
               id: 'example-heading',
@@ -79,7 +79,7 @@ class SecondaryNav extends Component {
               path: '/patterns',
               isHeading: true,
             },
-            ...this.props.patterns,
+            ...this.props.context.patterns,
             {
               title: 'Examples',
               id: 'example-heading',
@@ -151,19 +151,7 @@ class SecondaryNav extends Component {
   }
 }
 
-SecondaryNav.defaultProps = {
-  patterns: [],
-};
-
 SecondaryNav.propTypes = {
-  // eslint-disable-next-line react/no-unused-prop-types
-  patterns: PropTypes.arrayOf(
-    // @todo pull in definition from `pattern-meta.schema.json`
-    PropTypes.shape({
-      title: PropTypes.string,
-      id: PropTypes.string,
-    }),
-  ),
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,

@@ -45,7 +45,6 @@ import {
   LoadableSpacings,
   LoadableTypography,
 } from './loadable-components';
-import { apiUrlBase } from '../config';
 
 const Site = styled.div`
   display: flex;
@@ -72,10 +71,11 @@ const SiteFooter = styled.div`
   }
 `;
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      apiUrlBase: props.bedrockSettings.config.apiUrlBase,
       patterns: [],
       settings: props.bedrockSettings,
       designTokens: [],
@@ -86,14 +86,14 @@ export default class App extends React.Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/patterns/component`)
+      .fetch(`${this.state.apiUrlBase}/patterns/component`)
       .then(res => res.json())
       .then(patterns => {
         this.setState({ patterns, ready: true });
       });
 
     window
-      .fetch(`${apiUrlBase}/design-tokens`)
+      .fetch(`${this.state.apiUrlBase}/design-tokens`)
       .then(res => res.json())
       .then(designTokens => {
         this.setState({
@@ -131,8 +131,8 @@ export default class App extends React.Component {
       <ErrorCatcher>
         <BedrockContextProvider value={cruxContext}>
           <BedrockContextConsumer>
-            {({ theme }) => (
-              <ThemeProvider theme={theme}>
+            {context => (
+              <ThemeProvider theme={context.theme}>
                 <React.Fragment>
                   <GlobalStyles />
                   <Router>
@@ -149,10 +149,7 @@ export default class App extends React.Component {
                             path="/"
                             render={({ location }) => (
                               <LoadableSidebar>
-                                <LoadableSecondaryNav
-                                  patterns={this.state.patterns}
-                                  location={location}
-                                />
+                                <LoadableSecondaryNav location={location} />
                               </LoadableSidebar>
                             )}
                           />
@@ -341,3 +338,9 @@ export default class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  bedrockSettings: PropTypes.object.isRequired, // eslint-disable-line
+};
+
+export default App;
