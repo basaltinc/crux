@@ -20,7 +20,7 @@
       "type": "object",
       "title": "Settings",
       "additionalProperties": false,
-      "required": ["site"],
+      "required": ["site", "parentBrand", "config"],
       "properties": {
         "site": {
           "title": "Site",
@@ -72,6 +72,38 @@
               "title": "Homepage",
               "type": "string",
               "description": "URI of homepage of parent brand"
+            }
+          }
+        },
+        "config": {
+            "title": "Configuration",
+            "type": "object",
+            "description": "Configurations, such as the api urls and debug.",
+          "properties": {
+            "apiUrlBase": {
+                "title": "Api Url Base",
+                "type": "string",
+                "description": "Url base for the api that supplies DS data"
+            },
+            "cruxCssUrl": {
+                "title": "Css Url",
+                "type": "string",
+                "description": "Url for the DS css assets"
+            },
+            "cruxJsUrl": {
+                "title": "Js Url",
+                "type": "string",
+                "description": "Url for the DS js assets"
+            },
+            "assetUrlBase": {
+                "title": "Assets (images, etc) url base",
+                "type": "string",
+                "description": "Url base fo the location of assets such as images"
+            },
+            "isDebug": {
+                "title": "Is Debug Mode",
+                "type": "boolean",
+                "description": "Debug mode"
             }
           }
         }

@@ -18,6 +18,13 @@ const cruxSite = new BedrockSite({
       logo: '/assets/images/logos/white-grey.svg',
       homepage: 'http://www.basalt.io',
     },
+    config: {
+      apiUrlBase: 'http://localhost:3042/api',
+      cruxCssUrl: 'http://localhost:3042/assets/crux.css',
+      cruxJsUrl: 'http://localhost:3042/assets/crux.js',
+      assetUrlBase: '/assets/',
+      isDebug: true,
+    },
   },
 });
 
