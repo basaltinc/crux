@@ -39,7 +39,7 @@ function createWebPackConfig(config) {
             path.resolve(__dirname, '../node_modules'),
           ],
           options: {
-            extends: '@basalt/bedrock-config-babel/es',
+            extends: '@basalt/bedrock-babel-config/es',
           },
         },
         {

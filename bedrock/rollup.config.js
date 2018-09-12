@@ -163,7 +163,7 @@ const configs = [
         // externalHelpers: false, // whether to bundle in the Babel helpers
         exclude: 'node_modules/**',
         // plugins: ['external-helpers'],
-        extends: '@basalt/bedrock-config-babel/es',
+        extends: '@basalt/bedrock-babel-config/es',
       }),
       showFilesize ? filesize() : null,
       clearDist

@@ -1,3 +1,3 @@
 {
-  "extends": "@basalt/bedrock-config-babel"
+  "extends": "@basalt/bedrock-babel-config"
 }

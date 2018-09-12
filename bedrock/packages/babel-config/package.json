@@ -1,5 +1,5 @@
 {
-  "name": "@basalt/bedrock-config-babel",
+  "name": "@basalt/bedrock-babel-config",
   "version": "0.1.2",
   "private": true,
   "description": "Babel config and deps.",
@@ -13,6 +13,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-styled-components": "^1.5.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.14"
   },
