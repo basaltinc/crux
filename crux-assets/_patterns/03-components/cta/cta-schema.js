@@ -22,8 +22,9 @@ module.exports = {
     full_width: {
       title: 'Full Width',
       type: 'boolean',
-      description: 'Gives element the class `u-full-width` so it will span the entire screen.'
-    }
+      description:
+        'Gives element the class `u-full-width` so it will span the entire screen.',
+    },
   },
   examples: [
     {

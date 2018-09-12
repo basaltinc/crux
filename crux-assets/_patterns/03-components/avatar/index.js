@@ -2,9 +2,9 @@ const schema = require('./avatar-schema.js');
 
 const uiSchema = {
   size: {
-    "ui:widget": "radio",
-  }
-}
+    'ui:widget': 'radio',
+  },
+};
 
 const meta = {
   id: 'avatar',

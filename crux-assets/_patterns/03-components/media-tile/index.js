@@ -1,28 +1,27 @@
 const schema = require('./media-tile-schema.js');
 const basicSchema = require('./media-tile--basic.schema');
 
-
 const uiSchema = {
   body: {
-    "ui:widget": "textarea",
-    "ui:options": {
-      rows: 15
-    }
+    'ui:widget': 'textarea',
+    'ui:options': {
+      rows: 15,
+    },
   },
   text_align: {
-    "ui:widget": "radio",
+    'ui:widget': 'radio',
   },
   text_align_vert: {
-    "ui:widget": "radio",
+    'ui:widget': 'radio',
   },
   buttons: {
     items: {
       size: {
-        "ui:widget": "radio",
-      }
-    }
-  }
-}
+        'ui:widget': 'radio',
+      },
+    },
+  },
+};
 
 const meta = {
   id: 'media-tile',

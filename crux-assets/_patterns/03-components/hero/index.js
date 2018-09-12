@@ -2,22 +2,22 @@ const schema = require('./hero-schema');
 
 const uiSchema = {
   alignment_all: {
-    "ui:widget": "radio",
+    'ui:widget': 'radio',
   },
   body: {
-    "ui:widget": "textarea",
-    "ui:options": {
-      rows: 5
-    }
+    'ui:widget': 'textarea',
+    'ui:options': {
+      rows: 5,
+    },
   },
   buttons: {
     items: {
       size: {
-        "ui:widget": "radio",
-      }
-    }
-  }
-}
+        'ui:widget': 'radio',
+      },
+    },
+  },
+};
 
 const meta = {
   id: 'hero',

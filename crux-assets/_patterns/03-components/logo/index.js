@@ -1,11 +1,10 @@
 const schema = require('./logo-schema');
 
-
 const uiSchema = {
   size: {
-    "ui:widget": "radio",
-  }
-}
+    'ui:widget': 'radio',
+  },
+};
 
 const meta = {
   id: 'logo',
