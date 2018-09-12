@@ -8,7 +8,6 @@ import {
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import NavList from '@basalt/bedrock-nav-list';
 import SecondaryNavItems from './secondary-nav-items.json';
-import { apiUrlBase } from '../../../config';
 
 const { resourcesLinks, aboutLinks } = SecondaryNavItems;
 
@@ -55,7 +54,7 @@ class SecondaryNav extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/examples`)
+      .fetch(`${this.props.context.settings.config.apiUrlBase}/examples`)
       .then(res => res.json())
       .then(examples => {
         const exampleLinks = examples.map(example => ({

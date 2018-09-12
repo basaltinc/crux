@@ -2,16 +2,16 @@ import React from 'react';
 import { BedrockContextConsumer } from '@basalt/bedrock-core';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import bedrockConfigSchema from '../../bedrock.config.schema';
-import { isDevMode } from '../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
-function SettingsPage() {
+function SettingsPage(props) {
   return (
     <BedrockContextConsumer>
       {({ settings, setSettings }) => (
         <div>
           <h4 className="eyebrow">Configuration</h4>
           <h2>Settings</h2>
-          {(isDevMode && (
+          {(props.context.settings.config.isDevMode && (
             <React.Fragment>
               <hr />
               <br />
@@ -47,4 +47,8 @@ function SettingsPage() {
   );
 }
 
-export default SettingsPage;
+SettingsPage.propTypes = {
+  context: contextPropTypes,
+};
+
+export default connectToContext(SettingsPage);

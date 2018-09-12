@@ -7,7 +7,7 @@ import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Overview from '@basalt/bedrock-overview';
 import Twig from '@basalt/bedrock-twig';
-import { apiUrlBase, websocketsPort, isDevMode } from '../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import {
   LoadableSchemaTable,
   LoadableVariationDemo,
@@ -19,11 +19,11 @@ const OverviewHeader = styled.header`
   margin-bottom: 2rem;
 `;
 
-export default class ComponentOverview extends Component {
+class ComponentOverview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiEndpoint: `${apiUrlBase}/pattern-meta/${props.id}`,
+      apiEndpoint: `${this.props.context.settings.config.apiUrlBase}/pattern-meta/${props.id}`,
       currentTemplate: {
         name: '',
         schema: {},
@@ -38,8 +38,8 @@ export default class ComponentOverview extends Component {
 
   componentDidMount() {
     this.getData();
-    if (isDevMode) {
-      this.socket = new window.WebSocket(`ws://localhost:${websocketsPort}`);
+    if (this.props.context.settings.config.isDevMode) {
+      this.socket = new window.WebSocket(`ws://localhost:${this.props.context.settings.config.websocketsPort}`);
 
       // this.socket.addEventListener('open', event => {
       //   this.socket.send('Hello Server!', event);
@@ -56,7 +56,7 @@ export default class ComponentOverview extends Component {
   }
 
   componentWillUnmount() {
-    if (isDevMode) {
+    if (this.props.context.settings.config.isDevMode) {
       this.socket.close(1000, 'componentWillUnmount called');
     }
   }
@@ -170,4 +170,7 @@ ComponentOverview.defaultProps = {
 ComponentOverview.propTypes = {
   id: PropTypes.string.isRequired,
   demoSizes: PropTypes.arrayOf(PropTypes.string.isRequired),
+  context: contextPropTypes.isRequired,
 };
+
+export default connectToContext(ComponentOverview);
