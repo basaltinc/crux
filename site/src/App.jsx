@@ -9,11 +9,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import Spinner from '@basalt/bedrock-spinner';
 import GlobalStyles from '@basalt/bedrock-global-styles';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
-import {
-  BedrockContextConsumer,
-  BedrockContextProvider,
-  baseContext,
-} from '@basalt/bedrock-core';
+import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header/header';
 import {
@@ -130,209 +126,202 @@ class App extends React.Component {
     return (
       <ErrorCatcher>
         <BedrockContextProvider value={cruxContext}>
-          <BedrockContextConsumer>
-            {context => (
-              <ThemeProvider theme={context.theme}>
-                <React.Fragment>
-                  <GlobalStyles />
-                  <Router>
-                    <div>
+          <ThemeProvider theme={cruxContext.theme}>
+            <React.Fragment>
+              <GlobalStyles />
+              <Router>
+                <div>
+                  <Route
+                    path="/"
+                    component={routeProps => <Header {...routeProps} />}
+                  />
+                  <Site>
+                    <Switch>
+                      <Route path="/" exact />
+                      <Route path="/examples/*" />
                       <Route
                         path="/"
-                        component={routeProps => <Header {...routeProps} />}
+                        render={({ location }) => (
+                          <LoadableSidebar>
+                            <LoadableSecondaryNav location={location} />
+                          </LoadableSidebar>
+                        )}
                       />
-                      <Site>
+                    </Switch>
+                    <MainContent>
+                      <ErrorCatcher>
                         <Switch>
-                          <Route path="/" exact />
-                          <Route path="/examples/*" />
                           <Route
                             path="/"
-                            render={({ location }) => (
-                              <LoadableSidebar>
-                                <LoadableSecondaryNav location={location} />
-                              </LoadableSidebar>
+                            component={LoadableHomeSplash}
+                            exact
+                          />
+                          <Route
+                            path="/examples/:id"
+                            render={({ match }) => (
+                              <LoadablePlayground
+                                id={match.params.id}
+                                patterns={this.state.patterns}
+                              />
                             )}
                           />
+                          <Route
+                            path="/examples"
+                            component={LoadableExamplesPage}
+                            exact
+                          />
+                          <Route
+                            path="/about"
+                            component={LoadableAboutPage}
+                            exact
+                          />
+                          <Route
+                            path="/about/release-notes"
+                            component={LoadableReleaseNotes}
+                          />
+                          <Route
+                            path="/about/feature-requests"
+                            component={LoadableFeatureRequest}
+                          />
+                          <Route
+                            path="/design-tokens"
+                            component={LoadableDesignTokenPage}
+                            exact
+                          />
+                          {this.isDesignTokenAvailable('transitions') && (
+                            <Route
+                              path={
+                                this.state.designTokens.find(
+                                  t => t.id === 'transitions',
+                                ).path
+                              }
+                              component={LoadableAnimations}
+                            />
+                          )}
+                          {this.isDesignTokenAvailable('breakpoints') && (
+                            <Route
+                              path={
+                                this.state.designTokens.find(
+                                  t => t.id === 'breakpoints',
+                                ).path
+                              }
+                              component={LoadableBreakpoints}
+                            />
+                          )}
+                          {this.isDesignTokenAvailable('colors') && (
+                            <Route
+                              path={
+                                this.state.designTokens.find(
+                                  t => t.id === 'colors',
+                                ).path
+                              }
+                              component={LoadableColors}
+                            />
+                          )}
+                          {this.isDesignTokenAvailable('shadows') && (
+                            <Route
+                              path={
+                                this.state.designTokens.find(
+                                  t => t.id === 'shadows',
+                                ).path
+                              }
+                              component={LoadableShadows}
+                            />
+                          )}
+                          {this.isDesignTokenAvailable('spacings') && (
+                            <Route
+                              path={
+                                this.state.designTokens.find(
+                                  t => t.id === 'spacings',
+                                ).path
+                              }
+                              component={LoadableSpacings}
+                            />
+                          )}
+                          {this.isDesignTokenAvailable('typography') && (
+                            <Route
+                              path={
+                                this.state.designTokens.find(
+                                  t => t.id === 'typography',
+                                ).path
+                              }
+                              component={LoadableTypography}
+                            />
+                          )}
+                          {this.isDesignTokenAvailable('icons') && (
+                            <Route
+                              path={
+                                this.state.designTokens.find(
+                                  t => t.id === 'icons',
+                                ).path
+                              }
+                              component={LoadableIcons}
+                            />
+                          )}
+                          <Route
+                            path="/patterns"
+                            component={LoadablePatternsPage}
+                            exact
+                          />
+                          <Route
+                            path="/resources"
+                            component={LoadableResourcesLanding}
+                            exact
+                          />
+                          <Route
+                            path="/resources/logo-downloads"
+                            component={LoadableLogoDownloads}
+                          />
+                          <Route
+                            path="/resources/logo-usage"
+                            component={LoadableLogoUsage}
+                          />
+                          <Route
+                            path="/resources/photography-guidelines"
+                            component={LoadablePhotographyGuidelines}
+                          />
+                          <Route
+                            path="/resources/sketch-assets"
+                            component={LoadableSketchAssets}
+                          />
+                          <Route
+                            path="/resources/brand-descriptors"
+                            component={LoadableBrandDescriptors}
+                          />
+                          <Route
+                            path="/settings"
+                            component={LoadableSettingsPage}
+                          />
+                          <Route path="/sandbox" component={LoadableSandbox} />
+                          <Route
+                            path="/patterns/components/:id"
+                            render={({ match }) => (
+                              <LoadableComponentOverview
+                                id={match.params.id}
+                                size="m"
+                                key={match.params.id}
+                              />
+                            )}
+                          />
+                          <Route
+                            path="/resources/:id"
+                            render={({ match }) => {
+                              const Component = [match.id];
+                              return <Component />;
+                            }}
+                          />
+                          <Redirect to="/" />
                         </Switch>
-                        <MainContent>
-                          <ErrorCatcher>
-                            <Switch>
-                              <Route
-                                path="/"
-                                component={LoadableHomeSplash}
-                                exact
-                              />
-                              <Route
-                                path="/examples/:id"
-                                render={({ match }) => (
-                                  <LoadablePlayground
-                                    id={match.params.id}
-                                    patterns={this.state.patterns}
-                                  />
-                                )}
-                              />
-                              <Route
-                                path="/examples"
-                                component={LoadableExamplesPage}
-                                exact
-                              />
-                              <Route
-                                path="/about"
-                                component={LoadableAboutPage}
-                                exact
-                              />
-                              <Route
-                                path="/about/release-notes"
-                                component={LoadableReleaseNotes}
-                              />
-                              <Route
-                                path="/about/feature-requests"
-                                component={LoadableFeatureRequest}
-                              />
-                              <Route
-                                path="/design-tokens"
-                                component={LoadableDesignTokenPage}
-                                exact
-                              />
-                              {this.isDesignTokenAvailable('transitions') && (
-                                <Route
-                                  path={
-                                    this.state.designTokens.find(
-                                      t => t.id === 'transitions',
-                                    ).path
-                                  }
-                                  component={LoadableAnimations}
-                                />
-                              )}
-                              {this.isDesignTokenAvailable('breakpoints') && (
-                                <Route
-                                  path={
-                                    this.state.designTokens.find(
-                                      t => t.id === 'breakpoints',
-                                    ).path
-                                  }
-                                  component={LoadableBreakpoints}
-                                />
-                              )}
-                              {this.isDesignTokenAvailable('colors') && (
-                                <Route
-                                  path={
-                                    this.state.designTokens.find(
-                                      t => t.id === 'colors',
-                                    ).path
-                                  }
-                                  component={LoadableColors}
-                                />
-                              )}
-                              {this.isDesignTokenAvailable('shadows') && (
-                                <Route
-                                  path={
-                                    this.state.designTokens.find(
-                                      t => t.id === 'shadows',
-                                    ).path
-                                  }
-                                  component={LoadableShadows}
-                                />
-                              )}
-                              {this.isDesignTokenAvailable('spacings') && (
-                                <Route
-                                  path={
-                                    this.state.designTokens.find(
-                                      t => t.id === 'spacings',
-                                    ).path
-                                  }
-                                  component={LoadableSpacings}
-                                />
-                              )}
-                              {this.isDesignTokenAvailable('typography') && (
-                                <Route
-                                  path={
-                                    this.state.designTokens.find(
-                                      t => t.id === 'typography',
-                                    ).path
-                                  }
-                                  component={LoadableTypography}
-                                />
-                              )}
-                              {this.isDesignTokenAvailable('icons') && (
-                                <Route
-                                  path={
-                                    this.state.designTokens.find(
-                                      t => t.id === 'icons',
-                                    ).path
-                                  }
-                                  component={LoadableIcons}
-                                />
-                              )}
-                              <Route
-                                path="/patterns"
-                                component={LoadablePatternsPage}
-                                exact
-                              />
-                              <Route
-                                path="/resources"
-                                component={LoadableResourcesLanding}
-                                exact
-                              />
-                              <Route
-                                path="/resources/logo-downloads"
-                                component={LoadableLogoDownloads}
-                              />
-                              <Route
-                                path="/resources/logo-usage"
-                                component={LoadableLogoUsage}
-                              />
-                              <Route
-                                path="/resources/photography-guidelines"
-                                component={LoadablePhotographyGuidelines}
-                              />
-                              <Route
-                                path="/resources/sketch-assets"
-                                component={LoadableSketchAssets}
-                              />
-                              <Route
-                                path="/resources/brand-descriptors"
-                                component={LoadableBrandDescriptors}
-                              />
-                              <Route
-                                path="/settings"
-                                component={LoadableSettingsPage}
-                              />
-                              <Route
-                                path="/sandbox"
-                                component={LoadableSandbox}
-                              />
-                              <Route
-                                path="/patterns/components/:id"
-                                render={({ match }) => (
-                                  <LoadableComponentOverview
-                                    id={match.params.id}
-                                    size="m"
-                                    key={match.params.id}
-                                  />
-                                )}
-                              />
-                              <Route
-                                path="/resources/:id"
-                                render={({ match }) => {
-                                  const Component = [match.id];
-                                  return <Component />;
-                                }}
-                              />
-                              <Redirect to="/" />
-                            </Switch>
-                          </ErrorCatcher>
-                        </MainContent>
-                      </Site>
-                      <SiteFooter>
-                        <LoadableFooter />
-                      </SiteFooter>
-                    </div>
-                  </Router>
-                </React.Fragment>
-              </ThemeProvider>
-            )}
-          </BedrockContextConsumer>
+                      </ErrorCatcher>
+                    </MainContent>
+                  </Site>
+                  <SiteFooter>
+                    <LoadableFooter />
+                  </SiteFooter>
+                </div>
+              </Router>
+            </React.Fragment>
+          </ThemeProvider>
         </BedrockContextProvider>
       </ErrorCatcher>
     );
@@ -340,7 +329,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  bedrockSettings: PropTypes.object.isRequired, // eslint-disable-line
+  bedrockSettings: PropTypes.object.isRequired // eslint-disable-line
 };
 
 export default App;
