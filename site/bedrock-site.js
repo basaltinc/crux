@@ -38,6 +38,9 @@ function createWebPackConfig(config) {
             path.resolve(__dirname, 'node_modules'),
             path.resolve(__dirname, '../node_modules'),
           ],
+          options: {
+            extends: '@basalt/bedrock-config-babel/es',
+          },
         },
         {
           test: [/\.jpeg?$/, /\.jpg?$/, /\.svg?$/, /\.png?$/],
