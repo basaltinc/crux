@@ -63,6 +63,7 @@ export const IconWrapper = styled.div`
     top: -36px;
     left: 50%;
     transform: translateX(-50%);
+    z-index: -10;
     &:after {
       border-color: grey transparent transparent transparent;
       position: absolute;
