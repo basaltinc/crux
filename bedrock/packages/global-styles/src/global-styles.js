@@ -1,36 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
-
-    :root {
-    // borders
-    --border-radius: 0;
-    --border-color: #CCC;
-    
-    // colors
-    --type-color--component: #16394B;
-    //@todo Lets get these colors to be within the same palette as our core colors (coming from the design system). Perhaps move these defaults to Bedrock and override here with Crux flavors
-    --type-color--layout: #FFA000;
-    --type-color--typography: #16394B;
-    --type-color--icon: #536dfe;
-    --type-color--color: #00695c;
-    --type-color--none: #000;
-  
-    --type-color--component-accent: #CFE3DE;
-    --type-color--layout-accent: #fff5e6;
-    --type-color--typography-accent: #e3dfcc;
-    --type-color--icon-accent: #e2e7ff;
-    --type-color--color-accent: #d0f3ee;
-    --type-color--none-accent: #e0e0e0;
-    
-    --spacing-xs: 4px;
-    --spacing-s: 8px;
-    --spacing-m: 16px;
-    --spacing-l: 32px;
-    --spacing-xl: 64px;
-    }
-
-
     @charset "UTF-8";
     * {
       box-sizing: border-box;
