@@ -1,41 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import { GlobalFonts } from './fonts';
 
 const GlobalStyles = createGlobalStyle`
-
-    // @todo jake, can you please remove these?
-    :root {
-    // animations
-    --transition-time: 0.3s;
-    --transition-function: ease-in;
-    
-    // borders
-    --border-radius: 0;
-    --border-color: #CCC;
-    
-    // colors
-    --type-color--component: #16394B;
-    //@todo Lets get these colors to be within the same palette as our core colors (coming from the design system). Perhaps move these defaults to Bedrock and override here with Crux flavors
-    --type-color--layout: #FFA000;
-    --type-color--typography: #16394B;
-    --type-color--icon: #536dfe;
-    --type-color--color: #00695c;
-    --type-color--none: #000;
-  
-    --type-color--component-accent: #CFE3DE;
-    --type-color--layout-accent: #fff5e6;
-    --type-color--typography-accent: #e3dfcc;
-    --type-color--icon-accent: #e2e7ff;
-    --type-color--color-accent: #d0f3ee;
-    --type-color--none-accent: #e0e0e0;
-    
-    --spacing-xs: 4px;
-    --spacing-s: 8px;
-    --spacing-m: 16px;
-    --spacing-l: 32px;
-    --spacing-xl: 64px;
-    }
-
-
+    ${GlobalFonts}
     @charset "UTF-8";
     * {
       box-sizing: border-box;
@@ -60,26 +27,6 @@ const GlobalStyles = createGlobalStyle`
     .eyebrow {
       color: grey;
       margin-bottom: 0;
-    }
-    // @todo Consider breaking this out into a typography globals for this site
-    // @todo Properly import the fonts
-    @font-face {
-      font-family: "AvenirLight";
-      src: url("fonts/avenir--light.woff2") format("woff2"), url("fonts/avenir--light.woff") format("woff"), url("fonts/avenir--light.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: "AvenirMedium";
-      src: url("fonts/avenir--medium.woff2") format("woff2"), url("fonts/avenir--medium.woff") format("woff"), url("fonts/avenir--medium.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: "DinCondensed";
-      src: url("fonts/din-condensed--regular.woff2") format("woff2"), url("fonts/din-condensed--regular.woff") format("woff"), url("fonts/din-condensed--regular.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
     }
     h1, .h1 {
       font-family: "AvenirMedium", sans-serif;

@@ -72,7 +72,7 @@ export const baseTheme = {
     primary: colors.blue.base,
     secondary: colors.green.base,
     neutral: colors.gray.base,
-    'neutral-light': colors.gray.xlight,
+    neutral_light: colors.gray.xlight,
     borders: colors.gray.light,
     link: {
       base: colors.blue.base,
@@ -102,12 +102,12 @@ export const baseTheme = {
     padding: '5px 8px',
     label: {
       color: colors.gray.dark,
-      'font-size': '13.5px',
+      font_size: '13.5px',
     },
     input: {
-      'font-size': '0.75rem',
+      font_size: '0.75rem',
       height: '33px',
-      'border-none': 0,
+      border_none: 0,
       border: `1px solid ${colors.gray.xlight}`,
       padding: '3px 8px',
     },
@@ -120,11 +120,11 @@ export const baseTheme = {
     radius: '0',
   },
   global: {
-    'box-sizing': 'border-box',
+    box_sizing: 'border-box',
   },
   blockquote: {
     border: `1px solid ${colors.gray.xlight}`,
-    'border-left': `6px solid ${colors.blue.base}`,
+    border_left: `6px solid ${colors.blue.base}`,
     padding: '2.25rem 4rem',
     margin: '2rem 2.25rem',
     glyph: {
@@ -137,7 +137,9 @@ export const baseTheme = {
   },
   transition: {
     all: 'all 0.3s ease-in-out',
+    speed_and_function: '0.3s ease-in-out',
     speed: '0.3s',
+    function: 'ease-in-out',
   },
 };
 
