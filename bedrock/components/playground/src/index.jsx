@@ -5,6 +5,7 @@ import uuid from 'uuid/v4';
 import Spinner from '@basalt/bedrock-spinner';
 import { StatusMessage } from '@basalt/bedrock-atoms';
 import Sidebar from '@basalt/bedrock-sidebar';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import PlaygroundSlice from './playground-slice';
@@ -13,7 +14,6 @@ import PlaygroundSidebar, {
   SIDEBAR_FORM,
   SIDEBAR_PATTERNS,
 } from './playground-sidebar';
-import { apiUrlBase } from '../../../../site/config';
 import { MainContent, StartInsertSlice, Page } from './playground.styles';
 
 class Playground extends Component {
@@ -34,6 +34,9 @@ class Playground extends Component {
       hasVisibleControls: true,
       changeId: null,
     };
+    // Static properties
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
+    // Bindings
     this.moveSlice = this.moveSlice.bind(this);
     this.moveSliceUp = this.moveSliceUp.bind(this);
     this.moveSliceDown = this.moveSliceDown.bind(this);
@@ -54,7 +57,7 @@ class Playground extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/example/${this.props.id}`)
+      .fetch(`${this.apiEndpoint}/example/${this.props.id}`)
       .then(res => res.json())
       .then(results => {
         if (results.ok) {
@@ -98,7 +101,7 @@ class Playground extends Component {
     });
 
     window
-      .fetch(`${apiUrlBase}/example/${this.props.id}`, {
+      .fetch(`${this.apiEndpoint}/example/${this.props.id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -390,9 +393,10 @@ class Playground extends Component {
 }
 
 Playground.propTypes = {
+  context: contextPropTypes.isRequired,
   patterns: PropTypes.array.isRequired, // eslint-disable-line
   example: PropTypes.object.isRequired, // eslint-disable-line
   id: PropTypes.string.isRequired, // @todo save/show playgrounds based on `id`
 };
 
-export default DragDropContext(HTML5Backend)(Playground);
+export default DragDropContext(HTML5Backend)(connectToContext(Playground));

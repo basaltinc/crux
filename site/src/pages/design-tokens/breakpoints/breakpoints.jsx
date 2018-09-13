@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ApiDemo from '@basalt/bedrock-api-demo';
-import { apiUrlBase } from '../../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import deviceWidths from './device-widths';
 import {
   BreakpointListItem,
@@ -61,7 +61,9 @@ class BreakpointsPage extends React.Component {
     this.state = {
       breakpoints: [],
     };
-    this.apiEndpoint = `${apiUrlBase}/design-token/breakpoints`;
+    this.apiEndpoint = `${
+      props.context.settings.urls.apiUrlBase
+    }/design-token/breakpoints`;
   }
 
   componentDidMount() {
@@ -94,4 +96,8 @@ class BreakpointsPage extends React.Component {
   }
 }
 
-export default BreakpointsPage;
+BreakpointsPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(BreakpointsPage);

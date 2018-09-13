@@ -1,5 +1,5 @@
 import React from 'react';
-import { BedrockContextConsumer } from '@basalt/bedrock-core';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import {
   HomeSplashCore,
   EyeBrow,
@@ -9,23 +9,25 @@ import {
   VersionTag,
 } from './home-splash.styles';
 
-const HomeSplash = () => (
-  <BedrockContextConsumer>
-    {({ settings }) => (
-      <HomeSplashWrapper>
-        <HomeSplashCore>
-          {settings.site.subtitle && (
-            <EyeBrow>{settings.site.subtitle}</EyeBrow>
-          )}
-          <Title>{settings.site.title}</Title>
-          {settings.site.slogan && <Subtitle>{settings.site.slogan}</Subtitle>}
-          {settings.site.version && (
-            <VersionTag>{settings.site.version}</VersionTag>
-          )}
-        </HomeSplashCore>
-      </HomeSplashWrapper>
-    )}
-  </BedrockContextConsumer>
+const HomeSplash = ({ context }) => (
+  <HomeSplashWrapper>
+    <HomeSplashCore>
+      {context.settings.site.subtitle && (
+        <EyeBrow>{context.settings.site.subtitle}</EyeBrow>
+      )}
+      <Title>{context.settings.site.title}</Title>
+      {context.settings.site.slogan && (
+        <Subtitle>{context.settings.site.slogan}</Subtitle>
+      )}
+      {context.settings.site.version && (
+        <VersionTag>{context.settings.site.version}</VersionTag>
+      )}
+    </HomeSplashCore>
+  </HomeSplashWrapper>
 );
 
-export default HomeSplash;
+HomeSplash.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(HomeSplash);

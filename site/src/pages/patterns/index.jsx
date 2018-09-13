@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Spinner from '@basalt/bedrock-spinner';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import PatternGrid from '@basalt/bedrock-pattern-grid';
-import { apiUrlBase } from '../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
 const filterSchema = {
   $schema: 'http://json-schema.org/draft-07/schema',
@@ -76,7 +76,9 @@ class PatternsPage extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/patterns/component`)
+      .fetch(
+        `${this.props.context.settings.urls.apiUrlBase}/patterns/component`,
+      )
       .then(res => res.json())
       .then(patterns => {
         this.setState({
@@ -141,4 +143,8 @@ class PatternsPage extends Component {
   }
 }
 
-export default PatternsPage;
+PatternsPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(PatternsPage);

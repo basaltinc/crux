@@ -8,7 +8,6 @@ import {
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import NavList from '@basalt/bedrock-nav-list';
 import SecondaryNavItems from './secondary-nav-items.json';
-import { apiUrlBase } from '../../../config';
 
 const { resourcesLinks, aboutLinks } = SecondaryNavItems;
 
@@ -19,6 +18,7 @@ class SecondaryNav extends Component {
       filterTerm: '',
       items: [],
     };
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
     this.handleFilterReset = this.handleFilterReset.bind(this);
   }
 
@@ -40,7 +40,7 @@ class SecondaryNav extends Component {
               path: '/patterns',
               isHeading: true,
             },
-            ...props.patterns,
+            ...props.context.patterns,
             {
               title: 'Examples',
               id: 'example-heading',
@@ -55,7 +55,7 @@ class SecondaryNav extends Component {
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/examples`)
+      .fetch(`${this.apiEndpoint}/examples`)
       .then(res => res.json())
       .then(examples => {
         const exampleLinks = examples.map(example => ({
@@ -79,7 +79,7 @@ class SecondaryNav extends Component {
               path: '/patterns',
               isHeading: true,
             },
-            ...this.props.patterns,
+            ...this.props.context.patterns,
             {
               title: 'Examples',
               id: 'example-heading',
@@ -151,19 +151,7 @@ class SecondaryNav extends Component {
   }
 }
 
-SecondaryNav.defaultProps = {
-  patterns: [],
-};
-
 SecondaryNav.propTypes = {
-  // eslint-disable-next-line react/no-unused-prop-types
-  patterns: PropTypes.arrayOf(
-    // @todo pull in definition from `pattern-meta.schema.json`
-    PropTypes.shape({
-      title: PropTypes.string,
-      id: PropTypes.string,
-    }),
-  ),
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,

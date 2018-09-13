@@ -7,7 +7,7 @@ export const TextInputWrapper = styled.div`
     padding: ${props => props.theme.form.input.padding};
     border: ${props => props.theme.form.input.border};
     background-color: white;
-    font-size: ${props => props.theme.form.input['font-size']};
+    font-size: ${props => props.theme.form.input.font_size};
     width: 100%;
   }
   > input {
@@ -22,7 +22,7 @@ export const RadioInputWrapper = styled.div`
   input {
     margin-right: 8px;
     + span {
-      font-size: ${props => props.theme.form.input['font-size']};
+      font-size: ${props => props.theme.form.input.font_size};
     }
   }
 `;
@@ -39,7 +39,7 @@ export const CheckboxInputWrapper = styled.div`
   input {
     margin-right: 8px;
     + span {
-      font-size: ${props => props.theme.form.input['font-size']};
+      font-size: ${props => props.theme.form.input.font_size};
     }
   }
 `;

@@ -1,14 +1,13 @@
 const schema = require('./list-schema');
 
-
 const uiSchema = {
   display: {
-    "ui:widget": "radio",
+    'ui:widget': 'radio',
   },
   columns: {
-    "ui:widget": "radio",
-  }
-}
+    'ui:widget': 'radio',
+  },
+};
 
 const meta = {
   id: 'list',

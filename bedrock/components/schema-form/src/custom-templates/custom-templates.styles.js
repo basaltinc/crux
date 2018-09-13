@@ -17,7 +17,7 @@ export const CustomFieldWrapper = styled.div`
   > label {
     display: block;
     color: ${props => props.theme.form.label.color};
-    font-size: ${props => props.theme.form.label['font-size']};
+    font-size: ${props => props.theme.form.label.font_size};
     font-weight: bold;
   }
   .field-radio-group {

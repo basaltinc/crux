@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 
 export const DemoTransitionOpacity = styled.div`
-  background: #ddd;
-  padding: 1em;
-  margin-bottom: 1em;
+  background: ${props => props.theme.colors.neutral_light};
+  padding: ${props => props.theme.spacing.m};
+  margin-bottom: ${props => props.theme.spacing.m};
   text-align: center;
   border-radius: 0;
   cursor: pointer;
   max-width: 800px;
-  transition: opacity var(--transition-time) var(--transition-function);
+  transition: opacity ${props => props.theme.transition.speed_and_function};
   &:hover {
     opacity: 0;
   }
 `;
 
 export const DemoTransitionMove = styled.div`
-  background: #ddd;
-  padding: 1em;
-  margin-bottom: 1em;
+  background: ${props => props.theme.colors.neutral_light};
+  padding: ${props => props.theme.spacing.m};
+  margin-bottom: ${props => props.theme.spacing.m};
   text-align: center;
   border-radius: 0;
   cursor: pointer;
@@ -32,7 +32,7 @@ export const DemoTransitionMove = styled.div`
     left: 8px;
     bottom: 0;
     background: black;
-    transition: left var(--transition-time) var(--transition-function);
+    transition: left ${props => props.theme.transition.speed_and_function};
   }
   &:hover:after {
     left: calc(100% - 8px);

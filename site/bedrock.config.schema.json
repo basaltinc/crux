@@ -20,8 +20,28 @@
       "type": "object",
       "title": "Settings",
       "additionalProperties": false,
-      "required": ["site"],
+      "required": ["site", "parentBrand", "isDebug", "isDevMode", "isProd", "websocketsPort"],
       "properties": {
+        "isDebug": {
+          "title": "Is Debug Mode",
+          "type": "boolean",
+          "description": "Debug mode"
+        },
+        "isDevMode": {
+          "title": "Is Dev Mode",
+          "type": "boolean",
+          "description": "Is this Dev Mode"
+        },
+        "isProd": {
+          "title": "Is Prod",
+          "type": "boolean",
+          "description": "Is this production mode"
+        },
+        "websocketsPort": {
+          "title": "Websocket Port",
+          "type": "number",
+          "description": "Port number on which the component renderer is listening"
+        },
         "site": {
           "title": "Site",
           "type": "object",
@@ -72,6 +92,40 @@
               "title": "Homepage",
               "type": "string",
               "description": "URI of homepage of parent brand"
+            }
+          }
+        },
+        "urls": {
+          "title": "Urls",
+          "type": "object",
+          "description": "Various resource urls",
+          "additionalProperties": false,
+          "required": ["apiUrlBase", "cssUrls", "jsUrls"],
+          "properties": {
+            "apiUrlBase": {
+              "title": "Api Url Base",
+              "type": "string",
+              "description": "Url base for the api that supplies DS data"
+            },
+            "cssUrls": {
+                "title": "Css Urls",
+                "type": "array",
+                "description": "Urls for Design System css assets",
+              "items": {
+                "title": "Url",
+                "type": "string",
+                "description": "A url for css assets"
+              }
+            },
+            "jsUrls": {
+              "title": "Js Urls",
+              "type": "array",
+              "description": "Urls for Design System js assets",
+              "items": {
+                "title": "Url",
+                "type": "string",
+                "description": "A url for js assets"
+              }
             }
           }
         }
