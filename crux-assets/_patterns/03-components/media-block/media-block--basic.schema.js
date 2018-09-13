@@ -1,6 +1,7 @@
 const { image, paragraph, title: dummyTitle } = require('@basalt/demo-data');
 const mainSchema = require('./media-block-schema');
 
+/* eslint-disable camelcase */
 const schema = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',

@@ -3,25 +3,25 @@ const basicSchema = require('./media-block--basic.schema');
 
 const uiSchema = {
   body: {
-    "ui:widget": "textarea",
-    "ui:options": {
-      rows: 10
-    }
+    'ui:widget': 'textarea',
+    'ui:options': {
+      rows: 10,
+    },
   },
   media_alignment: {
-    "ui:widget": "radio",
+    'ui:widget': 'radio',
   },
   media_size: {
-    "ui:widget": "radio",
+    'ui:widget': 'radio',
   },
   buttons: {
     items: {
       size: {
-        "ui:widget": "radio",
-      }
-    }
-  }
-}
+        'ui:widget': 'radio',
+      },
+    },
+  },
+};
 
 const meta = {
   id: 'media-block',

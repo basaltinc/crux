@@ -2,12 +2,12 @@ const schema = require('./blog-teaser-schema.js');
 
 const uiSchema = {
   summary: {
-    "ui:widget": "textarea",
-    "ui:options": {
-      rows: 10
-    }
-  }
-}
+    'ui:widget': 'textarea',
+    'ui:options': {
+      rows: 10,
+    },
+  },
+};
 
 const meta = {
   id: 'blog-teaser',
