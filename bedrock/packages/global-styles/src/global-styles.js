@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import { GlobalFonts } from './fonts';
 
 const GlobalStyles = createGlobalStyle`
+    ${GlobalFonts}
     @charset "UTF-8";
     * {
       box-sizing: border-box;
@@ -25,26 +27,6 @@ const GlobalStyles = createGlobalStyle`
     .eyebrow {
       color: grey;
       margin-bottom: 0;
-    }
-    // @todo Consider breaking this out into a typography globals for this site
-    // @todo Properly import the fonts
-    @font-face {
-      font-family: "AvenirLight";
-      src: url("fonts/avenir--light.woff2") format("woff2"), url("fonts/avenir--light.woff") format("woff"), url("fonts/avenir--light.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: "AvenirMedium";
-      src: url("fonts/avenir--medium.woff2") format("woff2"), url("fonts/avenir--medium.woff") format("woff"), url("fonts/avenir--medium.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
-    }
-    @font-face {
-      font-family: "DinCondensed";
-      src: url("fonts/din-condensed--regular.woff2") format("woff2"), url("fonts/din-condensed--regular.woff") format("woff"), url("fonts/din-condensed--regular.ttf") format("truetype");
-      font-weight: normal;
-      font-style: normal;
     }
     h1, .h1 {
       font-family: "AvenirMedium", sans-serif;
