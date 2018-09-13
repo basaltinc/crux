@@ -118,7 +118,7 @@ class PatternsPage extends Component {
     this.setState({
       formData,
     });
-    this.updateVisiblePatterns();ZZ
+    this.updateVisiblePatterns();
   }
 
   render() {
