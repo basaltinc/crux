@@ -12,7 +12,7 @@ export const typeColors = {
   },
   typography: {
     base: '#16394B',
-    accent: '#e3dfcc',
+    accent: '#CFE3DE',
   },
   layout: {
     base: '#FFA000',
