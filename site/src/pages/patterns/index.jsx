@@ -54,8 +54,8 @@ class PatternsPage extends Component {
           visibleStatuses,
           visibleUses,
           visiblePatterns: patterns,
-        }),
-          this.updateVisiblePatterns();
+        });
+        this.updateVisiblePatterns();
       });
   }
 
@@ -87,8 +87,8 @@ class PatternsPage extends Component {
             this.state.visibleStatuses.push(value);
           }
         }),
-    ),
-      this.updateVisiblePatterns();
+    );
+    this.updateVisiblePatterns();
   }
 
   handleChangeUses({ formData }) {
@@ -103,8 +103,8 @@ class PatternsPage extends Component {
             this.state.visibleUses.push(value);
           }
         }),
-    ),
-      this.updateVisiblePatterns();
+    );
+    this.updateVisiblePatterns();
   }
 
   render() {
