@@ -87,6 +87,7 @@ export const baseTheme = {
     sizes: {
       s: '14px',
       m: '18px',
+      body: '1rem',
     },
   },
   spacing: {
