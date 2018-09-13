@@ -16,9 +16,9 @@ export const SelectStyledWrapper = styled.label`
   /* stylelint-disable property-no-vendor-prefix */
   select {
     max-width: 100%;
-    background-color: ${props => props.theme.colors['neutral-light']};
+    background-color: ${props => props.theme.colors.neutral_light};
     font-size: 1rem;
-    border: ${props => props.theme.form.input['border-none']};
+    border: ${props => props.theme.form.input.border_none};
     height: ${props => props.theme.form.input.height};
     &:active,
     &:focus {
@@ -27,7 +27,7 @@ export const SelectStyledWrapper = styled.label`
     display: inline-block;
     padding: 0.3rem 2rem 0.3rem 1rem;
     margin: 0;
-    box-sizing: ${props => props.theme.global['box-sizing']};
+    box-sizing: ${props => props.theme.global.box_sizing};
     -webkit-appearance: none;
     -moz-appearance: none;
     background-image: linear-gradient(45deg, transparent 50%, gray 50%),
@@ -42,8 +42,8 @@ export const SelectStyledWrapper = styled.label`
 
   > span {
     display: inline-block;
-    background-color: ${props => props.theme.colors['neutral-light']};
-    border: ${props => props.theme.form.input['border-none']};
+    background-color: ${props => props.theme.colors.neutral_light};
+    border: ${props => props.theme.form.input.border_none};
     border-radius: ${props => props.theme.border.radius};
     height: ${props => props.theme.form.input.height};
     max-width: 100%;

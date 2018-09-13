@@ -2,12 +2,12 @@ const schema = require('./exec-bio-schema.js');
 
 const uiSchema = {
   bio: {
-    "ui:widget": "textarea",
-    "ui:options": {
-      rows: 15
-    }
-  }
-}
+    'ui:widget': 'textarea',
+    'ui:options': {
+      rows: 15,
+    },
+  },
+};
 
 const meta = {
   id: 'exec-bio',

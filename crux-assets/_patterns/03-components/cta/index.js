@@ -2,19 +2,19 @@ const schema = require('./cta-schema.js');
 
 const uiSchema = {
   text: {
-    "ui:widget": "textarea",
-    "ui:options": {
-      rows: 5
-    }
+    'ui:widget': 'textarea',
+    'ui:options': {
+      rows: 5,
+    },
   },
   buttons: {
     items: {
       size: {
-        "ui:widget": "radio",
-      }
-    }
-  }
-}
+        'ui:widget': 'radio',
+      },
+    },
+  },
+};
 
 const meta = {
   id: 'cta',

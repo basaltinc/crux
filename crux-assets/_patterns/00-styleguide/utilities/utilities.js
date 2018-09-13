@@ -12,14 +12,14 @@ function jsOpenLink() {
   const childLinks = document.querySelectorAll('[data-linkto] a');
 
   // prevent children from executing the parent click event
-  Array.from(childLinks).forEach((link) => {
-    link.addEventListener('click', (e) => {
+  Array.from(childLinks).forEach(link => {
+    link.addEventListener('click', e => {
       e.stopPropagation();
     });
   });
 
   // attach click event listener to the parent
-  Array.from(el).forEach((element) => {
+  Array.from(el).forEach(element => {
     element.addEventListener('click', jsLinkClicked);
   });
 }

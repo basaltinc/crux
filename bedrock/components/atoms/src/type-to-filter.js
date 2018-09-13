@@ -8,7 +8,7 @@ export const TypeToFilterInputWrapper = styled.div`
     padding: ${props => props.theme.form.input.padding};
     border: ${props => props.theme.form.input.border};
     background-color: white;
-    font-size: ${props => props.theme.form.input['font-size']};
+    font-size: ${props => props.theme.form.input.font_size};
     width: 100%;
   }
   > input {

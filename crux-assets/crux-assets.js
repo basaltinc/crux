@@ -4,7 +4,6 @@ const {
   getTransitions,
   getBreakpoints,
   getColors,
-  getReleaseNotes,
   getSpacings,
   getTypography,
 } = require('./data');

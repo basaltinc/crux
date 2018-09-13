@@ -2,9 +2,9 @@ const schema = require('./button-schema');
 
 const uiSchema = {
   size: {
-    "ui:widget": "radio",
-  }
-}
+    'ui:widget': 'radio',
+  },
+};
 
 const meta = {
   id: 'button',
