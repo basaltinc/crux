@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { uniqueArray, flattenArray } from '@basalt/bedrock-utils';
 import Spinner from '@basalt/bedrock-spinner';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import PatternGrid from '@basalt/bedrock-pattern-grid';
@@ -35,17 +34,7 @@ class PatternsPage extends Component {
       .fetch(`${apiUrlBase}/patterns/component`)
       .then(res => res.json())
       .then(patterns => {
-        // const statuses = uniqueArray(patterns.map(p => p.status));
-        const {
-          statuses,
-          uses,
-          visibleStatuses,
-          visibleUses,
-          visiblePatterns,
-        } = this.state;
-        // const uses = uniqueArray(
-        //   flattenArray(patterns.map(p => p.uses)),
-        // ).filter(Boolean);
+        const { statuses, uses, visibleStatuses, visibleUses } = this.state;
 
         Object.keys(statuses).forEach(value => {
           if (statuses[value] !== false) {
@@ -62,9 +51,7 @@ class PatternsPage extends Component {
         this.setState({
           patterns,
           isReady: true,
-          // statuses,
           visibleStatuses,
-          // uses,
           visibleUses,
           visiblePatterns: patterns,
         }),
@@ -178,22 +165,12 @@ class PatternsPage extends Component {
           schema={statusesSchema}
           formData={this.state.statuses}
           onChange={this.handleChangeStatuses}
-          // onChange={({ formData }) => {
-          //   this.setState({
-          //     statuses: formData,
-          //   });
-          // }}
           isInline
         />
         <SchemaForm
           schema={usesSchema}
           formData={this.state.uses}
           onChange={this.handleChangeUses}
-          // onChange={({ formData }) => {
-          //   this.setState({
-          //     uses: formData,
-          //   });
-          // }}
           isInline
         />
         <PatternGrid patterns={this.state.visiblePatterns} />
