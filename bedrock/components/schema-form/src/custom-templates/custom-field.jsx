@@ -41,7 +41,10 @@ export default function CustomField(props) {
     );
   } else if (inputSchema.type === 'string') {
     inputContent = <TextInputWrapper>{children}</TextInputWrapper>;
-  } else if (inputSchema.type === 'boolean') {
+  } else if (
+    inputSchema.type === 'boolean' ||
+    uiSchema['ui:widget'] === 'checkboxes'
+  ) {
     inputContent = <Toggle>{children}</Toggle>;
   } else {
     inputContent = children;
