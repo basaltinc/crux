@@ -8,25 +8,26 @@ const GlobalStyles = createGlobalStyle`
     @charset "UTF-8";
     ${GlobalFonts}
     * {
-      box-sizing: border-box;
+      box-sizing: ${props => props.theme.global.box_sizing};
     }
     html {
-      font-size: 14px;
+      font-size: ${props => props.theme.fonts.sizes.xs};
     }
     @media screen and (min-width: 380px) {
       html {
-        font-size: calc(14px + 4 * (100vw - 380px) / 920);
+        font-size: calc(${props =>
+          props.theme.fonts.sizes.xs} + 4 * (100vw - 380px) / 920);
       }
     }
     @media screen and (min-width: 1300px) {
       html {
-        font-size: 18px;
+        font-size: ${props => props.theme.fonts.sizes.m};
       }
     }
     body {
-      font-family: "AvenirLight", sans-serif;
+      font-family: ${props => props.theme.fonts.families.avenirLight};
       color: black;
-      font-size: 1rem;
+      font-size: ${props => props.theme.fonts.sizes.body};
       line-height: 1.5;
       margin: 0;
       padding: 0;
