@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { Link, Redirect } from 'react-router-dom';
 import uuid from 'uuid/v4';
-import { apiUrlBase } from '../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
 class ExamplesLandingPage extends Component {
   constructor(props) {
@@ -11,12 +11,13 @@ class ExamplesLandingPage extends Component {
       exampleLinks: [],
       redirect: '',
     };
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
     this.makeNewExample = this.makeNewExample.bind(this);
   }
 
   componentDidMount() {
     window
-      .fetch(`${apiUrlBase}/examples`)
+      .fetch(`${this.apiEndpoint}/examples`)
       .then(res => res.json())
       .then(examples => {
         const exampleLinks = examples.map(example => ({
@@ -34,7 +35,7 @@ class ExamplesLandingPage extends Component {
   makeNewExample() {
     const id = uuid();
     window
-      .fetch(`${apiUrlBase}/example/${id}`, {
+      .fetch(`${this.apiEndpoint}/example/${id}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,6 +106,8 @@ class ExamplesLandingPage extends Component {
   }
 }
 
-ExamplesLandingPage.propTypes = {};
+ExamplesLandingPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
 
-export default ExamplesLandingPage;
+export default connectToContext(ExamplesLandingPage);

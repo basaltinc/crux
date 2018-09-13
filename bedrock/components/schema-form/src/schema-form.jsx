@@ -1,7 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
 import Form from 'react-jsonschema-form';
-import { getRandomInt } from '../../../packages/utils/src/index';
+import uuid from 'uuid/v4';
 import ObjectFieldTemplate from './custom-templates/custom-object';
 import CustomArrayField from './custom-templates/array-field';
 import CustomField from './custom-templates/custom-field';
@@ -60,7 +60,7 @@ export default class SchemaForm extends React.Component {
 }
 
 SchemaForm.defaultProps = {
-  idPrefix: `schema-form--${getRandomInt(10000)}`,
+  idPrefix: `schema-form--${uuid()}`,
   isDebug: false,
   uiSchema: {},
   isInline: false,

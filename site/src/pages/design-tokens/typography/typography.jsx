@@ -6,9 +6,8 @@ import { BlockQuoteWrapper, DemoBlock } from '@basalt/bedrock-atoms';
 import { SmartGrid } from '@basalt/bedrock-smart-grid';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Spinner from '@basalt/bedrock-spinner';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import TabbedPanel from '@basalt/bedrock-tabbed-panel';
-
-import { apiUrlBase } from '../../../../config';
 
 const CopyThisClipboard = styled(CopyToClipboard)`
   position: absolute;
@@ -84,7 +83,9 @@ class TypographyPage extends React.Component {
         title: title(),
       },
     };
-    this.apiEndpoint = `${apiUrlBase}/design-token/typography`;
+    this.apiEndpoint = `${
+      props.context.settings.urls.apiUrlBase
+    }/design-token/typography`;
   }
 
   componentDidMount() {
@@ -275,4 +276,8 @@ class TypographyPage extends React.Component {
   }
 }
 
-export default TypographyPage;
+TypographyPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(TypographyPage);

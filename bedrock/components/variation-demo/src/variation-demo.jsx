@@ -4,8 +4,8 @@ import { FaEllipsisH, FaEllipsisV } from 'react-icons/fa';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import TabbedPanel from '@basalt/bedrock-tabbed-panel';
 import { Checkerboard } from '@basalt/bedrock-atoms';
-import Twig from '../../twig/src/twig';
-import { getTypeColor } from '../../../packages/core/src/context';
+import Twig from '@basalt/bedrock-twig';
+import { getTypeColor } from '@basalt/bedrock-core';
 import {
   VariationsWrapper,
   FooterRegion,

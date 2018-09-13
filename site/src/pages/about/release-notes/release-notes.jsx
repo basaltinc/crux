@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
-import { apiUrlBase } from '../../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import {
   ReleaseCommit,
   CommitHash,
@@ -53,8 +53,9 @@ class ReleaseNotesPage extends React.Component {
   }
 
   componentDidMount() {
+    const apiEndpoint = this.props.context.settings.apiUrlBase;
     window
-      .fetch(`${apiUrlBase}/releasenotes`)
+      .fetch(`${apiEndpoint}/releasenotes`)
       .then(res => res.json())
       .then(releaseNotes => {
         this.setState({ releaseNotes });
@@ -78,4 +79,8 @@ class ReleaseNotesPage extends React.Component {
   }
 }
 
-export default ReleaseNotesPage;
+ReleaseNotesPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(ReleaseNotesPage);

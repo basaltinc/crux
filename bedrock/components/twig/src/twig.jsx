@@ -2,29 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import iframeResizer from 'iframe-resizer/js/iframeResizer'; // https://www.npmjs.com/package/iframe-resizer
 import { version as iframeResizerVersion } from 'iframe-resizer/package.json';
-import {
-  apiUrlBase,
-  websocketsPort,
-  isDevMode,
-  cruxCssUrl,
-  cruxJsUrl,
-} from '../../../../site/config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import { ResizableWrapper } from './twig.styles';
 
 /**
  * Wrap HTML in full HTML page with CSS & JS assets.
  * @param {string} html - HTML for body
+ * @param {string[]} cssUrls - Url for Design System css assets
+ * @param {string[]} jsUrls - Url for Design System js assets
  * @param {boolean} [isReadyForIframe=true] - Add JS that prepares it for iFrame use.
  * @returns {string} - Full HTML page.
  */
-function wrapHtml(html, isReadyForIframe = true) {
+function wrapHtml(html, cssUrls, jsUrls, isReadyForIframe = true) {
   return `
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="${cruxCssUrl}">
+  ${cssUrls.map(
+    cssUrl => `<link rel="stylesheet" type="text/css" href="${cssUrl}">`,
+  )}
   ${
     isReadyForIframe
       ? `<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/${iframeResizerVersion}/iframeResizer.contentWindow.min.js"></script>`
@@ -33,7 +31,7 @@ function wrapHtml(html, isReadyForIframe = true) {
 </head>
 <body>
 ${html}
-<script src="${cruxJsUrl}"></script>
+${jsUrls.map(jsUrl => `<script src="${jsUrl}"></script>`)}
 <style>
   body {
     display: flex;
@@ -49,13 +47,18 @@ ${html}
 `;
 }
 
-export default class Twig extends React.Component {
+class Twig extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       html: '',
+      cssUrls: props.context.settings.urls.cssUrls,
+      jsUrls: props.context.settings.urls.jsUrls,
       // detailsOpen: false, @todo preserve if `<details>` is open between renders
     };
+    this.isDevMode = props.context.settings.isDevMode;
+    this.websocketsPort = props.context.settings.websocketsPort;
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
     this.iframeRef = React.createRef();
     this.getHtml = this.getHtml.bind(this);
   }
@@ -66,8 +69,10 @@ export default class Twig extends React.Component {
       this.controller = new window.AbortController();
       this.signal = this.controller.signal;
     }
-    if (isDevMode) {
-      this.socket = new window.WebSocket(`ws://localhost:${websocketsPort}`);
+    if (this.isDevMode) {
+      this.socket = new window.WebSocket(
+        `ws://localhost:${this.websocketsPort}`,
+      );
 
       // this.socket.addEventListener('open', event => {
       //   this.socket.send('Hello Server!', event);
@@ -112,7 +117,7 @@ export default class Twig extends React.Component {
     }
     this.iframeResizer.close(); // https://github.com/davidjbradshaw/iframe-resizer/issues/576
     clearInterval(this.resizerIntervalId);
-    if (isDevMode) {
+    if (this.isDevMode) {
       this.socket.close(1000, 'componentWillUnmount called');
     }
   }
@@ -124,7 +129,7 @@ export default class Twig extends React.Component {
   getHtml(data) {
     const type = this.props.isStringTemplate ? 'renderString' : 'renderFile';
     // let body = data;
-    const url = `${apiUrlBase}/render-twig?type=${type}`;
+    const url = `${this.apiEndpoint}/render-twig?type=${type}`;
 
     // if (this.props.isStringTemplate) {
     //   url = `${apiUrlBase}/render-twig?templateString`;
@@ -204,7 +209,7 @@ export default class Twig extends React.Component {
         id={this.state.id}
         title={this.props.template}
         ref={this.iframeRef}
-        srcDoc={wrapHtml(html)}
+        srcDoc={wrapHtml(html, this.state.cssUrls, this.state.jsUrls)}
       />
     );
 
@@ -230,9 +235,12 @@ Twig.defaultProps = {
 Twig.propTypes = {
   template: PropTypes.string.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
+  context: contextPropTypes.isRequired,
   data: PropTypes.object,
   isDataShown: PropTypes.bool,
   handleNewHtml: PropTypes.func,
   isStringTemplate: PropTypes.bool,
   isResizable: PropTypes.bool,
 };
+
+export default connectToContext(Twig);

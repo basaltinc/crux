@@ -3,40 +3,23 @@ import { uniqueArray, flattenArray } from '@basalt/bedrock-utils';
 import Spinner from '@basalt/bedrock-spinner';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import PatternGrid from '@basalt/bedrock-pattern-grid';
-import { apiUrlBase } from '../../../config';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
 class PatternsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      patterns: [],
-      ready: false,
-      visibleStatuses: [],
-      statuses: [],
-      uses: [],
-      visibleUses: [],
+      patterns: props.context.patterns,
+      ready: true,
+      visibleStatuses: uniqueArray(props.context.patterns.map(p => p.status)),
+      statuses: uniqueArray(props.context.patterns.map(p => p.status)),
+      uses: uniqueArray(
+        flattenArray(props.context.patterns.map(p => p.uses)),
+      ).filter(Boolean),
+      visibleUses: uniqueArray(
+        flattenArray(props.context.patterns.map(p => p.uses)),
+      ).filter(Boolean),
     };
-  }
-
-  componentDidMount() {
-    window
-      .fetch(`${apiUrlBase}/patterns/component`)
-      .then(res => res.json())
-      .then(patterns => {
-        const statuses = uniqueArray(patterns.map(p => p.status));
-        const uses = uniqueArray(
-          flattenArray(patterns.map(p => p.uses)),
-        ).filter(Boolean);
-
-        this.setState({
-          patterns,
-          ready: true,
-          statuses,
-          visibleStatuses: statuses,
-          uses,
-          visibleUses: uses,
-        });
-      });
   }
 
   render() {
@@ -45,7 +28,6 @@ class PatternsPage extends Component {
     }
 
     const { patterns, visibleUses, visibleStatuses } = this.state;
-
     const visibleItems = patterns
       .filter(item => item.id !== 'site-footer')
       .filter(item => item.id !== 'site-header')
@@ -109,4 +91,8 @@ class PatternsPage extends Component {
   }
 }
 
-export default PatternsPage;
+PatternsPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(PatternsPage);
