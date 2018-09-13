@@ -13,7 +13,7 @@ export const Button = styled.button`
 
 export const BlockQuoteWrapper = styled.blockquote`
   border: ${props => props.theme.blockquote.border};
-  border-left: ${props => props.theme.blockquote['border-left']};
+  border-left: ${props => props.theme.blockquote.border_left};
   padding: ${props => props.theme.blockquote.padding};
   position: relative;
   margin: ${props => props.theme.blockquote.margin};
