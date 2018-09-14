@@ -1,12 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import { GlobalFonts } from './fonts';
-import { GlobalTypography } from './typography';
-import { GlobalShadows } from './shadows';
-import { GlobalIcons } from './icons';
+import { addGlobalFonts } from './fonts';
+import { addGlobalTypography } from './typography';
+import { addGlobalShadows } from './shadows';
 
 const GlobalStyles = createGlobalStyle`
     @charset "UTF-8";
-    ${GlobalFonts}
+    ${addGlobalFonts}
     * {
       box-sizing: ${props => props.theme.global.box_sizing};
     }
@@ -15,8 +14,7 @@ const GlobalStyles = createGlobalStyle`
     }
     @media screen and (min-width: 380px) {
       html {
-        font-size: calc(${props =>
-          props.theme.fonts.sizes.xs} + 4 * (100vw - 380px) / 920);
+        font-size: calc${props => props.theme.fonts.sizes.s};
       }
     }
     @media screen and (min-width: 1300px) {
@@ -25,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
       }
     }
     body {
-      font-family: ${props => props.theme.fonts.families.avenirLight};
+      font-family: ${props => props.theme.fonts.families.avenir.light};
       color: black;
       font-size: ${props => props.theme.fonts.sizes.body};
       line-height: 1.5;
@@ -55,11 +53,9 @@ const GlobalStyles = createGlobalStyle`
       color: currentColor;
       width: 75%;
     }
-    ${GlobalTypography}
+    ${props => addGlobalTypography(props.theme)}
     //@todo Once Shadows are on the server, remove this from global import
-    ${GlobalShadows}
-    //@todo Once icons are on the server, remove this from global import
-    ${GlobalIcons}
+    ${addGlobalShadows}
 `;
 
 export default GlobalStyles;

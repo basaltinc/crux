@@ -17,7 +17,7 @@ export const PatternGridItem = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-family: ${props => props.theme.fonts.families.avenirMedium};
+    font-family: ${props => props.theme.fonts.families.avenir.medium};
     text-decoration: none;
     padding: ${props => props.theme.spacing.l} ${props => props.theme.spacing.l}
       0;
@@ -63,7 +63,7 @@ export const PatternGridItemTitle = styled.span`
 `;
 
 export const PatternGridItemDescription = styled.div`
-  font-family: ${props => props.theme.fonts.families.avenirLight};
+  font-family: ${props => props.theme.fonts.families.avenir.light};
   line-height: 1.25;
   font-size: ${props => props.theme.fonts.sizes.s};
   color: #000;

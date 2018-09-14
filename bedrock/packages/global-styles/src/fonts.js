@@ -1,5 +1,5 @@
 const fontPath = '/assets/fonts'; // No trailing slash
-export const GlobalFonts = `
+export const addGlobalFonts = `
   @font-face {
       font-family: "AvenirLight";
       src: url("${fontPath}/avenir--light.woff2") format("woff2"), url("${fontPath}/avenir--light.woff") format("woff"), url("${fontPath}/avenir--light.ttf") format("truetype");
