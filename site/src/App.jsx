@@ -97,7 +97,13 @@ class App extends React.Component {
         .fetch(`${this.apiEndpoint}/sections`)
         .then(res => res.json())
         .then(sections => ({
-          sections,
+          sections: sections.map(section => ({
+            ...section,
+            items: section.items.map(item => ({
+              path: `/pages/${section.id}/${item.id}`,
+              ...item,
+            })),
+          })),
         })),
       window
         .fetch(`${this.apiEndpoint}/design-tokens`)
@@ -359,7 +365,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  bedrockSettings: PropTypes.object.isRequired // eslint-disable-line
+  bedrockSettings: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default App;
