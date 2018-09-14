@@ -38,9 +38,33 @@ const apiServer = new BedrockApiServer({
       id: 'about',
       items: [
         {
-          title: 'About this',
-          id: 'about-this',
-          src: join(__dirname, '../sections/about-this.md'),
+          title: 'Get Started',
+          id: 'get-started',
+          src: join(__dirname, '../sections/about/get-started.md'),
+        },
+        {
+          title: 'Feature Requests',
+          id: 'feature-requests',
+          src: join(__dirname, '../sections/about/feature-requests.md'),
+        },
+      ],
+    },
+    {
+      title: 'Resources',
+      id: 'resources',
+      items: [
+        {
+          title: 'Sketch',
+          id: 'sketch-assets',
+          src: join(__dirname, '../sections/resources/sketch-assets.md'),
+        },
+        {
+          title: 'Photography Guidelines',
+          id: 'photography-guidelines',
+          src: join(
+            __dirname,
+            '../sections/resources/photography-guidelines.md',
+          ),
         },
       ],
     },

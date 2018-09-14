@@ -13,7 +13,6 @@ import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header/header';
 import {
-  LoadableAboutPage,
   LoadableAnimations,
   LoadableBrandDescriptors,
   LoadableBreakpoints,
@@ -21,14 +20,12 @@ import {
   LoadableComponentOverview,
   LoadableDesignTokenPage,
   LoadableExamplesPage,
-  LoadableFeatureRequest,
   LoadableFooter,
   LoadableHomeSplash,
   LoadableIcons,
   LoadableLogoDownloads,
   LoadableLogoUsage,
   LoadablePatternsPage,
-  LoadablePhotographyGuidelines,
   LoadablePlayground,
   LoadableReleaseNotes,
   LoadableResourcesLanding,
@@ -37,7 +34,6 @@ import {
   LoadableSettingsPage,
   LoadableShadows,
   LoadableSidebar,
-  LoadableSketchAssets,
   LoadableSpacings,
   LoadableTypography,
   LoadableCustomSectionPage,
@@ -200,6 +196,7 @@ class App extends React.Component {
                               path={`/pages/${section.id}/:id`}
                               render={({ match }) => (
                                 <LoadableCustomSectionPage
+                                  key={match.params.id}
                                   id={match.params.id}
                                   sectionId={section.id}
                                 />
@@ -207,17 +204,8 @@ class App extends React.Component {
                             />
                           ))}
                           <Route
-                            path="/about"
-                            component={LoadableAboutPage}
-                            exact
-                          />
-                          <Route
                             path="/about/release-notes"
                             component={LoadableReleaseNotes}
-                          />
-                          <Route
-                            path="/about/feature-requests"
-                            component={LoadableFeatureRequest}
                           />
                           <Route
                             path="/design-tokens"
@@ -311,14 +299,6 @@ class App extends React.Component {
                           <Route
                             path="/resources/logo-usage"
                             component={LoadableLogoUsage}
-                          />
-                          <Route
-                            path="/resources/photography-guidelines"
-                            component={LoadablePhotographyGuidelines}
-                          />
-                          <Route
-                            path="/resources/sketch-assets"
-                            component={LoadableSketchAssets}
                           />
                           <Route
                             path="/resources/brand-descriptors"

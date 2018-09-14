@@ -17,19 +17,9 @@
       "path": "/resources/logo-usage"
     },
     {
-      "title": "Photo Guidelines",
-      "id": "photography-guidelines",
-      "path": "/resources/photography-guidelines"
-    },
-    {
       "title": "Brand Descriptors",
       "id": "brand-descriptors",
       "path": "/resources/brand-descriptors"
-    },
-    {
-      "title": "Sketch Assets",
-      "id": "sketch-assets",
-      "path": "/resources/sketch-assets"
     }
   ],
   "aboutLinks": [
@@ -38,11 +28,6 @@
       "id": "heading",
       "isHeading": true,
       "path": "/about"
-    },
-    {
-      "path": "/about",
-      "title": "Get Started",
-      "id": "about"
     },
     {
       "path": "/about/release-notes",
