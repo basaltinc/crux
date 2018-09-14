@@ -41,7 +41,8 @@ export function getTypeColor(type, subtype = 'base') {
 export const colors = {
   blue: {
     base: 'hsl(200, 55%, 19%)',
-    light: 'hsl(165, 26%, 85%)',
+    light: 'hsl(200, 55%, 45%)',
+    xlight: 'hsl(165, 26%, 85%)',
   },
   green: {
     base: 'hsl(159, 20%, 17%)',
@@ -50,7 +51,7 @@ export const colors = {
     base: 'hsl(52, 74%, 54%)',
   },
   gray: {
-    dark: 'hsl(0, 0%, 40%)',
+    dark: 'hsl(0, 0%, 50%)',
     base: 'hsl(240, 3%, 85%)',
     light: 'hsl(0, 0%, 60%)',
     xlight: 'hsl(0, 0%, 80%)',
@@ -63,32 +64,78 @@ export const colors = {
   },
 };
 
+export const fontFamilies = {
+  avenirLight: 'AvenirLight, Helvetica, sans-serif',
+  avenirMedium: 'AvenirMedium, Helvetica, sans-serif',
+  avenir: {
+    light: 'AvenirLight, Helvetica, sans-serif',
+    medium: 'AvenirMedium, Helvetica, sans-serif',
+  },
+};
+
 export const baseTheme = {
   colors: {
     color: colors,
     type: typeColors,
     text: 'black',
     headings: 'black',
+    eyebrows: colors.gray.dark,
     primary: colors.blue.base,
     secondary: colors.green.base,
     neutral: colors.gray.base,
     neutral_light: colors.gray.xlight,
     borders: colors.gray.light,
-    link: {
+  },
+  links: {
+    color: {
       base: colors.blue.base,
       hover: colors.blue.light,
     },
+    decoration: {
+      base: 'underline',
+      hover: 'underline',
+    },
   },
   fonts: {
-    families: {
-      avenirLight: 'AvenirLight, Helvetica, sans-serif',
-      avenirMedium: 'AvenirMedium, Helvetica, sans-serif',
-    },
+    families: fontFamilies,
     sizes: {
-      s: '14px',
+      xs: '14px',
+      s: '16px',
       m: '18px',
       body: '1rem',
     },
+  },
+  headings: {
+    font_family: fontFamilies.avenir.medium,
+    line_height: '1.25',
+    margin: '0 0 1rem',
+    h1: {
+      base: '2.65rem',
+      min_width_380: '3.25rem',
+    },
+    h2: {
+      base: '1.65rem',
+      min_width_380: '2.25rem',
+    },
+    h3: {
+      base: '1.45rem',
+      min_width_380: '1.75rem',
+    },
+    h4: {
+      base: '1.25rem',
+    },
+    h5: {
+      base: '1rem',
+    },
+    h6: {
+      base: '0.875rem',
+    },
+  },
+  paragraphs: {
+    margin: '0 0 1.5rem',
+  },
+  lists: {
+    margin: '0 0 1rem',
   },
   spacing: {
     xs: '4px',
@@ -124,16 +171,21 @@ export const baseTheme = {
     box_sizing: 'border-box',
   },
   blockquote: {
-    border: `1px solid ${colors.gray.xlight}`,
-    border_left: `6px solid ${colors.blue.base}`,
-    padding: '2.25rem 4rem',
-    margin: '2rem 2.25rem',
-    glyph: {
-      width: '80px',
-      font: 'Georgia, serif',
-      size: '130px',
-      opacity: 0.2,
-      color: colors.gray.light,
+    border_left: `3px solid ${colors.gray.xlight}`,
+    padding: '1rem 2rem',
+    margin: '2rem auto 2rem 2rem',
+    styled: {
+      border: `1px solid ${colors.gray.xlight}`,
+      border_left: `6px solid ${colors.blue.base}`,
+      padding: '2.25rem 4rem',
+      margin: '2rem',
+      glyph: {
+        width: '80px',
+        font: 'Georgia, serif',
+        size: '130px',
+        opacity: 0.2,
+        color: colors.gray.light,
+      },
     },
   },
   transition: {

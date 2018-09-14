@@ -12,11 +12,11 @@ export const Button = styled.button`
 `;
 
 export const BlockQuoteWrapper = styled.blockquote`
-  border: ${props => props.theme.blockquote.border};
-  border-left: ${props => props.theme.blockquote.border_left};
-  padding: ${props => props.theme.blockquote.padding};
+  border: ${props => props.theme.blockquote.styled.border};
+  border-left: ${props => props.theme.blockquote.styled.border_left};
+  padding: ${props => props.theme.blockquote.styled.padding};
   position: relative;
-  margin: ${props => props.theme.blockquote.margin};
+  margin: ${props => props.theme.blockquote.styled.margin};
   footer {
     font-size: 0.8em;
     color: ${props => props.theme.colors.color.gray.light};
@@ -24,13 +24,13 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
   ::before {
     content: '\\201C'; /*Unicode for Left Double Quote*/
-    width: ${props => props.theme.blockquote.glyph.width};
+    width: ${props => props.theme.blockquote.styled.glyph.width};
     /*Font*/
-    font-family: ${props => props.theme.blockquote.glyph.font};
-    font-size: ${props => props.theme.blockquote.glyph.size};
-    opacity: ${props => props.theme.blockquote.glyph.opacity};
+    font-family: ${props => props.theme.blockquote.styled.glyph.font};
+    font-size: ${props => props.theme.blockquote.styled.glyph.size};
+    opacity: ${props => props.theme.blockquote.styled.glyph.opacity};
     font-weight: bold;
-    color: ${props => props.theme.blockquote.glyph.color};
+    color: ${props => props.theme.blockquote.styled.glyph.color};
 
     /*Positioning*/
     position: absolute;
@@ -39,12 +39,12 @@ export const BlockQuoteWrapper = styled.blockquote`
   }
   ::after {
     content: '\\201D'; /*Unicode for Right Double Quote*/
-    width: ${props => props.theme.blockquote.glyph.width};
-    font-family: ${props => props.theme.blockquote.glyph.font};
-    font-size: ${props => props.theme.blockquote.glyph.size};
-    opacity: ${props => props.theme.blockquote.glyph.opacity};
+    width: ${props => props.theme.blockquote.styled.glyph.width};
+    font-family: ${props => props.theme.blockquote.styled.glyph.font};
+    font-size: ${props => props.theme.blockquote.styled.glyph.size};
+    opacity: ${props => props.theme.blockquote.styled.glyph.opacity};
     font-weight: bold;
-    color: ${props => props.theme.blockquote.glyph.color};
+    color: ${props => props.theme.blockquote.styled.glyph.color};
     position: absolute;
     right: 10px;
     bottom: -85px;

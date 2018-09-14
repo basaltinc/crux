@@ -1,4 +1,4 @@
-export const GlobalShadows = `
+export const addGlobalShadows = `
     .crux-shadow--inset {
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
       box-shadow: inset 0 1px 3px rgba(0,0,0,0.12), inset 0 1px 2px rgba(0,0,0,0.24) !important;
