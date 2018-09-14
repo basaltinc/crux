@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "build": "NODE_ENV=production webpack-cli -p --mode production",
-    "start:api": "crux-api-server 3042",
+    "start:api": "node api-server/crux-api-server.js",
     "start:webpack": "DEV_MODE=yes webpack-dev-server --info=false",
     "start": "run-p --print-label start:api start:webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@basalt/crux-api-server": "*",
+    "@basalt/bedrock-api-server": "0.1.2",
     "@basalt/crux-assets": "^2.0.2",
     "@basalt/bedrock-site": "1.0.2"
   },
