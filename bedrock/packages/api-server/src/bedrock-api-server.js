@@ -3,6 +3,13 @@ const bodyParser = require('body-parser');
 const WebSocket = require('ws');
 const urlJoin = require('url-join');
 const fs = require('fs-extra');
+const md = require('marked');
+const highlight = require('highlight.js');
+
+// https://marked.js.org/#/USING_ADVANCED.md
+md.setOptions({
+  highlight: code => highlight.highlightAuto(code).value,
+});
 
 class BedrockApiServer {
   // @todo define structure of `userConfig`
@@ -170,11 +177,12 @@ class BedrockApiServer {
             });
           }
           const contents = await fs.readFile(item.src, 'utf8');
+          const isMarkdown = item.src.endsWith('.md');
           res.send({
             ok: true,
             data: {
               ...item,
-              contents,
+              contents: isMarkdown ? md(contents) : contents,
             },
           });
         });
