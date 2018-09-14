@@ -40,6 +40,7 @@ import {
   LoadableSketchAssets,
   LoadableSpacings,
   LoadableTypography,
+  LoadableCustomSectionPage,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -77,31 +78,44 @@ class App extends React.Component {
       patterns: [],
       settings: props.bedrockSettings,
       designTokens: [],
+      sections: [],
       ready: false,
     };
     this.apiEndpoint = `${props.bedrockSettings.urls.apiUrlBase}`;
     this.isDesignTokenAvailable = this.isDesignTokenAvailable.bind(this);
   }
 
-  componentDidMount() {
-    window
-      .fetch(`${this.apiEndpoint}/patterns/component`)
-      .then(res => res.json())
-      .then(patterns => {
-        this.setState({ patterns, ready: true });
-      });
-
-    window
-      .fetch(`${this.apiEndpoint}/design-tokens`)
-      .then(res => res.json())
-      .then(designTokens => {
-        this.setState({
+  async componentDidMount() {
+    const results = await Promise.all([
+      window
+        .fetch(`${this.apiEndpoint}/patterns/component`)
+        .then(res => res.json())
+        .then(patterns => ({
+          patterns,
+        })),
+      window
+        .fetch(`${this.apiEndpoint}/sections`)
+        .then(res => res.json())
+        .then(sections => ({
+          sections,
+        })),
+      window
+        .fetch(`${this.apiEndpoint}/design-tokens`)
+        .then(res => res.json())
+        .then(designTokens => ({
           designTokens: designTokens.map(designToken => ({
             path: `/design-tokens/${designToken.id}`,
             ...designToken,
           })),
-        });
-      });
+        })),
+    ]);
+
+    const initialState = Object.assign({}, ...results);
+
+    this.setState({
+      ready: true,
+      ...initialState,
+    });
   }
 
   isDesignTokenAvailable(id) {
@@ -121,6 +135,7 @@ class App extends React.Component {
         },
       },
       patterns: this.state.patterns,
+      sections: this.state.sections,
       designTokens: this.state.designTokens,
       settings: this.state.settings,
       setSettings: newSettings => this.setState({ settings: newSettings }),
@@ -173,6 +188,18 @@ class App extends React.Component {
                             component={LoadableExamplesPage}
                             exact
                           />
+                          {this.state.sections.map(section => (
+                            <Route
+                              key={section.id}
+                              path={`/pages/${section.id}/:id`}
+                              render={({ match }) => (
+                                <LoadableCustomSectionPage
+                                  id={match.params.id}
+                                  sectionId={section.id}
+                                />
+                              )}
+                            />
+                          ))}
                           <Route
                             path="/about"
                             component={LoadableAboutPage}

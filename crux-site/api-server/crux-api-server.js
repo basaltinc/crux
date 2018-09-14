@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const { join } = require('path');
 const BedrockApiServer = require('@basalt/bedrock-api-server');
 const {
   designTokens,
@@ -31,6 +32,19 @@ const apiServer = new BedrockApiServer({
     getExample,
     setExample,
   },
+  sections: [
+    {
+      title: 'About',
+      id: 'about',
+      items: [
+        {
+          title: 'About this',
+          id: 'about-this',
+          src: join(__dirname, '../sections/about-this.md'),
+        },
+      ],
+    },
+  ],
   staticDirs: [
     {
       prefix: '/assets',

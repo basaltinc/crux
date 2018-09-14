@@ -179,3 +179,9 @@ export const LoadableSettingsPage = Loadable({
     import(/* webpackChunkName: 'patterns-page' */ './pages/settings'),
   loading: Spinner,
 });
+
+export const LoadableCustomSectionPage = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'custom-section-page' */ './layouts/custom-section-page'),
+  loading: Spinner,
+});
