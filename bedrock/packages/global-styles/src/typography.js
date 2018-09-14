@@ -113,7 +113,7 @@ export const addGlobalTypography = theme => `
       }
       b,
       strong {
-        font-family: ${theme.fonts.families.avenirMedium};
+        font-family: ${theme.fonts.families.avenir.medium};
       }
       blockquote {
         font-style: italic;

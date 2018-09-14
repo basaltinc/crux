@@ -8,7 +8,7 @@ export const SiteNav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  font-family: ${props => props.theme.fonts.families.avenirMedium};
+  font-family: ${props => props.theme.fonts.families.avenir.medium};
   ul {
     list-style: none;
     display: flex;

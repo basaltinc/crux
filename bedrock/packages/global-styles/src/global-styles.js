@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
       }
     }
     body {
-      font-family: ${props => props.theme.fonts.families.avenirLight};
+      font-family: ${props => props.theme.fonts.families.avenir.light};
       color: black;
       font-size: ${props => props.theme.fonts.sizes.body};
       line-height: 1.5;

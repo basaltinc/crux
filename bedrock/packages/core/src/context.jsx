@@ -65,8 +65,6 @@ export const colors = {
 };
 
 export const fontFamilies = {
-  avenirLight: 'AvenirLight, Helvetica, sans-serif',
-  avenirMedium: 'AvenirMedium, Helvetica, sans-serif',
   avenir: {
     light: 'AvenirLight, Helvetica, sans-serif',
     medium: 'AvenirMedium, Helvetica, sans-serif',
