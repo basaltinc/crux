@@ -21,16 +21,16 @@ export const EyeBrow = styled.h2`
   margin: 0 0 -70px;
   font-size: 1.5rem;
   @media screen and (min-width: 700px) {
-    margin: 0 0 -93px;
+    margin: 0 0 -77px;
     font-size: 1.75rem;
   }
   @media screen and (min-width: 1000px) {
-    margin: 0 0 -110px;
+    margin: 0 0 -90px;
     font-size: 2.1rem;
   }
-  @media screen and (min-width: 1250px) {
+  @media screen and (min-width: 1300px) {
     margin: 0 0 -125px;
-    font-size: 2.52rem;
+    font-size: 2.25rem;
   }
 `;
 
@@ -43,7 +43,7 @@ export const Title = styled.h1`
   @media screen and (min-width: 1000px) {
     font-size: 18rem;
   }
-  @media screen and (min-width: 1250px) {
+  @media screen and (min-width: 1300px) {
     font-size: 20rem;
   }
 `;
@@ -52,14 +52,14 @@ export const Subtitle = styled.h2`
   margin-top: -60px;
   font-size: 1.5rem;
   @media screen and (min-width: 700px) {
-    margin-top: -80px;
+    margin-top: -70px;
     font-size: 1.75rem;
   }
   @media screen and (min-width: 1000px) {
-    margin-top: -100px;
+    margin-top: -80px;
     font-size: 2rem;
   }
-  @media screen and (min-width: 1250px) {
+  @media screen and (min-width: 1300px) {
     font-size: 2.25rem;
     margin-top: -110px;
   }
