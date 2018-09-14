@@ -45,9 +45,12 @@ import {
 const Site = styled.div`
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 175px);
+  min-height: calc(100vh - 140px);
   width: 100%;
   max-width: 100vw;
+  @media (min-width: 1300px) {
+    min-height: calc(100vh - 175px);
+  }
 `;
 
 const MainContent = styled.div`
