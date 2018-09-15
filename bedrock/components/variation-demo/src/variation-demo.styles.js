@@ -8,13 +8,24 @@ export const VariationsWrapper = styled.div`
 `;
 
 export const VariationItem = styled.div`
-  padding: 0 15px;
+  padding: ${props => props.theme.spacing.s} ${props => props.theme.spacing.m};
   border-bottom: 1px solid ${props => props.colorTheme};
+  .form-group.field {
+    margin-top: 0;
+  }
 `;
 
 export const VariationItemExpanded = styled.div`
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  border-bottom: 1px solid ${props => props.colorTheme};
+  &:last-of-type {
+    border-bottom: 0;
+  }
+  h4 {
+    border-bottom: 1px solid ${props => props.colorTheme};
+    color: ${props => props.colorTheme};
+    padding: ${props => props.theme.spacing.s} ${props => props.theme.spacing.m};
+    margin: 0;
+  }
 `;
 
 export const HeaderRegion = styled.div`
@@ -53,6 +64,7 @@ export const FooterRegion = styled.div`
     color: #000;
   }
   pre {
+    color: ${props => props.colorTheme};
     margin: 0;
   }
 `;

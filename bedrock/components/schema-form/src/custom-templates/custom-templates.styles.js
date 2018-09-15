@@ -8,12 +8,12 @@ export const CustomFieldWrapper = styled.div`
       justify-content: left;
       flex-wrap: wrap;
       > div {
-        padding: 0 1rem;
+        padding: 0;
       }
     }
   }
-  padding: 0.25rem 0;
-  margin-top: 10px;
+  padding: 0;
+  margin-top: ${props => props.theme.spacing.m};
   > label {
     display: block;
     color: ${props => props.theme.form.label.color};
