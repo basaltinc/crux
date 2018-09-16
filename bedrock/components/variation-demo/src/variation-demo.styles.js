@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import {fontFamilies} from "../../../packages/core/src/context";
 
 export const VariationsWrapper = styled.div`
   margin: 2rem 0;
