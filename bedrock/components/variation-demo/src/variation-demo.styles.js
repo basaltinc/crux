@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {fontFamilies} from "../../../packages/core/src/context";
 
 export const VariationsWrapper = styled.div`
   margin: 2rem 0;
@@ -23,7 +24,7 @@ export const VariationItemExpanded = styled.div`
   h4 {
     border-bottom: 1px solid ${props => props.colorTheme};
     color: ${props => props.colorTheme};
-    padding: ${props => props.theme.spacing.s} ${props => props.theme.spacing.m};
+    padding: ${props => props.theme.spacing.m};
     margin: 0;
   }
 `;
@@ -42,6 +43,7 @@ export const HeaderRegion = styled.div`
 `;
 
 export const HeaderInner = styled.div`
+  font-family: ${props => props.theme.fonts.families.avenir.medium};
   cursor: pointer;
   position: absolute;
   color: ${props => props.colorTheme};

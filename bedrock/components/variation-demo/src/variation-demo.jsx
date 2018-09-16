@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FaEllipsisH, FaEllipsisV } from 'react-icons/fa';
+import { FaPlus, FaMinus } from 'react-icons/fa';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import TabbedPanel from '@basalt/bedrock-tabbed-panel';
 import { Checkerboard } from '@basalt/bedrock-atoms';
@@ -120,7 +120,15 @@ export class VariationDemo extends Component {
             }
             tabIndex={0}
           >
-            {this.state.isExpanded ? <FaEllipsisH /> : <FaEllipsisV />}
+            {this.state.isExpanded ? (
+              <div>
+                <FaMinus size={10} /> Hide All Variations
+              </div>
+            ) : (
+              <div>
+                <FaPlus size={10} /> Show All Variation
+              </div>
+            )}
           </HeaderInner>
         </HeaderRegion>
         <div>{content}</div>
