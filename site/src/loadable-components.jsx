@@ -80,7 +80,7 @@ export const LoadableIcons = Loadable({
 
 export const LoadablePatternsPage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
+    import(/* webpackChunkName: 'patterns-page' */ '@basalt/bedrock-patterns-filterable-grid'),
   loading: Spinner,
 });
 

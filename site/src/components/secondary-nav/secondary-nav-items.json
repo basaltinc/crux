@@ -22,22 +22,4 @@
       "path": "/resources/brand-descriptors"
     }
   ],
-  "aboutLinks": [
-    {
-      "title": "About",
-      "id": "heading",
-      "isHeading": true,
-      "path": "/about"
-    },
-    {
-      "path": "/about/release-notes",
-      "title": "Release Notes",
-      "id": "release-notes"
-    },
-    {
-      "path": "/about/feature-requests",
-      "title": "Requests & Bugs",
-      "id": "feature-requests"
-    }
-  ]
 }
