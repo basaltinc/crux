@@ -67,6 +67,16 @@ export class VariationDemo extends Component {
         );
       });
     } else {
+      let formUi;
+
+      if (prop.type !== 'boolean') {
+        formUi = {
+          [propKey]: {
+            'ui:widget': 'radio',
+          },
+        };
+      }
+
       content = (
         <div>
           <VariationItem colorTheme={colorTheme}>
@@ -75,11 +85,7 @@ export class VariationDemo extends Component {
               onChange={this.handleChange}
               formData={this.state.data}
               isInline
-              uiSchema={{
-                [propKey]: {
-                  'ui:widget': 'radio',
-                },
-              }}
+              uiSchema={formUi}
             />
           </VariationItem>
           <Checkerboard bleed="20px">
