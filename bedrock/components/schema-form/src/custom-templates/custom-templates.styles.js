@@ -14,6 +14,7 @@ export const CustomFieldWrapper = styled.div`
   }
   padding: 0;
   margin-top: ${props => props.theme.spacing.m};
+  margin-bottom: ${props => props.theme.spacing.m};
   > label {
     display: block;
     color: ${props => props.theme.form.label.color};
