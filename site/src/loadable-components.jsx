@@ -14,7 +14,8 @@ export const LoadablePlayground = Loadable({
 });
 
 export const LoadableExamplesPage = Loadable({
-  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/examples'),
+  loader: () =>
+    import(/* webpackChunkName: 'about-page' */ '@basalt/bedrock-examples-guide'),
   loading: Spinner,
 });
 
