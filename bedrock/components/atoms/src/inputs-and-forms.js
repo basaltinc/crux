@@ -95,7 +95,6 @@ export const FormArrayItem = styled.div`
 `;
 
 export const Toggle = styled.div`
-  width: 50px;
   p {
     display: none;
   }

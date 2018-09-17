@@ -191,13 +191,25 @@ const kitchenSinkSchema = {
     },
     multipleChoices: {
       title: 'Multiple Choices',
-      type: 'array',
-      items: {
-        type: 'string',
-        enum: ['Option1', 'Option2', 'Option3', 'Option4'],
-        enumNames: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+      type: 'object',
+      properties: {
+        option1: {
+          title: 'Option 1',
+          type: 'boolean',
+        },
+        option2: {
+          title: 'Option 2',
+          type: 'boolean',
+        },
+        option3: {
+          title: 'Option 3',
+          type: 'boolean',
+        },
+        option4: {
+          title: 'Option 4',
+          type: 'boolean',
+        },
       },
-      uniqueItems: true,
     },
   },
 };

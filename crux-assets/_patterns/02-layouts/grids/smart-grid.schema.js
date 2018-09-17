@@ -11,22 +11,22 @@ module.exports = {
       additionalProperties: false,
       properties: {
         small: {
-          type: 'integer',
+          type: 'string',
           title: 'Small',
           description: 'Items across at small width',
         },
         medium: {
-          type: 'integer',
+          type: 'string',
           title: 'Medium',
           description: 'Items across at medium width',
         },
         large: {
-          type: 'integer',
+          type: 'string',
           title: 'Large',
           description: 'Items across at large width',
         },
         xlarge: {
-          type: 'integer',
+          type: 'string',
           title: 'Extra Large',
           description: 'Items across at xlarge width',
         },
