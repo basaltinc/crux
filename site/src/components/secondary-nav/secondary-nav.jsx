@@ -6,12 +6,23 @@ import {
   ClearFilterButton,
 } from '@basalt/bedrock-atoms';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
+import { flattenArray } from '@basalt/bedrock-utils';
 import NavList from '@basalt/bedrock-nav-list';
-import SecondaryNavItems from './secondary-nav-items.json';
-
-const { resourcesLinks, aboutLinks } = SecondaryNavItems;
 
 class SecondaryNav extends Component {
+  static prepSectionLinks(sections) {
+    return flattenArray(
+      sections.map(section => [
+        {
+          title: section.title,
+          id: section.id,
+          isHeading: true,
+        },
+        ...section.items,
+      ]),
+    );
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -41,14 +52,13 @@ class SecondaryNav extends Component {
               isHeading: true,
             },
             ...props.context.patterns,
+            ...SecondaryNav.prepSectionLinks(props.context.sections),
             {
               title: 'Examples',
               id: 'example-heading',
               isHeading: true,
               path: '/examples',
             },
-            ...aboutLinks,
-            ...resourcesLinks,
           ],
         };
   }
@@ -87,8 +97,7 @@ class SecondaryNav extends Component {
               path: '/examples',
             },
             ...exampleLinks,
-            ...aboutLinks,
-            ...resourcesLinks,
+            ...SecondaryNav.prepSectionLinks(this.props.context.sections),
           ],
         });
       })

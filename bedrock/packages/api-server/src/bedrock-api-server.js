@@ -2,6 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const WebSocket = require('ws');
 const urlJoin = require('url-join');
+const fs = require('fs-extra');
+const md = require('marked');
+const highlight = require('highlight.js');
+
+// https://marked.js.org/#/USING_ADVANCED.md
+md.setOptions({
+  highlight: code => highlight.highlightAuto(code).value,
+});
 
 class BedrockApiServer {
   // @todo define structure of `userConfig`
@@ -155,6 +163,38 @@ class BedrockApiServer {
         res.send(results);
       });
     }
+
+    if (this.config.sections) {
+      this.config.sections.forEach(section => {
+        const url = urlJoin(this.config.baseUrl, `section/${section.id}/:id`);
+        this.registerEndpoint(url);
+        this.app.get(url, async (req, res) => {
+          const item = section.items.find(x => x.id === req.params.id);
+          if (!item) {
+            res.send({
+              ok: false,
+              message: `Item ${req.params.id} not found`,
+            });
+          }
+          const contents = await fs.readFile(item.src, 'utf8');
+          const isMarkdown = item.src.endsWith('.md');
+          res.send({
+            ok: true,
+            data: {
+              ...item,
+              contents: isMarkdown ? md(contents) : contents,
+            },
+          });
+        });
+      });
+    }
+
+    const url2 = urlJoin(this.config.baseUrl, 'sections');
+    this.registerEndpoint(url2);
+    this.app.get(url2, async (req, res) => {
+      const { sections = [] } = this.config;
+      res.send(sections);
+    });
 
     if (this.config.websocketsPort) {
       this.wss = new WebSocket.Server({

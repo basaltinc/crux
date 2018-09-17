@@ -13,7 +13,6 @@ import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header/header';
 import {
-  LoadableAboutPage,
   LoadableAnimations,
   LoadableBrandDescriptors,
   LoadableBreakpoints,
@@ -21,14 +20,12 @@ import {
   LoadableComponentOverview,
   LoadableDesignTokenPage,
   LoadableExamplesPage,
-  LoadableFeatureRequest,
   LoadableFooter,
   LoadableHomeSplash,
   LoadableIcons,
   LoadableLogoDownloads,
   LoadableLogoUsage,
   LoadablePatternsPage,
-  LoadablePhotographyGuidelines,
   LoadablePlayground,
   LoadableReleaseNotes,
   LoadableResourcesLanding,
@@ -37,9 +34,9 @@ import {
   LoadableSettingsPage,
   LoadableShadows,
   LoadableSidebar,
-  LoadableSketchAssets,
   LoadableSpacings,
   LoadableTypography,
+  LoadableCustomSectionPage,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -77,31 +74,50 @@ class App extends React.Component {
       patterns: [],
       settings: props.bedrockSettings,
       designTokens: [],
+      sections: [],
       ready: false,
     };
     this.apiEndpoint = `${props.bedrockSettings.urls.apiUrlBase}`;
     this.isDesignTokenAvailable = this.isDesignTokenAvailable.bind(this);
   }
 
-  componentDidMount() {
-    window
-      .fetch(`${this.apiEndpoint}/patterns/component`)
-      .then(res => res.json())
-      .then(patterns => {
-        this.setState({ patterns, ready: true });
-      });
-
-    window
-      .fetch(`${this.apiEndpoint}/design-tokens`)
-      .then(res => res.json())
-      .then(designTokens => {
-        this.setState({
+  async componentDidMount() {
+    const results = await Promise.all([
+      window
+        .fetch(`${this.apiEndpoint}/patterns/component`)
+        .then(res => res.json())
+        .then(patterns => ({
+          patterns,
+        })),
+      window
+        .fetch(`${this.apiEndpoint}/sections`)
+        .then(res => res.json())
+        .then(sections => ({
+          sections: sections.map(section => ({
+            ...section,
+            items: section.items.map(item => ({
+              path: `/pages/${section.id}/${item.id}`,
+              ...item,
+            })),
+          })),
+        })),
+      window
+        .fetch(`${this.apiEndpoint}/design-tokens`)
+        .then(res => res.json())
+        .then(designTokens => ({
           designTokens: designTokens.map(designToken => ({
             path: `/design-tokens/${designToken.id}`,
             ...designToken,
           })),
-        });
-      });
+        })),
+    ]);
+
+    const initialState = Object.assign({}, ...results);
+
+    this.setState({
+      ready: true,
+      ...initialState,
+    });
   }
 
   isDesignTokenAvailable(id) {
@@ -121,6 +137,7 @@ class App extends React.Component {
         },
       },
       patterns: this.state.patterns,
+      sections: this.state.sections,
       designTokens: this.state.designTokens,
       settings: this.state.settings,
       setSettings: newSettings => this.setState({ settings: newSettings }),
@@ -173,18 +190,22 @@ class App extends React.Component {
                             component={LoadableExamplesPage}
                             exact
                           />
-                          <Route
-                            path="/about"
-                            component={LoadableAboutPage}
-                            exact
-                          />
+                          {this.state.sections.map(section => (
+                            <Route
+                              key={section.id}
+                              path={`/pages/${section.id}/:id`}
+                              render={({ match }) => (
+                                <LoadableCustomSectionPage
+                                  key={match.params.id}
+                                  id={match.params.id}
+                                  sectionId={section.id}
+                                />
+                              )}
+                            />
+                          ))}
                           <Route
                             path="/about/release-notes"
                             component={LoadableReleaseNotes}
-                          />
-                          <Route
-                            path="/about/feature-requests"
-                            component={LoadableFeatureRequest}
                           />
                           <Route
                             path="/design-tokens"
@@ -280,14 +301,6 @@ class App extends React.Component {
                             component={LoadableLogoUsage}
                           />
                           <Route
-                            path="/resources/photography-guidelines"
-                            component={LoadablePhotographyGuidelines}
-                          />
-                          <Route
-                            path="/resources/sketch-assets"
-                            component={LoadableSketchAssets}
-                          />
-                          <Route
                             path="/resources/brand-descriptors"
                             component={LoadableBrandDescriptors}
                           />
@@ -332,7 +345,7 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  bedrockSettings: PropTypes.object.isRequired // eslint-disable-line
+  bedrockSettings: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default App;

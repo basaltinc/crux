@@ -18,11 +18,6 @@ export const LoadableExamplesPage = Loadable({
   loading: Spinner,
 });
 
-export const LoadableAboutPage = Loadable({
-  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/about'),
-  loading: Spinner,
-});
-
 export const LoadableHomeSplash = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'home-splash' */ './components/home-splash/home-splash'),
@@ -32,12 +27,6 @@ export const LoadableHomeSplash = Loadable({
 export const LoadableReleaseNotes = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes/release-notes'),
-  loading: Spinner,
-});
-
-export const LoadableFeatureRequest = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'feature-requests' */ './pages/about/feature-requests'),
   loading: Spinner,
 });
 
@@ -113,18 +102,6 @@ export const LoadableLogoUsage = Loadable({
   loading: Spinner,
 });
 
-export const LoadablePhotographyGuidelines = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'photography-guidelines' */ './pages/resources/photography-guidelines'),
-  loading: Spinner,
-});
-
-export const LoadableSketchAssets = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'photography-guidelines' */ './pages/resources/sketch-assets'),
-  loading: Spinner,
-});
-
 export const LoadableBrandDescriptors = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
@@ -177,5 +154,11 @@ export const LoadableDosAndDonts = Loadable({
 export const LoadableSettingsPage = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'patterns-page' */ './pages/settings'),
+  loading: Spinner,
+});
+
+export const LoadableCustomSectionPage = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'custom-section-page' */ './layouts/custom-section-page'),
   loading: Spinner,
 });

@@ -47,7 +47,8 @@ class Header extends React.Component {
     }));
   }
 
-  static renderLinks(settings) {
+  static renderLinks(context) {
+    const { settings, sections } = context;
     return (
       <ul>
         <li>
@@ -64,9 +65,13 @@ class Header extends React.Component {
         <li>
           <SiteHeaderNavLink to="/examples">Examples</SiteHeaderNavLink>
         </li>
-        <li>
-          <SiteHeaderNavLink to="/resources">Resources</SiteHeaderNavLink>
-        </li>
+        {sections.map(section => (
+          <li key={section.id}>
+            <SiteHeaderNavLink to={section.items[0].path}>
+              {section.title}
+            </SiteHeaderNavLink>
+          </li>
+        ))}
         {settings.parentBrand && (
           <li>
             <a
@@ -91,12 +96,12 @@ class Header extends React.Component {
     );
   }
 
-  renderNavigation(settings) {
+  renderNavigation() {
     // If Mobile
     if (this.state.windowWidth <= 950) {
       return this.state.mobileNavVisible ? (
         <MobileNav>
-          {Header.renderLinks(settings)}
+          {Header.renderLinks(this.props.context.settings)}
           <X onClick={this.handleNavClick} />
         </MobileNav>
       ) : (
@@ -104,7 +109,7 @@ class Header extends React.Component {
       );
     }
     // If Desktop
-    return Header.renderLinks(settings);
+    return Header.renderLinks(this.props.context);
   }
 
   render() {
@@ -115,7 +120,7 @@ class Header extends React.Component {
             {this.props.context.settings.site.title}
           </SiteHeaderLink>
         </h3>
-        {this.renderNavigation(this.props.context.settings)}
+        {this.renderNavigation()}
       </SiteNav>
     );
   }
