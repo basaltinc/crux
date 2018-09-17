@@ -104,12 +104,6 @@ export const Toggle = styled.div`
     display: flex;
     align-items: center;
   }
-  // input {
-  //   margin-right: 8px;
-  //   + span {
-  //     font-size: ${props => props.theme.form.input['font-size']};
-  //   }
-  // }
   
    input[type=checkbox]{
     height: 0;
@@ -123,7 +117,7 @@ export const Toggle = styled.div`
     text-indent: -9999px;
     width: 50px;
     height: 25px;
-    background: grey;
+    background: ${props => props.theme.colors.neutral};
     display: block;
     border-radius: 50px;
     position: relative;

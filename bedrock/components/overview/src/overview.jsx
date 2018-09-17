@@ -75,7 +75,7 @@ class Overview extends React.Component {
             />
             <Button
               type="button"
-              className="button button--color-blue--light button--size-small"
+              className="button button--size-small"
               onClick={() =>
                 this.setState(prevState => ({
                   fullScreen: !prevState.fullScreen,
