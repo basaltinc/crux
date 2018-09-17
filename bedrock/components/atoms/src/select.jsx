@@ -16,7 +16,7 @@ export const SelectStyledWrapper = styled.label`
   /* stylelint-disable property-no-vendor-prefix */
   select {
     max-width: 100%;
-    background-color: ${props => props.theme.colors.neutral_light};
+    background-color: ${props => props.theme.colors.neutral};
     font-size: 1rem;
     border: ${props => props.theme.form.input.border_none};
     height: ${props => props.theme.form.input.height};

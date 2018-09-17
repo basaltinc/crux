@@ -8,7 +8,6 @@ const filterSchema = {
   $schema: 'http://json-schema.org/draft-07/schema',
   title: 'Filters',
   type: 'object',
-  // description: 'Denotes possible uses for each component.',
   properties: {
     uses: {
       title: 'Uses',

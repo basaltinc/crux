@@ -14,6 +14,7 @@ export const CustomFieldWrapper = styled.div`
   }
   padding: 0;
   margin-top: ${props => props.theme.spacing.m};
+  margin-bottom: ${props => props.theme.spacing.m};
   > label {
     display: block;
     color: ${props => props.theme.form.label.color};
@@ -63,7 +64,7 @@ export const IconWrapper = styled.div`
     top: -36px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: -10;
+    z-index: -1;
     &:after {
       border-color: grey transparent transparent transparent;
       position: absolute;
@@ -79,5 +80,6 @@ export const IconWrapper = styled.div`
   }
   ${InfoIcon}:hover + span {
     opacity: 1;
+    z-index: 9000;
   }
 `;
