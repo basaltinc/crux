@@ -39,7 +39,7 @@ export default function CustomField(props) {
         <span>{children}</span>
       </SelectStyledWrapper>
     );
-  } else if (inputSchema.type === 'string') {
+  } else if (inputSchema.type === 'string' || inputSchema.type === 'integer') {
     inputContent = <TextInputWrapper>{children}</TextInputWrapper>;
   } else if (
     inputSchema.type === 'boolean' ||
