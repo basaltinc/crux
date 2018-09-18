@@ -101,12 +101,12 @@ const kitchenSinkSchema = {
     number: {
       title: 'Number',
       type: 'number',
-      description: 'This is a text area, where you might write a lot of text.',
+      description: 'This is number input field.',
     },
     integer: {
-      title: 'Integer',
+      title: 'Integer;',
       type: 'integer',
-      description: 'This is a text area, where you might write a lot of text.',
+      description: 'This is an integer input field.',
     },
     email: {
       title: 'Email',
