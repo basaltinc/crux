@@ -45,13 +45,13 @@ export const LoadableAnimations = Loadable({
 
 export const LoadableBreakpoints = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'breakpoints' */ './pages/design-tokens/breakpoints/breakpoints'),
+    import(/* webpackChunkName: 'breakpoints' */ '@basalt/bedrock-breakpoints-demo'),
   loading: Spinner,
 });
 
 export const LoadableColors = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'colors' */ './pages/design-tokens/colors/colors'),
+    import(/* webpackChunkName: 'colors' */ '@basalt/bedrock-colors-demo'),
   loading: Spinner,
 });
 
