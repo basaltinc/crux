@@ -13,8 +13,8 @@ export const CustomFieldWrapper = styled.div`
     }
   }
   padding: 0;
-  margin-top: ${props => props.theme.spacing.m};
-  margin-bottom: ${props => props.theme.spacing.m};
+  margin: ${props => props.theme.spacing.m} ${props => props.theme.spacing.m}
+    ${props => props.theme.spacing.m} 0;
   > label {
     display: block;
     color: ${props => props.theme.form.label.color};
@@ -53,33 +53,47 @@ export const IconWrapper = styled.div`
   position: relative;
   display: inline-block;
   span {
-    display: block;
-    padding: 0.25rem 0.75rem;
     position: absolute;
-    background-color: grey;
-    color: white;
-    font-weight: 100;
+    min-width: 150px;
+    text-align: center;
+    padding: 0.5rem;
+    visibility: hidden;
     opacity: 0;
-    white-space: pre;
-    top: -36px;
+    background: white;
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+    color: #484848;
+    border: 1px solid #cecece;
+    border-radius: 3px;
+    font-weight: 500;
+    box-shadow: 0 2px 1px #bcbcbc;
+    z-index: 4;
+    bottom: calc(100% + 1em);
     left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
+    transform: translate3d(-50%, -15px, 0);
     &:after {
-      border-color: grey transparent transparent transparent;
-      position: absolute;
       content: '';
+      display: block;
+      position: absolute;
       width: 0;
       height: 0;
       border-style: solid;
-      border-width: 7px 7px 0 7px;
-      bottom: -7px;
-      margin-left: -5px;
+      bottom: -0.5em;
       left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      border-width: 0.5em 0.5em 0 0.5em;
+      border-color: white transparent transparent transparent;
+      -webkit-filter: drop-shadow(1px 2px 1px #bcbcbc);
+      filter: drop-shadow(1px 2px 1px #bcbcbc);
     }
   }
-  ${InfoIcon}:hover + span {
-    opacity: 1;
-    z-index: 9000;
+
+  ${InfoIcon} {
+    cursor: pointer;
+    z-index: 5;
+    &:hover ~ span {
+      transform: translate3d(-50%, 0, 0);
+      visibility: visible;
+      opacity: 1;
+    }
   }
 `;

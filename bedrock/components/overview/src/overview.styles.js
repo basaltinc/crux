@@ -98,7 +98,7 @@ export const DemoGridControls = styled.div`
 export const SchemaFormWrapper = styled.div`
   display: ${props => (props.showForm ? 'flex' : 'none')};
   justify-content: center;
-  overflow: auto;
+  overflow-y: visible;
   border: dotted 1px #ccc;
   position: relative;
   padding: 0.5rem;
