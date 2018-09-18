@@ -10,6 +10,7 @@ const cruxSite = new BedrockSite({
     isDebug: true,
     isDevMode: process.env.DEV_MODE === 'yes',
     isProd: process.env.NODE_ENV === 'production',
+    hasJiraIssueCollector: true,
     websocketsPort: 5042,
     site: {
       title: 'Crux',
