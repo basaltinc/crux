@@ -23,6 +23,7 @@ export default function CustomField(props) {
   const fieldDescription = description.props.description;
   const inputSchema = children.props.schema;
   let inputContent = <div />;
+  const textWrapperInputs = ['string', 'integer', 'number'];
   const uiSchema = children.props.uiSchema ? children.props.uiSchema : {};
   if (
     inputSchema.type === 'string' &&
@@ -36,7 +37,7 @@ export default function CustomField(props) {
         <span>{children}</span>
       </SelectStyledWrapper>
     );
-  } else if (inputSchema.type === 'string' || inputSchema.type === 'integer') {
+  } else if (textWrapperInputs.includes(inputSchema.type)) {
     inputContent = <TextInputWrapper>{children}</TextInputWrapper>;
   } else if (
     inputSchema.type === 'boolean' ||
