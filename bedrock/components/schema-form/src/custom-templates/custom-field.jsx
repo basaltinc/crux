@@ -4,12 +4,9 @@ import {
   SelectStyledWrapper,
   TextInputWrapper,
   Toggle,
+  Tooltip,
 } from '@basalt/bedrock-atoms';
-import {
-  CustomFieldWrapper,
-  InfoIcon,
-  IconWrapper,
-} from './custom-templates.styles';
+import { CustomFieldWrapper, InfoIcon } from './custom-templates.styles';
 
 /* eslint-disable react/prop-types */
 export default function CustomField(props) {
@@ -57,10 +54,9 @@ export default function CustomField(props) {
         {label}
         {required ? '*' : null}
         {fieldDescription && (
-          <IconWrapper>
+          <Tooltip tooltipContent={fieldDescription} position="top">
             <InfoIcon />
-            <span>{fieldDescription}</span>
-          </IconWrapper>
+          </Tooltip>
         )}
       </label>
       {inputContent}
