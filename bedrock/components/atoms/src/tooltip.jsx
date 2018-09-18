@@ -30,6 +30,8 @@ const TooltipWrapper = styled.div`
       border-style: solid;
     }
   }
+  // stylelint-disable selector-type-no-unknown
+  // stylelint-disable property-no-vendor-prefix
   *:first-child {
     cursor: pointer;
     z-index: 5;
@@ -122,6 +124,8 @@ const TooltipWrapper = styled.div`
       opacity: 1;
     }
   }
+  // stylelint-enable selector-type-no-unknown
+  // stylelint-enable property-no-vendor-prefix
 `;
 
 export function Tooltip(props) {
