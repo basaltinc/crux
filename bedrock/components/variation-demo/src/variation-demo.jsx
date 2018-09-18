@@ -67,13 +67,11 @@ export class VariationDemo extends Component {
         );
       });
     } else {
-      let formUi;
+      const formUi = {};
 
       if (prop.type !== 'boolean') {
-        formUi = {
-          [propKey]: {
-            'ui:widget': 'radio',
-          },
+        formUi[propKey] = {
+          'ui:widget': 'radio',
         };
       }
 
