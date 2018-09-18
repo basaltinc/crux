@@ -2,7 +2,12 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
-import { Details, Select, StatusMessage } from '@basalt/bedrock-atoms';
+import {
+  BlockQuoteWrapper,
+  Details,
+  Select,
+  StatusMessage,
+} from '@basalt/bedrock-atoms';
 import { paragraph } from '@basalt/demo-data';
 
 storiesOf('Atoms', module)
@@ -43,4 +48,11 @@ storiesOf('Atoms', module)
         <StatusMessage type="error" message={paragraph()} />
       </div>
     )),
-  );
+  )
+  .add('Blockquote Wrapper', () => (
+    <BlockQuoteWrapper>
+      It’s art if can’t be explained. It’s fashion if no one asks for an
+      explanation. It’s design if it doesn’t need explanation.
+      <footer>Wouter Stokkel</footer>
+    </BlockQuoteWrapper>
+  ));
