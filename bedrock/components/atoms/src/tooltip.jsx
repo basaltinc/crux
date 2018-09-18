@@ -31,7 +31,6 @@ const TooltipWrapper = styled.div`
     }
   }
   // stylelint-disable selector-type-no-unknown
-  // stylelint-disable property-no-vendor-prefix
   *:first-child {
     cursor: pointer;
     z-index: 5;
@@ -51,7 +50,6 @@ const TooltipWrapper = styled.div`
         transform: translate3d(-50%, 0, 0);
         border-width: 0.5em 0.5em 0 0.5em;
         border-color: white transparent transparent transparent;
-        -webkit-filter: drop-shadow(1px 2px 1px #bcbcbc);
         filter: drop-shadow(1px 2px 1px #bcbcbc);
       }
     }
@@ -72,7 +70,6 @@ const TooltipWrapper = styled.div`
         transform: translate3d(-50%, 0, 0);
         border-width: 0 0.5em 0.5em 0.5em;
         border-color: transparent transparent white transparent;
-        -webkit-filter: drop-shadow(1px -1px 1px #bcbcbc);
         filter: drop-shadow(1px -1px 1px #bcbcbc);
       }
     }
@@ -93,7 +90,6 @@ const TooltipWrapper = styled.div`
         transform: translate3d(0, -50%, 0);
         border-width: 0.5em 0 0.5em 0.5em;
         border-color: transparent transparent transparent white;
-        -webkit-filter: drop-shadow(2px 2px 1px #bcbcbc);
         filter: drop-shadow(2px 2px 1px #bcbcbc);
       }
     }
@@ -114,7 +110,6 @@ const TooltipWrapper = styled.div`
         transform: translate3d(0, -50%, 0);
         border-width: 0.5em 0.5em 0.5em 0;
         border-color: transparent white transparent transparent;
-        -webkit-filter: drop-shadow(-2px 2px 1px #bcbcbc);
         filter: drop-shadow(-2px 2px 1px #bcbcbc);
       }
     }
@@ -125,7 +120,6 @@ const TooltipWrapper = styled.div`
     }
   }
   // stylelint-enable selector-type-no-unknown
-  // stylelint-enable property-no-vendor-prefix
 `;
 
 export function Tooltip(props) {
