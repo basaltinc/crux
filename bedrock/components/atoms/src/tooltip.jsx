@@ -114,8 +114,8 @@ const TooltipWrapper = styled.div`
         transform: translate3d(0, -50%, 0);
         border-width: 0.5em 0.5em 0.5em 0;
         border-color: transparent white transparent transparent;
-        -webkit-filter: drop-shadow(-1px 2px 1px #bcbcbc);
-        filter: drop-shadow(-1px 2px 1px #bcbcbc);
+        -webkit-filter: drop-shadow(-2px 2px 1px #bcbcbc);
+        filter: drop-shadow(-2px 2px 1px #bcbcbc);
       }
     }
     *first-child:hover ~ span {
