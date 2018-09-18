@@ -69,10 +69,7 @@ const apiServer = new BedrockApiServer({
         {
           title: 'Logo Downloads',
           id: 'logo-downloads',
-          src: join(
-            __dirname,
-            '../sections/resources/logo-downloads.md',
-          ),
+          src: join(__dirname, '../sections/resources/logo-downloads.md'),
         },
       ],
     },

@@ -165,11 +165,7 @@ class App extends React.Component {
                     <MainContent>
                       <ErrorCatcher>
                         <Switch>
-                          <Route
-                            path="/"
-                            component={HomeSplash}
-                            exact
-                          />
+                          <Route path="/" component={HomeSplash} exact />
                           <Route
                             path="/examples/:id"
                             render={({ match }) => (
@@ -260,16 +256,6 @@ class App extends React.Component {
                                 ).path
                               }
                               component={LoadableTypography}
-                            />
-                          )}
-                          {this.isDesignTokenAvailable('icons') && (
-                            <Route
-                              path={
-                                this.state.designTokens.find(
-                                  t => t.id === 'icons',
-                                ).path
-                              }
-                              component={LoadableIcons}
                             />
                           )}
                           <Route

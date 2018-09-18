@@ -105,8 +105,7 @@ export const LoadableDosAndDonts = Loadable({
 });
 
 export const LoadableSettingsPage = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'patterns-page' */ './settings'),
+  loader: () => import(/* webpackChunkName: 'patterns-page' */ './settings'),
   loading: Spinner,
 });
 
