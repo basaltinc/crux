@@ -25,11 +25,11 @@ export const LoadableHomeSplash = Loadable({
   loading: Spinner,
 });
 
-export const LoadableReleaseNotes = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes/release-notes'),
-  loading: Spinner,
-});
+// export const LoadableReleaseNotes = Loadable({
+//   loader: () =>
+//     import(/* webpackChunkName: 'release-notes' */ '../../bedrock/components/release-notes/release-notes'),
+//   loading: Spinner,
+// });
 
 export const LoadableDesignTokenPage = Loadable({
   loader: () =>
