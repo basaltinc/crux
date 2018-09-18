@@ -7,6 +7,7 @@ import {
   Details,
   Select,
   StatusMessage,
+  Tooltip,
 } from '@basalt/bedrock-atoms';
 import { paragraph } from '@basalt/demo-data';
 
@@ -55,4 +56,12 @@ storiesOf('Atoms', module)
       explanation. It’s design if it doesn’t need explanation.
       <footer>Wouter Stokkel</footer>
     </BlockQuoteWrapper>
-  ));
+  ))
+  .add(
+    'Tool Tip',
+    withInfo({ inline: true })(() => (
+      <Tooltip tooltipContent="This is tooltip content!!" position="right">
+        <p>Hover Here</p>
+      </Tooltip>
+    )),
+  );
