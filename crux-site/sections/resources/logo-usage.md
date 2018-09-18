@@ -1,16 +1,4 @@
-import React from 'react';
-import styled from 'styled-components';
-
-import { TwoUp } from '@basalt/bedrock-atoms';
-import DosAndDonts from '@basalt/bedrock-dos-and-donts';
-
-const LetteredList = styled.ol`
-  list-style: upper-alpha;
-`;
-
-function LogoUsage() {
-  return (
-    <div>
+<div>
       <h3 className="eyebrow">Resources</h3>
       <h2>Logo Usage</h2>
       <h4>Primary Logo</h4>
@@ -190,9 +178,3 @@ function LogoUsage() {
         alt="Unacceptable Logo Usages"
       />
     </div>
-  );
-}
-
-LogoUsage.propTypes = {};
-
-export default LogoUsage;

@@ -1,7 +1,7 @@
 import React from 'react';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
-import bedrockConfigSchema from '../../bedrock.config.schema';
+import bedrockConfigSchema from '../bedrock.config.schema';
 
 const SettingsPage = props => (
   <div>

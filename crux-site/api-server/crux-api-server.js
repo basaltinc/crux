@@ -66,6 +66,14 @@ const apiServer = new BedrockApiServer({
             '../sections/resources/photography-guidelines.md',
           ),
         },
+        {
+          title: 'Logo Downloads',
+          id: 'logo-downloads',
+          src: join(
+            __dirname,
+            '../sections/resources/logo-downloads.md',
+          ),
+        },
       ],
     },
   ],

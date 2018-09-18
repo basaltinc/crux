@@ -19,15 +19,9 @@ export const LoadableExamplesPage = Loadable({
   loading: Spinner,
 });
 
-export const LoadableHomeSplash = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'home-splash' */ './components/home-splash/home-splash'),
-  loading: Spinner,
-});
-
 export const LoadableDesignTokenPage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'design-token-page' */ './pages/design-tokens/design-token-board/design-token-board'),
+    import(/* webpackChunkName: 'design-token-page' */ '@basalt/bedrock-design-tokens-filterable-grid'),
   loading: Spinner,
 });
 
@@ -67,39 +61,9 @@ export const LoadableTypography = Loadable({
   loading: Spinner,
 });
 
-export const LoadableIcons = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'icons' */ './pages/design-tokens/icons/icons'),
-  loading: Spinner,
-});
-
 export const LoadablePatternsPage = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'patterns-page' */ '@basalt/bedrock-patterns-filterable-grid'),
-  loading: Spinner,
-});
-
-export const LoadableResourcesLanding = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'component-overview' */ './pages/resources/'),
-  loading: Spinner,
-});
-
-export const LoadableLogoDownloads = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),
-  loading: Spinner,
-});
-
-export const LoadableLogoUsage = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'logo-usage' */ './pages/resources/logo-usage'),
-  loading: Spinner,
-});
-
-export const LoadableBrandDescriptors = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
   loading: Spinner,
 });
 
@@ -117,14 +81,8 @@ export const LoadableSecondaryNav = Loadable({
   loading: Spinner,
 });
 
-export const LoadableFooter = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'footer' */ './components/footer/footer'),
-  loading: Spinner,
-});
-
 export const LoadableSandbox = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './pages/sandbox'),
+  loader: () => import(/* webpackChunkName: 'footer' */ './sandbox'),
   loading: Spinner,
 });
 
@@ -148,7 +106,7 @@ export const LoadableDosAndDonts = Loadable({
 
 export const LoadableSettingsPage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'patterns-page' */ './pages/settings'),
+    import(/* webpackChunkName: 'patterns-page' */ './settings'),
   loading: Spinner,
 });
 

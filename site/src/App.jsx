@@ -12,22 +12,18 @@ import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header/header';
+import HomeSplash from './components/home-splash/home-splash';
+import Footer from './components/footer/footer';
 import {
   LoadableAnimations,
-  LoadableBrandDescriptors,
   LoadableBreakpoints,
   LoadableColors,
   LoadableComponentOverview,
+  LoadableCustomSectionPage,
   LoadableDesignTokenPage,
   LoadableExamplesPage,
-  LoadableFooter,
-  LoadableHomeSplash,
-  LoadableIcons,
-  LoadableLogoDownloads,
-  LoadableLogoUsage,
   LoadablePatternsPage,
   LoadablePlayground,
-  LoadableResourcesLanding,
   LoadableSandbox,
   LoadableSecondaryNav,
   LoadableSettingsPage,
@@ -35,7 +31,6 @@ import {
   LoadableSidebar,
   LoadableSpacings,
   LoadableTypography,
-  LoadableCustomSectionPage,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -172,7 +167,7 @@ class App extends React.Component {
                         <Switch>
                           <Route
                             path="/"
-                            component={LoadableHomeSplash}
+                            component={HomeSplash}
                             exact
                           />
                           <Route
@@ -283,23 +278,6 @@ class App extends React.Component {
                             exact
                           />
                           <Route
-                            path="/resources"
-                            component={LoadableResourcesLanding}
-                            exact
-                          />
-                          <Route
-                            path="/resources/logo-downloads"
-                            component={LoadableLogoDownloads}
-                          />
-                          <Route
-                            path="/resources/logo-usage"
-                            component={LoadableLogoUsage}
-                          />
-                          <Route
-                            path="/resources/brand-descriptors"
-                            component={LoadableBrandDescriptors}
-                          />
-                          <Route
                             path="/settings"
                             component={LoadableSettingsPage}
                           />
@@ -327,7 +305,7 @@ class App extends React.Component {
                     </MainContent>
                   </Site>
                   <SiteFooter>
-                    <LoadableFooter />
+                    <Footer />
                   </SiteFooter>
                 </div>
               </Router>
