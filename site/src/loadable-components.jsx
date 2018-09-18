@@ -25,12 +25,6 @@ export const LoadableHomeSplash = Loadable({
   loading: Spinner,
 });
 
-// export const LoadableReleaseNotes = Loadable({
-//   loader: () =>
-//     import(/* webpackChunkName: 'release-notes' */ '../../bedrock/components/release-notes/release-notes'),
-//   loading: Spinner,
-// });
-
 export const LoadableDesignTokenPage = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'design-token-page' */ './pages/design-tokens/design-token-board/design-token-board'),
@@ -57,19 +51,19 @@ export const LoadableColors = Loadable({
 
 export const LoadableShadows = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/design-tokens/shadows/shadows'),
+    import(/* webpackChunkName: 'spacings' */ '@basalt/bedrock-shadows-demo'),
   loading: Spinner,
 });
 
 export const LoadableSpacings = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/design-tokens/spacings/spacings'),
+    import(/* webpackChunkName: 'spacings' */ '@basalt/bedrock-spacings-demo'),
   loading: Spinner,
 });
 
 export const LoadableTypography = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'typography' */ './pages/design-tokens/typography/typography'),
+    import(/* webpackChunkName: 'typography' */ '@basalt/bedrock-typographies-demo'),
   loading: Spinner,
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
-import { ShadowDemoBox } from './shadows.styles';
+import { ShadowDemoBox } from './shadows-demo.styles';
 
 function ShadowsPage() {
   return (

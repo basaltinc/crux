@@ -27,7 +27,6 @@ import {
   LoadableLogoUsage,
   LoadablePatternsPage,
   LoadablePlayground,
-  LoadableReleaseNotes,
   LoadableResourcesLanding,
   LoadableSandbox,
   LoadableSecondaryNav,
@@ -203,10 +202,6 @@ class App extends React.Component {
                               )}
                             />
                           ))}
-                          <Route
-                            path="/about/release-notes"
-                            component={LoadableReleaseNotes}
-                          />
                           <Route
                             path="/design-tokens"
                             component={LoadableDesignTokenPage}
