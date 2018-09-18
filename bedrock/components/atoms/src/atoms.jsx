@@ -6,6 +6,7 @@ export * from './status-message';
 export * from './select';
 export * from './type-to-filter';
 export * from './demos';
+export * from './tooltip';
 
 // Checkerboard background, used in demo stages
 export const Checkerboard = styled.div`
