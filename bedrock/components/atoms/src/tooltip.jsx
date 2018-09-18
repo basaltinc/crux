@@ -40,7 +40,7 @@ const TooltipWrapper = styled.div`
   }
   &[data-position='top'] {
     span {
-      bottom: 100%;
+      bottom: calc(100% - 2px);
       left: 50%;
       transform: translate3d(-50%, -15px, 0);
       &:after {
