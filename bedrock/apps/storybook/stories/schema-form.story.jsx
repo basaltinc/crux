@@ -98,6 +98,16 @@ const kitchenSinkSchema = {
       type: 'string',
       description: 'This is a text area, where you might write a lot of text.',
     },
+    number: {
+      title: 'Number',
+      type: 'number',
+      description: 'This is number input field.',
+    },
+    integer: {
+      title: 'Integer;',
+      type: 'integer',
+      description: 'This is an integer input field.',
+    },
     email: {
       title: 'Email',
       type: 'string',
