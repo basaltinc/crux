@@ -30,7 +30,8 @@
     "start:assets": "cd crux-assets && yarn start",
     "start:crux-site": "cd crux-site && yarn start",
     "start:storybook": "cd bedrock/apps/storybook && yarn start",
-    "test": "run-s lint:style lint:js jest"
+    "test": "run-s lint:style lint:js jest",
+    "uuid": "node -e \"process.stdout.write(require('uuid/v4')()) \" | pbcopy && echo 'uuid copied' "
   },
   "workspaces": {
     "packages": [

@@ -8,7 +8,7 @@ import {
   BreakpointsWrapper,
   DeviceListItem,
   DeviceWidthUl,
-} from './breakpoints.styles';
+} from './breakpoints-demo.styles';
 
 const BreakpointsItems = items =>
   items.map(item => (

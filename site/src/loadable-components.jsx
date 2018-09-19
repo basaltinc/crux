@@ -14,97 +14,56 @@ export const LoadablePlayground = Loadable({
 });
 
 export const LoadableExamplesPage = Loadable({
-  loader: () => import(/* webpackChunkName: 'about-page' */ './pages/examples'),
-  loading: Spinner,
-});
-
-export const LoadableHomeSplash = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'home-splash' */ './components/home-splash/home-splash'),
-  loading: Spinner,
-});
-
-export const LoadableReleaseNotes = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'release-notes' */ './pages/about/release-notes/release-notes'),
+    import(/* webpackChunkName: 'about-page' */ '@basalt/bedrock-examples-guide'),
   loading: Spinner,
 });
 
 export const LoadableDesignTokenPage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'design-token-page' */ './pages/design-tokens/design-token-board/design-token-board'),
+    import(/* webpackChunkName: 'design-token-page' */ '@basalt/bedrock-design-tokens-filterable-grid'),
   loading: Spinner,
 });
 
 export const LoadableAnimations = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'animations' */ './pages/design-tokens/animations/animations'),
+    import(/* webpackChunkName: 'animations' */ '@basalt/bedrock-transitions-demo'),
   loading: Spinner,
 });
 
 export const LoadableBreakpoints = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'breakpoints' */ './pages/design-tokens/breakpoints/breakpoints'),
+    import(/* webpackChunkName: 'breakpoints' */ '@basalt/bedrock-breakpoints-demo'),
   loading: Spinner,
 });
 
 export const LoadableColors = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'colors' */ './pages/design-tokens/colors/colors'),
+    import(/* webpackChunkName: 'colors' */ '@basalt/bedrock-colors-demo'),
   loading: Spinner,
 });
 
 export const LoadableShadows = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/design-tokens/shadows/shadows'),
+    import(/* webpackChunkName: 'spacings' */ '@basalt/bedrock-shadows-demo'),
   loading: Spinner,
 });
 
 export const LoadableSpacings = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'spacings' */ './pages/design-tokens/spacings/spacings'),
+    import(/* webpackChunkName: 'spacings' */ '@basalt/bedrock-spacings-demo'),
   loading: Spinner,
 });
 
 export const LoadableTypography = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'typography' */ './pages/design-tokens/typography/typography'),
-  loading: Spinner,
-});
-
-export const LoadableIcons = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'icons' */ './pages/design-tokens/icons/icons'),
+    import(/* webpackChunkName: 'typography' */ '@basalt/bedrock-typographies-demo'),
   loading: Spinner,
 });
 
 export const LoadablePatternsPage = Loadable({
   loader: () =>
-    import(/* webpackChunkName: 'patterns-page' */ './pages/patterns'),
-  loading: Spinner,
-});
-
-export const LoadableResourcesLanding = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'component-overview' */ './pages/resources/'),
-  loading: Spinner,
-});
-
-export const LoadableLogoDownloads = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'logo-downloads' */ './pages/resources/logo-downloads'),
-  loading: Spinner,
-});
-
-export const LoadableLogoUsage = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'logo-usage' */ './pages/resources/logo-usage'),
-  loading: Spinner,
-});
-
-export const LoadableBrandDescriptors = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'brand-descriptors' */ './pages/resources/brand-descriptors'),
+    import(/* webpackChunkName: 'patterns-page' */ '@basalt/bedrock-patterns-filterable-grid'),
   loading: Spinner,
 });
 
@@ -122,14 +81,8 @@ export const LoadableSecondaryNav = Loadable({
   loading: Spinner,
 });
 
-export const LoadableFooter = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'footer' */ './components/footer/footer'),
-  loading: Spinner,
-});
-
 export const LoadableSandbox = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './pages/sandbox'),
+  loader: () => import(/* webpackChunkName: 'footer' */ './sandbox'),
   loading: Spinner,
 });
 
@@ -152,8 +105,7 @@ export const LoadableDosAndDonts = Loadable({
 });
 
 export const LoadableSettingsPage = Loadable({
-  loader: () =>
-    import(/* webpackChunkName: 'patterns-page' */ './pages/settings'),
+  loader: () => import(/* webpackChunkName: 'patterns-page' */ './settings'),
   loading: Spinner,
 });
 

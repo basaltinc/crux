@@ -20,7 +20,15 @@
       "type": "object",
       "title": "Settings",
       "additionalProperties": false,
-      "required": ["site", "parentBrand", "isDebug", "isDevMode", "isProd", "websocketsPort"],
+      "required": [
+        "site",
+        "parentBrand",
+        "isDebug",
+        "isDevMode",
+        "isProd",
+        "hasJiraIssueCollector",
+        "websocketsPort"
+      ],
       "properties": {
         "isDebug": {
           "title": "Is Debug Mode",
@@ -36,6 +44,12 @@
           "title": "Is Prod",
           "type": "boolean",
           "description": "Is this production mode"
+        },
+        "hasJiraIssueCollector": {
+          "title": "Has Jira Issue Collector",
+          "type": "boolean",
+          "description": "Turns on the 'give feedback' button for gathering issues for bedrock",
+          "default": true
         },
         "websocketsPort": {
           "title": "Websocket Port",
@@ -108,9 +122,9 @@
               "description": "Url base for the api that supplies DS data"
             },
             "cssUrls": {
-                "title": "Css Urls",
-                "type": "array",
-                "description": "Urls for Design System css assets",
+              "title": "Css Urls",
+              "type": "array",
+              "description": "Urls for Design System css assets",
               "items": {
                 "title": "Url",
                 "type": "string",

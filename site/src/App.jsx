@@ -12,23 +12,18 @@ import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header/header';
+import HomeSplash from './components/home-splash/home-splash';
+import Footer from './components/footer/footer';
 import {
   LoadableAnimations,
-  LoadableBrandDescriptors,
   LoadableBreakpoints,
   LoadableColors,
   LoadableComponentOverview,
+  LoadableCustomSectionPage,
   LoadableDesignTokenPage,
   LoadableExamplesPage,
-  LoadableFooter,
-  LoadableHomeSplash,
-  LoadableIcons,
-  LoadableLogoDownloads,
-  LoadableLogoUsage,
   LoadablePatternsPage,
   LoadablePlayground,
-  LoadableReleaseNotes,
-  LoadableResourcesLanding,
   LoadableSandbox,
   LoadableSecondaryNav,
   LoadableSettingsPage,
@@ -36,7 +31,6 @@ import {
   LoadableSidebar,
   LoadableSpacings,
   LoadableTypography,
-  LoadableCustomSectionPage,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -171,11 +165,7 @@ class App extends React.Component {
                     <MainContent>
                       <ErrorCatcher>
                         <Switch>
-                          <Route
-                            path="/"
-                            component={LoadableHomeSplash}
-                            exact
-                          />
+                          <Route path="/" component={HomeSplash} exact />
                           <Route
                             path="/examples/:id"
                             render={({ match }) => (
@@ -203,10 +193,6 @@ class App extends React.Component {
                               )}
                             />
                           ))}
-                          <Route
-                            path="/about/release-notes"
-                            component={LoadableReleaseNotes}
-                          />
                           <Route
                             path="/design-tokens"
                             component={LoadableDesignTokenPage}
@@ -272,37 +258,10 @@ class App extends React.Component {
                               component={LoadableTypography}
                             />
                           )}
-                          {this.isDesignTokenAvailable('icons') && (
-                            <Route
-                              path={
-                                this.state.designTokens.find(
-                                  t => t.id === 'icons',
-                                ).path
-                              }
-                              component={LoadableIcons}
-                            />
-                          )}
                           <Route
                             path="/patterns"
                             component={LoadablePatternsPage}
                             exact
-                          />
-                          <Route
-                            path="/resources"
-                            component={LoadableResourcesLanding}
-                            exact
-                          />
-                          <Route
-                            path="/resources/logo-downloads"
-                            component={LoadableLogoDownloads}
-                          />
-                          <Route
-                            path="/resources/logo-usage"
-                            component={LoadableLogoUsage}
-                          />
-                          <Route
-                            path="/resources/brand-descriptors"
-                            component={LoadableBrandDescriptors}
                           />
                           <Route
                             path="/settings"
@@ -332,7 +291,7 @@ class App extends React.Component {
                     </MainContent>
                   </Site>
                   <SiteFooter>
-                    <LoadableFooter />
+                    <Footer />
                   </SiteFooter>
                 </div>
               </Router>

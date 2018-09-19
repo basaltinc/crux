@@ -5,7 +5,10 @@ import Spinner from '@basalt/bedrock-spinner';
 import DosAndDonts from '@basalt/bedrock-dos-and-donts';
 import Twig from '@basalt/bedrock-twig';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
-import { DemoTransitionMove, DemoTransitionOpacity } from './animations.styles';
+import {
+  DemoTransitionMove,
+  DemoTransitionOpacity,
+} from './transitions-demo.styles';
 
 class AnimationsPage extends React.Component {
   constructor(props) {
@@ -13,9 +16,8 @@ class AnimationsPage extends React.Component {
     this.state = {
       transitions: [], // eslint-disable-line react/no-unused-state
     };
-    this.apiEndpoint = `${
-      props.context.settings.urls.apiUrlBase
-    }/design-token/transitions`;
+    const { apiUrlBase } = props.context.settings.urls;
+    this.apiEndpoint = `${apiUrlBase}/design-token/transitions`;
   }
 
   componentDidMount() {
@@ -33,8 +35,8 @@ class AnimationsPage extends React.Component {
     return (
       <div>
         <div className="body">
-          <h4 className="eyebrow">Visual Language</h4>
-          <h2>Animation</h2>
+          <h4 className="eyebrow">Design Tokens</h4>
+          <h2>Transitions</h2>
 
           <BlockQuoteWrapper>
             Animation offers a medium of story telling and visual entertainment

@@ -4,9 +4,6 @@
   "version": "1.0.2",
   "author": "Basalt",
   "main": "bedrock-site.js",
-  "scripts": {
-    "uuid": "node -e \"process.stdout.write(require('uuid/v4')()) \" | pbcopy && echo 'uuid copied' "
-  },
   "dependencies": {
     "@basalt/bedrock-api-demo": "^0.1.2",
     "@basalt/bedrock-atoms": "^0.1.2",
