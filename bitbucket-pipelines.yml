@@ -2,31 +2,33 @@ image: basaltinc/docker-node-php-base
 
 options:
   size: 2x  # all steps in this repo get 8GB memory
+  docker: true
 
 pipelines:
   default:
     - step:
         name: Install, Build, Test
         caches:
-        - composer
-        - node
-        - yarn
-        - site-vendor
-        - source-node
-        - bedrock-node
+#        - composer
+#        - node
+#        - yarn
+#        - site-vendor
+#        - source-node
+#        - bedrock-node
         script:
-        - yarn --version && npm --version && node --version && composer --version && php --version
-        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
-        - yarn build
-        - yarn test
-        artifacts:
-        - '**'
-    - step:
-        name: Deploy to test
-        deployment: test   # can be test, staging or production
-        trigger: manual
-        script:
-        - yarn run deploy:test
+          - yarn deploy:test
+#        - yarn --version && npm --version && node --version && composer --version && php --version
+#        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
+#        - yarn build
+#        - yarn test
+#        artifacts:
+#        - '**'
+#    - step:
+#        name: Deploy to test
+#        deployment: test   # can be test, staging or production
+#        trigger: manual
+#        script:
+#        - yarn run deploy:test
 
   branches:
       epic/v2:
