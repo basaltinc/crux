@@ -21,7 +21,7 @@ class BedrockApiServer {
 
     this.app.use(bodyParser.json());
 
-    this.app.use((req, res, next) => {
+    this.app.use(this.config.baseUrl, (req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*');
       res.header(
         'Access-Control-Allow-Headers',
@@ -34,6 +34,17 @@ class BedrockApiServer {
       this.config.staticDirs.forEach(staticDir =>
         this.app.use(staticDir.prefix, express.static(staticDir.path)),
       );
+    }
+
+    if (this.config.spaIndexHtmlPath) {
+      this.app.use('*', (req, res, next) => {
+        const accepted = req.headers.accept.split(',');
+        if (accepted.includes('text/html')) {
+          res.sendFile(this.config.spaIndexHtmlPath);
+        } else {
+          next();
+        }
+      });
     }
 
     this.app.get(this.config.baseUrl, (req, res) => {

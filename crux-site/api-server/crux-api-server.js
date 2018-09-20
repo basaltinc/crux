@@ -19,6 +19,7 @@ const port = process.argv[2] || 3042;
 const apiServer = new BedrockApiServer({
   port,
   websocketsPort: 5042,
+  spaIndexHtmlPath: join(__dirname, '../dist/index.html'),
   baseUrl: '/api',
   showEndpoints: true,
   designTokens,
