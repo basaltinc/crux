@@ -36,7 +36,7 @@ class BedrockApiServer {
       );
     }
 
-    this.app.get('/', (req, res) => {
+    this.app.get(this.config.baseUrl, (req, res) => {
       res.json({
         ok: true,
         message: 'Welcome to the API!',
