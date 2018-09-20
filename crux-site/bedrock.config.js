@@ -24,9 +24,9 @@ const cruxSite = new BedrockSite({
       homepage: 'http://www.basalt.io',
     },
     urls: {
-      apiUrlBase: 'http://localhost:3042/api',
-      cssUrls: ['http://localhost:3042/assets/crux.css'],
-      jsUrls: ['http://localhost:3042/assets/crux.js'],
+      apiUrlBase: '/api',
+      cssUrls: ['/assets/crux.css'],
+      jsUrls: ['/assets/crux.js'],
     },
   },
 });
