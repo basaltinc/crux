@@ -16,6 +16,8 @@ const {
 // First cli arg starts on `2`
 const port = process.argv[2] || 3042;
 
+const isTest = true;
+
 const apiServer = new BedrockApiServer({
   port,
   websocketsPort: 5042,
