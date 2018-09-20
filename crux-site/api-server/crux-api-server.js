@@ -76,6 +76,14 @@ const apiServer = new BedrockApiServer({
   ],
   staticDirs: [
     {
+      prefix: '/',
+      path: join(__dirname, '../dist'),
+    },
+    {
+      prefix: '/',
+      path: join(__dirname, '../public'),
+    },
+    {
       prefix: '/assets',
       path: paths.assetDir,
     },
