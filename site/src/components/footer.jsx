@@ -9,29 +9,8 @@ const currentYear = today.getFullYear();
 const Footer = props => (
   <FooterWrapper>
     <FooterMenu>
-      <FooterMenuItem>
-        <a
-          href="http://localhost:3042/apidoc/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          API Docs
-        </a>
-      </FooterMenuItem>
-      <FooterMenuItem>
-        <a
-          href="http://localhost:3042/jsdoc/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          JSDocs
-        </a>
-      </FooterMenuItem>
       {props.context.settings.isDevMode && (
         <React.Fragment>
-          <FooterMenuItem>
-            <Link to="/sandbox">Sandbox</Link>
-          </FooterMenuItem>
           <FooterMenuItem>
             <Link to="/settings">Page Settings</Link>
           </FooterMenuItem>

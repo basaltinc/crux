@@ -24,7 +24,6 @@ import {
   LoadableExamplesPage,
   LoadablePatternsPage,
   LoadablePlayground,
-  LoadableSandbox,
   LoadableSecondaryNav,
   LoadableSettingsPage,
   LoadableShadows,
@@ -267,7 +266,6 @@ class App extends React.Component {
                             path="/settings"
                             component={LoadableSettingsPage}
                           />
-                          <Route path="/sandbox" component={LoadableSandbox} />
                           <Route
                             path="/patterns/components/:id"
                             render={({ match }) => (

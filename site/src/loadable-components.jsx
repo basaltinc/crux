@@ -81,11 +81,6 @@ export const LoadableSecondaryNav = Loadable({
   loading: Spinner,
 });
 
-export const LoadableSandbox = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './sandbox'),
-  loading: Spinner,
-});
-
 export const LoadableSchemaTable = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'schema-table' */ '@basalt/bedrock-schema-table'),
