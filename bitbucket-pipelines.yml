@@ -16,6 +16,7 @@ pipelines:
 #        - source-node
 #        - bedrock-node
         script:
+          - npm i -g now@latest
           - yarn deploy:test
 #        - yarn --version && npm --version && node --version && composer --version && php --version
 #        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
