@@ -7,85 +7,19 @@ options:
 pipelines:
   default:
     - step:
-        name: Install, Build, Test
-        caches:
-#        - composer
-#        - node
-#        - yarn
-#        - site-vendor
-#        - source-node
-#        - bedrock-node
+        name: Install, Build, Test, Deploy
         script:
           - npm i -g --unsafe-perm now@latest
           - yarn deploy:test
-#        - yarn --version && npm --version && node --version && composer --version && php --version
-#        - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
-#        - yarn build
-#        - yarn test
-#        artifacts:
-#        - '**'
-#    - step:
-#        name: Deploy to test
-#        deployment: test   # can be test, staging or production
-#        trigger: manual
-#        script:
-#        - yarn run deploy:test
 
   branches:
       epic/v2:
         - step:
-            name: Install
-            caches:
-              - composer
-              - node
-              - yarn
-              - site-vendor
-              - source-node
-              - bedrock-node
+            name: Install, Build, Test, Deploy
             script:
-              - yarn --version && npm --version && node --version && composer --version && php --version
-              - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache --silent
-              - yarn build
-              - yarn test
-            artifacts:
-              - '**'
-        - step:
-            name: Deploy to staging
-            deployment: staging   # can be test, staging or production
-            trigger: manual
-            script:
-             - yarn run deploy:staging
-        - step:
-            name: Deploy to production
-            deployment: production   # can be test, staging or production
-            trigger: manual
-            script:
-             - yarn run deploy:prod
+              - npm i -g --unsafe-perm now@latest
+              - yarn deploy:prod
 
-      master:
-        - step:
-            caches:
-              - composer
-              - node
-              - pip
-              - yarn
-            script:
-              - curl -o- -L https://yarnpkg.com/install.sh | bash -s
-              - export PATH=$HOME/.yarn/bin:$PATH
-              - yarn --version && npm --version && node --version && composer --version && php --version
-              - apt-get update && apt-get install -y python-dev
-              - curl -O https://bootstrap.pypa.io/get-pip.py
-              - python get-pip.py
-              - pip install awscli
-              - yarn install --unsafe-perm --cache-folder=$HOME/.yarn-cache
-              - npm test
-              - npm run compile
-              - aws s3 sync ./ s3://design.basalt.io --exclude "node_modules/*" --exclude ".git/*" --exclude "pattern-lab/vendor/*" --delete
-
-definitions:
-  caches:
-    yarn: $HOME/.yarn-cache
-    site-node: site/node_modules
-    source-node: source/node_modules
-    bedrock-node: bedrock/node_modules
-    site-vendor: site/vendor
+#definitions:
+#  caches:
+#    yarn: $HOME/.yarn-cache
