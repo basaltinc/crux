@@ -11,9 +11,9 @@ import GlobalStyles from '@basalt/bedrock-global-styles';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
-import Header from './components/header/header';
-import HomeSplash from './components/home-splash/home-splash';
-import Footer from './components/footer/footer';
+import Header from './components/header';
+import HomeSplash from './components/home-splash';
+import Footer from './components/footer';
 import {
   LoadableAnimations,
   LoadableBreakpoints,
