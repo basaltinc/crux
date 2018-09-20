@@ -1,12 +1,7 @@
 node_modules
-pattern-lab/vendor
 .DS_Store
 .idea
 yarn-error.log
-site/.cache
-site/vendor
-site/public2
-site/node_modules
 vendor
 dist
 lerna-debug.log
