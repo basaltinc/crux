@@ -77,12 +77,7 @@ export const LoadableSidebar = Loadable({
 export const LoadableSecondaryNav = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'secondary-nav' */
-    './components/secondary-nav/secondary-nav'),
-  loading: Spinner,
-});
-
-export const LoadableSandbox = Loadable({
-  loader: () => import(/* webpackChunkName: 'footer' */ './sandbox'),
+    './components/secondary-nav'),
   loading: Spinner,
 });
 

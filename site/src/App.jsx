@@ -11,9 +11,9 @@ import GlobalStyles from '@basalt/bedrock-global-styles';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
-import Header from './components/header/header';
-import HomeSplash from './components/home-splash/home-splash';
-import Footer from './components/footer/footer';
+import Header from './components/header';
+import HomeSplash from './components/home-splash';
+import Footer from './components/footer';
 import {
   LoadableAnimations,
   LoadableBreakpoints,
@@ -24,7 +24,6 @@ import {
   LoadableExamplesPage,
   LoadablePatternsPage,
   LoadablePlayground,
-  LoadableSandbox,
   LoadableSecondaryNav,
   LoadableSettingsPage,
   LoadableShadows,
@@ -267,7 +266,6 @@ class App extends React.Component {
                             path="/settings"
                             component={LoadableSettingsPage}
                           />
-                          <Route path="/sandbox" component={LoadableSandbox} />
                           <Route
                             path="/patterns/components/:id"
                             render={({ match }) => (
