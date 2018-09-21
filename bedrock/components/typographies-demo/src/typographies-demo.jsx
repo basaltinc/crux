@@ -3,7 +3,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import styled from 'styled-components';
 import { image, paragraph, text, title } from '@basalt/demo-data';
 import { BlockQuoteWrapper, DemoBlock } from '@basalt/bedrock-atoms';
-import { SmartGrid } from '@basalt/bedrock-smart-grid';
+import SmartGrid from '@basalt/bedrock-smart-grid';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Spinner from '@basalt/bedrock-spinner';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
@@ -187,11 +187,7 @@ class TypographyPage extends React.Component {
             >
               {this.state.demo.paragraph}
             </blockquote>
-            <SmartGrid
-              className="smart-grid"
-              data-row-items-small="1"
-              data-row-items-medium="2"
-            >
+            <SmartGrid row-items-large={2}>
               <ul contentEditable suppressContentEditableWarning>
                 <li>{this.state.demo.text}</li>
                 <li>{this.state.demo.title}</li>

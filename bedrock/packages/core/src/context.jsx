@@ -1,6 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+export const breakpoints = {
+  xsmall: '380px',
+  small: '450px',
+  medium: '700px',
+  large: '900px',
+  xlarge: '1100px',
+  xxlarge: '1300px',
+  xxxlarge: '1600px',
+};
+
 export const typeColors = {
   icon: {
     base: '#536dfe',
@@ -72,6 +82,7 @@ export const fontFamilies = {
 };
 
 export const baseTheme = {
+  breakpoint: breakpoints,
   colors: {
     color: colors,
     type: typeColors,
