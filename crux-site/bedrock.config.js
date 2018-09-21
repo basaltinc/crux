@@ -2,6 +2,9 @@ const path = require('path');
 const BedrockSite = require('@basalt/bedrock-site');
 const { version } = require('@basalt/crux-assets/package.json');
 
+const urlBase =
+  process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:3042/';
+
 const cruxSite = new BedrockSite({
   dist: path.join(__dirname, 'dist'),
   public: path.join(__dirname, 'public'),
@@ -24,9 +27,9 @@ const cruxSite = new BedrockSite({
       homepage: 'http://www.basalt.io',
     },
     urls: {
-      apiUrlBase: '/api',
-      cssUrls: ['/assets/crux.css'],
-      jsUrls: ['/assets/crux.js'],
+      apiUrlBase: `${urlBase}api`,
+      cssUrls: [`${urlBase}assets/crux.css`],
+      jsUrls: [`${urlBase}assets/crux.js`],
     },
   },
 });
