@@ -42,6 +42,16 @@ ${jsUrls.map(jsUrl => `<script src="${jsUrl}"></script>`)}
     position: unset;
   }
 </style>
+ <script>
+  /**
+  * Prevents the natural click behavior of any links within the iframe.
+  * Otherwise the iframe reloads with the current page or follows the url provided.
+  */
+  const links = Array.prototype.slice.call(document.querySelectorAll('a'));
+  links.forEach(function(link) {
+    link.addEventListener('click', function(e){e.preventDefault();});
+  });
+</script>
 </body>
 </html>
 `;
