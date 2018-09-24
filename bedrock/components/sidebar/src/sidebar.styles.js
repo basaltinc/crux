@@ -29,7 +29,7 @@ export const SidebarColumn = styled.div`
   overflow: scroll;
   display: flex;
   flex-direction: column;
-  background-color: #f2f3f3;
+  background: ${props => props.theme.sidebar.background};
   padding: ${props => (props.sidebarCollapsed ? '25px' : '2rem')};
   transition: 0.6s;
   > * {
@@ -45,8 +45,8 @@ export const SidebarTrayHandle = styled.div`
   border-left: 1px solid lightgray;
   transition: all 0.3s;
   &:hover {
-    border-left: solid 1px #e1c933;
-    color: #e1c933;
+    border-left: solid 1px ${props => props.theme.sidebar.accentColor};
+    color: ${props => props.theme.sidebar.accentColor};
     cursor: pointer;
   }
 `;

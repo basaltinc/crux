@@ -48,18 +48,6 @@ const MainContent = styled.div`
   padding: ${props => props.theme.spacing.l};
 `;
 
-const SiteFooter = styled.div`
-  background-color: ${props => props.theme.colors.primary};
-  color: white;
-  && a {
-    color: white;
-  }
-  ul,
-  li {
-    margin-bottom: 2px;
-  }
-`;
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -124,11 +112,7 @@ class App extends React.Component {
 
     // Just a demo of how to override
     const cruxContext = merge({}, baseContext, {
-      theme: {
-        colors: {
-          // borders: 'red',
-        },
-      },
+      theme: this.state.settings.theme,
       patterns: this.state.patterns,
       sections: this.state.sections,
       designTokens: this.state.designTokens,
@@ -288,9 +272,7 @@ class App extends React.Component {
                       </ErrorCatcher>
                     </MainContent>
                   </Site>
-                  <SiteFooter>
-                    <Footer />
-                  </SiteFooter>
+                  <Footer />
                 </div>
               </Router>
             </React.Fragment>

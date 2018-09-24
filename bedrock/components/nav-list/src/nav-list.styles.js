@@ -19,7 +19,7 @@ export const NavListStyled = styled.nav`
     a[aria-current='page'] {
       font-weight: bold;
       &:before {
-        color: #e1c933;
+        color: ${props => props.theme.sidebar.accentColor};
         content: '>';
         position: absolute;
         left: -20px;
@@ -35,7 +35,7 @@ export const NavListStyled = styled.nav`
     &[aria-current='page'] {
       font-weight: bold;
       &:before {
-        color: #e1c933;
+        color: ${props => props.theme.sidebar.accentColor};
         content: '>';
         position: absolute;
         left: 0;

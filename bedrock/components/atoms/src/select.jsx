@@ -27,7 +27,7 @@ export const SelectStyledWrapper = styled.label`
     display: inline-block;
     padding: 0.3rem 2rem 0.3rem 1rem;
     margin: 0;
-    box-sizing: ${props => props.theme.global.box_sizing};
+    box-sizing: 'border-box';
     -webkit-appearance: none;
     -moz-appearance: none;
     background-image: linear-gradient(45deg, transparent 50%, gray 50%),

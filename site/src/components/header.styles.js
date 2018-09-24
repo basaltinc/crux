@@ -2,13 +2,13 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-export const SiteNav = styled.nav`
-  background: ${props => props.theme.colors.primary};
+export const SiteNav = styled.header`
+  background: ${props => props.theme.header.background};
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  font-family: ${props => props.theme.fonts.families.avenir.medium};
+  font-family: ${props => props.theme.header.fontFamily};
   ul {
     list-style: none;
     display: flex;
@@ -27,7 +27,7 @@ export const SiteNav = styled.nav`
   a[aria-current='page'] {
     font-weight: bold;
     &:before {
-      color: ${props => props.theme.colors.color.yellow.base};
+      color: ${props => props.theme.header.accentColor};
       content: '>';
       position: absolute;
       left: -15px;
@@ -39,7 +39,7 @@ export const SiteNav = styled.nav`
 export const MobileNav = styled.div`
   display: block;
   ul {
-    background-color: ${props => props.theme.colors.primary};
+    background: ${props => props.theme.header.background};
     z-index: 103;
     display: block;
     text-align: right;

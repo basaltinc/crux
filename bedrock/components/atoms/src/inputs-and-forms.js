@@ -135,7 +135,7 @@ export const Toggle = styled.div`
   }
 
   input:checked + span {
-    background: #E1C933;
+    background: ${props => props.theme.colors.accentColor};
   }
 
   input:checked + span:after {
