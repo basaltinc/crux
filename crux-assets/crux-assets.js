@@ -1,4 +1,3 @@
-const BedrockPatternManifest = require('@basalt/bedrock-pattern-manifest');
 const { join } = require('path');
 const {
   getTransitions,
@@ -23,10 +22,6 @@ const paths = {
     js: [join(__dirname, 'dist/crux.js')],
   },
 };
-
-const patternManifest = new BedrockPatternManifest({
-  patternPaths: paths.patterns,
-});
 
 const designTokens = [
   {
@@ -73,11 +68,8 @@ const designTokens = [
 module.exports = {
   designTokens,
   twigRenderer,
-  getPatternMeta: patternManifest.getPatternMeta,
-  getPatterns: patternManifest.getPatterns,
   getExamples,
   getExample,
   setExample,
   paths,
-  patternManifest,
 };

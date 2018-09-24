@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@basalt/bedrock-api-server": "0.1.2",
+    "@basalt/bedrock-pattern-manifest": "^0.1.2",
     "@basalt/crux-assets": "^2.0.2",
     "@basalt/bedrock-site": "1.0.2"
   },

@@ -11,7 +11,6 @@
     "test": "gulp validate"
   },
   "dependencies": {
-    "@basalt/bedrock-pattern-manifest": "^0.1.2",
     "@basalt/demo-data": "0.5.0",
     "@basalt/twig-renderer": "^0.9.2",
     "breakpoint-sass": "^2.7.1",
