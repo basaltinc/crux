@@ -7,8 +7,10 @@ import {
   TypeToFilterInputWrapper,
 } from '@basalt/bedrock-atoms';
 import { Link } from 'react-router-dom';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 import PlaygroundEditForm from './playground-edit-form';
 import {
+  PatternListWrapper,
   PatternListItemWrapper,
   PlaygroundStyledSchemaForm,
 } from './playground.styles';
@@ -27,19 +29,25 @@ class PlaygroundSidebar extends Component {
   renderPatternListItem(pattern) {
     return (
       <PatternListItemWrapper key={pattern.id} type="button">
-        <Link to={`/patterns/components/${pattern.id}`}>View Details</Link>
         <div
           role="button"
           tabIndex="0"
           onKeyPress={() => this.props.handleAddSlice(pattern.id)}
           onClick={() => this.props.handleAddSlice(pattern.id)}
         >
-          <h5 style={{ marginBottom: '0' }}>{pattern.title}</h5>
+          <h5>{pattern.title}</h5>
           <img
             src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
             alt={pattern.title}
           />
         </div>
+        <Link
+          target="_blank"
+          to={`/patterns/components/${pattern.id}`}
+          title="Open component details in new window"
+        >
+          Details <FaExternalLinkAlt size={8} />
+        </Link>
       </PatternListItemWrapper>
     );
   }
@@ -102,17 +110,17 @@ class PlaygroundSidebar extends Component {
               </ClearFilterButton>
             </TypeToFilterInputWrapper>
           </TypeToFilter>
-          <ul>{items.map(pattern => this.renderPatternListItem(pattern))}</ul>
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-            <Button
-              onClick={this.props.handleCancelAddSlice}
-              onKeyPress={this.props.handleCancelAddSlice}
-              type="button"
-              className="button button--color-white button--size-small"
-            >
-              Cancel
-            </Button>
-          </div>
+          <PatternListWrapper>
+            {items.map(pattern => this.renderPatternListItem(pattern))}
+          </PatternListWrapper>
+          <Button
+            onClick={this.props.handleCancelAddSlice}
+            onKeyPress={this.props.handleCancelAddSlice}
+            type="button"
+            className="button button--color-white button--size-small"
+          >
+            Cancel
+          </Button>
         </div>
       );
     }

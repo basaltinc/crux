@@ -38,14 +38,29 @@ export const StartInsertSlice = styled.div`
 
 // playground-sidebar.jsx
 
-export const PatternListItemWrapper = styled.li`
+export const PatternListWrapper = styled.ul`
   display: flex;
-  flex-direction: row-reverse;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin: 1.5rem 0;
+`;
+
+export const PatternListItemWrapper = styled.li`
+  width: calc(50% - ${props => props.theme.spacing.m});
+  filter: grayscale(75%);
+  transition: ${props => props.theme.transition.all};
+  &:hover {
+    filter: grayscale(0%);
+  }
+  h5 {
+    color: ${props => props.theme.colors.primary};
+    margin: 0 0 ${props => props.theme.spacing.s};
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   img {
-    width: 50px;
+    width: auto;
     height: 50px;
+    margin-bottom: ${props => props.theme.spacing.s};
   }
   > div {
     &:hover,
@@ -53,8 +68,12 @@ export const PatternListItemWrapper = styled.li`
       cursor: pointer;
     }
   }
-  a {
-    font-size: 13.5px;
+  a:link,
+  a:visited {
+    color: ${props => props.theme.colors.color.gray.dark};
+    font-size: ${props => props.theme.fonts.sizes.xxs};
+    text-decoration: none;
+    transition: ${props => props.theme.transition.all};
   }
 `;
 

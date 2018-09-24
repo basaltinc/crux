@@ -108,6 +108,7 @@ export const baseTheme = {
   fonts: {
     families: fontFamilies,
     sizes: {
+      xxs: '11px',
       xs: '14px',
       s: '16px',
       m: '18px',
