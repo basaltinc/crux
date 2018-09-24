@@ -8,6 +8,7 @@ export const Button = styled.button`
       props.primary ? props.theme.colors.primary : props.theme.colors.neutral};
     color: ${props => (props.primary ? 'white' : 'black')};
     font-size: 0.75rem;
+    cursor: pointer;
   }
 `;
 
