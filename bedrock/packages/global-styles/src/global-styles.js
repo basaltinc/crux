@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
     @charset "UTF-8";
     ${addGlobalFonts}
     * {
-      box-sizing: ${props => props.theme.global.box_sizing};
+      box-sizing: border-box;
     }
     html {
       font-size: ${props => props.theme.fonts.sizes.xs};

@@ -95,6 +95,18 @@ export const baseTheme = {
     neutral_light: colors.gray.xlight,
     borders: colors.gray.light,
   },
+  header: {
+    background: colors.blue.base,
+    fontFamily: fontFamilies.avenir.medium,
+    accentColor: colors.yellow.base,
+  },
+  sidebar: {
+    background: '#f2f3f3',
+    accentColor: colors.yellow.base,
+  },
+  footer: {
+    background: colors.blue.base,
+  },
   links: {
     color: {
       base: colors.blue.base,
@@ -176,9 +188,6 @@ export const baseTheme = {
   border: {
     color: colors.gray.light,
     radius: '0',
-  },
-  global: {
-    box_sizing: 'border-box',
   },
   blockquote: {
     border_left: `3px solid ${colors.gray.xlight}`,

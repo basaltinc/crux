@@ -56,6 +56,12 @@
           "type": "number",
           "description": "Port number on which the component renderer is listening"
         },
+        "theme": {
+          "title": "Custom Theme",
+          "type": "object",
+          "description": "Custom theme to override the bedrock design tokens",
+          "additionalProperties": true
+        },
         "site": {
           "title": "Site",
           "type": "object",
