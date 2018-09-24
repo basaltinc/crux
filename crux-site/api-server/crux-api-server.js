@@ -1,20 +1,22 @@
 #!/usr/bin/env node
 const { join } = require('path');
+const BedrockPatternManifest = require('@basalt/bedrock-pattern-manifest');
 const BedrockApiServer = require('@basalt/bedrock-api-server');
 const {
   designTokens,
   twigRenderer,
-  getPatternMeta,
-  getPatterns,
   getExamples,
   getExample,
   setExample,
-  patternManifest,
   paths,
 } = require('@basalt/crux-assets');
 
 // First cli arg starts on `2`
 const port = process.argv[2] || 3042;
+
+const patternManifest = new BedrockPatternManifest({
+  patternPaths: paths.patterns,
+});
 
 const apiServer = new BedrockApiServer({
   port,
@@ -25,8 +27,8 @@ const apiServer = new BedrockApiServer({
   designTokens,
   twigRenderer,
   patterns: {
-    getPatternMeta,
-    getPatterns,
+    getPatternMeta: patternManifest.getPatternMeta,
+    getPatterns: patternManifest.getPatterns,
   },
   examples: {
     getExamples,
