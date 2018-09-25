@@ -35,7 +35,7 @@ export const SelectStyledWrapper = styled.label`
       linear-gradient(to right, #ccc, #ccc);
     background-position: calc(100% - 20px) calc(1rem + -3px),
       calc(100% - 15px) calc(1rem + -3px), calc(30% - 2.5rem) 0.5rem;
-    background-size: 5px 5px, 5px 5px, 1px 1.5rem;
+    background-size: 6px 9px, 5px 8px, 0;
     background-repeat: no-repeat;
   }
   /* stylelint-enable property-no-vendor-prefix */

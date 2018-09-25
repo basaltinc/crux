@@ -17,6 +17,7 @@ export const TextInputWrapper = styled.div`
 
 export const RadioInputWrapper = styled.div`
   .field-radio-group.field-radio-group {
+    min-height: 33px;
     height: unset;
   }
   input {
@@ -71,19 +72,27 @@ export const FormIconTray = styled.div`
   border: ${props => props.theme.form.border};
   display: inline-flex;
   padding: ${props => props.theme.form.padding};
-  margin-top: 1rem;
 `;
 
 export const FormArrayItem = styled.div`
-  margin: 0.75rem 0;
+  padding: 0.25rem;
   &:last-child {
     margin-bottom: 0;
   }
+  &:nth-child(odd) {
+    background-color: ${props => props.theme.colors.xxlight};
+  }
   .field {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    padding-right: 0.25rem;
+    > div {
+      display: flex;
+      justify-content: left;
+      flex-wrap: wrap;
+      > div {
+        padding: 0;
+        flex-grow: 1;
+      }
+    }
   }
   & > * + * {
     //margin-left: 0.25rem;

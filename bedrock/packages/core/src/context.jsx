@@ -93,6 +93,7 @@ export const baseTheme = {
     secondary: colors.green.base,
     neutral: colors.gray.base,
     neutral_light: colors.gray.xlight,
+    xxlight: colors.gray.xxlight,
     borders: colors.gray.light,
   },
   header: {
@@ -172,7 +173,7 @@ export const baseTheme = {
     padding: '5px 8px',
     label: {
       color: colors.gray.dark,
-      font_size: '13.5px',
+      font_size: '12px',
     },
     input: {
       font_size: '0.75rem',
