@@ -10,12 +10,13 @@ const { getExamples, getExample, setExample } = require('./data/examples');
 const twigRenderer = require('./data/twig-renderer');
 
 const paths = {
-  patterns: [
-    join(__dirname, '_patterns/00-styleguide/*'),
-    join(__dirname, '_patterns/02-layouts/*'),
-    join(__dirname, '_patterns/03-components/*'),
-    join(__dirname, '_patterns/04-templates/*'),
-  ],
+  // patterns: [
+  //   join(__dirname, '_patterns/00-styleguide/*'),
+  //   join(__dirname, '_patterns/02-layouts/*'),
+  //   join(__dirname, '_patterns/03-components/*'),
+  //   join(__dirname, '_patterns/04-templates/*'),
+  // ],
+  patterns: [join(__dirname, '_patterns/03-components/media-ti*')],
   assetDir: join(__dirname, 'dist'),
   assets: {
     css: [join(__dirname, 'dist/crux.css')],
