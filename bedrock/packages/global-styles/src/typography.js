@@ -1,6 +1,7 @@
 export const addGlobalTypography = theme => `
       .eyebrow {
-        color: ${theme.colors.eyebrows};
+        font-family: ${theme.eyebrow.font_family};
+        color: ${theme.eyebrow.color};
         margin-bottom: 0;
       }
       h1, .h1 {
@@ -92,6 +93,7 @@ export const addGlobalTypography = theme => `
       }
       p {
         margin: ${theme.paragraphs.margin};
+        font-family: ${theme.paragraphs.font_family};
       }
       p:last-child {
         margin-bottom: 0;

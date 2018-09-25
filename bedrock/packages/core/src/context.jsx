@@ -155,7 +155,12 @@ export const baseTheme = {
       base: '0.875rem',
     },
   },
+  eyebrow: {
+    color: colors.gray.light,
+    font_family: fontFamilies.avenir.medium,
+  },
   paragraphs: {
+    font_family: fontFamilies.avenir.medium,
     margin: '0 0 1.5rem',
   },
   lists: {

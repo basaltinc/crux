@@ -11,7 +11,6 @@ export const HomeSplashCore = styled.div`
   justify-content: center;
   box-sizing: border-box;
   height: calc(100vh - 240px);
-  max-width: 960px;
   padding: 2rem;
   text-align: right;
 `;
@@ -35,16 +34,16 @@ export const EyeBrow = styled.h2`
 `;
 
 export const Title = styled.h1`
-  font-size: 14rem;
+  font-size: 12rem;
   margin: 0;
   @media screen and (min-width: 700px) {
-    font-size: 16rem;
+    font-size: 14rem;
   }
   @media screen and (min-width: 1000px) {
-    font-size: 18rem;
+    font-size: 16rem;
   }
   @media screen and (min-width: 1300px) {
-    font-size: 20rem;
+    font-size: 18rem;
   }
 `;
 
