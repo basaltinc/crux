@@ -3,11 +3,11 @@ import { FaInfoCircle } from 'react-icons/fa';
 
 export const CustomFieldWrapper = styled.div`
   .rjsf--inline > & {
-    > div {
+    > div.custom-object {
       display: flex;
       justify-content: left;
       flex-wrap: wrap;
-      > div {
+      > div.custom-object-item {
         padding: 0;
         flex-grow: 1;
       }
@@ -15,11 +15,11 @@ export const CustomFieldWrapper = styled.div`
   }
   .patterns-filters & {
     &.field-object {
-      > div {
+      > div.custom-object {
         display: flex;
         justify-content: left;
         flex-wrap: wrap;
-        > div {
+        > div.custom-object-item {
           padding: 0;
           flex-grow: 0.2;
         }
@@ -54,7 +54,7 @@ export const CustomFieldWrapper = styled.div`
     flex-wrap: wrap;
     height: ${props => props.theme.form.input.height};
     font-size: 18px;
-    background-color: white;
+    background-color: transparent;
     > div {
       display: inline-block;
     }

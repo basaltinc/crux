@@ -84,11 +84,14 @@ export const FormArrayItem = styled.div`
   }
   .field {
     padding-right: 0.25rem;
-    > div {
+    > div.custom-object {
       display: flex;
       justify-content: left;
       flex-wrap: wrap;
-      > div {
+      + .custom-object {
+        width: 100%;
+      }
+      > div.custom-object-item {
         padding: 0;
         flex-grow: 1;
       }

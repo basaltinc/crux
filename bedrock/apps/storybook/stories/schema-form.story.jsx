@@ -365,7 +365,19 @@ const nestedSchema = {
   },
 };
 
-const nestedSchemaUi = {};
+const nestedSchemaUi = {
+  firstChild: {
+    items: {
+      secondChild: {
+        items: {
+          radio: {
+            'ui:widget': 'radio',
+          },
+        },
+      },
+    },
+  },
+};
 
 storiesOf('Schema Form', module)
   .add(
