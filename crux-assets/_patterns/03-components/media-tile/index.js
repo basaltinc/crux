@@ -1,3 +1,4 @@
+const meta = require('./meta');
 const schema = require('./media-tile-schema.js');
 const basicSchema = require('./media-tile--basic.schema');
 
@@ -23,12 +24,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'media-tile',
-  title: 'Media Tile',
-  description: 'Full Image overlayed with optional Title, Body, and Buttons.',
-  type: 'component',
-  uses: ['inGrid', 'inSlice'],
+  meta,
   templates: [
     {
       name: '@components/_media-tile.twig',
@@ -43,9 +41,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'l',
-};
-
-module.exports = {
-  meta,
 };

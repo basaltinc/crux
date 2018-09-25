@@ -118,18 +118,18 @@ class BedrockApiServer {
     }
 
     if (this.config.patterns) {
-      const { getPatternMeta, getPatterns } = this.config.patterns;
-      const url1 = urlJoin(this.config.baseUrl, 'pattern-meta/:id');
+      const { getPattern, getPatterns } = this.config.patterns;
+      const url1 = urlJoin(this.config.baseUrl, 'pattern/:id');
       this.registerEndpoint(url1);
       this.app.get(url1, async (req, res) => {
-        const results = await getPatternMeta(req.params.id);
+        const results = await getPattern(req.params.id);
         res.send(results);
       });
 
-      const url2 = urlJoin(this.config.baseUrl, 'patterns/:type');
+      const url2 = urlJoin(this.config.baseUrl, 'patterns');
       this.registerEndpoint(url2);
       this.app.get(url2, async (req, res) => {
-        const results = await getPatterns(req.params.id);
+        const results = await getPatterns();
         res.send(results);
       });
     }

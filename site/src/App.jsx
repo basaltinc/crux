@@ -31,6 +31,7 @@ import {
   LoadableSpacings,
   LoadableTypography,
 } from './loadable-components';
+import PatternEdit from './layouts/pattern-edit';
 
 const Site = styled.div`
   display: flex;
@@ -65,7 +66,7 @@ class App extends React.Component {
   async componentDidMount() {
     const results = await Promise.all([
       window
-        .fetch(`${this.apiEndpoint}/patterns/component`)
+        .fetch(`${this.apiEndpoint}/patterns`)
         .then(res => res.json())
         .then(patterns => ({
           patterns,
@@ -245,6 +246,15 @@ class App extends React.Component {
                             path="/patterns"
                             component={LoadablePatternsPage}
                             exact
+                          />
+                          <Route
+                            path="/patterns/components/:id/edit"
+                            render={({ match }) => (
+                              <PatternEdit
+                                id={match.params.id}
+                                key={match.params.id}
+                              />
+                            )}
                           />
                           <Route
                             path="/settings"

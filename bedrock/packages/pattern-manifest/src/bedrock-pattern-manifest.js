@@ -5,7 +5,7 @@ const {
   validateSchemaAndAssignDefaults,
 } = require('@basalt/bedrock-schema-utils');
 const chokidar = require('chokidar');
-const patternMetaSchema = require('./pattern-meta.schema.json');
+const patternSchema = require('./pattern.schema');
 
 class BedrockPatternManifest {
   /**
@@ -21,7 +21,7 @@ class BedrockPatternManifest {
       .filter(thePath => fs.statSync(thePath).isDirectory());
 
     this.getPatterns = this.getPatterns.bind(this);
-    this.getPatternMeta = this.getPatternMeta.bind(this);
+    this.getPattern = this.getPattern.bind(this);
     this.createPatternsData = this.createPatternsData.bind(this);
     this.updatePatternsData = this.updatePatternsData.bind(this);
     this.watch = this.watch.bind(this);
@@ -42,10 +42,10 @@ class BedrockPatternManifest {
       try {
         // eslint-disable-next-line
         const pattern = require(dir);
-        if (pattern.meta) {
+        if (pattern) {
           const results = validateSchemaAndAssignDefaults(
-            patternMetaSchema,
-            pattern.meta,
+            patternSchema,
+            pattern,
           );
           if (!results.ok) {
             const name = dir.split('/').pop();
@@ -75,23 +75,20 @@ class BedrockPatternManifest {
   }
 
   /**
-   * Get Pattern Meta
+   * Get Pattern
    * @param {string} id - Which Pattern to get; i.e. `media-block`
-   * @returns {Object} - Meta info about it
+   * @returns {Object} -  info about it
    */
-  getPatternMeta(id) {
+  getPattern(id) {
     return this.allPatterns.find(p => p.id === id);
   }
 
   /**
    * Get Patterns
-   * @param {string} [type] - Type of Pattern (optional)
    * @returns {Object[]} - Collection of pattern meta
    */
-  getPatterns(type) {
-    return type
-      ? this.allPatterns.filter(p => p.type === type)
-      : this.allPatterns;
+  getPatterns() {
+    return this.allPatterns;
   }
 
   watch(cb) {
