@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import { FaInfoCircle } from 'react-icons/fa';
 
 export const CustomFieldWrapper = styled.div`
-  .rjsf--inline > &,
-  &.field-object {
+  .rjsf--inline > & {
     > div {
       display: flex;
       justify-content: left;
@@ -16,8 +15,14 @@ export const CustomFieldWrapper = styled.div`
   }
   .patterns-filters & {
     &.field-object {
-      > div > div {
-        flex-grow: 0.2;
+      > div {
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+        > div {
+          padding: 0;
+          flex-grow: 0.2;
+        }
       }
     }
   }
