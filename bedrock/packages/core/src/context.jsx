@@ -84,6 +84,7 @@ export const fontFamilies = {
 export const baseTheme = {
   breakpoint: breakpoints,
   colors: {
+    accentColor: colors.yellow.base,
     color: colors,
     type: typeColors,
     text: 'black',
