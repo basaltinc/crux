@@ -25,8 +25,8 @@ export const AccessibilityInfo = styled.div`
 export const AccessibilityResults = styled.span`
   background-color: ${props =>
     props.pass === 'pass'
-      ? props.theme.colors.color.status.success
-      : props.theme.colors.color.status.error};
+      ? props.theme.status.successColor
+      : props.theme.status.errorColor};
   color: white;
   text-align: center;
   border-radius: ${props => props.theme.border.radius};
@@ -39,12 +39,12 @@ export const Ratio = styled.span`
   border: 1px solid
     ${props =>
       props.ratio > '4.5'
-        ? props.theme.colors.color.status.success
-        : props.theme.colors.color.status.error};
+        ? props.theme.status.successColor
+        : props.theme.status.errorColor};
   color: ${props =>
     props.ratio > '4.5'
-      ? props.theme.colors.color.status.success
-      : props.theme.colors.color.status.error};
+      ? props.theme.status.successColor
+      : props.theme.status.errorColor};
   text-align: center;
   border-radius: ${props => props.theme.border.radius};
   font-weight: bold;

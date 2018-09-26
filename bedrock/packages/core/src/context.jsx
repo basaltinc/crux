@@ -56,9 +56,11 @@ export const colors = {
   },
   green: {
     base: 'hsl(159, 20%, 17%)',
+    ghost: 'hsl(120, 100%, 25%)',
   },
   yellow: {
     base: 'hsl(52, 74%, 54%)',
+    ghost: 'hsl(30, 100%, 50%)',
   },
   gray: {
     dark: 'hsl(0, 0%, 50%)',
@@ -67,10 +69,8 @@ export const colors = {
     xlight: 'hsl(0, 0%, 80%)',
     xxlight: 'hsl(0, 0%, 95%)',
   },
-  status: {
-    success: 'hsl(120, 100%, 25%)',
-    warning: 'hsl(30, 100%, 50%)',
-    error: 'hsl(0, 100%, 50%)',
+  red: {
+    ghost: 'hsl(0, 100%, 50%)',
   },
 };
 
@@ -165,6 +165,11 @@ export const baseTheme = {
   },
   lists: {
     margin: '0 0 1rem',
+  },
+  status: {
+    successColor: colors.green.ghost,
+    warningColor: colors.yellow.ghost,
+    errorColor: colors.red.ghost,
   },
   spacing: {
     xs: '4px',
