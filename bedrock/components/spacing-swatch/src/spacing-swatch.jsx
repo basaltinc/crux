@@ -1,35 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectToContext } from '@basalt/bedrock-core';
 import { SpacingOuter, SpacingWrapper } from './spacing-swatch.styles';
 
-const SpacingSwatch = ({ space }) => (
+const SpacingSwatch = ({ space, color }) => (
   <SpacingWrapper>
-    <SpacingOuter>
-      <div
-        style={{
-          height: space.value,
-          width: space.value,
-          border: 'dashed 1px grey',
-        }}
-      />
-    </SpacingOuter>
+    <SpacingOuter space={space.value} color={color} />
     <div>
-      Name: <code>{space.name}</code>
-      <br />
-      Value: <code>{space.value}</code>
+      <h5>
+        Name: <code>{space.name}</code>
+      </h5>
+      <h5>
+        Value: <code>{space.value}</code>
+      </h5>
     </div>
   </SpacingWrapper>
 );
 
 /* eslint-disable no-useless-constructor, react/prefer-stateless-function */
-export default class SpacingSwatches extends React.Component {
+class SpacingSwatches extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
+    const { accentColor } = this.props.context.theme.colors;
     const spaceSwatches = this.props.spaces.map(space => (
-      <SpacingSwatch key={space.name} space={space} />
+      <SpacingSwatch key={space.name} space={space} color={accentColor} />
     ));
 
     return (
@@ -37,7 +34,7 @@ export default class SpacingSwatches extends React.Component {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          maxWidth: '400px',
+          maxWidth: '600px',
         }}
       >
         {spaceSwatches}
@@ -53,8 +50,12 @@ SpacingSwatch.propTypes = {
     value: PropTypes.string.isRequired,
     comment: PropTypes.string.isRequired,
   }).isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 SpacingSwatches.propTypes = {
   spaces: PropTypes.arrayOf(PropTypes.object).isRequired,
+  context: PropTypes.object.isRequired,
 };
+
+export default connectToContext(SpacingSwatches);
