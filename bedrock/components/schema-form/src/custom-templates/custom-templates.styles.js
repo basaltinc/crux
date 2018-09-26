@@ -39,6 +39,13 @@ export const CustomFieldWrapper = styled.div`
     //font-weight: bold;
   }
   &.field-array {
+    position: relative;
+    .n-of-x {
+      position: absolute;
+      font-size: 0.75rem;
+      right: 0.5rem;
+      padding: 0.5rem 0.5rem 0 0;
+    }
     .field-object > label {
       font-size: ${props => props.theme.fonts.sizes.s};
       font-weight: bold;
