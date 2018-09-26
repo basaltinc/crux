@@ -88,12 +88,12 @@ export const FormArrayItem = styled.div`
       display: flex;
       justify-content: left;
       flex-wrap: wrap;
-      + .custom-object {
-        width: 100%;
-      }
       > div.custom-object-item {
         padding: 0;
         flex-grow: 1;
+        + .custom-object-item {
+          width: 100%;
+        }
       }
     }
   }
