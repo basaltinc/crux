@@ -110,13 +110,15 @@ export const baseTheme = {
     background: colors.blue.base,
   },
   links: {
-    color: {
-      base: colors.blue.base,
-      hover: colors.blue.light,
+    color: colors.blue.base,
+    textDecoration: 'underline',
+    hover: {
+      color: colors.blue.light,
+      textDecoration: 'underline',
     },
-    decoration: {
-      base: 'underline',
-      hover: 'underline',
+    visited: {
+      color: colors.blue.light,
+      textDecoration: 'underline',
     },
   },
   fonts: {
