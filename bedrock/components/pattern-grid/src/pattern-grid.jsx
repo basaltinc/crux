@@ -21,6 +21,10 @@ class PatternGridItem extends React.Component {
       ),
     };
     this.handleMissingImg = this.handleMissingImg.bind(this);
+    this.defaultImgPath = urlJoin(
+      this.props.context.settings.patternIconBasePath,
+      'default.svg',
+    );
   }
 
   handleMissingImg() {
@@ -30,10 +34,7 @@ class PatternGridItem extends React.Component {
       }", using default image instead.`,
     );
     this.setState({
-      imgSrc: urlJoin(
-        this.props.context.settings.patternIconBasePath,
-        'default.svg',
-      ),
+      imgSrc: this.defaultImgPath,
     });
   }
 
@@ -48,7 +49,11 @@ class PatternGridItem extends React.Component {
           }
         >
           <PatternGridItemThumb
-            src={this.state.imgSrc}
+            src={
+              this.props.pattern.hasIcon
+                ? this.state.imgSrc
+                : this.defaultImgPath
+            }
             alt=""
             onError={this.handleMissingImg}
           />
@@ -90,6 +95,7 @@ PatternGrid.propTypes = {
       title: PropTypes.string,
       description: PropTypes.string,
       path: PropTypes.string,
+      hasIcon: PropTypes.bool,
     }),
   ).isRequired,
   context: contextPropTypes.isRequired,
@@ -101,6 +107,7 @@ PatternGridItem.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     path: PropTypes.string,
+    hasIcon: PropTypes.bool,
   }).isRequired,
   context: contextPropTypes.isRequired,
 };

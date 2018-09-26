@@ -46,6 +46,12 @@
         "enumNames": ["In Slice", "In Grid", "In Component"]
       }
     },
+    "hasIcon": {
+      "title": "Has Icon",
+      "type": "boolean",
+      "description": "Set to false to show default placeholder thumbnail",
+      "default": true
+    },
     "templates": {
       "type": "array",
       "minItems": 1,
