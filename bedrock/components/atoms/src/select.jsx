@@ -14,40 +14,37 @@ export const SelectStyledWrapper = styled.label`
     }
   }
   /* stylelint-disable property-no-vendor-prefix */
-  select {
-    max-width: 100%;
-    background-color: ${props => props.theme.colors.neutral};
-    font-size: 1rem;
-    border: ${props => props.theme.form.input.border_none};
-    height: ${props => props.theme.form.input.height};
-    &:active,
-    &:focus {
-      //outline: none;
-    }
+  span {
     display: inline-block;
-    padding: 0.3rem 2rem 0.3rem 1rem;
-    margin: 0;
-    box-sizing: 'border-box';
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: linear-gradient(45deg, transparent 50%, gray 50%),
-      linear-gradient(135deg, gray 50%, transparent 50%),
-      linear-gradient(to right, #ccc, #ccc);
-    background-position: calc(100% - 20px) calc(1rem + -3px),
-      calc(100% - 15px) calc(1rem + -3px), calc(30% - 2.5rem) 0.5rem;
-    background-size: 6px 9px, 5px 8px, 0;
-    background-repeat: no-repeat;
+    max-width: 100%;
+    position: relative;
+    background-color: ${props => props.theme.colors.neutral};
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      pointer-events: none; // Arrow clickable in some browsers
+      border: 1px solid transparent; // reset all borders
+      width: 0;
+      height: 0;
+      right: 10px;
+      border-width: 8px 6.5px 0 6.5px;
+      border-top-color: gray;
+      top: 41%;
+    }
+    select {
+      width: 100%;
+      background-color: ${props => props.theme.colors.neutral};
+      font-size: 1rem;
+      border: ${props => props.theme.form.input.border_none};
+      border-radius: ${props => props.theme.border.radius};
+      display: inline-block;
+      padding: 0.3rem 2rem 0.3rem 1rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+    }
   }
   /* stylelint-enable property-no-vendor-prefix */
-
-  > span {
-    display: inline-block;
-    background-color: ${props => props.theme.colors.neutral_light};
-    border: ${props => props.theme.form.input.border_none};
-    border-radius: ${props => props.theme.border.radius};
-    height: ${props => props.theme.form.input.height};
-    max-width: 100%;
-  }
 `;
 
 export class Select extends React.Component {
