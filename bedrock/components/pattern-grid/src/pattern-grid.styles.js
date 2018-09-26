@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PatternGridItem = styled.div`
+export const StyledPatternGridItem = styled.div`
   background: #fff;
   position: relative;
   width: 100%;
@@ -53,7 +53,7 @@ export const PatternGridItemThumb = styled.img`
   margin: 0 auto 15px;
   filter: grayscale(75%);
   transition: ${props => props.theme.transition.all};
-  ${PatternGridItem}:hover & {
+  ${StyledPatternGridItem}:hover & {
     filter: grayscale(0%);
   }
 `;
@@ -84,7 +84,7 @@ export const PatternGridItemDescription = styled.div`
     transform: scale(0.75);
     position: absolute;
     transition: all 0.1s ease-in-out;
-    ${PatternGridItem} > a:hover & {
+    ${StyledPatternGridItem} > a:hover & {
       opacity: 1;
       transform: scale(1);
       height: auto;

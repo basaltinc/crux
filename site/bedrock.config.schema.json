@@ -27,6 +27,7 @@
         "isDevMode",
         "isProd",
         "hasJiraIssueCollector",
+        "patternIconBasePath",
         "websocketsPort"
       ],
       "properties": {
@@ -44,6 +45,18 @@
           "title": "Is Prod",
           "type": "boolean",
           "description": "Is this production mode"
+        },
+        "patternIconBasePath": {
+          "title": "Pattern Icon Base Path",
+          "type": "string",
+          "description": "Path to Pattern Icons",
+          "default": "/assets/images/pattern-thumbnails/"
+        },
+        "enablePatternIcons": {
+          "title": "Enable Pattern Icons",
+          "type": "boolean",
+          "description": "Enables Icons for Patterns and Design Tokens",
+          "default": false
         },
         "hasJiraIssueCollector": {
           "title": "Has Jira Issue Collector",

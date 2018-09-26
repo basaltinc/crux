@@ -15,6 +15,8 @@ const cruxSite = new BedrockSite({
     isProd: process.env.NODE_ENV === 'production',
     hasJiraIssueCollector: true,
     websocketsPort: 5042,
+    patternIconBasePath: '/assets/images/pattern-thumbnails/',
+    enablePatternIcons: true,
     site: {
       title: 'Crux',
       subtitle: 'Design System by Basalt',
