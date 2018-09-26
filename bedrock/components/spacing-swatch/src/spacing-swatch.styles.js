@@ -2,12 +2,24 @@ import styled from 'styled-components';
 
 export const SpacingWrapper = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
-  padding: 5px;
-  border: solid 1px grey;
+  padding: 1rem;
+  &:nth-child(2n) {
+    background-color: #f2f3f3;
+  }
+  span + div {
+    width: 75%;
+  }
+  h5 {
+    margin: 0;
+  }
 `;
 
-export const SpacingOuter = styled.div`
-  width: 6rem;
+export const SpacingOuter = styled.span`
+  box-sizing: border-box;
+  border: 2px solid black;
+  background-color: ${props => props.color};
+  height: ${props => props.space};
+  width: ${props => props.space};
 `;
