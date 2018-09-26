@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connectToContext } from '@basalt/bedrock-core';
 import { SpacingOuter, SpacingWrapper } from './spacing-swatch.styles';
-import {connectToContext } from '@basalt/bedrock-core';
 
 const SpacingSwatch = ({ space, color }) => (
   <SpacingWrapper>
-    <SpacingOuter space={space.value} color={color}>
-    </SpacingOuter>
+    <SpacingOuter space={space.value} color={color} />
     <div>
-      <h5>Name: <code>{space.name}</code></h5>
-      <h5>Value: <code>{space.value}</code></h5>
+      <h5>
+        Name: <code>{space.name}</code>
+      </h5>
+      <h5>
+        Value: <code>{space.value}</code>
+      </h5>
     </div>
   </SpacingWrapper>
 );
@@ -47,10 +50,12 @@ SpacingSwatch.propTypes = {
     value: PropTypes.string.isRequired,
     comment: PropTypes.string.isRequired,
   }).isRequired,
+  color: PropTypes.string.isRequired,
 };
 
 SpacingSwatches.propTypes = {
   spaces: PropTypes.arrayOf(PropTypes.object).isRequired,
+  context: PropTypes.object.isRequired,
 };
 
 export default connectToContext(SpacingSwatches);

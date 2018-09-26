@@ -13,6 +13,7 @@ export const SpacingWrapper = styled.div`
   }
   h5 {
     margin: 0;
+    font-weight: normal;
   }
 `;
 
