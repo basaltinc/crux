@@ -3,23 +3,50 @@ import { FaInfoCircle } from 'react-icons/fa';
 
 export const CustomFieldWrapper = styled.div`
   .rjsf--inline > & {
-    > div {
+    > div.custom-object {
       display: flex;
       justify-content: left;
       flex-wrap: wrap;
-      > div {
+      > div.custom-object-item {
         padding: 0;
+        flex-grow: 1;
+      }
+    }
+  }
+  .patterns-filters & {
+    &.field-object {
+      > div.custom-object {
+        display: flex;
+        justify-content: left;
+        flex-wrap: wrap;
+        > div.custom-object-item {
+          padding: 0;
+          flex-grow: 0.2;
+        }
       }
     }
   }
   padding: 0;
   margin: ${props => props.theme.spacing.m} ${props => props.theme.spacing.m}
     ${props => props.theme.spacing.m} 0;
+  .form-group {
+    margin: 0.25rem 0.25rem 0.5rem 0;
+  }
   > label {
     display: block;
     color: ${props => props.theme.form.label.color};
     font-size: ${props => props.theme.form.label.font_size};
-    font-weight: bold;
+    //font-weight: bold;
+  }
+  &.field-array {
+    .field-object > label {
+      font-size: ${props => props.theme.fonts.sizes.s};
+      font-weight: bold;
+      color: black;
+    }
+    > label {
+      display: none;
+    }
   }
   .field-radio-group {
     display: flex;
@@ -27,7 +54,7 @@ export const CustomFieldWrapper = styled.div`
     flex-wrap: wrap;
     height: ${props => props.theme.form.input.height};
     font-size: 18px;
-    background-color: white;
+    background-color: transparent;
     > div {
       display: inline-block;
     }
