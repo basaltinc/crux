@@ -12,6 +12,7 @@ import add from '../assets/plus-square-o.svg';
 import remove from '../assets/trash.svg';
 
 export default function CustomArrayField(props) {
+  const numberofItems = props.items.length;
   return (
     <div id={`field-array--${props.idSchema.$id}`} className={props.className}>
       <details>
@@ -19,6 +20,9 @@ export default function CustomArrayField(props) {
         {props.items &&
           props.items.map(element => (
             <FormArrayItem className="field-array__item" key={element.index}>
+              <p className="n-of-x">
+                {element.index + 1} / {numberofItems}
+              </p>
               {element.children}
               <FormIconTray className="field-array__item-button-tray">
                 <FormIconButton
