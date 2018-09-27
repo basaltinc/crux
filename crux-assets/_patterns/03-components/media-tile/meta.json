@@ -2,6 +2,10 @@
   "title": "Media Tile",
   "description": "Full Image overlayed with optional Title, Body, and Buttons.",
   "type": "component",
-  "uses": ["inGrid", "inSlice"],
-  "demoSize": "l"
+  "uses": [
+    "inGrid",
+    "inSlice"
+  ],
+  "demoSize": "l",
+  "status": "ready"
 }

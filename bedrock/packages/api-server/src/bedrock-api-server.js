@@ -38,7 +38,8 @@ class BedrockApiServer {
 
     if (this.config.spaIndexHtmlPath) {
       this.app.use('*', (req, res, next) => {
-        const accepted = req.headers.accept.split(',');
+        const { accept = '' } = req.headers;
+        const accepted = accept.split(',');
         if (accepted.includes('text/html')) {
           res.sendFile(this.config.spaIndexHtmlPath);
         } else {
@@ -118,7 +119,12 @@ class BedrockApiServer {
     }
 
     if (this.config.patterns) {
-      const { getPattern, getPatterns } = this.config.patterns;
+      const {
+        getPattern,
+        getPatterns,
+        setPatternMeta,
+        getPatternMeta,
+      } = this.config.patterns;
       const url1 = urlJoin(this.config.baseUrl, 'pattern/:id');
       this.registerEndpoint(url1);
       this.app.get(url1, async (req, res) => {
@@ -130,6 +136,20 @@ class BedrockApiServer {
       this.registerEndpoint(url2);
       this.app.get(url2, async (req, res) => {
         const results = await getPatterns();
+        res.send(results);
+      });
+
+      const url3 = urlJoin(this.config.baseUrl, 'pattern-meta/:id');
+      this.registerEndpoint(url3);
+      this.app.get(url3, async (req, res) => {
+        const results = await getPatternMeta(req.params.id);
+        res.send(results);
+      });
+
+      const url4 = urlJoin(this.config.baseUrl, 'pattern-meta/:id');
+      this.registerEndpoint(url4, 'POST');
+      this.app.post(url4, async (req, res) => {
+        const results = await setPatternMeta(req.params.id, req.body);
         res.send(results);
       });
     }

@@ -29,6 +29,8 @@ const apiServer = new BedrockApiServer({
   patterns: {
     getPattern: patternManifest.getPattern,
     getPatterns: patternManifest.getPatterns,
+    setPatternMeta: patternManifest.setPatternMeta,
+    getPatternMeta: patternManifest.getPatternMeta,
   },
   examples: {
     getExamples,

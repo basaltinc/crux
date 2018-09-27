@@ -1,10 +1,9 @@
-const meta = require('./pattern-meta.schema');
 const templates = require('./pattern-templates.schema');
 
 module.exports = {
   title: 'Pattern',
   type: 'object',
-  required: ['id', 'meta', 'templates'],
+  required: ['id', 'metaFilePath', 'templates'],
   additionalProperties: false,
   properties: {
     id: {
@@ -13,7 +12,11 @@ module.exports = {
       description:
         "Identifying machine friendly name of pattern. Usually the 'Block' in 'BEM'.",
     },
-    meta,
+    metaFilePath: {
+      type: 'string',
+      description:
+        'Relative path to a JSON file that stores meta data for pattern. Schema for that file is in "pattern-meta.schema.json".',
+    },
     templates,
   },
 };

@@ -1,4 +1,3 @@
-const meta = require('./meta');
 const schema = require('./media-tile-schema.js');
 const basicSchema = require('./media-tile--basic.schema');
 
@@ -26,7 +25,7 @@ const uiSchema = {
 
 module.exports = {
   id: 'media-tile',
-  meta,
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_media-tile.twig',

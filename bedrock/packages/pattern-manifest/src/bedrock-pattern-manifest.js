@@ -1,3 +1,4 @@
+const os = require('os');
 const fs = require('fs-extra');
 const { join } = require('path');
 const globby = require('globby');
@@ -6,6 +7,7 @@ const {
 } = require('@basalt/bedrock-schema-utils');
 const chokidar = require('chokidar');
 const patternSchema = require('./pattern.schema');
+const patternMetaSchema = require('./pattern-meta.schema');
 
 class BedrockPatternManifest {
   /**
@@ -22,6 +24,8 @@ class BedrockPatternManifest {
 
     this.getPatterns = this.getPatterns.bind(this);
     this.getPattern = this.getPattern.bind(this);
+    this.getPatternMeta = this.getPatternMeta.bind(this);
+    this.setPatternMeta = this.setPatternMeta.bind(this);
     this.createPatternsData = this.createPatternsData.bind(this);
     this.updatePatternsData = this.updatePatternsData.bind(this);
     this.watch = this.watch.bind(this);
@@ -51,16 +55,45 @@ class BedrockPatternManifest {
             const name = dir.split('/').pop();
             console.log();
             console.error(
-              `Error! Pattern Meta Schema validation failed for "${name}"`,
+              `Error! Pattern Schema validation failed for "${name}"`,
               results.message,
             );
             console.error(
-              'Review the "meta" export from "index.js" in that folder and compare to "pattern-meta.schema.json"',
+              'Review the "index.js" in that folder and compare to "pattern.schema.json"',
             );
             console.log();
             process.exit(1);
           }
-          patterns.push(results.data);
+
+          const metaFilePath = join(dir, pattern.metaFilePath);
+          // eslint-disable-next-line
+          const patternMeta = require(metaFilePath);
+          const metaResults = validateSchemaAndAssignDefaults(
+            patternMetaSchema,
+            patternMeta,
+          );
+          if (!metaResults.ok) {
+            const name = dir.split('/').pop();
+            console.log();
+            console.error(
+              `Error! Pattern Schema validation failed for "${name}"`,
+              results.message,
+            );
+            console.error(
+              `Review the "${
+                pattern.metaFilePath
+              }" in that folder and compare to "pattern.schema.json"`,
+              metaFilePath,
+            );
+            console.log();
+            process.exit(1);
+          }
+
+          patterns.push({
+            ...results.data,
+            metaFilePath, // replaces original relative one with absolute path
+            meta: metaResults.data,
+          });
         }
       } catch (e) {
         // if it failed it's b/c it didn't have a `index.js` to grab; that's ok
@@ -89,6 +122,30 @@ class BedrockPatternManifest {
    */
   getPatterns() {
     return this.allPatterns;
+  }
+
+  getPatternMeta(id) {
+    const pattern = this.getPattern(id);
+    return pattern.meta;
+  }
+
+  async setPatternMeta(id, meta) {
+    const pattern = this.getPattern(id);
+    try {
+      await fs.writeFile(
+        pattern.metaFilePath,
+        JSON.stringify(meta, null, '  ') + os.EOL,
+      );
+      return {
+        ok: true,
+        message: `Pattern Meta for ${id} saved successfully`,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        message: error.toString(),
+      };
+    }
   }
 
   watch(cb) {
