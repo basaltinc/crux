@@ -86,6 +86,10 @@ export default function CustomArrayField(props) {
   );
 }
 
+// CustomArrayField.defaultProps = {
+//   isNested: false,
+// };
+
 CustomArrayField.propTypes = {
   /* eslint-disable-next-line react/boolean-prop-naming */
   canAdd: PropTypes.bool.isRequired,
@@ -94,4 +98,5 @@ CustomArrayField.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
   onAddClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  // isNested: PropTypes.bool,
 };

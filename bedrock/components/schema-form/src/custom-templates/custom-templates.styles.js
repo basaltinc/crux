@@ -39,6 +39,9 @@ export const CustomFieldWrapper = styled.div`
     //font-weight: bold;
   }
   &.field-array {
+    .field-array.form-group {
+      margin-left: 3rem;
+    }
     position: relative;
     .n-of-x {
       position: absolute;
