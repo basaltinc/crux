@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import React from "react";
 
 export const BreakpointListItem = styled.li`
   left: ${props => props.left};
