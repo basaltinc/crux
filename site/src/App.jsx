@@ -30,8 +30,8 @@ import {
   LoadableSidebar,
   LoadableSpacings,
   LoadableTypography,
+  LoadablePatternEdit,
 } from './loadable-components';
-import PatternEdit from './layouts/pattern-edit';
 
 const Site = styled.div`
   display: flex;
@@ -250,7 +250,7 @@ class App extends React.Component {
                           <Route
                             path="/patterns/:id/edit"
                             render={({ match }) => (
-                              <PatternEdit
+                              <LoadablePatternEdit
                                 id={match.params.id}
                                 key={match.params.id}
                               />
