@@ -15,6 +15,7 @@ import {
   PatternListWrapper,
   PatternListItemWrapper,
   PatternListItemThumb,
+  PatternListItemDescription,
   PlaygroundStyledSchemaForm,
 } from './playground.styles';
 
@@ -51,21 +52,35 @@ class PlaygroundSidebarPatternListItem extends Component {
   }
 
   render() {
+    const { enablePatternIcons } = this.props.context.settings;
     return (
-      <PatternListItemWrapper key={this.props.pattern.id} type="button">
-        <div role="button" tabIndex="0">
+      <PatternListItemWrapper
+        key={this.props.pattern.id}
+        thumb={enablePatternIcons}
+        type="button"
+      >
+        <div
+          role="button"
+          tabIndex="0"
+          onKeyPress={() => this.props.handleAddSlice(this.props.pattern.id)}
+          onClick={() => this.props.handleAddSlice(this.props.pattern.id)}
+        >
           <h5>{this.props.pattern.title}</h5>
-          <PatternListItemThumb
-            src={
-              this.props.pattern.hasIcon
-                ? this.state.imgSrc
-                : this.defaultImgPath
-            }
-            onError={this.handleMissingImg}
-            onKeyPress={() => this.props.handleAddSlice(this.props.pattern.id)}
-            onClick={() => this.props.handleAddSlice(this.props.pattern.id)}
-            alt={this.props.pattern.title}
-          />
+          {enablePatternIcons ? (
+            <PatternListItemThumb
+              src={
+                this.props.pattern.hasIcon
+                  ? this.state.imgSrc
+                  : this.defaultImgPath
+              }
+              onError={this.handleMissingImg}
+              alt={this.props.pattern.title}
+            />
+          ) : (
+            <PatternListItemDescription>
+              {this.props.pattern.description}
+            </PatternListItemDescription>
+          )}
         </div>
         <Link
           target="_blank"
