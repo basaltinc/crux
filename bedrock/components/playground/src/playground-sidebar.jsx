@@ -14,6 +14,7 @@ import PlaygroundEditForm from './playground-edit-form';
 import {
   PatternListWrapper,
   PatternListItemWrapper,
+  PatternListItemThumb,
   PlaygroundStyledSchemaForm,
 } from './playground.styles';
 
@@ -54,7 +55,7 @@ class PlaygroundSidebarPatternListItem extends Component {
       <PatternListItemWrapper key={this.props.pattern.id} type="button">
         <div role="button" tabIndex="0">
           <h5>{this.props.pattern.title}</h5>
-          <img
+          <PatternListItemThumb
             src={
               this.props.pattern.hasIcon
                 ? this.state.imgSrc

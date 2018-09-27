@@ -57,11 +57,6 @@ export const PatternListItemWrapper = styled.li`
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  img {
-    width: auto;
-    height: 50px;
-    margin-bottom: ${props => props.theme.spacing.s};
-  }
   > div {
     &:hover,
     &:active {
@@ -75,6 +70,12 @@ export const PatternListItemWrapper = styled.li`
     text-decoration: none;
     transition: ${props => props.theme.transition.all};
   }
+`;
+
+export const PatternListItemThumb = styled.img`
+  width: auto;
+  height: 50px;
+  margin-bottom: ${props => props.theme.spacing.s};
 `;
 
 export const PlaygroundStyledSchemaForm = styled(SchemaForm)`
