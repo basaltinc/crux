@@ -19,7 +19,7 @@ export const SpacingWrapper = styled.div`
 
 export const SpacingOuter = styled.span`
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 1px solid black;
   background-color: ${props => props.color};
   height: ${props => props.space};
   width: ${props => props.space};

@@ -52,7 +52,7 @@ export const CustomFieldWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    height: ${props => props.theme.form.input.height};
+    height: ${props => props.theme.input.height};
     font-size: 18px;
     background-color: transparent;
     > div {

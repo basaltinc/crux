@@ -81,7 +81,17 @@ export const fontFamilies = {
   },
 };
 
+export const forms = {
+  height: '33px',
+};
+
 export const baseTheme = {
+  borders: {
+    color: colors.gray.light,
+    radius: '0',
+    style: 'solid',
+    border: `${colors.gray.light} solid 1px`,
+  },
   breakpoint: breakpoints,
   colors: {
     accentColor: colors.yellow.base,
@@ -89,35 +99,52 @@ export const baseTheme = {
     type: typeColors,
     text: 'black',
     headings: 'black',
-    eyebrows: colors.gray.dark,
     primary: colors.blue.base,
     secondary: colors.green.base,
     neutral: colors.gray.base,
     neutral_light: colors.gray.xlight,
     xxlight: colors.gray.xxlight,
-    borders: colors.gray.light,
+  },
+
+  blockquote: {
+    border: `1px solid ${colors.gray.xlight}`,
+    borderLeft: `3px solid ${colors.gray.xlight}`,
+    margin: '2rem',
+    padding: '2.25rem 4rem',
+    citation: {
+      color: colors.gray.light,
+      fontSize: '0.8rem',
+      margin: '0.5rem 0 0',
+    },
+    glyph: {
+      color: colors.gray.light,
+      fontFamily: 'Georgia, serif',
+      opacity: 0.2,
+      size: '130px',
+      width: '80px',
+    },
   },
   header: {
+    accentColor: colors.yellow.base,
     background: colors.blue.base,
     fontFamily: fontFamilies.avenir.medium,
-    accentColor: colors.yellow.base,
   },
   sidebar: {
-    background: '#f2f3f3',
     accentColor: colors.yellow.base,
+    background: '#f2f3f3',
   },
   footer: {
     background: colors.blue.base,
   },
   links: {
     color: colors.blue.base,
-    textDecoration: 'underline',
+    textDecoration: 'none',
     hover: {
-      color: colors.blue.light,
+      color: colors.blue.base,
       textDecoration: 'underline',
     },
     visited: {
-      color: colors.blue.light,
+      color: colors.blue.base,
       textDecoration: 'underline',
     },
   },
@@ -181,44 +208,25 @@ export const baseTheme = {
     xl: '50px',
     xxl: '64px',
   },
+  input: {
+    fontSize: '0.75rem',
+    height: forms.height,
+    border: `1px solid ${colors.gray.xlight}`,
+    padding: '3px 8px',
+  },
+  select: {
+    background: '#f2f3f3',
+    border: '0',
+    borderRadius: '0',
+    fontSize: '1rem',
+    padding: '5px',
+  },
   form: {
     border: `1px solid ${colors.gray.xlight}`,
     padding: '5px 8px',
     label: {
       color: colors.gray.dark,
       font_size: '12px',
-    },
-    input: {
-      font_size: '0.75rem',
-      height: '33px',
-      border_none: 0,
-      border: `1px solid ${colors.gray.xlight}`,
-      padding: '3px 8px',
-    },
-    select: {
-      padding: '5px',
-    },
-  },
-  border: {
-    color: colors.gray.light,
-    radius: '0',
-  },
-  blockquote: {
-    border_left: `3px solid ${colors.gray.xlight}`,
-    padding: '1rem 2rem',
-    margin: '2rem auto 2rem 2rem',
-    styled: {
-      border: `1px solid ${colors.gray.xlight}`,
-      border_left: `6px solid ${colors.blue.base}`,
-      padding: '2.25rem 4rem',
-      margin: '2rem',
-      glyph: {
-        width: '80px',
-        font: 'Georgia, serif',
-        size: '130px',
-        opacity: 0.2,
-        color: colors.gray.light,
-      },
     },
   },
   transition: {
