@@ -94,144 +94,133 @@ class PlaygroundSidebarPatternListItem extends Component {
   }
 }
 
-class PlaygroundSidebar extends Component {
-  constructor(props) {
-    super(props);
+function PlaygroundSidebar(props) {
+  if (props.sidebarContent === SIDEBAR_FORM) {
+    const { slices, editFormSliceId, editFormSchema, editFormUiSchema } = props;
+    return (
+      <PlaygroundEditForm
+        schema={editFormSchema}
+        uiSchema={editFormUiSchema}
+        data={slices.find(s => s.id === editFormSliceId).data}
+        handleChange={data => props.handleEditFormChange(data)}
+        handleError={console.error}
+        handleHideEditForm={props.handleHideEditForm}
+        handleClearData={data => props.handleClearData(data)}
+      />
+    );
   }
+  if (props.sidebarContent === SIDEBAR_PATTERNS) {
+    const patterns = props.patterns
+      .filter(pattern => pattern.uses.includes('inSlice'))
+      .filter(pattern => pattern.id !== 'site-footer')
+      .filter(pattern => pattern.id !== 'site-header');
+    const items =
+      props.filterTerm === ''
+        ? patterns
+        : patterns.filter(
+            item =>
+              item.title
+                .toLowerCase()
+                .search(props.filterTerm.toLowerCase()) !== -1,
+          );
 
-  render() {
-    if (this.props.sidebarContent === SIDEBAR_FORM) {
-      const {
-        slices,
-        editFormSliceId,
-        editFormSchema,
-        editFormUiSchema,
-      } = this.props;
-      return (
-        <PlaygroundEditForm
-          schema={editFormSchema}
-          uiSchema={editFormUiSchema}
-          data={slices.find(s => s.id === editFormSliceId).data}
-          handleChange={data => this.props.handleEditFormChange(data)}
-          handleError={console.error}
-          handleHideEditForm={this.props.handleHideEditForm}
-          handleClearData={data => this.props.handleClearData(data)}
-        />
-      );
-    }
-    if (this.props.sidebarContent === SIDEBAR_PATTERNS) {
-      const patterns = this.props.patterns
-        .filter(pattern => pattern.uses.includes('inSlice'))
-        .filter(pattern => pattern.id !== 'site-footer')
-        .filter(pattern => pattern.id !== 'site-header');
-      const items =
-        this.props.filterTerm === ''
-          ? patterns
-          : patterns.filter(
-              item =>
-                item.title
-                  .toLowerCase()
-                  .search(this.props.filterTerm.toLowerCase()) !== -1,
-            );
-
-      return (
-        <div>
-          <h4>Patterns</h4>
-          <TypeToFilter>
-            <h6 className="eyebrow">Filter List</h6>
-            <TypeToFilterInputWrapper>
-              <input
-                type="text"
-                className="type-to-filter"
-                placeholder="Type to filter..."
-                value={this.props.filterTerm}
-                onChange={event => this.props.handleFilterChange(event)}
-              />
-              <ClearFilterButton
-                role="button"
-                onClick={this.props.handleFilterReset}
-                onKeyPress={this.props.handleFilterReset}
-                isVisible={!!this.props.filterTerm}
-              >
-                <i className="icon--close" />
-              </ClearFilterButton>
-            </TypeToFilterInputWrapper>
-          </TypeToFilter>
-          <PatternListWrapper>
-            {items.map(pattern => (
-              <PlaygroundSidebarPatternListItem
-                key={pattern.id}
-                pattern={pattern}
-                context={this.props.context}
-                handleAddSlice={this.props.handleAddSlice}
-              />
-            ))}
-          </PatternListWrapper>
-          <Button
-            onClick={this.props.handleCancelAddSlice}
-            onKeyPress={this.props.handleCancelAddSlice}
-            type="button"
-            className="button button--color-white button--size-small"
-          >
-            Cancel
-          </Button>
-        </div>
-      );
-    }
-    // if (this.props.sidebarContent === SIDEBAR_DEFAULT or anything else)
     return (
       <div>
-        <h4>Playground</h4>
-        <PlaygroundStyledSchemaForm
-          onChange={({ formData }) => this.props.handleMetaFormChange(formData)}
-          formData={this.props.metaFormData}
-          schema={{
-            title: 'Metadata',
-            type: 'object',
-            properties: {
-              title: {
-                title: 'Example Title',
-                type: 'string',
-              },
-              description: {
-                title: 'Description',
-                type: 'string',
-              },
-              hasVisibleControls: {
-                title: 'Show Edit Controls',
-                type: 'boolean',
-                default: true,
-              },
-            },
-          }}
-          uiSchema={{
-            description: {
-              'ui:widget': 'textarea',
-              'ui:options': {
-                rows: 10,
-              },
-            },
-          }}
-        />
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Button
-            type="submit"
-            onKeyPress={this.props.handleSave}
-            onClick={this.props.handleSave}
-            primary
-          >
-            Save*
-          </Button>
-          <Link to="/examples">Back</Link>
-        </div>
-        <p>
-          <br />
-          <small>* Warning: server unresponsive for ~3s upon save</small>
-        </p>
-        {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
+        <h4>Patterns</h4>
+        <TypeToFilter>
+          <h6 className="eyebrow">Filter List</h6>
+          <TypeToFilterInputWrapper>
+            <input
+              type="text"
+              className="type-to-filter"
+              placeholder="Type to filter..."
+              value={props.filterTerm}
+              onChange={event => props.handleFilterChange(event)}
+            />
+            <ClearFilterButton
+              role="button"
+              onClick={props.handleFilterReset}
+              onKeyPress={props.handleFilterReset}
+              isVisible={!!props.filterTerm}
+            >
+              <i className="icon--close" />
+            </ClearFilterButton>
+          </TypeToFilterInputWrapper>
+        </TypeToFilter>
+        <PatternListWrapper>
+          {items.map(pattern => (
+            <PlaygroundSidebarPatternListItem
+              key={pattern.id}
+              pattern={pattern}
+              context={props.context}
+              handleAddSlice={props.handleAddSlice}
+            />
+          ))}
+        </PatternListWrapper>
+        <Button
+          onClick={props.handleCancelAddSlice}
+          onKeyPress={props.handleCancelAddSlice}
+          type="button"
+          className="button button--color-white button--size-small"
+        >
+          Cancel
+        </Button>
       </div>
     );
   }
+  // if (props.sidebarContent === SIDEBAR_DEFAULT or anything else)
+  return (
+    <div>
+      <h4>Playground</h4>
+      <PlaygroundStyledSchemaForm
+        onChange={({ formData }) => props.handleMetaFormChange(formData)}
+        formData={props.metaFormData}
+        schema={{
+          title: 'Metadata',
+          type: 'object',
+          properties: {
+            title: {
+              title: 'Example Title',
+              type: 'string',
+            },
+            description: {
+              title: 'Description',
+              type: 'string',
+            },
+            hasVisibleControls: {
+              title: 'Show Edit Controls',
+              type: 'boolean',
+              default: true,
+            },
+          },
+        }}
+        uiSchema={{
+          description: {
+            'ui:widget': 'textarea',
+            'ui:options': {
+              rows: 10,
+            },
+          },
+        }}
+      />
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Button
+          type="submit"
+          onKeyPress={props.handleSave}
+          onClick={props.handleSave}
+          primary
+        >
+          Save*
+        </Button>
+        <Link to="/examples">Back</Link>
+      </div>
+      <p>
+        <br />
+        <small>* Warning: server unresponsive for ~3s upon save</small>
+      </p>
+      {/* @todo Fix unresponsive server triggered by save. Since this writes to the JSON files in `server/data/examples/*.json` and the `watch:server` task watches that directory for changes, it cause server to restart. It can't be fixed by just moving the files: cause then those files are cached. */}
+    </div>
+  );
 }
 
 PlaygroundSidebar.propTypes = {
