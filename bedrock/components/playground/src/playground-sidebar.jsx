@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
+import urlJoin from 'url-join';
 import {
   Button,
   ClearFilterButton,
@@ -20,36 +22,65 @@ export const SIDEBAR_DEFAULT = 'default';
 export const SIDEBAR_FORM = 'form';
 export const SIDEBAR_PATTERNS = 'patterns';
 
-class PlaygroundSidebar extends Component {
+class PlaygroundSidebarPatternListItem extends Component {
   constructor(props) {
     super(props);
-    this.renderPatternListItem = this.renderPatternListItem.bind(this);
+    this.state = {
+      imgSrc: urlJoin(
+        props.context.settings.patternIconBasePath,
+        `${props.pattern.id}.svg`,
+      ),
+    };
+    this.handleMissingImg = this.handleMissingImg.bind(this);
+    this.defaultImgPath = urlJoin(
+      this.props.context.settings.patternIconBasePath,
+      'default.svg',
+    );
   }
 
-  renderPatternListItem(pattern) {
+  handleMissingImg() {
+    console.info(
+      `Could not find image for ${this.props.pattern.id} at "${
+        this.state.imgSrc
+      }", using default image instead.`,
+    );
+    this.setState({
+      imgSrc: this.defaultImgPath,
+    });
+  }
+
+  render() {
     return (
-      <PatternListItemWrapper key={pattern.id} type="button">
-        <div
-          role="button"
-          tabIndex="0"
-          onKeyPress={() => this.props.handleAddSlice(pattern.id)}
-          onClick={() => this.props.handleAddSlice(pattern.id)}
-        >
-          <h5>{pattern.title}</h5>
+      <PatternListItemWrapper key={this.props.pattern.id} type="button">
+        <div role="button" tabIndex="0">
+          <h5>{this.props.pattern.title}</h5>
           <img
-            src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
-            alt={pattern.title}
+            src={
+              this.props.pattern.hasIcon
+                ? this.state.imgSrc
+                : this.defaultImgPath
+            }
+            onError={this.handleMissingImg}
+            onKeyPress={() => this.props.handleAddSlice(this.props.pattern.id)}
+            onClick={() => this.props.handleAddSlice(this.props.pattern.id)}
+            alt={this.props.pattern.title}
           />
         </div>
         <Link
           target="_blank"
-          to={`/patterns/components/${pattern.id}`}
+          to={`/patterns/components/${this.props.pattern.id}`}
           title="Open component details in new window"
         >
           Details <FaExternalLinkAlt size={8} />
         </Link>
       </PatternListItemWrapper>
     );
+  }
+}
+
+class PlaygroundSidebar extends Component {
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -111,7 +142,14 @@ class PlaygroundSidebar extends Component {
             </TypeToFilterInputWrapper>
           </TypeToFilter>
           <PatternListWrapper>
-            {items.map(pattern => this.renderPatternListItem(pattern))}
+            {items.map(pattern => (
+              <PlaygroundSidebarPatternListItem
+                key={pattern.id}
+                pattern={pattern}
+                context={this.props.context}
+                handleAddSlice={this.props.handleAddSlice}
+              />
+            ))}
           </PatternListWrapper>
           <Button
             onClick={this.props.handleCancelAddSlice}
@@ -198,6 +236,13 @@ PlaygroundSidebar.propTypes = {
   patterns: PropTypes.arrayOf(PropTypes.object).isRequired,
   sidebarContent: PropTypes.string.isRequired,
   slices: PropTypes.arrayOf(PropTypes.object).isRequired,
+  context: contextPropTypes.isRequired,
 };
 
-export default PlaygroundSidebar;
+PlaygroundSidebarPatternListItem.propTypes = {
+  pattern: PropTypes.object.isRequired,
+  handleAddSlice: PropTypes.func.isRequired,
+  context: contextPropTypes.isRequired,
+};
+
+export default connectToContext(PlaygroundSidebar);
