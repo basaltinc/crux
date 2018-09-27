@@ -56,9 +56,11 @@ export const colors = {
   },
   green: {
     base: 'hsl(159, 20%, 17%)',
+    ghost: 'hsl(120, 100%, 25%)',
   },
   yellow: {
     base: 'hsl(52, 74%, 54%)',
+    ghost: 'hsl(30, 100%, 50%)',
   },
   gray: {
     dark: 'hsl(0, 0%, 50%)',
@@ -67,10 +69,8 @@ export const colors = {
     xlight: 'hsl(0, 0%, 80%)',
     xxlight: 'hsl(0, 0%, 95%)',
   },
-  status: {
-    success: 'hsl(120, 100%, 25%)',
-    warning: 'hsl(30, 100%, 50%)',
-    error: 'hsl(0, 100%, 50%)',
+  red: {
+    ghost: 'hsl(0, 100%, 50%)',
   },
 };
 
@@ -81,41 +81,106 @@ export const fontFamilies = {
   },
 };
 
+export const forms = {
+  height: '33px',
+};
+
 export const baseTheme = {
+  borders: {
+    color: colors.gray.light,
+    radius: '0',
+    style: 'solid',
+    border: `${colors.gray.light} solid 1px`,
+  },
   breakpoint: breakpoints,
+  blockquote: {
+    border: `1px solid ${colors.gray.xlight}`,
+    borderLeft: `3px solid ${colors.gray.xlight}`,
+    margin: '2rem',
+    padding: '2.25rem 4rem',
+    citation: {
+      color: colors.gray.light,
+      fontSize: '0.8rem',
+      margin: '0.5rem 0 0',
+    },
+    glyph: {
+      color: colors.gray.light,
+      fontFamily: 'Georgia, serif',
+      opacity: 0.2,
+      size: '130px',
+      width: '80px',
+    },
+  },
+  buttons: {
+    border: 'none',
+    cursor: 'pointer',
+    height: forms.height,
+    fontSize: '0.75rem',
+    primary: {
+      color: 'white',
+      background: colors.blue.base,
+    },
+    secondary: {
+      color: 'black',
+      background: '#f2f3f3',
+    },
+  },
   colors: {
+    accent: colors.yellow.base,
+    active: colors.yellow.base,
     color: colors,
     type: typeColors,
-    text: 'black',
-    headings: 'black',
-    eyebrows: colors.gray.dark,
     primary: colors.blue.base,
     secondary: colors.green.base,
+    neutralXLight: colors.gray.xxlight,
+    neutralLight: colors.gray.xlight,
     neutral: colors.gray.base,
-    neutral_light: colors.gray.xlight,
-    borders: colors.gray.light,
+    neutralDark: colors.gray.xlight,
+    neutralXDark: colors.gray.xlight,
   },
-  header: {
-    background: colors.blue.base,
+  details: {
+    borderTop: `solid 1px ${colors.gray.dark}`,
+    borderBottom: `solid 1px ${colors.gray.dark}`,
+    margin: '0 0 10px',
+    padding: '7px 0',
+    summary: {
+      fontWeight: 'bold',
+      fontSize: '1.1rem',
+    },
+  },
+  eyebrow: {
+    color: colors.gray.light,
     fontFamily: fontFamilies.avenir.medium,
-    accentColor: colors.yellow.base,
-  },
-  sidebar: {
-    background: '#f2f3f3',
-    accentColor: colors.yellow.base,
+    fontSize: '1rem',
   },
   footer: {
     background: colors.blue.base,
   },
+  header: {
+    accentColor: colors.yellow.base,
+    background: colors.blue.base,
+    fontFamily: fontFamilies.avenir.medium,
+  },
+  input: {
+    fontSize: '0.75rem',
+    height: forms.height,
+    border: `1px solid ${colors.gray.xlight}`,
+    padding: '3px 8px',
+  },
   links: {
-    color: {
-      base: colors.blue.base,
-      hover: colors.blue.light,
+    color: colors.blue.base,
+    textDecoration: 'none',
+    hover: {
+      color: colors.blue.base,
+      textDecoration: 'underline',
     },
-    decoration: {
-      base: 'underline',
-      hover: 'underline',
+    visited: {
+      color: colors.blue.base,
+      textDecoration: 'underline',
     },
+  },
+  lists: {
+    margin: '0 0 1rem',
   },
   fonts: {
     families: fontFamilies,
@@ -153,11 +218,27 @@ export const baseTheme = {
       base: '0.875rem',
     },
   },
+  label: {
+    color: colors.gray.dark,
+    fontSize: '12px',
+    fontWeight: 'bold',
+  },
   paragraphs: {
+    font_family: fontFamilies.avenir.medium,
     margin: '0 0 1.5rem',
   },
-  lists: {
-    margin: '0 0 1rem',
+  select: {
+    background: '#f2f3f3',
+    border: '0',
+    borderRadius: '0',
+    fontSize: '1rem',
+    height: forms.height,
+    padding: '5px',
+    margin: '0',
+  },
+  sidebar: {
+    accentColor: colors.yellow.base,
+    background: '#f2f3f3',
   },
   spacing: {
     xs: '4px',
@@ -167,45 +248,10 @@ export const baseTheme = {
     xl: '50px',
     xxl: '64px',
   },
-  form: {
-    border: `1px solid ${colors.gray.xlight}`,
-    padding: '5px 8px',
-    label: {
-      color: colors.gray.dark,
-      font_size: '13.5px',
-    },
-    input: {
-      font_size: '0.75rem',
-      height: '33px',
-      border_none: 0,
-      border: `1px solid ${colors.gray.xlight}`,
-      padding: '3px 8px',
-    },
-    select: {
-      padding: '5px',
-    },
-  },
-  border: {
-    color: colors.gray.light,
-    radius: '0',
-  },
-  blockquote: {
-    border_left: `3px solid ${colors.gray.xlight}`,
-    padding: '1rem 2rem',
-    margin: '2rem auto 2rem 2rem',
-    styled: {
-      border: `1px solid ${colors.gray.xlight}`,
-      border_left: `6px solid ${colors.blue.base}`,
-      padding: '2.25rem 4rem',
-      margin: '2rem',
-      glyph: {
-        width: '80px',
-        font: 'Georgia, serif',
-        size: '130px',
-        opacity: 0.2,
-        color: colors.gray.light,
-      },
-    },
+  status: {
+    successColor: colors.green.ghost,
+    warningColor: colors.yellow.ghost,
+    errorColor: colors.red.ghost,
   },
   transition: {
     all: 'all 0.3s ease-in-out',

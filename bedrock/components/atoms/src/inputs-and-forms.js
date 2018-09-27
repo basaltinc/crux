@@ -4,25 +4,26 @@ export const TextInputWrapper = styled.div`
   > input,
   > textarea {
     box-sizing: border-box;
-    padding: ${props => props.theme.form.input.padding};
-    border: ${props => props.theme.form.input.border};
+    padding: ${props => props.theme.input.padding};
+    border: ${props => props.theme.input.border};
     background-color: white;
-    font-size: ${props => props.theme.form.input.font_size};
+    font-size: ${props => props.theme.input.fontSize};
     width: 100%;
   }
   > input {
-    height: ${props => props.theme.form.input.height};
+    height: ${props => props.theme.input.height};
   }
 `;
 
 export const RadioInputWrapper = styled.div`
   .field-radio-group.field-radio-group {
+    min-height: ${props => props.theme.input.height};
     height: unset;
   }
   input {
     margin-right: 8px;
     + span {
-      font-size: ${props => props.theme.form.input.font_size};
+      font-size: ${props => props.theme.input.fontSize};
     }
   }
 `;
@@ -32,14 +33,14 @@ export const CheckboxInputWrapper = styled.div`
     display: none;
   }
   label {
-    height: ${props => props.theme.form.input.height};
+    height: ${props => props.theme.input.height};
     display: flex;
     align-items: center;
   }
   input {
     margin-right: 8px;
     + span {
-      font-size: ${props => props.theme.form.input.font_size};
+      font-size: ${props => props.theme.input.fontSize};
     }
   }
 `;
@@ -68,22 +69,33 @@ export const FormIconButton = styled.div`
 
 export const FormIconTray = styled.div`
   box-sizing: border-box;
-  border: ${props => props.theme.form.border};
+  border: ${props => props.theme.borders.border};
   display: inline-flex;
-  padding: ${props => props.theme.form.padding};
-  margin-top: 1rem;
+  padding: 5px 8px;
 `;
 
 export const FormArrayItem = styled.div`
-  margin: 0.75rem 0;
+  padding: 0.25rem;
   &:last-child {
     margin-bottom: 0;
   }
+  &:nth-child(odd) {
+    background-color: ${props => props.theme.colors.neutralXLight};
+  }
   .field {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    padding-right: 0.25rem;
+    > div.custom-object {
+      display: flex;
+      justify-content: left;
+      flex-wrap: wrap;
+      > div.custom-object-item {
+        padding: 0;
+        flex-grow: 1;
+        + .custom-object-item {
+          width: 100%;
+        }
+      }
+    }
   }
   & > * + * {
     //margin-left: 0.25rem;
@@ -99,7 +111,7 @@ export const Toggle = styled.div`
     display: none;
   }
   span {
-    height: ${props => props.theme.form.input.height};
+    height: ${props => props.theme.input.height};
     display: flex;
     align-items: center;
   }
@@ -116,7 +128,7 @@ export const Toggle = styled.div`
     text-indent: -9999px;
     width: 50px;
     height: 25px;
-    background: ${props => props.theme.colors.neutral};
+    background: ${props => props.theme.colors.neutralLight};
     display: block;
     border-radius: 50px;
     position: relative;
@@ -135,7 +147,7 @@ export const Toggle = styled.div`
   }
 
   input:checked + span {
-    background: ${props => props.theme.colors.accentColor};
+    background: ${props => props.theme.colors.active};
   }
 
   input:checked + span:after {

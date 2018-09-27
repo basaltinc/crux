@@ -20,6 +20,11 @@ export const SidebarStyled = styled.aside`
   a {
     white-space: nowrap;
   }
+  .field-array {
+    .field-array.form-group {
+      margin-left: 0;
+    }
+  }
 `;
 
 export const SidebarColumn = styled.div`

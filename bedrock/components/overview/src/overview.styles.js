@@ -57,14 +57,6 @@ export const Resizable = styled.div`
   width: 100%;
   max-width: ${props => props.size || '100%'};
   background-color: rgba(77, 77, 77, 0.15);
-  &:hover:after {
-    position: absolute;
-    content: 'Resize';
-    bottom: 0;
-    right: 5px;
-    font-size: 14px;
-    font-weight: 700;
-  }
 `;
 
 export const DemoGrid = styled.div`

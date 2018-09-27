@@ -1,6 +1,7 @@
 export const addGlobalTypography = theme => `
       .eyebrow {
-        color: ${theme.colors.eyebrows};
+        font-family: ${theme.eyebrow.font_family};
+        color: ${theme.eyebrow.color};
         margin-bottom: 0;
       }
       h1, .h1 {
@@ -92,6 +93,7 @@ export const addGlobalTypography = theme => `
       }
       p {
         margin: ${theme.paragraphs.margin};
+        font-family: ${theme.paragraphs.font_family};
       }
       p:last-child {
         margin-bottom: 0;
@@ -104,12 +106,12 @@ export const addGlobalTypography = theme => `
         margin: ${theme.lists.margin};
       }
       a, a:link, a:visited {
-        color: ${theme.links.color.base};
-        text-decoration: ${theme.links.decoration.base};
+        color: ${theme.links.visited.color};
+        text-decoration: ${theme.links.visited.textDecoration};
       }
       a:hover, a:focus, a:active {
-        color: ${theme.links.color.hover};
-        text-decoration: ${theme.links.decoration.hover};
+        color: ${theme.links.hover.color};
+        text-decoration: ${theme.links.hover.textDecoration};
       }
       b,
       strong {

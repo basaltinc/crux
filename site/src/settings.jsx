@@ -25,6 +25,11 @@ const SettingsPage = props => (
           schema={bedrockConfigSchema.properties.settings}
           formData={props.context.settings}
           onChange={({ formData }) => props.context.setSettings(formData)}
+          uiSchema={{
+            websocketsPort: {
+              'ui:widget': 'updown',
+            },
+          }}
         />
       </React.Fragment>
     )) || (
