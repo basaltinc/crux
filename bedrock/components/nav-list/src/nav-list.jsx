@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { NavListStyled } from './nav-list.styles';
 
-const NavList = ({ items, basePath }) => (
+const NavList = ({ items }) => (
   <NavListStyled>
     <ul>
       {items.map(item => {
-        const { title, isHeading, id, path = `${basePath}${item.id}` } = item;
+        const { title, isHeading, id, path } = item;
         if (isHeading) {
           return (
             <li key={id}>
@@ -30,17 +30,14 @@ const NavList = ({ items, basePath }) => (
   </NavListStyled>
 );
 
-NavList.defaultProps = {
-  basePath: '',
-};
+NavList.defaultProps = {};
 
 NavList.propTypes = {
-  basePath: PropTypes.string,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
-      path: PropTypes.string,
+      path: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };

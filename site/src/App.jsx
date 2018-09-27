@@ -248,7 +248,7 @@ class App extends React.Component {
                             exact
                           />
                           <Route
-                            path="/patterns/components/:id/edit"
+                            path="/patterns/:id/edit"
                             render={({ match }) => (
                               <PatternEdit
                                 id={match.params.id}
@@ -261,7 +261,7 @@ class App extends React.Component {
                             component={LoadableSettingsPage}
                           />
                           <Route
-                            path="/patterns/components/:id"
+                            path="/patterns/:id"
                             render={({ match }) => (
                               <LoadableComponentOverview
                                 id={match.params.id}

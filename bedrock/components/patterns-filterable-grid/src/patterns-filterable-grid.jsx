@@ -75,9 +75,7 @@ class PatternsPage extends Component {
 
   componentDidMount() {
     window
-      .fetch(
-        `${this.props.context.settings.urls.apiUrlBase}/patterns/component`,
-      )
+      .fetch(`${this.props.context.settings.urls.apiUrlBase}/patterns`)
       .then(res => res.json())
       .then(patterns => {
         this.setState({
