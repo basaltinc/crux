@@ -136,7 +136,7 @@ class PatternsPage extends Component {
           schema={filterSchema}
           formData={this.state.formData}
           onChange={this.handleChangeForm}
-          isInline
+          className="patterns-filters"
         />
         <PatternGrid patterns={this.state.visiblePatterns} />
       </div>

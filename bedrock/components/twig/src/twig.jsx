@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import iframeResizer from 'iframe-resizer/js/iframeResizer'; // https://www.npmjs.com/package/iframe-resizer
 import { version as iframeResizerVersion } from 'iframe-resizer/package.json';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
-import { ResizableWrapper } from './twig.styles';
+import { IFrameWrapper } from './twig.styles';
 
 /**
  * Wrap HTML in full HTML page with CSS & JS assets.
@@ -225,9 +225,9 @@ class Twig extends React.Component {
 
     if (this.props.isResizable) {
       return (
-        <ResizableWrapper onMouseUp={() => this.iframeResizer.resize()}>
+        <IFrameWrapper onMouseUp={() => this.iframeResizer.resize()}>
           {iframe}
-        </ResizableWrapper>
+        </IFrameWrapper>
       );
     }
     return iframe;

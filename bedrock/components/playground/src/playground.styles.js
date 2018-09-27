@@ -70,7 +70,7 @@ export const PatternListItemWrapper = styled.li`
   }
   a:link,
   a:visited {
-    color: ${props => props.theme.colors.color.gray.dark};
+    color: ${props => props.theme.links.color};
     font-size: ${props => props.theme.fonts.sizes.xxs};
     text-decoration: none;
     transition: ${props => props.theme.transition.all};
@@ -130,7 +130,7 @@ export const briefHighlight = keyframes`
 
 export const PlaygroundIconWrapper = styled.div`
   box-sizing: border-box;
-  border: ${props => props.theme.form.border};
+  border: ${props => props.theme.borders.border};
   margin-bottom: 0;
   display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
   height: 100%;
@@ -144,8 +144,8 @@ export const PlaygroundSliceWrapper = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   box-sizing: border-box;
-  border: solid 2px ${props => (props.active ? '#e1c933' : 'rgba(0,0,0,0)')};
-  ${props =>
-    props.hasVisibleControls ? 'padding: 5px;' : 'margin-bottom: 1.5rem;'};
+  border: solid 2px
+    ${props => (props.active ? props.theme.colors.active : 'rgba(0,0,0,0)')};
+  ${props => (props.hasVisibleControls ? '' : 'margin: 1.5rem;')};
   ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};
 `;

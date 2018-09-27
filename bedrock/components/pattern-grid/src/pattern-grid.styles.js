@@ -24,8 +24,8 @@ export const StyledPatternGridItem = styled.div`
     padding: ${props => props.theme.spacing.l} ${props => props.theme.spacing.l}
       0;
     height: 100%;
-    border: solid 1px ${props => props.theme.colors.borders};
-    border-radius: ${props => props.theme.border.radius};
+    border: ${props => props.theme.borders.border};
+    border-radius: ${props => props.theme.borders.radius};
     text-align: center;
     transition: ${props => props.theme.transition.all};
     position: relative;
@@ -35,7 +35,7 @@ export const StyledPatternGridItem = styled.div`
     > a:hover {
       position: absolute;
       background: #fff;
-      border-radius: ${props => props.theme.border.radius};
+      border-radius: ${props => props.theme.borders.radius};
       border-color: ${props => props.theme.colors.type.component.base};
       transform: scale(1.15);
       width: 100%;

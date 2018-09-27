@@ -80,7 +80,7 @@ module.exports = {
         { text: 'Math' },
         { text: 'Logic' },
         { text: 'Jokes' },
-        { text: 'Interent' },
+        { text: 'Internet' },
         { text: 'Sorcery' },
       ],
       text_size: 'xl',
