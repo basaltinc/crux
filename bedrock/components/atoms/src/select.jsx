@@ -18,7 +18,9 @@ export const SelectStyledWrapper = styled.label`
     display: inline-block;
     max-width: 100%;
     position: relative;
+    height: ${props => props.theme.select.height};
     background-color: ${props => props.theme.select.background};
+    margin: ${props => props.theme.select.margin};
     // ::after produces the custom dropdown arrow next to text
     &::after {
       content: '';

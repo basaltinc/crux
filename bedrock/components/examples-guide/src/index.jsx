@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Button, TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { Link, Redirect } from 'react-router-dom';
 import uuid from 'uuid/v4';
+import { Button, TwoUp, BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 
 class ExamplesLandingPage extends Component {

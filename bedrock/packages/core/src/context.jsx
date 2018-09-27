@@ -124,6 +124,30 @@ export const baseTheme = {
       width: '80px',
     },
   },
+  buttons: {
+    border: 'none',
+    cursor: 'pointer',
+    height: '33px',
+    fontSize: '0.75rem',
+    primary: {
+      color: 'white',
+      background: colors.blue.base,
+    },
+    secondary: {
+      color: 'black',
+      background: '#f2f3f3',
+    },
+  },
+  details: {
+    borderTop: `solid 1px ${colors.gray.dark}`,
+    borderBottom: `solid 1px ${colors.gray.dark}`,
+    margin: '0 0 10px',
+    padding: '7px 0',
+    summary: {
+      fontWeight: 'bold',
+      fontSize: '1.1rem',
+    },
+  },
   header: {
     accentColor: colors.yellow.base,
     background: colors.blue.base,
@@ -219,7 +243,9 @@ export const baseTheme = {
     border: '0',
     borderRadius: '0',
     fontSize: '1rem',
+    height: forms.height,
     padding: '5px',
+    margin: '0',
   },
   form: {
     border: `1px solid ${colors.gray.xlight}`,
