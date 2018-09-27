@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ShadowWrap = styled.div`
   position: relative;
-  border-radius: ${props => props.theme.border.radius};
+  border-radius: ${props => props.theme.borders.radius};
   border-width: 1px 5px 1px 1px;
   border-style: solid;
   border-color: ${props => props.colorTheme};
@@ -11,8 +11,8 @@ export const ShadowWrap = styled.div`
 export const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: ${props => props.theme.border.radius};
-  border-top-left-radius: ${props => props.theme.border.radius};
+  border-top-right-radius: ${props => props.theme.borders.radius};
+  border-top-left-radius: ${props => props.theme.borders.radius};
   display: flex;
   padding: 30px;
   line-height: 1;
@@ -25,7 +25,7 @@ export const HeaderRegion = styled.div`
 
 export const DemoStage = styled.div`
   background: #fff;
-  border-radius: ${props => props.theme.border.radius};
+  border-radius: ${props => props.theme.borders.radius};
   padding: ${props => props.bleed};
 `;
 

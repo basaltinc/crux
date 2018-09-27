@@ -106,12 +106,12 @@ export const addGlobalTypography = theme => `
         margin: ${theme.lists.margin};
       }
       a, a:link, a:visited {
-        color: ${theme.links.color.base};
-        text-decoration: ${theme.links.decoration.base};
+        color: ${theme.links.visited.color};
+        text-decoration: ${theme.links.visited.textDecoration};
       }
       a:hover, a:focus, a:active {
-        color: ${theme.links.color.hover};
-        text-decoration: ${theme.links.decoration.hover};
+        color: ${theme.links.hover.color};
+        text-decoration: ${theme.links.hover.textDecoration};
       }
       b,
       strong {

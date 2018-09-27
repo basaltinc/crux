@@ -31,8 +31,8 @@ export const VariationItemExpanded = styled.div`
 export const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: ${props => props.theme.border.radius};
-  border-top-left-radius: ${props => props.theme.border.radius};
+  border-top-right-radius: ${props => props.theme.borders.radius};
+  border-top-left-radius: ${props => props.theme.borders.radius};
   padding: 30px;
   line-height: 1;
   position: relative;
