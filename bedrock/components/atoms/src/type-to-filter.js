@@ -26,7 +26,7 @@ export const TypeToFilter = styled.div`
 `;
 
 export const ClearFilterButton = styled.div`
-  border: ${props => props.theme.form.border};
+  border: ${props => props.theme.input.border};
   border-left: none;
   height: ${props => props.theme.input.height};
   width: 33px;

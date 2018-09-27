@@ -34,9 +34,9 @@ export const CustomFieldWrapper = styled.div`
   }
   > label {
     display: block;
-    color: ${props => props.theme.form.label.color};
-    font-size: ${props => props.theme.form.label.font_size};
-    //font-weight: bold;
+    color: ${props => props.theme.label.color};
+    font-size: ${props => props.theme.label.fontSize};
+    font-weight: ${props => props.theme.label.fontWeight};
   }
   &.field-array {
     .field-object > label {

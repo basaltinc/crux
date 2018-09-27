@@ -17,7 +17,7 @@ export const TextInputWrapper = styled.div`
 
 export const RadioInputWrapper = styled.div`
   .field-radio-group.field-radio-group {
-    min-height: 33px;
+    min-height: ${props => props.theme.input.height};
     height: unset;
   }
   input {
@@ -69,9 +69,9 @@ export const FormIconButton = styled.div`
 
 export const FormIconTray = styled.div`
   box-sizing: border-box;
-  border: ${props => props.theme.form.border};
+  border: ${props => props.theme.borders.border};
   display: inline-flex;
-  padding: ${props => props.theme.form.padding};
+  padding: 5px 8px;
 `;
 
 export const FormArrayItem = styled.div`
@@ -80,7 +80,7 @@ export const FormArrayItem = styled.div`
     margin-bottom: 0;
   }
   &:nth-child(odd) {
-    background-color: ${props => props.theme.colors.xxlight};
+    background-color: ${props => props.theme.colors.neutralXLight};
   }
   .field {
     padding-right: 0.25rem;
@@ -128,7 +128,7 @@ export const Toggle = styled.div`
     text-indent: -9999px;
     width: 50px;
     height: 25px;
-    background: ${props => props.theme.colors.neutral};
+    background: ${props => props.theme.colors.neutralLight};
     display: block;
     border-radius: 50px;
     position: relative;
@@ -147,7 +147,7 @@ export const Toggle = styled.div`
   }
 
   input:checked + span {
-    background: ${props => props.theme.colors.accentColor};
+    background: ${props => props.theme.colors.active};
   }
 
   input:checked + span:after {
