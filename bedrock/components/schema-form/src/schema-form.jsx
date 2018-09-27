@@ -52,9 +52,7 @@ export default class SchemaForm extends React.Component {
         className={this.props.isInline ? 'rjsf rjsf--inline' : 'rjsf'}
         isInline={this.props.isInline}
       >
-        {!this.props.hasSubmit && (
-          <span />
-        )}
+        {!this.props.hasSubmit && <span />}
       </Form>
     );
   }

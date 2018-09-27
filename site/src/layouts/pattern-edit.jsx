@@ -27,7 +27,7 @@ class PatternEdit extends Component {
         body: JSON.stringify(formData),
         headers: {
           'Content-Type': 'application/json',
-        }
+        },
       })
       .then(res => res.json())
       .then(res => console.log(res))
@@ -47,5 +47,10 @@ class PatternEdit extends Component {
     );
   }
 }
+
+PatternEdit.propTypes = {
+  context: contextPropTypes.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export default connectToContext(PatternEdit);
