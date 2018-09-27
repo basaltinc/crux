@@ -10,6 +10,12 @@ import {
   PatternGridItemThumb,
   PatternGridItemTitle,
 } from './pattern-grid.styles';
+import {
+  StyledPatternGridListItem,
+  PatternGridListItemDescription,
+  PatternGridListItemTitle,
+  PatternGridList,
+} from './pattern-list.styles';
 
 class PatternGridItem extends React.Component {
   constructor(props) {
@@ -54,7 +60,6 @@ class PatternGridItem extends React.Component {
                 ? this.state.imgSrc
                 : this.defaultImgPath
             }
-            alt=""
             onError={this.handleMissingImg}
           />
           <PatternGridItemTitle>
@@ -69,22 +74,54 @@ class PatternGridItem extends React.Component {
   }
 }
 
-function PatternGrid(props) {
+function PatternGridListItem(props) {
   return (
-    <SmartGrid
-      className="pattern-grid-wrapper"
-      row-items-xsmall={2}
-      row-items-large={3}
-      row-items-xlarge={5}
-    >
-      {props.patterns.map(pattern => (
-        <PatternGridItem
-          key={pattern.id}
-          pattern={pattern}
-          context={props.context}
-        />
-      ))}
-    </SmartGrid>
+    <StyledPatternGridListItem key={props.pattern.id}>
+      <Link
+        to={
+          props.pattern.path
+            ? props.pattern.path
+            : `/patterns/components/${props.pattern.id}`
+        }
+      >
+        <PatternGridListItemTitle>
+          {props.pattern.title}
+        </PatternGridListItemTitle>
+        <PatternGridListItemDescription>
+          {props.pattern.description}
+        </PatternGridListItemDescription>
+      </Link>
+    </StyledPatternGridListItem>
+  );
+}
+
+function PatternGrid(props) {
+  const { enablePatternIcons } = props.context.settings;
+  return (
+    <React.Fragment>
+      {enablePatternIcons ? (
+        <SmartGrid
+          className="pattern-grid-wrapper"
+          row-items-xsmall={2}
+          row-items-large={3}
+          row-items-xlarge={5}
+        >
+          {props.patterns.map(pattern => (
+            <PatternGridItem
+              key={pattern.id}
+              pattern={pattern}
+              context={props.context}
+            />
+          ))}
+        </SmartGrid>
+      ) : (
+        <PatternGridList>
+          {props.patterns.map(pattern => (
+            <PatternGridListItem key={pattern.id} pattern={pattern} />
+          ))}
+        </PatternGridList>
+      )}
+    </React.Fragment>
   );
 }
 
@@ -110,6 +147,16 @@ PatternGridItem.propTypes = {
     hasIcon: PropTypes.bool,
   }).isRequired,
   context: contextPropTypes.isRequired,
+};
+
+PatternGridListItem.propTypes = {
+  pattern: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    path: PropTypes.string,
+    hasIcon: PropTypes.bool,
+  }).isRequired,
 };
 
 export default connectToContext(PatternGrid);
