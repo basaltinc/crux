@@ -23,12 +23,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'media-block',
-  title: 'Media Block',
-  type: 'component',
-  description: 'Image, Title, Body, and Buttons make this really flexible.',
-  uses: ['inGrid', 'inSlice'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_media-block.twig',
@@ -43,9 +40,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'l',
-};
-
-module.exports = {
-  meta,
 };

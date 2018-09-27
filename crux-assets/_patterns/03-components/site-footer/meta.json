@@ -1,0 +1,8 @@
+{
+  "title": "Site Footer",
+  "type": "component",
+  "description": "A global site footer",
+  "uses": ["inSlice"],
+  "demoSize": "full",
+  "status": "ready"
+}

@@ -2,12 +2,9 @@ const schema = require('./site-header-schema');
 
 const uiSchema = {};
 
-const meta = {
+module.exports = {
   id: 'site-header',
-  title: 'Site Header',
-  type: 'component',
-  description: 'A global site header',
-  uses: ['inSlice'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_site-header.twig',
@@ -16,9 +13,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'full',
-};
-
-module.exports = {
-  meta,
 };

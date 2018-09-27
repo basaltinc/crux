@@ -1,10 +1,8 @@
 const schema = require('./smart-grid.schema');
 
-const meta = {
+module.exports = {
   id: 'smart-grid',
-  title: 'Smart Grid',
-  type: 'layout',
-  description: 'Flexible grid',
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@layouts/_smart-grid.twig',
@@ -12,9 +10,4 @@ const meta = {
       schema,
     },
   ],
-  demoSize: 'full',
-};
-
-module.exports = {
-  meta,
 };

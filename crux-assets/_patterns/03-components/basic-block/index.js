@@ -16,13 +16,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'basic-block',
-  title: 'Basic Block',
-  type: 'component',
-  status: 'draft',
-  uses: ['inSlice', 'inGrid'],
-  description: 'A block with a title, text, and CTA.',
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_basic-block.twig',
@@ -31,9 +27,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'm',
-};
-
-module.exports = {
-  meta,
 };

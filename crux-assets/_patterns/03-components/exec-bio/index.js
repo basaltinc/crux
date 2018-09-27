@@ -9,13 +9,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'exec-bio',
-  title: 'Executive Bio',
-  type: 'component',
-  description:
-    'The Executive Bio a UI component designed to profile members of the executive team.',
-  uses: ['inSlice'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_exec-bio.twig',
@@ -24,9 +20,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'l',
-};
-
-module.exports = {
-  meta,
 };

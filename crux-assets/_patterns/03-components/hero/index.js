@@ -19,13 +19,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'hero',
-  title: 'Hero',
-  type: 'component',
-  description:
-    'The Hero component is a full width slab intended to draw the attention of the user.',
-  uses: ['inSlice'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_hero.twig',
@@ -34,9 +30,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'full',
-};
-
-module.exports = {
-  meta,
 };
