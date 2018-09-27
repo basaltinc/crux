@@ -1,52 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
     <title>Media block</title>
     <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="32.9726563" y="30" width="28" height="28"></rect>
-        <filter x="-7.1%" y="-7.1%" width="114.3%" height="114.3%" filterUnits="objectBoundingBox" id="filter-2">
-            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0.170667768   0 0 0 0 0.435487503   0 0 0 0 0.741921769  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-        <rect id="path-3" x="95.9726563" y="30" width="28" height="28"></rect>
-        <filter x="-7.1%" y="-7.1%" width="114.3%" height="114.3%" filterUnits="objectBoundingBox" id="filter-4">
-            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0.190434579   0 0 0 0 0.446103211   0 0 0 0 0.741948342  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-        <rect id="path-5" x="158.972656" y="30" width="28" height="28"></rect>
-        <filter x="-7.1%" y="-7.1%" width="114.3%" height="114.3%" filterUnits="objectBoundingBox" id="filter-6">
-            <feGaussianBlur stdDeviation="1.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
-            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0.170667768   0 0 0 0 0.435487503   0 0 0 0 0.741921769  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
-        </filter>
-    </defs>
+    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Components" transform="translate(-33.000000, -371.000000)">
-            <g id="Media-block" transform="translate(33.000000, 371.000000)">
+        <g id="Patterns" transform="translate(-35.000000, -372.000000)">
+            <g id="Media-block" transform="translate(35.000000, 372.000000)">
                 <g>
                     <rect id="Rectangle" fill="#4A90E2" opacity="0.99" x="0" y="0" width="220" height="220" rx="15"></rect>
                     <rect id="Rectangle-Copy" fill="#FFFFFF" opacity="0.275" x="8" y="9" width="203" height="70" rx="15"></rect>
-                    <g id="Rectangle" opacity="0.398604911" transform="translate(46.972656, 44.000000) rotate(-45.000000) translate(-46.972656, -44.000000) ">
-                        <use fill="#A5C8F0" fill-rule="evenodd" xlink:href="#path-1"></use>
-                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                        <rect stroke="#7BAEE9" stroke-width="1" stroke-linejoin="square" x="33.4726563" y="30.5" width="27" height="27"></rect>
-                    </g>
-                    <g id="Rectangle" transform="translate(109.972656, 44.000000) rotate(45.000000) translate(-109.972656, -44.000000) ">
-                        <use fill="#A5C8F0" fill-rule="evenodd" xlink:href="#path-3"></use>
-                        <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
-                        <rect stroke="#7BAEE9" stroke-width="1" stroke-linejoin="square" x="96.4726563" y="30.5" width="27" height="27"></rect>
-                    </g>
-                    <g id="Rectangle" opacity="0.404665" transform="translate(172.972656, 44.000000) rotate(-45.000000) translate(-172.972656, -44.000000) ">
-                        <use fill="#A5C8F0" fill-rule="evenodd" xlink:href="#path-5"></use>
-                        <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
-                        <rect stroke="#7BAEE9" stroke-width="1" stroke-linejoin="square" x="159.472656" y="30.5" width="27" height="27"></rect>
-                    </g>
                     <path d="M31,102 L188,102 C192.970563,102 197,106.029437 197,111 L197,117 C197,121.970563 192.970563,126 188,126 L152.143044,126 L31,126 C26.0294373,126 22,121.970563 22,117 L22,111 C22,106.029437 26.0294373,102 31,102 Z" id="Rectangle-2" fill="#FFFFFF"></path>
                     <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="28" y="145" width="163.945312" height="8" rx="4"></rect>
                     <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="34" y="165" width="153" height="8" rx="4"></rect>

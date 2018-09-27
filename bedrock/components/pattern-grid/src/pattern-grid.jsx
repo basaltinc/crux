@@ -16,7 +16,7 @@ export default function PatternGrid(props) {
       className="pattern-grid-wrapper"
       row-items-xsmall={2}
       row-items-large={3}
-      row-items-xlarge={4}
+      row-items-xlarge={5}
     >
       {components.map(pattern => (
         <PatternGridItem key={pattern.id}>

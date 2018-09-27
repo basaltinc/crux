@@ -85,7 +85,6 @@ class PatternsPage extends Component {
           patterns,
           visiblePatterns: patterns,
         });
-        this.updateVisiblePatterns();
       });
   }
 
@@ -93,15 +92,18 @@ class PatternsPage extends Component {
     const { patterns } = this.state;
 
     const visibleItems = patterns
-      .filter(item => item.id !== 'site-footer')
-      .filter(item => item.id !== 'site-header')
       .filter(item => {
+        // Filters based on "status" param set within component index.js meta const declaration
+        // ** Note: If you want to show in "Draft" filtered view, component meta must include --> status: 'draft'
+        // ** otherwise "ready" status will be assumed
         const visibleStatuses = Object.keys(
           this.state.formData.statuses,
         ).filter(key => this.state.formData.statuses[key]);
         return visibleStatuses.some(status => item.status === status);
       })
       .filter(item => {
+        // Filters based on "uses" param set within component index.js meta const declaration
+        // ** Note: You MUST set at least one value for component to show within the pattern grid
         const visibleUses = Object.keys(this.state.formData.uses).filter(
           key => this.state.formData.uses[key],
         );
