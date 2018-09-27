@@ -28,11 +28,6 @@ const filterSchema = {
           type: 'boolean',
           description: 'Used in a grid',
         },
-        standalone: {
-          title: 'Standalone',
-          type: 'boolean',
-          description: 'Includes components within',
-        },
       },
     },
     statuses: {
@@ -71,7 +66,6 @@ class PatternsPage extends Component {
           inComponent: true,
           inGrid: true,
           inSlice: true,
-          standalone: true,
         },
       },
     };

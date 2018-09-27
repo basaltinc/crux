@@ -42,7 +42,7 @@
       "default": [],
       "items": {
         "type": "string",
-        "enum": ["inSlice", "inGrid", "inComponent", "standalone"],
+        "enum": ["inSlice", "inGrid", "inComponent"],
         "enumNames": ["In Slice", "In Grid", "In Component"]
       }
     },

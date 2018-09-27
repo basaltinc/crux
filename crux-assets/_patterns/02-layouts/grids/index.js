@@ -5,7 +5,7 @@ const meta = {
   title: 'Smart Grid',
   type: 'layout',
   description: 'Flexible grid',
-  uses: ['standalone'],
+  uses: ['inSlice', 'inComponent'],
   templates: [
     {
       name: '@layouts/_smart-grid.twig',
