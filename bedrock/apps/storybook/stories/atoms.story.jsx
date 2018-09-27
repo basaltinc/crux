@@ -4,6 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { action } from '@storybook/addon-actions';
 import {
   BlockQuoteWrapper,
+  Button,
   Details,
   Select,
   StatusMessage,
@@ -37,6 +38,7 @@ storiesOf('Atoms', module)
     )),
   )
   .add('Details', () => <Details>{paragraph()}</Details>)
+  .add('Button', () => <Button>Test Button</Button>)
   .add(
     'StatusMessage',
     withInfo({
