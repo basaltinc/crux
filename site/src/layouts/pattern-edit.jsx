@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import { StatusMessage } from '@basalt/bedrock-atoms';
@@ -15,10 +16,11 @@ class PatternEdit extends Component {
       props.id,
     );
     const pattern = props.context.patterns.find(p => p.id === props.id);
-    this.patternMeta = pattern.meta;
     this.state = {
       statusMessage: '',
       statusType: 'info',
+      redirectUrl: '',
+      formData: pattern.meta,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,13 +39,19 @@ class PatternEdit extends Component {
       .then(results => {
         if (results.ok) {
           this.setState({
-            statusMessage: results.message,
+            statusMessage: `${results.message} Redirecting...`,
             statusType: 'success',
+            formData,
           });
+          // without this delay, the next page does not show the fresh data yet
+          setTimeout(() => {
+            this.setState({ redirectUrl: `/patterns/${this.props.id}` });
+          }, 1000);
         } else {
           this.setState({
             statusMessage: results.message,
             statusType: 'error',
+            formData,
           });
         }
       })
@@ -51,6 +59,9 @@ class PatternEdit extends Component {
   }
 
   render() {
+    if (this.state.redirectUrl) {
+      return <Redirect to={this.state.redirectUrl} />;
+    }
     return (
       <div>
         {this.state.statusMessage && (
@@ -61,7 +72,7 @@ class PatternEdit extends Component {
         )}
         <SchemaForm
           schema={patternMetaSchema}
-          formData={this.patternMeta}
+          formData={this.state.formData}
           hasSubmit
           onSubmit={this.handleSubmit}
         />
