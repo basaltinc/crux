@@ -69,15 +69,20 @@ export const PatternGridItemTitle = styled.span`
 export const PatternGridItemDescription = styled.div`
   font-family: ${props => props.theme.fonts.families.avenir.light};
   line-height: 1.25;
-  font-size: ${props => props.theme.fonts.sizes.s};
+  font-size: ${props => props.theme.fonts.sizes.xs};
   color: #000;
   font-style: italic;
   padding: ${props => props.theme.spacing.m} 0 ${props => props.theme.spacing.m};
   max-width: 250px;
   margin: 0 auto;
   @media (min-width: ${props => props.theme.breakpoint.medium}) {
-    padding: ${props => props.theme.spacing.l} 0
-      ${props => props.theme.spacing.l};
+    padding: calc(
+        ${props => props.theme.spacing.m} + ${props => props.theme.spacing.s}
+      )
+      0
+      calc(
+        ${props => props.theme.spacing.m} + ${props => props.theme.spacing.s}
+      );
     opacity: 0;
     height: 0;
     pointer-events: none;
