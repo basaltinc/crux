@@ -6,12 +6,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'logo',
-  title: 'Logo',
-  type: 'component',
-  description: 'Logo',
-  uses: ['inComponent'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_logo.twig',
@@ -20,9 +17,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'm',
-};
-
-module.exports = {
-  meta,
 };

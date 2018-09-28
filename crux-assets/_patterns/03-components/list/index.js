@@ -9,13 +9,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'list',
-  title: 'List',
-  type: 'component',
-  description: 'List',
-  status: 'draft',
-  uses: ['inSlice', 'inComponent', 'inGrid'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_list.twig',
@@ -24,9 +20,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'm',
-};
-
-module.exports = {
-  meta,
 };

@@ -39,6 +39,7 @@ export default class SchemaForm extends React.Component {
   render() {
     return (
       <Form
+        {...this.props}
         formData={this.props.formData}
         schema={this.props.schema}
         uiSchema={this.props.uiSchema}
@@ -50,10 +51,8 @@ export default class SchemaForm extends React.Component {
         FieldTemplate={CustomField}
         className={this.props.isInline ? 'rjsf rjsf--inline' : 'rjsf'}
         isInline={this.props.isInline}
-        {...this.props}
       >
-        <span />
-        {/* @todo make it easier to disable SchemaForm submit button */}
+        {!this.props.hasSubmit && <span />}
       </Form>
     );
   }
@@ -68,6 +67,7 @@ SchemaForm.defaultProps = {
   onChange: () => {},
   onSubmit: () => {},
   onError: () => {},
+  hasSubmit: false,
 };
 
 SchemaForm.propTypes = {
@@ -80,4 +80,5 @@ SchemaForm.propTypes = {
   idPrefix: PT.string,
   isInline: PT.bool, // @todo implement `isInline` form for left-to-right mini-forms
   formData: PT.object,
+  hasSubmit: PT.bool,
 };

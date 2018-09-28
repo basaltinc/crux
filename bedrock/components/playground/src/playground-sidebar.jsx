@@ -35,15 +35,15 @@ class PlaygroundSidebar extends Component {
           onKeyPress={() => this.props.handleAddSlice(pattern.id)}
           onClick={() => this.props.handleAddSlice(pattern.id)}
         >
-          <h5>{pattern.title}</h5>
+          <h5>{pattern.meta.title}</h5>
           <img
             src={`/assets/images/pattern-thumbnails/${pattern.id}.svg`}
-            alt={pattern.title}
+            alt={pattern.meta.title}
           />
         </div>
         <Link
           target="_blank"
-          to={`/patterns/components/${pattern.id}`}
+          to={`/patterns/${pattern.id}`}
           title="Open component details in new window"
         >
           Details <FaExternalLinkAlt size={8} />
@@ -74,7 +74,7 @@ class PlaygroundSidebar extends Component {
     }
     if (this.props.sidebarContent === SIDEBAR_PATTERNS) {
       const patterns = this.props.patterns
-        .filter(pattern => pattern.uses.includes('inSlice'))
+        .filter(pattern => pattern.meta.uses.includes('inSlice'))
         .filter(pattern => pattern.id !== 'site-footer')
         .filter(pattern => pattern.id !== 'site-header');
       const items =

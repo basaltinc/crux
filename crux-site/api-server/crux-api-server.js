@@ -27,8 +27,10 @@ const apiServer = new BedrockApiServer({
   designTokens,
   twigRenderer,
   patterns: {
-    getPatternMeta: patternManifest.getPatternMeta,
+    getPattern: patternManifest.getPattern,
     getPatterns: patternManifest.getPatterns,
+    setPatternMeta: patternManifest.setPatternMeta,
+    getPatternMeta: patternManifest.getPatternMeta,
   },
   examples: {
     getExamples,

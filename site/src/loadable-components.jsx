@@ -7,6 +7,12 @@ export const LoadableComponentOverview = Loadable({
   loading: Spinner,
 });
 
+export const LoadablePatternEdit = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'pattern-edit' */ './layouts/pattern-edit'),
+  loading: Spinner,
+});
+
 export const LoadablePlayground = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'playground' */ '@basalt/bedrock-playground'),

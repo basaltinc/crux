@@ -30,6 +30,7 @@ import {
   LoadableSidebar,
   LoadableSpacings,
   LoadableTypography,
+  LoadablePatternEdit,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -65,7 +66,7 @@ class App extends React.Component {
   async componentDidMount() {
     const results = await Promise.all([
       window
-        .fetch(`${this.apiEndpoint}/patterns/component`)
+        .fetch(`${this.apiEndpoint}/patterns`)
         .then(res => res.json())
         .then(patterns => ({
           patterns,
@@ -247,11 +248,20 @@ class App extends React.Component {
                             exact
                           />
                           <Route
+                            path="/patterns/:id/edit"
+                            render={({ match }) => (
+                              <LoadablePatternEdit
+                                id={match.params.id}
+                                key={match.params.id}
+                              />
+                            )}
+                          />
+                          <Route
                             path="/settings"
                             component={LoadableSettingsPage}
                           />
                           <Route
-                            path="/patterns/components/:id"
+                            path="/patterns/:id"
                             render={({ match }) => (
                               <LoadableComponentOverview
                                 id={match.params.id}

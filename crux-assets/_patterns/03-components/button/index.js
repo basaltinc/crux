@@ -6,12 +6,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'button',
-  title: 'Button',
-  type: 'component',
-  description: "Buttons are for clickin' and tappin'!",
-  uses: ['inComponent'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_button.twig',
@@ -21,9 +18,4 @@ const meta = {
       isInline: true,
     },
   ],
-  demoSize: 's',
-};
-
-module.exports = {
-  meta,
 };

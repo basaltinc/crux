@@ -9,12 +9,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'blog-teaser',
-  title: 'Blog Teaser',
-  type: 'component',
-  description: 'A block with a title, text, and CTA.',
-  uses: ['inSlice', 'inGrid'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_blog-teaser.twig',
@@ -23,9 +20,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'l',
-};
-
-module.exports = {
-  meta,
 };

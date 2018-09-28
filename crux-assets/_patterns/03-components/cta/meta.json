@@ -1,0 +1,8 @@
+{
+  "title": "CTA",
+  "type": "component",
+  "description": "This 'Call To Action' is designed to specifically encourage the user to contact Basalt.",
+  "uses": ["inSlice"],
+  "demoSize": "l",
+  "status": "ready"
+}

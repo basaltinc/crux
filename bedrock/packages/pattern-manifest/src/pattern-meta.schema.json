@@ -5,17 +5,12 @@
   "description":
     "Meta data that describes a pattern (component, layout, etc) that comes from the Basalt Crux Design System.",
   "additionalProperties": false,
-  "required": ["id", "title", "templates"],
+  "required": ["title"],
   "properties": {
     "title": {
       "title": "Title",
       "type": "string",
       "description": "Title or Name of the pattern."
-    },
-    "id": {
-      "title": "Id",
-      "type": "string",
-      "description": "Identifying machine friendly name of pattern. Usually the 'Block' in 'BEM'."
     },
     "description": {
       "title": "Description",
@@ -44,43 +39,6 @@
         "type": "string",
         "enum": ["inSlice", "inGrid", "inComponent"],
         "enumNames": ["In Slice", "In Grid", "In Component"]
-      }
-    },
-    "templates": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["name", "schema"],
-        "properties": {
-          "name": {
-            "title": "Template Name",
-            "type": "string",
-            "description":
-            "Path (prefixed with namespace) of pattern template. Example '@components/_media-block.twig'."
-          },
-          "selector": {
-            "title": "CSS Selector",
-            "type": "string"
-          },
-          "schema": {
-            "title": "Schema",
-            "type": "object",
-            "description": "Json Schema (v7) describing pattern",
-            "required": ["examples"]
-          },
-          "uiSchema": {
-            "title": "uiSchema",
-            "type": "object",
-            "description": "UI for Json Schema (v7)"
-          },
-          "isInline": {
-            "title": "Is Inline",
-            "type": "boolean",
-            "description": "Denote if this form should be displayed inline"
-          }
-        }
       }
     },
     "dosAndDonts": {

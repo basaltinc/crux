@@ -11,10 +11,10 @@ const twigRenderer = require('./data/twig-renderer');
 
 const paths = {
   patterns: [
-    join(__dirname, '_patterns/00-styleguide/*'),
+    // join(__dirname, '_patterns/00-styleguide/*'),
     join(__dirname, '_patterns/02-layouts/*'),
     join(__dirname, '_patterns/03-components/*'),
-    join(__dirname, '_patterns/04-templates/*'),
+    // join(__dirname, '_patterns/04-templates/*'),
   ],
   assetDir: join(__dirname, 'dist'),
   assets: {
