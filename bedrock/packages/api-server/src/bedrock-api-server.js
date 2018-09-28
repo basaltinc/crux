@@ -124,6 +124,7 @@ class BedrockApiServer {
         getPatterns,
         setPatternMeta,
         getPatternMeta,
+        createPatternFiles,
       } = this.config.patterns;
       const url1 = urlJoin(this.config.baseUrl, 'pattern/:id');
       this.registerEndpoint(url1);
@@ -150,6 +151,13 @@ class BedrockApiServer {
       this.registerEndpoint(url4, 'POST');
       this.app.post(url4, async (req, res) => {
         const results = await setPatternMeta(req.params.id, req.body);
+        res.send(results);
+      });
+
+      const url5 = urlJoin(this.config.baseUrl, 'new-pattern');
+      this.registerEndpoint(url5, 'POST');
+      this.app.post(url5, async (req, res) => {
+        const results = await createPatternFiles(req.body);
         res.send(results);
       });
     }

@@ -16,6 +16,7 @@ const port = process.argv[2] || 3042;
 
 const patternManifest = new BedrockPatternManifest({
   patternPaths: paths.patterns,
+  newPatternDir: paths.newPatternDir,
 });
 
 const apiServer = new BedrockApiServer({
@@ -31,6 +32,7 @@ const apiServer = new BedrockApiServer({
     getPatterns: patternManifest.getPatterns,
     setPatternMeta: patternManifest.setPatternMeta,
     getPatternMeta: patternManifest.getPatternMeta,
+    createPatternFiles: patternManifest.createPatternFiles,
   },
   examples: {
     getExamples,
