@@ -56,7 +56,7 @@ class PatternGridItem extends React.Component {
         >
           <PatternGridItemThumb
             src={
-              this.props.pattern.hasIcon !== false
+              this.props.pattern.meta.hasIcon !== false
                 ? this.state.imgSrc
                 : this.defaultImgPath
             }
@@ -141,13 +141,11 @@ PatternGrid.propTypes = {
 PatternGridItem.propTypes = {
   pattern: PropTypes.shape({
     id: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
     path: PropTypes.string,
-    hasIcon: PropTypes.bool,
     meta: PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
+      hasIcon: PropTypes.bool,
     }).isRequired,
   }).isRequired,
   context: contextPropTypes.isRequired,
@@ -156,13 +154,11 @@ PatternGridItem.propTypes = {
 PatternGridListItem.propTypes = {
   pattern: PropTypes.shape({
     id: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
     path: PropTypes.string,
-    hasIcon: PropTypes.bool,
     meta: PropTypes.shape({
       title: PropTypes.string,
       description: PropTypes.string,
+      hasIcon: PropTypes.bool,
     }).isRequired,
   }).isRequired,
 };

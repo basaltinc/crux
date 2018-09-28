@@ -65,26 +65,26 @@ class PlaygroundSidebarPatternListItem extends Component {
           onKeyPress={() => this.props.handleAddSlice(this.props.pattern.id)}
           onClick={() => this.props.handleAddSlice(this.props.pattern.id)}
         >
-          <h5>{this.props.pattern.title}</h5>
+          <h5>{this.props.pattern.meta.title}</h5>
           {enablePatternIcons ? (
             <PatternListItemThumb
               src={
-                this.props.pattern.hasIcon
+                this.props.pattern.meta.hasIcon
                   ? this.state.imgSrc
                   : this.defaultImgPath
               }
               onError={this.handleMissingImg}
-              alt={this.props.pattern.title}
+              alt={this.props.pattern.meta.title}
             />
           ) : (
             <PatternListItemDescription>
-              {this.props.pattern.description}
+              {this.props.pattern.meta.description}
             </PatternListItemDescription>
           )}
         </div>
         <Link
           target="_blank"
-          to={`/patterns/components/${this.props.pattern.id}`}
+          to={`/patterns/${this.props.pattern.id}`}
           title="Open component details in new window"
         >
           Details <FaExternalLinkAlt size={8} />
@@ -111,7 +111,7 @@ function PlaygroundSidebar(props) {
   }
   if (props.sidebarContent === SIDEBAR_PATTERNS) {
     const patterns = props.patterns
-      .filter(pattern => pattern.uses.includes('inSlice'))
+      .filter(pattern => pattern.meta.uses.includes('inSlice'))
       .filter(pattern => pattern.id !== 'site-footer')
       .filter(pattern => pattern.id !== 'site-header');
     const items =
