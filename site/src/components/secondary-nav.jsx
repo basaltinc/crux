@@ -60,6 +60,11 @@ class SecondaryNav extends Component {
               path: '/patterns',
               isHeading: true,
             },
+            {
+              title: '+ add new pattern',
+              id: 'new-pattern',
+              path: '/new-pattern',
+            },
             ...this.props.context.patterns.map(pattern => ({
               id: pattern.id,
               title: pattern.meta.title,

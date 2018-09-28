@@ -31,6 +31,7 @@ import {
   LoadableSpacings,
   LoadableTypography,
   LoadablePatternEdit,
+  LoadablePatternNew,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -255,6 +256,10 @@ class App extends React.Component {
                                 key={match.params.id}
                               />
                             )}
+                          />
+                          <Route
+                            path="/new-pattern"
+                            component={LoadablePatternNew}
                           />
                           <Route
                             path="/settings"

@@ -154,7 +154,6 @@ class BedrockPatternManifest {
 
   async createPatternFiles(config) {
     const dir = join(this.config.newPatternDir, config.id);
-    console.log('createPatternFiles', { config, dir });
     const exists = await fs.pathExists(dir);
     if (exists) {
       return {
@@ -165,6 +164,9 @@ class BedrockPatternManifest {
     await fs.ensureDir(dir);
 
     await patternTemplates.writeAllFiles(dir, config);
+
+    this.patternsDirs.push(dir);
+    this.updatePatternsData();
 
     return {
       ok: true,
