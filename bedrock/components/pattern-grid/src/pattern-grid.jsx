@@ -56,7 +56,7 @@ class PatternGridItem extends React.Component {
         >
           <PatternGridItemThumb
             src={
-              this.props.pattern.hasIcon
+              this.props.pattern.hasIcon !== false
                 ? this.state.imgSrc
                 : this.defaultImgPath
             }
