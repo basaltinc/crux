@@ -8,13 +8,16 @@ const {
 const chokidar = require('chokidar');
 const patternSchema = require('./pattern.schema');
 const patternMetaSchema = require('./pattern-meta.schema');
+const patternTemplates = require('./pattern-templates');
 
 class BedrockPatternManifest {
   /**
-   * @param {Object} options - Options
-   * @param {string[]} options.patternPaths - Array of path strings for patterns
+   * @param {Object} config - Options
+   * @param {string[]} config.patternPaths - Array of path strings for patterns
    */
-  constructor({ patternPaths }) {
+  constructor(config) {
+    this.config = config;
+    const { patternPaths } = config;
     this.patternsDirs = globby
       .sync(patternPaths, {
         expandDirectories: true,
@@ -26,6 +29,7 @@ class BedrockPatternManifest {
     this.getPattern = this.getPattern.bind(this);
     this.getPatternMeta = this.getPatternMeta.bind(this);
     this.setPatternMeta = this.setPatternMeta.bind(this);
+    this.createPatternFiles = this.createPatternFiles.bind(this);
     this.createPatternsData = this.createPatternsData.bind(this);
     this.updatePatternsData = this.updatePatternsData.bind(this);
     this.watch = this.watch.bind(this);
@@ -146,6 +150,28 @@ class BedrockPatternManifest {
         message: error.toString(),
       };
     }
+  }
+
+  async createPatternFiles(config) {
+    const dir = join(this.config.newPatternDir, config.id);
+    const exists = await fs.pathExists(dir);
+    if (exists) {
+      return {
+        ok: false,
+        message: `That directory already exists, not overwriting it. ${dir}`,
+      };
+    }
+    await fs.ensureDir(dir);
+
+    await patternTemplates.writeAllFiles(dir, config);
+
+    this.patternsDirs.push(dir);
+    this.updatePatternsData();
+
+    return {
+      ok: true,
+      message: `Created Pattern File in "${dir}"`,
+    };
   }
 
   watch(cb) {

@@ -16,6 +16,7 @@ const paths = {
     join(__dirname, '_patterns/03-components/*'),
     // join(__dirname, '_patterns/04-templates/*'),
   ],
+  newPatternDir: join(__dirname, '_patterns/03-components/'),
   assetDir: join(__dirname, 'dist'),
   assets: {
     css: [join(__dirname, 'dist/crux.css')],

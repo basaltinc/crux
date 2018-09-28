@@ -13,6 +13,12 @@ export const LoadablePatternEdit = Loadable({
   loading: Spinner,
 });
 
+export const LoadablePatternNew = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'pattern-new' */ './layouts/pattern-new'),
+  loading: Spinner,
+});
+
 export const LoadablePlayground = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'playground' */ '@basalt/bedrock-playground'),

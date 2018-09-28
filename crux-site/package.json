@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf dist && NODE_ENV=production webpack-cli -p --mode production",
     "serve": "node api-server/crux-api-server.js",
-    "start:api": "nodemon --watch api-server/ --watch `node -e 'process.stdout.write(require.resolve(\"@basalt/bedrock-api-server\"))'` --exec 'yarn serve' ",
+    "start:api": "nodemon --watch api-server/ --watch `node -e 'process.stdout.write(require.resolve(\"@basalt/bedrock-api-server\"))'` --watch `node -e 'process.stdout.write(require.resolve(\"@basalt/bedrock-pattern-manifest\"))'` --exec 'yarn serve' ",
     "start:webpack": "DEV_MODE=yes webpack-dev-server --info=false",
     "start": "run-p --print-label start:api start:webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
