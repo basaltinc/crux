@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Default</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <rect id="Rectangle" stroke="#3578C7" fill="#4A90E2" x="0.5" y="0.5" width="219" height="219" rx="15"></rect>
+            <polygon id="Star" fill="#FFFFFF" opacity="0.650725446" points="110 140.859667 79.0983006 157.105652 85 122.696104 60 98.3271264 94.5491503 93.306841 110 62 125.45085 93.306841 160 98.3271264 135 122.696104 140.901699 157.105652"></polygon>
+        </g>
+    </g>
+</svg>

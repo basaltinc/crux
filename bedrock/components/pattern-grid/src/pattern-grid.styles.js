@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PatternGridItem = styled.div`
+export const StyledPatternGridItem = styled.div`
   background: #fff;
   position: relative;
   width: 100%;
@@ -53,7 +53,7 @@ export const PatternGridItemThumb = styled.img`
   margin: 0 auto 15px;
   filter: grayscale(75%);
   transition: ${props => props.theme.transition.all};
-  ${PatternGridItem}:hover & {
+  ${StyledPatternGridItem}:hover & {
     filter: grayscale(0%);
   }
 `;
@@ -69,22 +69,27 @@ export const PatternGridItemTitle = styled.span`
 export const PatternGridItemDescription = styled.div`
   font-family: ${props => props.theme.fonts.families.avenir.light};
   line-height: 1.25;
-  font-size: ${props => props.theme.fonts.sizes.s};
+  font-size: ${props => props.theme.fonts.sizes.xs};
   color: #000;
   font-style: italic;
   padding: ${props => props.theme.spacing.m} 0 ${props => props.theme.spacing.m};
   max-width: 250px;
   margin: 0 auto;
   @media (min-width: ${props => props.theme.breakpoint.medium}) {
-    padding: ${props => props.theme.spacing.l} 0
-      ${props => props.theme.spacing.l};
+    padding: calc(
+        ${props => props.theme.spacing.m} + ${props => props.theme.spacing.s}
+      )
+      0
+      calc(
+        ${props => props.theme.spacing.m} + ${props => props.theme.spacing.s}
+      );
     opacity: 0;
     height: 0;
     pointer-events: none;
     transform: scale(0.75);
     position: absolute;
     transition: all 0.1s ease-in-out;
-    ${PatternGridItem} > a:hover & {
+    ${StyledPatternGridItem} > a:hover & {
       opacity: 1;
       transform: scale(1);
       height: auto;

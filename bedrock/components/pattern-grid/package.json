@@ -19,6 +19,7 @@
   "author": "Basalt (http://basalt.io)",
   "license": "UNLICENSED",
   "dependencies": {
-    "@basalt/bedrock-core": "^0.1.2"
+    "@basalt/bedrock-core": "^0.1.2",
+    "url-join": "^4.0.0"
   }
 }

@@ -44,23 +44,34 @@ export const PatternListWrapper = styled.ul`
   justify-content: space-between;
 `;
 
+/*
+**  prop.thumb is set via the global config `enablePatternIcons`
+**  If set false, we present a list instead of a grid
+*/
+function noIconStyles(props) {
+  if (!props.thumb)
+    return `
+    background: #FFF;
+    padding: ${props.theme.spacing.s};
+    border: 1px solid ${props.theme.colors.neutralLight};
+  `;
+}
 export const PatternListItemWrapper = styled.li`
-  width: calc(50% - ${props => props.theme.spacing.m});
-  filter: grayscale(75%);
+  width: ${props =>
+    props.thumb ? `calc(50% - ${props.theme.spacing.m})` : '100%'};
+  filter: ${props => (props.thumb ? 'grayscale(75%)' : 'none')};
   transition: ${props => props.theme.transition.all};
   &:hover {
     filter: grayscale(0%);
   }
   h5 {
     color: ${props => props.theme.colors.primary};
-    margin: 0 0 ${props => props.theme.spacing.s};
+    font-size: ${props =>
+      props.thumb ? 'inherit' : props.theme.fonts.sizes.m};
+    margin: ${props =>
+      props.thumb ? `0 0 ${props.theme.spacing.s}` : '0 0 4px'};
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
-  img {
-    width: auto;
-    height: 50px;
-    margin-bottom: ${props => props.theme.spacing.s};
   }
   > div {
     &:hover,
@@ -75,6 +86,23 @@ export const PatternListItemWrapper = styled.li`
     text-decoration: none;
     transition: ${props => props.theme.transition.all};
   }
+  // Specific styling only when props.thumb (enablePatternIcons) is false
+  ${props => noIconStyles(props)};
+`;
+
+export const PatternListItemThumb = styled.img`
+  width: auto;
+  height: 50px;
+  margin-bottom: ${props => props.theme.spacing.s};
+`;
+
+export const PatternListItemDescription = styled.div`
+  font-family: ${props => props.theme.fonts.families.avenir.light};
+  line-height: 1.25;
+  font-size: ${props => props.theme.fonts.sizes.xxs};
+  color: ${props => props.theme.colors.color.gray.dark};
+  font-style: italic;
+  margin-bottom: 2px;
 `;
 
 export const PlaygroundStyledSchemaForm = styled(SchemaForm)`

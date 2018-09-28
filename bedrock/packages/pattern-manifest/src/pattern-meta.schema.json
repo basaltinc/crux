@@ -41,6 +41,12 @@
         "enumNames": ["In Slice", "In Grid", "In Component"]
       }
     },
+    "hasIcon": {
+      "title": "Has Icon",
+      "type": "boolean",
+      "description": "Set to false to show default placeholder thumbnail",
+      "default": true
+    },
     "dosAndDonts": {
       "type": "array",
       "description": "Visual representations of what to do, and not to do, with components.",
