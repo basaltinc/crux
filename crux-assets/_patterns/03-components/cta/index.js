@@ -16,13 +16,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'cta',
-  title: 'CTA',
-  type: 'component',
-  description:
-    "This 'Call To Action' is designed to specifically encourage the user to contact Basalt.",
-  uses: ['inSlice'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_cta.twig',
@@ -31,9 +27,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'l',
-};
-
-module.exports = {
-  meta,
 };

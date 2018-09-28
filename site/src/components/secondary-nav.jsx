@@ -8,6 +8,7 @@ import {
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import { flattenArray } from '@basalt/bedrock-utils';
 import NavList from '@basalt/bedrock-nav-list';
+import urlJoin from 'url-join';
 
 class SecondaryNav extends Component {
   static prepSectionLinks(sections) {
@@ -31,36 +32,6 @@ class SecondaryNav extends Component {
     };
     this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}`;
     this.handleFilterReset = this.handleFilterReset.bind(this);
-  }
-
-  static getDerivedStateFromProps(props, state) {
-    return state.items.length > 0
-      ? state
-      : {
-          items: [
-            {
-              title: 'Design Tokens',
-              id: 'design-tokens',
-              path: '/design-tokens',
-              isHeading: true,
-            },
-            ...props.context.designTokens,
-            {
-              title: 'Patterns',
-              id: 'patterns',
-              path: '/patterns',
-              isHeading: true,
-            },
-            ...props.context.patterns,
-            ...SecondaryNav.prepSectionLinks(props.context.sections),
-            {
-              title: 'Examples',
-              id: 'example-heading',
-              isHeading: true,
-              path: '/examples',
-            },
-          ],
-        };
   }
 
   componentDidMount() {
@@ -89,7 +60,16 @@ class SecondaryNav extends Component {
               path: '/patterns',
               isHeading: true,
             },
-            ...this.props.context.patterns,
+            {
+              title: '+ add new pattern',
+              id: 'new-pattern',
+              path: '/new-pattern',
+            },
+            ...this.props.context.patterns.map(pattern => ({
+              id: pattern.id,
+              title: pattern.meta.title,
+              path: urlJoin('/patterns', pattern.id),
+            })),
             {
               title: 'Examples',
               id: 'example-heading',
@@ -154,7 +134,7 @@ class SecondaryNav extends Component {
             </ClearFilterButton>
           </TypeToFilterInputWrapper>
         </TypeToFilter>
-        <NavList items={items} basePath="/patterns/components/" />
+        <NavList items={items} />
       </div>
     );
   }

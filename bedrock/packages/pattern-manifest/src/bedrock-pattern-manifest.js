@@ -1,3 +1,4 @@
+const os = require('os');
 const fs = require('fs-extra');
 const { join } = require('path');
 const globby = require('globby');
@@ -5,14 +6,18 @@ const {
   validateSchemaAndAssignDefaults,
 } = require('@basalt/bedrock-schema-utils');
 const chokidar = require('chokidar');
-const patternMetaSchema = require('./pattern-meta.schema.json');
+const patternSchema = require('./pattern.schema');
+const patternMetaSchema = require('./pattern-meta.schema');
+const patternTemplates = require('./pattern-templates');
 
 class BedrockPatternManifest {
   /**
-   * @param {Object} options - Options
-   * @param {string[]} options.patternPaths - Array of path strings for patterns
+   * @param {Object} config - Options
+   * @param {string[]} config.patternPaths - Array of path strings for patterns
    */
-  constructor({ patternPaths }) {
+  constructor(config) {
+    this.config = config;
+    const { patternPaths } = config;
     this.patternsDirs = globby
       .sync(patternPaths, {
         expandDirectories: true,
@@ -21,7 +26,10 @@ class BedrockPatternManifest {
       .filter(thePath => fs.statSync(thePath).isDirectory());
 
     this.getPatterns = this.getPatterns.bind(this);
+    this.getPattern = this.getPattern.bind(this);
     this.getPatternMeta = this.getPatternMeta.bind(this);
+    this.setPatternMeta = this.setPatternMeta.bind(this);
+    this.createPatternFiles = this.createPatternFiles.bind(this);
     this.createPatternsData = this.createPatternsData.bind(this);
     this.updatePatternsData = this.updatePatternsData.bind(this);
     this.watch = this.watch.bind(this);
@@ -42,25 +50,54 @@ class BedrockPatternManifest {
       try {
         // eslint-disable-next-line
         const pattern = require(dir);
-        if (pattern.meta) {
+        if (pattern) {
           const results = validateSchemaAndAssignDefaults(
-            patternMetaSchema,
-            pattern.meta,
+            patternSchema,
+            pattern,
           );
           if (!results.ok) {
             const name = dir.split('/').pop();
             console.log();
             console.error(
-              `Error! Pattern Meta Schema validation failed for "${name}"`,
+              `Error! Pattern Schema validation failed for "${name}"`,
               results.message,
             );
             console.error(
-              'Review the "meta" export from "index.js" in that folder and compare to "pattern-meta.schema.json"',
+              'Review the "index.js" in that folder and compare to "pattern.schema.json"',
             );
             console.log();
             process.exit(1);
           }
-          patterns.push(results.data);
+
+          const metaFilePath = join(dir, pattern.metaFilePath);
+          // eslint-disable-next-line
+          const patternMeta = require(metaFilePath);
+          const metaResults = validateSchemaAndAssignDefaults(
+            patternMetaSchema,
+            patternMeta,
+          );
+          if (!metaResults.ok) {
+            const name = dir.split('/').pop();
+            console.log();
+            console.error(
+              `Error! Pattern Schema validation failed for "${name}"`,
+              results.message,
+            );
+            console.error(
+              `Review the "${
+                pattern.metaFilePath
+              }" in that folder and compare to "pattern.schema.json"`,
+              metaFilePath,
+            );
+            console.log();
+            process.exit(1);
+          }
+
+          patterns.push({
+            ...results.data,
+            metaFilePath, // replaces original relative one with absolute path
+            meta: metaResults.data,
+          });
         }
       } catch (e) {
         // if it failed it's b/c it didn't have a `index.js` to grab; that's ok
@@ -75,23 +112,66 @@ class BedrockPatternManifest {
   }
 
   /**
-   * Get Pattern Meta
+   * Get Pattern
    * @param {string} id - Which Pattern to get; i.e. `media-block`
-   * @returns {Object} - Meta info about it
+   * @returns {Object} -  info about it
    */
-  getPatternMeta(id) {
+  getPattern(id) {
     return this.allPatterns.find(p => p.id === id);
   }
 
   /**
    * Get Patterns
-   * @param {string} [type] - Type of Pattern (optional)
    * @returns {Object[]} - Collection of pattern meta
    */
-  getPatterns(type) {
-    return type
-      ? this.allPatterns.filter(p => p.type === type)
-      : this.allPatterns;
+  getPatterns() {
+    return this.allPatterns;
+  }
+
+  getPatternMeta(id) {
+    const pattern = this.getPattern(id);
+    return pattern.meta;
+  }
+
+  async setPatternMeta(id, meta) {
+    const pattern = this.getPattern(id);
+    try {
+      await fs.writeFile(
+        pattern.metaFilePath,
+        JSON.stringify(meta, null, '  ') + os.EOL,
+      );
+      return {
+        ok: true,
+        message: `Pattern Meta for ${id} saved successfully`,
+      };
+    } catch (error) {
+      return {
+        ok: false,
+        message: error.toString(),
+      };
+    }
+  }
+
+  async createPatternFiles(config) {
+    const dir = join(this.config.newPatternDir, config.id);
+    const exists = await fs.pathExists(dir);
+    if (exists) {
+      return {
+        ok: false,
+        message: `That directory already exists, not overwriting it. ${dir}`,
+      };
+    }
+    await fs.ensureDir(dir);
+
+    await patternTemplates.writeAllFiles(dir, config);
+
+    this.patternsDirs.push(dir);
+    this.updatePatternsData();
+
+    return {
+      ok: true,
+      message: `Created Pattern File in "${dir}"`,
+    };
   }
 
   watch(cb) {

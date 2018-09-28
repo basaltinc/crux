@@ -6,12 +6,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'avatar',
-  title: 'Avatar',
-  type: 'component',
-  description: "Show a person's profile picture.",
-  uses: ['inComponent'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_avatar.twig',
@@ -20,9 +17,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 's',
-};
-
-module.exports = {
-  meta,
 };

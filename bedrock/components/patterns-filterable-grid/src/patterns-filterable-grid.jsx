@@ -75,9 +75,7 @@ class PatternsPage extends Component {
 
   componentDidMount() {
     window
-      .fetch(
-        `${this.props.context.settings.urls.apiUrlBase}/patterns/component`,
-      )
+      .fetch(`${this.props.context.settings.urls.apiUrlBase}/patterns`)
       .then(res => res.json())
       .then(patterns => {
         this.setState({
@@ -99,7 +97,7 @@ class PatternsPage extends Component {
         const visibleStatuses = Object.keys(
           this.state.formData.statuses,
         ).filter(key => this.state.formData.statuses[key]);
-        return visibleStatuses.some(status => item.status === status);
+        return visibleStatuses.some(status => item.meta.status === status);
       })
       .filter(item => {
         // Filters based on "uses" param set within component index.js meta const declaration
@@ -107,7 +105,7 @@ class PatternsPage extends Component {
         const visibleUses = Object.keys(this.state.formData.uses).filter(
           key => this.state.formData.uses[key],
         );
-        return item.uses.some(use => visibleUses.includes(use));
+        return item.meta.uses.some(use => visibleUses.includes(use));
       });
 
     this.setState({

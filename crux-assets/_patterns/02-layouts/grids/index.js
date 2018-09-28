@@ -17,12 +17,9 @@ const uiSchema = {
   },
 };
 
-const meta = {
+module.exports = {
   id: 'smart-grid',
-  title: 'Smart Grid',
-  type: 'layout',
-  description: 'Flexible grid',
-  uses: ['inSlice', 'inComponent'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@layouts/_smart-grid.twig',
@@ -31,9 +28,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'full',
-};
-
-module.exports = {
-  meta,
 };

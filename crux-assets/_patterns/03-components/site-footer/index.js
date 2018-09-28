@@ -2,12 +2,9 @@ const schema = require('./site-footer-schema');
 
 const uiSchema = {};
 
-const meta = {
+module.exports = {
   id: 'site-footer',
-  title: 'Site Footer',
-  type: 'component',
-  description: 'A global site footer',
-  uses: ['inSlice'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_site-footer.twig',
@@ -16,9 +13,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'full',
-};
-
-module.exports = {
-  meta,
 };

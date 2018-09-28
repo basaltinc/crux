@@ -2,12 +2,9 @@ const schema = require('./social-schema');
 
 const uiSchema = {};
 
-const meta = {
+module.exports = {
   id: 'social',
-  title: 'Social',
-  type: 'component',
-  description: 'Collection of Social Media Icons',
-  uses: ['inComponent', 'inGrid'],
+  metaFilePath: './meta.json',
   templates: [
     {
       name: '@components/_social.twig',
@@ -16,9 +13,4 @@ const meta = {
       uiSchema,
     },
   ],
-  demoSize: 'm',
-};
-
-module.exports = {
-  meta,
 };

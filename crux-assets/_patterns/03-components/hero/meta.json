@@ -1,0 +1,7 @@
+{
+  "title": "Hero",
+  "type": "component",
+  "description": "The Hero component is a full width slab intended to draw the attention of the user.",
+  "uses": ["inSlice"],
+  "demoSize": "full"
+}

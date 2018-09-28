@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Spinner from '@basalt/bedrock-spinner';
-import { Details, Select } from '@basalt/bedrock-atoms';
+import { Details, Select, Button } from '@basalt/bedrock-atoms';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Overview from '@basalt/bedrock-overview';
@@ -32,9 +33,9 @@ class ComponentOverview extends Component {
       meta: {},
       ready: false,
     };
-    this.apiEndpoint = `${
-      props.context.settings.urls.apiUrlBase
-    }/pattern-meta/${props.id}`;
+    this.apiEndpoint = `${props.context.settings.urls.apiUrlBase}/pattern/${
+      props.id
+    }`;
     this.isDevMode = this.props.context.settings.isDevMode;
     this.websocketsPort = this.props.context.settings.websocketsPort;
     this.getData = this.getData.bind(this);
@@ -71,10 +72,11 @@ class ComponentOverview extends Component {
     window
       .fetch(this.apiEndpoint)
       .then(res => res.json())
-      .then(meta => {
+      .then(pattern => {
         this.setState({
-          meta,
-          currentTemplate: meta.templates[0],
+          meta: pattern.meta,
+          templates: pattern.templates,
+          currentTemplate: pattern.templates[0],
           ready: true,
         });
       });
@@ -85,8 +87,9 @@ class ComponentOverview extends Component {
     if (!this.state.ready) {
       content = <Spinner />;
     } else {
-      const { title, description, type, templates, demoSize } = this.state.meta;
-      const { name, schema, uiSchema, isInline } = this.state.currentTemplate;
+      const { templates, meta, currentTemplate } = this.state;
+      const { title, description, type, demoSize } = meta;
+      const { name, schema, uiSchema, isInline } = currentTemplate;
       const [data, ...examples] = schema.examples ? schema.examples : [{}];
       const dosAndDonts = schema.dosAndDonts ? schema.dosAndDonts : [];
       content = (
@@ -111,6 +114,10 @@ class ComponentOverview extends Component {
                 }}
               />
             )}
+            <br />
+            <Link to={`/patterns/${this.props.id}/edit`}>
+              <Button>Edit</Button>
+            </Link>
           </OverviewHeader>
           <Overview
             template={name}

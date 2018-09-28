@@ -51,7 +51,7 @@ class PatternGridItem extends React.Component {
           to={
             this.props.pattern.path
               ? this.props.pattern.path
-              : `/patterns/components/${this.props.pattern.id}`
+              : `/patterns/${this.props.pattern.id}`
           }
         >
           <PatternGridItemThumb
@@ -63,10 +63,10 @@ class PatternGridItem extends React.Component {
             onError={this.handleMissingImg}
           />
           <PatternGridItemTitle>
-            {this.props.pattern.title}
+            {this.props.pattern.meta.title}
           </PatternGridItemTitle>
           <PatternGridItemDescription>
-            {this.props.pattern.description}
+            {this.props.pattern.meta.description}
           </PatternGridItemDescription>
         </Link>
       </StyledPatternGridItem>
@@ -81,14 +81,14 @@ function PatternGridListItem(props) {
         to={
           props.pattern.path
             ? props.pattern.path
-            : `/patterns/components/${props.pattern.id}`
+            : `/patterns/${props.pattern.id}`
         }
       >
         <PatternGridListItemTitle>
-          {props.pattern.title}
+          {props.pattern.meta.title}
         </PatternGridListItemTitle>
         <PatternGridListItemDescription>
-          {props.pattern.description}
+          {props.pattern.meta.description}
         </PatternGridListItemDescription>
       </Link>
     </StyledPatternGridListItem>
@@ -145,6 +145,10 @@ PatternGridItem.propTypes = {
     description: PropTypes.string,
     path: PropTypes.string,
     hasIcon: PropTypes.bool,
+    meta: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+    }).isRequired,
   }).isRequired,
   context: contextPropTypes.isRequired,
 };
@@ -156,6 +160,10 @@ PatternGridListItem.propTypes = {
     description: PropTypes.string,
     path: PropTypes.string,
     hasIcon: PropTypes.bool,
+    meta: PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+    }).isRequired,
   }).isRequired,
 };
 
