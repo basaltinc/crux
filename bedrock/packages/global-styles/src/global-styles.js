@@ -14,7 +14,7 @@ const GlobalStyles = createGlobalStyle`
     }
     @media screen and (min-width: 380px) {
       html {
-        font-size: calc${props => props.theme.fonts.sizes.s};
+        font-size: calc(${props => props.theme.fonts.sizes.s});
       }
     }
     @media screen and (min-width: 1300px) {
