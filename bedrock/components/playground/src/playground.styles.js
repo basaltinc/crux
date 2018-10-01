@@ -172,8 +172,10 @@ export const PlaygroundSliceWrapper = styled.div`
   flex-direction: row-reverse;
   align-items: center;
   box-sizing: border-box;
-  border: solid 2px
-    ${props => (props.active ? props.theme.colors.active : 'rgba(0,0,0,0)')};
-  ${props => (props.hasVisibleControls ? '' : 'margin: 1.5rem;')};
+  ${props =>
+    props.active && props.hasVisibleControls
+      ? `border: solid 2px ${props.theme.colors.active};`
+      : 'border: none;'};
+  ${props => (props.hasVisibleControls ? 'margin: 1.5rem;' : '')};
   ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};
 `;
