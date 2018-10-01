@@ -55,10 +55,9 @@ export default class SchemaForm extends React.Component {
       >
         {!this.props.hasSubmit && <span />}
         {this.props.hasSubmit && (
-          <Button
-            onClick={this.props.onSubmit}
-            primary
-          >Submit</Button>
+          <Button onClick={this.props.onSubmit} primary>
+            Submit
+          </Button>
         )}
       </Form>
     );
