@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import SchemaForm from '@basalt/bedrock-schema-form';
-import { StatusMessage } from '@basalt/bedrock-atoms';
+import { StatusMessage, Button } from '@basalt/bedrock-atoms';
 import patternMetaSchema from '@basalt/bedrock-pattern-manifest/src/pattern-meta.schema';
 import urlJoin from 'url-join';
 
