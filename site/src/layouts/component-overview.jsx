@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Spinner from '@basalt/bedrock-spinner';
-import { Details, Select, Button } from '@basalt/bedrock-atoms';
+import { Details, Select } from '@basalt/bedrock-atoms';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import Overview from '@basalt/bedrock-overview';
@@ -114,10 +113,6 @@ class ComponentOverview extends Component {
                 }}
               />
             )}
-            <br />
-            <Link to={`/patterns/${this.props.id}/edit`}>
-              <Button>Edit</Button>
-            </Link>
           </OverviewHeader>
           <Overview
             template={name}
@@ -128,6 +123,7 @@ class ComponentOverview extends Component {
             size={demoSize}
             key={name}
             isInline={isInline}
+            id={this.props.id}
           />
 
           {examples && (

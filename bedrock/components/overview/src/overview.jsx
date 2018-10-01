@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import SchemaForm from '@basalt/bedrock-schema-form';
 import { Button, Select } from '@basalt/bedrock-atoms';
 import CodeBlock from '@basalt/bedrock-code-block';
@@ -71,7 +72,7 @@ class Overview extends React.Component {
               items={sizes}
               value={this.state.size}
               handleChange={size => this.setState({ size })}
-              label="Adjust Demo Stage"
+              label="Stage Size"
             />
             <Button
               type="button"
@@ -82,8 +83,11 @@ class Overview extends React.Component {
                 }))
               }
             >
-              Toggle Fullscreen
+              {this.state.fullScreen ? 'Show Controls' : 'Fullscreen'}
             </Button>
+            <Link to={`/patterns/${this.props.id}/edit`}>
+              <Button>Edit Meta</Button>
+            </Link>
           </DemoGridControls>
         </FlexWrapper>
         <DemoGrid size={this.state.size}>
