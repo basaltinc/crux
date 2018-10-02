@@ -2,6 +2,7 @@ import React from 'react';
 import PT from 'prop-types';
 import Form from 'react-jsonschema-form';
 import uuid from 'uuid/v4';
+import { Button } from '@basalt/bedrock-atoms';
 import ObjectFieldTemplate from './custom-templates/custom-object';
 import CustomArrayField from './custom-templates/array-field';
 import CustomField from './custom-templates/custom-field';
@@ -53,6 +54,11 @@ export default class SchemaForm extends React.Component {
         isInline={this.props.isInline}
       >
         {!this.props.hasSubmit && <span />}
+        {this.props.hasSubmit && (
+          <Button onClick={this.props.onSubmit} primary>
+            Submit
+          </Button>
+        )}
       </Form>
     );
   }

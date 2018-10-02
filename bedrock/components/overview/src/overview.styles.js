@@ -80,7 +80,7 @@ export const DemoGridControls = styled.div`
   align-items: center;
   margin-bottom: 1.5rem;
   > * {
-    margin-bottom: 0;
+    margin: 0 0.25rem;
   }
   .button {
     min-height: 33px;
