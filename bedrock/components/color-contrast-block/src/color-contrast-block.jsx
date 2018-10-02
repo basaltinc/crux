@@ -71,7 +71,7 @@ class ColorContrastBlock extends React.Component {
     });
   }
 
-  async getColorContrast(bg, text) {
+  static async getColorContrast(bg, text) {
     const bgValue = convertColor(bg, 'hex').slice(1);
     const txtValue = convertColor(text, 'hex').slice(1);
 

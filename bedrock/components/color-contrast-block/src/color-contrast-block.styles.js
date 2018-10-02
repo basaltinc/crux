@@ -115,7 +115,8 @@ export const RowWrapper = styled.div`
 
 export const Fade = styled.div`
   grid-column: 2 / 4;
-  background-color: ${props => (props.comparedColor ? props.comparedColor : 'auto')};
+  background-color: ${props =>
+    props.comparedColor ? props.comparedColor : 'auto'};
   background: linear-gradient(
     to right,
     ${props => (props.comparedColor ? props.comparedColor : 'auto')} 40%,
