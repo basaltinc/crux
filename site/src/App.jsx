@@ -9,10 +9,13 @@ import styled, { ThemeProvider } from 'styled-components';
 import Spinner from '@basalt/bedrock-spinner';
 import GlobalStyles from '@basalt/bedrock-global-styles';
 import ErrorCatcher from '@basalt/bedrock-error-catcher';
-import { BedrockContextProvider, baseContext } from '@basalt/bedrock-core';
+import {
+  BedrockContextProvider,
+  baseContext,
+  plugins,
+} from '@basalt/bedrock-core';
 import merge from 'lodash.merge';
 import Header from './components/header';
-import HomeSplash from './components/home-splash';
 import Footer from './components/footer';
 import {
   LoadableAnimations,
@@ -32,6 +35,7 @@ import {
   LoadableTypography,
   LoadablePatternEdit,
   LoadablePatternNew,
+  LoadableHome,
 } from './loadable-components';
 
 const Site = styled.div`
@@ -65,6 +69,10 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
+    plugins.loadPlugins({
+      sayHi: () => console.log('hi from plugin api'),
+    });
+
     const results = await Promise.all([
       window
         .fetch(`${this.apiEndpoint}/patterns`)
@@ -150,7 +158,16 @@ class App extends React.Component {
                     <MainContent>
                       <ErrorCatcher>
                         <Switch>
-                          <Route path="/" component={HomeSplash} exact />
+                          <Route
+                            path="/"
+                            exact
+                            render={() => {
+                              if (plugins.homePage) {
+                                return plugins.homePage.render();
+                              }
+                              return <LoadableHome />;
+                            }}
+                          />
                           <Route
                             path="/examples/:id"
                             render={({ match }) => (
