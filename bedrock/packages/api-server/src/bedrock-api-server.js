@@ -21,7 +21,7 @@ class BedrockApiServer {
 
     this.app.use(bodyParser.json());
 
-    this.app.use(this.config.baseUrl, (req, res, next) => {
+    this.app.use('*', (req, res, next) => {
       res.header('Access-Control-Allow-Origin', '*');
       res.header(
         'Access-Control-Allow-Headers',
