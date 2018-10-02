@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { convertColor, colorContrastTester } from '@basalt/bedrock-utils';
+import { convertColor } from '@basalt/bedrock-utils';
 import { Details, Select } from '@basalt/bedrock-atoms';
 import {
   ColorContrastPlayground,
@@ -19,6 +19,7 @@ import {
   RowWrapper,
   Fade,
 } from './color-contrast-block.styles';
+import Spinner from '../../spinner';
 
 class ColorContrastBlock extends React.Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class ColorContrastBlock extends React.Component {
     this.state = {
       bgColor: 'white',
       textColor: 'black',
+      isReady: false,
       contrast: {
         aa: '',
         aaa: '',
@@ -33,14 +35,52 @@ class ColorContrastBlock extends React.Component {
         aaLarge: '',
         ratio: '',
       },
+      allResults: {},
     };
     this.checkColorContrast = this.checkColorContrast.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
-    // this.newColorContrast = this.newColorContrast.bind(this);
+    this.getColorContrast = this.getColorContrast.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.checkColorContrast();
+    const colors = this.props.bgColors;
+    const results = await Promise.all(
+      colors.map(async bgColor => {
+        const comparisonResults = await Promise.all(
+          colors
+            .filter(comparedColor => comparedColor.value !== bgColor.value)
+            .map(async comparedColor => ({
+              comparedColor,
+              contrast: await this.getColorContrast(
+                bgColor.value,
+                comparedColor.value,
+              ),
+            })),
+        );
+        return {
+          bgColor,
+          comparisonResults,
+        };
+      }),
+    ).catch(error => console.error('Error in Promise.all', error));
+    console.log('Promise.all done', { results });
+
+    this.setState({
+      allResults: results,
+      isReady: true,
+    });
+  }
+
+  async getColorContrast(bg, text) {
+    const bgValue = convertColor(bg, 'hex').slice(1);
+    const txtValue = convertColor(text, 'hex').slice(1);
+
+    const url = `https://webaim.org/resources/contrastchecker/?fcolor=${txtValue}&bcolor=${bgValue}&api`;
+    const result = await window
+      .fetch(url)
+      .then(res => res.json())
+      .catch(error => console.error(error));
+    return result;
   }
 
   checkColorContrast() {
@@ -65,60 +105,35 @@ class ColorContrastBlock extends React.Component {
       });
   }
 
-  // newColorContrast(color, color2) {
-  //   const bgValue = convertColor(color, 'hex').slice(1);
-  //   const txtValue = convertColor(color2, 'hex').slice(1);
-  //
-  //   const url = `https://webaim.org/resources/contrastchecker/?fcolor=${txtValue}&bcolor=${bgValue}&api`;
-  //
-  //   window
-  //     .fetch(url)
-  //     .then(res => res.json())
-  //     .then(results => results);
-  // }
-
   render() {
-    const colorBlocks = this.props.bgColors.map(color => (
-      <ColorContrast key={color.value} color={color.value}>
-        <ContrastInner key={color.name}>
-          <h3>{color.name}</h3>
+    if (!this.state.isReady) {
+      return <Spinner />;
+    }
+    const colorBlocks = this.state.allResults.map(result => (
+      <ColorContrast key={result.bgColor.value} color={result.bgColor.value}>
+        <ContrastInner key={result.bgColor.name} testing="testing">
+          <h3>{result.bgColor.name}</h3>
           <p className="col col--1">Ratio</p>
           <p className="col col--2">AA</p>
           <p className="col col--3">AAA</p>
           <p className="col col--4">AA Large</p>
           <p className="col col--5">AAA Large</p>
-          <ColorBlock
-            color={color.value}
-            number={this.props.bgColors.length - 1}
-          />
+          <ColorBlock color={result.bgColor.value} />
           <RowWrapper>
-            {this.props.bgColors
-              .filter(color2 => color2.value !== color.value)
-              .map(color2 => (
-                <ColorCompare
-                  color={color.value}
-                  key={color2.value}
-                  color2={color2.value}
-                  jk={color2}
-                  // results={colorContrastTester(color.value, color2.value)}
-                  // testing={colorContrastTester(color.value, color2.value)}
-                >
-                  {/* {console.log(colorContrastTester(color.value, color2.value))} */}
-                  {/* {console.log()} */}
-                  {/* {this.props.contrastResults.ratio} */}
-                  <Fade color2={color2.value} />
-                  <Results>10.9</Results>
-                  <Results>Pass</Results>
-                  <Results>Pass</Results>
-                  <Results>Fail</Results>
-                  <Results>Pass</Results>
-                  {/* <Results>{results.ratio}</Results> */}
-                  {/* <Results>{results.AAA}</Results> */}
-                  {/* <Results>{results.AA}</Results> */}
-                  {/* <Results>{results.AAALarge}</Results> */}
-                  {/* <Results>{results.AALarge}</Results> */}
-                </ColorCompare>
-              ))}
+            {result.comparisonResults.map(compared => (
+              <ColorCompare
+                color={result.bgColor.value}
+                key={compared.comparedColor.value}
+                comparedColor={compared.comparedColor.value}
+              >
+                <Fade comparedColor={compared.comparedColor.value} />
+                <Results>{compared.contrast.ratio}</Results>
+                <Results>{compared.contrast.AAA}</Results>
+                <Results>{compared.contrast.AA}</Results>
+                <Results>{compared.contrast.AAALarge}</Results>
+                <Results>{compared.contrast.AALarge}</Results>
+              </ColorCompare>
+            ))}
           </RowWrapper>
         </ContrastInner>
       </ColorContrast>

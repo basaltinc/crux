@@ -5,12 +5,14 @@ import ColorContrastBlock from '@basalt/bedrock-color-contrast-block';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
+import Spinner from "../../spinner";
 
 class ColorsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       colors: [],
+      ready: false,
     };
     this.apiEndpoint = `${
       props.context.settings.urls.apiUrlBase
@@ -22,11 +24,14 @@ class ColorsPage extends React.Component {
       .fetch(this.apiEndpoint)
       .then(res => res.json())
       .then(colors => {
-        this.setState({ colors });
+        this.setState({ colors, ready: true });
       });
   }
 
   render() {
+    if (!this.state.ready) {
+      return <Spinner />;
+    }
     return (
       <div className="docs">
         <div className="body">
