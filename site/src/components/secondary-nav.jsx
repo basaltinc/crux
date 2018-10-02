@@ -53,7 +53,11 @@ class SecondaryNav extends Component {
               path: '/design-tokens',
               isHeading: true,
             },
-            ...this.props.context.designTokens,
+            ...this.props.context.designTokens.map(designToken => ({
+              id: designToken.id,
+              title: designToken.meta.title,
+              path: urlJoin('/design-tokens', designToken.id),
+            })),
             {
               title: 'Patterns',
               id: 'patterns',
