@@ -4,7 +4,7 @@ export const OuterSwatch = styled.div`
   width: 49%;
   margin-bottom: 10px;
   padding: 5px;
-  border: solid 1px ${props => props.theme.colors.neutral};
+  border: solid 1px ${props => props.theme.globals.colors.neutral};
   > div {
     position: relative;
   }
@@ -16,7 +16,7 @@ export const OuterSwatch = styled.div`
 export const InnerSwatch = styled.div`
   height: 50px;
   background-color: ${props => (props.colorValue ? props.colorValue : 'auto')};
-  border: solid 1px ${props => props.theme.colors.neutral};
+  border: solid 1px ${props => props.theme.globals.colors.neutral};
 `;
 
 export const RightLabel = styled.div`

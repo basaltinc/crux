@@ -31,8 +31,8 @@ export const VariationItemExpanded = styled.div`
 export const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: ${props => props.theme.borders.radius};
-  border-top-left-radius: ${props => props.theme.borders.radius};
+  border-top-right-radius: ${props => props.theme.globals.borders.radius};
+  border-top-left-radius: ${props => props.theme.globals.borders.radius};
   padding: 30px;
   line-height: 1;
   position: relative;
@@ -42,7 +42,7 @@ export const HeaderRegion = styled.div`
 `;
 
 export const HeaderInner = styled.div`
-  font-family: ${props => props.theme.fonts.families.avenir.medium};
+  font-family: ${props => props.theme.globals.fonts.avenir.medium};
   cursor: pointer;
   position: absolute;
   color: ${props => props.colorTheme};

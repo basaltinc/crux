@@ -69,7 +69,7 @@ export const FormIconButton = styled.div`
 
 export const FormIconTray = styled.div`
   box-sizing: border-box;
-  border: ${props => props.theme.borders.border};
+  border: ${props => props.theme.globals.borders.border};
   display: inline-flex;
   padding: 5px 8px;
 `;
@@ -80,7 +80,7 @@ export const FormArrayItem = styled.div`
     margin-bottom: 0;
   }
   &:nth-child(odd) {
-    background-color: ${props => props.theme.colors.neutralXLight};
+    background-color: ${props => props.theme.globals.colors.neutralXLight};
   }
   .field {
     padding-right: 0.25rem;
@@ -128,7 +128,7 @@ export const Toggle = styled.div`
     text-indent: -9999px;
     width: 50px;
     height: 25px;
-    background: ${props => props.theme.colors.neutralLight};
+    background: ${props => props.theme.globals.colors.neutralLight};
     display: block;
     border-radius: 50px;
     position: relative;
@@ -147,7 +147,7 @@ export const Toggle = styled.div`
   }
 
   input:checked + span {
-    background: ${props => props.theme.colors.active};
+    background: ${props => props.theme.globals.colors.active};
   }
 
   input:checked + span:after {

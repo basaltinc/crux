@@ -24,7 +24,7 @@ class SpacingSwatches extends React.Component {
   }
 
   render() {
-    const { accentColor } = this.props.context.theme.colors;
+    const { accentColor } = this.props.context.theme.globals.colors;
     const spaceSwatches = this.props.spaces.map(space => (
       <SpacingSwatch key={space.name} space={space} color={accentColor} />
     ));

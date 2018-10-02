@@ -8,7 +8,7 @@ export const PatternGridList = styled.ul`
 
 export const StyledPatternGridListItem = styled.li`
   margin-top: ${props => props.theme.spacing.m};
-  border-left: 3px solid ${props => props.theme.colors.neutral_light};
+  border-left: 3px solid ${props => props.theme.globals.colors.neutral_light};
   padding: ${props => props.theme.spacing.s} ${props => props.theme.spacing.m};
   width: 50%;
   display: inline-block;
@@ -24,9 +24,8 @@ export const PatternGridListItemTitle = styled.h3`
 `;
 
 export const PatternGridListItemDescription = styled.div`
-  font-family: ${props => props.theme.fonts.families.avenir.light};
   line-height: 1.25;
-  font-size: ${props => props.theme.fonts.sizes.s};
-  color: ${props => props.theme.colors.color.gray.dark};
+  font-size: calc(${props => props.theme.globals.fontSize} * 0.88);
+  color: ${props => props.theme.globals.colors.neutralDark};
   font-style: italic;
 `;

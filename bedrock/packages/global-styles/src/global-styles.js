@@ -7,28 +7,21 @@ const GlobalStyles = createGlobalStyle`
     @charset "UTF-8";
     ${addGlobalFonts}
     * {
-      box-sizing: border-box;
+      box-sizing: ${props => props.theme.globals.boxSizing};
     }
-    html {
-      font-size: ${props => props.theme.fonts.sizes.xs};
-    }
-    @media screen and (min-width: 380px) {
-      html {
-        font-size: calc(${props => props.theme.fonts.sizes.s});
-      }
-    }
-    @media screen and (min-width: 1300px) {
-      html {
-        font-size: ${props => props.theme.fonts.sizes.m};
-      }
+    .eyebrow {
+      color: ${props => props.theme.eyebrow.color};
+      font-size: ${props => props.theme.eyebrow.fontSize};
+      font-family: ${props => props.theme.eyebrow.fontFamily};
+      margin-bottom: 0;
     }
     body {
-      font-family: ${props => props.theme.fonts.families.avenir.light};
-      color: black;
-      font-size: ${props => props.theme.fonts.sizes.body};
-      line-height: 1.5;
-      margin: 0;
-      padding: 0;
+      color: ${props => props.theme.body.color};
+      font-family: ${props => props.theme.body.fontFamily};
+      font-size: ${props => props.theme.body.fontSize};
+      line-height: ${props => props.theme.body.lineHeight};
+      margin: ${props => props.theme.body.margin};
+      padding: ${props => props.theme.body.padding};
     }
     img {
       max-width: 100%;

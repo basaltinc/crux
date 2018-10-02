@@ -6,7 +6,7 @@ export const DosAndDontsPanelStyled = styled.figure`
   align-items: center;
   > div {
     margin-bottom: 1rem;
-    background-color: ${props => props.theme.colors.color.gray.xxlight};
+    background-color: ${props => props.theme.globals.colors.neutralXLight};
     > img {
       border-bottom: solid 8px;
       max-width: 100%;
@@ -30,7 +30,7 @@ export const DosAndDontsPanelStyled = styled.figure`
 `;
 
 export const DosAndDontsWrapper = styled.div`
-  background-color: ${props => props.theme.colors.color.gray.xxlight};
+  background-color: ${props => props.theme.globals.colors.neutralXLight};
   padding: 1rem 0;
   max-width: 1500px;
   margin: 1rem auto;

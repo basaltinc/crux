@@ -1,9 +1,15 @@
 export const addGlobalTypography = theme => `
-      .eyebrow {
-        color: ${theme.eyebrow.color};
-        font-size: ${theme.eyebrow.fontSize};
-        font-family: ${theme.eyebrow.fontFamily};
-        margin-bottom: 0;
+      html {
+        font-size: calc(${props => props.theme.globals.fontSize} * 0.77);
+     
+        @media screen and (min-width: ${props =>
+          props.theme.globals.breakpoints.small}) {
+            font-size: calc(${props => props.theme.globals.fontSize} * 0.88);
+        }
+        @media screen and (min-width: ${props =>
+          props.theme.globals.breakpoints.xlarge}) {
+            font-size: ${props => props.theme.globals.fontSize};
+        }
       }
       h1, .h1 {
         color: ${theme.headings.h1.color};

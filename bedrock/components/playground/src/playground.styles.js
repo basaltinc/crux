@@ -53,7 +53,7 @@ function noIconStyles(props) {
     return `
     background: #FFF;
     padding: ${props.theme.spacing.s};
-    border: 1px solid ${props.theme.colors.neutralLight};
+    border: 1px solid ${props.theme.globals.colors.neutralLight};
   `;
 }
 export const PatternListItemWrapper = styled.li`
@@ -65,9 +65,8 @@ export const PatternListItemWrapper = styled.li`
     filter: grayscale(0%);
   }
   h5 {
-    color: ${props => props.theme.colors.primary};
-    font-size: ${props =>
-      props.thumb ? 'inherit' : props.theme.fonts.sizes.m};
+    color: ${props => props.theme.globals.colors.primary};
+    font-size: ${props => (props.thumb ? 'inherit' : '1rem')};
     margin: ${props =>
       props.thumb ? `0 0 ${props.theme.spacing.s}` : '0 0 4px'};
     white-space: nowrap;
@@ -82,7 +81,7 @@ export const PatternListItemWrapper = styled.li`
   a:link,
   a:visited {
     color: ${props => props.theme.links.color};
-    font-size: ${props => props.theme.fonts.sizes.xxs};
+    font-size: calc(${props => props.theme.globals.fontSize} * 0.61);
     text-decoration: none;
     transition: ${props => props.theme.transition.all};
   }
@@ -97,10 +96,9 @@ export const PatternListItemThumb = styled.img`
 `;
 
 export const PatternListItemDescription = styled.div`
-  font-family: ${props => props.theme.fonts.families.avenir.light};
   line-height: 1.25;
-  font-size: ${props => props.theme.fonts.sizes.xxs};
-  color: ${props => props.theme.colors.color.gray.dark};
+  font-size: 11px;
+  color: ${props => props.theme.globals.colors.neutralDark};
   font-style: italic;
   margin-bottom: 2px;
 `;
@@ -158,7 +156,7 @@ export const briefHighlight = keyframes`
 
 export const PlaygroundIconWrapper = styled.div`
   box-sizing: border-box;
-  border: ${props => props.theme.borders.border};
+  border: ${props => props.theme.globals.borders.border};
   margin-bottom: 0;
   display: ${props => (props.hasVisibleControls ? 'block' : 'none')};
   height: 100%;
@@ -174,7 +172,7 @@ export const PlaygroundSliceWrapper = styled.div`
   box-sizing: border-box;
   ${props =>
     props.active && props.hasVisibleControls
-      ? `border: solid 2px ${props.theme.colors.active};`
+      ? `border: solid 2px ${props.theme.globals.colors.active};`
       : 'border: none;'};
   ${props => (props.hasVisibleControls ? 'margin: 1.5rem;' : '')};
   ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};

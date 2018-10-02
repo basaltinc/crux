@@ -50,7 +50,7 @@ export const CustomFieldWrapper = styled.div`
       padding: 0.5rem 0.5rem 0 0;
     }
     .field-object > label {
-      font-size: ${props => props.theme.fonts.sizes.s};
+      font-size: calc(${props => props.theme.globals.fontSize} * 0.88);
       font-weight: bold;
       color: black;
     }

@@ -14,9 +14,11 @@ export const DemoBlock = styled.div`
   }
   blockquote[contenteditable]:hover,
   blockquote[contenteditable]:focus {
-    border-top: 1px dashed ${props => props.theme.colors.neutral_light};
-    border-right: 1px dashed ${props => props.theme.colors.neutral_light};
-    border-bottom: 1px dashed ${props => props.theme.colors.neutral_light};
+    border-top: 1px dashed ${props => props.theme.globals.colors.neutral_light};
+    border-right: 1px dashed
+      ${props => props.theme.globals.colors.neutral_light};
+    border-bottom: 1px dashed
+      ${props => props.theme.globals.colors.neutral_light};
   }
   [contenteditable]:not(blockquote) {
     border: 1px dashed transparent;
@@ -24,6 +26,6 @@ export const DemoBlock = styled.div`
   }
   [contenteditable]:not(blockquote):hover,
   [contenteditable]:not(blockquote):focus {
-    border: 1px dashed ${props => props.theme.colors.neutral_light};
+    border: 1px dashed ${props => props.theme.globals.colors.neutral_light};
   }
 `;

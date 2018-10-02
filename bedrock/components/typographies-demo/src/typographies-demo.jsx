@@ -29,16 +29,18 @@ const TypographyChildrenDemoWrapper = styled.div`
     transition: ${props => props.theme.transition.all};
   }
   blockquote[contenteditable]:hover {
-    border-top: 1px dashed ${props => props.theme.colors.neutral_light};
-    border-right: 1px dashed ${props => props.theme.colors.neutral_light};
-    border-bottom: 1px dashed ${props => props.theme.colors.neutral_light};
+    border-top: 1px dashed ${props => props.theme.globals.colors.neutral_light};
+    border-right: 1px dashed
+      ${props => props.theme.globals.colors.neutral_light};
+    border-bottom: 1px dashed
+      ${props => props.theme.globals.colors.neutral_light};
   }
   [contenteditable]:not(blockquote) {
     border: 1px dashed transparent;
     transition: ${props => props.theme.transition.all};
   }
   [contenteditable]:not(blockquote):hover {
-    border: 1px dashed ${props => props.theme.colors.neutral_light};
+    border: 1px dashed ${props => props.theme.globals.colors.neutral_light};
   }
 `;
 
@@ -46,7 +48,7 @@ const FontSizeDemo = styled.div`
   font-size: ${props => props.fontSize};
   border-bottom: ${props =>
     props.length !== props.index
-      ? `1px dotted ${props.theme.colors.neutral_light}`
+      ? `1px dotted ${props.theme.globals.colors.neutral_light}`
       : ''};
   padding-bottom: ${props =>
     props.length !== props.index ? props.theme.spacing.m : ''};
@@ -61,7 +63,7 @@ const FontSizeDemo = styled.div`
 const HeadingsDemo = styled.div`
   border-bottom: ${props =>
     props.length !== props.index
-      ? `1px dotted ${props.theme.colors.neutral_light}`
+      ? `1px dotted ${props.theme.globals.colors.neutral_light}`
       : ''};
   padding-bottom: ${props =>
     props.length !== props.index ? props.theme.spacing.l : ''};

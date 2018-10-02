@@ -86,13 +86,6 @@ export const forms = {
 };
 
 export const baseTheme = {
-  borders: {
-    color: colors.gray.light,
-    radius: '0',
-    style: 'solid',
-    border: `${colors.gray.light} solid 1px`,
-  },
-  breakpoint: breakpoints,
   blockquote: {
     border: `1px solid ${colors.gray.xlight}`,
     borderLeft: `3px solid ${colors.gray.xlight}`,
@@ -111,6 +104,14 @@ export const baseTheme = {
       width: '80px',
     },
   },
+  body: {
+    color: 'black',
+    fontFamily: fontFamilies.avenir.light,
+    fontSize: '1rem',
+    lineHeight: '1.5',
+    margin: '0',
+    padding: '0',
+  },
   buttons: {
     border: 'none',
     cursor: 'pointer',
@@ -124,19 +125,6 @@ export const baseTheme = {
       color: 'black',
       background: '#f2f3f3',
     },
-  },
-  colors: {
-    accent: colors.yellow.base,
-    active: colors.yellow.base,
-    color: colors,
-    type: typeColors,
-    primary: colors.blue.base,
-    secondary: colors.green.base,
-    neutralXLight: colors.gray.xxlight,
-    neutralLight: colors.gray.xlight,
-    neutral: colors.gray.base,
-    neutralDark: colors.gray.xlight,
-    neutralXDark: colors.gray.xlight,
   },
   details: {
     borderTop: `solid 1px ${colors.gray.dark}`,
@@ -156,45 +144,39 @@ export const baseTheme = {
   footer: {
     background: colors.blue.base,
   },
+  globals: {
+    borders: {
+      color: colors.gray.light,
+      radius: '0',
+      style: 'solid',
+      border: `${colors.gray.light} solid 1px`,
+    },
+    boxSizing: 'border-box',
+    breakpoints,
+    colors: {
+      accent: colors.yellow.base,
+      active: colors.yellow.base,
+      primary: colors.blue.base,
+      secondary: colors.green.base,
+      success: colors.green.base,
+      warning: colors.yellow.base,
+      error: colors.red.ghost,
+      info: colors.blue.light,
+      neutral: colors.gray.base,
+      neutralLight: colors.gray.xlight,
+      neutralXLight: colors.gray.xxlight,
+      neutralDark: colors.gray.xlight,
+      neutralXDark: colors.gray.xlight,
+    },
+    fontSize: '18px',
+    fonts: fontFamilies,
+  },
   header: {
     accentColor: colors.yellow.base,
     background: colors.blue.base,
     fontFamily: fontFamilies.avenir.medium,
   },
-  input: {
-    fontSize: '0.75rem',
-    height: forms.height,
-    border: `1px solid ${colors.gray.xlight}`,
-    padding: '3px 8px',
-  },
-  links: {
-    color: colors.blue.base,
-    textDecoration: 'none',
-    hover: {
-      color: colors.blue.base,
-      textDecoration: 'underline',
-    },
-    visited: {
-      color: colors.blue.base,
-      textDecoration: 'underline',
-    },
-  },
-  lists: {
-    margin: '0 0 1rem',
-  },
-  fonts: {
-    families: fontFamilies,
-    sizes: {
-      xxs: '11px',
-      xs: '14px',
-      s: '16px',
-      m: '18px',
-      body: '1rem',
-    },
-  },
   headings: {
-    line_height: '1.25',
-    margin: '0 0 1rem',
     h1: {
       color: colors.blue.base,
       fontSize: '2.65rem',
@@ -237,6 +219,28 @@ export const baseTheme = {
       lineHeight: '1.25',
       margin: '0 0 1rem',
     },
+  },
+  input: {
+    fontSize: '0.75rem',
+    height: forms.height,
+    border: `1px solid ${colors.gray.xlight}`,
+    padding: '3px 8px',
+  },
+  links: {
+    fontFamily: fontFamilies.avenir.medium,
+    color: colors.blue.base,
+    textDecoration: 'none',
+    hover: {
+      color: colors.blue.base,
+      textDecoration: 'underline',
+    },
+    visited: {
+      color: colors.blue.base,
+      textDecoration: 'underline',
+    },
+  },
+  lists: {
+    margin: '0 0 1rem',
   },
   label: {
     color: colors.gray.dark,

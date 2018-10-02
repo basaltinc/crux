@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const DemoTransitionOpacity = styled.div`
-  background: ${props => props.theme.colors.neutralLight};
+  background: ${props => props.theme.globals.colors.neutralLight};
   padding: ${props => props.theme.spacing.m};
   margin-bottom: ${props => props.theme.spacing.m};
   text-align: center;
@@ -15,7 +15,7 @@ export const DemoTransitionOpacity = styled.div`
 `;
 
 export const DemoTransitionMove = styled.div`
-  background: ${props => props.theme.colors.neutralLight};
+  background: ${props => props.theme.globals.colors.neutralLight};
   padding: ${props => props.theme.spacing.m};
   margin-bottom: ${props => props.theme.spacing.m};
   text-align: center;

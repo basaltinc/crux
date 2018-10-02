@@ -4,7 +4,7 @@ export const ColorContrastPlayground = styled.div`
   max-width: 100%;
   margin-bottom: 10px;
   padding: 2rem;
-  border: ${props => props.theme.borders.border};
+  border: ${props => props.theme.globals.borders.border};
   text-align: center;
   background-color: ${props => (props.bgColor ? props.bgColor : 'none')};
 `;
@@ -29,7 +29,7 @@ export const AccessibilityResults = styled.span`
       : props.theme.status.errorColor};
   color: white;
   text-align: center;
-  border-radius: ${props => props.theme.borders.radius};
+  border-radius: ${props => props.theme.globals.borders.radius};
   font-weight: bold;
   display: inline;
   padding: 0.35rem 0.75rem;
@@ -46,7 +46,7 @@ export const Ratio = styled.span`
       ? props.theme.status.successColor
       : props.theme.status.errorColor};
   text-align: center;
-  border-radius: ${props => props.theme.borders.radius};
+  border-radius: ${props => props.theme.globals.borders.radius};
   font-weight: bold;
   display: inline;
   padding: 0.35rem 1rem;
