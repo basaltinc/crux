@@ -73,8 +73,8 @@ class ColorsPage extends React.Component {
             Color contrast (the difference between text and background color) is
             an important aspect of accessibility standards. Text color and
             background color need to have a high enough contrast ratio to be
-            readable. Test out various color combinations below to see what does
-            and doesn&#39;t meet accessibility standards.
+            readable. View and test various color combinations below to see what
+            does and doesn&#39;t meet accessibility standards.
           </p>
           <ColorContrastBlock
             bgColors={this.state.colors}

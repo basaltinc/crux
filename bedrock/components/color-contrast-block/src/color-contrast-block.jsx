@@ -18,6 +18,7 @@ import {
   Results,
   RowWrapper,
   Fade,
+  NewRatio,
 } from './color-contrast-block.styles';
 import Spinner from '../../spinner';
 
@@ -38,7 +39,6 @@ class ColorContrastBlock extends React.Component {
       allResults: {},
     };
     this.checkColorContrast = this.checkColorContrast.bind(this);
-    this.getColorContrast = this.getColorContrast.bind(this);
   }
 
   async componentDidMount() {
@@ -51,7 +51,7 @@ class ColorContrastBlock extends React.Component {
             .filter(comparedColor => comparedColor.value !== bgColor.value)
             .map(async comparedColor => ({
               comparedColor,
-              contrast: await this.getColorContrast(
+              contrast: await ColorContrastBlock.getColorContrast(
                 bgColor.value,
                 comparedColor.value,
               ),
@@ -111,36 +111,52 @@ class ColorContrastBlock extends React.Component {
     }
     const colorBlocks = this.state.allResults.map(result => (
       <ColorContrast key={result.bgColor.value} color={result.bgColor.value}>
-        <ContrastInner key={result.bgColor.name} testing="testing">
-          <h3>{result.bgColor.name}</h3>
-          <p className="col col--1">Ratio</p>
-          <p className="col col--2">AA</p>
-          <p className="col col--3">AAA</p>
-          <p className="col col--4">AA Large</p>
-          <p className="col col--5">AAA Large</p>
-          <ColorBlock color={result.bgColor.value} />
-          <RowWrapper>
-            {result.comparisonResults.map(compared => (
-              <ColorCompare
-                color={result.bgColor.value}
-                key={compared.comparedColor.value}
-                comparedColor={compared.comparedColor.value}
-              >
-                <Fade comparedColor={compared.comparedColor.value} />
-                <Results>{compared.contrast.ratio}</Results>
-                <Results>{compared.contrast.AAA}</Results>
-                <Results>{compared.contrast.AA}</Results>
-                <Results>{compared.contrast.AAALarge}</Results>
-                <Results>{compared.contrast.AALarge}</Results>
-              </ColorCompare>
-            ))}
-          </RowWrapper>
-        </ContrastInner>
+        {/* @todo find a way to handle white */}
+        <Details>
+          <summary>{result.bgColor.name}</summary>
+          <ContrastInner key={result.bgColor.name} testing="testing">
+            <h3>{result.bgColor.name}</h3>
+            <p className="col col--1">Ratio</p>
+            <p className="col col--2">AA</p>
+            <p className="col col--3">AAA</p>
+            <p className="col col--4">AA Large</p>
+            <p className="col col--5">AAA Large</p>
+            <ColorBlock color={result.bgColor.value} />
+            <RowWrapper>
+              {result.comparisonResults.map(compared => (
+                <ColorCompare
+                  color={result.bgColor.value}
+                  key={compared.comparedColor.value}
+                  comparedColor={compared.comparedColor.value}
+                >
+                  <Fade comparedColor={compared.comparedColor.value} />
+                  <NewRatio ratio={compared.contrast.ratio}>
+                    {compared.contrast.ratio}
+                  </NewRatio>
+                  <Results pass={compared.contrast.AAA}>
+                    {compared.contrast.AAA}
+                  </Results>
+                  <Results pass={compared.contrast.AA}>
+                    {compared.contrast.AA}
+                  </Results>
+                  <Results pass={compared.contrast.AAALarge}>
+                    {compared.contrast.AAALarge}
+                  </Results>
+                  <Results pass={compared.contrast.AALarge}>
+                    {compared.contrast.AALarge}
+                  </Results>
+                </ColorCompare>
+              ))}
+            </RowWrapper>
+          </ContrastInner>
+        </Details>
       </ColorContrast>
     ));
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
+        <ContrastWrapper>{colorBlocks}</ContrastWrapper>
+        <br />
         <AccessabilityDropdowns>
           Background Color:
           {this.props.bgColors.length > 0 && (
@@ -228,9 +244,6 @@ class ColorContrastBlock extends React.Component {
             4.5:1. Large text is defined as anything 14pt bold or higher.
           </p>
         </Details>
-        <br />
-
-        <ContrastWrapper>{colorBlocks}</ContrastWrapper>
       </div>
     );
   }

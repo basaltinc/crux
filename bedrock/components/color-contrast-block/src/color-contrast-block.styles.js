@@ -124,7 +124,19 @@ export const Fade = styled.div`
   );
 `;
 
-export const Results = styled.p``;
+export const Results = styled.p`
+  color: ${props =>
+    props.pass === 'pass'
+      ? props.theme.status.successColor
+      : props.theme.status.errorColor};
+`;
+
+export const NewRatio = styled.p`
+  color: ${props =>
+    props.ratio > '4.5'
+      ? props.theme.status.successColor
+      : props.theme.status.errorColor};
+`;
 
 export const ColorCompare = styled.div`
   height: 50px;
