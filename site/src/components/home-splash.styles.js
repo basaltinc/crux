@@ -10,7 +10,7 @@ export const HomeSplashCore = styled.div`
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  height: calc(100vh - 240px);
+  height: calc(100vh - 236px);
   padding: 2rem;
   text-align: right;
 `;

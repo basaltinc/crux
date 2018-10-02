@@ -1,14 +1,16 @@
 export const addGlobalTypography = theme => `
       .eyebrow {
-        font-family: ${theme.eyebrow.font_family};
         color: ${theme.eyebrow.color};
+        font-size: ${theme.eyebrow.fontSize};
+        font-family: ${theme.eyebrow.fontFamily};
         margin-bottom: 0;
       }
       h1, .h1 {
-        font-family: ${theme.headings.font_family};
-        margin: ${theme.headings.margin};
-        line-height: ${theme.headings.line_height};
-        font-size: ${theme.headings.h1.base};
+        color: ${theme.headings.h1.color};
+        font-size: ${theme.headings.h1.fontSize};
+        font-family: ${theme.headings.h1.fontFamily};
+        margin: ${theme.headings.h1.margin};
+        line-height: ${theme.headings.h1.lineHeight};
       }
       h1:first-child, .h1:first-child {
         margin-top: 0;
@@ -16,16 +18,12 @@ export const addGlobalTypography = theme => `
       h1:last-child, .h1:last-child {
         margin-bottom: 0;
       }
-      @media (min-width: 380px) {
-        h1, .h1 {
-          font-size: ${theme.headings.h1.min_width_380};
-        }
-      }
       h2, .h2 {
-        font-family: ${theme.headings.font_family};
-        margin: ${theme.headings.margin};
-        line-height: ${theme.headings.line_height};
-        font-size: ${theme.headings.h2.base};
+        color: ${theme.headings.h2.color};
+        font-size: ${theme.headings.h2.fontSize};
+        font-family: ${theme.headings.h2.fontFamily};
+        margin: ${theme.headings.h2.margin};
+        line-height: ${theme.headings.h2.lineHeight};
       }
       h2:first-child, .h2:first-child {
         margin-top: 0;
@@ -33,16 +31,12 @@ export const addGlobalTypography = theme => `
       h2:last-child, .h2:last-child {
         margin-bottom: 0;
       }
-      @media (min-width: 380px) {
-        h2, .h2 {
-          font-size: ${theme.headings.h2.min_width_380};
-        }
-      }
       h3, .h3 {
-        font-family: ${theme.headings.font_family};
-        margin: ${theme.headings.margin};
-        line-height: ${theme.headings.line_height};
-        font-size: ${theme.headings.h3.base};
+       color: ${theme.headings.h3.color};
+        font-size: ${theme.headings.h3.fontSize};
+        font-family: ${theme.headings.h3.fontFamily};
+        margin: ${theme.headings.h3.margin};
+        line-height: ${theme.headings.h3.lineHeight};
       }
       h3:first-child, .h3:first-child {
         margin-top: 0;
@@ -50,16 +44,12 @@ export const addGlobalTypography = theme => `
       h3:last-child, .h3:last-child {
         margin-bottom: 0;
       }
-      @media (min-width: 380px) {
-        h3, .h3 {
-          font-size: ${theme.headings.h3.min_width_380};
-        }
-      }
       h4, .h4 {
-        font-family: ${theme.headings.font_family};
-        margin: ${theme.headings.margin};
-        line-height: ${theme.headings.line_height};
-        font-size: ${theme.headings.h4.base};
+       color: ${theme.headings.h4.color};
+        font-size: ${theme.headings.h4.fontSize};
+        font-family: ${theme.headings.h4.fontFamily};
+        margin: ${theme.headings.h4.margin};
+        line-height: ${theme.headings.h4.lineHeight};
       }
       h4:first-child, .h4:first-child {
         margin-top: 0;
@@ -68,10 +58,11 @@ export const addGlobalTypography = theme => `
         margin-bottom: 0;
       }
       h5, .h5 {
-        font-family: ${theme.headings.font_family};
-        margin: ${theme.headings.margin};
-        line-height: ${theme.headings.line_height};
-        font-size: ${theme.headings.h5.base};
+       color: ${theme.headings.h5.color};
+        font-size: ${theme.headings.h5.fontSize};
+        font-family: ${theme.headings.h5.fontFamily};
+        margin: ${theme.headings.h5.margin};
+        line-height: ${theme.headings.h5.lineHeight};
       }
       h5:first-child, .h5:first-child {
         margin-top: 0;
@@ -80,10 +71,11 @@ export const addGlobalTypography = theme => `
         margin-bottom: 0;
       }
       h6, .h6 {
-        font-family: ${theme.headings.font_family};
-        margin: ${theme.headings.margin};
-        line-height: ${theme.headings.line_height};
-        font-size: ${theme.headings.h6.base};
+        color: ${theme.headings.h6.color};
+        font-size: ${theme.headings.h6.fontSize};
+        font-family: ${theme.headings.h6.fontFamily};
+        margin: ${theme.headings.h6.margin};
+        line-height: ${theme.headings.h6.lineHeight};
       }
       h6:first-child, .h6:first-child {
         margin-top: 0;
@@ -92,8 +84,11 @@ export const addGlobalTypography = theme => `
         margin-bottom: 0;
       }
       p {
+        color: ${theme.paragraphs.color};
+        font-family: ${theme.paragraphs.fontFamily};
+        font-size: ${theme.paragraphs.fontSize};
+        line-height: ${theme.paragraphs.lineHeight};
         margin: ${theme.paragraphs.margin};
-        font-family: ${theme.paragraphs.font_family};
       }
       p:last-child {
         margin-bottom: 0;
@@ -105,7 +100,11 @@ export const addGlobalTypography = theme => `
       li {
         margin: ${theme.lists.margin};
       }
-      a, a:link, a:visited {
+      a, a:link {
+        color: ${theme.links.color};
+        text-decoration: ${theme.links.textDecoration};
+      }
+      a:visited {
         color: ${theme.links.visited.color};
         text-decoration: ${theme.links.visited.textDecoration};
       }
@@ -113,13 +112,9 @@ export const addGlobalTypography = theme => `
         color: ${theme.links.hover.color};
         text-decoration: ${theme.links.hover.textDecoration};
       }
-      b,
-      strong {
-        font-family: ${theme.fonts.families.avenir.medium};
-      }
       blockquote {
         font-style: italic;
-        border-left: ${theme.blockquote.border_left};
+        border-left: ${theme.blockquote.borderLeft};
         margin:${theme.blockquote.margin};
         padding: ${theme.blockquote.padding};
       }
