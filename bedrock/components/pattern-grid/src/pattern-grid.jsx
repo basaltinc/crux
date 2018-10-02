@@ -45,29 +45,17 @@ class PatternGridItem extends React.Component {
   }
 
   render() {
+    const { id, path, meta } = this.props.pattern;
+    const { hasIcon, title, description } = meta;
     return (
-      <StyledPatternGridItem key={this.props.pattern.id}>
-        <Link
-          to={
-            this.props.pattern.path
-              ? this.props.pattern.path
-              : `/patterns/${this.props.pattern.id}`
-          }
-        >
+      <StyledPatternGridItem key={id}>
+        <Link to={path || `/patterns/${id}`}>
           <PatternGridItemThumb
-            src={
-              this.props.pattern.meta.hasIcon !== false
-                ? this.state.imgSrc
-                : this.defaultImgPath
-            }
+            src={hasIcon !== false ? this.state.imgSrc : this.defaultImgPath}
             onError={this.handleMissingImg}
           />
-          <PatternGridItemTitle>
-            {this.props.pattern.meta.title}
-          </PatternGridItemTitle>
-          <PatternGridItemDescription>
-            {this.props.pattern.meta.description}
-          </PatternGridItemDescription>
+          <PatternGridItemTitle>{title}</PatternGridItemTitle>
+          <PatternGridItemDescription>{description}</PatternGridItemDescription>
         </Link>
       </StyledPatternGridItem>
     );
