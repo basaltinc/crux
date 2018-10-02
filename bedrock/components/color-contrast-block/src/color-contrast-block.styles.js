@@ -4,7 +4,7 @@ export const ColorContrastPlayground = styled.div`
   max-width: 100%;
   margin-bottom: 10px;
   padding: 2rem;
-  border: ${props => props.theme.borders.border};
+  border: ${props => props.theme.globals.borders.border};
   text-align: center;
   background-color: ${props => (props.bgColor ? props.bgColor : 'none')};
 `;
@@ -25,11 +25,11 @@ export const AccessibilityInfo = styled.div`
 export const AccessibilityResults = styled.span`
   background-color: ${props =>
     props.pass === 'pass'
-      ? props.theme.status.successColor
-      : props.theme.status.errorColor};
+      ? props.theme.statuses.successColor
+      : props.theme.statuses.errorColor};
   color: white;
   text-align: center;
-  border-radius: ${props => props.theme.borders.radius};
+  border-radius: ${props => props.theme.globals.borders.radius};
   font-weight: bold;
   display: inline;
   padding: 0.35rem 0.75rem;
@@ -39,14 +39,14 @@ export const Ratio = styled.span`
   border: 1px solid
     ${props =>
       props.ratio > '4.5'
-        ? props.theme.status.successColor
-        : props.theme.status.errorColor};
+        ? props.theme.statuses.successColor
+        : props.theme.statuses.errorColor};
   color: ${props =>
     props.ratio > '4.5'
-      ? props.theme.status.successColor
-      : props.theme.status.errorColor};
+      ? props.theme.statuses.successColor
+      : props.theme.statuses.errorColor};
   text-align: center;
-  border-radius: ${props => props.theme.borders.radius};
+  border-radius: ${props => props.theme.globals.borders.radius};
   font-weight: bold;
   display: inline;
   padding: 0.35rem 1rem;

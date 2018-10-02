@@ -10,7 +10,7 @@ export const HomeSplashCore = styled.div`
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
-  height: calc(100vh - 240px);
+  height: calc(100vh - 236px);
   padding: 2rem;
   text-align: right;
 `;
@@ -28,7 +28,7 @@ export const EyeBrow = styled.h2`
     font-size: 2.1rem;
   }
   @media screen and (min-width: 1300px) {
-    margin: 0 0 -125px;
+    margin: 0 0 -115px;
     font-size: 2.25rem;
   }
 `;

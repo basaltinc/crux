@@ -6,15 +6,15 @@ export const DosAndDontsPanelStyled = styled.figure`
   align-items: center;
   > div {
     margin-bottom: 1rem;
-    background-color: ${props => props.theme.colors.color.gray.xxlight};
+    background-color: ${props => props.theme.globals.colors.neutralXLight};
     > img {
       border-bottom: solid 8px;
       max-width: 100%;
       height: auto;
       border-bottom-color: ${props =>
         props.do
-          ? props.theme.status.successColor
-          : props.theme.status.errorColor};
+          ? props.theme.statuses.successColor
+          : props.theme.statuses.errorColor};
     }
     figcaption {
       text-align: left;
@@ -24,13 +24,13 @@ export const DosAndDontsPanelStyled = styled.figure`
   strong {
     color: ${props =>
       props.do
-        ? props.theme.status.successColor
-        : props.theme.status.errorColor};
+        ? props.theme.statuses.successColor
+        : props.theme.statuses.errorColor};
   }
 `;
 
 export const DosAndDontsWrapper = styled.div`
-  background-color: ${props => props.theme.colors.color.gray.xxlight};
+  background-color: ${props => props.theme.globals.colors.neutralXLight};
   padding: 1rem 0;
   max-width: 1500px;
   margin: 1rem auto;

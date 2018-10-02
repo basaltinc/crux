@@ -5,14 +5,14 @@ export const TypeToFilterInputWrapper = styled.div`
   > input,
   > textarea {
     box-sizing: border-box;
-    padding: ${props => props.theme.input.padding};
-    border: ${props => props.theme.input.border};
+    padding: ${props => props.theme.inputs.padding};
+    border: ${props => props.theme.inputs.border};
     background-color: white;
-    font-size: ${props => props.theme.input.fontSize};
+    font-size: ${props => props.theme.inputs.fontSize};
     width: 100%;
   }
   > input {
-    height: ${props => props.theme.input.height};
+    height: ${props => props.theme.inputs.height};
   }
 `;
 
@@ -26,9 +26,9 @@ export const TypeToFilter = styled.div`
 `;
 
 export const ClearFilterButton = styled.div`
-  border: ${props => props.theme.input.border};
+  border: ${props => props.theme.inputs.border};
   border-left: none;
-  height: ${props => props.theme.input.height};
+  height: ${props => props.theme.inputs.height};
   width: 33px;
   flex-shrink: 0;
   display: ${props => (props.isVisible ? 'flex' : 'none')};

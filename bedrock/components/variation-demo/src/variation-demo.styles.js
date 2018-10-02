@@ -8,7 +8,8 @@ export const VariationsWrapper = styled.div`
 `;
 
 export const VariationItem = styled.div`
-  padding: ${props => props.theme.spacing.s} ${props => props.theme.spacing.m};
+  padding: ${props => props.theme.globals.spacing.s}
+    ${props => props.theme.globals.spacing.m};
   border-bottom: 1px solid ${props => props.colorTheme};
   .form-group.field {
     margin-top: 0;
@@ -23,7 +24,7 @@ export const VariationItemExpanded = styled.div`
   h4 {
     border-bottom: 1px solid ${props => props.colorTheme};
     color: ${props => props.colorTheme};
-    padding: ${props => props.theme.spacing.m};
+    padding: ${props => props.theme.globals.spacing.m};
     margin: 0;
   }
 `;
@@ -31,8 +32,8 @@ export const VariationItemExpanded = styled.div`
 export const HeaderRegion = styled.div`
   background: ${props => props.colorThemeAccent};
   border-bottom: 10px solid ${props => props.colorTheme};
-  border-top-right-radius: ${props => props.theme.borders.radius};
-  border-top-left-radius: ${props => props.theme.borders.radius};
+  border-top-right-radius: ${props => props.theme.globals.borders.radius};
+  border-top-left-radius: ${props => props.theme.globals.borders.radius};
   padding: 30px;
   line-height: 1;
   position: relative;
@@ -42,7 +43,7 @@ export const HeaderRegion = styled.div`
 `;
 
 export const HeaderInner = styled.div`
-  font-family: ${props => props.theme.fonts.families.avenir.medium};
+  font-family: ${props => props.theme.globals.fonts.avenir.medium};
   cursor: pointer;
   position: absolute;
   color: ${props => props.colorTheme};
