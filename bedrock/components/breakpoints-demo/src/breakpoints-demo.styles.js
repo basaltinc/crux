@@ -28,13 +28,13 @@ export const DeviceListItem = styled.li`
   width: ${props => props.width}px;
   border-bottom: solid 3px hsl(0, 0%, 80%);
   text-align: right;
-  margin-bottom: ${props => props.theme.spacing.m};
-  padding-right: ${props => props.theme.spacing.m};
+  margin-bottom: ${props => props.theme.globals.spacing.m};
+  padding-right: ${props => props.theme.globals.spacing.m};
   border-right: solid 3px hsl(0, 0%, 80%);
 `;
 
 export const DeviceWidthUl = styled.ul`
-  max-width: calc(75vw - 2 * ${props => props.theme.spacing.l});
+  max-width: calc(75vw - 2 * ${props => props.theme.globals.spacing.l});
   padding-top: 20px;
 `;
 

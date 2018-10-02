@@ -1,14 +1,11 @@
 export const addGlobalTypography = theme => `
       html {
-        font-size: calc(${props => props.theme.globals.fontSize} * 0.77);
-     
-        @media screen and (min-width: ${props =>
-          props.theme.globals.breakpoints.small}) {
-            font-size: calc(${props => props.theme.globals.fontSize} * 0.88);
+        font-size: calc(${theme.globals.fontSize} * 0.77);
+        @media screen and (min-width: ${theme.globals.breakpoints.small}) {
+            font-size: calc(${theme.globals.fontSize} * 0.88);
         }
-        @media screen and (min-width: ${props =>
-          props.theme.globals.breakpoints.xlarge}) {
-            font-size: ${props => props.theme.globals.fontSize};
+        @media screen and (min-width: ${theme.globals.breakpoints.xlarge}) {
+            font-size: ${theme.globals.fontSize};
         }
       }
       h1, .h1 {
@@ -120,8 +117,8 @@ export const addGlobalTypography = theme => `
       }
       blockquote {
         font-style: italic;
-        border-left: ${theme.blockquote.borderLeft};
-        margin:${theme.blockquote.margin};
-        padding: ${theme.blockquote.padding};
+        border-left: ${theme.blockquotes.borderLeft};
+        margin:${theme.blockquotes.margin};
+        padding: ${theme.blockquotes.padding};
       }
   `;

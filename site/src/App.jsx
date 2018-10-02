@@ -47,7 +47,7 @@ const Site = styled.div`
 
 const MainContent = styled.div`
   flex-grow: 1;
-  padding: ${props => props.theme.spacing.l};
+  padding: ${props => props.theme.globals.spacing.l};
 `;
 
 class App extends React.Component {

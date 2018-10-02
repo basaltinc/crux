@@ -7,15 +7,16 @@ export const PatternGridList = styled.ul`
 `;
 
 export const StyledPatternGridListItem = styled.li`
-  margin-top: ${props => props.theme.spacing.m};
-  border-left: 3px solid ${props => props.theme.globals.colors.neutral_light};
-  padding: ${props => props.theme.spacing.s} ${props => props.theme.spacing.m};
+  margin-top: ${props => props.theme.globals.spacing.m};
+  border-left: 3px solid ${props => props.theme.globals.colors.neutralLight};
+  padding: ${props => props.theme.globals.spacing.s}
+    ${props => props.theme.globals.spacing.m};
   width: 50%;
   display: inline-block;
   vertical-align: top;
   & > a {
     text-decoration: none;
-    transition: ${props => props.theme.transition.all};
+    transition: ${props => props.theme.transitions.all};
   }
 `;
 

@@ -17,7 +17,8 @@ const CopyThisClipboard = styled(CopyToClipboard)`
 
 const TypographyChildrenDemoWrapper = styled.div`
   font-family: ${props => props.fontFamily};
-  padding: ${props => props.theme.spacing.l} ${props => props.theme.spacing.l} 0;
+  padding: ${props => props.theme.globals.spacing.l}
+    ${props => props.theme.globals.spacing.l} 0;
 
   blockquote::first-line {
     font-weight: 800;
@@ -26,21 +27,20 @@ const TypographyChildrenDemoWrapper = styled.div`
     border-top: 1px dashed transparent;
     border-right: 1px dashed transparent;
     border-bottom: 1px dashed transparent;
-    transition: ${props => props.theme.transition.all};
+    transition: ${props => props.theme.transitions.all};
   }
   blockquote[contenteditable]:hover {
-    border-top: 1px dashed ${props => props.theme.globals.colors.neutral_light};
-    border-right: 1px dashed
-      ${props => props.theme.globals.colors.neutral_light};
+    border-top: 1px dashed ${props => props.theme.globals.colors.neutralLight};
+    border-right: 1px dashed ${props => props.theme.globals.colors.neutralLight};
     border-bottom: 1px dashed
-      ${props => props.theme.globals.colors.neutral_light};
+      ${props => props.theme.globals.colors.neutralLight};
   }
   [contenteditable]:not(blockquote) {
     border: 1px dashed transparent;
-    transition: ${props => props.theme.transition.all};
+    transition: ${props => props.theme.transitions.all};
   }
   [contenteditable]:not(blockquote):hover {
-    border: 1px dashed ${props => props.theme.globals.colors.neutral_light};
+    border: 1px dashed ${props => props.theme.globals.colors.neutralLight};
   }
 `;
 
@@ -48,12 +48,12 @@ const FontSizeDemo = styled.div`
   font-size: ${props => props.fontSize};
   border-bottom: ${props =>
     props.length !== props.index
-      ? `1px dotted ${props.theme.globals.colors.neutral_light}`
+      ? `1px dotted ${props.theme.globals.colors.neutralLight}`
       : ''};
   padding-bottom: ${props =>
-    props.length !== props.index ? props.theme.spacing.m : ''};
+    props.length !== props.index ? props.theme.globals.spacing.m : ''};
   margin-bottom: ${props =>
-    props.length !== props.index ? props.theme.spacing.l : ''};
+    props.length !== props.index ? props.theme.globals.spacing.l : ''};
 
   blockquote::first-line {
     font-weight: 800;
@@ -63,12 +63,12 @@ const FontSizeDemo = styled.div`
 const HeadingsDemo = styled.div`
   border-bottom: ${props =>
     props.length !== props.index
-      ? `1px dotted ${props.theme.globals.colors.neutral_light}`
+      ? `1px dotted ${props.theme.globals.colors.neutralLight}`
       : ''};
   padding-bottom: ${props =>
-    props.length !== props.index ? props.theme.spacing.l : ''};
+    props.length !== props.index ? props.theme.globals.spacing.l : ''};
   margin-bottom: ${props =>
-    props.length !== props.index ? props.theme.spacing.l : ''};
+    props.length !== props.index ? props.theme.globals.spacing.l : ''};
 `;
 
 class TypographyPage extends React.Component {

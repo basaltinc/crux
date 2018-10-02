@@ -13,8 +13,8 @@ export const DosAndDontsPanelStyled = styled.figure`
       height: auto;
       border-bottom-color: ${props =>
         props.do
-          ? props.theme.status.successColor
-          : props.theme.status.errorColor};
+          ? props.theme.statuses.successColor
+          : props.theme.statuses.errorColor};
     }
     figcaption {
       text-align: left;
@@ -24,8 +24,8 @@ export const DosAndDontsPanelStyled = styled.figure`
   strong {
     color: ${props =>
       props.do
-        ? props.theme.status.successColor
-        : props.theme.status.errorColor};
+        ? props.theme.statuses.successColor
+        : props.theme.statuses.errorColor};
   }
 `;
 

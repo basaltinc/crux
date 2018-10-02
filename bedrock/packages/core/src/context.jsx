@@ -86,7 +86,7 @@ export const forms = {
 };
 
 export const baseTheme = {
-  blockquote: {
+  blockquotes: {
     border: `1px solid ${colors.gray.xlight}`,
     borderLeft: `3px solid ${colors.gray.xlight}`,
     margin: '2rem',
@@ -136,7 +136,7 @@ export const baseTheme = {
       fontSize: '1.1rem',
     },
   },
-  eyebrow: {
+  eyebrows: {
     color: colors.gray.light,
     fontFamily: fontFamilies.avenir.medium,
     fontSize: '1rem',
@@ -162,6 +162,7 @@ export const baseTheme = {
       warning: colors.yellow.base,
       error: colors.red.ghost,
       info: colors.blue.light,
+      ghost: colors.blue.xlight,
       neutral: colors.gray.base,
       neutralLight: colors.gray.xlight,
       neutralXLight: colors.gray.xxlight,
@@ -170,6 +171,14 @@ export const baseTheme = {
     },
     fontSize: '18px',
     fonts: fontFamilies,
+    spacing: {
+      xs: '4px',
+      s: '8px',
+      m: '16px',
+      l: '32px',
+      xl: '50px',
+      xxl: '64px',
+    },
   },
   header: {
     accentColor: colors.yellow.base,
@@ -220,7 +229,7 @@ export const baseTheme = {
       margin: '0 0 1rem',
     },
   },
-  input: {
+  inputs: {
     fontSize: '0.75rem',
     height: forms.height,
     border: `1px solid ${colors.gray.xlight}`,
@@ -242,7 +251,7 @@ export const baseTheme = {
   lists: {
     margin: '0 0 1rem',
   },
-  label: {
+  labels: {
     color: colors.gray.dark,
     fontSize: '12px',
     fontWeight: 'bold',
@@ -254,7 +263,7 @@ export const baseTheme = {
     fontSize: '1rem',
     margin: '0 0 1.5rem',
   },
-  select: {
+  selects: {
     background: '#f2f3f3',
     border: '0',
     borderRadius: '0',
@@ -267,20 +276,12 @@ export const baseTheme = {
     accentColor: colors.yellow.base,
     background: '#f2f3f3',
   },
-  spacing: {
-    xs: '4px',
-    s: '8px',
-    m: '16px',
-    l: '32px',
-    xl: '50px',
-    xxl: '64px',
-  },
-  status: {
+  statuses: {
     successColor: colors.green.ghost,
     warningColor: colors.yellow.ghost,
     errorColor: colors.red.ghost,
   },
-  transition: {
+  transitions: {
     all: 'all 0.3s ease-in-out',
     speed_and_function: '0.3s ease-in-out',
     speed: '0.3s',

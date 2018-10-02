@@ -10,9 +10,9 @@ const GlobalStyles = createGlobalStyle`
       box-sizing: ${props => props.theme.globals.boxSizing};
     }
     .eyebrow {
-      color: ${props => props.theme.eyebrow.color};
-      font-size: ${props => props.theme.eyebrow.fontSize};
-      font-family: ${props => props.theme.eyebrow.fontFamily};
+      color: ${props => props.theme.eyebrows.color};
+      font-size: ${props => props.theme.eyebrows.fontSize};
+      font-family: ${props => props.theme.eyebrows.fontFamily};
       margin-bottom: 0;
     }
     body {

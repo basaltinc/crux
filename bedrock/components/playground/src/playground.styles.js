@@ -5,7 +5,7 @@ import SchemaForm from '@basalt/bedrock-schema-form';
 
 export const MainContent = styled.div`
   flex-grow: 1;
-  padding: ${props => props.theme.spacing.l};
+  padding: ${props => props.theme.globals.spacing.l};
   overflow-y: scroll;
   box-sizing: border-box;
 `;
@@ -16,7 +16,7 @@ export const Page = styled.div`
   height: calc(100vh - 175px);
   max-width: 100vw;
   // @todo fix this temp workaround for negatting the "MainContent" padding
-  margin: calc(-1 * ${props => props.theme.spacing.l});
+  margin: calc(-1 * ${props => props.theme.globals.spacing.l});
 `;
 
 export const StartInsertSlice = styled.div`
@@ -52,15 +52,15 @@ function noIconStyles(props) {
   if (!props.thumb)
     return `
     background: #FFF;
-    padding: ${props.theme.spacing.s};
+    padding: ${props.theme.globals.spacing.s};
     border: 1px solid ${props.theme.globals.colors.neutralLight};
   `;
 }
 export const PatternListItemWrapper = styled.li`
   width: ${props =>
-    props.thumb ? `calc(50% - ${props.theme.spacing.m})` : '100%'};
+    props.thumb ? `calc(50% - ${props.theme.globals.spacing.m})` : '100%'};
   filter: ${props => (props.thumb ? 'grayscale(75%)' : 'none')};
-  transition: ${props => props.theme.transition.all};
+  transition: ${props => props.theme.transitions.all};
   &:hover {
     filter: grayscale(0%);
   }
@@ -68,7 +68,7 @@ export const PatternListItemWrapper = styled.li`
     color: ${props => props.theme.globals.colors.primary};
     font-size: ${props => (props.thumb ? 'inherit' : '1rem')};
     margin: ${props =>
-      props.thumb ? `0 0 ${props.theme.spacing.s}` : '0 0 4px'};
+      props.thumb ? `0 0 ${props.theme.globals.spacing.s}` : '0 0 4px'};
     white-space: nowrap;
     text-overflow: ellipsis;
   }
@@ -83,7 +83,7 @@ export const PatternListItemWrapper = styled.li`
     color: ${props => props.theme.links.color};
     font-size: calc(${props => props.theme.globals.fontSize} * 0.61);
     text-decoration: none;
-    transition: ${props => props.theme.transition.all};
+    transition: ${props => props.theme.transitions.all};
   }
   // Specific styling only when props.thumb (enablePatternIcons) is false
   ${props => noIconStyles(props)};
@@ -92,7 +92,7 @@ export const PatternListItemWrapper = styled.li`
 export const PatternListItemThumb = styled.img`
   width: auto;
   height: 50px;
-  margin-bottom: ${props => props.theme.spacing.s};
+  margin-bottom: ${props => props.theme.globals.spacing.s};
 `;
 
 export const PatternListItemDescription = styled.div`

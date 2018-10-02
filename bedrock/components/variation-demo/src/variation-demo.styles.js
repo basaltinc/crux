@@ -8,7 +8,8 @@ export const VariationsWrapper = styled.div`
 `;
 
 export const VariationItem = styled.div`
-  padding: ${props => props.theme.spacing.s} ${props => props.theme.spacing.m};
+  padding: ${props => props.theme.globals.spacing.s}
+    ${props => props.theme.globals.spacing.m};
   border-bottom: 1px solid ${props => props.colorTheme};
   .form-group.field {
     margin-top: 0;
@@ -23,7 +24,7 @@ export const VariationItemExpanded = styled.div`
   h4 {
     border-bottom: 1px solid ${props => props.colorTheme};
     color: ${props => props.colorTheme};
-    padding: ${props => props.theme.spacing.m};
+    padding: ${props => props.theme.globals.spacing.m};
     margin: 0;
   }
 `;
