@@ -28,7 +28,7 @@ export const EyeBrow = styled.h2`
     font-size: 2.1rem;
   }
   @media screen and (min-width: 1300px) {
-    margin: 0 0 -125px;
+    margin: 0 0 -115px;
     font-size: 2.25rem;
   }
 `;
