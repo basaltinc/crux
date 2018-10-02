@@ -267,7 +267,7 @@ export const baseTheme = {
     background: '#f2f3f3',
     border: '0',
     borderRadius: '0',
-    fontSize: '1rem',
+    fontSize: '0.75rem',
     height: forms.height,
     padding: '5px',
     margin: '0',

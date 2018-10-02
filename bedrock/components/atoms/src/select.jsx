@@ -42,6 +42,8 @@ export const SelectStyledWrapper = styled.label`
       border: ${props => props.theme.selects.border};
       border-radius: ${props => props.theme.selects.borderRadius};
       display: inline-block;
+      height: 100%;
+      margin: auto 0;
       padding: 0.3rem 2rem 0.3rem 1rem;
       -webkit-appearance: none;
       -moz-appearance: none;
