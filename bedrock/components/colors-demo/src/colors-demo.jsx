@@ -5,12 +5,14 @@ import ColorContrastBlock from '@basalt/bedrock-color-contrast-block';
 import ApiDemo from '@basalt/bedrock-api-demo';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
+import Spinner from '../../spinner';
 
 class ColorsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       colors: [],
+      ready: false,
     };
     this.apiEndpoint = `${
       props.context.settings.urls.apiUrlBase
@@ -22,11 +24,15 @@ class ColorsPage extends React.Component {
       .fetch(this.apiEndpoint)
       .then(res => res.json())
       .then(colors => {
-        this.setState({ colors });
+        this.setState({ colors, ready: true });
       });
   }
 
   render() {
+    if (!this.state.ready) {
+      return <Spinner />;
+    }
+
     const { enableBlockquotes } = this.props.context.settings;
     return (
       <div className="docs">
@@ -72,8 +78,8 @@ class ColorsPage extends React.Component {
             Color contrast (the difference between text and background color) is
             an important aspect of accessibility standards. Text color and
             background color need to have a high enough contrast ratio to be
-            readable. Test out various color combinations below to see what does
-            and doesn&#39;t meet accessibility standards.
+            readable. View and test various color combinations below to see what
+            does and doesn&#39;t meet accessibility standards.
           </p>
           <ColorContrastBlock
             bgColors={this.state.colors}

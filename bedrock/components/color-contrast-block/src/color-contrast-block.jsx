@@ -10,7 +10,17 @@ import {
   LargeText,
   Ratio,
   SmallText,
+  ColorBlock,
+  ColorCompare,
+  ContrastWrapper,
+  ContrastInner,
+  ColorContrast,
+  Results,
+  RowWrapper,
+  Fade,
+  NewRatio,
 } from './color-contrast-block.styles';
+import Spinner from '../../spinner';
 
 class ColorContrastBlock extends React.Component {
   constructor(props) {
@@ -18,6 +28,7 @@ class ColorContrastBlock extends React.Component {
     this.state = {
       bgColor: 'white',
       textColor: 'black',
+      isReady: false,
       contrast: {
         aa: '',
         aaa: '',
@@ -25,13 +36,51 @@ class ColorContrastBlock extends React.Component {
         aaLarge: '',
         ratio: '',
       },
+      allResults: {},
     };
     this.checkColorContrast = this.checkColorContrast.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.checkColorContrast();
+    const colors = this.props.bgColors;
+    const results = await Promise.all(
+      colors.map(async bgColor => {
+        const comparisonResults = await Promise.all(
+          colors
+            .filter(comparedColor => comparedColor.value !== bgColor.value)
+            .map(async comparedColor => ({
+              comparedColor,
+              contrast: await ColorContrastBlock.getColorContrast(
+                bgColor.value,
+                comparedColor.value,
+              ),
+            })),
+        );
+        return {
+          bgColor,
+          comparisonResults,
+        };
+      }),
+    ).catch(error => console.error('Error in Promise.all', error));
+    console.log('Promise.all done', { results });
+
+    this.setState({
+      allResults: results,
+      isReady: true,
+    });
+  }
+
+  static async getColorContrast(bg, text) {
+    const bgValue = convertColor(bg, 'hex').slice(1);
+    const txtValue = convertColor(text, 'hex').slice(1);
+
+    const url = `https://webaim.org/resources/contrastchecker/?fcolor=${txtValue}&bcolor=${bgValue}&api`;
+    const result = await window
+      .fetch(url)
+      .then(res => res.json())
+      .catch(error => console.error(error));
+    return result;
   }
 
   checkColorContrast() {
@@ -57,9 +106,57 @@ class ColorContrastBlock extends React.Component {
   }
 
   render() {
+    if (!this.state.isReady) {
+      return <Spinner />;
+    }
+    const colorBlocks = this.state.allResults.map(result => (
+      <ColorContrast key={result.bgColor.value} color={result.bgColor.value}>
+        {/* @todo find a way to handle white */}
+        <Details>
+          <summary>{result.bgColor.name}</summary>
+          <ContrastInner key={result.bgColor.name} testing="testing">
+            <h3>{result.bgColor.name}</h3>
+            <p className="col col--1">Ratio</p>
+            <p className="col col--2">AA</p>
+            <p className="col col--3">AAA</p>
+            <p className="col col--4">AA Large</p>
+            <p className="col col--5">AAA Large</p>
+            <ColorBlock color={result.bgColor.value} />
+            <RowWrapper>
+              {result.comparisonResults.map(compared => (
+                <ColorCompare
+                  color={result.bgColor.value}
+                  key={compared.comparedColor.value}
+                  comparedColor={compared.comparedColor.value}
+                >
+                  <Fade comparedColor={compared.comparedColor.value} />
+                  <NewRatio ratio={compared.contrast.ratio}>
+                    {compared.contrast.ratio}
+                  </NewRatio>
+                  <Results pass={compared.contrast.AAA}>
+                    {compared.contrast.AAA}
+                  </Results>
+                  <Results pass={compared.contrast.AA}>
+                    {compared.contrast.AA}
+                  </Results>
+                  <Results pass={compared.contrast.AAALarge}>
+                    {compared.contrast.AAALarge}
+                  </Results>
+                  <Results pass={compared.contrast.AALarge}>
+                    {compared.contrast.AALarge}
+                  </Results>
+                </ColorCompare>
+              ))}
+            </RowWrapper>
+          </ContrastInner>
+        </Details>
+      </ColorContrast>
+    ));
     /* eslint-disable jsx-a11y/label-has-for */
     return (
       <div>
+        <ContrastWrapper>{colorBlocks}</ContrastWrapper>
+        <br />
         <AccessabilityDropdowns>
           Background Color:
           {this.props.bgColors.length > 0 && (
@@ -147,7 +244,6 @@ class ColorContrastBlock extends React.Component {
             4.5:1. Large text is defined as anything 14pt bold or higher.
           </p>
         </Details>
-        <br />
       </div>
     );
   }
