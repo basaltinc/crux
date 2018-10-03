@@ -63,6 +63,12 @@
           "description": "Enables Icons for Patterns and Design Tokens",
           "default": false
         },
+        "enableBlockquotes": {
+          "title": "Enable Blockquotes",
+          "type": "boolean",
+          "description": "Enables Blockquotes on Patterns Pages",
+          "default": true
+        },
         "hasJiraIssueCollector": {
           "title": "Has Jira Issue Collector",
           "type": "boolean",

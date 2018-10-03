@@ -63,15 +63,18 @@ class ReleaseNotesPage extends React.Component {
   }
 
   render() {
+    const { enableBlockquotes } = this.props.context.settings;
     return (
       <div>
         <div className="body">
           <h4 className="eyebrow">About</h4>
           <h2>Release Notes</h2>
-          <BlockQuoteWrapper>
-            Take note, we are releasing some amazing things.
-            <footer>Evan Lovely, CTO</footer>
-          </BlockQuoteWrapper>
+          {enableBlockquotes && (
+            <BlockQuoteWrapper>
+              Take note, we are releasing some amazing things.
+              <footer>Evan Lovely, CTO</footer>
+            </BlockQuoteWrapper>
+          )}
         </div>
         <ReleaseNoteList items={this.state.releaseNotes} />
       </div>
