@@ -1,16 +1,20 @@
 import React from 'react';
 import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
+import { contextPropTypes } from '@basalt/bedrock-core';
 import { ShadowDemoBox } from './shadows-demo.styles';
 
-function ShadowsPage() {
+function ShadowsPage(props) {
+  const { enableBlockquotes } = props.context.settings;
   return (
     <div>
       <h4 className="eyebrow">Visual Language</h4>
       <h2>Shadows</h2>
-      <BlockQuoteWrapper>
-        To contemplate is to look at shadows.
-        <footer>Victor Hugo</footer>
-      </BlockQuoteWrapper>
+      {enableBlockquotes && (
+        <BlockQuoteWrapper>
+          To contemplate is to look at shadows.
+          <footer>Victor Hugo</footer>
+        </BlockQuoteWrapper>
+      )}
       <h3>Static Shadows</h3>
       <div>
         <ShadowDemoBox className="crux-shadow--xsmall">
@@ -92,5 +96,9 @@ function ShadowsPage() {
     </div>
   );
 }
+
+ShadowsPage.propTypes = {
+  context: contextPropTypes.isRequired,
+};
 
 export default ShadowsPage;

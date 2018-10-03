@@ -18,9 +18,9 @@ export const SelectStyledWrapper = styled.label`
     display: inline-block;
     max-width: 100%;
     position: relative;
-    height: ${props => props.theme.select.height};
-    background-color: ${props => props.theme.select.background};
-    margin: ${props => props.theme.select.margin};
+    height: ${props => props.theme.selects.height};
+    background-color: ${props => props.theme.selects.background};
+    margin: ${props => props.theme.selects.margin};
     // ::after produces the custom dropdown arrow next to text
     &::after {
       content: '';
@@ -37,11 +37,13 @@ export const SelectStyledWrapper = styled.label`
     }
     select {
       width: 100%;
-      background-color: ${props => props.theme.select.background};
-      font-size: ${props => props.theme.select.fontSize};
-      border: ${props => props.theme.select.border};
-      border-radius: ${props => props.theme.select.borderRadius};
+      background-color: ${props => props.theme.selects.background};
+      font-size: ${props => props.theme.selects.fontSize};
+      border: ${props => props.theme.selects.border};
+      border-radius: ${props => props.theme.selects.borderRadius};
       display: inline-block;
+      height: 100%;
+      margin: auto 0;
       padding: 0.3rem 2rem 0.3rem 1rem;
       -webkit-appearance: none;
       -moz-appearance: none;

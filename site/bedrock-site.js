@@ -20,7 +20,9 @@ const isProd = process.env.NODE_ENV === 'production';
 function createWebPackConfig(config) {
   const webpackConfig = {
     entry: {
-      main: path.resolve(__dirname, './src'),
+      main: [path.resolve(__dirname, './src'), config.pluginSetupFile].filter(
+        x => x,
+      ),
     },
     output: {
       filename: '[name].bundle.js',

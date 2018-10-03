@@ -86,14 +86,7 @@ export const forms = {
 };
 
 export const baseTheme = {
-  borders: {
-    color: colors.gray.light,
-    radius: '0',
-    style: 'solid',
-    border: `${colors.gray.light} solid 1px`,
-  },
-  breakpoint: breakpoints,
-  blockquote: {
+  blockquotes: {
     border: `1px solid ${colors.gray.xlight}`,
     borderLeft: `3px solid ${colors.gray.xlight}`,
     margin: '2rem',
@@ -111,6 +104,14 @@ export const baseTheme = {
       width: '80px',
     },
   },
+  body: {
+    color: 'black',
+    fontFamily: fontFamilies.avenir.light,
+    fontSize: '1rem',
+    lineHeight: '1.5',
+    margin: '0',
+    padding: '0',
+  },
   buttons: {
     border: 'none',
     cursor: 'pointer',
@@ -125,19 +126,6 @@ export const baseTheme = {
       background: '#f2f3f3',
     },
   },
-  colors: {
-    accent: colors.yellow.base,
-    active: colors.yellow.base,
-    color: colors,
-    type: typeColors,
-    primary: colors.blue.base,
-    secondary: colors.green.base,
-    neutralXLight: colors.gray.xxlight,
-    neutralLight: colors.gray.xlight,
-    neutral: colors.gray.base,
-    neutralDark: colors.gray.xlight,
-    neutralXDark: colors.gray.xlight,
-  },
   details: {
     borderTop: `solid 1px ${colors.gray.dark}`,
     borderBottom: `solid 1px ${colors.gray.dark}`,
@@ -148,7 +136,7 @@ export const baseTheme = {
       fontSize: '1.1rem',
     },
   },
-  eyebrow: {
+  eyebrows: {
     color: colors.gray.light,
     fontFamily: fontFamilies.avenir.medium,
     fontSize: '1rem',
@@ -156,18 +144,99 @@ export const baseTheme = {
   footer: {
     background: colors.blue.base,
   },
+  globals: {
+    borders: {
+      color: colors.gray.light,
+      radius: '0',
+      style: 'solid',
+      border: `${colors.gray.light} solid 1px`,
+    },
+    boxSizing: 'border-box',
+    breakpoints,
+    colors: {
+      accent: colors.yellow.base,
+      active: colors.yellow.base,
+      primary: colors.blue.base,
+      secondary: colors.green.base,
+      success: colors.green.base,
+      warning: colors.yellow.base,
+      error: colors.red.ghost,
+      info: colors.blue.light,
+      ghost: colors.blue.xlight,
+      neutral: colors.gray.base,
+      neutralLight: colors.gray.xlight,
+      neutralXLight: colors.gray.xxlight,
+      neutralDark: colors.gray.xlight,
+      neutralXDark: colors.gray.xlight,
+    },
+    fontSize: '18px',
+    fonts: fontFamilies,
+    spacing: {
+      xs: '4px',
+      s: '8px',
+      m: '16px',
+      l: '32px',
+      xl: '50px',
+      xxl: '64px',
+    },
+  },
   header: {
     accentColor: colors.yellow.base,
     background: colors.blue.base,
     fontFamily: fontFamilies.avenir.medium,
   },
-  input: {
+  headings: {
+    h1: {
+      color: colors.blue.base,
+      fontSize: '2.65rem',
+      fontFamily: fontFamilies.avenir.medium,
+      lineHeight: '1.25',
+      margin: '0 0 1rem',
+    },
+    h2: {
+      color: colors.blue.base,
+      fontSize: '1.65rem',
+      fontFamily: fontFamilies.avenir.medium,
+      lineHeight: '1.25',
+      margin: '0 0 1rem',
+    },
+    h3: {
+      color: colors.blue.base,
+      fontSize: '1.45rem',
+      fontFamily: fontFamilies.avenir.medium,
+      lineHeight: '1.25',
+      margin: '0 0 1rem',
+    },
+    h4: {
+      color: colors.blue.base,
+      fontSize: '1.25rem',
+      fontFamily: fontFamilies.avenir.medium,
+      lineHeight: '1.25',
+      margin: '0 0 1rem',
+    },
+    h5: {
+      color: colors.blue.base,
+      fontSize: '1rem',
+      fontFamily: fontFamilies.avenir.medium,
+      lineHeight: '1.25',
+      margin: '0 0 1rem',
+    },
+    h6: {
+      color: colors.blue.base,
+      fontSize: '0.875rem',
+      fontFamily: fontFamilies.avenir.medium,
+      lineHeight: '1.25',
+      margin: '0 0 1rem',
+    },
+  },
+  inputs: {
     fontSize: '0.75rem',
     height: forms.height,
     border: `1px solid ${colors.gray.xlight}`,
     padding: '3px 8px',
   },
   links: {
+    fontFamily: fontFamilies.avenir.medium,
     color: colors.blue.base,
     textDecoration: 'none',
     hover: {
@@ -182,56 +251,23 @@ export const baseTheme = {
   lists: {
     margin: '0 0 1rem',
   },
-  fonts: {
-    families: fontFamilies,
-    sizes: {
-      xxs: '11px',
-      xs: '14px',
-      s: '16px',
-      m: '18px',
-      body: '1rem',
-    },
-  },
-  headings: {
-    font_family: fontFamilies.avenir.medium,
-    line_height: '1.25',
-    margin: '0 0 1rem',
-    h1: {
-      base: '2.65rem',
-      min_width_380: '3.25rem',
-    },
-    h2: {
-      base: '1.65rem',
-      min_width_380: '2.25rem',
-    },
-    h3: {
-      base: '1.45rem',
-      min_width_380: '1.75rem',
-    },
-    h4: {
-      base: '1.25rem',
-    },
-    h5: {
-      base: '1rem',
-    },
-    h6: {
-      base: '0.875rem',
-    },
-  },
-  label: {
+  labels: {
     color: colors.gray.dark,
     fontSize: '12px',
     fontWeight: 'bold',
   },
   paragraphs: {
-    font_family: fontFamilies.avenir.medium,
+    color: 'black',
+    lineHeight: '1.5',
+    fontFamily: fontFamilies.avenir.medium,
+    fontSize: '1rem',
     margin: '0 0 1.5rem',
   },
-  select: {
+  selects: {
     background: '#f2f3f3',
     border: '0',
     borderRadius: '0',
-    fontSize: '1rem',
+    fontSize: '0.75rem',
     height: forms.height,
     padding: '5px',
     margin: '0',
@@ -240,20 +276,12 @@ export const baseTheme = {
     accentColor: colors.yellow.base,
     background: '#f2f3f3',
   },
-  spacing: {
-    xs: '4px',
-    s: '8px',
-    m: '16px',
-    l: '32px',
-    xl: '50px',
-    xxl: '64px',
-  },
-  status: {
+  statuses: {
     successColor: colors.green.ghost,
     warningColor: colors.yellow.ghost,
     errorColor: colors.red.ghost,
   },
-  transition: {
+  transitions: {
     all: 'all 0.3s ease-in-out',
     speed_and_function: '0.3s ease-in-out',
     speed: '0.3s',

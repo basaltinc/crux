@@ -27,16 +27,17 @@ export const CustomFieldWrapper = styled.div`
     }
   }
   padding: 0;
-  margin: ${props => props.theme.spacing.m} ${props => props.theme.spacing.m}
-    ${props => props.theme.spacing.m} 0;
+  margin: ${props => props.theme.globals.spacing.m}
+    ${props => props.theme.globals.spacing.m}
+    ${props => props.theme.globals.spacing.m} 0;
   .form-group {
     margin: 0.25rem 0.25rem 0.5rem 0;
   }
   > label {
     display: block;
-    color: ${props => props.theme.label.color};
-    font-size: ${props => props.theme.label.fontSize};
-    font-weight: ${props => props.theme.label.fontWeight};
+    color: ${props => props.theme.labels.color};
+    font-size: ${props => props.theme.labels.fontSize};
+    font-weight: ${props => props.theme.labels.fontWeight};
   }
   &.field-array {
     .field-array.form-group {
@@ -50,7 +51,7 @@ export const CustomFieldWrapper = styled.div`
       padding: 0.5rem 0.5rem 0 0;
     }
     .field-object > label {
-      font-size: ${props => props.theme.fonts.sizes.s};
+      font-size: calc(${props => props.theme.globals.fontSize} * 0.88);
       font-weight: bold;
       color: black;
     }
@@ -62,7 +63,7 @@ export const CustomFieldWrapper = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    height: ${props => props.theme.input.height};
+    height: ${props => props.theme.inputs.height};
     font-size: 18px;
     background-color: transparent;
     > div {

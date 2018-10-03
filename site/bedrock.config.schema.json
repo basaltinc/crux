@@ -16,6 +16,11 @@
       "title": "Public directory",
       "description": "The absolute path to where files will be available to the dev server."
     },
+    "pluginSetupFile": {
+      "type": "string",
+      "title": "Bedrock Plugin Setup File Path",
+      "description": "File that contains all the imported plugin register functions"
+    },
     "settings": {
       "type": "object",
       "title": "Settings",
@@ -57,6 +62,12 @@
           "type": "boolean",
           "description": "Enables Icons for Patterns and Design Tokens",
           "default": false
+        },
+        "enableBlockquotes": {
+          "title": "Enable Blockquotes",
+          "type": "boolean",
+          "description": "Enables Blockquotes on Patterns Pages",
+          "default": true
         },
         "hasJiraIssueCollector": {
           "title": "Has Jira Issue Collector",

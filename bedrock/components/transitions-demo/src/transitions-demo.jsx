@@ -32,18 +32,20 @@ class AnimationsPage extends React.Component {
   }
 
   render() {
+    const { enableBlockquotes } = this.props.context.settings;
     return (
       <div>
         <div className="body">
           <h4 className="eyebrow">Design Tokens</h4>
           <h2>Transitions</h2>
-
-          <BlockQuoteWrapper>
-            Animation offers a medium of story telling and visual entertainment
-            which can bring pleasure and information to people of all ages
-            everywhere in the world.
-            <footer>Walt Disney</footer>
-          </BlockQuoteWrapper>
+          {enableBlockquotes && (
+            <BlockQuoteWrapper>
+              Animation offers a medium of story telling and visual
+              entertainment which can bring pleasure and information to people
+              of all ages everywhere in the world.
+              <footer>Walt Disney</footer>
+            </BlockQuoteWrapper>
+          )}
           <h4>Purpose</h4>
           <p>Animation is a fundamental component of any visual language.</p>
           <ul>
