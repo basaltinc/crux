@@ -70,7 +70,10 @@ class ExamplesLandingPage extends Component {
         <h2>Examples</h2>
         {enableBlockquotes && (
           <BlockQuoteWrapper>
-            When I design buildings, I think of the overall composition, much as the parts of a body would fit together. On top of that, I think about how people will approach the building and experience that space.
+            When I design buildings, I think of the overall composition, much as
+            the parts of a body would fit together. On top of that, I think
+            about how people will approach the building and experience that
+            space.
             <footer>Tadao Ando</footer>
           </BlockQuoteWrapper>
         )}

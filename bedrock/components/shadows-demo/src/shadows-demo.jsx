@@ -3,8 +3,8 @@ import { BlockQuoteWrapper } from '@basalt/bedrock-atoms';
 import { contextPropTypes } from '@basalt/bedrock-core';
 import { ShadowDemoBox } from './shadows-demo.styles';
 
-function ShadowsPage() {
-  const { enableBlockquotes } = this.props.context.settings;
+function ShadowsPage(props) {
+  const { enableBlockquotes } = props.context.settings;
   return (
     <div>
       <h4 className="eyebrow">Visual Language</h4>
