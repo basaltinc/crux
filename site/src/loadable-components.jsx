@@ -7,6 +7,12 @@ export const LoadableComponentOverview = Loadable({
   loading: Spinner,
 });
 
+export const LoadableHome = Loadable({
+  loader: () =>
+    import(/* webpackChunkName: 'home' */ './components/home-splash.jsx'),
+  loading: Spinner,
+});
+
 export const LoadablePatternEdit = Loadable({
   loader: () =>
     import(/* webpackChunkName: 'pattern-edit' */ './layouts/pattern-edit'),

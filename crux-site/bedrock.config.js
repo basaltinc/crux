@@ -8,6 +8,7 @@ const urlBase =
 const cruxSite = new BedrockSite({
   dist: path.join(__dirname, 'dist'),
   public: path.join(__dirname, 'public'),
+  pluginSetupFile: path.join(__dirname, './bedrock.plugins.js'),
   // everything in `settings` MUST be JSON serializable
   settings: {
     isDebug: true,
