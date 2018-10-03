@@ -9,6 +9,7 @@ import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import { flattenArray } from '@basalt/bedrock-utils';
 import NavList from '@basalt/bedrock-nav-list';
 import urlJoin from 'url-join';
+import { FaTimes } from 'react-icons/fa';
 
 class SecondaryNav extends Component {
   static prepSectionLinks(sections) {
@@ -134,7 +135,7 @@ class SecondaryNav extends Component {
               onKeyPress={this.handleFilterReset}
               isVisible={!!this.state.filterTerm}
             >
-              <i className="icon--close" />
+              <FaTimes />
             </ClearFilterButton>
           </TypeToFilterInputWrapper>
         </TypeToFilter>
