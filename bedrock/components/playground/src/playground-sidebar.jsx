@@ -119,7 +119,7 @@ function PlaygroundSidebar(props) {
         ? patterns
         : patterns.filter(
             item =>
-              item.title
+              item.meta.title
                 .toLowerCase()
                 .search(props.filterTerm.toLowerCase()) !== -1,
           );
