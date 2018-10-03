@@ -26,15 +26,18 @@ class SpacingPage extends React.Component {
   }
 
   render() {
+    const { enableBlockquotes } = this.props.context.settings;
     return (
       <div>
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Spacing</h2>
-          <BlockQuoteWrapper>
-            Whitespace is like air: it is necessary for design to breathe.
-            <footer>Wojciech Zieliński</footer>
-          </BlockQuoteWrapper>
+          {enableBlockquotes && (
+            <BlockQuoteWrapper>
+              Whitespace is like air: it is necessary for design to breathe.
+              <footer>Wojciech Zieliński</footer>
+            </BlockQuoteWrapper>
+          )}
           <p>
             Space is a fundamental concept to any visual design language. Space
             and proximity are powerful conveyors of relationships. Like things

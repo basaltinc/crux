@@ -205,16 +205,18 @@ class TypographyPage extends React.Component {
         </React.Fragment>
       ),
     }));
-
+    const { enableBlockquotes } = this.props.context.settings;
     return (
       <div className="body">
         <h4 className="eyebrow">Visual Language</h4>
         <h2>Typography</h2>
-        <BlockQuoteWrapper>
-          <strong>Typography is the voice of a brand.</strong> This set of
-          typefaces best represent Basalt's brand attributes and personality.
-          They should be used across all digital and print applications.
-        </BlockQuoteWrapper>
+        {enableBlockquotes && (
+          <BlockQuoteWrapper>
+            <strong>Typography is the voice of a brand.</strong> This set of
+            typefaces best represent Basalt's brand attributes and personality.
+            They should be used across all digital and print applications.
+          </BlockQuoteWrapper>
+        )}
         <DemoBlock>
           <h3>Font sizes</h3>
           <p>
