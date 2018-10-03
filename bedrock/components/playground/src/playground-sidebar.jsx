@@ -9,7 +9,7 @@ import {
   TypeToFilterInputWrapper,
 } from '@basalt/bedrock-atoms';
 import { Link } from 'react-router-dom';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaTimes } from 'react-icons/fa';
 import PlaygroundEditForm from './playground-edit-form';
 import {
   PatternListWrapper,
@@ -119,7 +119,7 @@ function PlaygroundSidebar(props) {
         ? patterns
         : patterns.filter(
             item =>
-              item.title
+              item.meta.title
                 .toLowerCase()
                 .search(props.filterTerm.toLowerCase()) !== -1,
           );
@@ -143,7 +143,7 @@ function PlaygroundSidebar(props) {
               onKeyPress={props.handleFilterReset}
               isVisible={!!props.filterTerm}
             >
-              <i className="icon--close" />
+              <FaTimes />
             </ClearFilterButton>
           </TypeToFilterInputWrapper>
         </TypeToFilter>
