@@ -27,16 +27,20 @@ class ColorsPage extends React.Component {
   }
 
   render() {
+    const { enableBlockquotes } = this.props.context.settings;
     return (
       <div className="docs">
         <div className="body">
           <h4 className="eyebrow">Visual Language</h4>
           <h2>Colors</h2>
-          <BlockQuoteWrapper>
-            Mere colour, unspoiled by meaning, and unallied with definite form,
-            can speak to the soul in a thousand different ways.
-            <footer>Oscar Wilde</footer>
-          </BlockQuoteWrapper>
+          {enableBlockquotes && (
+            <BlockQuoteWrapper>
+              Mere colour, unspoiled by meaning, and unallied with definite
+              form, can speak to the soul in a thousand different ways.
+              <footer>Oscar Wilde</footer>
+            </BlockQuoteWrapper>
+          )}
+
           <br />
           <p>
             Color is a defining element of any strong brand identity. Dedicated

@@ -55,6 +55,7 @@ class ExamplesLandingPage extends Component {
   }
 
   render() {
+    const { enableBlockquotes } = this.props.context.settings;
     if (this.state.redirect) {
       return <Redirect to={`/examples/${this.state.redirect}`} />;
     }
@@ -67,12 +68,12 @@ class ExamplesLandingPage extends Component {
       <div>
         <h4 className="eyebrow">Prototyping and Samples</h4>
         <h2>Examples</h2>
-        <BlockQuoteWrapper>
-          When I design buildings, I think of the overall composition, much as
-          the parts of a body would fit together. On top of that, I think about
-          how people will approach the building and experience that space.
-          <footer>Tadao Ando</footer>
-        </BlockQuoteWrapper>
+        {enableBlockquotes && (
+          <BlockQuoteWrapper>
+            When I design buildings, I think of the overall composition, much as the parts of a body would fit together. On top of that, I think about how people will approach the building and experience that space.
+            <footer>Tadao Ando</footer>
+          </BlockQuoteWrapper>
+        )}
         <TwoUp>
           <div>
             <h3>What is prototyping?</h3>

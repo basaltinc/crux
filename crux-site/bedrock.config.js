@@ -17,6 +17,7 @@ const cruxSite = new BedrockSite({
     websocketsPort: 5042,
     patternIconBasePath: '/assets/images/pattern-thumbnails/',
     enablePatternIcons: true,
+    enableBlockquotes: true,
     site: {
       title: 'Crux',
       subtitle: 'Design System by Basalt',
