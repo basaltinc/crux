@@ -8,7 +8,6 @@ import Sidebar from '@basalt/bedrock-sidebar';
 import { connectToContext, contextPropTypes } from '@basalt/bedrock-core';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
-import { FaTrashAlt } from 'react-icons/fa';
 import PlaygroundSlice from './playground-slice';
 import PlaygroundSidebar, {
   SIDEBAR_DEFAULT,
@@ -19,8 +18,6 @@ import {
   MainContent,
   StartInsertSlice,
   Page,
-  PlaygroundIcon,
-  PlaygroundIconWrapper,
   SliceError,
 } from './playground.styles';
 

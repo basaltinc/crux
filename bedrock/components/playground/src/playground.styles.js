@@ -178,6 +178,4 @@ export const PlaygroundSliceWrapper = styled.div`
   ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};
 `;
 
-export const SliceError = styled.div`
-  //display: flex;
-`;
+export const SliceError = styled.div``;
