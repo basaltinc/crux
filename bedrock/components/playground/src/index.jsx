@@ -91,9 +91,7 @@ class Playground extends Component {
   getTemplateFromPatternId(patternId) {
     const pattern = this.props.patterns.find(p => p.id === patternId);
     // @todo Improve template grabbing method besides just "first" one
-    if (!pattern) {
-      console.log('not found');
-    } else {
+    if (pattern) {
       return pattern.templates[0];
     }
   }
