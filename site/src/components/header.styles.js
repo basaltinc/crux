@@ -54,6 +54,7 @@ export const MobileNav = styled.div`
     border-top: solid 1px rgba(255, 255, 255, 0.5);
     max-width: 400px;
     margin-left: auto;
+    padding-right: 35px;
   }
   a {
     position: relative;

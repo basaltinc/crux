@@ -101,7 +101,7 @@ class Header extends React.Component {
     if (this.state.windowWidth <= 950) {
       return this.state.mobileNavVisible ? (
         <MobileNav>
-          {Header.renderLinks(this.props.context.settings)}
+          {Header.renderLinks(this.props.context)}
           <X onClick={this.handleNavClick} />
         </MobileNav>
       ) : (
