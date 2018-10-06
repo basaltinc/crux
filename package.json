@@ -20,7 +20,7 @@
     "jest": "jest",
     "lint:js": "eslint --ext .js,.jsx .",
     "lint:js:fix": "yarn lint:js --fix",
-    "lint:style": "stylelint './bedrock/**/*.jsx' './site/**/*.jsx' --syntax scss",
+    "lint:style": "stylelint './bedrock/**/*.jsx' --syntax scss",
     "pick": "pick-npm-run-all",
     "postversion": "git push && git push --tags",
     "precommit": "lint-staged || true",
@@ -36,12 +36,12 @@
   "workspaces": {
     "packages": [
       "bedrock",
+      "bedrock/bedrock-site",
       "bedrock/apps/*",
       "bedrock/components/*",
       "bedrock/packages/*",
       "crux-assets",
-      "crux-site",
-      "site"
+      "crux-site"
     ],
     "nohoist": [
       "@basalt/bedrock-storybook/babel-core",

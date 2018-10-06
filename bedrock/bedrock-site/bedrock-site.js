@@ -63,13 +63,8 @@ function createWebPackConfig(config) {
     },
     devtool: isProd ? 'source-map' : 'cheap-module-source-map',
     resolve: {
-      extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
-      modules: [
-        path.resolve(process.cwd(), 'node_modules'),
-        path.resolve(__dirname, 'node_modules'),
-        path.resolve(__dirname, '../node_modules'),
-      ],
-      mainFields: ['src', 'module', 'main'],
+      extensions: ['.jsx', '.js', '.json', '.css'],
+      mainFields: ['module', 'main'],
     },
     stats: 'none',
     devServer: {
@@ -117,7 +112,7 @@ function createWebPackConfig(config) {
     ],
     performance: {
       hints: isProd ? 'error' : false,
-      maxAssetSize: 300000,
+      maxAssetSize: 302000,
     },
   };
 
