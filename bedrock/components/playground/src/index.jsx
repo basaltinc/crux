@@ -14,7 +14,12 @@ import PlaygroundSidebar, {
   SIDEBAR_FORM,
   SIDEBAR_PATTERNS,
 } from './playground-sidebar';
-import { MainContent, StartInsertSlice, Page } from './playground.styles';
+import {
+  MainContent,
+  StartInsertSlice,
+  Page,
+  SliceError,
+} from './playground.styles';
 
 class Playground extends Component {
   constructor(props) {
@@ -86,7 +91,9 @@ class Playground extends Component {
   getTemplateFromPatternId(patternId) {
     const pattern = this.props.patterns.find(p => p.id === patternId);
     // @todo Improve template grabbing method besides just "first" one
-    return pattern.templates[0];
+    if (pattern) {
+      return pattern.templates[0];
+    }
   }
 
   handleFilterReset() {
@@ -337,37 +344,59 @@ class Playground extends Component {
           </StartInsertSlice>
           {this.state.slices.map((slice, sliceIndex) => {
             const template = this.getTemplateFromPatternId(slice.patternId);
+            if (!template) {
+              return (
+                <SliceError
+                  key={`${slice.id}--fragment`}
+                  onKeyPress={() => this.deleteSlice(slice.id)}
+                  onClick={() => this.deleteSlice(slice.id)}
+                  role="button"
+                  aria-label="delete component"
+                  tabIndex="0"
+                >
+                  <StatusMessage
+                    message={`Template for "${
+                      slice.patternId
+                    }" not found. Click to delete.`}
+                    type="warning"
+                  />
+                </SliceError>
+              );
+            }
             return (
               <React.Fragment key={`${slice.id}--fragment`}>
-                <PlaygroundSlice
-                  key={slice.id}
-                  id={slice.id}
-                  index={sliceIndex}
-                  template={template.name}
-                  data={slice.data}
-                  showEditForm={() => {
-                    this.setState({
-                      editFormSliceId: slice.id,
-                      editFormSchema: template.schema,
-                      editFormUiSchema: template.uiSchema,
-                      sidebarContent: SIDEBAR_FORM,
-                      editFormInsertionIndex: null,
-                    });
-                    this.briefHighlight(slice.id);
-                  }}
-                  deleteMe={() => this.deleteSlice(slice.id)}
-                  moveSlice={(dragIndex, hoverIndex) => {
-                    console.log('moving...', { dragIndex, hoverIndex });
-                    this.moveSlice(dragIndex, hoverIndex, slice.id);
-                  }}
-                  moveUp={() => this.moveSliceUp(sliceIndex, slice.id)}
-                  moveDown={() => this.moveSliceDown(sliceIndex, slice.id)}
-                  hasVisibleControls={hasVisibleControls}
-                  isBeingEdited={this.state.editFormSliceId === slice.id}
-                  isFirst={sliceIndex === 0}
-                  isLast={this.state.slices.length - 1 === sliceIndex}
-                  isChanged={this.state.changeId === slice.id}
-                />
+                {template && (
+                  <PlaygroundSlice
+                    key={slice.id}
+                    id={slice.id}
+                    index={sliceIndex}
+                    template={template.name}
+                    data={slice.data}
+                    showEditForm={() => {
+                      this.setState({
+                        editFormSliceId: slice.id,
+                        editFormSchema: template.schema,
+                        editFormUiSchema: template.uiSchema,
+                        sidebarContent: SIDEBAR_FORM,
+                        editFormInsertionIndex: null,
+                      });
+                      this.briefHighlight(slice.id);
+                    }}
+                    deleteMe={() => this.deleteSlice(slice.id)}
+                    moveSlice={(dragIndex, hoverIndex) => {
+                      console.log('moving...', { dragIndex, hoverIndex });
+                      this.moveSlice(dragIndex, hoverIndex, slice.id);
+                    }}
+                    moveUp={() => this.moveSliceUp(sliceIndex, slice.id)}
+                    moveDown={() => this.moveSliceDown(sliceIndex, slice.id)}
+                    hasVisibleControls={hasVisibleControls}
+                    isBeingEdited={this.state.editFormSliceId === slice.id}
+                    isFirst={sliceIndex === 0}
+                    isLast={this.state.slices.length - 1 === sliceIndex}
+                    isChanged={this.state.changeId === slice.id}
+                  />
+                )}
+
                 <StartInsertSlice
                   key={`${slice.id}--handleAddSlice`}
                   onClick={() => this.handleStartInsertSlice(sliceIndex + 1)}

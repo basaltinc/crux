@@ -4,6 +4,7 @@ const {
 const webpack = require('webpack');
 const Stylish = require('webpack-stylish');
 const Visualizer = require('webpack-visualizer-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlTemplate = require('html-webpack-template');
 const DashboardPlugin = require('webpack-dashboard/plugin');
@@ -35,11 +36,7 @@ function createWebPackConfig(config) {
         {
           test: /\.(js|jsx|mjs)$/,
           loader: 'babel-loader',
-          exclude: [
-            /(node_modules)/,
-            path.resolve(__dirname, 'node_modules'),
-            path.resolve(__dirname, '../node_modules'),
-          ],
+          exclude: [/(node_modules)/],
           options: {
             extends: '@basalt/bedrock-babel-config/es',
           },
@@ -63,13 +60,8 @@ function createWebPackConfig(config) {
     },
     devtool: isProd ? 'source-map' : 'cheap-module-source-map',
     resolve: {
-      extensions: ['.mjs', '.jsx', '.js', '.json', '.jsx', '.css'],
-      modules: [
-        path.resolve(process.cwd(), 'node_modules'),
-        path.resolve(__dirname, 'node_modules'),
-        path.resolve(__dirname, '../node_modules'),
-      ],
-      mainFields: ['src', 'module', 'main'],
+      extensions: ['.mjs', '.jsx', '.js', '.json', '.css'],
+      mainFields: ['module', 'main'],
     },
     stats: 'none',
     devServer: {
@@ -118,11 +110,25 @@ function createWebPackConfig(config) {
     performance: {
       hints: isProd ? 'error' : false,
       maxAssetSize: 300000,
+      maxEntrypointSize: 300000,
     },
   };
 
   if (isProd) {
     webpackConfig.mode = 'production';
+    webpackConfig.optimization = {
+      minimizer: [
+        new TerserPlugin({
+          parallel: true,
+          sourceMap: true,
+          terserOptions: {
+            // ecma: 6,
+            // warnings: true,
+            module: true,
+          },
+        }),
+      ],
+    };
   } else {
     webpackConfig.mode = 'development';
     webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());

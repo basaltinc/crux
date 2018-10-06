@@ -126,7 +126,7 @@ class PatternsPage extends Component {
     }
 
     return (
-      <div>
+      <div className="patterns-filters">
         <h2>Patterns</h2>
         <p>Explore the design patterns that make up the Crux Design System.</p>
 
@@ -134,7 +134,6 @@ class PatternsPage extends Component {
           schema={filterSchema}
           formData={this.state.formData}
           onChange={this.handleChangeForm}
-          className="patterns-filters"
         />
         <PatternGrid patterns={this.state.visiblePatterns} />
       </div>

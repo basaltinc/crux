@@ -177,3 +177,5 @@ export const PlaygroundSliceWrapper = styled.div`
   ${props => (props.hasVisibleControls ? 'margin: 1.5rem;' : '')};
   ${props => props.isChanged && `animation: ${briefHighlight} 1.5s`};
 `;
+
+export const SliceError = styled.div``;

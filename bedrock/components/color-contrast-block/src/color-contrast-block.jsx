@@ -19,6 +19,7 @@ import {
   RowWrapper,
   Fade,
   NewRatio,
+  ColorName,
 } from './color-contrast-block.styles';
 import Spinner from '../../spinner';
 
@@ -116,11 +117,12 @@ class ColorContrastBlock extends React.Component {
           <summary>{result.bgColor.name}</summary>
           <ContrastInner key={result.bgColor.name} testing="testing">
             <h3>{result.bgColor.name}</h3>
-            <p className="col col--1">Ratio</p>
-            <p className="col col--2">AA</p>
-            <p className="col col--3">AAA</p>
-            <p className="col col--4">AA Large</p>
-            <p className="col col--5">AAA Large</p>
+            <p className="col col--1">Variable</p>
+            <p className="col col--2">Ratio</p>
+            <p className="col col--3">AA</p>
+            <p className="col col--4">AAA</p>
+            <p className="col col--5">AA Large</p>
+            <p className="col col--6">AAA Large</p>
             <ColorBlock color={result.bgColor.value} />
             <RowWrapper>
               {result.comparisonResults.map(compared => (
@@ -130,6 +132,7 @@ class ColorContrastBlock extends React.Component {
                   comparedColor={compared.comparedColor.value}
                 >
                   <Fade comparedColor={compared.comparedColor.value} />
+                  <ColorName>{compared.comparedColor.name}</ColorName>
                   <NewRatio ratio={compared.contrast.ratio}>
                     {compared.contrast.ratio}
                   </NewRatio>

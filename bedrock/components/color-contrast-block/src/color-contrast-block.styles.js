@@ -70,7 +70,7 @@ export const ContrastWrapper = styled.div`
 
 export const ContrastInner = styled.div`
   display: grid;
-  grid-template-columns: 75px 75px 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 75px 75px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(2, auto);
   margin: 2rem 0;
   > h3 {
@@ -96,6 +96,9 @@ export const ContrastInner = styled.div`
     &--5 {
       grid-column: 8 / 9;
     }
+    &--6 {
+      grid-column: 9 / 10;
+    }
   }
 `;
 
@@ -110,7 +113,7 @@ export const RowWrapper = styled.div`
   grid-row: 2 / -1;
   display: grid;
   padding: 0;
-  grid-template-columns: 75px 75px 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 75px 75px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 `;
 
 export const Fade = styled.div`
@@ -123,6 +126,8 @@ export const Fade = styled.div`
     transparent 80%
   );
 `;
+
+export const ColorName = styled.p``;
 
 export const Results = styled.p`
   color: ${props =>
@@ -142,7 +147,7 @@ export const ColorCompare = styled.div`
   height: 50px;
   margin: 0.5rem 0;
   display: grid;
-  grid-template-columns: 75px 75px 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 75px 75px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-column: 1 / -1;
   p {
     margin: auto 0;
@@ -161,5 +166,8 @@ export const ColorCompare = styled.div`
   }
   p:nth-of-type(5) {
     grid-column: 8 / 9;
+  }
+  p:nth-of-type(6) {
+    grid-column: 9 / 10;
   }
 `;
