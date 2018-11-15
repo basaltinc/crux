@@ -1,7 +1,0 @@
-# <%= name %>
-
-## Setup
-
-```
-yarn install
-```
