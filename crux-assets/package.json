@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
+    "@basalt/eslint-config-base": "^0.4.0",
     "@theme-tools/plugin-icon-font": "^0.4.3",
     "@theme-tools/plugin-sass": "^0.4.0",
     "@theme-tools/plugin-webpack": "^0.2.2",

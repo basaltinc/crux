@@ -1,4 +1,4 @@
 {
   "root": true,
-  "extends": "@basalt/eslint-config-bedrock"
+  "extends": "@basalt/eslint-config-base"
 }
