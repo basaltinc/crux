@@ -1,10 +1,10 @@
-const schema = require('./avatar-schema.js');
+const schema = require('./basic-block-schema.js');
 
 module.exports = {
-  id: 'avatar',
+  id: 'basic-block',
   templates: [
     {
-      name: '@components/avatar.twig',
+      name: '@components/basic-block.twig',
       schema,
     },
   ],

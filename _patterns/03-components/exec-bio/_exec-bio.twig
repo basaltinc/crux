@@ -6,7 +6,7 @@
 <div class="{{ classes|join(' ') }}">
   {% if avatar %}
     <div class="exec-bio__avatar">
-      {% include '@components/_avatar.twig' with {
+      {% include '@components/avatar.twig' with {
         size: 'jumbo',
         img: avatar,
       } only %}

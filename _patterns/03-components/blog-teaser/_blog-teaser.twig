@@ -17,7 +17,7 @@
       <h3 class="blog-teaser__author">by {{ author }}
       </h3>
       {% if teaser_avatar %}
-        {% include '@components/_avatar.twig' with {
+        {% include '@components/avatar.twig' with {
         size: 's',
         img: teaser_avatar,
         } only %}

@@ -1,10 +1,10 @@
-const schema = require('./button.schema');
+const schema = require('./avatar-schema.js');
 
 module.exports = {
-  id: 'button',
+  id: 'avatar',
   templates: [
     {
-      name: '@components/button.twig',
+      name: '@components/avatar.twig',
       schema,
     },
   ],

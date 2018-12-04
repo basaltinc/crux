@@ -1,7 +1,7 @@
 {
-  "title": "Button",
+  "title": "Avatar",
   "type": "component",
-  "description": "A Button for clicking!",
-  "uses": ["inSlice"],
+  "description": "Show a person's profile picture.",
+  "uses": ["inComponent"],
   "demoSize": "m"
 }

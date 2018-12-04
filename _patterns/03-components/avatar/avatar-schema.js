@@ -21,29 +21,11 @@ module.exports = {
   examples: [
     {
       size: 'xl',
-      img: '/assets/images/avatar-example.jpg',
+      img: 'https://www.fillmurray.com/200/200',
     },
     {
       size: 'xl',
       img: image(),
-    },
-  ],
-  dosAndDonts: [
-    {
-      title: '',
-      items: [
-        {
-          image: '/assets/images/dos-and-donts/avatars/avatars-dont.png',
-          caption: 'add a border to avatars.',
-          do: false,
-        },
-        {
-          title: 'Do Example',
-          image: '/assets/images/dos-and-donts/avatars/avatars-do.png',
-          caption: 'use avatars as styled.',
-          do: true,
-        },
-      ],
     },
   ],
 };
