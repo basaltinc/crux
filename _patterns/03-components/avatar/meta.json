@@ -1,7 +1,0 @@
-{
-  "title": "Avatar",
-  "type": "component",
-  "description": "Show a person's profile picture.",
-  "uses": ["inComponent"],
-  "demoSize": "s"
-}

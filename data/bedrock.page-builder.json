@@ -1,0 +1,37 @@
+{
+  "cEjZM2bh5": {
+    "id": "cEjZM2bh5",
+    "title": "A simple little page",
+    "path": "/pages/cEjZM2bh5",
+    "description": "Just putting a few pieces together from our components.",
+    "slices": [
+      {
+        "id": "yxuj_qVuf",
+        "patternId": "hero",
+        "data": {
+          "title": "I'm a Hero!",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit..",
+          "img": "https://basalt-demo-data.netlify.com/basalt-brand-stock/domenico-loia-310197.jpg"
+        }
+      },
+      {
+        "id": "eoObDvUfX",
+        "patternId": "card",
+        "data": {
+          "title": "I'm a Card Title",
+          "body": "I'm a body - Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "img": "https://basalt-demo-data.netlify.com/imagePlaceholder3.png"
+        }
+      },
+      {
+        "id": "UoUmOjNSW",
+        "patternId": "hero",
+        "data": {
+          "title": "Have a great day!",
+          "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit..",
+          "img": "https://basalt-demo-data.netlify.com/basalt-brand-stock/domenico-loia-310197.jpg"
+        }
+      }
+    ]
+  }
+}
