@@ -1,0 +1,29 @@
+props:
+  border-color-default:
+    value: '#ccc'
+    category: border-color
+    type: color
+  border-color-primary:
+    value: hsl(200, 55%, 19%)
+    category: border-color
+    type: color
+  border-style-solid:
+    value: solid
+    category: border-style
+  border-style-dotted:
+    value: dotted
+    category: border-style
+  border-style-dashed:
+    value: dashed
+    category: border-style
+  border-radius-s:
+    value: 3px
+    category: border-radius
+  border-radius-m:
+    value: 7px
+    category: border-radius
+  border-radius-l:
+    value: 15px
+    category: border-radius
+global:
+  type: string

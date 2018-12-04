@@ -14,5 +14,21 @@
     "description": "This is an empty example",
     "slices": [],
     "hasVisibleControls": true
+  },
+  "88SJaRYpM": {
+    "id": "88SJaRYpM",
+    "title": "My third example Example",
+    "path": "/pages/88SJaRYpM",
+    "description": null,
+    "slices": [],
+    "hasVisibleControls": true
+  },
+  "OEWIVpCh0": {
+    "id": "OEWIVpCh0",
+    "title": "My New Example4",
+    "path": "/pages/OEWIVpCh0",
+    "description": null,
+    "slices": [],
+    "hasVisibleControls": true
   }
 }

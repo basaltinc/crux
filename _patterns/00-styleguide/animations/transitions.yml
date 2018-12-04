@@ -1,0 +1,16 @@
+props:
+  trans-opacity-time:
+    value: 0.3s
+  trans-opacity-function:
+    value: ease-in
+  trans-opacity:
+    value: 0.3s ease-in
+  trans-move-time:
+    value: 0.3s
+  trans-move-function:
+    value: ease-in
+  trans-move:
+    value: 0.3s ease-in
+global:
+  type: number
+  category: animation

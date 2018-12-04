@@ -1,0 +1,10 @@
+props:
+  light:
+    value: 100
+  normal:
+    value: 400
+  bold:
+    value: 800
+global:
+  type: number
+  category: font-weight

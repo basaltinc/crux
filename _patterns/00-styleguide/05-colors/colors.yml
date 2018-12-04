@@ -1,0 +1,97 @@
+props:
+  c-primary:
+    value: hsl(200, 55%, 19%)
+    category: text-color
+  c-secondary:
+    value: hsl(52, 74%, 54%)
+    category: text-color
+  c-border:
+    value: hsl(240, 3%, 85%)
+    category: border-color
+  c-links:
+    value: hsl(200, 55%, 19%)
+    category: text-color
+  c-links--hover:
+    value: hsl(200, 55%, 9%)
+    category: text-color
+  c-header-text:
+    value: black
+    category: text-color
+  c-body-text:
+    value: black
+    category: text-color
+  c-blue--light:
+    value: hsl(165, 26%, 85%)
+  c-blue--light__text:
+    value: hsl(165, 26%, 85%)
+    category: text-color
+  c-blue--light__border:
+    value: hsl(165, 26%, 85%)
+    category: border-color
+  c-blue:
+    value: hsl(200, 55%, 19%)
+  c-blue__text:
+    value: hsl(200, 55%, 19%)
+    category: text-color
+  c-blue__border:
+    value: hsl(200, 55%, 19%)
+    category: border-color
+  c-green:
+    value: hsl(159, 20%, 17%)
+  c-green__text:
+    value: hsl(159, 20%, 17%)
+    category: text-color
+  c-green__border:
+    value: hsl(159, 20%, 17%)
+    category: border-color
+  c-iron:
+    value: hsl(240, 3%, 85%)
+  c-iron__text:
+    value: hsl(240, 3%, 85%)
+    category: text-color
+  c-iron__border:
+    value: hsl(240, 3%, 85%)
+    category: border-color
+  c-yellow:
+    value: hsl(52, 74%, 54%)
+  c-yellow__text:
+    value: hsl(52, 74%, 54%)
+    category: text-color
+  c-yellow__border:
+    value: hsl(52, 74%, 54%)
+    category: border-color
+  c-white:
+    value: white
+  c-white__text:
+    value: white
+    category: text-color
+  c-white__border:
+    value: white
+    category: border-color
+  c-gray:
+    value: hsl(240, 3%, 85%)
+  c-gray__text:
+    value: hsl(240, 3%, 85%)
+    category: text-color
+  c-gray__border:
+    value: hsl(240, 3%, 85%)
+    category: border-color
+  c-gray--dark:
+    value: hsl(0, 0%, 40%)
+  c-gray--dark__text:
+    value: hsl(0, 0%, 40%)
+    category: text-color
+  c-gray--dark__border:
+    value: hsl(0, 0%, 40%)
+    category: border-color
+  c-black:
+    value: black
+  c-black__text:
+    value: black
+    category: text-color
+  c-black__border:
+    value: black
+    category: border-color
+global:
+  type: color
+  category: background-color

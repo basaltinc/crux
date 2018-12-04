@@ -1,0 +1,12 @@
+props:
+  normal:
+    value: 1.25
+  squished:
+    value: .75
+  roomy:
+    value: 1.75
+  extra-roomy:
+    value: 2.5
+global:
+  type: number
+  category: line-height
