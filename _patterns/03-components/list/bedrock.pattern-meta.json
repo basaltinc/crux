@@ -1,0 +1,7 @@
+{
+  "title": "List",
+  "type": "component",
+  "description": "A list of items",
+  "uses": ["inSlice"],
+  "demoSize": "m"
+}

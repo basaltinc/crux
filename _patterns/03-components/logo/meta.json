@@ -1,8 +1,0 @@
-{
-  "title": "Logo",
-  "type": "component",
-  "description": "Logo",
-  "uses": ["inComponent"],
-  "demoSize": "m",
-  "status": "ready"
-}

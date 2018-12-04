@@ -1,8 +1,0 @@
-{
-  "title": "Social",
-  "type": "component",
-  "description": "Collection of Social Media Icons",
-  "uses": ["inComponent", "inGrid"],
-  "demoSize": "m",
-  "status": "ready"
-}

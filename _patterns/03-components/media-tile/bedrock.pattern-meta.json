@@ -1,0 +1,7 @@
+{
+  "title": "Media Tile",
+  "type": "component",
+  "description": "A smaller tile for displaying media and linking to additional content.",
+  "uses": ["inSlice"],
+  "demoSize": "m"
+}

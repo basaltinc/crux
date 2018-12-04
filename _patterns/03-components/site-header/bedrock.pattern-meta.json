@@ -1,0 +1,7 @@
+{
+  "title": "Site Header",
+  "type": "component",
+  "description": "Meant to go on the top of every page.",
+  "uses": ["inSlice"],
+  "demoSize": "m"
+}

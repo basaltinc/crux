@@ -1,0 +1,7 @@
+{
+  "title": "Button",
+  "type": "component",
+  "description": "A button that allows users to interact with a site.",
+  "uses": ["inComponent"],
+  "demoSize": "m"
+}

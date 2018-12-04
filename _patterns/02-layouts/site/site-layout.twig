@@ -21,13 +21,13 @@
     {% endfor %}
 
     {% block header %}
-      {% include "@components/_site-header.twig" with {
+      {% include "@components/site-header.twig" with {
         menu_items: menu_items,
       } only %}
     {% endblock %}
 
     {% block footer %}
-      {% include "@components/_site-footer.twig" with {
+      {% include "@components/site-footer.twig" with {
         menu_items: menu_items,
       } only %}
     {% endblock %}

@@ -1,0 +1,7 @@
+{
+  "title": "Call to Action",
+  "type": "component",
+  "description": "A Call to Action that encourages a users to interact with a site.",
+  "uses": ["inComponent"],
+  "demoSize": "m"
+}

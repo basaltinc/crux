@@ -1,7 +1,7 @@
 <div class="site u-site-container">
   <header class="site__header">
     {% block header %}
-      {% include "@components/_site-header.twig" %}
+      {% include "@components/site-header.twig" %}
     {% endblock %}
   </header>
   <main class="site__page page{% if sidebar %} page--has-sidebar{% endif %}">
@@ -18,7 +18,7 @@
   </main>
   <footer class="site__footer">
     {% block footer %}
-      {% include "@components/_site-footer.twig" %}
+      {% include "@components/site-footer.twig" %}
     {% endblock %}
   </footer>
 </div>

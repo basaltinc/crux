@@ -1,0 +1,7 @@
+{
+  "title": "Executive Bio",
+  "type": "component",
+  "description": "A component for highlighting the biography of an employee.",
+  "uses": ["inComponent"],
+  "demoSize": "m"
+}

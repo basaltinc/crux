@@ -37,13 +37,13 @@
     {% if buttons %}
       <div class="media-tile__buttons">
         {% for button in buttons %}
-          {% include '@components/_button.twig' with button only %}
+          {% include '@components/button.twig' with button only %}
         {% endfor %}
       </div>
     {% endif %}
     {% if list %}
       <div class="media-tile__list">
-        {% include '@components/_list.twig' with list only %}
+        {% include '@components/list.twig' with list only %}
       </div>
     {% endif %}
   </div>

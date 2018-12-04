@@ -1,0 +1,7 @@
+{
+  "title": "Media Block",
+  "type": "component",
+  "description": "A block that includes an image or other media asset.",
+  "uses": ["inSlice"],
+  "demoSize": "m"
+}

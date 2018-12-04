@@ -1,8 +1,0 @@
-{
-  "title": "Media Block",
-  "type": "component",
-  "description": "Image, Title, Body, and Buttons make this really flexible.",
-  "uses": ["inGrid", "inSlice"],
-  "demoSize": "l",
-  "status": "ready"
-}
