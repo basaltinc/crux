@@ -1,7 +1,7 @@
 {
-  "title": "A Design System",
-  "subtitle": "A Simple Example of a Design System",
-  "slogan": "Don't repeat yourself",
+  "title": "Crux",
+  "subtitle": "A Basalt Design System",
+  "slogan": "Built on Bedrock, the API-first Design System Manager",
   "parentBrand": {
     "logo": "http://files.basalt.io/logos/main--200.png",
     "title": "Basalt",
