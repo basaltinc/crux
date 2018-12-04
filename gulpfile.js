@@ -4,19 +4,19 @@ const gulp = require('gulp');
 const scssToJson = require('scsstojson');
 const cssTasks = require('@theme-tools/plugin-sass')({
   src: ['scss/**/*.scss', '_patterns/**/*.scss'],
-  dest: 'dist',
+  dest: 'public',
   lint: {
     enabled: true,
   },
   sassdoc: {
     enabled: true,
-    dest: 'dist/sassdoc',
+    dest: 'public/sassdoc',
   },
   includePaths: ['./node_modules', '../node_modules', '../../node_modules'],
 });
 const iconTasks = require('@theme-tools/plugin-icon-font')({
   src: 'images/icons/src/*.svg',
-  dest: 'dist',
+  dest: 'public',
   templates: {
     enabled: true,
     sets: [
@@ -94,7 +94,7 @@ gulp.task('css', cssTasks.compile);
 gulp.task('validate', gulp.series([cssTasks.validate]));
 
 function copyFonts() {
-  return gulp.src(['./fonts/**']).pipe(gulp.dest('./dist/fonts'));
+  return gulp.src(['./fonts/**']).pipe(gulp.dest('./public/fonts'));
 }
 
 gulp.task(

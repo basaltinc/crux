@@ -5,3 +5,4 @@ yarn-error.log
 vendor
 dist
 lerna-debug.log
+public
