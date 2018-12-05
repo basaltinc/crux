@@ -10,6 +10,16 @@ const config = {
         recursive: true,
         paths: ['./_patterns/'],
       },
+      {
+        id: 'styleguide',
+        recursive: true,
+        paths: ['./_patterns/00-styleguide/'],
+      },
+      {
+        id: 'svgs',
+        recursive: true,
+        paths: ['./images/svgs/'],
+      },
     ],
   },
 };

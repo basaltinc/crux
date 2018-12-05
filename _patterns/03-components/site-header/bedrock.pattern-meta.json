@@ -1,7 +1,11 @@
 {
   "title": "Site Header",
-  "type": "component",
   "description": "Meant to go on the top of every page.",
-  "uses": ["inSlice"],
-  "demoSize": "m"
+  "type": "component",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": false,
+  "demoSize": "full"
 }
