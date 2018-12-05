@@ -8,7 +8,7 @@ const config = {
   dist: './dist',
   public: './public',
   data: './data',
-  assets: './assets',
+  assets: './assetsssss',
   css: ['./public/crux.css'],
   js: ['./public/crux.js'],
   templates: [

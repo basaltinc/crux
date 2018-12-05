@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Media block</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Patterns" transform="translate(-35.000000, -372.000000)">
+            <g id="Media-block" transform="translate(35.000000, 372.000000)">
+                <g>
+                    <rect id="Rectangle" fill="#4A90E2" opacity="0.99" x="0" y="0" width="220" height="220" rx="15"></rect>
+                    <rect id="Rectangle-Copy" fill="#FFFFFF" opacity="0.275" x="8" y="9" width="203" height="70" rx="15"></rect>
+                    <path d="M31,102 L188,102 C192.970563,102 197,106.029437 197,111 L197,117 C197,121.970563 192.970563,126 188,126 L152.143044,126 L31,126 C26.0294373,126 22,121.970563 22,117 L22,111 C22,106.029437 26.0294373,102 31,102 Z" id="Rectangle-2" fill="#FFFFFF"></path>
+                    <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="28" y="145" width="163.945312" height="8" rx="4"></rect>
+                    <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="34" y="165" width="153" height="8" rx="4"></rect>
+                    <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="48" y="185" width="123.945313" height="8" rx="4"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

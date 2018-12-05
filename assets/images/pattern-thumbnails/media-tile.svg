@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220px" height="220px" viewBox="0 0 220 220" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Media Tile Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Components" transform="translate(-570.000000, -35.000000)">
+            <g id="Media-Tile-Icon" transform="translate(570.000000, 35.000000)">
+                <g id="Media-tile">
+                    <rect id="Rectangle" stroke="#3578C7" fill="#4A90E2" x="0.5" y="0.5" width="219" height="219" rx="15"></rect>
+                    <path d="M35,53 L186,53 C190.970563,53 195,57.0294373 195,62 L195,68 C195,72.9705627 190.970563,77 186,77 L151.680997,77 L35,77 C30.0294373,77 26,72.9705627 26,68 L26,62 C26,57.0294373 30.0294373,53 35,53 Z" id="Rectangle-2" fill="#FFFFFF"></path>
+                    <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="26" y="104" width="169" height="8" rx="4"></rect>
+                    <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="44" y="124" width="133" height="8" rx="4"></rect>
+                    <rect id="Rectangle-Copy" fill="#FFFFFF" opacity="0.275" x="10" y="10" width="201" height="200" rx="15"></rect>
+                    <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="44" y="144" width="133" height="8" rx="4"></rect>
+                    <rect id="Rectangle-2" fill="#FFFFFF" opacity="0.602901786" x="75" y="164" width="70" height="8" rx="4"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
