@@ -5,25 +5,25 @@ node_js:
 before_install:
   - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
 
+install:
+  - yarn install
 
 jobs:
   include:
-    - stage: install
-      script: npm install
     - stage: build
-      script: npm run build
+      script:
+        - npm run build
+    - stage: deploy
+      script:
+        - npm i -g now
+        - now --build-env NPM_TOKEN=@npm-token --token=$NPM_TOKEN
+        - now alias --token=$NPM_TOKEN
 
 stages:
   - install
   - build
-
-#install:
-#  - npm install
-#
-#script:
-#  - npm run build
-#  - npm i -g now
-#  - now --build-env NPM_TOKEN=@npm-token
+  - name: deploy
+    if: branch = master
 
 cache:
   - npm
