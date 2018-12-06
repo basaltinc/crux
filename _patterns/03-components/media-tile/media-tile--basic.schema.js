@@ -18,7 +18,7 @@ const schema = {
       min_height: 'm',
       media_padding: '0',
       desc: 'Who We Are',
-      background_image: '/assets/images/brand-stock/rawpixel-com-191102.jpg',
+      background_image: '/user-site-public/images/brand-stock/rawpixel-com-191102.jpg',
     },
     {
       title: dummyTitle(),

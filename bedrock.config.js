@@ -9,7 +9,7 @@ const config = {
   public: './public',
   data: './data',
   css: ['./public/build/crux.css'],
-  js: ['.public/build/crux.js'],
+  js: ['./public/build/crux.js'],
   templates: [
     {
       test: theTemplatePath => theTemplatePath.endsWith('.twig'),
