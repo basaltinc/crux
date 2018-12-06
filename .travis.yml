@@ -2,6 +2,12 @@ language: node_js
 node_js:
 - '10'
 
+before_install:
+  - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+
+install:
+  - npm install
+
 jobs:
   include:
     - stage: install
@@ -11,3 +17,10 @@ jobs:
     - stage: build
       script: npm run build
 
+#install:
+#  - npm install
+#
+#script:
+#  - npm run build
+#  - npm i -g now
+#  - now --build-env NPM_TOKEN=@npm-token
