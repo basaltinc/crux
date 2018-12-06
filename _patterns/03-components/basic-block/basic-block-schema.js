@@ -20,7 +20,7 @@ module.exports = {
     buttons: {
       type: 'array',
       title: 'Buttons',
-      description: 'List of objects passed to @components/_button.twig',
+      description: 'List of objects passed to @components/button.twig',
       items: buttonSchema,
     },
   },

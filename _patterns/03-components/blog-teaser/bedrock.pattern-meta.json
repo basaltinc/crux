@@ -1,0 +1,7 @@
+{
+  "title": "Blog Teaser",
+  "type": "component",
+  "description": "A blog teaser.",
+  "uses": ["inSlice"],
+  "demoSize": "l"
+}

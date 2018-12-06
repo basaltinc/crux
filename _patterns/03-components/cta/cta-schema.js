@@ -16,7 +16,7 @@ module.exports = {
     buttons: {
       title: 'Buttons',
       type: 'array',
-      description: 'List of objects passed to @components/_button.twig',
+      description: 'List of objects passed to @components/button.twig',
       items: buttonSchema,
     },
     full_width: {

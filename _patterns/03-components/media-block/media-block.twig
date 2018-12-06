@@ -1,0 +1,48 @@
+{% set classes = [
+  'media-block',
+  'media-block--media-on-' ~ media_alignment,
+  show_full_media ? 'media-block--show-full-media',
+  'media-block--media-size-' ~ media_size|default('m'),
+] | merge(classes|default([])) %}
+
+<div class="{{ classes|join(' ') }}">
+
+  {% set media_classes = [
+    'media-block__media',
+    show_full_media ? 'media-block__media--img' : 'media-block__media--bg',
+    media_padding ? 'media-block__media--padding-' ~ media_padding,
+  ] %}
+  <div class="{{ media_classes|join(' ') }}">
+    {% set position_class = "bg-img--" ~ media_position|default('top-center') %}
+    {% include '@styleguide/_img.twig' with {
+      bg: show_full_media != true,
+      img: demo ? false : media,
+      class: position_class,
+    } %}
+  </div>
+
+  <div class="media-block__content{% if content_classes %} {{ content_classes|join(' ') }}{% endif %}">
+    {% if title %}
+      {% set title_classes = [
+        'media-block__title',
+        inset_title ? 'media-block__title--inset',
+        title_bg_color ? 'u-bg-' ~ title_bg_color,
+        title_text_color ? 'u-c-' ~ title_text_color,
+      ] %}
+      <h3 class="{{ title_classes|join(' ') }}">{{ title }}</h3>
+    {% endif %}
+
+    {% if body %}
+      <div class="media-block__body">{{ body|raw }}</div>
+    {% endif %}
+
+    {% if buttons %}
+      <div class="media-block__buttons">
+        {% for button in buttons %}
+          {% include '@components/button.twig' with button only %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+
+</div>

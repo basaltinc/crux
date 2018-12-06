@@ -1,0 +1,7 @@
+{
+  "title": "Logo",
+  "type": "component",
+  "description": "A logo is a core part of any brand.",
+  "uses": ["inSlice"],
+  "demoSize": "m"
+}

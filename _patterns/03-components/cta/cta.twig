@@ -1,0 +1,15 @@
+{% set classes = [
+  'cta',
+  full_width ? 'u-full-width',
+] | merge(classes|default([])) %}
+
+<div class="{{ classes|join(' ') }}">
+  {% if text %}
+    <p>{{ text }}</p>
+  {% endif %}
+  <div class="cta__button">
+    {% for button in buttons %}
+      {% include '@components/button.twig' with button only %}
+    {% endfor %}
+  </div>
+</div>

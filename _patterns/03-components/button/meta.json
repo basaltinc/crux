@@ -1,7 +1,0 @@
-{
-  "title": "Button",
-  "type": "component",
-  "description": "Buttons are for clickin' and tappin'!",
-  "uses": ["inComponent"],
-  "demoSize": "s"
-}

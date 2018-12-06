@@ -1,0 +1,7 @@
+{
+  "title": "Site Footer",
+  "type": "component",
+  "description": "Meant to go on the bottom of every page.",
+  "uses": ["inSlice"],
+  "demoSize": "m"
+}

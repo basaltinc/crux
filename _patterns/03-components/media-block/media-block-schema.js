@@ -132,7 +132,7 @@ module.exports = {
     buttons: {
       title: 'Buttons',
       type: 'array',
-      description: 'List of objects passed to @components/_button.twig',
+      description: 'List of objects passed to @components/button.twig',
       items: buttonSchema,
     },
   },
@@ -141,7 +141,6 @@ module.exports = {
       title: 'What Is Basalt?',
       body:
         'Basalt represents our roots—the Pacific Northwest, and our belief that quality design begins with rock‑solid scalable components.',
-      desc: 'A Community of Experts',
       media: '/assets/images/brand-stock/julentto-photography-184055.jpg',
       media_alignment: 'right',
       media_size: 'm',
@@ -157,7 +156,6 @@ module.exports = {
     {
       title: title(),
       body: paragraph(),
-      desc: title(),
       media: image(),
       media_alignment: 'top',
     },

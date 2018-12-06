@@ -1,0 +1,30 @@
+props:
+  "fs--xxl":
+    value: 2.25rem
+  "fs--xl":
+    value: 1.75rem
+  "fs--l":
+    value: 1.25rem
+  "fs--m":
+    value: 1rem
+  "fs--s":
+    value: .875rem
+  "fs--xs":
+    value: .75rem
+  "fs--xxs":
+    value: .625rem
+  "fs--h1":
+    value: 3.25rem
+  "fs--h2":
+    value: 2.25rem
+  "fs--h3":
+    value: 1.75rem
+  "fs--h4":
+    value: 1.25rem
+  "fs--h5":
+    value: 1rem
+  "fs--h6":
+    value: 0.875rem
+global:
+  type: number
+  category: font-size

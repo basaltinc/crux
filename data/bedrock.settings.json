@@ -1,0 +1,55 @@
+{
+  "title": "Crux",
+  "subtitle": "A Basalt Design System",
+  "slogan": "Built on Bedrock, the API-first Design System Manager",
+  "parentBrand": {
+    "logo": "http://files.basalt.io/logos/main--200.png",
+    "title": "Basalt",
+    "homepage": "https://basalt.io"
+  },
+  "designTokens": {
+    "groups": [
+      {
+        "id": "colors",
+        "title": "Colors",
+        "description": "Some colors",
+        "tokenCategoryIds": [
+          "background-color",
+          "text-color",
+          "hr-color"
+        ]
+      },
+      {
+        "id": "sizing",
+        "title": "Sizing",
+        "description": "Some sizing",
+        "tokenCategoryIds": [
+          "spacing",
+          "media-query"
+        ]
+      },
+      {
+        "id": "typography",
+        "title": "Typography",
+        "description": "Some typography",
+        "tokenCategoryIds": [
+          "font-family",
+          "font-size",
+          "line-height",
+          "text-color",
+          "text-shadow"
+        ]
+      },
+      {
+        "id": "shadows",
+        "title": "Shadows",
+        "description": "Some shadows",
+        "tokenCategoryIds": [
+          "box-shadow",
+          "inner-shadow",
+          "text-shadow"
+        ]
+      }
+    ]
+  }
+}

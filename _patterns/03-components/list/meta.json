@@ -1,8 +1,0 @@
-{
-  "title": "List",
-  "type": "component",
-  "description": "List",
-  "status": "draft",
-  "uses": ["inSlice", "inComponent", "inGrid"],
-  "demoSize": "m"
-}

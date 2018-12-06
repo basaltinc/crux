@@ -1,0 +1,14 @@
+props:
+  ff-avenir-light:
+    value: "'AvenirLight', sans-serif"
+  ff-avenir-medium:
+    value: "'AvenirMedium', sans-serif"
+  ff-din-condensed:
+    value: "'DinCondensed', sans-serif"
+  ff-heading:
+    value: "'AvenirMedium', sans-serif, !default"
+  ff-body:
+    value: "'AvenirLight', sans-serif, !default"
+global:
+  type: string
+  category: font-family
