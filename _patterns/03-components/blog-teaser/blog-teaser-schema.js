@@ -46,11 +46,11 @@ module.exports = {
     {
       title: 'A Tale of Two Lego Cities',
       author: 'Nam Ho',
-      teaser_avatar: '/assets/images/avatar-example2.jpg',
+      teaser_avatar: '/images/avatar-example2.jpg',
       date: 'November 8, 2017',
       summary:
         "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
-      image: '/assets/images/legos.jpg',
+      image: '/images/legos.jpg',
       is_even: true,
     },
     {

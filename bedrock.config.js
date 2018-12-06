@@ -8,9 +8,8 @@ const config = {
   dist: './dist',
   public: './public',
   data: './data',
-  assets: './assetsssss',
-  css: ['./public/crux.css'],
-  js: ['./public/crux.js'],
+  css: ['./public/build/crux.css'],
+  js: ['.public/build/crux.js'],
   templates: [
     {
       test: theTemplatePath => theTemplatePath.endsWith('.twig'),

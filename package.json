@@ -9,15 +9,14 @@
     "build:gulp": "rm -rf dist && NODE_ENV=production gulp build",
     "build:tokens": "echo 'true'",
     "new": "yo pl-pattern --base source/_patterns",
-    "prepare": "yarn build",
+    "prepublishOnly": "yarn build",
     "serve": "bedrock serve",
-    "start": "run-p -l watch serve",
+    "start": "yarn build:gulp && bedrock start",
     "old:start": "gulp",
-    "test": "gulp validate",
-    "watch": "bedrock start"
+    "test": "gulp validate"
   },
   "dependencies": {
-    "@basalt/bedrock": "^0.13.1",
+    "@basalt/bedrock": "^0.16.1-alpha.2",
     "@basalt/demo-data": "^0.5.1",
     "@basalt/twig-renderer": "^0.10.2",
     "breakpoint-sass": "^2.7.1",
