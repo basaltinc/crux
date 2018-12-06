@@ -10,6 +10,7 @@ const config = {
   data: './data',
   css: ['./public/build/crux.css'],
   js: ['./public/build/crux.js'],
+  docsDir: './docs',
   templates: [
     {
       test: theTemplatePath => theTemplatePath.endsWith('.twig'),
