@@ -16,8 +16,8 @@ jobs:
     - stage: deploy
       script:
         - npm i -g now
-        - now --build-env NPM_TOKEN=@npm-token --token=$NOW_TOKEN
-        - now alias --token=$NOW_TOKEN
+        - now --build-env NPM_TOKEN=@npm-token --token=$NOW_TOKEN --team=basalt
+        - now alias --token=$NOW_TOKEN --team=basalt
 
 stages:
   - install
