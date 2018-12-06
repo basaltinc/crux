@@ -8,7 +8,7 @@ const config = {
   dist: './dist',
   public: './public',
   data: './data',
-  css: ['./public/build/crux.css'],
+  css: ['./public/build/crux.css', './public/bedrock.overrides.css'],
   js: ['./public/build/crux.js'],
   templates: [
     {
