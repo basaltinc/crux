@@ -5,7 +5,7 @@
   "scripts": {
     "build": "run-p -l build:*",
     "build:bedrock": "bedrock build",
-    "build:gulp": "rm -rf dist && NODE_ENV=production gulp build",
+    "build:gulp": "rm -rf public/build && NODE_ENV=production gulp build",
     "build:tokens": "echo 'true'",
     "new": "yo pl-pattern --base source/_patterns",
     "prepublishOnly": "yarn build",
