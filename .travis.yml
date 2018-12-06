@@ -16,12 +16,12 @@ jobs:
     - stage: deploy
       script:
         - npm i -g now
-        - now --build-env NPM_TOKEN=@npm-token --token=$NOM_TOKEN
-        - now alias --token=$NOM_TOKEN
+        - now --build-env NPM_TOKEN=@npm-token --token=$NOW_TOKEN
+        - now alias --token=$NOW_TOKEN
 
 stages:
-#  - install
-#  - build
+  - install
+  - build
   - name: deploy
     if: branch = master
 
