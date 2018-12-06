@@ -2,7 +2,6 @@
   "name": "@basalt/crux-assets",
   "version": "2.0.2",
   "description": "Basalt Design System",
-  "main": "crux-assets.js",
   "scripts": {
     "build": "run-p -l build:*",
     "build:bedrock": "bedrock build",
