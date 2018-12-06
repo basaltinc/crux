@@ -7,6 +7,7 @@
     "build:bedrock": "bedrock build",
     "build:gulp": "rm -rf public/build && NODE_ENV=production gulp build",
     "build:tokens": "echo 'true'",
+    "deploy": "now --build-env NPM_TOKEN=@npm-token && now alias",
     "new": "yo pl-pattern --base source/_patterns",
     "prepublishOnly": "yarn build",
     "serve": "bedrock serve",
