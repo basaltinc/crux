@@ -1023,10 +1023,10 @@
     "@basalt/bedrock-core" "^0.16.3"
     color "^3.0.0"
 
-"@basalt/bedrock@^0.16.3":
-  version "0.16.3"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.16.3.tgz#2183c054a8c43beaa8d07161af0e915179b0df1d"
-  integrity sha512-YpfYb2N0tIYxphcDJ1jXjZttARTghlMrstWBaVvf2k5gpQIuw6y/ZIiUEpNSGHSYE7MzcUJ7Jbw7AgfWoXncnw==
+"@basalt/bedrock@^0.16.6":
+  version "0.16.6"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.16.6.tgz#68cf15b9589c8a6cee457cb07610cbebe02fb807"
+  integrity sha512-S6KnRxNc0uqdimX0jKgbF1WQhDwAD6qh/Sc/0s9x4rJn5tIxR/j2Qh81n5mwOJ0zPBwp1ByCS+4ubaf7UUmYcg==
   dependencies:
     "@basalt/bedrock-api-demo" "^0.16.3"
     "@basalt/bedrock-atoms" "^0.16.3"
