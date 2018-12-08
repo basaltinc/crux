@@ -176,7 +176,7 @@ module.exports = {
         },
       ],
       desc: 'Who We Are',
-      background_image: '/user-site-public/images/brand-stock/clarisse-meyer-304306.jpg',
+      background_image: '/images/brand-stock/clarisse-meyer-304306.jpg',
     },
     {
       title: title(),
