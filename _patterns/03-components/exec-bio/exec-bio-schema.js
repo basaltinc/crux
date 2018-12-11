@@ -38,7 +38,7 @@ module.exports = {
   examples: [
     {
       is_even: true,
-      avatar: '/user-site-public/images/chris-strahl.jpg',
+      avatar: '/images/chris-strahl.jpg',
       name: 'Chris Strahl',
       twitter: 'chrisstrahl',
       bio:

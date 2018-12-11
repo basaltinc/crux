@@ -106,7 +106,7 @@ module.exports = {
       title: 'What We Do',
       body: 'Design Systems, start to finish.',
       alignment_all: 'center',
-      image: '/user-site-public/images/brand-stock/rawpixel-com-191102.jpg',
+      image: '/images/brand-stock/rawpixel-com-191102.jpg',
       image_overlay: 'black',
       buttons: [
         {

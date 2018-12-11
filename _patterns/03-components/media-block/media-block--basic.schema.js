@@ -13,7 +13,7 @@ const schema = {
       body:
         'Basalt represents our roots—the Pacific Northwest, and our belief that quality design begins with rock‑solid scalable components.',
       desc: 'A Community of Experts',
-      media: '/user-site-public/images/brand-stock/annie-spratt-294450.jpg',
+      media: '/images/brand-stock/annie-spratt-294450.jpg',
       media_alignment: 'top',
       media_size: 'm',
     },
