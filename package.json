@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "Basalt Design System",
   "scripts": {
-    "build": "run-p -l build:*",
+    "build": "run-s -l build:gulp build:bedrock",
     "build:bedrock": "bedrock build",
     "build:gulp": "rm -rf public/build && NODE_ENV=production gulp build",
     "build:tokens": "echo 'true'",
