@@ -16,7 +16,7 @@
     "test": "gulp validate"
   },
   "dependencies": {
-    "@basalt/bedrock": "^0.17.6",
+    "@basalt/bedrock": "0.19.0",
     "@basalt/demo-data": "^0.5.1",
     "@basalt/twig-renderer": "^0.10.2",
     "breakpoint-sass": "^2.7.1",

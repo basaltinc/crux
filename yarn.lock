@@ -870,28 +870,28 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@basalt/bedrock-api-demo@^0.17.6":
-  version "0.17.6"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-api-demo/-/bedrock-api-demo-0.17.6.tgz#15b8c5c17479268c458937022e52d0b9ff62a490"
-  integrity sha512-xX4wBDC5o2KuqaVYirp7noKX5qSkJFSnywDSxNZHsQmP9vdu76y5egEOVQ1S9CiDYSWYPC1B9gEWkWucLZestA==
+"@basalt/bedrock-api-demo@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-api-demo/-/bedrock-api-demo-0.19.0.tgz#dd78deb889b6c2a9e79d605a279593e6a644e386"
+  integrity sha512-UMmfCdVxjowRTlbdzXEF+TlkpEtW58vN81htsoE5iygl3SuPCCKXhnAE6GFBkF/zmmdaVr6B0DpVHpFDG8hFxQ==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.17.6"
-    "@basalt/bedrock-core" "^0.17.4"
-    "@basalt/bedrock-schema-form" "^0.17.4"
-    "@basalt/bedrock-schema-table" "^0.17.4"
+    "@basalt/bedrock-atoms" "^0.19.0"
+    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-schema-form" "^0.19.0"
+    "@basalt/bedrock-schema-table" "^0.19.0"
     query-string "^6.1.0"
 
-"@basalt/bedrock-atoms@^0.17.6":
-  version "0.17.6"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-atoms/-/bedrock-atoms-0.17.6.tgz#b614edba4955a0c513ed0dbab3a9568349e91b80"
-  integrity sha512-wBrrk4iTrripDdAGEtzYHOCTKYG2vUTLBAJmkaYsXDMk4dFesFah0cL7/qxffTtVC+SrIu/eIPLrTsUghBO6pQ==
+"@basalt/bedrock-atoms@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-atoms/-/bedrock-atoms-0.19.0.tgz#035bb48214c37a322a8fd5d0889b6a465d5923b7"
+  integrity sha512-INuQfVhiJDwkOVT1Dpdtm5qzeEbNK16UlhWAcH7cKIg9xNTQxbqXe2Lbd9ZPUU8zPf0mXe1VgBCT7HsnhqoV9g==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
 
-"@basalt/bedrock-babel-config@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-babel-config/-/bedrock-babel-config-0.17.0.tgz#f60e6d1f678cdafee2e8359588d3948472a956da"
-  integrity sha512-LjhTbuOO6p79rUgBfBErXtcbwAxWIo4UBFtaFiFsfETVOuCdxC6DjRQQCpAk75Yygeb5hWZmTbjLGX9WSgfX0Q==
+"@basalt/bedrock-babel-config@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-babel-config/-/bedrock-babel-config-0.19.0.tgz#561a9c39c4a40a78e6c9f91886808974638ed295"
+  integrity sha512-bRBy9Fqcehka8U3ZBTJx9vHWajUUd5uLFQ1Q54wcTUDOdVEl1ZDvhLC0yloJ9Ust7OslrSrMg9MKkrqHRL0hmw==
   dependencies:
     "@babel/cli" "^7.0.0"
     "@babel/core" "^7.0.0"
@@ -912,141 +912,141 @@
     babel-plugin-transform-react-remove-prop-types "^0.4.14"
     prettier "^1.14.2"
 
-"@basalt/bedrock-breakpoints-demo@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-breakpoints-demo/-/bedrock-breakpoints-demo-0.17.4.tgz#5cdd10b3105bae234de8751488208a638e9e5a3c"
-  integrity sha512-50u9gAl88bE20d75PYFcDJmmGpbv75kE6b1ugslyhuf3t2rfeSWBBg3OLTE8MnXJ+MIrNQK66lkHpzbVRatroQ==
+"@basalt/bedrock-breakpoints-demo@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-breakpoints-demo/-/bedrock-breakpoints-demo-0.19.0.tgz#8e5e4110952c91a38e8376625931d93eb49525aa"
+  integrity sha512-FQcrYpfHaWiKFhPkARDvyY+h+CEYbvq+B1+qhWxi7qkld1m/X7ePcRCCJ+3hRhPwt41IDAHqriSV/MTJSEC7Pw==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
 
-"@basalt/bedrock-code-block@^0.17.6":
-  version "0.17.6"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-code-block/-/bedrock-code-block-0.17.6.tgz#bd2bad7338651c7c897e182a28720abc712cdd4f"
-  integrity sha512-MMWbd4CECX67JoL4hnBXt04czkyAEx3quYLf5HXZo0GGyjBIXCLvBRYXqQeaw3Aa5cKUAd0Ypvr7NGN8Eai5Xg==
+"@basalt/bedrock-code-block@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-code-block/-/bedrock-code-block-0.19.0.tgz#b0bcac22f3f9f004d72b525c94ff941e9be26ad5"
+  integrity sha512-heVNJSG+eNQr6XlWfmtTqE6+01ITDL3As0JZB2JWT44Kfq6vzpvIdfJRSTrhjuA+/Zo98oKABge2Hp3ryz2pBA==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.17.6"
-    "@basalt/bedrock-core" "^0.17.4"
-    "@basalt/bedrock-utils" "^0.17.4"
+    "@basalt/bedrock-atoms" "^0.19.0"
+    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-utils" "^0.19.0"
 
-"@basalt/bedrock-color-contrast-block@^0.17.6":
-  version "0.17.6"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-contrast-block/-/bedrock-color-contrast-block-0.17.6.tgz#6cfcbcdb3617adce8ea46e4c80f493074fa80c46"
-  integrity sha512-6eG1E4evbLSVMsg3L4M6/juGZjoebeVw8TLpB3LUs4BWQYfHyTSLBPGNlKncfyWODEqSv+pnvUI4CGZ0bpAWqQ==
+"@basalt/bedrock-color-contrast-block@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-contrast-block/-/bedrock-color-contrast-block-0.19.0.tgz#3407e4bb3fd8e89e947d01137cc7b853b4ae4b0d"
+  integrity sha512-px2WVb8bm4JTjr1XhRhBsj/+DCiPH7NP3e57VpO9XcT9bfa2jICLIrmEXHcoy/HwS+fJvQ0v5jFyEqpGd/29vA==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.17.6"
-    "@basalt/bedrock-core" "^0.17.4"
-    "@basalt/bedrock-utils" "^0.17.4"
+    "@basalt/bedrock-atoms" "^0.19.0"
+    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-utils" "^0.19.0"
 
-"@basalt/bedrock-color-swatch@^0.17.6":
-  version "0.17.6"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-swatch/-/bedrock-color-swatch-0.17.6.tgz#f14ee488700db6b1ce8356fe10c3300198e943bb"
-  integrity sha512-BQ7GYcC/Oun1qqJdz4vV66JYptHJV4p9T6ZTWCDdZhGeURkZ/jVpMkQ7dquaGrMzgwXhx4QGhN0x/iB04vlQhQ==
+"@basalt/bedrock-color-swatch@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-swatch/-/bedrock-color-swatch-0.19.0.tgz#daeba83e66c4159721f4428c12a269e4d3b31f25"
+  integrity sha512-GtIChzDhW1uldwhQLS/5p1XlJl4D0HPhkzuDvv9CmPpJLjj5KihjlaR0tcMj6o5+ysNmssRTXM6mr0Fz1bNFWQ==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.17.6"
-    "@basalt/bedrock-core" "^0.17.4"
-    "@basalt/bedrock-utils" "^0.17.4"
+    "@basalt/bedrock-atoms" "^0.19.0"
+    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-utils" "^0.19.0"
     react-copy-to-clipboard "^5.0.1"
 
-"@basalt/bedrock-core@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-core/-/bedrock-core-0.17.4.tgz#2fdf3347e7b9783d4178c6193f6d9c89cbc63c24"
-  integrity sha512-wMmRtX7pVyJLuUjKkhJPdGuU8MR65kGP+HoOuGUjLWtURCUpkQthuBNv2hSvTSLDQ/gZMkfqweiE4zx+S8BjrQ==
+"@basalt/bedrock-core@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-core/-/bedrock-core-0.19.0.tgz#2c569dac87be35c3a0f6b188af419e2a76f1954d"
+  integrity sha512-xR/JzYbtbz22lRqOiP7DRpZUlb+K0yOl8ypqf4o/uzuy3W1YuXXcmv5XR7XbgayP+ePTueeJdKIhf1uflR6AQg==
   dependencies:
     global "^4.3.2"
     prop-types "^15.0.0"
 
-"@basalt/bedrock-design-token-demos@^0.17.6":
-  version "0.17.6"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-design-token-demos/-/bedrock-design-token-demos-0.17.6.tgz#35409f68dd30f93a98b286accd480b2d0dee929b"
-  integrity sha512-QvxJ8lAMThseIveQ4mooPfiYMj4sIqSXMPxbONSpSe1hpiXDIwbErTGPYQFMy0ugq0FaCjxD1mEm8YbJZ9R4ZQ==
+"@basalt/bedrock-design-token-demos@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-design-token-demos/-/bedrock-design-token-demos-0.19.0.tgz#dd02cebbdf8a24bea9ed4c60c70495f4e92a6a20"
+  integrity sha512-WelogsHzNRrQ10Xi2WQA1qtsluOUbLGJzTz3rgYJQ58xMV0K4dFLd4gUw7biMBGbpgaCjJOQavXxs424jDjdZw==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.17.6"
-    "@basalt/bedrock-breakpoints-demo" "^0.17.4"
-    "@basalt/bedrock-color-swatch" "^0.17.6"
-    "@basalt/bedrock-core" "^0.17.4"
-    "@basalt/bedrock-spacing-swatch" "^0.17.4"
+    "@basalt/bedrock-atoms" "^0.19.0"
+    "@basalt/bedrock-breakpoints-demo" "^0.19.0"
+    "@basalt/bedrock-color-swatch" "^0.19.0"
+    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-spacing-swatch" "^0.19.0"
 
-"@basalt/bedrock-schema-form@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-form/-/bedrock-schema-form-0.17.4.tgz#9fd6bd1344f3a89a528d731c741def7ebc2e302a"
-  integrity sha512-t+0NusIdQxj9Gk8mD76N2QXdoDCNzs515A90Z28SIn1vnTEPC7n3jbStGLDgcFNhJJtulMUqr26Xe83e7ACZgA==
+"@basalt/bedrock-schema-form@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-form/-/bedrock-schema-form-0.19.0.tgz#e8f8f2b049dcf0114a49bb9e9630ddd2ca11642a"
+  integrity sha512-GpYX817zhZLU4MotkPGajHezAOUsuV3hZffZjQPtrRvc0/31PZr0k2GjabMuDV1SB7YmSsuDUK9FXtqa36ERpA==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
     react-jsonschema-form "^1.0.3"
 
-"@basalt/bedrock-schema-table@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-table/-/bedrock-schema-table-0.17.4.tgz#1db7b16e1441906eee3943e6c730f33f39a4b002"
-  integrity sha512-1rRVIVCh4hvCzVUOLUdvjvPfWyUgIcRirE/HoN1+RQYdIePTSaQIqZH0prCl70hVIgqvsxQPjApCZHQu/OMXBg==
+"@basalt/bedrock-schema-table@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-table/-/bedrock-schema-table-0.19.0.tgz#885ef55f3d2957844d5c621f34dca725170f1b3b"
+  integrity sha512-XN1fhRNroY5Zcu+W5TJEKZehwEdTPO3jGFTWIJO8NtfsmRcHntoen5kyGBXJSjSVNRx31agHrIJZxU7S9PM45A==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
     react-table "^6.8.6"
 
-"@basalt/bedrock-schema-utils@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-utils/-/bedrock-schema-utils-0.17.0.tgz#a7e2dafda09c9f9dccd2f229b9d29baf06d1e8f7"
-  integrity sha512-tEi4pXtwnArbdOJBl1wQvsvJ+zGo1eAoL7sVWFPdqTvcp8Z+WCGOlOHrR2DOvgOcKINH1zsa8TBCKPYVKg59vg==
+"@basalt/bedrock-schema-utils@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-utils/-/bedrock-schema-utils-0.19.0.tgz#05ddbd3d622a8c824aa7d3f407f2dec733c8bcf4"
+  integrity sha512-ZmWeWTiMrG9WdMoZr8Jb6CFNaL9n48tK/1Q5K0zQx2s0E+gkTOUHudEFG+29CmVeHHWrMHVin/z1IESK0Lo+hA==
   dependencies:
     ajv "^6.5.3"
 
-"@basalt/bedrock-smart-grid@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-smart-grid/-/bedrock-smart-grid-0.17.0.tgz#699e9bf72dc9c7f90bf44ddd38729c15d30c9513"
-  integrity sha512-4cPJIw8JO7X68wzRu1yKhOZq3qJIGQqRDd8x6SAVOJLy8T29rJwdCYrhRQjz+AkoTnWmX1ph1rjDbMv4K9Dypg==
+"@basalt/bedrock-smart-grid@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-smart-grid/-/bedrock-smart-grid-0.19.0.tgz#d228d4fda507a10355e9b9ef79b6056438f0e21b"
+  integrity sha512-ewhjlTLsLJCk+qCZu3amIsWkbG4AJ1oKwcsN/zUe/IMgUyu0XzUooit0VQI9BfrpwncjRKsMkVXy6CX9AQlMSQ==
 
-"@basalt/bedrock-spacing-swatch@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spacing-swatch/-/bedrock-spacing-swatch-0.17.4.tgz#c6ed6db7fb89d0de94590b8d941403987d924cbc"
-  integrity sha512-OuMbovjEkf4irDtEEDYkz5e/UcNviPjk/Zk3JBF5BN3wmwnbgzsrR79ydLc4jz8Fq44OJ0ltWanCKhVtnLIpKA==
+"@basalt/bedrock-spacing-swatch@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spacing-swatch/-/bedrock-spacing-swatch-0.19.0.tgz#0616f5d4ae43d6606a02029767dcb3937af84dea"
+  integrity sha512-TUwGb7rB0KAe4VlWOviYXSgQLy6AcEKxQWNVcWskCtC2wEKG5wrio80+rukEFUsrs8ZiAp9mtUuJYgGwPFKQ3g==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
 
-"@basalt/bedrock-spinner@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spinner/-/bedrock-spinner-0.17.4.tgz#84f0b26fff121d00fc0a0c43ea8c91169b4c37b4"
-  integrity sha512-IRIKOKGxlSh1fPhh9yMGqWutrw3qysBTmeQXsXOnQ3nADvCzDlDTjb3OzpM+X9g6R/jsUqqd6Xon9WmGM/mMdA==
+"@basalt/bedrock-spinner@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spinner/-/bedrock-spinner-0.19.0.tgz#3bff7acb46fda266076c2742a35f093e4cbc40f9"
+  integrity sha512-4b+r7loPGSi3beTK17SJYPQ6ahxISd8/ZfFl6CF1iZFws/CUwDkrRrdN3M9+NdSYZwuw3ADkAwT5IlSMsHtY7g==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
 
-"@basalt/bedrock-tabbed-panel@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-tabbed-panel/-/bedrock-tabbed-panel-0.17.4.tgz#bf908775856b79283e541cd9a8f2cc33e7754ca6"
-  integrity sha512-9P0r3MtM9imdexOihIO4xCPoIhO80Bq2gAmhUD3RT/uThOL7KDhFxcHp1D2XFUSeWDr4kkPtTJlCNemwhFYz3A==
+"@basalt/bedrock-tabbed-panel@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-tabbed-panel/-/bedrock-tabbed-panel-0.19.0.tgz#7ef4008d02b0e3b0a44626ac5571225d3063bd3e"
+  integrity sha512-AkzquynnOMoct5cstwDaTCUuq0RN0g2sXjHLK2Uwv99VyMO7GgHjkxpKE5RamYDsmCxx/AeayoKspOADrB9FEA==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
 
-"@basalt/bedrock-utils@^0.17.4":
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-utils/-/bedrock-utils-0.17.4.tgz#09df5718453531955a7c2ed8f564624f4d771445"
-  integrity sha512-psQG6WTfJ6Ej3F95q7krUoA9kxQNoSHVkY1+o3PlkGjee3D2Qst+oHsM3ThZORRyaPnLNAutEVZzWBjVkvT5cA==
+"@basalt/bedrock-utils@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-utils/-/bedrock-utils-0.19.0.tgz#1f6b1b9998ba6da3470f28785e39a89e6d20166d"
+  integrity sha512-9TzLNUqpChfCawLmoTfqO6xPqdsynwIvQgMtugWXkvBZdGE4BDD7s2AeS3kqf6mysjMQQGZxPhYWoGDLcEtZgA==
   dependencies:
-    "@basalt/bedrock-core" "^0.17.4"
+    "@basalt/bedrock-core" "^0.19.0"
     color "^3.0.0"
 
-"@basalt/bedrock@^0.17.6":
-  version "0.17.6"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.17.6.tgz#b778a642227185cbaba69fcf7838100073e396d4"
-  integrity sha512-tP2mMNmjuwtKWUl31BffA+gH7jDkFsb4KOnucM/SNoc/SFvvbnFqJQQVpA0UXWwOp68bfYGrkusuDQVyUFiXsQ==
+"@basalt/bedrock@0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.19.0.tgz#0fe326585156d5ca28b810c88c13534c057aeeb8"
+  integrity sha512-Zi/2OlnvuzQfNGoUPXUqbowJditBrmGuWwQm8epw44p7IiFDyX86q45Kwrr9OuzvAtt8GPDa6+TYJCreKvZ2Cg==
   dependencies:
-    "@basalt/bedrock-api-demo" "^0.17.6"
-    "@basalt/bedrock-atoms" "^0.17.6"
-    "@basalt/bedrock-babel-config" "^0.17.0"
-    "@basalt/bedrock-breakpoints-demo" "^0.17.4"
-    "@basalt/bedrock-code-block" "^0.17.6"
-    "@basalt/bedrock-color-contrast-block" "^0.17.6"
-    "@basalt/bedrock-color-swatch" "^0.17.6"
-    "@basalt/bedrock-core" "^0.17.4"
-    "@basalt/bedrock-design-token-demos" "^0.17.6"
-    "@basalt/bedrock-schema-form" "^0.17.4"
-    "@basalt/bedrock-schema-table" "^0.17.4"
-    "@basalt/bedrock-schema-utils" "^0.17.0"
-    "@basalt/bedrock-smart-grid" "^0.17.0"
-    "@basalt/bedrock-spacing-swatch" "^0.17.4"
-    "@basalt/bedrock-spinner" "^0.17.4"
-    "@basalt/bedrock-tabbed-panel" "^0.17.4"
-    "@basalt/bedrock-utils" "^0.17.4"
+    "@basalt/bedrock-api-demo" "^0.19.0"
+    "@basalt/bedrock-atoms" "^0.19.0"
+    "@basalt/bedrock-babel-config" "^0.19.0"
+    "@basalt/bedrock-breakpoints-demo" "^0.19.0"
+    "@basalt/bedrock-code-block" "^0.19.0"
+    "@basalt/bedrock-color-contrast-block" "^0.19.0"
+    "@basalt/bedrock-color-swatch" "^0.19.0"
+    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-design-token-demos" "^0.19.0"
+    "@basalt/bedrock-schema-form" "^0.19.0"
+    "@basalt/bedrock-schema-table" "^0.19.0"
+    "@basalt/bedrock-schema-utils" "^0.19.0"
+    "@basalt/bedrock-smart-grid" "^0.19.0"
+    "@basalt/bedrock-spacing-swatch" "^0.19.0"
+    "@basalt/bedrock-spinner" "^0.19.0"
+    "@basalt/bedrock-tabbed-panel" "^0.19.0"
+    "@basalt/bedrock-utils" "^0.19.0"
     "@basalt/demo-data" "0.5.1"
-    "@basalt/eslint-config-bedrock" "^0.17.0"
+    "@basalt/eslint-config-bedrock" "^0.19.0"
     apollo-boost "^0.1.22"
     apollo-server-express "^2.2.3"
     array-move "^1.0.0"
@@ -1130,10 +1130,10 @@
     eslint-plugin-react "^7.11.1"
     prettier "^1.14.3"
 
-"@basalt/eslint-config-bedrock@^0.17.0":
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/@basalt/eslint-config-bedrock/-/eslint-config-bedrock-0.17.0.tgz#d7dba1876c684502b845eb23b64ae5af7bebc4d7"
-  integrity sha512-R5Lm33qwu7NiP8EiF3tVNOQL4Du+fHJzAaIvYIByWqUBTL3KiEEIq50lrzev0aXcIOyLY+LylR7eYUCv9AIFYA==
+"@basalt/eslint-config-bedrock@^0.19.0":
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/@basalt/eslint-config-bedrock/-/eslint-config-bedrock-0.19.0.tgz#ab6ba7cbb0b2c697d4529f1ca19f128e9010ef81"
+  integrity sha512-SVfnj+ah1XM72XA5CRfruPyFtV0OLXMpCb3CfcOSh+ZifSvxpOrsR+9lttDY1FzIViJR/CaFt2tDaWaKLo9mQA==
   dependencies:
     babel-eslint "^10.0.1"
     eslint "^5.3.0"
