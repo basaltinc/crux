@@ -9,21 +9,12 @@
   dependencies:
     apollo-env "0.2.5"
 
-"@apollographql/apollo-upload-server@^5.0.3":
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/@apollographql/apollo-upload-server/-/apollo-upload-server-5.0.3.tgz#8558c378ff6457de82147e5072c96a6b242773b7"
-  integrity sha512-tGAp3ULNyoA8b5o9LsU2Lq6SwgVPUOKAqKywu2liEtTvrFSGPrObwanhYwArq3GPeOqp2bi+JknSJCIU3oQN1Q==
-  dependencies:
-    "@babel/runtime-corejs2" "^7.0.0-rc.1"
-    busboy "^0.2.14"
-    object-path "^0.11.4"
-
 "@apollographql/graphql-playground-html@^1.6.6":
   version "1.6.6"
   resolved "https://registry.yarnpkg.com/@apollographql/graphql-playground-html/-/graphql-playground-html-1.6.6.tgz#022209e28a2b547dcde15b219f0c50f47aa5beb3"
   integrity sha512-lqK94b+caNtmKFs5oUVXlSpN3sm5IXZ+KfhMxOtr0LR2SqErzkoJilitjDvJ1WbjHlxLI7WtCjRmOLdOGJqtMQ==
 
-"@babel/cli@^7.0.0":
+"@babel/cli@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/cli/-/cli-7.2.0.tgz#505ed8d351daee6a88918da02c046c18c8c5a24f"
   integrity sha512-FLteTkEoony0DX8NbnT51CmwmLBzINdlXmiJCSqCLmqWCDA/xk8EITPWqwDnVLbuK0bsZONt/grqHnQzQ15j0Q==
@@ -54,7 +45,7 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/core@^7.0.0":
+"@babel/core@^7.0.0", "@babel/core@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.2.0.tgz#a4dd3814901998e93340f0086e9867fefa163ada"
   integrity sha512-7pvAdC4B+iKjFFp9Ztj0QgBndJ++qaMeonT185wAqUnhipw8idm9Rv1UMyBuKtYjfl6ORNkgEgcsYLfHX/GpLw==
@@ -320,7 +311,7 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@babel/node@^7.0.0":
+"@babel/node@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/node/-/node-7.2.0.tgz#0b601be8ef03897923e3908dc18129836d44e6fa"
   integrity sha512-RFwVH5xWpwd4SfkOI0WsK9AnF5o+C9iMTvUkkTb7jUNaiDieV8BGK38t74bTPjgc4FCxSAWNKqaqgDW4fenkyA==
@@ -345,7 +336,7 @@
     "@babel/helper-remap-async-to-generator" "^7.1.0"
     "@babel/plugin-syntax-async-generators" "^7.2.0"
 
-"@babel/plugin-proposal-class-properties@^7.1.0":
+"@babel/plugin-proposal-class-properties@^7.2.1":
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.2.1.tgz#c734a53e0a1ec40fe5c22ee5069d26da3b187d05"
   integrity sha512-/4FKFChkQ2Jgb8lBDsvFX496YTi7UWTetVgS8oJUpX1e/DlaoeEK57At27ug8Hu2zI2g8bzkJ+8k9qrHZRPGPA==
@@ -361,7 +352,7 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-json-strings" "^7.2.0"
 
-"@babel/plugin-proposal-object-rest-spread@^7.0.0", "@babel/plugin-proposal-object-rest-spread@^7.2.0":
+"@babel/plugin-proposal-object-rest-spread@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.2.0.tgz#88f5fec3e7ad019014c97f7ee3c992f0adbf7fb8"
   integrity sha512-1L5mWLSvR76XYUQJXkd/EEQgjq8HHRP6lQuZTTg0VA4tTGPpGemmCdAfQIz1rzEuWAm+ecP8PyyEm30jC1eQCg==
@@ -393,7 +384,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-dynamic-import@^7.0.0":
+"@babel/plugin-syntax-dynamic-import@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-dynamic-import/-/plugin-syntax-dynamic-import-7.2.0.tgz#69c159ffaf4998122161ad8ebc5e6d1f55df8612"
   integrity sha512-mVxuJ0YroI/h/tbFTPGZR8cv6ai+STMKNBq0f8hFxsxWjl94qqhsb+wXbpNMDPU3cfR1TIsVFzU3nXyZMqyK4w==
@@ -636,7 +627,7 @@
   dependencies:
     regenerator-transform "^0.13.3"
 
-"@babel/plugin-transform-runtime@^7.0.0":
+"@babel/plugin-transform-runtime@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.2.0.tgz#566bc43f7d0aedc880eaddbd29168d0f248966ea"
   integrity sha512-jIgkljDdq4RYDnJyQsiWbdvGeei/0MOTtSHKO/rfbd/mXBxNpdlulMx49L0HQ4pug1fXannxoqCI+fYSle9eSw==
@@ -708,7 +699,7 @@
     core-js "^2.5.7"
     regenerator-runtime "^0.11.1"
 
-"@babel/preset-env@^7.0.0":
+"@babel/preset-env@^7.0.0", "@babel/preset-env@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.2.0.tgz#a5030e7e4306af5a295dd5d7c78dc5464af3fee2"
   integrity sha512-haGR38j5vOGVeBatrQPr3l0xHbs14505DcM57cbJy48kgMFvvHHoYEhHuRV+7vi559yyAUAVbTWzbK/B/pzJng==
@@ -787,15 +778,7 @@
     pirates "^4.0.0"
     source-map-support "^0.5.9"
 
-"@babel/runtime-corejs2@^7.0.0-rc.1":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.2.0.tgz#5ccd722b72d2c18c6a7224b5751f4b9816b60ada"
-  integrity sha512-kPfmKoRI8Hpo5ZJGACWyrc9Eq1j3ZIUpUAQT2yH045OuYpccFJ9kYA/eErwzOM2jeBG1sC8XX1nl1EArtuM8tg==
-  dependencies:
-    core-js "^2.5.7"
-    regenerator-runtime "^0.12.0"
-
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.2.0.tgz#b03e42eeddf5898e00646e4c840fa07ba8dcad7f"
   integrity sha512-oouEibCbHMVdZSDlJBO6bZmID/zA/G/Qx3H1d3rSNPTD+L8UNKvCat7aKWSJ74zYbm5zWGh0GQN0hKj8zYFTCg==
@@ -870,185 +853,207 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@basalt/bedrock-api-demo@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-api-demo/-/bedrock-api-demo-0.19.0.tgz#dd78deb889b6c2a9e79d605a279593e6a644e386"
-  integrity sha512-UMmfCdVxjowRTlbdzXEF+TlkpEtW58vN81htsoE5iygl3SuPCCKXhnAE6GFBkF/zmmdaVr6B0DpVHpFDG8hFxQ==
+"@basalt/bedrock-api-demo@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-api-demo/-/bedrock-api-demo-0.20.0.tgz#66a482af719380c54c3230b289e1d6bcf1f4b7c0"
+  integrity sha512-uGVDob0yuRuK9em8mWfOWypRIPjaz98YWUnVOwBOFv9RMgal4rsIPA51yqo0/n7gQQvGw8ojkYFo++DTKG52Aw==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.19.0"
-    "@basalt/bedrock-core" "^0.19.0"
-    "@basalt/bedrock-schema-form" "^0.19.0"
-    "@basalt/bedrock-schema-table" "^0.19.0"
+    "@basalt/bedrock-atoms" "^0.20.0"
+    "@basalt/bedrock-core" "^0.20.0"
+    "@basalt/bedrock-schema-form" "^0.20.0"
+    "@basalt/bedrock-schema-table" "^0.20.0"
     query-string "^6.1.0"
 
-"@basalt/bedrock-atoms@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-atoms/-/bedrock-atoms-0.19.0.tgz#035bb48214c37a322a8fd5d0889b6a465d5923b7"
-  integrity sha512-INuQfVhiJDwkOVT1Dpdtm5qzeEbNK16UlhWAcH7cKIg9xNTQxbqXe2Lbd9ZPUU8zPf0mXe1VgBCT7HsnhqoV9g==
+"@basalt/bedrock-atoms@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-atoms/-/bedrock-atoms-0.20.0.tgz#98cc6496a1bd1d5a54645308e09c1da9a02b9721"
+  integrity sha512-tHW5HOUXU657TZ/ZDrDKScglnloegt1siUxbLu+hlFP+APxjHkpqUmI3v8xcvKjoGR2CIi+S26+2VAZwZLZGPQ==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-core" "^0.20.0"
 
-"@basalt/bedrock-babel-config@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-babel-config/-/bedrock-babel-config-0.19.0.tgz#561a9c39c4a40a78e6c9f91886808974638ed295"
-  integrity sha512-bRBy9Fqcehka8U3ZBTJx9vHWajUUd5uLFQ1Q54wcTUDOdVEl1ZDvhLC0yloJ9Ust7OslrSrMg9MKkrqHRL0hmw==
+"@basalt/bedrock-babel-config@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-babel-config/-/bedrock-babel-config-0.20.0.tgz#d703a33be8a4b43f97a8f57cdbdf320309dc5cc2"
+  integrity sha512-NhQtL6ooFvZzY2BkoItZU136cCVgsOVYvcoT6iKI0bt4Joe0iDea/9Rl6F2FXME/ATwd2cSGUsn3d3WJyDvEsA==
   dependencies:
-    "@babel/cli" "^7.0.0"
-    "@babel/core" "^7.0.0"
-    "@babel/node" "^7.0.0"
-    "@babel/plugin-proposal-class-properties" "^7.1.0"
-    "@babel/plugin-proposal-object-rest-spread" "^7.0.0"
-    "@babel/plugin-syntax-dynamic-import" "^7.0.0"
-    "@babel/plugin-transform-runtime" "^7.0.0"
+    "@babel/cli" "^7.2.0"
+    "@babel/core" "^7.2.0"
+    "@babel/node" "^7.2.0"
+    "@babel/plugin-proposal-class-properties" "^7.2.1"
+    "@babel/plugin-proposal-object-rest-spread" "^7.2.0"
+    "@babel/plugin-syntax-dynamic-import" "^7.2.0"
+    "@babel/plugin-transform-runtime" "^7.2.0"
     "@babel/polyfill" "^7.0.0"
-    "@babel/preset-env" "^7.0.0"
+    "@babel/preset-env" "^7.2.0"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.1.0"
     "@babel/register" "^7.0.0"
-    "@babel/runtime" "^7.0.0"
+    "@babel/runtime" "^7.2.0"
     babel-core bridge
     babel-jest "^23.6.0"
-    babel-plugin-styled-components "^1.9.0"
-    babel-plugin-transform-react-remove-prop-types "^0.4.14"
-    prettier "^1.14.2"
+    babel-plugin-styled-components "^1.9.4"
+    babel-plugin-transform-react-remove-prop-types "^0.4.21"
+    prettier "^1.15.3"
 
-"@basalt/bedrock-breakpoints-demo@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-breakpoints-demo/-/bedrock-breakpoints-demo-0.19.0.tgz#8e5e4110952c91a38e8376625931d93eb49525aa"
-  integrity sha512-FQcrYpfHaWiKFhPkARDvyY+h+CEYbvq+B1+qhWxi7qkld1m/X7ePcRCCJ+3hRhPwt41IDAHqriSV/MTJSEC7Pw==
+"@basalt/bedrock-breakpoints-demo@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-breakpoints-demo/-/bedrock-breakpoints-demo-0.20.0.tgz#35ae63eda0811db44472e2bb3842d65fd0180ed7"
+  integrity sha512-BDLzYBB83XKSrmRn18ZpWVF/Cwhl0cmCVOgHw+GuDd/iD4oQM1hAh2nogwPbe+wZAIBVCV4qsC737DDxZ2xEdA==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-core" "^0.20.0"
 
-"@basalt/bedrock-code-block@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-code-block/-/bedrock-code-block-0.19.0.tgz#b0bcac22f3f9f004d72b525c94ff941e9be26ad5"
-  integrity sha512-heVNJSG+eNQr6XlWfmtTqE6+01ITDL3As0JZB2JWT44Kfq6vzpvIdfJRSTrhjuA+/Zo98oKABge2Hp3ryz2pBA==
+"@basalt/bedrock-code-block@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-code-block/-/bedrock-code-block-0.20.0.tgz#1e238901ae6ee02d24fbe2961303729bf6ef4cbc"
+  integrity sha512-IVevuBQrDt9uUYvH07+QkjBv9OSci/BFo7MD997OQzzMauYlcVCjoZ1TpEEM19qQMEz9NbBNsYWeuuKBBzgUcg==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.19.0"
-    "@basalt/bedrock-core" "^0.19.0"
-    "@basalt/bedrock-utils" "^0.19.0"
+    "@basalt/bedrock-atoms" "^0.20.0"
+    "@basalt/bedrock-core" "^0.20.0"
+    "@basalt/bedrock-pretty-code" "^0.20.0"
+    "@basalt/bedrock-utils" "^0.20.0"
 
-"@basalt/bedrock-color-contrast-block@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-contrast-block/-/bedrock-color-contrast-block-0.19.0.tgz#3407e4bb3fd8e89e947d01137cc7b853b4ae4b0d"
-  integrity sha512-px2WVb8bm4JTjr1XhRhBsj/+DCiPH7NP3e57VpO9XcT9bfa2jICLIrmEXHcoy/HwS+fJvQ0v5jFyEqpGd/29vA==
+"@basalt/bedrock-color-contrast-block@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-contrast-block/-/bedrock-color-contrast-block-0.20.0.tgz#14d218e3bfeacd8c77a9cd78ef3b37ee8f6929b5"
+  integrity sha512-18SiSBmnw/aGkoCfBhK3B6+ktdNvB+jqDXwFhiT06uPljioQOAFtC0Os2x00Gf63+AQB+rcB5PMBTCEiX+IGrA==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.19.0"
-    "@basalt/bedrock-core" "^0.19.0"
-    "@basalt/bedrock-utils" "^0.19.0"
+    "@basalt/bedrock-atoms" "^0.20.0"
+    "@basalt/bedrock-core" "^0.20.0"
+    "@basalt/bedrock-utils" "^0.20.0"
 
-"@basalt/bedrock-color-swatch@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-swatch/-/bedrock-color-swatch-0.19.0.tgz#daeba83e66c4159721f4428c12a269e4d3b31f25"
-  integrity sha512-GtIChzDhW1uldwhQLS/5p1XlJl4D0HPhkzuDvv9CmPpJLjj5KihjlaR0tcMj6o5+ysNmssRTXM6mr0Fz1bNFWQ==
+"@basalt/bedrock-color-swatch@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-color-swatch/-/bedrock-color-swatch-0.20.0.tgz#86960ebf09ce33d884aba3b55efc6e951293d6b1"
+  integrity sha512-ZTlNbAl/X+1ufgxYTXIfaau/1DQFX8dpspdgslFkKxsUL0mYv49GNukbY3kf1YN2sBhMKZtZ94+hPlQaQ2goHQ==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.19.0"
-    "@basalt/bedrock-core" "^0.19.0"
-    "@basalt/bedrock-utils" "^0.19.0"
+    "@basalt/bedrock-atoms" "^0.20.0"
+    "@basalt/bedrock-core" "^0.20.0"
+    "@basalt/bedrock-utils" "^0.20.0"
     react-copy-to-clipboard "^5.0.1"
 
-"@basalt/bedrock-core@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-core/-/bedrock-core-0.19.0.tgz#2c569dac87be35c3a0f6b188af419e2a76f1954d"
-  integrity sha512-xR/JzYbtbz22lRqOiP7DRpZUlb+K0yOl8ypqf4o/uzuy3W1YuXXcmv5XR7XbgayP+ePTueeJdKIhf1uflR6AQg==
+"@basalt/bedrock-core@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-core/-/bedrock-core-0.20.0.tgz#30fed9bd3e5e153f552e9de00be1bcac1f339756"
+  integrity sha512-1njym3XEwFuUVf7PeOF9viq8rk4+Gmm4x8/SRj/n8vHy8fwy8Q1Vk++HLD8ipl8IY1h/+zbFcD4PHMq4V5Zm1Q==
   dependencies:
     global "^4.3.2"
     prop-types "^15.0.0"
 
-"@basalt/bedrock-design-token-demos@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-design-token-demos/-/bedrock-design-token-demos-0.19.0.tgz#dd02cebbdf8a24bea9ed4c60c70495f4e92a6a20"
-  integrity sha512-WelogsHzNRrQ10Xi2WQA1qtsluOUbLGJzTz3rgYJQ58xMV0K4dFLd4gUw7biMBGbpgaCjJOQavXxs424jDjdZw==
+"@basalt/bedrock-design-token-demos@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-design-token-demos/-/bedrock-design-token-demos-0.20.0.tgz#4a3408daf323043e139a3cee45ccb81a739202d3"
+  integrity sha512-fbIzC0sPsSGWVm8SiOLlQl0GbSLjxIeSYBlJLzcyH9opNIHmOR4AqCzdy0EN1/0wvSUx+a24+Swuy2fvf8mWlw==
   dependencies:
-    "@basalt/bedrock-atoms" "^0.19.0"
-    "@basalt/bedrock-breakpoints-demo" "^0.19.0"
-    "@basalt/bedrock-color-swatch" "^0.19.0"
-    "@basalt/bedrock-core" "^0.19.0"
-    "@basalt/bedrock-spacing-swatch" "^0.19.0"
+    "@basalt/bedrock-atoms" "^0.20.0"
+    "@basalt/bedrock-breakpoints-demo" "^0.20.0"
+    "@basalt/bedrock-color-swatch" "^0.20.0"
+    "@basalt/bedrock-core" "^0.20.0"
+    "@basalt/bedrock-spacing-swatch" "^0.20.0"
 
-"@basalt/bedrock-schema-form@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-form/-/bedrock-schema-form-0.19.0.tgz#e8f8f2b049dcf0114a49bb9e9630ddd2ca11642a"
-  integrity sha512-GpYX817zhZLU4MotkPGajHezAOUsuV3hZffZjQPtrRvc0/31PZr0k2GjabMuDV1SB7YmSsuDUK9FXtqa36ERpA==
+"@basalt/bedrock-pretty-code@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-pretty-code/-/bedrock-pretty-code-0.20.0.tgz#6881a409d9ec0ce08e3cac891ab9658cc05a1600"
+  integrity sha512-G6vpwYX8kN7xqA24K34pmdmHXOxVgMZSiIr3DlVrabSzBYLtYfQfY68oTBoPjucPY0/JDpIbafMh++2WRv82jQ==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    prismjs "^1.15.0"
+    refractor "^2.6.2"
+
+"@basalt/bedrock-renderer-base@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-renderer-base/-/bedrock-renderer-base-0.20.0.tgz#6a7f946800a897f09e7dccb0a664e440dc4f5f7c"
+  integrity sha512-vOpMSYWy+SeeMtGkUl5O3MbWYhXA09f1enNVJ2/FyDXcPkbiuwB3mjLVsj7ejcrzB37+zz7IXMIy0Wpdvg/M3w==
+
+"@basalt/bedrock-renderer-twig@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-renderer-twig/-/bedrock-renderer-twig-0.20.0.tgz#85e00caef04e4a7ed5334cfaa9477f658a9cb5d0"
+  integrity sha512-sZsBsozRVBi5Hi9AWALyUsOwfoCHgskriDZF8iDHTzSsXWAwvu0kP3QsnHzEWFDH9ElZojVBsD+dNSzdNwFYxg==
+  dependencies:
+    "@basalt/bedrock-renderer-base" "^0.20.0"
+    "@basalt/twig-renderer" "^0.10.2"
+
+"@basalt/bedrock-schema-form@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-form/-/bedrock-schema-form-0.20.0.tgz#4e2b7de5fe121ab867b31e5d289b9596ba6c3b47"
+  integrity sha512-BrPh6d3iO9oXZ0tTZdKzIatxG0NP0XBlXPbZNfh/81yzcXx3YK7qx1A4qoad+rOgotiWg2mkp8ZRSMUswboTBg==
+  dependencies:
+    "@basalt/bedrock-core" "^0.20.0"
     react-jsonschema-form "^1.0.3"
 
-"@basalt/bedrock-schema-table@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-table/-/bedrock-schema-table-0.19.0.tgz#885ef55f3d2957844d5c621f34dca725170f1b3b"
-  integrity sha512-XN1fhRNroY5Zcu+W5TJEKZehwEdTPO3jGFTWIJO8NtfsmRcHntoen5kyGBXJSjSVNRx31agHrIJZxU7S9PM45A==
+"@basalt/bedrock-schema-table@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-table/-/bedrock-schema-table-0.20.0.tgz#2cffd4809d259f891abc98bc14f975d11ec64e17"
+  integrity sha512-ZQKQ9KetE7r+XNuaAKS3BdnD/3TAyACH5GYCHOB00b9e4b/5WTA2CPznXlRnXY8J5xOxefsD8Vn6YsRhixESrA==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-core" "^0.20.0"
     react-table "^6.8.6"
 
-"@basalt/bedrock-schema-utils@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-utils/-/bedrock-schema-utils-0.19.0.tgz#05ddbd3d622a8c824aa7d3f407f2dec733c8bcf4"
-  integrity sha512-ZmWeWTiMrG9WdMoZr8Jb6CFNaL9n48tK/1Q5K0zQx2s0E+gkTOUHudEFG+29CmVeHHWrMHVin/z1IESK0Lo+hA==
+"@basalt/bedrock-schema-utils@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-schema-utils/-/bedrock-schema-utils-0.20.0.tgz#67150325516d1434a8f3dfbfcc688142320d5b09"
+  integrity sha512-sPdQZcnJq5lJUvZKcJmMuLeMFTZXeCRMnVbfz96xFXQgxu7xe3PPYPByUn+LyC0a9/IrLowN6L4o3aDRLQRaJA==
   dependencies:
-    ajv "^6.5.3"
+    ajv "^6.6.1"
 
-"@basalt/bedrock-smart-grid@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-smart-grid/-/bedrock-smart-grid-0.19.0.tgz#d228d4fda507a10355e9b9ef79b6056438f0e21b"
-  integrity sha512-ewhjlTLsLJCk+qCZu3amIsWkbG4AJ1oKwcsN/zUe/IMgUyu0XzUooit0VQI9BfrpwncjRKsMkVXy6CX9AQlMSQ==
+"@basalt/bedrock-smart-grid@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-smart-grid/-/bedrock-smart-grid-0.20.0.tgz#c26404c9a3b014e1f3eb708535cbd00f32f2d7d8"
+  integrity sha512-FbJ5e6pMO0c2CQGQ4bO1YsoXLVP6x8r7pYtyjt7Y33kWGH/+sBKjr9hJlNBC5LDc0/2J5qO+PKwW03Yvl2aeNg==
 
-"@basalt/bedrock-spacing-swatch@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spacing-swatch/-/bedrock-spacing-swatch-0.19.0.tgz#0616f5d4ae43d6606a02029767dcb3937af84dea"
-  integrity sha512-TUwGb7rB0KAe4VlWOviYXSgQLy6AcEKxQWNVcWskCtC2wEKG5wrio80+rukEFUsrs8ZiAp9mtUuJYgGwPFKQ3g==
+"@basalt/bedrock-spacing-swatch@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spacing-swatch/-/bedrock-spacing-swatch-0.20.0.tgz#bd6bcb9695fa56b1b9f2fb5a4f474038ed7965df"
+  integrity sha512-8HXsX99f+68sGkUMPalYscKqkqjX7XmHXjyWT5/4+OYw8q2rOZV2fdR3jHuaQeesXmEBfD12ci8+ltSh7G+Ijg==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-core" "^0.20.0"
 
-"@basalt/bedrock-spinner@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spinner/-/bedrock-spinner-0.19.0.tgz#3bff7acb46fda266076c2742a35f093e4cbc40f9"
-  integrity sha512-4b+r7loPGSi3beTK17SJYPQ6ahxISd8/ZfFl6CF1iZFws/CUwDkrRrdN3M9+NdSYZwuw3ADkAwT5IlSMsHtY7g==
+"@basalt/bedrock-spinner@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-spinner/-/bedrock-spinner-0.20.0.tgz#715aca2aed4a4b2985eca8df39932e5e4bb009d5"
+  integrity sha512-CK/gxpq6fdMPCaSEjrLJ5DYHcx7lxJeI0QhQT9u/VhWN0Y39Ynehi8zmUMCcGE5OtHyHu4voMSEebFeiM0RRug==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-core" "^0.20.0"
 
-"@basalt/bedrock-tabbed-panel@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-tabbed-panel/-/bedrock-tabbed-panel-0.19.0.tgz#7ef4008d02b0e3b0a44626ac5571225d3063bd3e"
-  integrity sha512-AkzquynnOMoct5cstwDaTCUuq0RN0g2sXjHLK2Uwv99VyMO7GgHjkxpKE5RamYDsmCxx/AeayoKspOADrB9FEA==
+"@basalt/bedrock-tabbed-panel@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-tabbed-panel/-/bedrock-tabbed-panel-0.20.0.tgz#57281b44b7c497077507fb15128462f0ee9429dc"
+  integrity sha512-Z/g6rNlvaZudyAXR2/RGSXIEihl5l4+VAF8MyaPqfApbLddxhyXEhuXCZX23uypnqudlMy5ZZW3aoZ6MwhX0Ug==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-core" "^0.20.0"
 
-"@basalt/bedrock-utils@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock-utils/-/bedrock-utils-0.19.0.tgz#1f6b1b9998ba6da3470f28785e39a89e6d20166d"
-  integrity sha512-9TzLNUqpChfCawLmoTfqO6xPqdsynwIvQgMtugWXkvBZdGE4BDD7s2AeS3kqf6mysjMQQGZxPhYWoGDLcEtZgA==
+"@basalt/bedrock-utils@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock-utils/-/bedrock-utils-0.20.0.tgz#0e46f62657d62db65fda5a3b7801cecb0aa56f9e"
+  integrity sha512-ziVnD2poBmt78Is1VZfACdow8fZSVfpXyh2cTznYgtEP6g5gBvIwjuVZGfmPootorKoIpCQCzpunxj0w+9MbTA==
   dependencies:
-    "@basalt/bedrock-core" "^0.19.0"
+    "@basalt/bedrock-core" "^0.20.0"
     color "^3.0.0"
 
-"@basalt/bedrock@0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.19.0.tgz#0fe326585156d5ca28b810c88c13534c057aeeb8"
-  integrity sha512-Zi/2OlnvuzQfNGoUPXUqbowJditBrmGuWwQm8epw44p7IiFDyX86q45Kwrr9OuzvAtt8GPDa6+TYJCreKvZ2Cg==
+"@basalt/bedrock@^0.20.2":
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.20.2.tgz#b6a639b67533b5648aa2e06d6b25bb7754c897b4"
+  integrity sha512-yAYEob6kIu/k9TfCqCjkClQKesSz4pFtYCLAsZwFZopiGheU3h/3cbwYTFuZRIfViZD+Ju4Gh/ATaCUO7JY2OA==
   dependencies:
-    "@basalt/bedrock-api-demo" "^0.19.0"
-    "@basalt/bedrock-atoms" "^0.19.0"
-    "@basalt/bedrock-babel-config" "^0.19.0"
-    "@basalt/bedrock-breakpoints-demo" "^0.19.0"
-    "@basalt/bedrock-code-block" "^0.19.0"
-    "@basalt/bedrock-color-contrast-block" "^0.19.0"
-    "@basalt/bedrock-color-swatch" "^0.19.0"
-    "@basalt/bedrock-core" "^0.19.0"
-    "@basalt/bedrock-design-token-demos" "^0.19.0"
-    "@basalt/bedrock-schema-form" "^0.19.0"
-    "@basalt/bedrock-schema-table" "^0.19.0"
-    "@basalt/bedrock-schema-utils" "^0.19.0"
-    "@basalt/bedrock-smart-grid" "^0.19.0"
-    "@basalt/bedrock-spacing-swatch" "^0.19.0"
-    "@basalt/bedrock-spinner" "^0.19.0"
-    "@basalt/bedrock-tabbed-panel" "^0.19.0"
-    "@basalt/bedrock-utils" "^0.19.0"
+    "@basalt/bedrock-api-demo" "^0.20.0"
+    "@basalt/bedrock-atoms" "^0.20.0"
+    "@basalt/bedrock-babel-config" "^0.20.0"
+    "@basalt/bedrock-breakpoints-demo" "^0.20.0"
+    "@basalt/bedrock-code-block" "^0.20.0"
+    "@basalt/bedrock-color-contrast-block" "^0.20.0"
+    "@basalt/bedrock-color-swatch" "^0.20.0"
+    "@basalt/bedrock-core" "^0.20.0"
+    "@basalt/bedrock-design-token-demos" "^0.20.0"
+    "@basalt/bedrock-schema-form" "^0.20.0"
+    "@basalt/bedrock-schema-table" "^0.20.0"
+    "@basalt/bedrock-schema-utils" "^0.20.0"
+    "@basalt/bedrock-smart-grid" "^0.20.0"
+    "@basalt/bedrock-spacing-swatch" "^0.20.0"
+    "@basalt/bedrock-spinner" "^0.20.0"
+    "@basalt/bedrock-tabbed-panel" "^0.20.0"
+    "@basalt/bedrock-utils" "^0.20.0"
     "@basalt/demo-data" "0.5.1"
-    "@basalt/eslint-config-bedrock" "^0.19.0"
+    "@basalt/eslint-config-bedrock" "^0.20.0"
     apollo-boost "^0.1.22"
-    apollo-server-express "^2.2.3"
+    apollo-server-express "^2.2.6"
     array-move "^1.0.0"
     babel-loader "^8.0.0"
     body-parser "1.18.3"
@@ -1074,7 +1079,7 @@
     lowdb "^1.0.0"
     marked "^0.5.2"
     npmlog "^4.1.2"
-    portfinder "^1.0.19"
+    portfinder "^1.0.20"
     pretty "^2.0.0"
     prop-types "^15.6.2"
     query-string "^6.1.0"
@@ -1094,12 +1099,12 @@
     react-test-render "^1.1.1"
     shortid "^2.2.14"
     style-loader "^0.23.1"
-    styled-components "^4.0.2"
+    styled-components "^4.1.2"
     terser-webpack-plugin "^1.1.0"
     theo "^8.0.1"
     url-join "^4.0.0"
     url-loader "^1.0.1"
-    webpack "^4.26.1"
+    webpack "^4.27.1"
     webpack-cli "^3.1.0"
     webpack-dashboard "^2.0.0"
     webpack-dev-server "^3.1.5"
@@ -1130,20 +1135,20 @@
     eslint-plugin-react "^7.11.1"
     prettier "^1.14.3"
 
-"@basalt/eslint-config-bedrock@^0.19.0":
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/@basalt/eslint-config-bedrock/-/eslint-config-bedrock-0.19.0.tgz#ab6ba7cbb0b2c697d4529f1ca19f128e9010ef81"
-  integrity sha512-SVfnj+ah1XM72XA5CRfruPyFtV0OLXMpCb3CfcOSh+ZifSvxpOrsR+9lttDY1FzIViJR/CaFt2tDaWaKLo9mQA==
+"@basalt/eslint-config-bedrock@^0.20.0":
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/@basalt/eslint-config-bedrock/-/eslint-config-bedrock-0.20.0.tgz#4239aac7fc2fccc1ed4112bda33224cd572947d2"
+  integrity sha512-40XkPFldqoHVOdhogSr44E9jmNpqywNJPamUaUWuWX5NKRSmkwEOqnN0nSljeU3WNQ1lw/dBOoCM39OORTo4oQ==
   dependencies:
     babel-eslint "^10.0.1"
-    eslint "^5.3.0"
+    eslint "^5.10.0"
     eslint-config-airbnb "^17.1.0"
     eslint-config-prettier "^3.0.1"
     eslint-import-resolver-typescript "^1.1.1"
     eslint-plugin-graphql "^3.0.1"
     eslint-plugin-import "^2.14.0"
-    eslint-plugin-jest "^22.0.1"
-    eslint-plugin-jsdoc "^3.7.1"
+    eslint-plugin-jest "^22.1.2"
+    eslint-plugin-jsdoc "^3.14.0"
     eslint-plugin-jsx-a11y "^6.1.1"
     eslint-plugin-prettier "^3.0.0"
     eslint-plugin-promise "^4.0.1"
@@ -2086,13 +2091,13 @@ apollo-boost@^0.1.22:
     apollo-link-state "^0.4.0"
     graphql-tag "^2.4.2"
 
-apollo-cache-control@0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/apollo-cache-control/-/apollo-cache-control-0.3.3.tgz#ad71d8f786e06f0275b2432004c15c2d37c48484"
-  integrity sha512-X6JhKfIaMLfl2jpsK/880BflXA+2lmm2sAsOZL4Bn2VrMsDtOssI1Ij9vNRbch9k9cA4WJvKed7Sql/wUIa1Eg==
+apollo-cache-control@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/apollo-cache-control/-/apollo-cache-control-0.4.0.tgz#fec343e6ec95aa4f1b88e07e62f067bee0c48397"
+  integrity sha512-WuriaNQIugTE8gYwfBWWCbbQTSKul/cV4JMi5UgqNIUvjHvnKZQLKbt5uYWow6QQNMkLT9hey8QPYkWpogkeSA==
   dependencies:
     apollo-server-env "2.2.0"
-    graphql-extensions "0.3.3"
+    graphql-extensions "0.4.0"
 
 apollo-cache-inmemory@^1.3.11:
   version "1.3.11"
@@ -2133,22 +2138,22 @@ apollo-datasource@0.2.1:
     apollo-server-caching "0.2.1"
     apollo-server-env "2.2.0"
 
-apollo-engine-reporting-protobuf@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/apollo-engine-reporting-protobuf/-/apollo-engine-reporting-protobuf-0.1.0.tgz#fbc220cac2a3b7800ffc155d7e54c21c56b7848e"
-  integrity sha512-GReJtAYTmpwg0drb9VgFtqObYYTCHkJhlHEYCeXY8bJV4fOgXsAZ7CIXR9nPKO0mBaoHIHaGYvXGcyCLrZ36VA==
+apollo-engine-reporting-protobuf@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/apollo-engine-reporting-protobuf/-/apollo-engine-reporting-protobuf-0.2.0.tgz#2aaf4d2eddefe7924d469cf1135267bc0deadf73"
+  integrity sha512-qI+GJKN78UMJ9Aq/ORdiM2qymZ5yswem+/VDdVFocq+/e1QqxjnpKjQWISkswci5+WtpJl9SpHBNxG98uHDKkA==
   dependencies:
     protobufjs "^6.8.6"
 
-apollo-engine-reporting@0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/apollo-engine-reporting/-/apollo-engine-reporting-0.1.3.tgz#85ad6ffd71db8f877202ce8b3d7dbfa7cabfbcf9"
-  integrity sha512-VkjiifHMHIAxydXecT+ck0WtqpFIsMlylKnKeuNAXfIfAXHX/JYtLhbArTTyhDunLrphMiUewfFv9P0K+aX2jw==
+apollo-engine-reporting@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/apollo-engine-reporting/-/apollo-engine-reporting-0.2.0.tgz#e71816b1f46e782f8538c5a118148d4c0e628e25"
+  integrity sha512-Q6FfVb10v/nrv8FaFsPjIYlWh62jaYav3LuMgM9PsHWGK/zRQFXOEwLxcY2UCvG7O1moxF3XGmfBhMgo54py+Q==
   dependencies:
-    apollo-engine-reporting-protobuf "0.1.0"
+    apollo-engine-reporting-protobuf "0.2.0"
     apollo-server-env "2.2.0"
     async-retry "^1.2.1"
-    graphql-extensions "0.3.3"
+    graphql-extensions "0.4.0"
     lodash "^4.17.10"
 
 apollo-env@0.2.5:
@@ -2211,27 +2216,27 @@ apollo-server-caching@0.2.1:
   dependencies:
     lru-cache "^5.0.0"
 
-apollo-server-core@2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.2.6.tgz#33031a3e1156d4cd0ad3c5c49de263173f521b32"
-  integrity sha512-hC3+Y9A4rN4W2X2cWqjrWWHkjKaG/jUQjtAVpQteDW+7n3bLKHCrpDFiFad++lq0ymRVW8diAaYDS4myJwjmoA==
+apollo-server-core@2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-core/-/apollo-server-core-2.3.1.tgz#cbdc0020a0dfecf2220cf5062dbb304fdf56edf2"
+  integrity sha512-8jMWYOQIZi9mDJlHe2rXg8Cp4xKYogeRu23jkcNy+k5UjZL+eO+kHXbNFiTaP4HLYYEpe2XE3asxp6q5YUEQeQ==
   dependencies:
     "@apollographql/apollo-tools" "^0.2.6"
-    "@apollographql/apollo-upload-server" "^5.0.3"
     "@apollographql/graphql-playground-html" "^1.6.6"
     "@types/ws" "^6.0.0"
-    apollo-cache-control "0.3.3"
+    apollo-cache-control "0.4.0"
     apollo-datasource "0.2.1"
-    apollo-engine-reporting "0.1.3"
+    apollo-engine-reporting "0.2.0"
     apollo-server-caching "0.2.1"
     apollo-server-env "2.2.0"
     apollo-server-errors "2.2.0"
-    apollo-server-plugin-base "0.1.6"
-    apollo-tracing "0.3.3"
-    graphql-extensions "0.3.6"
+    apollo-server-plugin-base "0.2.1"
+    apollo-tracing "0.4.0"
+    graphql-extensions "0.4.1"
     graphql-subscriptions "^1.0.0"
     graphql-tag "^2.9.2"
     graphql-tools "^4.0.0"
+    graphql-upload "^8.0.2"
     json-stable-stringify "^1.0.1"
     lodash "^4.17.10"
     subscriptions-transport-ws "^0.9.11"
@@ -2250,37 +2255,36 @@ apollo-server-errors@2.2.0:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-2.2.0.tgz#5b452a1d6ff76440eb0f127511dc58031a8f3cb5"
   integrity sha512-gV9EZG2tovFtT1cLuCTavnJu2DaKxnXPRNGSTo+SDI6IAk6cdzyW0Gje5N2+3LybI0Wq5KAbW6VLei31S4MWmg==
 
-apollo-server-express@^2.2.3:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-2.2.6.tgz#2c0c5bdab6eccf63ab138ad4b6d6836aeb723540"
-  integrity sha512-+zajJDcJLhWdkW8f0D5KQfDsaxgx7fQ3ULGDT1eZgL0UY5pazWBOnXqeRoVKRl+r1WcrwN1SMfBVnAKWv6CyVw==
+apollo-server-express@^2.2.6:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-express/-/apollo-server-express-2.3.1.tgz#0598e2fa0a0d9e6eb570c0bb6ce65c31810a9c09"
+  integrity sha512-J+rObr4GdT/5j6qTByUJoSvZSjTAX/7VqIkr2t+GxwcVUFGet2MdOHuV6rtWKc8CRgvVKfKN6iBrb2EOFcp2LQ==
   dependencies:
-    "@apollographql/apollo-upload-server" "^5.0.3"
     "@apollographql/graphql-playground-html" "^1.6.6"
     "@types/accepts" "^1.3.5"
     "@types/body-parser" "1.17.0"
     "@types/cors" "^2.8.4"
     "@types/express" "4.16.0"
     accepts "^1.3.5"
-    apollo-server-core "2.2.6"
+    apollo-server-core "2.3.1"
     body-parser "^1.18.3"
     cors "^2.8.4"
     graphql-subscriptions "^1.0.0"
     graphql-tools "^4.0.0"
     type-is "^1.6.16"
 
-apollo-server-plugin-base@0.1.6:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/apollo-server-plugin-base/-/apollo-server-plugin-base-0.1.6.tgz#56932c0e3a0366e03952a6e2805efe5fa2e046bf"
-  integrity sha512-nh6I2+mgSL5cYxqYXymAr8xBZ/ju8nunPjHp/21+/mgbF4Is0xtM9oDq5Qf0Q/cGh/djF6YcBuB1yUG+68gJXw==
+apollo-server-plugin-base@0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/apollo-server-plugin-base/-/apollo-server-plugin-base-0.2.1.tgz#d08c9576f7f11ab6e212f352d482faaa4059a31e"
+  integrity sha512-497NIY9VWRYCrMSkgR11IrIUO4Fsy6aGgnpOJoTdLQAnkDD9SJDSRzwKj4gypUoTT2unfKDng4eMxXVZlHvjOw==
 
-apollo-tracing@0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/apollo-tracing/-/apollo-tracing-0.3.3.tgz#b819942180480c1c4d89e613cf2eff8f6d8b595a"
-  integrity sha512-gsTYgDVjtMlnomPq46aky7yk8XshCQfj9rxalCCismLlMomVW44fq+8GKQnZIkFOwiAsazRy4dzZ0cBbygA9sA==
+apollo-tracing@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/apollo-tracing/-/apollo-tracing-0.4.0.tgz#4b939063f4292422ac5a3564b76d1d88dec0a916"
+  integrity sha512-BlM8iQUQva4fm0xD/pLwkcz0degfB9a/aAn4k4cK36eLVD8XUkl7ptEB0c+cwcj7tOYpV1r5QX1XwdayBzlHSg==
   dependencies:
     apollo-server-env "2.2.0"
-    graphql-extensions "0.3.3"
+    graphql-extensions "0.4.0"
 
 apollo-utilities@1.0.26, apollo-utilities@^1.0.0, apollo-utilities@^1.0.1, apollo-utilities@^1.0.26, apollo-utilities@^1.0.8:
   version "1.0.26"
@@ -2799,7 +2803,7 @@ babel-plugin-jest-hoist@^23.2.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-23.2.0.tgz#e61fae05a1ca8801aadee57a6d66b8cefaf44167"
   integrity sha1-5h+uBaHKiAGq3uV6bWa4zvr0QWc=
 
-"babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.9.0:
+"babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.9.4:
   version "1.9.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.9.4.tgz#5f2c34d31237c6ee1e86453cc5fa488b97136669"
   integrity sha512-FIACAvgJsUasYA+CdhPMWUIXWCdUUirz7fL9FGQYNNuOls+bs9OUWWHYVM2W9gjVoS2TXdEMqcOVVyG3Hagd/g==
@@ -2818,7 +2822,7 @@ babel-plugin-syntax-object-rest-spread@^6.13.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-object-rest-spread/-/babel-plugin-syntax-object-rest-spread-6.13.0.tgz#fd6536f2bce13836ffa3a5458c4903a597bb3bf5"
   integrity sha1-/WU28rzhODb/o6VFjEkDpZe7O/U=
 
-babel-plugin-transform-react-remove-prop-types@^0.4.14:
+babel-plugin-transform-react-remove-prop-types@^0.4.21:
   version "0.4.21"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.4.21.tgz#0087938f4348cb751b3e5055a6b38f3c61b5231b"
   integrity sha512-+gQBtcnEhYFbMPFGr8YL7SHD4BpHifFDGEc+ES0+1iDwC9psist2+eumcLoHjBMumL7N/HI/G64XR5aQC8Nr5Q==
@@ -3748,6 +3752,15 @@ cli-width@^2.0.0:
   resolved "https://registry.yarnpkg.com/cli-width/-/cli-width-2.2.0.tgz#ff19ede8a9a5e579324147b0c11f0fbcbabed639"
   integrity sha1-/xnt6Kml5XkyQUewwR8PvLq+1jk=
 
+clipboard@^2.0.0:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.4.tgz#836dafd66cf0fea5d71ce5d5b0bf6e958009112d"
+  integrity sha512-Vw26VSLRpJfBofiVaFb/I8PVfdI1OxKcYShe6fm0sP/DtmiWQNCjhM/okTvdCo0G+lMMm1rMYbk4IK4x1X+kgQ==
+  dependencies:
+    good-listener "^1.2.2"
+    select "^1.1.2"
+    tiny-emitter "^2.0.0"
+
 cliui@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
@@ -3984,6 +3997,13 @@ combined-stream@^1.0.6, combined-stream@~1.0.6:
   integrity sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
   dependencies:
     delayed-stream "~1.0.0"
+
+comma-separated-tokens@^1.0.0:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/comma-separated-tokens/-/comma-separated-tokens-1.0.5.tgz#b13793131d9ea2d2431cf5b507ddec258f0ce0db"
+  integrity sha512-Cg90/fcK93n0ecgYTAz1jaA3zvnQ0ExlmKY1rdbyHqAx6BHxwoJc+J7HDu0iuQ7ixEs1qaa+WyQ6oeuBpYP1iA==
+  dependencies:
+    trim "0.0.1"
 
 commander@2.17.x, commander@~2.17.1:
   version "2.17.1"
@@ -4916,6 +4936,11 @@ delayed-stream@~1.0.0:
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
 
+delegate@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
+
 delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
@@ -5697,12 +5722,12 @@ eslint-plugin-jest@^21.21.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.27.2.tgz#2a795b7c3b5e707df48a953d651042bd01d7b0a8"
   integrity sha512-0E4OIgBJVlAmf1KfYFtZ3gYxgUzC5Eb3Jzmrc9ikI1OY+/cM8Kh72Ti7KfpeHNeD3HJNf9SmEfmvQLIz44Hrhw==
 
-eslint-plugin-jest@^22.0.1:
+eslint-plugin-jest@^22.1.2:
   version "22.1.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-22.1.2.tgz#1ea36cc3faedbdb788e702ca633d635ca14e91e8"
   integrity sha512-jSPT4rVmNetkeCIyrvvOM0wJtgoUSbKHIUDoOGzIISsg51eWN/nISPNKVM+jXMMDI9oowbyapOnpKSXlsLiDpQ==
 
-eslint-plugin-jsdoc@^3.7.1:
+eslint-plugin-jsdoc@^3.14.0, eslint-plugin-jsdoc@^3.7.1:
   version "3.14.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-3.14.0.tgz#a0fa9ec71366d04dca14bcee4ed04434202f8104"
   integrity sha512-5QBhxmf7XeJpUsha3cEUe0j8JVcd7XMnDUkqhKdtbrUb0oz4Ea0/b1kfE8FN0/iu2mvVSb1HArMPQT9SxQY2/g==
@@ -5839,7 +5864,7 @@ eslint@4.19.1:
     table "4.0.2"
     text-table "~0.2.0"
 
-eslint@^5.3.0:
+eslint@^5.10.0, eslint@^5.3.0:
   version "5.10.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.10.0.tgz#24adcbe92bf5eb1fc2d2f2b1eebe0c5e0713903a"
   integrity sha512-HpqzC+BHULKlnPwWae9MaVZ5AXJKpkxCVXQHrFaRw3hbDj26V/9ArYM4Rr/SQ8pi6qUPLXSSXC4RBJlyq2Z2OQ==
@@ -6697,6 +6722,11 @@ from@~0:
   resolved "https://registry.yarnpkg.com/from/-/from-0.1.7.tgz#83c60afc58b9c56997007ed1a768b3ab303a44fe"
   integrity sha1-g8YK/Fi5xWmXAH7Rp2izqzA6RP4=
 
+fs-capacitor@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/fs-capacitor/-/fs-capacitor-1.0.1.tgz#ff9dbfa14dfaf4472537720f19c3088ed9278df0"
+  integrity sha512-XdZK0Q78WP29Vm3FGgJRhRhrBm51PagovzWtW2kJ3Q6cYJbGtZqWSGTSPwvtEkyjIirFd7b8Yes/dpOYjt4RRQ==
+
 fs-constants@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/fs-constants/-/fs-constants-1.0.0.tgz#6be0de9be998ce16af8afc24497b9ee9b7ccd9ad"
@@ -7222,6 +7252,13 @@ gonzales-pe@^4.2.3:
   dependencies:
     minimist "1.1.x"
 
+good-listener@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
+  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
+  dependencies:
+    delegate "^3.1.2"
+
 got@^5.0.0, got@^5.2.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/got/-/got-5.7.1.tgz#5f81635a61e4a6589f180569ea4e381680a51f35"
@@ -7328,17 +7365,17 @@ graphql-config@^2.0.1:
     lodash "^4.17.4"
     minimatch "^3.0.4"
 
-graphql-extensions@0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/graphql-extensions/-/graphql-extensions-0.3.3.tgz#277efe11976bbdfd59915551606a2d550247bb45"
-  integrity sha512-pudOaHq7Ok+rh1ElzlqFaoYZWGefUNsqn/jX6eKns7rl0VHuB4qZBfhpVLTpquJpM6Y19/hsCYZNPfnUVMFIiA==
+graphql-extensions@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/graphql-extensions/-/graphql-extensions-0.4.0.tgz#5857c7b7b9f20dbccbfd88730fffa5963b3c61ee"
+  integrity sha512-8TUgIIUVpXWOcqq9RdmTSHUrhc3a/s+saKv9cCl8TYWHK9vyJIdea7ZaSKHGDthZNcsN+C3LulZYRL3Ah8ukoA==
   dependencies:
     "@apollographql/apollo-tools" "^0.2.6"
 
-graphql-extensions@0.3.6:
-  version "0.3.6"
-  resolved "https://registry.yarnpkg.com/graphql-extensions/-/graphql-extensions-0.3.6.tgz#9ddb294b4b3303df4bbfd8258f10ad402e290dba"
-  integrity sha512-QGnDQ0TkF1YpVE/ZvKVl3bZ1PfwSbynVBcNU5U1DPU56pLkltETORiFL4TQ/Tt7RzagBX/xVaI3q0xJC6h9M5w==
+graphql-extensions@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/graphql-extensions/-/graphql-extensions-0.4.1.tgz#92c49a8409ffbfb24559d7661ab60cc90d6086e4"
+  integrity sha512-Xei4rBxbsTHU6dYiq9y1xxbpRMU3+Os7yD3vXV5W4HbTaxRMizDmu6LAvV4oBEi0ttwICHARQjYTjDTDhHnxrQ==
   dependencies:
     "@apollographql/apollo-tools" "^0.2.6"
 
@@ -7424,6 +7461,16 @@ graphql-type-json@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.2.1.tgz#d2c177e2f1b17d87f81072cd05311c0754baa420"
   integrity sha1-0sF34vGxfYf4EHLNBTEcB1S6pCA=
+
+graphql-upload@^8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/graphql-upload/-/graphql-upload-8.0.2.tgz#1c1f116f15b7f8485cf40ff593a21368f0f58856"
+  integrity sha512-u8a5tKPfJ0rU4MY+B3skabL8pEjMkm3tUzq25KBx6nT0yEWmqUO7Z5tdwvwYLFpkLwew94Gue0ARbZtar3gLTw==
+  dependencies:
+    busboy "^0.2.14"
+    fs-capacitor "^1.0.0"
+    http-errors "^1.7.1"
+    object-path "^0.11.4"
 
 graphql@^14.0.2:
   version "14.0.2"
@@ -7982,6 +8029,21 @@ hasha@^2.2.0:
     is-stream "^1.0.1"
     pinkie-promise "^2.0.0"
 
+hast-util-parse-selector@^2.2.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/hast-util-parse-selector/-/hast-util-parse-selector-2.2.1.tgz#4ddbae1ae12c124e3eb91b581d2556441766f0ab"
+  integrity sha512-Xyh0v+nHmQvrOqop2Jqd8gOdyQtE8sIP9IQf7mlVDqp924W4w/8Liuguk2L2qei9hARnQSG2m+wAOCxM7npJVw==
+
+hastscript@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/hastscript/-/hastscript-5.0.0.tgz#fee10382c1bc4ba3f1be311521d368c047d2c43a"
+  integrity sha512-xJtuJ8D42Xtq5yJrnDg/KAIxl2cXBXKoiIJwmWX9XMf8113qHTGl/Bf7jEsxmENJ4w6q4Tfl8s/Y6mEZo8x8qw==
+  dependencies:
+    comma-separated-tokens "^1.0.0"
+    hast-util-parse-selector "^2.2.0"
+    property-information "^5.0.1"
+    space-separated-tokens "^1.0.0"
+
 he@1.2.x:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
@@ -8188,6 +8250,17 @@ http-errors@1.6.3, http-errors@~1.6.2, http-errors@~1.6.3:
     inherits "2.0.3"
     setprototypeof "1.1.0"
     statuses ">= 1.4.0 < 2"
+
+http-errors@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.7.1.tgz#6a4ffe5d35188e1c39f872534690585852e1f027"
+  integrity sha512-jWEUgtZWGSMba9I1N3gc1HmvpBUaNC9vDdA46yScAdp+C5rdEuKWUBLWTQpW9FwSWSbYYs++b6SDCxf9UEJzfw==
+  dependencies:
+    depd "~1.1.2"
+    inherits "2.0.3"
+    setprototypeof "1.1.0"
+    statuses ">= 1.5.0 < 2"
+    toidentifier "1.0.0"
 
 http-parser-js@>=0.4.0:
   version "0.5.0"
@@ -11755,7 +11828,7 @@ parse-bmfont-xml@^1.1.4:
     xml-parse-from-string "^1.0.0"
     xml2js "^0.4.5"
 
-parse-entities@^1.0.2, parse-entities@^1.1.0:
+parse-entities@^1.0.2, parse-entities@^1.1.0, parse-entities@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/parse-entities/-/parse-entities-1.2.0.tgz#9deac087661b2e36814153cb78d7e54a4c5fd6f4"
   integrity sha512-XXtDdOPLSB0sHecbEapQi6/58U/ODj/KWfIXmmMCJF/eRn8laX6LZbOyioMoETOOJoWRW8/qTSl5VQkUIfKM5g==
@@ -12114,7 +12187,7 @@ pngjs@^3.0.0, pngjs@^3.2.0:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-3.3.3.tgz#85173703bde3edac8998757b96e5821d0966a21b"
   integrity sha512-1n3Z4p3IOxArEs1VRXnZ/RXdfEniAUS9jb68g58FIXMNkPJeZd+Qh4Uq7/e0LVxAQGos1eIUrqrt4FpjdnEd+Q==
 
-portfinder@^1.0.19, portfinder@^1.0.9:
+portfinder@^1.0.20, portfinder@^1.0.9:
   version "1.0.20"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.20.tgz#bea68632e54b2e13ab7b0c4775e9b41bf270e44a"
   integrity sha512-Yxe4mTyDzTd59PZJY4ojZR8F+E5e97iq2ZOHPz3HDgSvYC5siNad2tLooQ5y5QHyQhc3xVqvyk/eNA3wuoa7Sw==
@@ -12594,7 +12667,7 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^1.14.2, prettier@^1.14.3:
+prettier@^1.14.3, prettier@^1.15.3:
   version "1.15.3"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.15.3.tgz#1feaac5bdd181237b54dbe65d874e02a1472786a"
   integrity sha512-gAU9AGAPMaKb3NNSUUuhhFAS7SCO4ALTN4nRIn6PJ075Qd28Yn2Ig2ahEJWdJwJmlEBTUfC7mMUSFy8MwsOCfg==
@@ -12632,6 +12705,13 @@ pretty@^2.0.0:
     condense-newlines "^0.2.1"
     extend-shallow "^2.0.1"
     js-beautify "^1.6.12"
+
+prismjs@^1.15.0, prismjs@~1.15.0:
+  version "1.15.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.15.0.tgz#8801d332e472091ba8def94976c8877ad60398d9"
+  integrity sha512-Lf2JrFYx8FanHrjoV5oL8YHCclLQgbJcVZR+gikGGMqz6ub5QVWDTM6YIwm3BuPxM/LOV+rKns3LssXNLIf+DA==
+  optionalDependencies:
+    clipboard "^2.0.0"
 
 private@^0.1.6, private@~0.1.5:
   version "0.1.8"
@@ -12687,6 +12767,13 @@ prop-types@^15.0.0, prop-types@^15.5.0, prop-types@^15.5.4, prop-types@^15.5.8, 
   dependencies:
     loose-envify "^1.3.1"
     object-assign "^4.1.1"
+
+property-information@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/property-information/-/property-information-5.0.1.tgz#c3b09f4f5750b1634c0b24205adbf78f18bdf94f"
+  integrity sha512-nAtBDVeSwFM3Ot/YxT7s4NqZmqXI7lLzf46BThvotEtYf2uk2yH0ACYuWQkJ7gxKs49PPtKVY0UlDGkyN9aJlw==
+  dependencies:
+    xtend "^4.0.1"
 
 proto-list@~1.2.1:
   version "1.2.4"
@@ -13290,6 +13377,15 @@ redux@^4.0.0:
   dependencies:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
+
+refractor@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/refractor/-/refractor-2.6.2.tgz#8e0877ab8864165275aafeea5d9c8eebe871552f"
+  integrity sha512-AMNEGkhaXfhoa0/0mW0bHdfizDJnuHDK29/D5oQaKICf6DALQ+kDEHW/36oDHCdfva4XrZ+cdMhRvPsTI4OIjA==
+  dependencies:
+    hastscript "^5.0.0"
+    parse-entities "^1.1.2"
+    prismjs "~1.15.0"
 
 regenerate-unicode-properties@^7.0.0:
   version "7.0.0"
@@ -13969,6 +14065,11 @@ select-hose@^2.0.0:
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
 
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
+  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
+
 self-closing-tags@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/self-closing-tags/-/self-closing-tags-1.0.1.tgz#6c5fa497994bb826b484216916371accee490a5d"
@@ -14423,6 +14524,13 @@ source-map@~0.2.0:
   dependencies:
     amdefine ">=0.0.4"
 
+space-separated-tokens@^1.0.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/space-separated-tokens/-/space-separated-tokens-1.1.2.tgz#e95ab9d19ae841e200808cd96bc7bd0adbbb3412"
+  integrity sha512-G3jprCEw+xFEs0ORweLmblJ3XLymGGr6hxZYTYZjIlvDti9vOBUjRQa1Rzjt012aRrocKstHwdNi+F7HguPsEA==
+  dependencies:
+    trim "0.0.1"
+
 sparkles@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/sparkles/-/sparkles-1.0.1.tgz#008db65edce6c50eec0c5e228e1945061dd0437c"
@@ -14568,7 +14676,7 @@ static-extend@^0.1.1:
     define-property "^0.2.5"
     object-copy "^0.1.0"
 
-"statuses@>= 1.4.0 < 2":
+"statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.5.0.tgz#161c7dac177659fd9811f43771fa99381478628c"
   integrity sha1-Fhx9rBd2Wf2YEfQ3cfqZOBR4Yow=
@@ -14883,7 +14991,7 @@ style-search@^0.1.0:
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
   integrity sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=
 
-styled-components@^4.0.2:
+styled-components@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-4.1.2.tgz#f8a685e3b2bcd03c5beac7f2c02bb6ad237da9b3"
   integrity sha512-NdvWatJ2WLqZxAvto+oH0k7GAC/TlAUJTrHoXJddjbCrU6U23EmVbb9LXJBF+d6q6hH+g9nQYOWYPUeX/Vlc2w==
@@ -15489,6 +15597,11 @@ timers-ext@^0.1.5:
     es5-ext "~0.10.46"
     next-tick "1"
 
+tiny-emitter@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
+  integrity sha512-2NM0auVBGft5tee/OxP4PI3d8WItkDM+fPnaRAVo6xTDI2knbz9eC5ArWGqtGlYqiH3RU5yMpdyTTO7MguC4ow==
+
 tinycolor2@1.4.1, tinycolor2@^1.1.2:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
@@ -15605,6 +15718,11 @@ toggle-selection@^1.0.3:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/toggle-selection/-/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
+
+toidentifier@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
+  integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
 toposort@^1.0.0:
   version "1.0.7"
@@ -16663,7 +16781,7 @@ webpack@3.12.0:
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
 
-webpack@^4.26.1:
+webpack@^4.27.1:
   version "4.27.1"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.27.1.tgz#5f2e2db446d2266376fa15d7d2277a1a9c2e12bb"
   integrity sha512-WArHiLvHrlfyRM8i7f+2SFbr/XbQ0bXqTkPF8JpHOzub5482Y3wx7rEO8stuLGOKOgZJcqcisLhD7LrM/+fVMw==
