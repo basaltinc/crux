@@ -1,0 +1,23 @@
+# https://www.netlifycms.org/docs/intro
+backend:
+  name: github
+  repo: basaltinc/crux
+  branch: master
+
+publish_mode: editorial_workflow
+squash_merges: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "docs" # Used in routes, e.g., /admin/collections/docs
+    label: "Docs" # Used in the UI
+    folder: "docs" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Layout", name: "layout", widget: "hidden", default: "docs"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Order", name: "order", widget: "number"}

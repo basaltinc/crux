@@ -8,8 +8,9 @@ const config = {
   dist: './dist',
   public: './public',
   data: './data',
-  css: ['./public/build/crux.css'],
-  js: ['.public/build/crux.js'],
+  css: ['./public/build/crux.css', './public/bedrock.overrides.css'],
+  js: ['./public/build/crux.js'],
+  docsDir: './docs',
   templates: [
     {
       test: theTemplatePath => theTemplatePath.endsWith('.twig'),

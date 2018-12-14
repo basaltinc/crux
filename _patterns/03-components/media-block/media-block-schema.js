@@ -141,7 +141,7 @@ module.exports = {
       title: 'What Is Basalt?',
       body:
         'Basalt represents our roots—the Pacific Northwest, and our belief that quality design begins with rock‑solid scalable components.',
-      media: '/assets/images/brand-stock/julentto-photography-184055.jpg',
+      media: '/images/brand-stock/julentto-photography-184055.jpg',
       media_alignment: 'right',
       media_size: 'm',
       buttons: [

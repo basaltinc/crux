@@ -1,34 +1,58 @@
 {
   "31V8xmY3o": {
     "id": "31V8xmY3o",
-    "title": "My Empty Example",
+    "title": "A single page",
     "path": "/pages/31V8xmY3o",
-    "description": "Nothing in this page builder example.",
-    "slices": [],
-    "hasVisibleControls": true
-  },
-  "xdRrUyEqh": {
-    "id": "xdRrUyEqh",
-    "title": "My Emply Example",
-    "path": "/pages/xdRrUyEqh",
-    "description": "This is an empty example",
-    "slices": [],
-    "hasVisibleControls": true
-  },
-  "88SJaRYpM": {
-    "id": "88SJaRYpM",
-    "title": "My third example Example",
-    "path": "/pages/88SJaRYpM",
-    "description": null,
-    "slices": [],
-    "hasVisibleControls": true
-  },
-  "OEWIVpCh0": {
-    "id": "OEWIVpCh0",
-    "title": "My New Example4",
-    "path": "/pages/OEWIVpCh0",
-    "description": null,
-    "slices": [],
+    "description": "",
+    "slices": [{
+        "id": "BQRz9bLiJ",
+        "patternId": "blog-teaser",
+        "data": {
+          "title": "Welcome",
+          "author": "Nam Ho",
+          "teaser_avatar": "/images/avatar-example2.jpg",
+          "date": "November 8, 2017",
+          "summary": "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
+          "image": "/images/legos.jpg",
+          "is_even": true
+        }
+      },
+      {
+        "id": "jmRdmcq5Q",
+        "patternId": "hero",
+        "data": {
+          "title": "Hello",
+          "body": "Design Systems, start to finish.",
+          "alignment_all": "center",
+          "image": "/images/brand-stock/rawpixel-com-191102.jpg",
+          "image_overlay": "black",
+          "buttons": [{
+            "text": "Learn More",
+            "url": "http://www.basalt.io",
+            "size": "medium",
+            "color": "iron"
+          }]
+        }
+      },
+      {
+        "id": "vxEvL0t9b",
+        "patternId": "media-block",
+        "data": {
+          "title": "What Is Basalt?",
+          "title_text_color": "black",
+          "body": "Basalt represents our roots—the Pacific Northwest, and our belief that quality design begins with rock‑solid scalable components.",
+          "media": "/images/brand-stock/julentto-photography-184055.jpg",
+          "media_alignment": "right",
+          "media_size": "m",
+          "buttons": [{
+            "text": "Read More",
+            "url": "#",
+            "size": "medium",
+            "color": "green"
+          }]
+        }
+      }
+    ],
     "hasVisibleControls": true
   }
 }
