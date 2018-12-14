@@ -5,8 +5,18 @@ module.exports = {
   id: 'media-block',
   templates: [
     {
-      name: '@components/media-block.twig',
+      alias: '@components/media-block.twig',
+      path: './media-block.twig',
+      id: 'twig',
+      title: 'Twig - Media Block',
       schema: mediaBlockSchema,
+    },
+    {
+      alias: '@components/media-block--basic.twig',
+      path: './media-block--basic.twig',
+      id: 'twig-basic',
+      title: 'Twig - Media Block Basic',
+      schema: mediaBlockBasicSchema,
     },
   ],
 };
