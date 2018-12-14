@@ -1,8 +1,8 @@
-const twigRenderer = require('./twig-renderer');
+const TwigRenderer = require('@basalt/bedrock-renderer-twig');
 
 /** @type {BedrockConfig} */
 const config = {
-  patterns: ['./_patterns/**/*'],
+  patterns: ['./_patterns/03-components/**/*'],
   newPatternDir: './_patterns/03-components/',
   designTokens: './_patterns/00-styleguide/tokens.yml',
   dist: './dist',
@@ -12,12 +12,28 @@ const config = {
   js: ['./public/build/crux.js'],
   docsDir: './docs',
   templates: [
-    {
-      test: theTemplatePath => theTemplatePath.endsWith('.twig'),
-      render: (template, data = {}) => twigRenderer.render(template, data),
-      renderString: (templateString, data = {}) =>
-        twigRenderer.renderString(templateString, data),
-    },
+    new TwigRenderer({
+      src: {
+        roots: ['./_patterns/03-components/'],
+        namespaces: [
+          {
+            id: 'components',
+            recursive: true,
+            paths: ['./_patterns/03-components/'],
+          },
+          {
+            id: 'styleguide',
+            recursive: true,
+            paths: ['./_patterns/00-styleguide/'],
+          },
+          {
+            id: 'svgs',
+            recursive: true,
+            paths: ['./images/svgs/'],
+          },
+        ],
+      }
+    }),
   ],
 };
 

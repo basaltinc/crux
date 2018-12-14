@@ -4,7 +4,10 @@ module.exports = {
   id: 'cta',
   templates: [
     {
-      name: '@components/cta.twig',
+      alias: '@components/cta.twig',
+      path: './cta.twig',
+      id: 'twig',
+      title: 'Twig',
       schema,
     },
   ],

@@ -16,9 +16,9 @@
     "test": "gulp validate"
   },
   "dependencies": {
-    "@basalt/bedrock": "0.19.0",
+    "@basalt/bedrock": "^0.20.2",
+    "@basalt/bedrock-renderer-twig": "^0.20.0",
     "@basalt/demo-data": "^0.5.1",
-    "@basalt/twig-renderer": "^0.10.2",
     "breakpoint-sass": "^2.7.1",
     "color": "^3.0.0",
     "fs-extra": "^7.0.0",
