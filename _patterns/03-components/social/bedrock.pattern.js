@@ -4,7 +4,10 @@ module.exports = {
   id: 'social',
   templates: [
     {
-      name: '@components/social.twig',
+      alias: '@components/social.twig',
+      path: './social.twig',
+      id: 'twig',
+      title: 'Twig',
       schema,
     },
   ],
