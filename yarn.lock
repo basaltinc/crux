@@ -1028,10 +1028,10 @@
     "@basalt/bedrock-core" "^0.20.0"
     color "^3.0.0"
 
-"@basalt/bedrock@^0.20.2":
-  version "0.20.2"
-  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.20.2.tgz#b6a639b67533b5648aa2e06d6b25bb7754c897b4"
-  integrity sha512-yAYEob6kIu/k9TfCqCjkClQKesSz4pFtYCLAsZwFZopiGheU3h/3cbwYTFuZRIfViZD+Ju4Gh/ATaCUO7JY2OA==
+"@basalt/bedrock@^0.20.4":
+  version "0.20.4"
+  resolved "https://registry.yarnpkg.com/@basalt/bedrock/-/bedrock-0.20.4.tgz#cc198077a7f3a4e7095ee34b684df5d41774cf86"
+  integrity sha512-jmvHGFInw0phjtG5tXy4tONFJtE+BaPrDBEMkOZ8fiLtpaFSVKi4iQFFXdvMir0aXXGkreUexSsRelYdvTu5Sw==
   dependencies:
     "@basalt/bedrock-api-demo" "^0.20.0"
     "@basalt/bedrock-atoms" "^0.20.0"
