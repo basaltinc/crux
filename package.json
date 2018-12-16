@@ -3,15 +3,15 @@
   "version": "3.0.0",
   "description": "Basalt Design System",
   "scripts": {
-    "build": "rm -rf public/build && run-s -l build:tokens build:gulp build:bedrock",
+    "build": "rm -rf public/build && NODE_ENV=production run-s -l build:tokens build:gulp build:bedrock",
     "build:bedrock": "bedrock build",
-    "build:gulp": "NODE_ENV=production gulp build",
+    "build:gulp": "gulp build",
     "build:tokens": "theo _patterns/00-styleguide/tokens.yml --transform web --format scss --dest public/build/tokens",
     "deploy": "now --build-env NPM_TOKEN=@npm-token && now alias",
     "new": "yo pl-pattern --base source/_patterns",
     "prepublishOnly": "yarn build",
     "serve": "bedrock serve",
-    "start": "yarn build:gulp && bedrock start",
+    "start": "run-s -l build:tokens build:gulp && bedrock start",
     "old:start": "gulp",
     "test": "gulp validate"
   },

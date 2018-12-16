@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Sketch Library for Crux, the Basalt Design System</title>
+    <description>Crux Sketch Library</description>
+    <image>
+      <url></url>
+      <title>Crux Sketch Library</title>
+    </image>
+    <generator>Sketch</generator>
+    <item>
+      <title>Crux Sketch Library</title>
+      <pubDate>Sun, 16 Dec 2018 11:19:04 +0000</pubDate>
+      <enclosure url="https://design.basalt.io/crux.sketch" type="application/octet-stream" sparkle:version="1"/>
+    </item>
+  </channel>
+</rss>
