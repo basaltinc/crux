@@ -6,6 +6,7 @@ order: '3'
 <style>
 .flex {
   display: flex;
+  justify-content: space-between;
 }
 .text-content {
   padding: 1rem;
@@ -17,7 +18,7 @@ order: '3'
 </style>
 ## Primary Logo
 <div class="flex">
-![Basalt Main Logo](/uploads/basalt_master_main.png)
+<img src="/uploads/basalt_master_main.png" alt="Basalt Main Logo"/>
 
 <div class="text-content">
 Basalt’s primary logo incorporates the icon into the wordmark creating a clean and boldly affective brand identity. The use of all caps brings a modern sense of strength and stability. The icon represents an abstracted and geometric tent but also mimics the structure of basalt columns bringing the overall tone back to the natural world and creating a playful sense of adventure.
@@ -25,7 +26,7 @@ Basalt’s primary logo incorporates the icon into the wordmark creating a clean
 This is the main logo that will be used across all primary brand applications and platforms. It is the main touch point for your audience to identity Basalts product, web presence, social media, ads, and other brand materials. It is imperative that the logo always be applied with consideration and accordance to the brand guidelines to maximize the success of Basalts brand presence.
 </div>
 </div>
-### Minimum Size
+<h3>Minimum Size</h3>
 
 The smallest the Basalt logo should be presented is 1.5 inches wide, when representing the logo on a scale below 1.5 inches, it is best to use the icon only.
 
@@ -48,13 +49,13 @@ The color usage within the Basalt logo is minimal and will always appear as blac
 * Use solid logo marks on colored backgrounds to minimize competition
 * When placing logomarks on photographic back- grounds refer to the photo guidelines.
 </div>
-![Basalt Logo on Colored Backgrounds](/uploads/logo-on-color-bgs.png)
+<img src="/uploads/logo-on-color-bgs.png" alt="Basalt Logo on Colored Backgrounds"/>
 </div>
-## Photo Backgrounds
+<h2>Photo Backgrounds</h2>
 <div class="flex">
 <div class="block">
-![Basalt Logo on photo backgrounds](/uploads/logo-on-photo-bg.png)
-![](/uploads/logo-on-photo-bg2.png)
+<img src="/uploads/logo-on-photo-bg.png" alt="Basalt Logo on photo backgrounds"/>
+<img src="/uploads/logo-on-photo-bg2.png" alt="Basalt Logo on photo backgrounds"/>
 </div>
 <div class="text-content">
 Exercise care when placing the logo mark over photographic backgrounds. It’s important to ensure that the logomark does not compete with elements in the photo and always remains legible. In most cases either a solid white or solid black logo on top of a background image will work.
@@ -69,7 +70,7 @@ Exercise care when placing the logo mark over photographic backgrounds. It’s i
 Fig. A and B illustrate how to best place a logo on a photographic background. Figure C illustrates unacceptable logo placement.
 </div>
 </div>
-## Photo Overlays
+<h2>Photo Overlays</h2>
 <div class="flex">
 <div class="text-content">
 Photo Overlays can be used to add variety within graphic elements when appropriate but a few rules apply when adding an overlay to a photographic background.
@@ -85,8 +86,8 @@ Ensure overlays do not obstruct or conflict with elements in the photo.
 Fig. A and B illustrate how to best place an overlay on a photographic background. Figure C illustrates Unacceptable use of an overlay.
 </div>
 <div class="block">
-![Basalt Logo on Photo Overlay](/uploads/logo-on-photo-overlay.png)
-![Basalt Logo on Photo Overlay](/uploads/logo-on-photo-overlay2.png)
+  <img src="/uploads/logo-on-photo-overlay.png" alt="Basalt Logo on Photo Overlay"/>
+  <img src="/uploads/logo-on-photo-overlay2.png" alt="Basalt Logo on Photo Overlay"/>
 </div>
 </div>
 
