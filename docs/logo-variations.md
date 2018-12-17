@@ -20,6 +20,7 @@ order: '4'
 .demo-logo-box img {
   background-color: hsl(0, 0%, 90%);
   transition: all ease-in 0.2s;
+  max-width: 100%;
 }
 .demo-logo-box img:hover {
   background-color: hsl(0, 0%, 10%);
@@ -52,7 +53,7 @@ Each logo is shown with a light gray background color, though the file does not 
 <div class="flex">
   <div class="demo-logo-box">
     <p><b>main</b></p>
-    <img src="http://files.basalt.io/logos/main--200.png" alt="" />
+    <img src="http://files.basalt.io/logos/main.png" alt="" />
 
   <span>Download: </span>
     <a href="http://files.basalt.io/logos/main.svg" target="_blank">SVG</a>
