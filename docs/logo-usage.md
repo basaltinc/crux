@@ -70,8 +70,6 @@ Fig. A and B illustrate how to best place an overlay on a photographic backgroun
 
 ![Basalt Logo on Photo Overlay](/uploads/logo-on-photo-overlay2.png)
 
-
-
 ## Unacceptable Logo Formatting
 
 Rules are an important part of maintaining your logos integrity within the Basalt brand. Don’t compromise the look of the logo and brand identity by altering the logo in any way including adding unnecessary text decorations or graphic elements as drop shadows or outlines. The following examples are some of the ways you should never alter the Basalt logo.
