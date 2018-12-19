@@ -1,8 +1,5 @@
-FROM basaltinc/docker-node-php-base:latest
-ARG NPM_TOKEN
+FROM basaltinc/bedrock:latest
 WORKDIR /app
-RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-
 COPY . .
 EXPOSE 3999
 RUN npm install

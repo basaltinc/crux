@@ -2,9 +2,6 @@ language: node_js
 node_js:
 - '10'
 
-before_install:
-  - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
-
 install:
   - yarn install
 
@@ -16,8 +13,8 @@ jobs:
     - stage: deploy
       script:
         - npm i -g now
-        - now --build-env NPM_TOKEN=@npm-token --token=$NOW_TOKEN --team=basalt
-        - now alias --token=$NOW_TOKEN --team=basalt
+        - now --token=$NOW_TOKEN --team=basalt
+#        - now alias --token=$NOW_TOKEN --team=basalt
 
 stages:
   - install
