@@ -14,7 +14,7 @@ jobs:
       script:
         - npm i -g now
         - now --token=$NOW_TOKEN --team=basalt
-#        - now alias --token=$NOW_TOKEN --team=basalt
+        - now alias --token=$NOW_TOKEN --team=basalt
 
 stages:
   - install

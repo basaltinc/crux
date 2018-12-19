@@ -32,7 +32,8 @@ const config = {
             paths: ['./images/svgs/'],
           },
         ],
-      }
+      },
+      keepAlive: process.env.NODE_ENV === 'production', // makes re-rendering of templates faster
     }),
   ],
 };
