@@ -19,6 +19,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    echo 'hello world'
     npm install
     now --token=$(NOW_TOKEN) --team=basalt ls
     npm run build
