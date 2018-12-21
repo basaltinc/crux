@@ -6,6 +6,9 @@
 #trigger:
 #- master
 
+variables:
+  - group: Tokens
+
 pool:
   vmImage: 'Ubuntu-16.04'
 
@@ -17,5 +20,6 @@ steps:
 
 - script: |
     npm install
+    now --token=$(NOW_TOKEN) --team=basalt ls
     npm run build
   displayName: 'npm install and build'
