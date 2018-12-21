@@ -19,8 +19,13 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    echo 'hello world'
     npm install
-    now --token=$(NOW_TOKEN) --team=basalt ls
     npm run build
   displayName: 'npm install and build'
+
+- script: |
+    npm install -g now
+    now --token=$(NOW_TOKEN) --team=basalt
+#    now alias --token=$(NOW_TOKEN) --team=basalt
+  displayName: 'deploy'
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/feature/azure'))
