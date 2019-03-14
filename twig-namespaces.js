@@ -1,7 +1,7 @@
 const { resolve } = require('path');
 
 module.exports = {
-  roots: [resolve(__dirname, './_patterns/03-components')],
+  roots: [resolve(__dirname, './_patterns')],
   namespaces: [
     {
       id: 'components',
@@ -11,12 +11,12 @@ module.exports = {
     {
       id: 'styleguide',
       recursive: true,
-      paths: ['./_patterns/00-styleguide/'],
+      paths: [resolve(__dirname, './_patterns/00-styleguide')],
     },
     {
       id: 'svgs',
       recursive: true,
-      paths: ['./images/svgs/'],
+      paths: [resolve(__dirname, './images/svgs')],
     },
   ],
 };
