@@ -1,7 +1,12 @@
 {
   "title": "Site Footer",
-  "type": "component",
   "description": "Meant to go on the bottom of every page.",
-  "uses": ["inSlice"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "m"
 }

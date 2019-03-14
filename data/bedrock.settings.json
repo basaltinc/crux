@@ -7,6 +7,42 @@
     "title": "Basalt",
     "homepage": "https://basalt.io"
   },
+  "customSections": [
+    {
+      "id": "design-tokens",
+      "title": "Design Tokens",
+      "showInMainMenu": true,
+      "pages": [
+        {
+          "id": "colors",
+          "title": "Colors"
+        },
+        {
+          "id": "sizing",
+          "title": "Sizing"
+        },
+        {
+          "id": "shadows",
+          "title": "Shadows"
+        },
+        {
+          "id": "all-tokens",
+          "title": "All Tokens"
+        }
+      ]
+    },
+    {
+      "id": "doc",
+      "title": "Docs",
+      "showInMainMenu": true,
+      "pages": [
+        {
+          "id": "getting-started",
+          "title": "Getting Started"
+        }
+      ]
+    }
+  ],
   "designTokens": {
     "groups": [
       {

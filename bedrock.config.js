@@ -1,41 +1,54 @@
+const HtmlRenderer = require('@basalt/bedrock-renderer-html');
 const TwigRenderer = require('@basalt/bedrock-renderer-twig');
+const { theoBedrockFormat } = require('@basalt/bedrock');
+const theo = require('theo');
+const twigNamespacesConfig = require('./twig-namespaces');
+const { version } = require('./package');
+
+const format = theoBedrockFormat(theo);
 
 /** @type {BedrockConfig} */
 const config = {
   patterns: ['./_patterns/03-components/**/*'],
   newPatternDir: './_patterns/03-components/',
-  designTokens: './_patterns/00-styleguide/tokens.yml',
+  designTokens: {
+    createCodeSnippet: token => `$${token.name}`,
+    data: theo.convertSync({
+      transform: {
+        type: 'web',
+        file: './_patterns/00-styleguide/tokens.yml',
+      },
+      format,
+    }),
+  },
   dist: './dist',
   public: './public',
   data: './data',
-  css: ['./public/build/crux.css', './public/bedrock.overrides.css'],
-  js: ['./public/build/crux.js'],
-  docsDir: './docs',
-  templates: [
+  assetSets: [
+    {
+      id: 'default',
+      title: 'Default',
+      assets: [
+        { src: './public/build/crux.css' },
+        { src: './public/bedrock.overrides.css' },
+        { src: './public/build/crux.js' },
+      ],
+    },
+  ],
+  // docsDir: './docs',
+  templateRenderers: [
+    new HtmlRenderer(),
     new TwigRenderer({
-      src: {
-        roots: ['./_patterns/03-components/'],
-        namespaces: [
-          {
-            id: 'components',
-            recursive: true,
-            paths: ['./_patterns/03-components/'],
-          },
-          {
-            id: 'styleguide',
-            recursive: true,
-            paths: ['./_patterns/00-styleguide/'],
-          },
-          {
-            id: 'svgs',
-            recursive: true,
-            paths: ['./images/svgs/'],
-          },
-        ],
-      },
-      keepAlive: process.env.NODE_ENV === 'production', // makes re-rendering of templates faster
+      src: twigNamespacesConfig,
+      // alterTwigEnv: [
+      //   {
+      //     file: './alter-twig.php',
+      //     functions: ['addCustomExtension'],
+      //   },
+      // ],
     }),
   ],
+  version: `v${version}`,
 };
 
 module.exports = config;

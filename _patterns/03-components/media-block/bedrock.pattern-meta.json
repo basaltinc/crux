@@ -1,7 +1,12 @@
 {
   "title": "Media Block",
-  "type": "component",
   "description": "A block that includes an image or other media asset.",
-  "uses": ["inSlice"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "m"
 }

@@ -1,0 +1,216 @@
+{
+  "pages": [
+    {
+      "path": "/design-tokens/colors",
+      "slices": [
+        {
+          "id": "u240AYsqS",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "background-color"
+          }
+        },
+        {
+          "id": "zaXmD0S--",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "background-color",
+              "tags": []
+            },
+            "demo": {
+              "id": "color-swatch"
+            }
+          }
+        },
+        {
+          "id": "TDALqiHSQ",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "text-color"
+          }
+        },
+        {
+          "id": "lMfUqEA3v",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "text-color",
+              "tags": []
+            },
+            "demo": {
+              "id": "text-color"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/doc/getting-started",
+      "slices": [
+        {
+          "id": "sflgaMCzi",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "```bash\nnpm install @basalt/crux-assets --savenpm run build\n```\n\n## Design Assets\n\nIf you want to use the Crux Sketch Library in your own Sketch file, you can [add the Crux Sketch Library to your Sketch Libraries by clicking here](sketch://add-library?url=https%3A%2F%2Fdesign.basalt.io%2Fsketch-library.xml). Read more about [Sketch Libraries here](https://sketchapp.com/docs/libraries).\n\n"
+          }
+        }
+      ]
+    },
+    {
+      "path": "/design-tokens/sizing",
+      "slices": [
+        {
+          "id": "q_DBbnGBc",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "spacing"
+          }
+        },
+        {
+          "id": "UHrgZ6e6K",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "media-query"
+          }
+        },
+        {
+          "id": "QxlQ0IiDL",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "spacing",
+              "tags": [
+                "breakpoint",
+                "color",
+                "spacing",
+                "string",
+                "number"
+              ]
+            },
+            "demo": {
+              "id": "spacing"
+            }
+          }
+        },
+        {
+          "id": "6to4U0R3S",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "media-query"
+          }
+        },
+        {
+          "id": "79Py5n5pC",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "media-query",
+              "tags": [
+                "breakpoint",
+                "color",
+                "spacing",
+                "string",
+                "number"
+              ]
+            },
+            "demo": {
+              "id": "media-query"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/design-tokens/typography",
+      "slices": []
+    },
+    {
+      "path": "/design-tokens/shadows",
+      "slices": [
+        {
+          "id": "UzDQqNq4I",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "box-shadow"
+          }
+        },
+        {
+          "id": "k5nSxNeg7",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "box-shadow",
+              "tags": [
+                "breakpoint",
+                "color",
+                "spacing",
+                "string",
+                "number"
+              ]
+            },
+            "demo": {
+              "id": "box-shadow"
+            }
+          }
+        },
+        {
+          "id": "dCkcJ3IsK",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "text-shadow"
+          }
+        },
+        {
+          "id": "JoR5ePnK6",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "text-shadow",
+              "tags": [
+                "breakpoint",
+                "color",
+                "spacing",
+                "string",
+                "number"
+              ]
+            },
+            "demo": {
+              "id": "text-shadow"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/design-tokens/all-tokens",
+      "slices": [
+        {
+          "id": "SEx8xg2Ft",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "All Tokens"
+          }
+        },
+        {
+          "id": "XT78cWFzH",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "tags": [
+                "breakpoint",
+                "color",
+                "spacing",
+                "string",
+                "number"
+              ]
+            },
+            "demo": {
+              "id": "table-list"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

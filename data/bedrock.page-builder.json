@@ -4,7 +4,8 @@
     "title": "A single page",
     "path": "/pages/31V8xmY3o",
     "description": "",
-    "slices": [{
+    "slices": [
+      {
         "id": "BQRz9bLiJ",
         "patternId": "blog-teaser",
         "data": {
@@ -26,12 +27,14 @@
           "alignment_all": "center",
           "image": "/images/brand-stock/rawpixel-com-191102.jpg",
           "image_overlay": "black",
-          "buttons": [{
-            "text": "Learn More",
-            "url": "http://www.basalt.io",
-            "size": "medium",
-            "color": "iron"
-          }]
+          "buttons": [
+            {
+              "text": "Learn More",
+              "url": "http://www.basalt.io",
+              "size": "medium",
+              "color": "iron"
+            }
+          ]
         }
       },
       {
@@ -44,12 +47,14 @@
           "media": "/images/brand-stock/julentto-photography-184055.jpg",
           "media_alignment": "right",
           "media_size": "m",
-          "buttons": [{
-            "text": "Read More",
-            "url": "#",
-            "size": "medium",
-            "color": "green"
-          }]
+          "buttons": [
+            {
+              "text": "Read More",
+              "url": "#",
+              "size": "medium",
+              "color": "green"
+            }
+          ]
         }
       }
     ],

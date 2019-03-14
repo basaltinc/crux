@@ -1,7 +1,12 @@
 {
   "title": "Basic Block",
-  "type": "component",
   "description": "A basic block component for wrapping content.",
-  "uses": ["inComponent"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "m"
 }

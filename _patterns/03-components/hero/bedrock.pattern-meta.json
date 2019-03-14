@@ -1,7 +1,12 @@
 {
   "title": "Hero",
-  "type": "component",
   "description": "An important component that saves the day.",
-  "uses": ["inSlice"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "m"
 }

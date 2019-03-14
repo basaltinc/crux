@@ -1,7 +1,12 @@
 {
   "title": "Blog Teaser",
-  "type": "component",
   "description": "A blog teaser.",
-  "uses": ["inSlice"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "l"
 }
