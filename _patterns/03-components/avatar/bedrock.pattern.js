@@ -9,6 +9,12 @@ module.exports = {
       id: 'twig',
       title: 'Twig',
       schema,
+      demoDatas: [
+        {
+          size: 'xl',
+          img: 'https://www.fillmurray.com/200/200',
+        },
+      ],
     },
   ],
 };

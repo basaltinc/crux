@@ -1,7 +1,12 @@
 {
   "title": "Logo",
-  "type": "component",
   "description": "A logo is a core part of any brand.",
-  "uses": ["inSlice"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "m"
 }

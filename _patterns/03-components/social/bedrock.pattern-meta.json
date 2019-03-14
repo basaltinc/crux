@@ -1,7 +1,12 @@
 {
   "title": "Social Media",
-  "type": "component",
   "description": "A collection of social media icons and links.",
-  "uses": ["inSlice"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "m"
 }

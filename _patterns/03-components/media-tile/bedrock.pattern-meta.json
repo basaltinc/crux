@@ -1,7 +1,12 @@
 {
   "title": "Media Tile",
-  "type": "component",
   "description": "A smaller tile for displaying media and linking to additional content.",
-  "uses": ["inSlice"],
+  "type": "components",
+  "status": "ready",
+  "uses": [
+    "inSlice"
+  ],
+  "hasIcon": true,
+  "showAllTemplates": false,
   "demoSize": "m"
 }
