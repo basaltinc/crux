@@ -10,7 +10,7 @@ action "install" {
 }
 
 action "build" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  uses = "docker://basaltinc/docker-node-php-base:latest"
   runs = "yarn"
   needs = "install"
   args = "build"
