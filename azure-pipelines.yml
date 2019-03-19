@@ -19,4 +19,5 @@ steps:
     echo 'hello'
     npm install
     npm run build
+    npm run test:ci
   displayName: 'npm install and build'
