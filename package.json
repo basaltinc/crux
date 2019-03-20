@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "description": "Basalt Design System",
   "scripts": {
+    "bedrock": "bedrock start",
     "build": "rm -rf public/build && NODE_ENV=production run-s -l build:tokens build:gulp build:bedrock",
     "build:bedrock": "bedrock build",
     "build:gulp": "gulp build",
@@ -12,9 +13,9 @@
     "test:percy": "percy exec -- node ./percy.js",
     "prepublishOnly": "yarn build",
     "serve": "bedrock serve",
-    "start": "run-s -l build:tokens build:gulp && bedrock start",
-    "old:start": "gulp",
-    "test": "gulp validate"
+    "start": "run-s -l build:tokens build:gulp && run-p bedrock watch:gulp",
+    "test": "gulp validate",
+    "watch:gulp": "gulp"
   },
   "dependencies": {
     "@basalt/bedrock": "^0.39.0",
@@ -25,6 +26,7 @@
     "breakpoint-sass": "^2.7.1",
     "color": "^3.0.0",
     "fs-extra": "^7.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
     "theo": "^8.0.0"
   },
   "devDependencies": {
@@ -43,6 +45,7 @@
     "puppeteer": "^1.13.0",
     "scsstojson": "^1.0.2",
     "stylelint": "9.3.0",
+    "stylelint-config-recommended": "^2.1.0",
     "stylelint-scss": "1.5.2",
     "webpack": "3.12.0",
     "yo": "1.8.3"

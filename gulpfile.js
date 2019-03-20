@@ -6,7 +6,7 @@ const cssTasks = require('@theme-tools/plugin-sass')({
   src: ['scss/**/*.scss', '_patterns/**/*.scss'],
   dest: 'public/build',
   lint: {
-    enabled: true,
+    enabled: false,
   },
   sassdoc: {
     enabled: true,
@@ -91,7 +91,7 @@ function scssToJsonWatch() {
 
 gulp.task('css', cssTasks.compile);
 
-gulp.task('validate', gulp.series([cssTasks.validate]));
+// gulp.task('validate', gulp.series([cssTasks.validate]));
 
 function copyFonts() {
   return gulp.src(['./fonts/**']).pipe(gulp.dest('./public/build/fonts'));
