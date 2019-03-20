@@ -4,10 +4,10 @@
   display: inline-block;
   font-family: $ff--avenir--medium;
   transition: background-color $trans-opacity;
-  line-height: 1;
+  line-height: 1.5;
   min-width: 58px;
   text-align: center;
-
+  
   &:hover {
     background-color: lighten($c-green, 10);
   }
