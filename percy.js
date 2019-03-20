@@ -1,8 +1,8 @@
 #! /usr/bin/env node
-const { bootstrapFromConfigFile } = require('@basalt/bedrock');
 const { resolve } = require('url');
 const puppeteer = require('puppeteer');
 const { percySnapshot } = require('@percy/puppeteer');
+const fetch = require('node-fetch');
 
 const baseUrl = process.env.BASE_URL;
 if (!baseUrl) {
@@ -10,14 +10,50 @@ if (!baseUrl) {
   process.exit(1);
 }
 
-/** @type {BedrockBrain} */
-const bedrock = bootstrapFromConfigFile('./bedrock.config.js');
-
-const { patterns } = bedrock;
-const allPatterns = patterns.getPatterns();
-
 async function go() {
-// Start a Puppeteer instance.
+  const requestUrl = resolve(baseUrl, '/graphql');
+  console.log({ requestUrl });
+  const allPatterns = await fetch(requestUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      query: `{
+        patterns {
+          id
+          templates {
+            id
+            demoUrls
+          }
+        }
+      }`,
+    }),
+  })
+    .then(res => {
+      const { status, statusText, ok } = res;
+
+      console.log({
+        status,
+        statusText,
+        ok,
+      });
+
+      if (!ok) {
+        console.log('pattern template API request failed', { status, statusText });
+        process.exit(1);
+      }
+
+      return res.json();
+    })
+    .then(({ data }) => data.patterns)
+    .catch(err => {
+      console.log('pattern template API error thrown', err);
+      process.exit(1);
+    });
+
+  // Start a Puppeteer instance.
   const browser = await puppeteer.launch({
     headless: true,
     args: [ '--single-process' ],
@@ -25,11 +61,7 @@ async function go() {
   const page = await browser.newPage();
 
   for (const pattern of allPatterns) {
-    // const [ template ] = pattern.templates;
-    // const [ demoUrl ] = template.demoUrls;
-    // const fullUrl = resolve(baseUrl, demoUrl);
-
-    for (const template of templates) {
+    for (const template of pattern.templates) {
       /** @type {BedrockPatternTemplate} */
       const t = template;
       let i = 0;
