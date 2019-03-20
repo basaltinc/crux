@@ -1,11 +1,6 @@
-{% set color = color|default('green') %}
-{% if not size %}
-  {% set size = 'medium' %}
-{% endif %}
 {% set classes = [
   'button',
-  'button--color-' ~ color,
-  'button--size-' ~ size,
+  'button--color-' ~ color|default('green'),
 ] | merge(classes|default([])) %}
 
 {% if twig_env != 'grav' %}

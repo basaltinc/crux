@@ -1,29 +1,24 @@
 .button {
   @include a-link(white, white, none, none);
-  background-color: $c-green;
   display: inline-block;
-  font-family: $ff--avenir--medium;
-  transition: background-color $trans-opacity;
-  line-height: 1;
+  font-family: Avenir;
+  font-weight: 400;
+  line-height: 1.25;
   min-width: 58px;
   text-align: center;
-
+  border-radius: 5px;
+  transition: all $trans-opacity;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+  padding: $spacing--s $spacing--xl;
+  font-size: $fs--l;
   &:hover {
-    background-color: lighten($c-green, 10);
+    transform: scale(0.98);
   }
-
   &--color {
     &-blue {
       background-color: $c-blue;
       &:hover {
         background-color: lighten($c-blue, 10);
-      }
-    }
-    &-blue--light {
-      @include a-link($c-black, $c-black, none, none);
-      background-color: $c-blue--light;
-      &:hover {
-        background-color: darken($c-blue--light, 10);
       }
     }
     &-green {
@@ -39,44 +34,5 @@
         background-color: darken($c-iron, 10);
       }
     }
-    &-yellow {
-      background-color: $c-yellow;
-      &:hover {
-        background-color: darken($c-yellow, 10);
-      }
-    }
-    &-white {
-      @include a-link($c-black, $c-black, none, none);
-      border: solid 1px $c-iron;
-      background-color: $c-white;
-      &:hover {
-        background-color: darken($c-white, 10);
-      }
-    }
-    &-black {
-      background-color: $c-black;
-      &:hover {
-        background-color: lighten($c-black, 20);
-      }
-    }
   }
-  &--size {
-    &-small {
-      padding: $spacing--xs $spacing--m;
-      font-size: $fs--s;
-    }
-    &-medium {
-      padding: $spacing--s $spacing--l;
-      font-size: $fs--m;
-    }
-    &-large {
-      padding: $spacing--m $spacing--xl;
-      font-size: $fs--l;
-    }
-    &-jumbo {
-      padding: $spacing--l $spacing--xl;
-      font-size: $fs--xxl;
-    }
-  }
-
 }
