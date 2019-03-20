@@ -1,4 +1,3 @@
-const { image, paragraph, title: dummyTitle } = require('@basalt/demo-data');
 const mainSchema = require('./media-block-schema');
 
 /* eslint-disable camelcase */
@@ -16,13 +15,6 @@ const schema = {
       media: '/images/brand-stock/annie-spratt-294450.jpg',
       media_alignment: 'top',
       media_size: 'm',
-    },
-    {
-      title: dummyTitle(),
-      body: paragraph(),
-      desc: dummyTitle(),
-      media: image(),
-      media_alignment: 'top',
     },
   ],
 };

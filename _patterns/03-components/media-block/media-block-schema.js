@@ -1,4 +1,3 @@
-const { image, paragraph, title } = require('@basalt/demo-data');
 const buttonSchema = require('../button/button-schema');
 
 module.exports = {
@@ -123,12 +122,6 @@ module.exports = {
           color: 'green',
         },
       ],
-    },
-    {
-      title: title(),
-      body: paragraph(),
-      media: image(),
-      media_alignment: 'top',
     },
   ],
 };

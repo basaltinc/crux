@@ -1,5 +1,3 @@
-const { image, paragraph, title } = require('@basalt/demo-data');
-
 module.exports = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
@@ -59,15 +57,6 @@ module.exports = {
       alignment_all: 'center',
       image: '/images/brand-stock/rawpixel-com-191102.jpg',
       image_overlay: 'black',
-      text_color: 'white',
-    },
-    {
-      title: title(),
-      body: paragraph(),
-      desc: title(),
-      image_overlay: 'black',
-      alignment_all: 'left',
-      image: image(),
       text_color: 'white',
     },
   ],
