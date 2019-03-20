@@ -6,3 +6,4 @@ vendor
 dist
 lerna-debug.log
 public/build
+.github/artifacts
