@@ -5,5 +5,5 @@ $c-border: $c-iron;
 $c-links: $c-blue;
 $c-links--hover: lighten($c-blue, 10);
 
-$c-header-text: black;
-$c-body-text: black;
+$c-header-text: $c-gray--darkest;
+$c-body-text: $c-gray--darker;
