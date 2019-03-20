@@ -1,5 +1,3 @@
-const { image } = require('@basalt/demo-data');
-
 module.exports = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
@@ -21,11 +19,11 @@ module.exports = {
   examples: [
     {
       size: 'xl',
-      img: 'https://www.fillmurray.com/200/200',
+      img: '/images/demos/avatar-example2.jpg',
     },
     {
       size: 'xl',
-      img: image(),
+      img: '/images/demos/avatar-example.jpg',
     },
   ],
 };

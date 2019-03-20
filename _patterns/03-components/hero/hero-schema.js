@@ -1,5 +1,3 @@
-const { image, paragraph, title, text } = require('@basalt/demo-data');
-
 module.exports = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
@@ -114,22 +112,6 @@ module.exports = {
           url: 'http://www.basalt.io',
           size: 'medium',
           color: 'iron',
-        },
-      ],
-    },
-    {
-      title: title(),
-      body: paragraph(),
-      desc: title(),
-      image_overlay: 'black',
-      alignment_all: 'left',
-      image: image(),
-      buttons: [
-        {
-          text: text(),
-        },
-        {
-          text: text(),
         },
       ],
     },
