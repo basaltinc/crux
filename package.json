@@ -21,7 +21,6 @@
     "@basalt/bedrock-babel-config": "^0.39.0",
     "@basalt/bedrock-renderer-html": "^0.38.1",
     "@basalt/bedrock-renderer-twig": "^0.38.1",
-    "@basalt/demo-data": "^0.5.1",
     "breakpoint-sass": "^2.7.1",
     "color": "^3.0.0",
     "fs-extra": "^7.0.0",

@@ -1,4 +1,3 @@
-const { paragraph, title, text } = require('@basalt/demo-data');
 const buttonSchema = require('../button/button-schema');
 
 module.exports = {
@@ -34,18 +33,6 @@ module.exports = {
           text: 'Join Us',
           url: '#',
           size: 'medium',
-          color: 'green',
-        },
-      ],
-    },
-    {
-      title: title(),
-      content: paragraph(),
-      buttons: [
-        {
-          text: text(),
-          url: '#',
-          size: 'large',
           color: 'green',
         },
       ],

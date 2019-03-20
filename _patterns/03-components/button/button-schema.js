@@ -1,5 +1,3 @@
-const { text } = require('@basalt/demo-data');
-
 module.exports = {
   $schema: 'http://json-schema.org/draft-07/schema',
   type: 'object',
@@ -58,7 +56,7 @@ module.exports = {
       color: 'blue',
     },
     {
-      text: text(),
+      text: 'Check it Out',
       url: 'http://www.basalt.io',
       size: 'small',
       color: 'blue--light',

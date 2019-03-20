@@ -12,7 +12,7 @@ module.exports = {
       demoDatas: [
         {
           size: 'xl',
-          img: 'https://www.fillmurray.com/200/200',
+          img: '/images/demos/avatar-example.jpg',
         },
       ],
     },

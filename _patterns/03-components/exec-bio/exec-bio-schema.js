@@ -1,5 +1,3 @@
-const { image, paragraph, text } = require('@basalt/demo-data');
-
 module.exports = {
   $schema: 'http://json-schema.org/draft-07/schema',
   title: 'Executive Bio',
@@ -43,13 +41,6 @@ module.exports = {
       twitter: 'chrisstrahl',
       bio:
         "Chris is Basalt's change management expert. He helps enterprise-level clients incept the right technology strategies, combining long-range business foresight and technical expertise to help organizations adapt, evolve, plan, and optimize value from the systems they use. He has worked with Major League Soccer, the US Department of Defense, NBC, Twitter, Time Inc., Apple, and many others. As an expert digital strategist, Chris loves working consultatively with clients to build design systems that integrate creative teams, decrease time-to-market, and safeguard brand consistency.",
-    },
-    {
-      is_even: true,
-      avatar: image(),
-      name: text(),
-      twitter: 'Basaltian',
-      bio: paragraph(),
     },
   ],
 };
