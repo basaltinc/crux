@@ -1,8 +1,7 @@
 workflow "Main" {
   on = "push"
   resolves = [
-    "install",
-    "test:percy",
+    "build",
   ]
 }
 
