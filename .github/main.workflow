@@ -48,5 +48,8 @@ action "release" {
   needs = ["build"]
   runs = "npx"
   args = "semantic-release"
-  secrets = ["NPM_TOKEN", "GITHUB_TOKEN"]
-}# https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment
+  secrets = [
+    "NPM_TOKEN",
+    "GH_TOKEN",
+  ]
+} # https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment
