@@ -16,7 +16,6 @@ const schema = {
         'We founded Basalt to advance the industry with a better approach to web development and design. We are developers, designers, agency executives, entrepreneurs, marketers, and innovators.',
       body_text_color: 'white',
       min_height: 'm',
-      media_padding: '0',
       desc: 'Who We Are',
       background_image: '/images/brand-stock/rawpixel-com-191102.jpg',
     },
@@ -27,7 +26,6 @@ const schema = {
       background_image: image(),
       title_text_color: 'white',
       body_text_color: 'white',
-      content_padding: 'l',
       text_align: 'center',
       title_size: '2',
     },
@@ -40,6 +38,7 @@ const {
   body,
   body_text_color,
   media,
+  full_width,
 } = mainSchema.properties;
 
 schema.properties = {
@@ -48,6 +47,7 @@ schema.properties = {
   body,
   body_text_color,
   media,
+  full_width,
 };
 
 module.exports = schema;
