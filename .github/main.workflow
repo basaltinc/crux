@@ -1,13 +1,13 @@
-workflow "New workflow" {
+workflow "Main" {
   on = "push"
   resolves = [
-    "build",
     "install",
+    "test:percy",
   ]
 }
 
 action "install" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  uses = "docker://basaltinc/docker-node-php-base:latest"
   runs = "yarn"
   args = "install"
 }
@@ -17,4 +17,12 @@ action "build" {
   runs = "yarn"
   needs = "install"
   args = "build"
+}
+
+action "test:percy" {
+  uses = "docker://basaltinc/docker-node-php-base:latest"
+  needs = ["build"]
+  runs = "yarn"
+  args = "test:percy"
+  secrets = ["PERCY_TOKEN"]
 }
