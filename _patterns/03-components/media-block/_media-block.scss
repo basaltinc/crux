@@ -11,8 +11,10 @@
   &__content {
     padding: $spacing--l;
     background-color: white;
+    .u-site-container & {
+      padding-left: 0;
+    }
   }
-
   &__media {
     padding-top: 100%;
     position: relative;
@@ -27,7 +29,6 @@
       padding-top: 0;
     }
   }
-
   &__title {
     @include h3;
     &[class*='u-bg-'] {
@@ -38,6 +39,7 @@
 
   &__body {
     margin-bottom: $spacing--m;
+    font-size: $fs--l;
     &:last-child {
       margin-bottom: 0;
     }
@@ -46,48 +48,46 @@
   @include breakpoint($bp--medium) {
     display: flex;
     justify-content: space-between;
+    &--padding {
+      &-s {
+        .media-block__content {
+          padding: $spacing--l $spacing--xl;
+        }
+      }
+      &-m {
+        .media-block__content {
+          padding: $spacing--xl $spacing--xl;
+        }
+      }
+      &-l {
+        .media-block__content {
+          padding: $spacing--xxl $spacing--xl;
+
+        }
+      }
+      &-xl {
+        .media-block__content {
+          padding: $spacing--xxxl $spacing--xl;
+        }
+      }
+    }
+    &.u-site-container {
+      .media-block__content {
+        padding-left: 0;
+      }
+    }
     &.media-block--media-on-right {
       flex-direction: row-reverse;
     }
     &__content {
       width: 50%;
-      padding: $spacing--l $spacing--xl;
+      //padding: $spacing--l $spacing--xl;
       background-color: white;
     }
     &__media {
       padding-top: 0;
       width: 50%;
       // stylelint-disable max-nesting-depth
-      &--img {
-        &.media-block__media--padding {
-          &-s {padding: $spacing--s;}
-          &-m {padding: $spacing--m;}
-          &-l {padding: $spacing--l;}
-        }
-      }
-
-      &--bg {
-        &.media-block__media--padding {
-          &-s {
-            @include set($spacing--s);
-          }
-          &-m {
-            @include set($spacing--m);
-          }
-          &-l {
-            @include set($spacing--l);
-          }
-          &-xl {
-            @include set($spacing--xl);
-          }
-          &-xxl {
-            @include set($spacing--xxl);
-          }
-        }
-        .bg-img {
-
-        }
-      }
     }
     &__title {
       @include h2;
@@ -177,11 +177,6 @@
         .media-block__title--inset {
           width: 250%;
         }
-      }
-      &.media-block--show-full-media {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
       }
     }
     &.media-block--media-on-top, &.media-block--media-on-bottom {
