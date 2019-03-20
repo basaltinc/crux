@@ -1,5 +1,5 @@
 <div class="smart-grid
-  {%- if classes %} {{ classes }}{% endif -%}
+  {%- if classes %} {{ classes|join(' ') }}{% endif -%}
   {%- if demoItems %} grid-demo{% endif -%}"
   {%- if rowItems.small %}data-row-items-small="{{ rowItems.small }}"{% endif -%}
   {%- if rowItems.medium %}data-row-items-medium="{{ rowItems.medium }}"{% endif -%}

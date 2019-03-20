@@ -32,6 +32,21 @@ module.exports = {
         },
       },
     },
+    classes: {
+      title: 'Classes',
+      type: 'array',
+      description: 'Additional Classes',
+      items: {
+        type: 'object',
+        title: 'Class',
+        properties: {
+          class: {
+            title: 'Class',
+            type: 'string',
+          },
+        },
+      },
+    },
   },
   examples: [
     {
