@@ -56,7 +56,10 @@ async function go() {
   // Start a Puppeteer instance.
   const browser = await puppeteer.launch({
     headless: true,
-    args: [ '--single-process' ],
+    args: [
+      '--single-process',
+      '--no-sandbox',
+    ],
   });
   const page = await browser.newPage();
 
