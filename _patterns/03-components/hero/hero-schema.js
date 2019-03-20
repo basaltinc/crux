@@ -38,65 +38,16 @@ module.exports = {
       enum: ['blue', 'green', 'black', 'yellow', 'darker', 'none'],
       enumNames: ['Blue', 'Green', 'Black', 'Yellow', 'Darker', 'None'],
     },
-    content_classes: {
-      type: 'array',
-      title: 'Content Classes',
-      description: 'Used for setting BG and text color.',
-      items: {
-        title: 'Class Name',
-        type: 'string',
-      },
+    text_color: {
+      title: 'Text Color',
+      type: 'string',
+      enum: ['white', 'blue', 'green', 'yellow', 'black'],
+      enumNames: ['White', 'Blue', 'Green', 'Yellow', 'Black'],
     },
-    buttons: {
-      title: 'Buttons',
-      type: 'array',
-      description: 'Array of button data.',
-      items: {
-        type: 'object',
-        title: 'Button',
-        description: "Buttons are for clickin' and tappin'!",
-        properties: {
-          text: {
-            title: 'Text',
-            type: 'string',
-          },
-          url: {
-            title: 'Url',
-            type: 'string',
-            default: '#',
-          },
-          size: {
-            title: 'Size',
-            type: 'string',
-            default: 'small',
-            enum: ['small', 'medium', 'large', 'jumbo'],
-            enumNames: ['Small', 'Medium', 'Large', 'Jumbo'],
-          },
-          color: {
-            title: 'Background Color',
-            type: 'string',
-            default: 'green',
-            enum: [
-              'blue',
-              'blue--light',
-              'green',
-              'iron',
-              'yellow',
-              'white',
-              'black',
-            ],
-            enumNames: [
-              'Blue',
-              'Light Blue',
-              'Green',
-              'Iron',
-              'Yellow',
-              'White',
-              'Black',
-            ],
-          },
-        },
-      },
+    is_homepage: {
+      title: 'Is Homepage',
+      type: 'boolean',
+      default: false,
     },
   },
   examples: [
@@ -106,14 +57,7 @@ module.exports = {
       alignment_all: 'center',
       image: '/images/brand-stock/rawpixel-com-191102.jpg',
       image_overlay: 'black',
-      buttons: [
-        {
-          text: 'Learn More',
-          url: 'http://www.basalt.io',
-          size: 'medium',
-          color: 'iron',
-        },
-      ],
+      text_color: 'white',
     },
   ],
 };

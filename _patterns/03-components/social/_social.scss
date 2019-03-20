@@ -4,22 +4,27 @@
   flex-wrap: wrap;
   width: 100%;
   &__link {
-    $x: 1rem;
     @include a-link($deco: none, $deco--hover: none);
-    font-size: $x * 2;
-    height: $x * 4;
-    line-height: $x * 4;
-    width: $x * 4;
-    text-align: center;
-    border: solid 1px $c-blue;
-    border-radius: 50%;
-    margin-bottom: $spacing--m;
+    height: 25px;
+    margin-left: $spacing--m;
     @include breakpoint($bp--medium) {
-      font-size: $x;
-      height: $x * 3;
-      line-height: $x * 3;
-      width: $x * 3;
-      margin-left: $spacing--m;
+      margin-left: $spacing--xxl;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  svg {
+    transition: fill $trans-opacity;
+    fill: $c-blue;
+    height: 25px;
+    &:hover {
+      fill: $c-yellow;
+    }
+  }
+  &--inverted {
+    svg {
+      fill: $c-white;
     }
   }
 }

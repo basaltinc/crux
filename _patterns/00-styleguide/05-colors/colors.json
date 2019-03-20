@@ -31,8 +31,28 @@
       "comment": ""
     },
     {
+      "name": "$c-gray--lightest",
+      "value": "hsl(0, 0%, 95%)",
+      "comment": ""
+    },
+    {
+      "name": "$c-gray--lighter",
+      "value": "hsl(0, 0%, 80%)",
+      "comment": ""
+    },
+    {
       "name": "$c-gray--dark",
       "value": "hsl(0, 0%, 40%)",
+      "comment": ""
+    },
+    {
+      "name": "$c-gray--darker",
+      "value": "hsl(0, 0%, 20%)",
+      "comment": ""
+    },
+    {
+      "name": "$c-gray--darkest",
+      "value": "hsl(0, 0%, 16.1%)",
       "comment": ""
     },
     {

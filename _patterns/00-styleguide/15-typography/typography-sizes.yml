@@ -16,7 +16,7 @@ props:
   "fs--h1":
     value: 3.25rem
   "fs--h2":
-    value: 2.25rem
+    value: 2.5rem
   "fs--h3":
     value: 1.75rem
   "fs--h4":

@@ -7,18 +7,20 @@
 
 <div class="{{ classes|join(' ') }}">
   <div class="site-footer__inner u-site-container">
-    <div class="site-footer__body">
-      <div class="site-footer__social">
-        {% include '@components/social.twig' only %}
+    <div class="site-footer__left">
+      <nav class="site-footer__menu">
+        {% for item in menu_items %}
+          <a href="{{ item.url }}" class="site-footer__menu-link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
+        {% endfor %}
+      </nav>
+      <div class="site-footer__meta">
+        ©{{ "now"|date('Y') }} Basalt All Rights Reserved
       </div>
     </div>
-    <nav class="site-footer__menu">
-      {% for item in menu_items %}
-      <a href="{{ item.url }}" class="site-footer__menu-link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
-      {% endfor %}
-    </nav>
-    <div class="site-footer__meta">
-      ©{{ "now"|date('Y') }} Basalt All Rights Reserved
+    <div class="site-footer__social">
+      {% include '@components/social.twig' with {
+        is_inverted: true,
+      } only %}
     </div>
   </div>
 </div>

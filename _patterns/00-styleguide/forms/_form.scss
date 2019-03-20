@@ -1,9 +1,12 @@
 .form {
-  padding: $spacing--l;
+  padding-bottom: $spacing--l;
   &__items {
 
   }
   &__actions {
-    justify-content: space-around;
+    @include breakpoint($bp--medium) {
+      width: 48%;
+      float: right;
+    }
   }
 }

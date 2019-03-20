@@ -1,0 +1,26 @@
+<form class="form form--contact form--contact-simple" id="contact-form" name="contact_web_to_lead" method="post" action="contact/contact-success">
+  <div class="form__items smart-grid" data-row-items-small="2">
+    {% include '@styleguide/_form-item.twig' with {
+      label: 'Full Name',
+      name: 'FullName',
+    } only %}
+    {% include '@styleguide/_form-item.twig' with {
+      label: 'Email',
+      name: 'email',
+      type: 'email'
+    } only %}
+  </div>
+  <div class="form__items smart-grid">
+    {% include '@styleguide/_form-item.twig' with {
+      label: 'Message',
+      type: 'textarea',
+      name: 'Message',
+    } only %}
+  </div>
+  <div class="form__actions smart-grid">
+    {% include '@styleguide/_form-item.twig' with {
+      type: 'submit',
+      value: 'Submit'
+    } only %}
+  </div>
+</form>

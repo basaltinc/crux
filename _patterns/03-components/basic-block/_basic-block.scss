@@ -1,5 +1,5 @@
 .basic-block {
-  text-align: center;
+  text-align: left;
   &__title {
 
   }
@@ -8,12 +8,7 @@
   }
   &__content {
     margin-bottom: $spacing--l;
-    .basic-block--size-large & {
-      font-size: $fs--l;
-    }
-    .basic-block--size-xlarge & {
-      font-size: $fs--xl;
-    }
+    font-size: $fs--l;
   }
   &__buttons {
     .button {

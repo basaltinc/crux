@@ -1,15 +1,18 @@
 {% set classes = [
   'cta',
-  full_width ? 'u-full-width',
+  'u-full-width',
 ] | merge(classes|default([])) %}
 
-<div class="{{ classes|join(' ') }}">
-  {% if text %}
-    <p>{{ text }}</p>
-  {% endif %}
-  <div class="cta__button">
-    {% for button in buttons %}
-      {% include '@components/button.twig' with button only %}
-    {% endfor %}
+<div id="cta" class="{{ classes|join(' ') }}">
+  <div class="cta__inner u-site-container">
+  <div class="cta__info">
+    <h2 class="h1">{{ header_text }}</h2>
+    <div data-linkto="{{ address_link }}" class="cta__address">
+      <p>{{ address_one }}</p>
+      <p>{{ address_two }}</p>
+    </div>
+    <p class="cta__tel">Tel: <a href="tel: {{ telephone }}">{{ telephone }}</a></p>
+  </div>
+  {% include '@components/_contact-form--simple.twig' %}
   </div>
 </div>

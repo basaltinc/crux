@@ -24,13 +24,6 @@ module.exports = {
       enum: ['left', 'center', 'right'],
       enumNames: ['Left', 'Center', 'Right'],
     },
-    text_align_vert: {
-      title: 'Text Align - Vertical',
-      type: 'string',
-      description: 'Adjust vertical alignment of text.',
-      enum: ['top', 'center', 'bottom'],
-      enumNames: ['Top', 'Center', 'Bottom'],
-    },
     title_bg_color: {
       title: 'Title Background Color',
       type: 'string',
@@ -96,20 +89,6 @@ module.exports = {
       enum: ['s', 'm', 'l', 'xl', 'xxl'],
       enumNames: ['Small', 'Medium', 'Large', 'Extra Large', 'XX Large'],
     },
-    content_padding: {
-      title: 'Content Padding',
-      type: 'string',
-      description: 'Space around the content in relation to the media',
-      enum: ['0', 's', 'm', 'l', 'xl', 'xxl'],
-      enumNames: [
-        'None',
-        'Small',
-        'Medium',
-        'Large',
-        'Extra Large',
-        'XX Large',
-      ],
-    },
     background_image: {
       type: 'string',
       title: 'Background Image',
@@ -151,6 +130,11 @@ module.exports = {
       description: 'List of objects passed to @components/button.twig',
       items: buttonSchema,
     },
+    full_width: {
+      type: 'boolean',
+      title: 'Full Width',
+      description: 'Adds class u-full-width to span entire screen',
+    },
   },
   examples: [
     {
@@ -162,16 +146,14 @@ module.exports = {
         'We founded Basalt to advance the industry with a better approach to web development and design. We are developers, designers, agency executives, entrepreneurs, marketers, and innovators.',
       body_text_color: 'white',
       body_text_size: 'l',
-      content_padding: 'l',
       image_overlay: 'black',
       min_height: 'm',
-      media_padding: '0',
       buttons: [
         {
           text: 'Learn More',
           url: '#',
           size: 'medium',
-          color: 'yellow',
+          color: 'blue',
         },
       ],
       desc: 'Who We Are',

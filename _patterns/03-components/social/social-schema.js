@@ -3,6 +3,20 @@ module.exports = {
   type: 'object',
   description: 'Collection of Social Media Icons',
   title: 'Social Media Icons',
-  properties: {},
-  examples: [{}],
+  properties: {
+    is_inverted: {
+      type: 'boolean',
+      title: 'Is Inverted',
+      description: 'Use inverted for colorful backgrounds',
+      default: false,
+    },
+  },
+  examples: [
+    {
+      is_inverted: true,
+    },
+    {
+      is_inverted: false,
+    },
+  ],
 };
