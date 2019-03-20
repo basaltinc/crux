@@ -1,13 +1,12 @@
-workflow "New workflow" {
+workflow "Main" {
   on = "push"
   resolves = [
     "build",
-    "install",
   ]
 }
 
 action "install" {
-  uses = "actions/npm@59b64a598378f31e49cb76f27d6f3312b582f680"
+  uses = "docker://basaltinc/docker-node-php-base:latest"
   runs = "yarn"
   args = "install"
 }
@@ -17,4 +16,31 @@ action "build" {
   runs = "yarn"
   needs = "install"
   args = "build"
+}
+
+workflow "Deploy & Test" {
+  on = "deployment_status"
+  resolves = ["test:percy"]
+}
+
+action "isDeployReady" {
+  uses = "docker://node:10.14.2"
+  runs = "node"
+  args = "./scripts/actions--on-deploy.js"
+}
+
+action "install post-deploy" {
+  uses = "docker://node:10.14.2"
+  runs = "yarn"
+  args = "install"
+  needs = ["isDeployReady"]
+
+  # https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment
+}
+
+action "test:percy" {
+  uses = "docker://cypress/browsers:chrome67"
+  needs = ["install post-deploy"]
+  secrets = ["PERCY_TOKEN"]
+  runs = ["sh", "-c", "export BASE_URL=$(cat .github/artifacts/now-url.txt) && yarn test:percy"]
 }
