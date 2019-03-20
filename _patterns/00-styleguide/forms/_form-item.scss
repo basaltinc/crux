@@ -7,14 +7,24 @@
   &__item {
     width: 100%;
     padding: 1em;
-    border-radius: 3px;
-    border: $c-border 2px solid;
+    border-radius: 5px;
+    border: $c-border 1px solid;
     font-size: .75rem;
     &--submit {
       color: white;
       font-size: 1rem;
       border-radius: 3px;
       border: none;
+      float: right;
     }
+  }
+  textarea {
+    resize: none;
+  }
+}
+
+.form--contact-simple {
+  .form-item:nth-child(-n + 2) {
+    margin-top: 0;
   }
 }
