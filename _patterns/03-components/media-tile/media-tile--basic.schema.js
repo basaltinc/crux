@@ -1,4 +1,3 @@
-const { image, paragraph, title: dummyTitle } = require('@basalt/demo-data');
 const mainSchema = require('./media-tile-schema');
 
 /* eslint-disable camelcase */
@@ -19,17 +18,6 @@ const schema = {
       media_padding: '0',
       desc: 'Who We Are',
       background_image: '/images/brand-stock/rawpixel-com-191102.jpg',
-    },
-    {
-      title: dummyTitle(),
-      body: paragraph(),
-      desc: dummyTitle(),
-      background_image: image(),
-      title_text_color: 'white',
-      body_text_color: 'white',
-      content_padding: 'l',
-      text_align: 'center',
-      title_size: '2',
     },
   ],
 };
