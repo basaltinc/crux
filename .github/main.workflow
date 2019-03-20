@@ -1,8 +1,6 @@
 workflow "Main" {
   on = "push"
-  resolves = [
-    "build",
-  ]
+  resolves = ["release"]
 }
 
 action "install" {
@@ -44,3 +42,11 @@ action "test:percy" {
   secrets = ["PERCY_TOKEN"]
   runs = ["sh", "-c", "export BASE_URL=$(cat .github/artifacts/now-url.txt) && yarn test:percy"]
 }
+
+action "release" {
+  uses = "docker://basaltinc/docker-node-php-base:latest"
+  needs = ["build"]
+  runs = "npx"
+  args = "semantic-release"
+  secrets = ["NPM_TOKEN", "GITHUB_TOKEN"]
+}# https://developer.github.com/actions/creating-github-actions/accessing-the-runtime-environment
