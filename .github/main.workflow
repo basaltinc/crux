@@ -20,7 +20,7 @@ action "build" {
 }
 
 action "test:percy" {
-  uses = "docker://basaltinc/docker-node-php-base:latest"
+  uses = "docker://cypress/browsers:chrome67"
   needs = ["build"]
   runs = "yarn"
   args = "test:percy"
