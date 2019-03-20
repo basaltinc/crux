@@ -30,7 +30,6 @@ $open: '.site-header-toggle:checked + .site-header';
       display: block;
     }
   }
-
 }
 
 .main-menu {
@@ -52,6 +51,9 @@ $open: '.site-header-toggle:checked + .site-header';
     padding: $spacing--xs 0;
     &--active.main-menu__link--active {
       text-decoration: underline;
+    }
+    &:hover {
+      text-shadow: 0px 2px 2px rgba(0,0,0, 0.2);
     }
   }
 }
