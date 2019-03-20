@@ -1,44 +1,52 @@
-const buttonSchema = require('../button/button-schema');
-
 module.exports = {
   $schema: 'http://json-schema.org/draft-07/schema',
   title: 'Call To Action',
   type: 'object',
   description:
     "This 'Call To Action' is designed to specifically encourage the user to contact Basalt.",
+  required: [
+    'header_text',
+    'address_one',
+    'address_two',
+    'address_link',
+    'telephone',
+  ],
   properties: {
-    text: {
-      title: 'Call to Action Text',
+    header_text: {
+      title: 'Header Text',
       type: 'string',
-      description:
-        'This is the text that appears above the button in the call to action slab.',
+      default: 'Get In Touch',
     },
-    buttons: {
-      title: 'Buttons',
-      type: 'array',
-      description: 'List of objects passed to @components/button.twig',
-      items: buttonSchema,
+    address_one: {
+      title: 'Address Line One',
+      type: 'string',
+      default: '524 E Burnside Street Suite 430',
     },
-    full_width: {
-      title: 'Full Width',
-      type: 'boolean',
-      description:
-        'Gives element the class `u-full-width` so it will span the entire screen.',
+    address_two: {
+      title: 'Address Line Two',
+      type: 'string',
+      default: 'Portland, OR 97214',
+    },
+    address_link: {
+      title: 'Address Maps Link',
+      type: 'string',
+      default:
+        'https://www.google.com/maps/place/524+E+Burnside+St+%23430,+Portland,+OR+97214/@45.5227687,-122.6623515,17z',
+    },
+    telephone: {
+      title: 'Telephone',
+      type: 'string',
+      default: '503-206-6778',
     },
   },
   examples: [
     {
-      text:
-        'We build consistent, scalable, and maintainable solutions to power your digital strategy.',
-      buttons: [
-        {
-          text: 'Get Started',
-          url: '#',
-          size: 'large',
-          color: 'iron',
-        },
-      ],
-      full_width: true,
+      header_text: 'Get In Touch',
+      address_one: '524 E Burnside Street Suite 430',
+      address_two: 'Portland, OR 97214',
+      address_link:
+        'https://www.google.com/maps/place/524+E+Burnside+St+%23430,+Portland,+OR+97214/@45.5227687,-122.6623515,17z',
+      telephone: '503-206-6778',
     },
   ],
 };
