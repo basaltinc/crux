@@ -1,3 +1,10 @@
+## [3.1.3](https://github.com/basaltinc/crux/compare/v3.1.2...v3.1.3) (2019-03-21)
+
+
+### Bug Fixes
+
+* update form and breakpoints ([15a093d](https://github.com/basaltinc/crux/commit/15a093d)), closes [#34](https://github.com/basaltinc/crux/issues/34)
+
 ## [3.1.2](https://github.com/basaltinc/crux/compare/v3.1.1...v3.1.2) (2019-03-21)
 
 
