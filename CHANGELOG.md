@@ -1,3 +1,10 @@
+## [3.1.4](https://github.com/basaltinc/crux/compare/v3.1.3...v3.1.4) (2019-03-21)
+
+
+### Bug Fixes
+
+* **forms:** fixes pointer event incongruencies ([#36](https://github.com/basaltinc/crux/issues/36)) ([ffab01a](https://github.com/basaltinc/crux/commit/ffab01a))
+
 ## [3.1.3](https://github.com/basaltinc/crux/compare/v3.1.2...v3.1.3) (2019-03-21)
 
 
