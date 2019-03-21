@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/basaltinc/crux/compare/v3.1.0...v3.1.1) (2019-03-21)
+
+
+### Bug Fixes
+
+* minor style changes ([#32](https://github.com/basaltinc/crux/issues/32)) ([b7ee738](https://github.com/basaltinc/crux/commit/b7ee738))
+
 # [3.1.0](https://github.com/basaltinc/crux/compare/v3.0.2...v3.1.0) (2019-03-20)
 
 
