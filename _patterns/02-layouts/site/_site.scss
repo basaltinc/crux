@@ -2,6 +2,24 @@
   @include site-container();
   &__header {}
   &__page {
+    min-height: calc(100vh - 873px);
+    display: flex;
+    flex-direction: column;
+    @include breakpoint($bp--small) {
+      min-height: calc(100vh - 825px);
+    }
+
+    @include breakpoint($bp--medium) {
+      min-height: calc(100vh - 774px);
+    }
+
+    @include breakpoint(923px) {
+      min-height: calc(100vh - 627px);
+    }
+
+    @include breakpoint(1300px) {
+      min-height: calc(100vh - 707px);
+    }
   }
   &__footer {}
 }
