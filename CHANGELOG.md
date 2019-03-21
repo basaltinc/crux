@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/basaltinc/crux/compare/v3.1.1...v3.1.2) (2019-03-21)
+
+
+### Bug Fixes
+
+* **forms:** change form submit action to new thank you page ([#33](https://github.com/basaltinc/crux/issues/33)) ([ca83e38](https://github.com/basaltinc/crux/commit/ca83e38))
+
 ## [3.1.1](https://github.com/basaltinc/crux/compare/v3.1.0...v3.1.1) (2019-03-21)
 
 
