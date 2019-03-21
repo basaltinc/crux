@@ -16,6 +16,9 @@
       border-radius: 3px;
       border: none;
       float: right;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
   textarea {
