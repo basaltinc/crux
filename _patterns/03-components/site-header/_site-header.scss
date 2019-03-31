@@ -45,7 +45,7 @@ $open: '.site-header-toggle:checked + .site-header';
     margin-bottom: 0;
   }
   &__link {
-    @include a-link($deco: none);
+    @include a-link($link: $c-black, $deco: none);
     display: block;
     font-family: $ff--avenir--medium;
     padding: $spacing--xs 0;
@@ -54,7 +54,6 @@ $open: '.site-header-toggle:checked + .site-header';
       text-decoration: underline;
     }
     &:hover {
-      //color: lighten($c-blue, 25);
       opacity: .8;
     }
   }
@@ -77,8 +76,5 @@ $open: '.site-header-toggle:checked + .site-header';
   .main-menu {
     flex-direction: row;
     font-size: $fs--l;
-    &__link {
-
-    }
   }
 }

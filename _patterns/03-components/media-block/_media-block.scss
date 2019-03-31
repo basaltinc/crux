@@ -11,9 +11,6 @@
   &__content {
     padding: $spacing--l;
     background-color: white;
-    .u-site-container & {
-      padding-left: 0;
-    }
   }
   &__media {
     padding-top: 100%;

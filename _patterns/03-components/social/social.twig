@@ -28,7 +28,11 @@
 <nav class="{{ classes|join(' ') }}">
   {% for item in items %}
     {% set icon = item.icon %}
-    <a href="{{ item.url }}" class="social__link">
+    <a
+      href="{{ item.url }}"
+      class="social__link"
+      target="_blank"
+    >
       {{ source(item.icon) }}
     </a>
   {% endfor %}
