@@ -1,10 +1,12 @@
 .exec-bio {
   padding: $spacing--xl $spacing--xl;
+  //max-width: 1200px;
   &__avatar {
     float: left;
     .avatar {
       height: $fs--xl * 4;
       width: $fs--xl * 4;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
       @include breakpoint($bp--medium) {
         height: $fs--xl * 6;
         width: $fs--xl * 6;
@@ -16,10 +18,8 @@
       float: right;
       padding: 0px 0px $spacing--m $spacing--m;
     }
-    background-color: $c-blue--light;
   }
   &--odd {
-    background-color: $c-iron;
     .exec-bio__avatar {
       padding: 0px $spacing--m $spacing--m 0px;
     }
