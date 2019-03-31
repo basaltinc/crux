@@ -1,3 +1,10 @@
+## [3.1.5](https://github.com/basaltinc/crux/compare/v3.1.4...v3.1.5) (2019-03-31)
+
+
+### Bug Fixes
+
+* **exec-bio:** quick easy temporary fixes for exec bios ([#38](https://github.com/basaltinc/crux/issues/38)) ([8b07710](https://github.com/basaltinc/crux/commit/8b07710))
+
 ## [3.1.4](https://github.com/basaltinc/crux/compare/v3.1.3...v3.1.4) (2019-03-21)
 
 

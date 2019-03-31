@@ -1,6 +1,6 @@
 {
   "name": "@basalt/crux-assets",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "Basalt Design System",
   "scripts": {
     "bedrock": "bedrock start",
