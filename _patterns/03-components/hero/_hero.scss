@@ -58,9 +58,15 @@
       color: $c-black;
     }
   }
+  &--thinner {
+    min-height: 100px;
+  }
   @include breakpoint($bp--medium) {
     min-height: 300px;
     display: flex;
+    &--thinner {
+      min-height: 100px;
+    }
     &--alignment-content-top {
       margin-top: $spacing--xl + $spacing--s;
     }
@@ -120,6 +126,8 @@
 
   @include breakpoint($bp--xlarge) {
     min-height: 418px;
+    &--thinner {
+      min-height: 100px;
+    }
   }
-
 }

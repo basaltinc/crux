@@ -44,10 +44,22 @@ module.exports = {
       enum: ['white', 'blue', 'green', 'yellow', 'black'],
       enumNames: ['White', 'Blue', 'Green', 'Yellow', 'Black'],
     },
+    bg_color: {
+      title: 'Background Color',
+      type: 'string',
+      enum: ['white', 'blue', 'green', 'yellow', 'black'],
+      enumNames: ['White', 'Blue', 'Green', 'Yellow', 'Black'],
+    },
     is_homepage: {
       title: 'Is Homepage',
       type: 'boolean',
       default: false,
+    },
+    thinner: {
+      title: 'Thinner',
+      type: 'boolean',
+      default: false,
+      description: 'Removes extra top and bottom padding',
     },
   },
   examples: [

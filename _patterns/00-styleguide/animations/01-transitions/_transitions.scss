@@ -1,11 +1,11 @@
 $trans-opacity__time: 0.3s;
-$trans-opacity__function: ease-in;
+$trans-opacity__function: ease-in-out;
 /// @example
 ///   transition: opacity $trans-opacity;
 $trans-opacity: $trans-opacity__time $trans-opacity__function; // convenience variable for using both
 
 $trans-move__time: 0.3s;
-$trans-move__function: ease-in;
+$trans-move__function: ease-in-out;
 /// @example
 ///   transition: left $trans-move;
 $trans-move: $trans-opacity__time $trans-move__function; // convenience variable for using both

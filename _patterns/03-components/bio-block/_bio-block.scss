@@ -1,0 +1,39 @@
+.bio-block {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  max-width: 350px;
+  &__image {
+    height: 80%;
+    background-size: cover;
+    background-position: center;
+    @include breakpoint($bp--medium){
+      filter: grayscale(100%);
+    }
+  }
+  &__text {
+    height: 20%;
+    padding: $spacing--m 0px;
+  }
+  &__name {
+    margin-bottom: 0;
+  }
+  &__role {
+    margin-bottom: 0;
+  }
+  &__twitter {
+    @include a-link($link: $c-yellow, $deco: none, $deco--hover: none);
+    transition: color $trans-opacity;
+    &:hover {
+      color: darken($c-yellow, 10);
+    }
+  }
+  &:hover {
+    transition: all $trans-opacity;
+    transform: scale(1.01);
+    .bio-block__image {
+      transition: filter $trans-opacity;
+      filter: none;
+    }
+  }
+}
