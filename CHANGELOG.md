@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/basaltinc/crux/compare/v3.1.5...v3.2.0) (2019-04-04)
+
+
+### Features
+
+* **fonts:** update fonts to karla and roboto ([#40](https://github.com/basaltinc/crux/issues/40)) ([d636f58](https://github.com/basaltinc/crux/commit/d636f58))
+
 ## [3.1.5](https://github.com/basaltinc/crux/compare/v3.1.4...v3.1.5) (2019-03-31)
 
 
