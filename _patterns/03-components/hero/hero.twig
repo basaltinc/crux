@@ -3,13 +3,14 @@
   'hero',
   'hero--alignment-all-' ~ alignment_all|default('center'),
   'u-full-width',
-  image_overlay ? 'hero--overlay-' ~ image_overlay,
   is_homepage ? 'hero--homepage',
   text_color ? 'u-c-' ~ text_color,
+  thinner ? 'hero--thinner',
+  bg_color ? 'u-bg-' ~ bg_color : image_overlay ? 'hero--overlay-' ~ image_overlay,
 ] | merge(classes|default([])) %}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
-<div class="{{ classes|join(' ') }}"{% if image %} style="background-image: url({{ image }});"{% endif %}>
+<div class="{{ classes|join(' ') }}"{% if not bg_color %} style="background-image: url({{ image }});"{% endif %}>
 
   <div class="hero__inner">
     {% if title %}
