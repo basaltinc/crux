@@ -19,6 +19,7 @@
     @include overlay($c-black, 0.6);
   }
   &__inner {
+    @include site-container();
     z-index: 2;
     display: flex;
     flex-direction: column;

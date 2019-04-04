@@ -47,7 +47,7 @@ $open: '.site-header-toggle:checked + .site-header';
   &__link {
     @include a-link($link: $c-black, $deco: none);
     display: block;
-    font-family: $ff--avenir--medium;
+    font-family: $ff--body;
     padding: $spacing--xs 0;
     transition: all $trans-opacity;
     &--active.main-menu__link--active {
