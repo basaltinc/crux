@@ -1,7 +1,7 @@
 .button {
   @include a-link(white, white, none, none);
   display: inline-block;
-  font-family: Avenir;
+  font-family: $ff--body;
   font-weight: 400;
   line-height: 1.25;
   min-width: 58px;

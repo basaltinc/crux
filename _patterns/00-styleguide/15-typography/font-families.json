@@ -1,19 +1,14 @@
 {
   "items": [
     {
-      "name": "$ff--avenir--light",
-      "value": "'AvenirLight', sans-serif",
-      "comment": "Avenir Light"
+      "name": "$ff--karla",
+      "value": "'Karla', sans-serif",
+      "comment": ""
     },
     {
-      "name": "$ff--avenir--medium",
-      "value": "'AvenirMedium', sans-serif",
-      "comment": "Avenir Medium"
-    },
-    {
-      "name": "$ff--din-condensed",
-      "value": "'DinCondensed', sans-serif",
-      "comment": "Din Condensed"
+      "name": "$ff--roboto",
+      "value": "'Roboto', sans-serif",
+      "comment": ""
     }
   ],
   "meta": {

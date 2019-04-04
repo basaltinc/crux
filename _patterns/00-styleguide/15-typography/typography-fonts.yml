@@ -1,14 +1,12 @@
 props:
-  ff-avenir-light:
-    value: "'AvenirLight', sans-serif"
-  ff-avenir-medium:
-    value: "'AvenirMedium', sans-serif"
-  ff-din-condensed:
-    value: "'DinCondensed', sans-serif"
+  ff-karla:
+    value: "'Karla', sans-serif"
+  ff-roboto:
+    value: "'Roboto', sans-serif"
   ff-heading:
-    value: "'AvenirMedium', sans-serif, !default"
+    value: "'Roboto', sans-serif, !default"
   ff-body:
-    value: "'AvenirLight', sans-serif, !default"
+    value: "'Karla', sans-serif, !default"
 global:
   type: string
   category: font-family
