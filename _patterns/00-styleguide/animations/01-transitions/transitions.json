@@ -7,7 +7,7 @@
     },
     {
       "name": "$trans-opacity__function",
-      "value": "ease-in",
+      "value": "ease-in-out",
       "comment": ""
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "name": "$trans-move__function",
-      "value": "ease-in",
+      "value": "ease-in-out",
       "comment": ""
     },
     {
