@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/basaltinc/crux/compare/v3.2.0...v3.2.1) (2019-04-05)
+
+
+### Bug Fixes
+
+* **fonts:** update font file names ([00ecf41](https://github.com/basaltinc/crux/commit/00ecf41))
+
 # [3.2.0](https://github.com/basaltinc/crux/compare/v3.1.5...v3.2.0) (2019-04-04)
 
 
