@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/basaltinc/crux/compare/v3.2.1...v3.2.2) (2019-06-04)
+
+
+### Bug Fixes
+
+* **single page example:** add templateId and edit avatar path ([#41](https://github.com/basaltinc/crux/issues/41)) ([af824e0](https://github.com/basaltinc/crux/commit/af824e0))
+
 ## [3.2.1](https://github.com/basaltinc/crux/compare/v3.2.0...v3.2.1) (2019-04-05)
 
 
