@@ -4,27 +4,35 @@
 
 // stylelint-disable declaration-no-important
 
-$c-blue--light: hsl(165, 26%, 85%);
+$c-blue--light: #4ECDC4;
 ///
 .u-c-blue--light {color: $c-blue--light !important;}
 ///
 .u-bg-blue--light {background-color: $c-blue--light !important;}
-$c-blue: hsl(200, 55%, 19%);
+$c-blue: #264653;
 ///
 .u-c-blue {color: $c-blue !important;}
 ///
 .u-bg-blue {background-color: $c-blue !important;}
-$c-green: hsl(159, 20%, 17%);
+
+
+$c-green: #1E728C;
 ///
 .u-c-green {color: $c-green !important;}
 ///
 .u-bg-green {background-color: $c-green !important;}
+
+$c-green--light: #C9EFCD;
+///
+.u-c-green--light {color: $c-green--light !important;}
+///
+.u-bg-green--light {background-color: $c-green--light !important;}
 $c-iron: hsl(240, 3%, 85%);
 ///
 .u-c-iron {color: $c-iron !important;}
 ///
 .u-bg-iron {background-color: $c-iron !important;}
-$c-yellow: hsl(52, 74%, 54%);
+$c-yellow: #D4CB02;
 ///
 .u-c-yellow {color: $c-yellow !important;}
 ///

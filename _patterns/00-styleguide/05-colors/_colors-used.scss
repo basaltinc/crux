@@ -2,8 +2,8 @@ $c-primary: $c-blue;
 $c-secondary: $c-yellow;
 
 $c-border: $c-iron;
-$c-links: $c-blue;
-$c-links--hover: lighten($c-blue, 10);
+$c-links: $c-blue--light;
+$c-links--hover: darken($c-blue--light, 10);
 
 $c-header-text: $c-gray--darkest;
 $c-body-text: $c-gray--darker;

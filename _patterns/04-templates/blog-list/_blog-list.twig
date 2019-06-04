@@ -5,13 +5,26 @@
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
 <div class="{{ classes|join(' ') }}">
-
   <div class="blog-list__hero">{{ hero }}</div>
-
   {% if teasers %}
     <div class="blog-list__teasers">
-      {{ teasers }}
+
+      {% embed '@layouts/_smart-grid.twig' with {
+        rowItems: {
+          xlarge: '3',
+          large: '2',
+          medium: '2',
+          small: '1',
+        },
+      } %}
+
+        {% block gridItems %}
+          {% for teaser in teasers %}
+            {% include '@components/blog-teaser.twig' with teaser %}
+          {% endfor %}
+        {% endblock %}
+
+      {% endembed %}
     </div>
   {% endif %}
-
 </div>
