@@ -1,54 +1,22 @@
 .blog-teaser {
-  $bp: $bp--medium;
   @include a-link($c-body-text, $c-body-text, none, none);
   display: flex;
-  flex-direction: column-reverse;
-  &--even {
-    background-color: $c-yellow;
-  }
-  &--odd {
-    background-color: $c-iron;
-    text-align: right;
-  }
-  @include breakpoint($bp) {
-    justify-content: space-between;
-    flex-direction: row;
-    &--even {
-      flex-direction: row-reverse;
-    }
-    &__content {
-      width: grid-width(7, false);
-    }
-    &__image {
-      width: grid-width(5, false);
-
-    }
-  }
-  &__title {
-    @include breakpoint($bp) {
-      margin-bottom: $spacing--m;
-    }
+  flex-direction: column;
+  justify-content: flex-start;
+  &__title:hover {
+    color: $c-blue--light;
   }
   &__author {
     display: inline-block;
-    @include breakpoint($bp) {
-      margin-bottom: $spacing--m;
-    }
     @include h4();
   }
   .avatar {
     margin-left: $spacing--xs;
     margin-top: -4px;
   }
-  &__date {
-
-  }
-  &__summary {
-
-  }
   &__read-more {
-    //color: $c-white;
     font-family: $ff--body;
+    color: $c-blue--light;
     .blog-teaser:hover & {
       text-decoration: underline;
     }
@@ -56,9 +24,6 @@
   &__image {
     padding-top: 40%;
     background-position: center;
-    @include breakpoint($bp) {
-      padding-top: 0;
-    }
     .what-are-ds & {
       background-size: contain;
       background-repeat: no-repeat;
@@ -69,14 +34,15 @@
     }
   }
   &__content {
-    padding: $spacing--l;
-
-    @include breakpoint($bp--large) {
-      padding: $spacing--xxxl;
-    }
-    @include breakpoint($bp--xxlarge) {
-      padding: 4* $spacing--xl;
-    }
+    padding: $spacing--l $spacing--l $spacing--l 0;
+    position: relative;
   }
-
+  &__color {
+    display: inline-block;
+    height: 10px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-image: linear-gradient(to right, $c-blue--light, $c-green--light);
+  }
 }

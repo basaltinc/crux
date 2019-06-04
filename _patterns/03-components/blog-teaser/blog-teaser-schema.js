@@ -33,12 +33,6 @@ module.exports = {
       title: 'Image',
       description: 'An image to go with the blog post teaser',
     },
-    is_even: {
-      type: 'boolean',
-      title: 'Is Even',
-      description:
-        'For alternating collections of blog teasers, allows even and odd blog teaser be styled separately',
-    },
   },
   examples: [
     {
@@ -49,7 +43,6 @@ module.exports = {
       summary:
         "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
       image: '/images/demos/legos.jpg',
-      is_even: true,
     },
   ],
 };

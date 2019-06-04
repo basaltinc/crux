@@ -2,17 +2,22 @@
   "items": [
     {
       "name": "$c-blue--light",
-      "value": "hsl(165, 26%, 85%)",
+      "value": "#4ECDC4",
       "comment": ""
     },
     {
       "name": "$c-blue",
-      "value": "hsl(200, 55%, 19%)",
+      "value": "#264653",
       "comment": ""
     },
     {
       "name": "$c-green",
-      "value": "hsl(159, 20%, 17%)",
+      "value": "#1E728C",
+      "comment": ""
+    },
+    {
+      "name": "$c-green--light",
+      "value": "#C9EFCD",
       "comment": ""
     },
     {
@@ -22,7 +27,7 @@
     },
     {
       "name": "$c-yellow",
-      "value": "hsl(52, 74%, 54%)",
+      "value": "#D4CB02",
       "comment": ""
     },
     {
