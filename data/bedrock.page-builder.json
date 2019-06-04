@@ -8,10 +8,11 @@
       {
         "id": "BQRz9bLiJ",
         "patternId": "blog-teaser",
+        "templateId": "twig",
         "data": {
           "title": "Welcome",
           "author": "Nam Ho",
-          "teaser_avatar": "/demos/avatar-example2.jpg",
+          "teaser_avatar": "/images/demos/avatar-example2.jpg",
           "date": "November 8, 2017",
           "summary": "You don't re-make a set of Legos every time you build a castle. We believe building for the web should be no different.",
           "image": "/images/legos.jpg",
@@ -21,6 +22,7 @@
       {
         "id": "jmRdmcq5Q",
         "patternId": "hero",
+        "templateId": "twig",
         "data": {
           "title": "Hello",
           "body": "Design Systems, start to finish.",
@@ -40,6 +42,7 @@
       {
         "id": "vxEvL0t9b",
         "patternId": "media-block",
+        "templateId": "twig",
         "data": {
           "title": "What Is Basalt?",
           "title_text_color": "black",
