@@ -1,3 +1,10 @@
+## [3.2.3](https://github.com/basaltinc/crux/compare/v3.2.2...v3.2.3) (2019-06-05)
+
+
+### Bug Fixes
+
+* **avatar:** add shadow to avatar ([4a4f2aa](https://github.com/basaltinc/crux/commit/4a4f2aa))
+
 ## [3.2.2](https://github.com/basaltinc/crux/compare/v3.2.1...v3.2.2) (2019-06-04)
 
 
