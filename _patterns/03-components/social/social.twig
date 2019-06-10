@@ -9,18 +9,22 @@
   {
     url: "https://linkedin.com/company/basalt",
     icon: '@svgs/linkedin.svg',
+    text: 'basalt linkedin',
   },
   {
     url: "https://twitter.com/basaltinc",
     icon: '@svgs/twitter.svg',
+    text: 'basalt inc. twitter',
   },
   {
     url: "https://www.facebook.com/basaltinc/",
     icon: '@svgs/facebook.svg',
+    text: 'basalt inc. facebook'
   },
   {
     url: "https://www.instagram.com/basaltinc/",
     icon: '@svgs/instagram.svg',
+    text: 'basalt inc. instagram',
   },
 ] %}
 
@@ -32,6 +36,7 @@
       href="{{ item.url }}"
       class="social__link"
       target="_blank"
+      aria-label="{{ item.text }}"
     >
       {{ source(item.icon) }}
     </a>
