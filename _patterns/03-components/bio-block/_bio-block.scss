@@ -3,10 +3,12 @@
   flex-direction: column;
   height: 100%;
   max-width: 350px;
+  transition: all $trans-opacity;
   &__image {
     height: 400px;
     background-size: cover;
     background-position: top center;
+    transition: filter $trans-opacity;
     @include breakpoint($bp--medium){
       filter: grayscale(100%);
     }
@@ -28,10 +30,8 @@
     }
   }
   &:hover {
-    transition: all $trans-opacity;
     transform: scale(1.01);
     .bio-block__image {
-      transition: filter $trans-opacity;
       filter: none;
     }
   }

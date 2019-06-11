@@ -7,7 +7,7 @@
     },
     {
       "name": "$trans-opacity__function",
-      "value": "ease-in-out",
+      "value": "cubic-bezier(0.645, 0.045, 0.355, 1)",
       "comment": ""
     },
     {
@@ -22,12 +22,12 @@
     },
     {
       "name": "$trans-move__function",
-      "value": "ease-in-out",
+      "value": "cubic-bezier(0.645, 0.045, 0.355, 1)",
       "comment": ""
     },
     {
       "name": "$trans-move",
-      "value": "$trans-opacity__time $trans-move__function",
+      "value": "$trans-move__time $trans-move__function",
       "comment": "convenience variable for using both"
     }
   ],
