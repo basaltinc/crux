@@ -1,3 +1,10 @@
+## [3.2.4](https://github.com/basaltinc/crux/compare/v3.2.3...v3.2.4) (2019-06-12)
+
+
+### Bug Fixes
+
+* **bio block:** fixed ease-in-out ([2c72dfe](https://github.com/basaltinc/crux/commit/2c72dfe))
+
 ## [3.2.3](https://github.com/basaltinc/crux/compare/v3.2.2...v3.2.3) (2019-06-05)
 
 
