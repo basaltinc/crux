@@ -1,14 +1,14 @@
 $trans-opacity__time: 0.3s;
-$trans-opacity__function: ease-in-out;
+$trans-opacity__function: cubic-bezier(0.645, 0.045, 0.355, 1);
 /// @example
 ///   transition: opacity $trans-opacity;
 $trans-opacity: $trans-opacity__time $trans-opacity__function; // convenience variable for using both
 
 $trans-move__time: 0.3s;
-$trans-move__function: ease-in-out;
+$trans-move__function: cubic-bezier(0.645, 0.045, 0.355, 1);
 /// @example
 ///   transition: left $trans-move;
-$trans-move: $trans-opacity__time $trans-move__function; // convenience variable for using both
+$trans-move: $trans-move__time $trans-move__function; // convenience variable for using both
 
 .demo-transition {
   &.transition-opacity {
