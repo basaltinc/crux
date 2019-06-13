@@ -3,11 +3,19 @@
   'u-full-width',
 ] | merge(classes|default([])) %}
 
-<div id="cta" class="{{ classes|join(' ') }}">
+<section 
+  id="cta" 
+  class="{{ classes|join(' ') }}"
+  role="contact us"
+  >
   <div class="cta__inner u-site-container">
   <div class="cta__info">
     <h3>{{ header_text }}</h3>
-    <div data-linkto="{{ address_link }}" class="cta__address">
+    <div 
+      data-linkto="{{ address_link }}" 
+      class="cta__address"
+      tabindex="0"
+      >
       <p>{{ address_one }}</p>
       <p>{{ address_two }}</p>
     </div>
@@ -15,4 +23,4 @@
   </div>
   {% include '@components/_contact-form--simple.twig' %}
   </div>
-</div>
+</section>

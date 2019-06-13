@@ -8,8 +8,11 @@
   greyscale ? 'logo_img--greyscale',
 ] %}
 
-<div class="{{ classes|join(' ') }}" {% if url %}
-  data-linkto="{{ url }}" {% endif %}>
+<div 
+  class="{{ classes|join(' ') }}" {% if url %}
+  data-linkto="{{ url }}" {% endif %}
+  tabindex="0"
+  >
   {% include '@styleguide/_img.twig' with {
     bg: false,
     class: imgClasses|join(' '),

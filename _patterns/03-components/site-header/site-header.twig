@@ -5,7 +5,7 @@
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
 <input type="checkbox" id="site-header-toggle" class="site-header-toggle u-hide">
-<div class="{{ classes|join(' ') }}">
+<header class="{{ classes|join(' ') }}">
 
     <a class="site-header__logo" href="/">
       {{ source('@svgs/logo.svg') }}
@@ -23,4 +23,4 @@
       </ul>
     </nav>
   {% endif %}
-</div>
+</header>
