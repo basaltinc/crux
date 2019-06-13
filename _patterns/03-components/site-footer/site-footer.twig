@@ -5,7 +5,7 @@
 ] | merge(classes|default([])) %}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
-<div class="{{ classes|join(' ') }}">
+<footer class="{{ classes|join(' ') }}">
   <div class="site-footer__inner u-site-container">
     <div class="site-footer__left">
       <nav class="site-footer__menu">
@@ -22,5 +22,5 @@
         is_inverted: true,
       } only %}
     </div>
-  </div>
+  </footer>
 </div>
