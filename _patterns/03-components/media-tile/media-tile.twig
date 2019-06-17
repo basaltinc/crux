@@ -11,8 +11,9 @@
 {% set imgSrc = background_image is iterable ? background_image.src : background_image %}
 
 <div 
-  class="{{ classes|join(' ') }}" {% if url %}
-  data-linkto="{{ url }}" {% endif %} {% if imgSrc %} style="background-image: url({{ imgSrc }});" {%  endif %}
+  class="{{ classes|join(' ') }}" 
+  {% if url %} data-linkto="{{ url }}" {% endif %} 
+  {% if imgSrc %} style="background-image: url({{ imgSrc }});" {%  endif %}
   tabindex="0"
   >
 
