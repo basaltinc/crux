@@ -1,5 +1,7 @@
 $open: '.site-header-toggle:checked + .site-header';
+
 .site-header {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -18,9 +20,25 @@ $open: '.site-header-toggle:checked + .site-header';
   }
   &__button {
     font-size: 1.5rem;
+
+    .expanded-text {
+      display: none;
+    }
+
+    .collapsed-text {
+      display: inline;
+    }
     &:hover { cursor: pointer; }
     #{$open} & {
       @include icon(close);
+
+      .expanded-text {
+        display: inline;
+      }
+
+      .collapsed-text {
+        display: none;
+      }
     }
   }
   &__menu {

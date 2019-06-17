@@ -31,6 +31,20 @@ function jsOpenLink() {
   });
 }
 
+function checkboxToggle() {
+  const el = document.querySelector('.site-header__button');
+
+  function handleCheckboxEvent(e) {
+    const checkbox = document.querySelector('.site-header-toggle');
+    if (e.keyCode === 13) {
+      checkbox.checked = !checkbox.checked;
+    }
+  }
+
+  el.addEventListener('keydown', handleCheckboxEvent);
+}
+
 module.exports = () => {
   jsOpenLink();
+  checkboxToggle();
 };
