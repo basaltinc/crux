@@ -4,7 +4,6 @@
 ] | merge(classes|default([])) %}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
-
 <input hidden type="checkbox" id="site-header-toggle" class="site-header-toggle">
 <header class="{{ classes|join(' ') }}">
 
