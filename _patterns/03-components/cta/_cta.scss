@@ -20,7 +20,7 @@
       font-size: $fs--l;
     }
     color: $c-blue;
-    transition: all $trans-opacity;
+    transition: color $trans-opacity;
     &:hover {
       color: lighten($c-blue, 10);
     }

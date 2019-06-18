@@ -23,10 +23,10 @@
     margin-bottom: 0;
   }
   &__twitter {
-    @include a-link($link: $c-blue--light, $deco: none, $deco--hover: none);
+    @include a-link($link: $c-green, $deco: none, $deco--hover: none);
     transition: color $trans-opacity;
     &:hover {
-      color: darken($c-blue--light, 10);
+      color: lighten($c-green, 20);
     }
   }
   &:hover {

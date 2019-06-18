@@ -1,15 +1,15 @@
 props:
   c-primary:
-    value: hsl(200, 55%, 19%)
+    value: hsl(197, 37%, 24%)
     category: text-color
   c-secondary:
-    value: hsl(52, 74%, 54%)
+    value: hsl(57, 98%, 42%)
     category: text-color
   c-border:
     value: hsl(240, 3%, 85%)
     category: border-color
   c-links:
-    value: hsl(200, 55%, 19%)
+    value: hsl(197, 37%, 24%)
     category: text-color
   c-links--hover:
     value: hsl(200, 55%, 9%)
@@ -21,44 +21,44 @@ props:
     value: black
     category: text-color
   c-blue--light:
-    value: hsl(165, 26%, 85%)
+    value: hsl(176, 56%, 55%)
   c-blue--light__text:
-    value: hsl(165, 26%, 85%)
+    value: hsl(176, 56%, 55%)
     category: text-color
   c-blue--light__border:
-    value: hsl(165, 26%, 85%)
+    value: hsl(176, 56%, 55%)
     category: border-color
   c-blue:
-    value: hsl(200, 55%, 19%)
+    value: hsl(197, 37%, 24%)
   c-blue__text:
-    value: hsl(200, 55%, 19%)
+    value: hsl(197, 37%, 24%)
     category: text-color
   c-blue__border:
-    value: hsl(200, 55%, 19%)
+    value: hsl(197, 37%, 24%)
     category: border-color
   c-green:
-    value: hsl(159, 20%, 17%)
+    value: hsl(194, 65%, 33%)
   c-green__text:
-    value: hsl(159, 20%, 17%)
+    value: hsl(194, 65%, 33%)
     category: text-color
   c-green__border:
-    value: hsl(159, 20%, 17%)
+    value: hsl(194, 65%, 33%)
     category: border-color
-  c-iron:
-    value: hsl(240, 3%, 85%)
-  c-iron__text:
-    value: hsl(240, 3%, 85%)
+  c-green--light:
+    value: hsl(126, 54%, 86%)
+  c-green--light__text:
+    value: hsl(126, 54%, 86%)
     category: text-color
-  c-iron__border:
-    value: hsl(240, 3%, 85%)
+  c-green--light__border:
+    value: hsl(126, 54%, 86%)
     category: border-color
   c-yellow:
-    value: hsl(52, 74%, 54%)
+    value: hsl(57, 98%, 42%)
   c-yellow__text:
-    value: hsl(52, 74%, 54%)
+    value: hsl(57, 98%, 42%)
     category: text-color
   c-yellow__border:
-    value: hsl(52, 74%, 54%)
+    value: hsl(57, 98%, 42%)
     category: border-color
   c-white:
     value: white
