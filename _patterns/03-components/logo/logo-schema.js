@@ -28,7 +28,7 @@ module.exports = {
   },
   examples: [
     {
-      imgSrc: '/images/logos/main.png',
+      imgSrc: '/uploads/logos/main.png',
       url: 'http://www.basalt.io',
       size: 'jumbo',
       greyscale: false,
