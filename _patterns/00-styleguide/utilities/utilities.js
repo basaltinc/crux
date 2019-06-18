@@ -41,7 +41,7 @@ function checkboxToggle() {
     }
   }
 
-  el.addEventListener('keydown', handleCheckboxEvent);
+  if (el) el.addEventListener('keydown', handleCheckboxEvent);
 }
 
 module.exports = () => {
