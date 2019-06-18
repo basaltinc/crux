@@ -1,3 +1,10 @@
+## [3.2.5](https://github.com/basaltinc/crux/compare/v3.2.4...v3.2.5) (2019-06-18)
+
+
+### Bug Fixes
+
+* **links:** update link colors for accessibility ([#50](https://github.com/basaltinc/crux/issues/50)) ([247c6c7](https://github.com/basaltinc/crux/commit/247c6c7))
+
 ## [3.2.4](https://github.com/basaltinc/crux/compare/v3.2.3...v3.2.4) (2019-06-12)
 
 
