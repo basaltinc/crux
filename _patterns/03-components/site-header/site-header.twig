@@ -4,14 +4,16 @@
 ] | merge(classes|default([])) %}
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
-<input type="checkbox" id="site-header-toggle" class="site-header-toggle u-hide">
+<input hidden type="checkbox" id="site-header-toggle" class="site-header-toggle">
 <header class="{{ classes|join(' ') }}">
 
     <a class="site-header__logo" href="/">
       {{ source('@svgs/logo.svg') }}
     </a>
-
-  <label for="site-header-toggle" class="site-header__button icon--menu"></label>
+    <label tabindex="0" for="site-header-toggle" class="site-header__button icon--menu">
+        <span class="u-hide expanded-text">navigation menu expanded</span>
+        <span class="u-hide collapsed-text">navigation menu collapsed</span>
+    </label>
   {% if menu_items %}
     <nav class="site-header__menu">
       <ul class="main-menu">
