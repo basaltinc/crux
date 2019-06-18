@@ -4,6 +4,7 @@
 /// @param $deco
 /// @param $deco--hover
 @mixin a-link($link: $c-links, $hover: $c-links--hover, $deco: none, $deco--hover: none) {
+  transition: color $trans-opacity;
   &,
   &:link,
   &:visited {

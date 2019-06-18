@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: flex-start;
   &__title:hover {
-    color: $c-blue--light;
+    color: $c-green;
   }
   &__author {
     display: inline-block;
@@ -16,9 +16,10 @@
   }
   &__read-more {
     font-family: $ff--body;
-    color: $c-blue--light;
+    color: $c-green;
     .blog-teaser:hover & {
       text-decoration: underline;
+      color: lighten($c-green, 20);
     }
   }
   &__image {
@@ -43,6 +44,6 @@
     width: 100%;
     position: absolute;
     top: 0;
-    background-image: linear-gradient(to right, $c-blue--light, $c-green--light);
+    background-image: linear-gradient(to right, $c-green, $c-blue--light);
   }
 }
