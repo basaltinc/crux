@@ -2,9 +2,18 @@
   @include a-link($c-body-text, $c-body-text, none, none);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  &__title:hover {
-    color: $c-green;
+  justify-content: center;
+  align-items: center;
+  max-width: $es--l;
+  transition: all $trans_move;
+  padding: $spacing--m 0 $spacing--m 0;
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 8px 8px 5px #00000050;
+
+    .blog-teaser__title {
+      color: $c-green;
+    }
   }
   &__author {
     display: inline-block;
@@ -14,16 +23,9 @@
     margin-left: $spacing--xs;
     margin-top: -4px;
   }
-  &__read-more {
-    font-family: $ff--body;
-    color: $c-green;
-    .blog-teaser:hover & {
-      text-decoration: underline;
-      color: lighten($c-green, 20);
-    }
-  }
   &__image {
-    padding-top: 40%;
+    width: $es--m;
+    height: $es--s;
     background-position: center;
     .what-are-ds & {
       background-size: contain;
@@ -35,15 +37,23 @@
     }
   }
   &__content {
-    padding: $spacing--l $spacing--l $spacing--l 0;
+    width: $es--m;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: $spacing--l 0 $spacing--l 0;
   }
   &__color {
     display: inline-block;
     height: 10px;
     width: 100%;
     position: absolute;
-    top: 0;
+    left: 0;
+    top: $spacing--s;
     background-image: linear-gradient(to right, $c-green, $c-blue--light);
+  }
+  &__date {
+    padding: $spacing--m 0 $spacing--m 0;
   }
 }

@@ -20,17 +20,13 @@
 
     {% if author %}
       <h3 class="blog-teaser__author">by {{ author }}
-      </h3>
       {% if teaser_avatar %}
         {% include '@components/avatar.twig' with {
         size: 's',
         img: teaser_avatar,
         } only %}
       {% endif %}
-    {% endif %}
-
-    {% if date %}
-      <div class="blog-teaser__date">{{ date }}</div>
+      </h3>
     {% endif %}
 
     {% if summary %}
@@ -38,6 +34,10 @@
         <p>{{ summary }}</p>
       </div>
     {% endif %}
-    <div class="blog-teaser__read-more">Read the full story</div>
+
+    {% if date %}
+      <div class="blog-teaser__date">{{ date }}</div>
+    {% endif %}
+    
   </div>
 </a>
