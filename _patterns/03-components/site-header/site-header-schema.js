@@ -7,7 +7,7 @@ module.exports = {
     menu_items: {
       title: 'Menu Items',
       type: 'array',
-      description: 'Items to include in the footer nav menu',
+      description: 'Items to include in the header nav menu',
       items: {
         type: 'object',
         title: 'Menu Item',
@@ -28,6 +28,28 @@ module.exports = {
             type: 'string',
             description: 'Text of the menu item',
           },
+          sub_menu: {
+            title: 'Sub-Menu Items',
+            type: 'array',
+            description: 'Items to include in drop down nav menu',
+            items: {
+              type: 'object',
+              title: 'Sub-Menu Item',
+              description: 'Sub-Menu Item data',
+              properties: {
+                url: {
+                  title: 'Url',
+                  type: 'string',
+                  description: 'Url or href for the menu item',
+                },
+                text: {
+                  title: 'Text',
+                  type: 'string',
+                  description: 'Text of the menu item',
+                },
+              },
+            },
+          },
         },
       },
     },
@@ -39,10 +61,30 @@ module.exports = {
           url: 'http://basalt.io/who-we-are',
           text: 'Who We Are',
           active: true,
+          sub_menu: [
+            {
+              url: 'http://basalt.io/who-we-are',
+              text: 'Careers With Basalt',
+            },
+            {
+              url: 'http://basalt.io/who-we-are',
+              text: 'Crux',
+            },
+          ],
         },
         {
           url: 'http://basalt.io/what-we-do',
           text: 'What We Do',
+          sub_menu: [
+            {
+              url: 'http://basalt.io/what-we-do',
+              text: 'Our Work',
+            },
+            {
+              url: 'http://basalt.io/what-we-do',
+              text: 'Resources',
+            },
+          ],
         },
         {
           url: 'http://basalt.io/what-are-design-systems',
@@ -64,6 +106,11 @@ module.exports = {
         {
           url: '#',
           text: 'Menu Item Two',
+          sub_menu: [
+            {
+              text: 'Sub Menu Item One',
+            },
+          ],
         },
         {
           url: '#',

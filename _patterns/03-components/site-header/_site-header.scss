@@ -60,6 +60,13 @@ $open: '.site-header-toggle:checked + .site-header';
   &__item {
     margin-right: $spacing--l;
     margin-bottom: 0;
+    position: relative;
+
+    &:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu, .main-menu__sub-menu:hover {
+      visibility: visible;
+      opacity: 1;
+      display: block;
+    }
   }
   &__link {
     @include a-link($link: $c-black, $deco: none);
@@ -73,6 +80,16 @@ $open: '.site-header-toggle:checked + .site-header';
     &:hover {
       opacity: .8;
     }
+  }
+  &__sub-menu {
+    list-style: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
   }
 }
 
