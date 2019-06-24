@@ -1,4 +1,5 @@
 $open: '.site-header-toggle:checked + .site-header';
+$expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu, .main-menu__sub-menu:hover';
 
 .site-header {
   display: flex;
@@ -61,12 +62,6 @@ $open: '.site-header-toggle:checked + .site-header';
     margin-right: $spacing--l;
     margin-bottom: 0;
     position: relative;
-
-    &:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu, .main-menu__sub-menu:hover {
-      visibility: visible;
-      opacity: 1;
-      display: block;
-    }
   }
   &__link {
     @include a-link($link: $c-black, $deco: none);
@@ -83,13 +78,6 @@ $open: '.site-header-toggle:checked + .site-header';
   }
   &__sub-menu {
     list-style: none;
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    transition: all 0.5s ease;
-    margin-top: 1rem;
-    left: 0;
-    display: none;
   }
 }
 
@@ -110,5 +98,28 @@ $open: '.site-header-toggle:checked + .site-header';
   .main-menu {
     flex-direction: row;
     font-size: $fs--l;
+
+    &__item {
+      #{$expand} {
+        position: absolute;
+        width: 20rem;
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+    }
+    &__sub-menu {
+      list-style: none;
+      position: absolute;
+      transition: all 0.5s ease;
+      margin-top: 1rem;
+      left: 0;
+      display: none;
+  
+      &__item:not(:first-child) {
+        margin: 0 0 1rem 1.5rem;
+      }
+    }
   }
 }
