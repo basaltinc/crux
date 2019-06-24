@@ -63,11 +63,11 @@ module.exports = {
           active: true,
           sub_menu: [
             {
-              url: 'http://basalt.io/who-we-are',
+              url: 'https://basalt.io/work-at-basalt',
               text: 'Careers With Basalt',
             },
             {
-              url: 'http://basalt.io/who-we-are',
+              url: 'https://design.basalt.io/',
               text: 'Crux',
             },
           ],
