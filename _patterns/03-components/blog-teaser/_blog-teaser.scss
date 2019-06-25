@@ -6,7 +6,6 @@
   align-items: center;
   max-width: $es--l;
   transition: all $trans_move;
-  padding: $spacing--m 0 $spacing--m 0;
   &:hover {
     transform: scale(1.01);
     box-shadow: 8px 8px 5px #00000050;
@@ -14,6 +13,9 @@
     .blog-teaser__title {
       color: $c-green;
     }
+  }
+  &__container {
+    padding: $spacing--xs;
   }
   &__author {
     display: inline-block;
@@ -24,8 +26,8 @@
     margin-top: -4px;
   }
   &__image {
-    width: $es--m;
-    height: $es--s;
+    width: auto;
+    height: $es--xs;
     background-position: center;
     .what-are-ds & {
       background-size: contain;
@@ -37,12 +39,8 @@
     }
   }
   &__content {
-    width: $es--m;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: $spacing--l 0 $spacing--l 0;
+    padding: $spacing--l 0;
   }
   &__color {
     display: inline-block;
@@ -54,6 +52,6 @@
     background-image: linear-gradient(to right, $c-green, $c-blue--light);
   }
   &__date {
-    padding: $spacing--m 0 $spacing--m 0;
+    padding: $spacing--m 0;
   }
 }

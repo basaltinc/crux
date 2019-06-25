@@ -5,39 +5,41 @@
 {# The `merge` allows an array of class names to be added on, the `default` handles times when none is passes so `merge` doesn't fail. #}
 
 <a href="{{ url }}" class="{{ classes|join(' ') }}">
-  {% if image %}
-    {% include '@styleguide/_img.twig' with {
-      bg: true,
-      class: 'blog-teaser__image',
-      img: image,
-    } %}
-  {% endif %}
-  <div class="blog-teaser__content">
-    <span class="blog-teaser__color"></span>
-    {% if title %}
-      <h3 class="blog-teaser__title">{{ title }}</h3>
+  <div class="blog-teaser__container">
+    {% if image %}
+      {% include '@styleguide/_img.twig' with {
+        bg: true,
+        class: 'blog-teaser__image',
+        img: image,
+      } %}
     {% endif %}
-
-    {% if author %}
-      <h3 class="blog-teaser__author">by {{ author }}
-      {% if teaser_avatar %}
-        {% include '@components/avatar.twig' with {
-        size: 's',
-        img: teaser_avatar,
-        } only %}
+    <div class="blog-teaser__content">
+      <span class="blog-teaser__color"></span>
+      {% if title %}
+        <h3 class="blog-teaser__title">{{ title }}</h3>
       {% endif %}
-      </h3>
-    {% endif %}
 
-    {% if summary %}
-      <div class="blog-teaser__summary">
-        <p>{{ summary }}</p>
-      </div>
-    {% endif %}
+      {% if author %}
+        <h3 class="blog-teaser__author">by {{ author }}
+        {% if teaser_avatar %}
+          {% include '@components/avatar.twig' with {
+          size: 's',
+          img: teaser_avatar,
+          } only %}
+        {% endif %}
+        </h3>
+      {% endif %}
 
-    {% if date %}
-      <div class="blog-teaser__date">{{ date }}</div>
-    {% endif %}
-    
+      {% if summary %}
+        <div class="blog-teaser__summary">
+          <p>{{ summary }}</p>
+        </div>
+      {% endif %}
+
+      {% if date %}
+        <div class="blog-teaser__date">{{ date }}</div>
+      {% endif %}
+      
+    </div>
   </div>
 </a>
