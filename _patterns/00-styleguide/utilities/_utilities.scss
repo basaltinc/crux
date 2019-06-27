@@ -106,6 +106,10 @@
   }
 }
 
+@mixin border($color) {
+  box-shadow: inset 0px 0px 0px 10px $color;
+}
+
 .u-overlay {
   @include overlay();
 }
