@@ -11,7 +11,7 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
   &__logo {
     display: block;
     width: grid-width(5);
-    margin: $spacing--xs 0;
+    margin: $spacing--xs 0 $spacing--xs $spacing--s;
     max-width: 200px;
     line-height: 1;
     @include breakpoint($bp--xsmall) {
@@ -20,7 +20,7 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
   }
   &__button {
     font-size: 1.5rem;
-
+    margin-right: $spacing--s;
     .expanded-text {
       display: none;
     }
@@ -50,22 +50,21 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
     }
   }
 }
-
 .main-menu {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   flex-direction: column;
   background: white;
-  border-radius: 5px;
-  width: 50vw;
+  border-radius: 0 0 5px 5px;
+  width: 100vw;
   text-align: right;
   margin: 0;
   position: absolute;
   top: 15%;
   right: 0;
   &__item {
-    margin-right: $spacing--l;
+    margin-right: $spacing--s;
     margin-bottom: 0;
     position: relative;
   }
