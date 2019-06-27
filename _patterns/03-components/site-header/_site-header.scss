@@ -57,6 +57,7 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
   list-style: none;
   flex-direction: column;
   background: white;
+  border-radius: 5px;
   width: 50vw;
   text-align: right;
   margin: 0;
@@ -79,6 +80,12 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
     }
     &:hover {
       opacity: .9;
+    }
+    &--expandable.main-menu__link--expandable:after {
+      content: ">";
+      transform: rotate(90deg);
+      display: inline-block;
+      margin-left: 5px;
     }
   }
   &__sub-menu {
@@ -103,6 +110,8 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
   .main-menu {
     flex-direction: row;
     font-size: $fs--l;
+    width: 100%;
+    position: static;
     &__item {
       #{$expand} {
         position: absolute;

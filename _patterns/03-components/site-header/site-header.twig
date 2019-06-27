@@ -19,7 +19,7 @@
       <ul class="main-menu">
         {% for item in menu_items %}
           <li class="main-menu__item">
-            <a href="{{ item.url }}" class="main-menu__link{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
+            <a href="{{ item.url }}" class="main-menu__link{% if item.sub_menu %} main-menu__link--expandable{% endif %}{% if item.active %} main-menu__link--active{% endif %}">{{ item.text }}</a>
             {% if item.sub_menu %}
               <ul class="main-menu__sub-menu" aria-label="submenu">
                 {% for sub in item.sub_menu %}
