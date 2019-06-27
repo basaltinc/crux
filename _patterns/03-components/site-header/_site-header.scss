@@ -44,6 +44,7 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
   &__menu {
     display: none;
     width: 100%;
+    position: relative;
     #{$open} & {
       display: block;
     }
@@ -55,9 +56,13 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
   flex-wrap: wrap;
   list-style: none;
   flex-direction: column;
-  width: 100%;
+  background: white;
+  width: 50vw;
   text-align: right;
   margin: 0;
+  position: absolute;
+  top: 15%;
+  right: 0;
   &__item {
     margin-right: $spacing--l;
     margin-bottom: 0;
@@ -70,10 +75,10 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
     padding: $spacing--xs 0;
     transition: all $trans-opacity;
     &--active.main-menu__link--active {
-      text-decoration: underline;
+      color: $c-green;
     }
     &:hover {
-      opacity: .8;
+      opacity: .9;
     }
   }
   &__sub-menu {
@@ -101,12 +106,18 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
     &__item {
       #{$expand} {
         position: absolute;
-        width: 100vw;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 8px 8px 5px #00000050;
+        width: 20vw;
         padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
+      }
+      &:last-child > .main-menu__sub-menu {
+        right: 0;
       }
     }
     &__sub-menu {
@@ -114,7 +125,7 @@ $expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu,
       display: none;
   
       &__item {
-        margin: $spacing--xs 0;
+        margin: $spacing--xs 0 0 $spacing--s;
       }
     }
   }
