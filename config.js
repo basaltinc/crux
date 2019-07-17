@@ -1,4 +1,7 @@
-module.exports = {
+#!/usr/bin/env node
+
+const { styleDictionaryKnapsackFormat } = require('@basalt/knapsack');
+const StyleDictionary = require('style-dictionary').extend({
   source: ['_patterns/00-styleguide/**/*.{json,js}'],
   platforms: {
     scss: {
@@ -27,5 +30,19 @@ module.exports = {
         },
       ],
     },
+    knapsack: {
+      transforms: ['attribute/cti', 'name/cti/kebab'],
+      buildPath: './build/tokens/',
+      prefix: 'token',
+      files: [
+        {
+          destination: 'knapsack-design-tokens.json',
+          format: 'knapsack',
+        },
+      ],
+    },
   },
-};
+});
+
+StyleDictionary.registerFormat(styleDictionaryKnapsackFormat);
+StyleDictionary.buildAllPlatforms();
