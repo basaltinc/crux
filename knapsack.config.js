@@ -1,25 +1,16 @@
-const HtmlRenderer = require('@basalt/bedrock-renderer-html');
-const TwigRenderer = require('@basalt/bedrock-renderer-twig');
-const { theoBedrockFormat } = require('@basalt/bedrock');
-const theo = require('theo');
+const HtmlRenderer = require('@knapsack/renderer-html');
+const TwigRenderer = require('@knapsack/renderer-twig');
+const designTokens = require('./build/tokens/knapsack-design-tokens');
 const twigNamespacesConfig = require('./twig-namespaces');
 const { version } = require('./package');
 
-const format = theoBedrockFormat(theo);
-
-/** @type {BedrockConfig} */
+/** @type {knapsackUserConfig} */
 const config = {
   patterns: ['./_patterns/03-components/**/*'],
   newPatternDir: './_patterns/03-components/',
   designTokens: {
     createCodeSnippet: token => `$${token.name}`,
-    data: theo.convertSync({
-      transform: {
-        type: 'web',
-        file: './_patterns/00-styleguide/tokens.yml',
-      },
-      format,
-    }),
+    data: designTokens,
   },
   dist: './dist',
   public: './public',
@@ -35,19 +26,20 @@ const config = {
       ],
     },
   ],
-  // docsDir: './docs',
   templateRenderers: [
     new HtmlRenderer(),
+    // docs on config that can be passed in: https://github.com/basaltinc/twig-renderer/blob/master/config.schema.json
     new TwigRenderer({
       src: twigNamespacesConfig,
-      // alterTwigEnv: [
-      //   {
-      //     file: './alter-twig.php',
-      //     functions: ['addCustomExtension'],
-      //   },
-      // ],
+      //   alterTwigEnv: [
+      //     {
+      //       file: './src/alter-twig.php',
+      //       functions: ['addCustomExtension'],
+      //     },
+      //   ],
     }),
   ],
+  changelog: './CHANGELOG.md',
   version: `v${version}`,
 };
 

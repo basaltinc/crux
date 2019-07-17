@@ -3,9 +3,9 @@
   "version": "3.2.5",
   "description": "Basalt Design System",
   "scripts": {
-    "bedrock": "bedrock start",
-    "build": "rm -rf public/build && NODE_ENV=production run-s -l build:tokens build:gulp build:bedrock",
-    "build:bedrock": "bedrock build",
+    "knapsack": "knapsack start",
+    "build": "rm -rf public/build && NODE_ENV=production run-s -l build:tokens build:gulp build:knapsack",
+    "build:knapsack": "knapsack build",
     "build:gulp": "gulp build",
     "build:tokens": "node config.js",
     "commit": "git-cz",
@@ -13,8 +13,8 @@
     "new": "yo pl-pattern --base source/_patterns",
     "test:percy": "percy exec -- node ./percy.js",
     "prepublishOnly": "yarn build",
-    "serve": "bedrock serve",
-    "start": "run-s -l build:tokens build:gulp && run-p bedrock watch:gulp",
+    "serve": "knapsack serve",
+    "start": "run-s -l build:tokens build:gulp && run-p knapsack watch:gulp",
     "test": "gulp validate",
     "watch:gulp": "gulp"
   },
