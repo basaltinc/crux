@@ -7,7 +7,7 @@
     "build": "rm -rf public/build && NODE_ENV=production run-s -l build:tokens build:gulp build:knapsack",
     "build:knapsack": "knapsack build",
     "build:gulp": "gulp build",
-    "build:tokens": "node config.js",
+    "build:tokens": "node style-dictionary.config.js",
     "commit": "git-cz",
     "deploy": "now --build-env NPM_TOKEN=@npm-token && now alias",
     "new": "yo pl-pattern --base source/_patterns",

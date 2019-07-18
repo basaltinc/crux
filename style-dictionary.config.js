@@ -2,7 +2,7 @@
 
 const { styleDictionaryKnapsackFormat } = require('@basalt/knapsack');
 const StyleDictionary = require('style-dictionary').extend({
-  source: ['_patterns/00-styleguide/**/*.{json,js}'],
+  source: ['./_patterns/00-styleguide/**/*.{json,js}'],
   platforms: {
     scss: {
       prefix: 'token',

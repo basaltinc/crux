@@ -1,13 +1,13 @@
 const HtmlRenderer = require('@knapsack/renderer-html');
 const TwigRenderer = require('@knapsack/renderer-twig');
-const designTokens = require('./build/tokens/knapsack-design-tokens.json');
+const designTokens = require('./build/tokens/knapsack-design-tokens');
 const twigNamespacesConfig = require('./twig-namespaces');
 const { version } = require('./package');
 
 /** @type {knapsackUserConfig} */
 const config = {
-  patterns: ['_patterns/03-components/**/*'],
-  newPatternDir: '_patterns/03-components/',
+  patterns: ['./_patterns/03-components/**/*'],
+  newPatternDir: './_patterns/03-components/',
   designTokens: {
     createCodeSnippet: token => `$${token.name}`,
     data: designTokens,
