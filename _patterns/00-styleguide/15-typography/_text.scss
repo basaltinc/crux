@@ -4,7 +4,8 @@
 /// @param $deco
 /// @param $deco--hover
 @mixin a-link($link: $c-links, $hover: $c-links--hover, $deco: none, $deco--hover: none) {
-  transition: color $trans-opacity;
+  // temp change transition should be using $trans-opacity
+  transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   &,
   &:link,
   &:visited {
