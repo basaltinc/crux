@@ -19,10 +19,7 @@
     "watch:gulp": "gulp"
   },
   "dependencies": {
-    "@basalt/bedrock": "^0.39.0",
     "@basalt/bedrock-babel-config": "^0.39.0",
-    "@basalt/bedrock-renderer-html": "^0.38.1",
-    "@basalt/bedrock-renderer-twig": "^0.38.1",
     "@basalt/knapsack": "^1.3.0",
     "@knapsack/renderer-html": "^1.1.14",
     "@knapsack/renderer-twig": "^1.1.14",
