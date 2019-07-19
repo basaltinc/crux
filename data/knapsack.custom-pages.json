@@ -4,10 +4,33 @@
       "path": "/design-tokens/colors",
       "slices": [
         {
+          "id": "GFa0PHavN",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "Primary-colors"
+          }
+        },
+        {
+          "id": "4EWXBEs83",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "color",
+              "tags": [
+                "primary",
+                "secondary"
+              ]
+            },
+            "demo": {
+              "id": "color-swatch"
+            }
+          }
+        },
+        {
           "id": "u240AYsqS",
           "blockId": "markdown-slice",
           "data": {
-            "md": "background-color"
+            "md": "Background-colors"
           }
         },
         {
@@ -15,8 +38,14 @@
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
-              "category": "background-color",
-              "tags": []
+              "category": "color",
+              "tags": [
+                "blue",
+                "green",
+                "yellow",
+                "gray",
+                "black"
+              ]
             },
             "demo": {
               "id": "color-swatch"
@@ -35,8 +64,10 @@
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
-              "category": "text-color",
-              "tags": []
+              "category": "color",
+              "tags": [
+                "text"
+              ]
             },
             "demo": {
               "id": "text-color"
@@ -68,25 +99,12 @@
           }
         },
         {
-          "id": "UHrgZ6e6K",
-          "blockId": "markdown-slice",
-          "data": {
-            "md": "media-query"
-          }
-        },
-        {
-          "id": "QxlQ0IiDL",
+          "id": "2Tgt51SvT",
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
               "category": "spacing",
-              "tags": [
-                "breakpoint",
-                "color",
-                "spacing",
-                "string",
-                "number"
-              ]
+              "tags": []
             },
             "demo": {
               "id": "spacing"
@@ -140,7 +158,7 @@
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
-              "category": "box-shadow",
+              "category": "shadows",
               "tags": [
                 "breakpoint",
                 "color",
@@ -166,7 +184,7 @@
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
-              "category": "text-shadow",
+              "category": "textShadow",
               "tags": [
                 "breakpoint",
                 "color",
@@ -207,6 +225,33 @@
             },
             "demo": {
               "id": "table-list"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "path": "/design-tokens/fonts",
+      "slices": [
+        {
+          "id": "eNvts5CnQ",
+          "blockId": "markdown-slice",
+          "data": {
+            "md": "Font-Families"
+          }
+        },
+        {
+          "id": "fjdYwgOix",
+          "blockId": "design-token-slice",
+          "data": {
+            "tokens": {
+              "category": "font",
+              "tags": [
+                "family"
+              ]
+            },
+            "demo": {
+              "id": "simple-list"
             }
           }
         }

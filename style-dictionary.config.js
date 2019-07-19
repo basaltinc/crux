@@ -5,9 +5,9 @@ const StyleDictionary = require('style-dictionary').extend({
   source: ['./_patterns/00-styleguide/**/*.{json,js}'],
   platforms: {
     scss: {
-      prefix: 'token',
+      prefix: 'crux',
       transforms: ['attribute/cti', 'name/cti/kebab', 'color/css'],
-      buildPath: './build/tokens/',
+      buildPath: './public/build/tokens/',
       files: [
         {
           destination: 'design-tokens.scss',
@@ -17,8 +17,8 @@ const StyleDictionary = require('style-dictionary').extend({
     },
     js: {
       transforms: ['name/cti/camel'],
-      buildPath: './build/tokens/',
-      prefix: 'token',
+      buildPath: './public/build/tokens/',
+      prefix: 'crux',
       files: [
         {
           destination: 'design-tokens.json',
@@ -32,8 +32,8 @@ const StyleDictionary = require('style-dictionary').extend({
     },
     knapsack: {
       transforms: ['attribute/cti', 'name/cti/kebab'],
-      buildPath: './build/tokens/',
-      prefix: 'token',
+      buildPath: './public/build/tokens/',
+      prefix: 'crux',
       files: [
         {
           destination: 'knapsack-design-tokens.json',

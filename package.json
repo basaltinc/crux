@@ -27,8 +27,7 @@
     "color": "^3.0.0",
     "fs-extra": "^7.0.0",
     "style-dictionary": "^2.8.1",
-    "stylelint-config-styled-components": "^0.1.1",
-    "theo": "^8.0.0"
+    "stylelint-config-styled-components": "^0.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

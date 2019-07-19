@@ -38,23 +38,63 @@ const gray = {
 };
 
 const yellow = {
-  value: '#D4CB02',
+  base: {
+    value: '#D4CB02',
+  },
 };
 
 const white = {
-  value: '#FFFFFF',
+  base: {
+    value: '#FFFFFF',
+  },
 };
 
 const black = {
-  value: '#000000',
+  base: {
+    value: '#000000',
+  },
 };
 
 const primary = {
-  value: '{color.blue.base.value}',
+  base: {
+    value: '{color.blue.base.value}',
+  },
 };
 
 const secondary = {
-  value: '{color.yellow.value}',
+  base: {
+    value: '{color.yellow.base.value}',
+  },
+};
+
+const text = {
+  blue: {
+    value: '{color.blue.base.value}',
+  },
+  light_blue: {
+    value: '{color.blue.light.value}',
+  },
+  green: {
+    value: '{color.green.base.value}',
+  },
+  light_green: {
+    value: '{color.green.light.value}',
+  },
+  dark_gray: {
+    value: '{color.gray.dark.value}',
+  },
+  darker_gray: {
+    value: '{color.gray.darker.value}',
+  },
+  darkest_gray: {
+    value: '{color.gray.darkest.value}',
+  },
+  black: {
+    value: '{color.black.base.value}',
+  },
+  yellow: {
+    value: '{color.yellow.base.value}',
+  },
 };
 
 module.exports = {
@@ -68,5 +108,6 @@ module.exports = {
     black,
     primary,
     secondary,
+    text,
   },
 };
