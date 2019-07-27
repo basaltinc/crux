@@ -1,4 +1,5 @@
 $open: '.site-header-toggle:checked + .site-header';
+$expand: '&:hover > .main-menu__sub-menu, &:focus-within > .main-menu__sub-menu, .main-menu__sub-menu:hover';
 
 .site-header {
   display: flex;
@@ -10,7 +11,7 @@ $open: '.site-header-toggle:checked + .site-header';
   &__logo {
     display: block;
     width: grid-width(5);
-    margin: $spacing--xs 0;
+    margin: $spacing--xs 0 $spacing--xs $spacing--s;
     max-width: 200px;
     line-height: 1;
     @include breakpoint($bp--xsmall) {
@@ -19,7 +20,7 @@ $open: '.site-header-toggle:checked + .site-header';
   }
   &__button {
     font-size: 1.5rem;
-
+    margin-right: $spacing--s;
     .expanded-text {
       display: none;
     }
@@ -43,23 +44,29 @@ $open: '.site-header-toggle:checked + .site-header';
   &__menu {
     display: none;
     width: 100%;
+    position: relative;
     #{$open} & {
       display: block;
     }
   }
 }
-
 .main-menu {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   flex-direction: column;
-  width: 100%;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  width: 100vw;
   text-align: right;
   margin: 0;
+  position: absolute;
+  top: 15%;
+  right: 0;
   &__item {
-    margin-right: $spacing--l;
+    margin-right: $spacing--s;
     margin-bottom: 0;
+    position: relative;
   }
   &__link {
     @include a-link($link: $c-black, $deco: none);
@@ -68,11 +75,20 @@ $open: '.site-header-toggle:checked + .site-header';
     padding: $spacing--xs 0;
     transition: all $trans-opacity;
     &--active.main-menu__link--active {
-      text-decoration: underline;
+      color: $c-green;
     }
     &:hover {
-      opacity: .8;
+      opacity: .9;
     }
+    &--expandable.main-menu__link--expandable:after {
+      content: ">";
+      transform: rotate(90deg);
+      display: inline-block;
+      margin-left: 5px;
+    }
+  }
+  &__sub-menu {
+    list-style: none;
   }
 }
 
@@ -93,5 +109,32 @@ $open: '.site-header-toggle:checked + .site-header';
   .main-menu {
     flex-direction: row;
     font-size: $fs--l;
+    width: 100%;
+    position: static;
+    &__item {
+      #{$expand} {
+        position: absolute;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 8px 8px 5px #00000050;
+        width: 20vw;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      &:last-child > .main-menu__sub-menu {
+        right: 0;
+      }
+    }
+    &__sub-menu {
+      list-style: none;
+      display: none;
+  
+      &__item {
+        margin: $spacing--xs 0 0 $spacing--s;
+      }
+    }
   }
 }
