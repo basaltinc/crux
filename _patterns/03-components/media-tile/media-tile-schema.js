@@ -101,6 +101,13 @@ module.exports = {
       enum: ['blue', 'green', 'yellow', 'iron', 'black', 'none'],
       enumNames: ['Blue', 'Green', 'Yellow', 'Iron', 'Black', 'None'],
     },
+    border_color: {
+      type: 'string',
+      title: 'Border Color',
+      description: 'Color of border if hover attributes apply',
+      enum: ['blue', 'green', 'yellow', 'iron', 'black', 'none'],
+      enumNames: ['Blue', 'Green', 'Yellow', 'Iron', 'Black', 'None'],
+    },
     buttons: {
       title: 'Buttons',
       type: 'array',
@@ -135,6 +142,7 @@ module.exports = {
       ],
       desc: 'Who We Are',
       background_image: '/images/brand-stock/clarisse-meyer-304306.jpg',
+      border_color: 'green',
     },
   ],
 };

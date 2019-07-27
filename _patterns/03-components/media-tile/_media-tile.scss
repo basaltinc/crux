@@ -16,7 +16,6 @@
   &[data-linkto] {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
     &:hover {
-      @include overlay($c-black, 0.25);
       transform: scale(0.99);
     }
     .media-tile__title {
@@ -37,6 +36,21 @@
   }
   &--overlay-darker {
     @include overlay($c-black, 5px, 0.6);
+  }
+  &--border-blue:hover {
+    @include border(#26465350);
+  }
+  &--border-green:hover {
+    @include border(#1E728C50);
+  }
+  &--border-yellow:hover {
+    @include border(#D4CB0250);
+  }
+  &--border-iron:hover {
+    @include border(#ADADAD50);
+  }
+  &--border-black:hover {
+    @include border(#00000050);
   }
   &__content {
     z-index: 2;
