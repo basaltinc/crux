@@ -1,4 +1,4 @@
-FROM basaltinc/docker-node-php-base:latest
+FROM basaltinc/knapsack-docker:v1.0.1
 WORKDIR /app
 COPY . .
 EXPOSE 3999
