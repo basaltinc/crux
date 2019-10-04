@@ -1,7 +1,7 @@
 on: deployment_status
 name: Deploy & Test
 jobs:
-  test:percy:
+  test-percy:
     if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
