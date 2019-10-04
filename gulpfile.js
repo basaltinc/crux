@@ -9,7 +9,7 @@ const cssTasks = require('@theme-tools/plugin-sass')({
     enabled: false,
   },
   sassdoc: {
-    enabled: true,
+    enabled: false,
     dest: 'public/build/sassdoc',
   },
   includePaths: ['./node_modules', '../node_modules', '../../node_modules'],
@@ -105,7 +105,7 @@ gulp.task(
     gulp.parallel([
       copyFonts,
       cssTasks.compile,
-      cssTasks.docs,
+      // cssTasks.docs,
       webPackTasks.compile,
     ]),
   ]),

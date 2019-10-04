@@ -1,13 +1,13 @@
-const HtmlRenderer = require('@basalt/bedrock-renderer-html');
-const TwigRenderer = require('@basalt/bedrock-renderer-twig');
-const { theoBedrockFormat } = require('@basalt/bedrock');
+const HtmlRenderer = require('@knapsack/renderer-html');
+const TwigRenderer = require('@knapsack/renderer-twig');
+const { theoKnapsackFormat } = require('@basalt/knapsack');
 const theo = require('theo');
 const twigNamespacesConfig = require('./twig-namespaces');
 const { version } = require('./package');
 
-const format = theoBedrockFormat(theo);
+const format = theoKnapsackFormat(theo);
 
-/** @type {BedrockConfig} */
+/** @type {KnapsackConfig} */
 const config = {
   patterns: ['./_patterns/03-components/**/*'],
   newPatternDir: './_patterns/03-components/',
@@ -30,7 +30,7 @@ const config = {
       title: 'Default',
       assets: [
         { src: './public/build/crux.css' },
-        { src: './public/bedrock.overrides.css' },
+        { src: './public/knapsack.overrides.css' },
         { src: './public/build/crux.js' },
       ],
     },
