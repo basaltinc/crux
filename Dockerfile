@@ -1,4 +1,4 @@
-FROM basaltinc/bedrock:latest
+FROM basaltinc/docker-node-php-base:latest
 WORKDIR /app
 COPY . .
 EXPOSE 3999
