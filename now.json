@@ -1,6 +1,7 @@
 {
   "name": "crux",
   "alias": "design.basalt.io",
+  "public": true,
   "version": 1,
   "type": "docker",
   "scale": {
