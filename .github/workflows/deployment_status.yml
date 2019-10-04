@@ -18,4 +18,4 @@ jobs:
         BASE_URL: ${{ github.event.deployment_status.environment_url }}
       with:
         entrypoint: sh
-        args: -c "echo 'The base url is ' && echo $BASE_URL && yarn test:percy"
+        args: -c "echo \"${{ github.event }}\" && echo 'Whole event above, The base url is ' && echo $BASE_URL && yarn test:percy"
