@@ -1,4 +1,4 @@
-FROM basaltinc/bedrock-docker:latest
+FROM basaltinc/knapsack-docker:v1.0.2
 WORKDIR /app
 COPY . .
 EXPOSE 3999
