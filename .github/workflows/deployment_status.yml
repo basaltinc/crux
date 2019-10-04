@@ -1,0 +1,24 @@
+on: deployment_status
+name: Deploy & Test
+jobs:
+  isDeployReady:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: isDeployReady
+      uses: docker://node:10.14.2
+      with:
+        entrypoint: node
+        args: ./scripts/actions--on-deploy.js
+    - name: install post-deploy
+      uses: docker://node:10.14.2
+      with:
+        entrypoint: yarn
+        args: install
+    - name: test:percy
+      uses: docker://cypress/browsers:chrome67
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      with:
+        entrypoint: sh
+        args: -c "export BASE_URL=$(cat .github/artifacts/now-url.txt) && yarn test:percy"

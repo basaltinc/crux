@@ -41,7 +41,10 @@ async function go() {
       });
 
       if (!ok) {
-        console.log('pattern template API request failed', { status, statusText });
+        console.log('pattern template API request failed', {
+          status,
+          statusText,
+        });
         process.exit(1);
       }
 
@@ -56,16 +59,13 @@ async function go() {
   // Start a Puppeteer instance.
   const browser = await puppeteer.launch({
     headless: true,
-    args: [
-      '--single-process',
-      '--no-sandbox',
-    ],
+    args: ['--single-process', '--no-sandbox'],
   });
   const page = await browser.newPage();
 
   for (const pattern of allPatterns) {
     for (const template of pattern.templates) {
-      /** @type {BedrockPatternTemplate} */
+      /** @type {KnapsackPatternTemplate} */
       const t = template;
       let i = 0;
       for (const demoUrl of t.demoUrls) {
@@ -86,4 +86,3 @@ async function go() {
 }
 
 go();
-

@@ -1,0 +1,25 @@
+on: push
+name: Main
+jobs:
+  smoke-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: install
+      uses: docker://basaltinc/docker-node-php-base:latest
+      with:
+        entrypoint: yarn
+        args: install
+    - name: build
+      uses: docker://basaltinc/docker-node-php-base:latest
+      with:
+        entrypoint: yarn
+        args: build
+    - name: release
+      uses: docker://basaltinc/docker-node-php-base:latest
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      with:
+        entrypoint: npx
+        args: semantic-release
