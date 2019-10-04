@@ -1,3 +1,11 @@
+# [3.3.0](https://github.com/basaltinc/crux/compare/v3.2.5...v3.3.0) (2019-10-04)
+
+
+### Features
+
+* upgrade from Bedrock to Knapsack ([05b0d07](https://github.com/basaltinc/crux/commit/05b0d07))
+* upgrade from Bedrock to Knapsack [#57](https://github.com/basaltinc/crux/issues/57) ([6f6f470](https://github.com/basaltinc/crux/commit/6f6f470))
+
 ## [3.2.5](https://github.com/basaltinc/crux/compare/v3.2.4...v3.2.5) (2019-06-18)
 
 
