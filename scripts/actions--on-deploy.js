@@ -1,15 +1,21 @@
 #! /usr/bin/env node
 const fs = require('fs');
 const { join } = require('path');
+
 console.log('starting actions--on-deploy.js');
 const { GITHUB_SHA, GITHUB_EVENT_NAME, GITHUB_EVENT_PATH } = process.env;
 console.log({ GITHUB_SHA, GITHUB_EVENT_NAME, GITHUB_EVENT_PATH });
 
 const event = require(GITHUB_EVENT_PATH);
-// console.log(JSON.stringify(event, null, '  '));
+console.log(JSON.stringify(event, null, '  '));
 // console.log('done');
 
-const { state, description, target_url: url, log_url } = event.deployment_status;
+const {
+  state,
+  description,
+  target_url: url,
+  log_url,
+} = event.deployment_status;
 console.log({ description, log_url });
 if (state !== 'success') {
   console.log(`Deploy is not "success", it is "${state}"; quitting...`);
