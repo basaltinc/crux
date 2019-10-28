@@ -4,42 +4,15 @@
       "path": "/design-tokens/colors",
       "slices": [
         {
-          "id": "u240AYsqS",
-          "blockId": "markdown-slice",
-          "data": {
-            "md": "background-color"
-          }
-        },
-        {
           "id": "zaXmD0S--",
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
-              "category": "background-color",
+              "category": "color",
               "tags": []
             },
             "demo": {
               "id": "color-swatch"
-            }
-          }
-        },
-        {
-          "id": "TDALqiHSQ",
-          "blockId": "markdown-slice",
-          "data": {
-            "md": "text-color"
-          }
-        },
-        {
-          "id": "lMfUqEA3v",
-          "blockId": "design-token-slice",
-          "data": {
-            "tokens": {
-              "category": "text-color",
-              "tags": []
-            },
-            "demo": {
-              "id": "text-color"
             }
           }
         }
@@ -68,54 +41,15 @@
           }
         },
         {
-          "id": "UHrgZ6e6K",
-          "blockId": "markdown-slice",
-          "data": {
-            "md": "media-query"
-          }
-        },
-        {
           "id": "QxlQ0IiDL",
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
               "category": "spacing",
-              "tags": [
-                "breakpoint",
-                "color",
-                "spacing",
-                "string",
-                "number"
-              ]
+              "tags": []
             },
             "demo": {
               "id": "spacing"
-            }
-          }
-        },
-        {
-          "id": "6to4U0R3S",
-          "blockId": "markdown-slice",
-          "data": {
-            "md": "media-query"
-          }
-        },
-        {
-          "id": "79Py5n5pC",
-          "blockId": "design-token-slice",
-          "data": {
-            "tokens": {
-              "category": "media-query",
-              "tags": [
-                "breakpoint",
-                "color",
-                "spacing",
-                "string",
-                "number"
-              ]
-            },
-            "demo": {
-              "id": "media-query"
             }
           }
         }
@@ -127,60 +61,7 @@
     },
     {
       "path": "/design-tokens/shadows",
-      "slices": [
-        {
-          "id": "UzDQqNq4I",
-          "blockId": "markdown-slice",
-          "data": {
-            "md": "box-shadow"
-          }
-        },
-        {
-          "id": "k5nSxNeg7",
-          "blockId": "design-token-slice",
-          "data": {
-            "tokens": {
-              "category": "box-shadow",
-              "tags": [
-                "breakpoint",
-                "color",
-                "spacing",
-                "string",
-                "number"
-              ]
-            },
-            "demo": {
-              "id": "box-shadow"
-            }
-          }
-        },
-        {
-          "id": "dCkcJ3IsK",
-          "blockId": "markdown-slice",
-          "data": {
-            "md": "text-shadow"
-          }
-        },
-        {
-          "id": "JoR5ePnK6",
-          "blockId": "design-token-slice",
-          "data": {
-            "tokens": {
-              "category": "text-shadow",
-              "tags": [
-                "breakpoint",
-                "color",
-                "spacing",
-                "string",
-                "number"
-              ]
-            },
-            "demo": {
-              "id": "text-shadow"
-            }
-          }
-        }
-      ]
+      "slices": []
     },
     {
       "path": "/design-tokens/all-tokens",
@@ -197,13 +78,7 @@
           "blockId": "design-token-slice",
           "data": {
             "tokens": {
-              "tags": [
-                "breakpoint",
-                "color",
-                "spacing",
-                "string",
-                "number"
-              ]
+              "tags": []
             },
             "demo": {
               "id": "table-list"

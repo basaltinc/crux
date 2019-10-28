@@ -1,0 +1,16 @@
+{
+  "color": {
+    "blue": {
+      "base": {
+        "value": "#264653"
+      },
+      "light": {
+        "value": "#4ECDC4",
+        "comment": "It's lighter than blue! (just an example comment)"
+      }
+    },
+    "info": {
+      "value": "{ color.blue.base.value }"
+    }
+  }
+}
