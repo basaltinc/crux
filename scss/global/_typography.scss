@@ -1,0 +1,91 @@
+$font-file-path: './fonts';
+
+// Roboto Medium for headers
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-file-path}/Roboto/roboto-medium-webfont.woff2') format('woff2'),
+       url('#{$font-file-path}/Roboto/roboto-medium-webfont.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+// Karla for body text.
+@font-face {
+  font-family: 'Karla';
+  src: url('#{$font-file-path}/Karla/karla-regular-webfont.woff2') format('woff2'),
+       url('#{$font-file-path}/Karla/karla-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Karla';
+  src: url('#{$font-file-path}/Karla/karla-italic-webfont.woff2') format('woff2'),
+       url('#{$font-file-path}/Karla/karla-italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Karla';
+  src: url('#{$font-file-path}/Karla/karla-bold-webfont.woff2') format('woff2'),
+       url('#{$font-file-path}/Karla/karla-bold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+html {
+  font-size: $crux-spacing-m;
+}
+
+body {
+  font-size: $crux-spacing-m;
+  font-family: $font-family-body;
+}
+
+a {
+  color: $crux-color-text-link;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+p, time, a, em, strong {
+  font-family: $font-family-body;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-header;
+  font-weight: 500;
+  margin: 0;
+}
+h1 { font-size: $crux-spacing-xl; }
+h2 { font-size: $crux-spacing-l + $crux-spacing-xs; }
+h3 { font-size: $crux-spacing-l; }
+h4, h5, h6 { font-size: $crux-spacing-m; }
+
+p {
+  line-height: 1.4;
+  margin: 0;
+}
+
+// Helpers
+.crux-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

@@ -1,0 +1,21 @@
+{% set text = text | default('MUST PROVIDE BUTTON TEXT') %}
+{% set type = type | default('button') %}
+{% set classes = [
+  'crux-btn',
+  is_primary ? 'crux-btn--primary' : '',
+  is_block ? 'crux-btn--block' : '',
+  extraClasses | default(''),
+] %}
+
+{% if not is_link %}
+  <button
+    class="{{ classes | join (' ') }}"
+    type="{{ type }}"
+  >{{ text }}</button>
+{% else %}
+  <a
+    class="{{ classes | join (' ') }}"
+    src="{{ link_url | default('#0') }}"
+    alt="{{ link_alt | default('') }}"
+  >{{ text }}</a>
+{% endif %}

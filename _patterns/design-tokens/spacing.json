@@ -1,10 +1,31 @@
 {
   "spacing": {
+    "xxxs": {
+      "value": "2px"
+    },
+    "xxs": {
+      "value": "4px"
+    },
+    "xs": {
+      "value": "8px"
+    },
+    "s": {
+      "value": "12px"
+    },
     "m": {
       "value": "16px"
     },
     "l": {
       "value": "24px"
+    },
+    "xl": {
+      "value": "40px"
+    },
+    "xxl": {
+      "value": "64px"
+    },
+    "xxxl": {
+      "value": "120px"
     }
   }
 }

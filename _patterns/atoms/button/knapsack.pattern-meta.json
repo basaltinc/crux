@@ -1,0 +1,12 @@
+{
+  "title": "Button",
+  "description": "Trigger an action.",
+  "type": "atoms",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "l"
+}

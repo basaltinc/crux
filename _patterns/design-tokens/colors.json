@@ -1,16 +1,77 @@
 {
   "color": {
+    "black": {
+      "value": "#293134"
+    },
+    "white": {
+      "value": "#FFFFFF"
+    },
     "blue": {
+      "value": "#264653"
+    },
+    "teal": {
+      "value": "#1E728C"
+    },
+    "turquoise": {
+      "value": "#4ECDC4"
+    },
+    "green": {
+      "value": "#C9EFCD"
+    },
+    "citrine": {
+      "value": "#D4CB02"
+    },
+    "gray": {
+      "xdark": {
+        "value": "#48565C"
+      },
+      "dark": {
+        "value": "#48565C"
+      },
       "base": {
-        "value": "#264653"
+        "value": "#98A8AE"
       },
       "light": {
-        "value": "#4ECDC4",
-        "comment": "It's lighter than blue! (just an example comment)"
+        "value": "#C6CFD2"
+      },
+      "xlight": {
+        "value": "#F4F5F6"
       }
     },
-    "info": {
-      "value": "{ color.blue.base.value }"
+
+    "text": {
+      "base": {
+        "value": "{ color.black.value }",
+        "comment": "Semantic color, derived from crux-color-black."
+      },
+      "light": {
+        "value": "{ color.gray.base.value }",
+        "comment": "Semantic color, derived from crux-color-gray-base."
+      },
+      "lightest": {
+        "value": "{ color.white.value }",
+        "comment": "Semantic color, derived from crux-color-white."
+      },
+      "link": {
+        "value": "{ color.turquoise.value }",
+        "comment": "Semantic color, derived from crux-color-turqoise."
+      }
+    },
+    "btn-primary": {
+      "value": "{ color.teal.value }",
+      "comment": "Semantic color, derived from crux-color-teal. The background color of primary buttons."
+    },
+    "btn-standard": {
+      "value": "{ color.gray.xlight.value }",
+      "comment": "Semantic color, derived from crux-color-gray-xlight. The background color of standard buttons."
+    },
+    "frame": {
+      "value": "{ color.gray.light.value }",
+      "comment": "Semantic color, derived from crux-color-gray-light. Use this for borders and dividers."
+    },
+    "focus": {
+      "value": "{ color.green.value }",
+      "comment": "Semantic color, derived from crux-color-green. Use this for focus rings."
     }
   }
 }
