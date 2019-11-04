@@ -3,6 +3,10 @@
     {
       "id": "atoms",
       "title": "Atoms"
+    },
+    {
+      "id": "molecules",
+      "title": "Molecules"
     }
   ],
   "patternStatuses": [

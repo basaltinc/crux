@@ -1,0 +1,24 @@
+.crux-anchored-blurb {
+  color: $crux-color-text-lightest;
+  border-left: $crux-spacing-m solid $crux-color-citrine;
+  padding: $crux-spacing-m;
+
+  &--background {
+    background-color: rgba($crux-color-text-base, 0.8);
+  }
+
+  &__header {
+    font-size: $crux-spacing-xl;
+
+    & + p,
+    & + a {
+      margin-top: $crux-spacing-xs;
+    }
+  }
+
+  &__body {
+    & + a {
+      margin-top: $crux-spacing-m;
+    }
+  }
+}

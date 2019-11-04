@@ -30,18 +30,6 @@ module.exports = {
       enumNames: ['Button', 'Submit'],
       default: 'button',
     },
-    id: {
-      title: 'ID',
-      type: 'string',
-      description:
-        'A unique camelcase ID, used for javascript hooks.'
-    },
-    is_link: {
-      title: 'Is Link',
-      type: 'boolean',
-      description:
-        'Whether this button is used as a link and should use <a> tag markup.',
-    },
     link_url: {
       title: 'Link URL',
       type: 'string',
@@ -54,24 +42,15 @@ module.exports = {
       description:
         'Alt text for a link button.'
     },
+    link_openNewTab: {
+      title: 'Open in New Tab',
+      type: 'boolean',
+      default: true,
+      description:
+        'Whether to open the link in a new tab or not.',
+    },
     extraClasses: {
       type: 'string',
     },
   },
-  examples: [
-    {
-      text: 'Standard Button',
-    },
-    {
-      text: 'Primary Button',
-      is_primary: true,
-    },
-    {
-      text: 'Primary Link Button',
-      is_primary: true,
-      is_link: true,
-      link_url: 'https://basalt.io/',
-      link_alt: 'Website for Basalt',
-    },
-  ],
 };

@@ -33,6 +33,7 @@
 
   &--primary {
     background-color: $crux-color-btn-primary;
+    border-color: $crux-color-btn-primary;
     color: $crux-color-text-lightest;
 
     &:hover {

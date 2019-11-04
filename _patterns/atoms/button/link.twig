@@ -1,5 +1,5 @@
 {% set text = text | default('MUST PROVIDE BUTTON TEXT') %}
-{% set type = type | default('button') %}
+{% set target = link_openNewTab ? '_blank' : '_self' %}
 {% set classes = [
   'crux-btn',
   is_primary ? 'crux-btn--primary' : '',
@@ -7,7 +7,10 @@
   extraClasses | default(''),
 ] %}
 
-<button
+<a
   class="{{ classes | join (' ') }}"
-  type="{{ type }}"
->{{ text }}</button>
+  src="{{ link_url | default('#0') }}"
+  alt="{{ link_alt | default('') }}"
+  target="{{ target }}"
+  rel="noopener"
+>{{ text }}</a>
