@@ -5,7 +5,10 @@
   has_background ? 'crux-anchored-blurb--background' : ''
 ] %}
 
-<div class="{{ classes | join (' ') }}">
+<div
+  class="{{ classes | join (' ') }}"
+  style="{{ maxWidth ? 'max-width:' ~ maxWidth ~ 'px' : '' }}"
+>
   <{{ headingEl }} class="crux-anchored-blurb__header">{{ header }}</{{ headingEl }}>
 
   {% if body %}

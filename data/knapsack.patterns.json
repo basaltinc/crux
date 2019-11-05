@@ -7,6 +7,10 @@
     {
       "id": "molecules",
       "title": "Molecules"
+    },
+    {
+      "id": "organisms",
+      "title": "Organisms"
     }
   ],
   "patternStatuses": [

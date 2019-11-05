@@ -51,6 +51,11 @@ module.exports = {
       description:
         'Whether a semi-transparent dark background should be used.'
     },
+    maxWidth: {
+      title: 'Max Width (px)',
+      type: 'number',
+      default: 600
+    },
     ctas: {
       title: 'Calls to Action',
       type: 'array',
@@ -59,6 +64,10 @@ module.exports = {
         ...buttonSchema,
         properties: ctaSchema
       }
+    },
+    extraClasses: {
+      title: 'Extra Classes',
+      type: 'string'
     }
   }
 };

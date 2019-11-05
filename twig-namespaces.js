@@ -13,5 +13,10 @@ module.exports = {
       recursive: false,
       paths: [resolve(__dirname, './_patterns/molecules')],
     },
+    {
+      id: 'organisms',
+      recursive: false,
+      paths: [resolve(__dirname, './_patterns/organisms')],
+    }
   ],
 };
