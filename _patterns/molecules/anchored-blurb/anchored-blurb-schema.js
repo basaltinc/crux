@@ -23,7 +23,7 @@ module.exports = {
   title: 'Anchored Blurb',
   type: 'object',
   description: "Typically displayed in a hero banner, a header and paragraph combo box anchored by a left citrine bar.",
-  // required: ['text'],
+  required: ['header'],
   properties: {
     header: {
       title: 'Header Text',

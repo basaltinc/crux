@@ -1,0 +1,52 @@
+.crux-content-tile {
+  color: $crux-color-text-base;
+  display: block;
+
+  // @TODO: Remove max-width
+  max-width: 427px;
+
+  &__meta {
+    font-family: $font-family-header;
+    font-weight: 500;
+    color: $crux-color-text-light;
+    margin-bottom: $crux-spacing-xs;
+    strong {
+      font-weight: inherit;
+    }
+  }
+
+  &__header {
+    font-size: $crux-spacing-l;
+    margin-bottom: $crux-spacing-m;
+  }
+
+  &__img-div {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 100%;
+    height: $crux-spacing-xxxl * 2;
+    box-shadow: 0 2px 10px 0 rgba($crux-color-btn-primary, 0.2);
+    margin-bottom: $crux-spacing-m;
+  }
+
+  &__snippet {
+    margin-bottom: $crux-spacing-m;
+    max-height: 90px;
+    overflow: hidden;
+  }
+
+  &__continue-link {
+    font-weight: normal;
+    color: $crux-color-text-link;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    .crux-content-tile__continue-link {
+      text-decoration: underline;
+    }
+  }
+}

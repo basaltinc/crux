@@ -6,7 +6,7 @@ module.exports = {
     {
       alias: '@molecules/anchored-blurb/anchored-blurb.twig',
       path: './anchored-blurb.twig',
-      id: 'anchoredBlurb',
+      id: 'anchoredBlurbTemplate',
       title: 'Anchored Blurb',
       schema,
       demoDatas: [

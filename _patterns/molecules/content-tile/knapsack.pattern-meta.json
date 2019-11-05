@@ -1,0 +1,12 @@
+{
+  "title": "Content Tile",
+  "description": "Used for displaying a snippet of blog, resource or podcast content.",
+  "type": "molecules",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "l"
+}
