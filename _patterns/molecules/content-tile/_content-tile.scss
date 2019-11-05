@@ -28,6 +28,20 @@
     height: $crux-spacing-xxxl * 2;
     box-shadow: 0 2px 10px 0 rgba($crux-color-btn-primary, 0.2);
     margin-bottom: $crux-spacing-m;
+    position: relative;
+
+    &__play-btn {
+      background-color: rgba($crux-color-text-lightest, 0.6);
+      color: $crux-color-text-base;
+      border-radius: 50%;
+      padding-top: $crux-spacing-xs;
+      padding-bottom: $crux-spacing-xs;
+      padding-left: $crux-spacing-xs + 1;
+      padding-right: $crux-spacing-xs - 1;
+      position: absolute;
+      bottom: $crux-spacing-m;
+      left: $crux-spacing-m;
+    }
   }
 
   &__snippet {

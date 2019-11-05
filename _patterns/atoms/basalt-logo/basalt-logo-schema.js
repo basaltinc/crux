@@ -14,12 +14,4 @@ module.exports = {
       type: 'string',
     },
   },
-  examples: [
-    {
-      is_light: false,
-    },
-    {
-      is_light: true,
-    },
-  ],
 };

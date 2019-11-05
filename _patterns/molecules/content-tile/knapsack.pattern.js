@@ -16,6 +16,7 @@ module.exports = {
           header: 'Design at scale with Mary Wu',
           headingLevel: 3,
           thumbnailImgUrl: 'https://i.ibb.co/t3Mh4xj/mary-wu.png',
+          is_podcast: true,
           snippet: 'The most effective design systems are the result of collaboration between coders, designers, managers, and end users. Working with such a diverse group of people is deeply rewarding.',
           link: 'https://basalt.io/',
         }

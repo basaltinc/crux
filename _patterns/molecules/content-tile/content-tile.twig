@@ -16,7 +16,11 @@
       class="crux-content-tile__img-div"
       style="background-image: url('{{ thumbnailImgUrl }}');"
     >
-      {# @TODO: Add flag for showing a play button svg here. #}
+      {% if is_podcast %}
+        <div class="crux-content-tile__img-div__play-btn">
+          {% include '@atoms/icon/icon.twig' with { symbol: 'play' } only %}
+        </div>
+      {% endif %}
     </div>
     <p class="crux-content-tile__snippet">{{ snippet }}</p>
     <strong class="crux-content-tile__continue-link">Continue Reading . . .</strong>

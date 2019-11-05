@@ -30,6 +30,13 @@ module.exports = {
       title: 'Thumbnail Image URL',
       type: 'string',
     },
+    is_podcast: {
+      title: 'Is Podcast?',
+      type: 'boolean',
+      default: false,
+      description:
+        'If the content is a podcast, a play button will display over the thumbnail.'
+    },
     snippet: {
       title: 'Content Snippet',
       type: 'string',
