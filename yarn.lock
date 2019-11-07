@@ -666,6 +666,13 @@
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
 
+"@babel/runtime@^7.2.0":
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
+  integrity sha512-JONRbXbTXc9WQE2mAZd1p0Z3DZ/6vaQIkgYMSTP3KjRCyd7rCZCcfhCyX+YjwcKxcZ82UrxbRD358bpExNgrjw==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/runtime@^7.4.5":
   version "7.6.2"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.2.tgz#c3d6e41b304ef10dcf13777a33e7694ec4a9a6dd"
@@ -759,12 +766,14 @@
     eslint-plugin-react "^7.11.1"
     prettier "^1.14.3"
 
-"@basalt/knapsack@^1.0.0":
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@basalt/knapsack/-/knapsack-1.3.0.tgz#766813c8e0c27172f7b78cefefc220c8682f599e"
-  integrity sha512-RyjErpQfPyiPmqMp3tgHsf+W2N7379+cRmr1x7gKY8+TMy58MJDccNvLeMgg5dFK2vCQBS1NLVJOgX1rRhmBEg==
+"@basalt/knapsack@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@basalt/knapsack/-/knapsack-1.8.0.tgz#5379f968b0ff70c44108b0cddcbe02dfb3fd9417"
+  integrity sha512-St9P/31ug64kIOtqFBdS0cn9RWEBv1356NXmGfI6Z5rKSLjcwQk3t/9QBwa1XluVeXJ5+n3y6y2g/Fw2kTJsQQ==
   dependencies:
-    "@knapsack/schema-utils" "^1.0.0"
+    "@knapsack/babel-config" "^1.8.0"
+    "@knapsack/core" "^1.8.0"
+    "@knapsack/schema-utils" "^1.8.0"
     apollo-boost "^0.1.22"
     apollo-server-express "^2.2.6"
     body-parser "1.18.3"
@@ -959,6 +968,22 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
+"@knapsack/babel-config@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@knapsack/babel-config/-/babel-config-1.8.0.tgz#f24a1feb1042037de353ba30da0ef30025be263e"
+  integrity sha512-hetx20PItuLmOFeOGBw23Ku2ORjy+kzsoYFbxLTfU3C2kdfigUCaQ3JKwhxVRosqnFX1zuNo3nmGpGtcFioK3Q==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+
+"@knapsack/core@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@knapsack/core/-/core-1.8.0.tgz#17480a37113b349c9c30941bee41457aa1d7b1e5"
+  integrity sha512-gM/Bn0P1UYNhtA1G6cBdqwmEwenoh3RsZfMwcMWwM3MMOs2DpPTP/RaILJmbdsy5wlkKlnY3vrLHKj5Bq09h+w==
+  dependencies:
+    global "^4.3.2"
+    graphql-tag "^2.10.1"
+    prop-types "^15.0.0"
+
 "@knapsack/renderer-html@^1.0.0":
   version "1.1.14"
   resolved "https://registry.yarnpkg.com/@knapsack/renderer-html/-/renderer-html-1.1.14.tgz#7b538b2772344fa04f575f5f74fe54ed9af95d4f"
@@ -973,10 +998,10 @@
   dependencies:
     "@basalt/twig-renderer" "^0.12.0"
 
-"@knapsack/schema-utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@knapsack/schema-utils/-/schema-utils-1.0.0.tgz#a573fa7b5acff1bac8ccd3389dabdcca471ddf83"
-  integrity sha512-QL1syz61sc2BntQSWpY/mVoVfIvS+D8G2+almcdUVgAG63M6fd43/w+isUK7KQ9RLRRPJ/CDlDePdRZJy/5P0w==
+"@knapsack/schema-utils@^1.8.0":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@knapsack/schema-utils/-/schema-utils-1.8.0.tgz#aa2bd54c6a7bcc75f941cb769fb9b967bcb9b616"
+  integrity sha512-X9dXk1hoejm/KDzG8xlIk5paoTZV61p1wM+iErJn/hqhv+tmH4fFFFP6yVu0AV58LjEpqkgbhymIqbiWPNSKeg==
   dependencies:
     ajv "^6.6.1"
 
@@ -5254,6 +5279,11 @@ dom-serializer@~0.1.0:
     domelementtype "^1.3.0"
     entities "^1.1.1"
 
+dom-walk@^0.1.0:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
+  integrity sha1-ZyIm3HTI95mtNTB9+TaroRrNYBg=
+
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -7269,6 +7299,14 @@ global-prefix@^1.0.1:
     is-windows "^1.0.1"
     which "^1.2.14"
 
+global@^4.3.2:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
+  integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
+  dependencies:
+    min-document "^2.19.0"
+    process "^0.11.10"
+
 globals@^11.1.0, globals@^11.7.0:
   version "11.12.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
@@ -7469,7 +7507,7 @@ graphql-subscriptions@^1.0.0:
   dependencies:
     iterall "^1.2.1"
 
-graphql-tag@^2.4.2, graphql-tag@^2.9.2:
+graphql-tag@^2.10.1, graphql-tag@^2.4.2, graphql-tag@^2.9.2:
   version "2.10.1"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.1.tgz#10aa41f1cd8fae5373eaf11f1f67260a3cad5e02"
   integrity sha512-jApXqWBzNXQ8jYa/HLkZJaVw9jgwNqZkywa2zfFn16Iv1Zb7ELNHkJaXHR7Quvd5SIGsy6Ny7SUKATgnu05uEg==
@@ -10818,6 +10856,13 @@ mimic-response@^1.0.0:
   resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
   integrity sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
 
+min-document@^2.19.0:
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
+  integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
+  dependencies:
+    dom-walk "^0.1.0"
+
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz#2e194de044626d4a10e7f7fbc00ce73e83e4d5c7"
@@ -13058,7 +13103,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@^15.7.2:
+prop-types@^15.0.0, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==

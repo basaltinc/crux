@@ -20,7 +20,7 @@
     "watch:gulp": "gulp"
   },
   "dependencies": {
-    "@basalt/knapsack": "^1.0.0",
+    "@basalt/knapsack": "^1.8.0",
     "@knapsack/renderer-html": "^1.0.0",
     "@knapsack/renderer-twig": "^1.0.0",
     "color": "^3.0.0",
