@@ -7,6 +7,6 @@
     "inComponent"
   ],
   "hasIcon": false,
-  "showAllTemplates": true,
+  "showAllTemplates": false,
   "demoSize": "l"
 }
