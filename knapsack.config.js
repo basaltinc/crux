@@ -1,11 +1,20 @@
 const HtmlRenderer = require('@knapsack/renderer-html');
 const TwigRenderer = require('@knapsack/renderer-twig');
-const { theoKnapsackFormat } = require('@basalt/knapsack');
-const theo = require('theo');
+const { existsSync } = require('fs');
+const { join } = require('path');
 const twigNamespacesConfig = require('./twig-namespaces');
 const { version } = require('./package');
+const { tokens } = require('./paths');
 
-const format = theoKnapsackFormat(theo);
+const designTokensPath = join(
+  __dirname,
+  tokens.dist,
+  'knapsack-design-tokens.json',
+);
+if (!existsSync(designTokensPath)) {
+  console.error('Run "npm run build:tokens first"');
+  process.exit(1);
+}
 
 /** @type {KnapsackConfig} */
 const config = {
@@ -13,13 +22,8 @@ const config = {
   newPatternDir: './_patterns/03-components/',
   designTokens: {
     createCodeSnippet: token => `$${token.name}`,
-    data: theo.convertSync({
-      transform: {
-        type: 'web',
-        file: './_patterns/00-styleguide/tokens.yml',
-      },
-      format,
-    }),
+    // eslint-disable-next-line
+    data: require(designTokensPath),
   },
   dist: './dist',
   public: './public',
