@@ -1,0 +1,53 @@
+@import '../../../scss/core/core';
+
+.crux-btn {
+  background-color: $crux-color-btn-standard;
+  color: $crux-color-text-base;
+  background-image: none;
+  border: 1px solid $crux-color-frame;
+  border-radius: 4px;
+  line-height: 38px;
+  text-align: center;
+  margin: 0;
+  padding: 0 $crux-spacing-m;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap;
+  touch-action: manipulation;
+  text-decoration: none;
+
+  &:hover {
+    background-color: darken($crux-color-btn-standard, 3%);
+    text-decoration: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 $crux-spacing-xxxs $crux-color-focus;
+  }
+
+  &:active {
+    background-color: $crux-color-btn-primary;
+    color: $crux-color-text-lightest;
+  }
+
+  &--primary {
+    background-color: $crux-color-btn-primary;
+    border-color: $crux-color-btn-primary;
+    color: $crux-color-text-lightest;
+
+    &:hover {
+      background-color: darken($crux-color-btn-primary, 3%);
+    }
+
+    &:active {
+      background-color: $crux-color-btn-standard;
+      color: $crux-color-text-base;
+    }
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Icon",
+  "description": "Symbolize an action or link.",
+  "type": "atoms",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "l"
+}

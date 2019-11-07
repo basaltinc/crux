@@ -1,8 +1,0 @@
-props:
-  normal:
-    value: normal
-  italic:
-    value: italic
-global:
-  type: string
-  category: font-style

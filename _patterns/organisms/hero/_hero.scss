@@ -1,0 +1,11 @@
+.crux-hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  width: 100%;
+  padding: ($crux-spacing-xxxl * 2) $crux-spacing-xl;
+
+  .crux-anchored-blurb {
+    max-width: $crux-spacing-xxxl * 5;
+  }
+}

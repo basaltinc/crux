@@ -1,0 +1,12 @@
+{
+  "title": "Hero",
+  "description": "Display important page messaging.",
+  "type": "organisms",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "l"
+}

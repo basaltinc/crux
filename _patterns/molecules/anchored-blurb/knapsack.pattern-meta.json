@@ -1,0 +1,12 @@
+{
+  "title": "Anchored Blurb",
+  "description": "Typically displayed in a hero banner, a header and paragraph combo box anchored by a left citrine bar.",
+  "type": "molecules",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "l"
+}

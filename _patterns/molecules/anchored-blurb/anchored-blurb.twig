@@ -1,0 +1,30 @@
+{% set headingLevel = headingLevel | default('2') %}
+{% set headingEl = 'h' ~ headingLevel %}
+{% set classes = [
+  'crux-anchored-blurb',
+  has_background ? 'crux-anchored-blurb--background' : ''
+] %}
+
+<div
+  class="{{ classes | join (' ') }}"
+  style="{{ maxWidth ? 'max-width:' ~ maxWidth ~ 'px' : '' }}"
+>
+  <{{ headingEl }} class="crux-anchored-blurb__header">{{ header }}</{{ headingEl }}>
+
+  {% if body %}
+    <p class="crux-anchored-blurb__body">{{ body }}</p>
+  {% endif %}
+
+  {% if ctas %}
+    {% for cta in ctas %}
+      {% include '@atoms/button/link.twig' with {
+        text: cta.text,
+        is_primary: cta.is_primary,
+        extraClasses: cta.extraClasses,
+        link_alt: cta.link_alt,
+        link_url: cta.link_url,
+        link_openNewTab: cta.link_openNewTab
+      } only %}
+    {% endfor %}
+  {% endif %}
+</div>

@@ -18,8 +18,7 @@ if (!existsSync(designTokensPath)) {
 
 /** @type {KnapsackConfig} */
 const config = {
-  patterns: ['./_patterns/03-components/**/*'],
-  newPatternDir: './_patterns/03-components/',
+  patterns: ['./_patterns/**/*', './src/**/*'],
   designTokens: {
     createCodeSnippet: token => `$${token.name}`,
     // eslint-disable-next-line

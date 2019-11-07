@@ -1,0 +1,28 @@
+{% set headingLevel = headingLevel | default('2') %}
+{% set headingEl = 'h' ~ headingLevel %}
+
+<a class="crux-content-tile" href="{{ link }}">
+  <article>
+    <header class="crux-content-tile__meta">
+      {% if metaInfo %}
+        <strong>{{ metaInfo ~ (metaDate ? ' – ' : '') }}</strong>
+      {% endif %}
+      {% if metaDate %}
+        <time>{{ metaDate }}</time>
+      {% endif %}
+    </header>
+    <{{ headingEl }} class="crux-content-tile__header">{{ header }}</{{ headingEl }}>
+    <div
+      class="crux-content-tile__img-div"
+      style="background-image: url('{{ thumbnailImgUrl }}');"
+    >
+      {% if is_podcast %}
+        <div class="crux-content-tile__img-div__play-btn">
+          {% include '@atoms/icon/icon.twig' with { symbol: 'play' } only %}
+        </div>
+      {% endif %}
+    </div>
+    <p class="crux-content-tile__snippet">{{ snippet }}</p>
+    <strong class="crux-content-tile__continue-link">Continue Reading . . .</strong>
+  </article>
+</a>

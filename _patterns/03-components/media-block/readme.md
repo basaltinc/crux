@@ -1,4 +1,0 @@
-## some docs 
-
-- hd
-- d

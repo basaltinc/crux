@@ -4,19 +4,19 @@ module.exports = {
   roots: [resolve(__dirname, './_patterns')],
   namespaces: [
     {
-      id: 'components',
-      recursive: true,
-      paths: [resolve(__dirname, './_patterns/03-components')],
+      id: 'atoms',
+      recursive: false,
+      paths: [resolve(__dirname, './_patterns/atoms')],
     },
     {
-      id: 'styleguide',
-      recursive: true,
-      paths: [resolve(__dirname, './_patterns/00-styleguide')],
+      id: 'molecules',
+      recursive: false,
+      paths: [resolve(__dirname, './_patterns/molecules')],
     },
     {
-      id: 'svgs',
-      recursive: true,
-      paths: [resolve(__dirname, './images/svgs')],
-    },
+      id: 'organisms',
+      recursive: false,
+      paths: [resolve(__dirname, './_patterns/organisms')],
+    }
   ],
 };

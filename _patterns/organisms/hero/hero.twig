@@ -1,0 +1,18 @@
+{% set padding = padding ~ 'px' | default('') %}
+{% set classes = [
+  'crux-hero',
+  extraClasses | default(''),
+] %}
+{% set styles = [
+  "background-image: url('" ~ imageUrl ~ "');",
+  padding ? "padding-top:" ~ padding ~ ";" ~ "padding-bottom:" ~ padding ~ ";"
+] %}
+
+<div
+  class="{{ classes | join (' ') }}"
+  style="{{ styles | join (' ') }}"
+>
+  {% for blurb in anchoredBlurbs %}
+    {% include '@molecules/anchored-blurb/anchored-blurb.twig' with blurb only %}
+  {% endfor %}
+</div>

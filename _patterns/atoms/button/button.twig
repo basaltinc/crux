@@ -1,0 +1,13 @@
+{% set text = text | default('MUST PROVIDE BUTTON TEXT') %}
+{% set type = type | default('button') %}
+{% set classes = [
+  'crux-btn',
+  is_primary ? 'crux-btn--primary' : '',
+  is_block ? 'crux-btn--block' : '',
+  extraClasses | default(''),
+] %}
+
+<button
+  class="{{ classes | join (' ') }}"
+  type="{{ type }}"
+>{{ text }}</button>
