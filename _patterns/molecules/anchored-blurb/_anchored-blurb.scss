@@ -10,7 +10,7 @@
   &__header {
     font-size: $crux-spacing-xl;
 
-    & + p,
+    & + .crux-anchored-blurb__body,
     & + a {
       margin-top: $crux-spacing-xs;
     }
