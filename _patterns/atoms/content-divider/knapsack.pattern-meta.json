@@ -1,0 +1,12 @@
+{
+  "title": "Content Divider",
+  "description": "Full width divider for separating content on a page.",
+  "type": "atoms",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "l"
+}

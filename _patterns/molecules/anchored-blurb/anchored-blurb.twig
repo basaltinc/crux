@@ -7,12 +7,12 @@
 
 <div
   class="{{ classes | join (' ') }}"
-  style="{{ maxWidth ? 'max-width:' ~ maxWidth ~ 'px' : '' }}"
+  style="max-width: {{ maxWidth ? maxWidth ~ 'px' : '600px' }}"
 >
   <{{ headingEl }} class="crux-anchored-blurb__header">{{ header }}</{{ headingEl }}>
 
   {% if body %}
-    <p class="crux-anchored-blurb__body">{{ body }}</p>
+    <div class="crux-anchored-blurb__body">{{ body }}</div>
   {% endif %}
 
   {% if ctas %}
