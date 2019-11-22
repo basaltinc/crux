@@ -1,0 +1,59 @@
+.crux-media-card {
+  background-color: $crux-color-gray-xlight;
+  max-width: 1000px;
+  margin: auto;
+  &__image {
+    min-height: 250px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    &--is-avatar {
+      padding: $crux-spacing-xl 0;
+    }
+  }
+  &__content {
+    padding: $crux-spacing-xl;
+  }
+  &__title {
+    border-left: 8px solid $crux-color-citrine;
+    padding-left: $crux-spacing-m;
+    // I acknowledge that this is hacky. @todo come back and make this less gross.
+    margin-left: -24px;
+    color: $crux-color-black;
+    &--link {
+      font-family: $font-family-header;
+      font-size: $crux-spacing-l + $crux-spacing-xs;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: $crux-spacing-m;
+      transition: 0.3s;
+      &:hover {
+        color: $crux-color-turquoise;
+        text-decoration: none;
+      }
+    }
+  }
+  &__body {
+    &--bold {
+      font-weight: 700;
+    }
+  }
+  @media (min-width: 700px) {
+    display: flex;
+    justify-content: space-between;
+    &.crux-media-card--media-on-right {
+      flex-direction: row-reverse;
+    }
+    &__content {
+      padding: $crux-spacing-xxl $crux-spacing-m $crux-spacing-xxl $crux-spacing-xxl;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    &__image {
+      width: 50%;
+    }
+  }
+}
