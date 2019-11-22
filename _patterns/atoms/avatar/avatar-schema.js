@@ -7,12 +7,12 @@ module.exports = {
     imageUrl: {
       title: 'Image Url',
       type: 'string',
-      description: 'URL for the image.',
+      description: 'URL for the image source. Please use a square image.',
     },
     altText: {
       title: 'Alt Text',
       type: 'string',
-      description: 'Name of the person, or other alt text applicable.'
+      description: 'Name of the person, or other alt text applicable.',
     },
     hasShadow: {
       title: 'Has shadow',
