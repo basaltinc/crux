@@ -16,7 +16,7 @@ module.exports = {
             {
               header: 'Header Text',
               body: 'Some awesome body text to go along with this amazing header.',
-              has_background: true,
+              hasBackground: true,
               maxWidth: 360
             }
           ],
