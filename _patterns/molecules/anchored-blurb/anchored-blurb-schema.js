@@ -44,7 +44,7 @@ module.exports = {
       description:
         'Paragraph text below the header.'
     },
-    has_background: {
+    hasBackground: {
       title: 'Has Background',
       type: 'boolean',
       default: false,
@@ -54,7 +54,7 @@ module.exports = {
     maxWidth: {
       title: 'Max Width (px)',
       type: 'number',
-      default: 600
+      default: 600,
     },
     ctas: {
       title: 'Calls to Action',
@@ -63,11 +63,11 @@ module.exports = {
       items: {
         ...buttonSchema,
         properties: ctaSchema
-      }
+      },
     },
     extraClasses: {
       title: 'Extra Classes',
-      type: 'string'
-    }
-  }
+      type: 'string',
+    },
+  },
 };

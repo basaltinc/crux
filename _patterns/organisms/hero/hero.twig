@@ -1,4 +1,5 @@
-{% set padding = padding ~ 'px' | default('') %}
+{% set paddingNumber = anchoredBlurbs ? padding|default(240)/2 : padding|default(240) %}
+{% set padding = paddingNumber ~ 'px' %}
 {% set classes = [
   'crux-hero',
   extraClasses | default(''),
