@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/basaltinc/crux/compare/v4.0.0...v4.1.0) (2019-11-20)
+
+
+### Features
+
+* add content divider ([#64](https://github.com/basaltinc/crux/issues/64)) ([52555be](https://github.com/basaltinc/crux/commit/52555be53f034489cf71cf725d458328ad71dd1d))
+
 # [3.3.0](https://github.com/basaltinc/crux/compare/v3.2.5...v3.3.0) (2019-10-04)
 
 
