@@ -1,0 +1,32 @@
+.crux-avatar {
+  display: block;
+  img {
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    display: block;
+    margin: 0 auto $crux-spacing-l;
+  }
+  &--s {
+    img {
+      height: 120px;
+    }
+    &.crux-avatar--with-shadow {
+      filter: drop-shadow(-5px 4px 0px $crux-color-citrine);
+    }
+  }
+  &--m {
+    img {
+      height: 240px;
+    }
+    &.crux-avatar--with-shadow {
+      filter: drop-shadow(-10px 8px 0px $crux-color-citrine);
+    }
+  }
+  &--l {
+    img {
+      height: 360px;
+    }
+    &.crux-avatar--with-shadow {
+      filter: drop-shadow(-16px 13px 0px $crux-color-citrine);
+    }
+  }
+}

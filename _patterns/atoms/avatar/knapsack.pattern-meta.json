@@ -1,0 +1,12 @@
+{
+  "title": "Avatar",
+  "description": "Display a profile picture",
+  "type": "atoms",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": false,
+  "demoSize": "m"
+}

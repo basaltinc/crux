@@ -1,0 +1,32 @@
+{#<div class="crux-bio-block">#}
+  {#<img src="{{ imageUrl }}" alt="">#}
+  <div class="crux-bio-block" style="background-image: url({{ imageUrl }})">
+  <div class="crux-bio-block__content">
+    <h3 class="crux-bio-block__name">{{ name }}</h3>
+    <span class="crux-bio-block__title">{{ title }}</span>
+    <span class="crux-bio-block__social">
+      {% include '@atoms/icon/icon.twig' with {
+        symbol: 'twitter'
+      } only %}
+      <a
+        class="crux-bio-block__social-link"
+        href="https://twitter.com/{{ twitter }}"
+        target="_blank"
+      >
+      @{{ twitter }}
+    </a>
+    </span>
+    <span class="crux-bio-block__social">
+      {% include '@atoms/icon/icon.twig' with {
+        symbol: 'linkedin'
+      } only %}
+      <a
+        class="crux-bio-block__social-link"
+        href="https://linkedin.com/in/{{ linkedin }}"
+        target="_blank"
+      >
+      /{{ linkedin }}
+    </a>
+    </span>
+  </div>
+</div>

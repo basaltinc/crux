@@ -1,0 +1,12 @@
+{
+  "title": "Media Card",
+  "description": "Used for displaying information paired with a graphic or image. Shown side-by-side on larger screens, stacked on smaller screens.",
+  "type": "molecules",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "l"
+}

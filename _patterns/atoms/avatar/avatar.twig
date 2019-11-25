@@ -1,0 +1,9 @@
+{% set classes = [
+  'crux-avatar',
+  hasShadow ? 'crux-avatar--with-shadow' : '',
+  'crux-avatar--' ~ size|default('s')
+] %}
+
+<span class="{{ classes | join (' ') }}">
+  <img src="{{ imageUrl }}" alt="{{ altText }}" />
+</span>

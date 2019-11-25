@@ -1,0 +1,37 @@
+{% set classes = [
+  'crux-media-card',
+  'crux-media-card--media-on-' ~ mediaAlignment|default('right'),
+] %}
+
+{% set splitBody = bodyCopy|split(' ', 3) %}
+
+<div class="{{ classes|join(' ') }}">
+  {% if imageIsAvatar %}
+  <div class="crux-media-card__image crux-media-card__image--is-avatar">
+    {% include '@atoms/avatar/avatar.twig' with {
+      imageUrl: imageUrl,
+      altText: heading,
+      hasShadow: true,
+      size: 'l',
+    } only %}
+  </div>
+  {% else %}
+    <div class="crux-media-card__image" style="background-image: url({{ imageUrl }})"></div>
+  {% endif %}
+  <div class="crux-media-card__content">
+
+    {% if href %}
+      <a href="{{ href }}" class="crux-media-card__title crux-media-card__title--link">
+        {{ heading }}
+      </a>
+    {% else %}
+      <h2 class="crux-media-card__title">
+        {{ heading }}
+      </h2>
+    {% endif %}
+    <p class="crux-media-card__body">
+      <span class="crux-media-card__body--bold">{{ splitBody[0] }} {{ splitBody[1] }} </span>
+      {{ splitBody[2] }}
+    </p>
+  </div>
+</div>

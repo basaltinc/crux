@@ -1,0 +1,27 @@
+.crux-bio-block {
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  backgroun-position: top;
+  position: relative;
+  &__content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: $crux-color-white;
+    opacity: 0.8;
+    padding: $crux-spacing-m;
+  }
+  &__title {
+    marign-top: $crux-spacing-s;
+  }
+  &__social {
+    display: flex;
+    align-items: center;
+    color: $crux-color-turquoise;
+    padding-top: $crux-spacing-xs;
+    &-link {
+      padding-left: $crux-spacing-xs;
+    }
+  }
+}
