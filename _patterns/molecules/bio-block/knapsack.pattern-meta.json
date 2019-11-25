@@ -1,0 +1,12 @@
+{
+  "title": "Bio Block",
+  "description": "Used for displaying a personal profile.",
+  "type": "molecules",
+  "status": "ready",
+  "uses": [
+    "inComponent"
+  ],
+  "hasIcon": false,
+  "showAllTemplates": true,
+  "demoSize": "s"
+}
