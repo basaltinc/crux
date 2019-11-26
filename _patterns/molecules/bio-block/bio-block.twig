@@ -2,6 +2,7 @@
   <div class="crux-bio-block__content">
     <h3 class="crux-bio-block__name">{{ name }}</h3>
     <span class="crux-bio-block__title">{{ title }}</span>
+    {% if twitter %}
     <span class="crux-bio-block__social">
       {% include '@atoms/icon/icon.twig' with {
         symbol: 'twitter'
@@ -14,6 +15,8 @@
       @{{ twitter }}
     </a>
     </span>
+    {% endif %}
+    {% if linkedin %}
     <span class="crux-bio-block__social">
       {% include '@atoms/icon/icon.twig' with {
         symbol: 'linkedin'
@@ -26,5 +29,6 @@
       /{{ linkedin }}
     </a>
     </span>
+    {% endif %}
   </div>
 </div>

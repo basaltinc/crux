@@ -11,6 +11,10 @@
     {
       "id": "organisms",
       "title": "Organisms"
+    },
+    {
+      "id": "layouts",
+      "title": "Layouts"
     }
   ],
   "patternStatuses": [
