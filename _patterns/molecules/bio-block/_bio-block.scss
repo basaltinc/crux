@@ -1,8 +1,9 @@
 .crux-bio-block {
   height: 500px;
+  max-width: 375px;
   background-repeat: no-repeat;
   background-size: cover;
-  backgroun-position: top;
+  background-position: top;
   position: relative;
   &__content {
     position: absolute;

@@ -17,6 +17,11 @@ module.exports = {
       id: 'organisms',
       recursive: false,
       paths: [resolve(__dirname, './_patterns/organisms')],
+    },
+    {
+      id: 'layouts',
+      recursive: false,
+      paths: [resolve(__dirname, './_patterns/layouts')],
     }
   ],
 };

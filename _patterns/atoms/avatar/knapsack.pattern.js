@@ -11,13 +11,15 @@ module.exports = {
       schema,
       demoDatas: [
         {
-          imageUrl: 'https://basalt.io/user/pages/08.Authors/joe-karasek/joe.png',
+          imageUrl:
+            'https://basalt.io/user/pages/08.Authors/joe-karasek/joe.png',
           altText: 'Avatar Alt Text',
           hasShadow: true,
           size: 'l',
         },
         {
-          imageUrl: 'https://basalt.io/user/pages/08.Authors/joe-karasek/joe.png',
+          imageUrl:
+            'https://basalt.io/user/pages/08.Authors/joe-karasek/joe.png',
           altText: 'Avatar Alt Text #2',
           hasShadow: false,
           size: 's',

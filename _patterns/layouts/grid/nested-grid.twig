@@ -1,0 +1,22 @@
+{% set item %}
+  <div class="demo-box-1"></div>
+{% endset %}
+{% set item2 %}
+  <div class="demo-box-2"></div>
+{% endset %}
+
+{% set subGrid %}
+  {% include '@layouts/grid/grid.twig' with {
+    items: [item2, item2],
+    types: {
+      medium: '50:50',
+    },
+  } only %}
+{% endset %}
+
+{% include '@layouts/grid/grid.twig' with {
+  items: [subGrid, item, item, item],
+  types: {
+    medium: '66:33',
+  },
+} only %}
