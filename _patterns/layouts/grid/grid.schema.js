@@ -48,5 +48,10 @@ module.exports = {
         description: 'HTML string of content',
       },
     },
+    hasNoMargin: {
+      type: 'boolean',
+      title: 'Has No Margins',
+      description: 'Sets margin to zero between each item',
+    },
   },
 };

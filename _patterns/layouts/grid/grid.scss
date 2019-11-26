@@ -15,6 +15,21 @@ $crux-grid-breakpoint-options: (
   ),
 );
 
+$crux-grid-no-margin-breakpoint-options: (
+  small: (
+    mq: $crux-breakpoint-media-query-small,
+    gutter: 0px,
+  ),
+  medium: (
+    mq: $crux-breakpoint-media-query-medium,
+    gutter: 0px,
+  ),
+  large: (
+    mq: $crux-breakpoint-media-query-large,
+    gutter: 0px,
+  ),
+);
+
 /// Get width of grid item
 /// `calc()` is returned b/c you can use `px` gutters and `%` width.
 /// @param $row-items - How many items in the row
@@ -71,37 +86,15 @@ $crux-grid-breakpoint-options: (
   }
 }
 
-.crux-grid {
-  @media #{$crux-breakpoint-media-query-medium} {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  > .crux-grid__item {
-    margin-top: $crux-spacing-l;
-    display: flex;
-    flex-direction: column;
-    &:first-child {
-      //margin-top: 0;
-    }
-    > * {
-      flex-grow: 1;
-    }
-  }
-}
-
-// Loop through gutter options (s, m, l) as defined above
-@each $breakpoint-name, $breakpoint-map in $crux-grid-breakpoint-options {
-  $breakpoint-var: map-get($breakpoint-map, "mq");
-  $gutter-var: map-get($breakpoint-map, "gutter");
-  .crux-grid {
+@mixin crux-breakpoints-calcs($breakpoint-options) {
+  @each $breakpoint-name, $breakpoint-map in $breakpoint-options {
+    $breakpoint-var: map-get($breakpoint-map, "mq");
+    $gutter-var: map-get($breakpoint-map, "gutter");
     // Loop through breakpoints (medium, large) as defined above
     @media #{$breakpoint-var} {
       > .crux-grid__item {
         margin-top: $gutter-var;
 
-        //&:first-child {
-        //  margin-top: 0;
-        //}
       }
       &[data-grid-type-#{$breakpoint-name}="100"] {
         > .crux-grid__item {
@@ -218,4 +211,33 @@ $crux-grid-breakpoint-options: (
       }
     }
   }
+}
+
+
+.crux-grid {
+  @media #{$crux-breakpoint-media-query-medium} {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  > .crux-grid__item {
+    margin-top: $crux-spacing-l;
+    display: flex;
+    flex-direction: column;
+    > * {
+      flex-grow: 1;
+    }
+  }
+  &--no-margin {
+    > .crux-grid__item {
+      margin-top: 0px;
+    }
+  }
+}
+
+.crux-grid--margin {
+  @include crux-breakpoints-calcs($crux-grid-breakpoint-options);
+}
+
+.crux-grid--no-margin {
+  @include crux-breakpoints-calcs($crux-grid-no-margin-breakpoint-options);
 }
