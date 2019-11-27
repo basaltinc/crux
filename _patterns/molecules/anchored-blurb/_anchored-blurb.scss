@@ -2,13 +2,14 @@
   color: $crux-color-text-lightest;
   border-left: $crux-spacing-m solid $crux-color-citrine;
   padding: $crux-spacing-m;
-
+  &--dark-text {
+    color: $crux-color-text-base;
+  }
   &--background {
     background-color: rgba($crux-color-text-base, 0.8);
   }
 
   &__header {
-    font-size: $crux-spacing-xl;
 
     & + .crux-anchored-blurb__body,
     & + a {
