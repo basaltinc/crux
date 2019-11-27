@@ -8,6 +8,7 @@
   &__content {
     position: absolute;
     bottom: 0;
+    min-height: 145px;
     width: 100%;
     background-color: $crux-color-white;
     opacity: 0.8;

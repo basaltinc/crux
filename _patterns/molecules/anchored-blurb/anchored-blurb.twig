@@ -2,7 +2,8 @@
 {% set headingEl = 'h' ~ headingLevel %}
 {% set classes = [
   'crux-anchored-blurb',
-  hasBackground ? 'crux-anchored-blurb--background' : ''
+  hasBackground ? 'crux-anchored-blurb--background',
+  hasDarkText ? 'crux-anchored-blurb--dark-text',
 ] %}
 
 <div
