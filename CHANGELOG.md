@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/basaltinc/crux/compare/v4.3.0...v4.3.1) (2019-11-27)
+
+
+### Bug Fixes
+
+* adds dark text option for anchored blurb ([5efbf72](https://github.com/basaltinc/crux/commit/5efbf72c8695849f18b9199969666c3c544ff883))
+
 # [4.3.0](https://github.com/basaltinc/crux/compare/v4.2.0...v4.3.0) (2019-11-26)
 
 
