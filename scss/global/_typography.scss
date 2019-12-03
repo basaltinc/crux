@@ -75,10 +75,30 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: $crux-spacing-l;
   }
 }
-h1 { font-size: $crux-spacing-xl; }
-h2 { font-size: $crux-spacing-l + $crux-spacing-xs; }
-h3 { font-size: $crux-spacing-l; }
-h4, h5, h6 { font-size: $crux-spacing-m; }
+h1 {
+  font-size: $crux-spacing-l;
+  @media #{$crux-breakpoint-media-query-medium} {
+    font-size: $crux-spacing-xl;
+  }
+}
+h2 {
+  font-size: $crux-spacing-m + $crux-spacing-xs;
+  @media #{$crux-breakpoint-media-query-medium} {
+    font-size: $crux-spacing-l + $crux-spacing-xs;
+  }
+}
+h3 {
+  font-size: $crux-spacing-m + $crux-spacing-xxs;
+  @media #{$crux-breakpoint-media-query-medium} {
+    font-size: $crux-spacing-l;
+  }
+}
+h4, h5, h6 {
+  font-size: $crux-spacing-s;
+  @media #{$crux-breakpoint-media-query-medium} {
+    font-size: $crux-spacing-m;
+  }
+}
 
 p {
   line-height: 1.4;
