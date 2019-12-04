@@ -3,9 +3,12 @@
   background-repeat: no-repeat;
   background-position: 50%;
   width: 100%;
-  padding: ($crux-spacing-xxxl * 2) $crux-spacing-xl;
-
+  padding: $crux-spacing-xxxl $crux-spacing-l;
   .crux-anchored-blurb {
     max-width: $crux-spacing-xxxl * 5;
+  }
+
+  @media #{$crux-breakpoint-media-query-medium} {
+    padding: ($crux-spacing-xxxl * 2) $crux-spacing-xl;
   }
 }
