@@ -1,3 +1,10 @@
+## [4.3.2](https://github.com/basaltinc/crux/compare/v4.3.1...v4.3.2) (2019-12-04)
+
+
+### Bug Fixes
+
+* small cleanup fixes ([9b7790e](https://github.com/basaltinc/crux/commit/9b7790e44adabff98070c946cf773080c0759203))
+
 ## [4.3.1](https://github.com/basaltinc/crux/compare/v4.3.0...v4.3.1) (2019-11-27)
 
 
