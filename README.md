@@ -8,3 +8,4 @@ This powers <https://basalt.io> and can be viewed at <https://design.basalt.io>
 
 - `yarn install` - Install all dependencies
 - `yarn start` - Build everything needed to get started; then watch and rebuild
+
