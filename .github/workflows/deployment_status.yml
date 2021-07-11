@@ -1,15 +1,11 @@
 on: deployment_status
 name: Deploy & Test
 jobs:
-  isDeployReady:
+  test-percy:
+    if: github.event.deployment_status.state == 'success'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: isDeployReady
-      uses: docker://node:10.14.2
-      with:
-        entrypoint: node
-        args: ./scripts/actions--on-deploy.js
     - name: install post-deploy
       uses: docker://node:10.14.2
       with:
@@ -19,6 +15,7 @@ jobs:
       uses: docker://cypress/browsers:chrome67
       env:
         PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        BASE_URL: ${{ github.event.deployment_status.environment_url }}
       with:
         entrypoint: sh
-        args: -c "export BASE_URL=$(cat .github/artifacts/now-url.txt) && yarn test:percy"
+        args: -c "echo \"${{ github.event }}\" && echo 'Whole event above, The base url is ' && echo $BASE_URL && yarn test:percy"
